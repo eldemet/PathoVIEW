@@ -1,0 +1,45 @@
+definitions:
+  schema:
+    properties:
+      "ui:readOnly":
+        type: boolean
+        description: can be used to to decide whether to display a create/update/delete button or not
+      "ui:ref":
+        type: string
+        description: name of a referenced model type, important e.g. for getting specific objects as enum values
+        example: app
+      "ui:refObject":
+        type: boolean
+        description: can be used to differentiate where to access the id of an object, either directly on re or ref._refId
+      "ui:filter":
+        type: object
+        description: filter object that can be applied if only specific elements of an array should be displayed by default
+        example: '{"appType": "domainApp"}'
+      "ui:filters":
+        type: array
+        description: can be used to use specified properties as filter, nested properties can be defined as point separated string
+        example: customer.name
+        items:
+          type: string
+      "ui:formItemType":
+        type: string
+        description: define form item type, compare html input types or specific client library implementation
+        example: array, boolean, color, date, enum, file, number, password, radio, revision, select, text, textarea, visibility, ref
+      "ui:formItemCustomCompose":
+        type: string
+        description: specify custom compose element on client
+      "ui:dependence":
+        type: string
+        description: CHECK IF IT CAN BE DEPRECATED
+      "ui:hide":
+        type: object
+        description: can be used to hide specific properties in specific components of a client side application
+        properties:
+          form:
+            type: boolean
+          table:
+            type: boolean
+      "ui:showInTable":
+        type: string
+        description: allows to set the property that is shown in tables for sub objects
+        example: amount

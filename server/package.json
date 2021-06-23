@@ -1,0 +1,38 @@
+{
+    "name": "pathoview-server",
+    "version": "0.1.0",
+    "description": "PathoVIEW server application",
+    "main": "server.js",
+    "scripts": {
+        "install": "napa",
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "gulp license-checker"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git"
+    },
+    "napa": {
+        "smart-data-models-alert": "https://github.com/smart-data-models/dataModel.Alert.git",
+        "smart-data-models-risk-management": "https://github.com/smart-data-models/dataModel.RiskManagement.git",
+        "smart-data-models-waste-water": "https://github.com/smart-data-models/dataModel.WasteWater.git",
+        "smart-data-models-satellite-imagery": "https://github.com/smart-data-models/dataModel.SatelliteImagery.git",
+        "smart-data-models-water-quality": "https://github.com/smart-data-models/dataModel.WaterQuality",
+        "smart-data-models-device": "https://github.com/smart-data-models/dataModel.Device.git",
+        "smart-data-models-point-of-interest": "https://github.com/smart-data-models/dataModel.PointOfInterest.git",
+        "smart-data-models-point-of-interaction": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git",
+        "smart-data-models-multimedia": "https://github.com/smart-data-models/dataModel.Multimedia"
+    },
+    "author": "Christian Knecht",
+    "license": "BSD-3-Clause-Clear",
+    "dependencies": {
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.6.0"
+    },
+    "directories": {
+        "doc": "docs"
+    },
+    "devDependencies": {
+        "napa": "^3.0.0"
+    }
+}
