@@ -3,9 +3,9 @@ import {bindable} from 'aurelia-framework';
 import Leaflet from 'leaflet';
 import 'leaflet/dist/images/layers.png';
 import 'leaflet/dist/images/layers-2x.png';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerIcon2x from 'leaflet/dist/images/marker-icon.png';
-import markerIconShadow from 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/images/marker-icon.png';
+import 'leaflet/dist/images/marker-icon-2x.png';
+import 'leaflet/dist/images/marker-shadow.png';
 
 export class LeafletCustomElement extends BasicComponent {
 
@@ -45,11 +45,7 @@ export class LeafletCustomElement extends BasicComponent {
     constructor(...rest) {
         super(...rest);
         this.L = Leaflet;
-        this.L.Marker.prototype.options.icon = this.L.icon({
-            iconUrl: markerIcon,
-            iconRetinaUrl: markerIcon2x,
-            shadowUrl: markerIconShadow
-        });
+        Leaflet.Icon.Default.imagePath = 'assets/';
         this.layerFactory = new LayerFactory(this.L);
         this.mapInit = new Promise((resolve, reject) => {
             this.mapInitResolve = resolve;

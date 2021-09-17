@@ -117,13 +117,20 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
             },
             {
                 test: /\.(png|gif|jpg|cur)$/,
+                issuer: {not: /\.js$/},
                 type: 'asset'
+            },
+            {
+                test: /\.(png|gif|jpg|cur)$/,
+                issuer: /\.js$/,
+                type: 'asset/resource',
+                generator: {filename: 'assets/[name][ext]'}
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 include: path.resolve(__dirname, './node_modules/bootstrap-icons/font/fonts'),
                 type: 'asset/resource',
-                generator: {filename: 'webfonts/[name].[ext]'}
+                generator: {filename: 'webfonts/[name][ext]'}
             },
             {
                 test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
