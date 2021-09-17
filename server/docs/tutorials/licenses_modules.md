@@ -2,11 +2,11 @@
 
 ## Summary
 
-* MIT: 600
+* MIT: 599
 * ISC: 67
 * Apache-2.0: 14
-* BSD-2-Clause: 12
-* BSD-3-Clause: 9
+* BSD-2-Clause: 13
+* BSD-3-Clause: 10
 * BSD-3-Clause-Clear: 3
 * Python-2.0: 1
 * (MIT OR Apache-2.0): 1
@@ -37,7 +37,7 @@
     - licenses: MIT
     - description: Generate errors that contain a code frame that point to source locations.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-validator-identifier@7.14.5](https://github.com/babel/babel)**
+ - **[@babel/helper-validator-identifier@7.14.9](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Validate identifier/keywords name
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -49,18 +49,22 @@
     - licenses: MIT
     - description: Tools for debugging your node.js modules and event loop
     - copyright: Copyright (c) 2015 Arnout Kazemier, Martijn Swaagman, the Contributors.
- - **[@eslint/eslintrc@0.4.2](https://github.com/eslint/eslintrc)**
+ - **[@eslint/eslintrc@0.4.3](https://github.com/eslint/eslintrc)**
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright (c) 2020 ESLint
+ - **[@humanwhocodes/config-array@0.5.0](https://github.com/humanwhocodes/config-array)**
+    - licenses: Apache-2.0
+    - description: Glob-based configuration matching.
+    - copyright: none
+ - **[@humanwhocodes/object-schema@1.2.0](https://github.com/humanwhocodes/object-schema)**
+    - licenses: BSD-3-Clause
+    - description: An object schema merger/validator
+    - copyright: Copyright (c) 2019, Human Who Codes. All rights reserved.
  - **[@jsdevtools/ono@7.1.3](https://github.com/JS-DevTools/ono)**
     - licenses: MIT
     - description: Throw better errors.
     - copyright: Copyright (c) 2015 James Messinger
- - **[@types/bson@4.0.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - licenses: MIT
-    - description: TypeScript definitions for bson
-    - copyright: none
  - **[@types/json-schema@7.0.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
@@ -69,13 +73,17 @@
     - licenses: MIT
     - description: TypeScript definitions for Minimatch
     - copyright: none
- - **[@types/mongodb@3.6.18](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - licenses: MIT
-    - description: TypeScript definitions for MongoDB
-    - copyright: none
- - **[@types/node@15.12.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@16.9.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
+    - copyright: none
+ - **[@types/webidl-conversions@6.1.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - licenses: MIT
+    - description: TypeScript definitions for webidl-conversions
+    - copyright: none
+ - **[@types/whatwg-url@8.2.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - licenses: MIT
+    - description: TypeScript definitions for whatwg-url
     - copyright: none
  - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
     - licenses: ISC
@@ -85,7 +93,7 @@
     - licenses: MIT
     - description: Higher-level content negotiation
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
- - **[acorn-jsx@5.3.1](https://github.com/acornjs/acorn-jsx)**
+ - **[acorn-jsx@5.3.2](https://github.com/acornjs/acorn-jsx)**
     - licenses: MIT
     - description: Modern, fast React.js JSX parser
     - copyright: Copyright (C) 2012-2017 by Ingvar Stepanyan
@@ -93,7 +101,7 @@
     - licenses: MIT
     - description: ECMAScript parser
     - copyright: Copyright (C) 2012-2018 by various contributors (see AUTHORS)
- - **[ajv-formats@2.1.0](https://github.com/ajv-validator/ajv-formats)**
+ - **[ajv-formats@2.1.1](https://github.com/ajv-validator/ajv-formats)**
     - licenses: MIT
     - description: Format validation for Ajv v7+
     - copyright: Copyright (c) 2020 Evgeny Poberezkin
@@ -101,7 +109,7 @@
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2017 Evgeny Poberezkin
- - **[ajv@8.6.0](https://github.com/ajv-validator/ajv)**
+ - **[ajv@8.6.3](https://github.com/ajv-validator/ajv)**
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2021 Evgeny Poberezkin
@@ -309,18 +317,10 @@
     - licenses: MIT
     - description: Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!
     - copyright: Copyright (c) 2013-2016 bl contributors. ----------------------------------
- - **[bl@2.2.1](https://github.com/rvagg/bl)**
-    - licenses: MIT
-    - description: Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!
-    - copyright: Copyright (c) 2013-2018 bl contributors. ----------------------------------
  - **[block-stream@0.0.9](https://github.com/isaacs/block-stream)**
     - licenses: ISC
     - description: a stream of blocks
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[bluebird@3.5.1](https://github.com/petkaantonov/bluebird)**
-    - licenses: MIT
-    - description: Full featured Promises/A+ implementation with exceptionally good performance
-    - copyright: Copyright (c) 2013-2017 Petka Antonov
  - **[body-parser@1.19.0](https://github.com/expressjs/body-parser)**
     - licenses: MIT
     - description: Node.js body parsing middleware
@@ -333,7 +333,7 @@
     - licenses: MIT
     - description: Bash-like brace expansion, implemented in JavaScript. Safer than other brace expansion libs, with complete support for the Bash 4.3 braces specification, without sacrificing speed.
     - copyright: Copyright (c) 2014-2018, Jon Schlinkert.
- - **[bson@1.1.6](https://github.com/mongodb/js-bson)**
+ - **[bson@4.5.1](https://github.com/mongodb/js-bson)**
     - licenses: Apache-2.0
     - description: A bson parser for node.js and the browser
     - copyright: none
@@ -417,7 +417,7 @@
     - licenses: MIT
     - description: Terminal string styling done right
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[chalk@4.1.1](https://github.com/chalk/chalk)**
+ - **[chalk@4.1.2](https://github.com/chalk/chalk)**
     - licenses: MIT
     - description: Terminal string styling done right
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
@@ -585,15 +585,15 @@
     - licenses: MIT
     - description: small debugging utility
     - copyright: Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
- - **[debug@3.1.0](https://github.com/visionmedia/debug)**
-    - licenses: MIT
-    - description: small debugging utility
-    - copyright: Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
  - **[debug@3.2.7](https://github.com/visionmedia/debug)**
     - licenses: MIT
     - description: small debugging utility
     - copyright: Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
  - **[debug@4.3.1](https://github.com/visionmedia/debug)**
+    - licenses: MIT
+    - description: small debugging utility
+    - copyright: Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
+ - **[debug@4.3.2](https://github.com/visionmedia/debug)**
     - licenses: MIT
     - description: small debugging utility
     - copyright: Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
@@ -633,7 +633,7 @@
     - licenses: MIT
     - description: Extracting archives made easy
     - copyright: Copyright (c) Kevin Mårtensson <kevinmartensson@gmail.com> (github.com/kevva)
- - **[deep-is@0.1.3](https://github.com/thlorenz/deep-is)**
+ - **[deep-is@0.1.4](https://github.com/thlorenz/deep-is)**
     - licenses: MIT
     - description: node's assert.deepEqual algorithm except for NaN being equal to NaN
     - copyright: Copyright (c) 2012, 2013 Thorsten Lorenz <thlorenz@gmx.de>. Copyright (c) 2012 James Halliday <mail@substack.net>. Copyright (c) 2009 Thomas Robinson <280north.com>
@@ -665,9 +665,9 @@
     - licenses: MIT
     - description: delegate methods and accessors to another property
     - copyright: Copyright (c) 2015 TJ Holowaychuk <tj@vision-media.ca>
- - **[denque@1.5.0](https://github.com/invertase/denque)**
+ - **[denque@1.5.1](https://github.com/invertase/denque)**
     - licenses: Apache-2.0
-    - description: The fastest javascript implementation of a double-ended queue. Maintains compatability with deque.
+    - description: The fastest javascript implementation of a double-ended queue. Used by the official Redis, MongoDB, MariaDB & MySQL libraries for Node.js and many other libraries. Maintains compatability with deque.
     - copyright: Copyright (c) 2018 Mike Diarmid (Salakar) <mike.diarmid@gmail.com>
  - **[depd@1.1.2](https://github.com/dougwilson/nodejs-depd)**
     - licenses: MIT
@@ -801,7 +801,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@7.29.0](https://github.com/eslint/eslint)**
+ - **[eslint@7.32.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright JS Foundation and other contributors, https://js.foundation
@@ -845,7 +845,7 @@
     - licenses: MIT
     - description: Bash-like tilde expansion for node.js. Expands a leading tilde in a file path to the user home directory, or `~+` to the cwd.
     - copyright: Copyright (c) 2015-2016, Jon Schlinkert.
- - **[express-jwt@6.0.0](https://github.com/auth0/express-jwt)**
+ - **[express-jwt@6.1.0](https://github.com/auth0/express-jwt)**
     - licenses: MIT
     - description: JWT authentication middleware.
     - copyright: Copyright (c) 2015 Auth0, Inc. <support@auth0.com> (http://auth0.com)
@@ -853,11 +853,11 @@
     - licenses: MIT
     - description: express middleware that normalizes incoming query param names
     - copyright: Copyright (c) 2016 Kogo Software LLC
- - **[express-openapi@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/express-openapi)**
+ - **[express-openapi@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/express-openapi)**
     - licenses: MIT
     - description: An unopinionated OpenAPI framework for express
     - copyright: Copyright (c) 2018 Kogo Softare LLC
- - **[express-unless@0.3.1](https://github.com/jfromaniello/express-unless)**
+ - **[express-unless@1.0.0](https://github.com/jfromaniello/express-unless)**
     - licenses: MIT
     - description: Conditionally add a middleware to express with some common patterns.
     - copyright: Copyright (c) 2014 José F. Romaniello
@@ -985,7 +985,7 @@
     - licenses: MIT
     - description: A stupidly simple key/value storage using files to persist some data
     - copyright: Copyright (c) 2015 Roy Riojas
- - **[flatted@3.1.1](https://github.com/WebReflection/flatted)**
+ - **[flatted@3.2.2](https://github.com/WebReflection/flatted)**
     - licenses: ISC
     - description: A super light and fast circular JSON parser.
     - copyright: Copyright (c) 2018-2020, Andrea Giammarchi, @WebReflection
@@ -1109,7 +1109,7 @@
     - licenses: MIT
     - description: Get the npm global path prefix.
     - copyright: Copyright (c) 2015-2017, Jon Schlinkert.
- - **[globals@13.9.0](https://github.com/sindresorhus/globals)**
+ - **[globals@13.11.0](https://github.com/sindresorhus/globals)**
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1725,7 +1725,11 @@
     - licenses: MIT
     - description: Recursively mkdir, like `mkdir -p`
     - copyright: Copyright 2010 James Halliday (mail@substack.net)
- - **[mongodb@3.6.8](https://github.com/mongodb/node-mongodb-native)**
+ - **[mongodb-connection-string-url@2.0.0](https://github.com/mongodb-js/mongodb-connection-string-url)**
+    - licenses: Apache-2.0
+    - description: MongoDB connection strings, based on the WhatWG URL API
+    - copyright: none
+ - **[mongodb@4.1.1](https://github.com/mongodb/node-mongodb-native)**
     - licenses: Apache-2.0
     - description: The official MongoDB driver for Node.js
     - copyright: none
@@ -1733,11 +1737,7 @@
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose-legacy-pluralize@1.0.2](https://github.com/vkarpov15/mongoose-legacy-pluralize)**
-    - licenses: Apache-2.0
-    - description: Legacy pluralization logic for mongoose
-    - copyright: none
- - **[mongoose@5.12.14](https://github.com/Automattic/mongoose)**
+ - **[mongoose@6.0.5](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -1749,11 +1749,11 @@
     - licenses: MIT
     - description: {G,S}et object values using MongoDB-like path notation
     - copyright: Copyright (c) 2012 [Aaron Heckmann](aaron.heckmann+github@gmail.com)
- - **[mpath@0.8.3](https://github.com/aheckmann/mpath)**
+ - **[mpath@0.8.4](https://github.com/aheckmann/mpath)**
     - licenses: MIT
     - description: {G,S}et object values using MongoDB-like path notation
     - copyright: Copyright (c) 2012 [Aaron Heckmann](aaron.heckmann+github@gmail.com)
- - **[mquery@3.2.5](https://github.com/aheckmann/mquery)**
+ - **[mquery@4.0.0](https://github.com/aheckmann/mquery)**
     - licenses: MIT
     - description: Expressive query building for MongoDB
     - copyright: Copyright (c) 2012 [Aaron Heckmann](aaron.heckmann+github@gmail.com)
@@ -1801,7 +1801,7 @@
     - licenses: MIT
     - description: Environment agnostic nextTick polyfill
     - copyright: Copyright (C) 2012-2016 Mariusz Nowak
- - **[node-fetch@2.6.1](https://github.com/bitinn/node-fetch)**
+ - **[node-fetch@2.6.2](https://github.com/bitinn/node-fetch)**
     - licenses: MIT
     - description: A light-weight module that brings window.fetch to node.js
     - copyright: Copyright (c) 2016 David Frank
@@ -1845,7 +1845,7 @@
     - licenses: MIT
     - description: ES2015 Number.isNaN() ponyfill
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[numbro@2.3.2](https://github.com/BenjaminVanRyseghem/numbro)**
+ - **[numbro@2.3.5](https://github.com/BenjaminVanRyseghem/numbro)**
     - licenses: MIT
     - description: Format and manipulate numbers.
     - copyright: Copyright (c) 2017-2019 Benjamin Van Ryseghem<benjamin@vanryseghem.com>. Copyright (c) 2015-2017 Företagsplatsen
@@ -1905,46 +1905,42 @@
     - licenses: MIT
     - description: Run the supplied function exactly one time (once)
     - copyright: Copyright (c) 2015 Unshift.io, Arnout Kazemier,  the Contributors.
- - **[openapi-default-setter@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-default-setter)**
+ - **[openapi-default-setter@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-default-setter)**
     - licenses: MIT
     - description: Sets default values in request properties according to defaults defined in openapi parameter lists.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-framework@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-framework)**
+ - **[openapi-framework@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-framework)**
     - licenses: MIT
     - description: An OpenAPI framework for any web framework
     - copyright: Copyright (c) 2018 Kogo Softare LLC
- - **[openapi-jsonschema-parameters@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-jsonschema-parameters)**
+ - **[openapi-jsonschema-parameters@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-jsonschema-parameters)**
     - licenses: MIT
     - description: Converts openapi parameters to a jsonschema format.
     - copyright: Copyright (c) 2016 Kogo Software LLC
- - **[openapi-request-coercer@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-coercer)**
+ - **[openapi-request-coercer@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-coercer)**
     - licenses: MIT
     - description: Coerce request properties according to an openapi parameter list.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-request-validator@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-validator)**
+ - **[openapi-request-validator@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-validator)**
     - licenses: MIT
     - description: Validate request properties against an OpenAPI spec.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-response-validator@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-response-validator)**
+ - **[openapi-response-validator@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-response-validator)**
     - licenses: MIT
     - description: Validate a response according to an openapi schema.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-schema-validator@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-schema-validator)**
+ - **[openapi-schema-validator@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-schema-validator)**
     - licenses: MIT
     - description: A validator for OpenAPI documents.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-security-handler@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-security-handler)**
+ - **[openapi-security-handler@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-security-handler)**
     - licenses: MIT
     - description: A library to process OpenAPI security definitions in parallel.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-types@9.0.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-types)**
+ - **[openapi-types@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-types)**
     - licenses: MIT
     - description: Types for OpenAPI documents.
     - copyright: Copyright (c) 2018 Kogo Softare LLC
- - **[optional-require@1.0.3](https://github.com/jchip/optional-require)**
-    - licenses: Apache-2.0
-    - description: NodeJS Require that let you handle module not found error without try/catch
-    - copyright: none
  - **[optionator@0.9.1](https://github.com/gkz/optionator)**
     - licenses: MIT
     - description: option parsing and help generation
@@ -2273,10 +2269,6 @@
     - licenses: MIT
     - description: Safer Node.js Buffer API
     - copyright: Copyright (c) Feross Aboukhadijeh
- - **[safe-buffer@5.2.1](https://github.com/feross/safe-buffer)**
-    - licenses: MIT
-    - description: Safer Node.js Buffer API
-    - copyright: Copyright (c) Feross Aboukhadijeh
  - **[safe-regex@1.1.0](https://github.com/substack/safe-regex)**
     - licenses: MIT
     - description: detect possibly catastrophic, exponential-time regular expressions
@@ -2577,7 +2569,7 @@
     - licenses: MIT
     - description: Simple Semver and SemverRange classes
     - copyright: Copyright (C) 2017 Guy Bedford
- - **[swagger-ui-dist@3.50.0](https://github.com/swagger-api/swagger-ui)**
+ - **[swagger-ui-dist@3.52.2](https://github.com/swagger-api/swagger-ui)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://badge.fury.io/js/swagger-ui-dist.svg)](http://badge.fury.io/js/swagger-ui-dist)
     - copyright: none
@@ -2657,6 +2649,10 @@
     - licenses: MIT
     - description: Convert a string of words to a JavaScript identifier
     - copyright: Copyright (c) 2016 Douglas Christopher Wilson <doug@somethingdoug.com>
+ - **[tr46@2.1.0](https://github.com/jsdom/tr46)**
+    - licenses: MIT
+    - description: An implementation of the Unicode UTS #46: Unicode IDNA Compatibility Processing
+    - copyright: Copyright (c) 2016 Sebastian Mayr
  - **[traverse@0.6.6](https://github.com/substack/js-traverse)**
     - licenses: MIT
     - description: traverse and transform objects by visiting every node on a recursive walk
@@ -2777,7 +2773,7 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@3.6.0](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@3.7.1](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework/skeleton, helper functions,  middleware and services
     - copyright: Copyright (c) 2021, Fraunhofer IAO. All rights reserved.
@@ -2849,6 +2845,14 @@
     - licenses: MIT
     - description: Write buffer
     - copyright: Copyright Fedor Indutny, 2014.
+ - **[webidl-conversions@6.1.0](https://github.com/jsdom/webidl-conversions)**
+    - licenses: BSD-2-Clause
+    - description: Implements the WebIDL algorithms for converting to and from JavaScript values
+    - copyright: Copyright (c) 2014, Domenic Denicola. All rights reserved.
+ - **[whatwg-url@9.1.0](https://github.com/jsdom/whatwg-url)**
+    - licenses: MIT
+    - description: An implementation of the WHATWG URL Standard's URL API and parsing machinery
+    - copyright: Copyright (c) 2015–2016 Sebastian Mayr
  - **[which-module@1.0.0](https://github.com/nexdrew/which-module)**
     - licenses: ISC
     - description: Find the module object for something that was require()d

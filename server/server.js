@@ -18,10 +18,9 @@ const openApi = {
             {url: '/api/v1'}
         ]
     },
-    dependencies: {},
     paths: [
-        './node_modules/utilities-node/src/api/v2/paths/model',
-        './node_modules/utilities-node/src/api/v2/paths/config'
+        './node_modules/utilities-node/src/paths/model',
+        './node_modules/utilities-node/src/paths/config'
     ],
     externalSchemas: {},
     'x-express-openapi-schema-extension': './api/v1/components/x-express-openapi-schema-extension.yaml'
@@ -31,7 +30,8 @@ const configAppDefaults = {
     capabilities: {
         database: 'jsondb', //none, 'mongodb'
         swaggerUi: true,
-        accessControlCheckerMiddleware: true
+        accessControlCheckerMiddleware: true,
+        notifications: 'sse'
     },
     server: {
         port: '3002'

@@ -27,7 +27,7 @@
     "author": "Christian Knecht",
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.6.0"
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.7.1"
     },
     "directories": {
         "doc": "docs"
