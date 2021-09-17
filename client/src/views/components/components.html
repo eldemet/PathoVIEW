@@ -1,0 +1,75 @@
+<template>
+
+    <div class="h-100 overflow-auto">
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-5">
+                    <h1>Dialogs and Toasts</h1>
+                    <form autocomplete="off">
+                        <div class="mb-3">
+                            <label for="toastTitle">Toast title</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="toastTitle"
+                                   ref="toastTitle"
+                                   placeholder="Example input">
+                        </div>
+                        <div class="mb-3">
+                            <label for="toastBody">Toast body</label>
+                            <textarea class="form-control"
+                                      id="toastBody"
+                                      ref="toastBody"
+                                      placeholder="Example input"
+                                      value.bind="''">
+                            </textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="toastBiIcon">Toast Bootstrap Icon</label>
+                            <select class="form-select"
+                                    id="toastBiIcon"
+                                    ref="toastBiIcon">
+                                <option value="" disabled selected hidden>...</option>
+                                <option repeat.for="icon of bootstrapIcons">
+                                    ${icon}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"
+                                   id="toastAutohide"
+                                   ref="toastAutohide">
+                            <label class="form-check-label" for="toastAutohide">
+                                Autohide
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"
+                                   id="toastDismissible"
+                                   ref="toastDismissible">
+                            <label class="form-check-label" for="toastDismissible">
+                                Dismissible
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary"
+                                click.delegate="eventAggregator.publish('toast',
+                                {
+                                    title: toastTitle.value,
+                                    body: toastBody.value,
+                                    biIcon: toastBiIcon.value,
+                                    autohide: toastAutohide.checked,
+                                    dismissible: toastDismissible.dismissible
+                                })">
+                            Create Toast
+                        </button>
+                        <button type="submit" class="btn btn-primary"
+                                click.delegate="openPromptDialog(toastTitle.value, toastBody.value, toastBiIcon.value)"
+                                onclick="this.blur();">
+                            Create Prompt Dialog
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

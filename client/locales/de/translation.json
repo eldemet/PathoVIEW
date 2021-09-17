@@ -1,0 +1,15 @@
+{
+    "model": {
+        "object": "Objekt",
+        "object_plural": "Objekte",
+        "dialog": "Dialog",
+        "dialog_plural": "Dialoge",
+        "promptDialog": "Aufforderungsdialog",
+        "promptDialog_plural": "Aufforderungsdialoge",
+        "toast": "Toast",
+        "toast_plural": "Toasts"
+    },
+    "views": {
+        "map": "Karte"
+    }
+}

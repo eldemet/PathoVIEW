@@ -1,0 +1,18 @@
+<template>
+
+    <require from="app.scss"></require>
+    <require from="library-aurelia/src/resources/attributes/bs-color-scheme"></require>
+    <require from="library-aurelia/src/resources/elements/nav-bar"></require>
+    <require from="library-aurelia/src/resources/elements/toolbar/toolbar"></require>
+    <require from="library-aurelia/src/resources/elements/alert"></require>
+    <require from="library-aurelia/src/resources/elements/toast"></require>
+    <require from="leaflet/dist/leaflet.css"></require>
+    <nav-bar display-dark-mode-switch.bind="true"></nav-bar>
+    <toolbar></toolbar>
+
+    <toast event="toast"></toast>
+    <alert event="app-alert"></alert>
+
+    <router-view bs-color-scheme.bind="{type: 'bg', setText: true, bw: true}"></router-view>
+
+</template>
