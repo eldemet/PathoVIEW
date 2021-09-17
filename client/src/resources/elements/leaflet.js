@@ -6,6 +6,8 @@ import 'leaflet/dist/images/layers-2x.png';
 import 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
+import '@geoman-io/leaflet-geoman-free';
+import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
 
 export class LeafletCustomElement extends BasicComponent {
 
@@ -14,6 +16,7 @@ export class LeafletCustomElement extends BasicComponent {
     @bindable mapOptions;
     @bindable withLayerControl;
     @bindable withScaleControl;
+    @bindable withEditControl;
 
     defaultMapOptions = {
         center: {
@@ -85,6 +88,7 @@ export class LeafletCustomElement extends BasicComponent {
             this.attachLayers();
             this.withLayerControlChanged();
             this.withScaleControlChanged();
+            this.withEditControlChanged();
             resolve();
         });
     }
@@ -213,6 +217,34 @@ export class LeafletCustomElement extends BasicComponent {
             }
             if (this.withScaleControl) {
                 this.scaleControl = this.L.control.scale(this.withScaleControl).addTo(this.map);
+            }
+        });
+    }
+
+    withEditControlChanged() {
+        this.mapInit.then(() => {
+            if (this.map.pm.controlsVisible()) {
+                this.map.pm.removeControls();
+            }
+            if (this.withEditControl) {
+                this.map.pm.addControls(this.withEditControl);
+                this.map.pm.setLang('de');
+                this.map.on('pm:create', e => {
+                    const pmEventHandler = ev => {
+                        let geoJSON = e.layer.toGeoJSON();
+                        geoJSON.properties = Object.assign({}, e.layer.options, {
+                            shape: e.shape,
+                            name: 'leaflet_id ' + e.layer._leaflet_id,
+                            category: 'default'
+                        });
+                        this.eventAggregator.publish(ev.type, geoJSON);
+                    };
+                    pmEventHandler(e);
+                    const pmEvents = ['pm:edit', 'pm:update', 'pm:remove', 'pm:drag', 'pm:rotate'];
+                    for (let pmEvent of pmEvents) {
+                        e.layer.on(pmEvent, pmEventHandler);
+                    }
+                });
             }
         });
     }
