@@ -20,7 +20,8 @@ const openApi = {
     },
     paths: [
         './node_modules/utilities-node/src/paths/model',
-        './node_modules/utilities-node/src/paths/config'
+        './node_modules/utilities-node/src/paths/config',
+        './api/v1/paths'
     ],
     externalSchemas: {},
     'x-express-openapi-schema-extension': './api/v1/components/x-express-openapi-schema-extension.yaml'
