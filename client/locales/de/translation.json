@@ -1,15 +1,93 @@
 {
     "model": {
         "object": "Objekt",
-        "object_plural": "Objekte",
+        "object_other": "Objekte",
         "dialog": "Dialog",
-        "dialog_plural": "Dialoge",
+        "dialog_other": "Dialoge",
         "promptDialog": "Aufforderungsdialog",
-        "promptDialog_plural": "Aufforderungsdialoge",
+        "promptDialog_other": "Aufforderungsdialoge",
         "toast": "Toast",
-        "toast_plural": "Toasts"
+        "toast_other": "Toasts",
+        "alert": "Alarm",
+        "alert_other": "Alarme"
     },
     "views": {
         "map": "Karte"
+    },
+    "propertyKeys": {
+        "address": "Adresse",
+        "addressLocality": "Adresse Standort",
+        "alertSource": "Warnungsgeber",
+        "alternateName": "alternativer Name",
+        "areaServed": "betroffenes Gebiet",
+        "category": "Kategorie",
+        "data": "Daten",
+        "dataProvider": "Datenanbieter",
+        "dateCreated": "Erstellungsdatum",
+        "dateIssued": "Ausstellungsdatum",
+        "dateModified": "Änderungsdatum",
+        "description": "Beschreibung",
+        "id": "ID",
+        "name": "Name",
+        "owner": "Besitzer",
+        "postOfficeBoxNumber": "Postfachnummer",
+        "seeAlso": "Siehe auch",
+        "severity": "Schweregrad",
+        "source": "Quelle",
+        "subCategory": "Unterkategorie",
+        "type": "Typ",
+        "validFrom": "gültig von",
+        "validTo": "gültig bis"
+    },
+    "enum": {
+        "alert": {
+            "category": {
+                "naturalDisaster": "Naturkatastrophe",
+                "weather": "Wetter",
+                "environment": "Umgebung",
+                "health": "Gesundheit",
+                "security": "Sicherheit",
+                "traffic": "Verkehr",
+                "agriculture": "Landwirtschaft"
+            },
+            "severity": {
+                "informational": "informativ",
+                "low": "niedrig",
+                "medium": "mittel",
+                "high": "hoch",
+                "critical": "kritisch"
+            },
+            "subCategory": {
+                "hazardOnRoad": "Gefahr auf der Straße",
+                "crowdRisk": "Bevölkerungsrisiko",
+                "flood": "Überflutung",
+                "tsunami": "Tsunami",
+                "coastalEvent": "Küstenereignis",
+                "earthquake": "Erdbeben",
+                "rainfall": "Regenfall",
+                "tornado": "Tornado",
+                "tropicalCyclone": "Tropischer Wirbelsturm",
+                "hurricane": "Wirbelsturm",
+                "snow/ice": "Schnee / Eis",
+                "badSeaState": "Schlechter Seegang",
+                "thunderstorms": "Gewitterstürme",
+                "avalancheRisk": "Lawinengefahr",
+                "floodRisk": "Überflutungsgefahr",
+                "waterPollution": "Wasserverunreinigung",
+                "suspiciousAction": "Verdächtige Tätigkeit",
+                "assault": "Angriff",
+                "buildingFire": "Gebäudebrand",
+                "forestFire": "Waldbrand",
+                "bacteria": "Bakterien",
+                "microbe": "Mikrobe",
+                "fungus": "Pilz",
+                "mite": "Milbe",
+                "virus": "Virus",
+                "nematodes": "Fadenwurm",
+                "irrigation": "Bewässerung",
+                "fertilisation": "Düngung",
+                "trafficJam": "Verkehrsstau"
+            }
+        }
     }
 }

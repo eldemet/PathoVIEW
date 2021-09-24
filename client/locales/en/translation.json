@@ -7,9 +7,87 @@
         "promptDialog": "prompt dialog",
         "promptDialog_plural": "prompts dialogs",
         "toast": "toast",
-        "toast_plural": "toasts"
+        "toast_plural": "toasts",
+        "alert": "alert",
+        "alert_other": "alerts"
     },
     "views": {
         "map": "map"
+    },
+    "propertyKeys": {
+        "address": "address",
+        "addressLocality": "address locality",
+        "alertSource": "alert source",
+        "alternateName": "alternate name",
+        "areaServed": "area served",
+        "category": "category",
+        "data": "data",
+        "dataProvider": "data provider",
+        "dateCreated": "date created",
+        "dateIssued": "date issued",
+        "dateModified": "date modified",
+        "description": "description",
+        "id": "id",
+        "name": "name",
+        "owner": "owner",
+        "postOfficeBoxNumber": "post office box number",
+        "seeAlso": "see also",
+        "severity": "severity",
+        "source": "source",
+        "subCategory": "sub category",
+        "type": "type",
+        "validFrom": "valid from",
+        "validTo": "valid to"
+    },
+    "enum": {
+        "alert": {
+            "category": {
+                "naturalDisaster": "natural disaster",
+                "weather": "weather",
+                "environment": "environment",
+                "health": "health",
+                "security": "security",
+                "traffic": "traffic",
+                "agriculture": "agriculture"
+            },
+            "severity": {
+                "informational": "informational",
+                "low": "low",
+                "medium": "medium",
+                "high": "high",
+                "critical": "critical"
+            },
+            "subCategory": {
+                "hazardOnRoad": "hazard on road",
+                "crowdRisk": "crowd risk",
+                "flood": "flood",
+                "tsunami": "tsunami",
+                "coastalEvent": "coastal event",
+                "earthquake": "earthquake",
+                "rainfall": "rainfall",
+                "tornado": "tornado",
+                "tropicalCyclone": "tropical cyclone",
+                "hurricane": "hurricane",
+                "snow/ice": "snow/ice",
+                "badSeaState": "bad sea state",
+                "thunderstorms": "thunderstorms",
+                "avalancheRisk": "avalanche risk",
+                "floodRisk": "flood risk",
+                "waterPollution": "water pollution",
+                "suspiciousAction": "suspicious action",
+                "assault": "assault",
+                "buildingFire": "building fire",
+                "forestFire": "forest fire",
+                "bacteria": "bacteria",
+                "microbe": "microbe",
+                "fungus": "fungus",
+                "mite": "mite",
+                "virus": "virus",
+                "nematodes": "nematodes",
+                "irrigation": "irrigation",
+                "fertilisation": "fertilisation",
+                "trafficJam": "traffic jam"
+            }
+        }
     }
 }
