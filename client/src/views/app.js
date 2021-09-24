@@ -4,8 +4,10 @@ import {PLATFORM} from 'aurelia-pal';
 import {DialogService} from 'aurelia-dialog';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
+import {HttpService} from 'library-aurelia/src/services/http-service';
+import {ModelServiceAsyncUISchema} from '../services/model-service-async-ui-schema';
 
-@inject(NotificationService, DialogService)
+@inject(NotificationService, DialogService, HttpService)
 export class App extends BasicViewRouterExtended {
 
     routes = [
@@ -35,14 +37,24 @@ export class App extends BasicViewRouterExtended {
             moduleId: PLATFORM.moduleName('./map/map'),
             nav: true,
             title: 'views.map'
+        },
+        {
+            route: 'alert',
+            name: 'alert',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('views.searchModel', {type: 'model.alert', count: 2}),
+            settings: {
+                detailView: true
+            }
         }
     ];
 
-    constructor(notificationService, dialogService, ...rest) {
+    constructor(notificationService, dialogService, httpService, ...rest) {
         super(...rest);
         this.notificationService = notificationService;
         this.dialogService = dialogService;
-        // this.proxy.registerService('example', new ModelServiceNonPersistent('example', exampleSchema, examples));
+        this.proxy.registerService('alert', new ModelServiceAsyncUISchema('alert', '/api/v1/model', httpService));
     }
 
     configureRouter(config, router) {
