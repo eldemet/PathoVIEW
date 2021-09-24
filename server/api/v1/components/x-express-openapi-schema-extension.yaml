@@ -31,6 +31,10 @@ definitions:
       "ui:dependence":
         type: string
         description: CHECK IF IT CAN BE DEPRECATED
+      "ui:noLabel":
+        type: boolean
+      "ui:accept":
+        type: string
       "ui:hide":
         type: object
         description: can be used to hide specific properties in specific components of a client side application
@@ -43,3 +47,10 @@ definitions:
         type: string
         description: allows to set the property that is shown in tables for sub objects
         example: amount
+      "ui:i18n":
+        type: boolean
+        description: can be used to translate specific properties, e.g. enum values or texts
+      "ui:i18nPathPrefix":
+        type: string
+        description: can be used to specify a path prefix for translations (mainly enums)
+        example: enum.colors
