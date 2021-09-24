@@ -228,7 +228,7 @@ export class LeafletCustomElement extends BasicComponent {
             }
             if (this.withEditControl) {
                 this.map.pm.addControls(this.withEditControl);
-                this.map.pm.setLang('de');
+                this.map.pm.setLang(this.i18n.getLocale());
                 this.map.on('pm:create', e => {
                     const pmEventHandler = ev => {
                         let geoJSON = e.layer.toGeoJSON();
