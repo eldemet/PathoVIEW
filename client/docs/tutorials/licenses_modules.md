@@ -2,9 +2,9 @@
 
 ## Summary
 
-* MIT: 1093
-* ISC: 102
-* BSD-2-Clause: 29
+* MIT: 1120
+* ISC: 103
+* BSD-2-Clause: 30
 * BSD-3-Clause: 24
 * Apache-2.0: 22
 * (MIT OR CC0-1.0): 4
@@ -444,6 +444,10 @@
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright (c) 2020 ESLint
+ - **[@geoman-io/leaflet-geoman-free@2.11.2](https://github.com/geoman-io/leaflet-geoman)**
+    - licenses: MIT
+    - description: A Leaflet Plugin For Editing Geometry Layers in Leaflet 1.0
+    - copyright: Copyright (c) 2017 Sumit Kumar
  - **[@humanwhocodes/config-array@0.5.0](https://github.com/humanwhocodes/config-array)**
     - licenses: Apache-2.0
     - description: Glob-based configuration matching.
@@ -480,10 +484,82 @@
     - licenses: MIT
     - description: Tooltip and Popover Positioning Engine
     - copyright: Copyright (c) 2019 Federico Zivolo
- - **[@trysound/sax@0.1.1](https://github.com/svg/sax)**
+ - **[@trysound/sax@0.2.0](https://github.com/svg/sax)**
     - licenses: ISC
     - description: An evented streaming XML parser in JavaScript
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
+ - **[@turf/bbox@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf bbox module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/bearing@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf bearing module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/boolean-contains@6.3.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf boolean-contains module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/boolean-point-in-polygon@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf boolean-point-in-polygon module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/boolean-point-on-line@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf boolean-point-on-line module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/destination@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf destination module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/distance@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf distance module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/helpers@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf helpers module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/invariant@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf invariant module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/kinks@6.3.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf kinks module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/line-intersect@6.3.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf line-intersect module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/line-intersect@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf line-intersect module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/line-segment@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf line-segment module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/line-split@6.3.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf line-split module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/meta@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf meta module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/nearest-point-on-line@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf nearest-point-on-line module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/square@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf square module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/truncate@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf truncate module
+    - copyright: Copyright (c) 2017 TurfJS
  - **[@types/debug@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for debug
@@ -499,6 +575,10 @@
  - **[@types/estree@0.0.50](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for ESTree AST specification
+    - copyright: none
+ - **[@types/geojson@7946.0.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - licenses: MIT
+    - description: TypeScript definitions for geojson
     - copyright: none
  - **[@types/html-minifier-terser@5.1.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
@@ -1056,7 +1136,7 @@
     - licenses: MIT
     - description: A plugin for webpack that enables bundling Aurelia applications.
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
- - **[autoprefixer@10.3.4](https://github.com/postcss/autoprefixer)**
+ - **[autoprefixer@10.3.5](https://github.com/postcss/autoprefixer)**
     - licenses: MIT
     - description: Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website
     - copyright: Copyright 2013 Andrey Sitnik <andrey@sitnik.ru>
@@ -1208,7 +1288,7 @@
     - licenses: MIT
     - description: Full zlib module for the browser
     - copyright: Copyright (c) 2014-2015 Devon Govett <devongovett@gmail.com>
- - **[browserslist@4.17.0](https://github.com/browserslist/browserslist)**
+ - **[browserslist@4.17.1](https://github.com/browserslist/browserslist)**
     - licenses: MIT
     - description: Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-env-preset
     - copyright: Copyright 2014 Andrey Sitnik <andrey@sitnik.ru> and other contributors
@@ -1296,7 +1376,7 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001257](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001259](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
@@ -1544,6 +1624,10 @@
     - licenses: MIT
     - description: node style hmacs in the browser
     - copyright: Copyright (c) 2017 crypto-browserify contributors
+ - **[cross-fetch@3.1.4](https://github.com/lquixada/cross-fetch)**
+    - licenses: MIT
+    - description: Universal WHATWG Fetch API for Node, Browsers and React Native
+    - copyright: Copyright (c) 2017 Leonardo Quixadá
  - **[cross-spawn@7.0.3](https://github.com/moxystudio/node-cross-spawn)**
     - licenses: MIT
     - description: Cross platform child_process#spawn and child_process#spawnSync
@@ -1560,9 +1644,13 @@
     - licenses: ISC
     - description: Sorts CSS declarations fast and automatically in a certain order.
     - copyright: Copyright (c)
- - **[css-loader@6.2.0](https://github.com/webpack-contrib/css-loader)**
+ - **[css-loader@6.3.0](https://github.com/webpack-contrib/css-loader)**
     - licenses: MIT
     - description: css loader module for webpack
+    - copyright: Copyright JS Foundation and other contributors
+ - **[css-minimizer-webpack-plugin@3.0.2](https://github.com/webpack-contrib/css-minimizer-webpack-plugin)**
+    - licenses: MIT
+    - description: cssnano plugin for Webpack
     - copyright: Copyright JS Foundation and other contributors
  - **[css-select@4.1.3](https://github.com/fb55/css-select)**
     - licenses: BSD-2-Clause
@@ -1812,7 +1900,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.3.836](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.3.847](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -2144,7 +2232,7 @@
     - licenses: MIT
     - description: A write stream constructor that supports a flush function that is called before finish is emitted
     - copyright: Copyright (c) 2015 Mathias Buus
- - **[follow-redirects@1.14.3](https://github.com/follow-redirects/follow-redirects)**
+ - **[follow-redirects@1.14.4](https://github.com/follow-redirects/follow-redirects)**
     - licenses: MIT
     - description: HTTP and HTTPS modules that follow redirects.
     - copyright: Copyright 2014–present Olivier Lalonde <olalonde@gmail.com>, James Talmage <james@talmage.io>, Ruben Verborgh
@@ -2224,6 +2312,10 @@
     - licenses: MIT
     - description: Allows users to use generators in order to write common functions that can be both sync or async.
     - copyright: Copyright 2018 Logan Smyth <loganfsmyth@gmail.com>
+ - **[geojson-rbush@3.2.0](undefined)**
+    - licenses: MIT
+    - description: GeoJSON implementation of RBush
+    - copyright: Copyright (c) 2018 Denis Carriere
  - **[get-caller-file@1.0.3](https://github.com/stefanpenner/get-caller-file)**
     - licenses: ISC
     - description: [![Build Status](https://travis-ci.org/stefanpenner/get-caller-file.svg?branch=master)](https://travis-ci.org/stefanpenner/get-caller-file) [![Build status](https://ci.appveyor.com/api/projects/status/ol2q94g1932cy14a/branch/master?svg=true)](https://ci.appveyor.com/project/embercli/get-caller-file/branch/master)
@@ -2532,18 +2624,14 @@
     - licenses: Apache-2.0
     - description: Human-friendly process signals
     - copyright: none
- - **[i18next-xhr-backend@3.2.2](https://github.com/i18next/i18next-xhr-backend)**
+ - **[i18next-http-backend@1.3.1](https://github.com/i18next/i18next-http-backend)**
     - licenses: MIT
-    - description: backend layer for i18next using browsers xhr
-    - copyright: Copyright (c) 2015 i18next
- - **[i18next@14.1.1](https://github.com/i18next/i18next)**
-    - licenses: MIT
-    - description: i18next internationalization framework
-    - copyright: Copyright (c) 2017 i18next
- - **[i18next@20.6.1](https://github.com/i18next/i18next)**
+    - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
+    - copyright: Copyright (c) 2021 i18next
+ - **[i18next@21.0.2](https://github.com/i18next/i18next)**
     - licenses: MIT
     - description: i18next internationalization framework
-    - copyright: Copyright (c) 2017 i18next
+    - copyright: Copyright (c) 2021 i18next
  - **[iconv-lite@0.4.24](https://github.com/ashtuchkin/iconv-lite)**
     - licenses: MIT
     - description: Convert character encodings in pure javascript.
@@ -3024,6 +3112,10 @@
     - licenses: MIT
     - description: Sink your streams.
     - copyright: Copyright (c) 2017 Blaine Bublitz <blaine.bublitz@gmail.com>, Eric Schoffstall <yo@contra.io> and other contributors
+ - **[leaflet@1.7.1](https://github.com/Leaflet/Leaflet)**
+    - licenses: BSD-2-Clause
+    - description: JavaScript library for mobile-friendly interactive maps
+    - copyright: Copyright (c) 2010-2019, Vladimir Agafonkin. Copyright (c) 2010-2011, CloudMade. All rights reserved.
  - **[levn@0.3.0](https://github.com/gkz/levn)**
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
@@ -3032,7 +3124,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@3.6.1](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@3.7.1](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: none
@@ -3192,7 +3284,7 @@
     - licenses: MIT
     - description: Simple RFC 6838 media type parser and formatter
     - copyright: Copyright (c) 2014 Douglas Christopher Wilson
- - **[memfs@3.2.4](https://github.com/streamich/memfs)**
+ - **[memfs@3.3.0](https://github.com/streamich/memfs)**
     - licenses: Unlicense
     - description: In-memory file-system with Node's fs API.
     - copyright: none
@@ -3340,6 +3432,10 @@
     - licenses: MIT
     - description: Native Abstractions for Node.js: C++ header for Node 0.8 -> 14 compatibility
     - copyright: Copyright (c) 2018 NAN contributors. -----------------------------------
+ - **[nanocolors@0.1.6](https://github.com/ai/nanocolors)**
+    - licenses: MIT
+    - description: 2x times faster than chalk and use 5x less space in node_modules
+    - copyright: Copyright 2021 Jorge Bucaran <mail@jorgebucaran.com>,. Andrey Sitnik <andrey@sitnik.ru>
  - **[nanoid@3.1.25](https://github.com/ai/nanoid)**
     - licenses: MIT
     - description: A tiny (108 bytes), secure URL-friendly unique string ID generator
@@ -3372,6 +3468,10 @@
     - licenses: MIT
     - description: Transform into a lower cased string with spaces between words
     - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
+ - **[node-fetch@2.6.1](https://github.com/bitinn/node-fetch)**
+    - licenses: MIT
+    - description: A light-weight module that brings window.fetch to node.js
+    - copyright: Copyright (c) 2016 David Frank
  - **[node-forge@0.10.0](https://github.com/digitalbazaar/forge)**
     - licenses: (BSD-3-Clause OR GPL-2.0)
     - description: JavaScript implementations of network transports, cryptography, ciphers, PKI, message digests, and various utilities.
@@ -3384,7 +3484,7 @@
     - licenses: MIT
     - description: A regular expression for file paths that contain a `node_modules` folder.
     - copyright: Copyright (c) James Talmage <james@talmage.io> (github.com/jamestalmage)
- - **[node-releases@1.1.75](https://github.com/chicoxyzzy/node-releases)**
+ - **[node-releases@1.1.76](https://github.com/chicoxyzzy/node-releases)**
     - licenses: MIT
     - description: Node.js releases data
     - copyright: Copyright (c) 2017 Sergey Rubanov (https://github.com/chicoxyzzy)
@@ -3788,6 +3888,10 @@
     - licenses: MIT
     - description: Promisify the node standard library.
     - copyright: Copyright (c) 2014-2018 C. Scott Ananian
+ - **[polygon-clipping@0.15.3](https://github.com/mfogel/polygon-clipping)**
+    - licenses: MIT
+    - description: Apply boolean Polygon clipping operations (intersection, union, difference, xor) to your Polygons & MultiPolygons.
+    - copyright: Copyright (c) 2018 Mike Fogel <mike@fogel.ca> - covers everything not specially attributed to others below.*
  - **[portfinder@1.0.28](https://github.com/http-party/node-portfinder)**
     - licenses: MIT
     - description: A simple tool to find an open port on the current machine
@@ -3952,7 +4056,7 @@
     - licenses: MIT
     - description: process.hrtime() to words
     - copyright: Copyright (c) 2013 [Richardson & Sons, LLC](http://richardsonandsons.com/)
- - **[prismjs@1.24.1](https://github.com/PrismJS/prism)**
+ - **[prismjs@1.25.0](https://github.com/PrismJS/prism)**
     - licenses: MIT
     - description: Lightweight, robust, elegant syntax highlighting. A spin-off project from Dabblet.
     - copyright: Copyright (c) 2012 Lea Verou
@@ -4028,6 +4132,10 @@
     - licenses: MIT
     - description: Simple "Least Recently Used" (LRU) cache
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[quickselect@2.0.0](undefined)**
+    - licenses: ISC
+    - description: A tiny and fast selection algorithm in JavaScript.
+    - copyright: Copyright (c) 2018, Vladimir Agafonkin
  - **[randombytes@2.1.0](https://github.com/crypto-browserify/randombytes)**
     - licenses: MIT
     - description: random bytes from browserify stand alone
@@ -4044,6 +4152,10 @@
     - licenses: MIT
     - description: Get and validate the raw body of a readable stream.
     - copyright: Copyright (c) 2013-2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
+ - **[rbush@3.0.1](https://github.com/mourner/rbush)**
+    - licenses: MIT
+    - description: High-performance 2D spatial index for rectangles (based on R*-tree with bulk loading and bulk insertion algorithms)
+    - copyright: Copyright (c) 2016 Vladimir Agafonkin
  - **[read-installed@4.0.3](https://github.com/isaacs/read-installed)**
     - licenses: ISC
     - description: Read all the installed packages in a folder, and return a tree structure with all the data.
@@ -4512,6 +4624,10 @@
     - licenses: MIT
     - description: Implementation of the SPDY protocol on node.js.
     - copyright: Copyright Fedor Indutny, 2015.
+ - **[splaytree@3.1.0](https://github.com/w8r/splay-tree)**
+    - licenses: MIT
+    - description: Fast Splay tree for Node and browser
+    - copyright: Copyright (c) 2019 Alexander Milevski <info@w8r.name>
  - **[split-string@3.1.0](https://github.com/jonschlinkert/split-string)**
     - licenses: MIT
     - description: Split a string on a character except when the character is escaped.
@@ -4644,7 +4760,7 @@
     - licenses: MIT
     - description: Strip comments from JSON. Lets you use comments in your JSON files!
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[style-loader@3.2.1](https://github.com/webpack-contrib/style-loader)**
+ - **[style-loader@3.3.0](https://github.com/webpack-contrib/style-loader)**
     - licenses: MIT
     - description: style loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
@@ -4672,7 +4788,7 @@
     - licenses: MIT
     - description: Simple Semver and SemverRange classes
     - copyright: Copyright (C) 2017 Guy Bedford
- - **[svgo@2.5.0](https://github.com/svg/svgo)**
+ - **[svgo@2.6.1](https://github.com/svg/svgo)**
     - licenses: MIT
     - description: Nodejs-based tool for optimizing SVG vector graphics files
     - copyright: Copyright (c) Kir Belevich
@@ -5064,7 +5180,7 @@
     - licenses: MIT
     - description: A development middleware for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[webpack-dev-server@4.2.0](https://github.com/webpack/webpack-dev-server)**
+ - **[webpack-dev-server@4.2.1](https://github.com/webpack/webpack-dev-server)**
     - licenses: MIT
     - description: Serves a webpack app. Updates the browser on changes.
     - copyright: Copyright JS Foundation and other contributors
@@ -5076,7 +5192,7 @@
     - licenses: MIT
     - description: Source code handling classes for webpack
     - copyright: Copyright (c) 2017 JS Foundation and other contributors
- - **[webpack@5.52.1](https://github.com/webpack/webpack)**
+ - **[webpack@5.53.0](https://github.com/webpack/webpack)**
     - licenses: MIT
     - description: Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
     - copyright: Copyright JS Foundation and other contributors

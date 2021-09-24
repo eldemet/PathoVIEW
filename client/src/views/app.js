@@ -1,8 +1,8 @@
 import {BasicViewRouterExtended} from 'library-aurelia/src/prototypes/basic-view-router-extended';
 import {inject} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
-import {NotificationService} from '../services/notification-service';
 import {DialogService} from 'aurelia-dialog';
+import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 
 @inject(NotificationService, DialogService)
