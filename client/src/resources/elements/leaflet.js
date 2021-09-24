@@ -17,14 +17,9 @@ export class LeafletCustomElement extends BasicComponent {
     @bindable withLayerControl;
     @bindable withScaleControl;
     @bindable withEditControl;
+    @bindable center;
 
-    defaultMapOptions = {
-        center: {
-            lat: 48.783333,
-            lng: 9.183333
-        },
-        zoomLevel: 12
-    };
+    defaultMapOptions = {zoomLevel: 12};
 
     defaultLayers = {
         base: [
@@ -58,20 +53,27 @@ export class LeafletCustomElement extends BasicComponent {
             this.eventsBoundResolve = resolve;
             this.eventsBoundReject = reject;
         });
-        this.mapOptions = this.defaultMapOptions;
         this.layers = this.defaultLayers;
     }
 
-    attached() {
-        return new Promise((resolve, reject) => {
-            // remove the center option before constructing the map to have a chance to bind to the "load" event
-            // first. The "load" event on the map gets fired after center and zoom are set for the first time.
-            let center = this.mapOptions.center;
-            delete this.mapOptions.center;
-            if (!this.map) {
-                this.map = this.L.map('map', this.mapOptions);
+    async attached() {
+        let mapOptions = this.defaultMapOptions;
+        if (this.mapOptions) {
+            mapOptions = this._.merge({}, this.defaultMapOptions, this.mapOptions);
+        }
+        let center = {lat: 48.783333, lng: 9.183333};
+        if (!this.center) {
+            if (navigator.geolocation) {
+                const pos = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                });
+                center = {lng: pos.coords.longitude, lat: pos.coords.latitude};
             }
-            this.mapOptions.center = center;
+        }
+        return new Promise((resolve, reject) => {
+            if (!this.map) {
+                this.map = this.L.map('map', mapOptions);
+            }
             if (this.map) {
                 this.mapInitResolve();
             } else {
@@ -80,10 +82,10 @@ export class LeafletCustomElement extends BasicComponent {
             }
             if (this.mapEvents) {
                 this.eventsBound.then(() => {
-                    this.map.setView([this.mapOptions.center.lat, this.mapOptions.center.lng], this.mapOptions.zoomLevel);
+                    this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
                 });
             } else {
-                this.map.setView([this.mapOptions.center.lat, this.mapOptions.center.lng], this.mapOptions.zoomLevel);
+                this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
             }
             this.attachLayers();
             this.withLayerControlChanged();
@@ -165,17 +167,23 @@ export class LeafletCustomElement extends BasicComponent {
     }
 
     mapOptionsChanged(newOptions, oldOptions) {
-        this.mapOptions = Object.assign(this.defaultMapOptions, newOptions);
         this.mapInit.then(() => {
             if (oldOptions) {
-                if (this.mapOptions.center !== oldOptions.center) {
-                    this.map.setView(this.mapOptions.center);
-                }
                 if (this.mapOptions.zoom !== oldOptions.zoom) {
                     this.map.setZoom(this.mapOptions.zoom);
                 }
                 if (this.mapOptions.maxBounds !== oldOptions.maxBounds) {
                     this.map.setMaxBounds(this.mapOptions.maxBounds);
+                }
+            }
+        });
+    }
+
+    centerChanged(newCenter, oldCenter) {
+        this.mapInit.then(() => {
+            if (oldCenter) {
+                if (this.center !== oldCenter) {
+                    this.map.setView(this.center);
                 }
             }
         });
