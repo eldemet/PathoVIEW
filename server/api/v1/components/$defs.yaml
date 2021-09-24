@@ -1,16 +1,15 @@
 NGSIentityFormat:
-  anyOf:
-    - description: 'Property. Identifier format of any NGSI entity'
-      maxLength: 256
-      minLength: 1
-      pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
-      type: string
-    - description: 'Property. Identifier format of any NGSI entity'
-      format: uri
-      type: string
+  description: 'Property. Identifier format of any NGSI entity'
+  maxLength: 256
+  minLength: 1
+  pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+  type: string
 
 Location:
   description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+  ui:hide:
+    form: true
+    table: true
   oneOf:
     - description: 'Geoproperty. Geojson reference to the item. Point'
       properties:
@@ -167,19 +166,25 @@ Address:
     addressCountry:
       description: 'Property. The country. For example, Spain. Model:''https://schema.org/addressCountry'''
       type: string
+      ui:formItemType: text
     addressLocality:
       description: 'Property. The locality in which the street address is, and which is in the region. Model:''https://schema.org/addressLocality'''
       type: string
+      ui:formItemType: text
     addressRegion:
       description: 'Property. The region in which the locality is, and which is in the country. Model:''https://schema.org/addressRegion'''
       type: string
+      ui:formItemType: text
     postOfficeBoxNumber:
       description: 'Property. The post office box number for PO box addresses. For example, 03578. Model:''https://schema.org/postOfficeBoxNumber'''
       type: string
+      ui:formItemType: text
     postalCode:
       description: 'Property. The postal code. For example, 24004. Model:''https://schema.org/https://schema.org/postalCode'''
       type: string
+      ui:formItemType: text
     streetAddress:
       description: 'Property. The street address. Model:''https://schema.org/streetAddress'''
       type: string
+      ui:formItemType: text
   type: object
