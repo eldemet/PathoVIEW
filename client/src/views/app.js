@@ -6,6 +6,7 @@ import {NotificationService} from 'library-aurelia/src/services/notification-ser
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {ModelServiceAsyncUISchema} from '../services/model-service-async-ui-schema';
+import {AureliaCookie} from 'aurelia-cookie';
 
 @inject(NotificationService, DialogService, HttpService)
 export class App extends BasicViewRouterExtended {
@@ -50,6 +51,11 @@ export class App extends BasicViewRouterExtended {
         }
     ];
 
+    languages = [
+        {name: 'English (en)', value: 'en'},
+        {name: 'Deutsch (de)', value: 'de'}
+    ];
+
     constructor(notificationService, dialogService, httpService, ...rest) {
         super(...rest);
         this.notificationService = notificationService;
@@ -66,6 +72,7 @@ export class App extends BasicViewRouterExtended {
 
     attached() {
         super.attached();
+        this.isDarkMode = this.responsiveService.isDarkMode();
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener('http://localhost:3002/api/v1/notification', ['model', 'event']);
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
@@ -107,6 +114,14 @@ export class App extends BasicViewRouterExtended {
         this.subscriptions.push(this.eventAggregator.subscribe('pm:remove', geoJson => {
             this.logger.debug('pm:remove', geoJson);
         }));
+        this.subscriptions.push(this.eventAggregator.subscribe('dark-mode-changed', isDarkMode => {
+            this.isDarkMode = isDarkMode;
+        }));
+    }
+
+    changeLanguage(language) {
+        AureliaCookie.set('lang', language, {});
+        window.location.reload();
     }
 
 }

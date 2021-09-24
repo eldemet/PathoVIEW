@@ -7,7 +7,27 @@
     <require from="library-aurelia/src/resources/elements/alert"></require>
     <require from="library-aurelia/src/resources/elements/toast"></require>
     <require from="leaflet/dist/leaflet.css"></require>
-    <nav-bar display-dark-mode-switch.bind="true"></nav-bar>
+
+    <nav-bar display-dark-mode-switch.bind="true"
+             display-is-navigating.bind="true"
+             home-icon-src.bind="'assets/icon-pathocert.png'">
+
+        <div class="dropdown">
+            <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="language-menu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-translate"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="language-menu">
+                <li repeat.for="language of languages"
+                    if.bind="language.value !== i18n.getLocale()">
+                    <button class="dropdown-item"
+                            click.trigger="changeLanguage(language.value)">
+                        ${language.name}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav-bar>
     <toolbar></toolbar>
 
     <toast event="toast"></toast>
