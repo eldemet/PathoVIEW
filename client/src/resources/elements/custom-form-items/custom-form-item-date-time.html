@@ -1,0 +1,11 @@
+<template>
+    <input type="datetime-local"
+           value.two-way="dateTime & validate"
+           change.delegate="dateTimeChanged(dateTime)"
+           class="form-control"
+           id="${'formItemCompose' + index}"
+           min.bind="propertySchema.minimum"
+           max.bind="propertySchema.maximum"
+           step.bind="propertySchema.step"
+           novalidate>
+</template>
