@@ -102,18 +102,6 @@ export class App extends BasicViewRouterExtended {
                 });
             }
         }));
-        this.subscriptions.push(this.eventAggregator.subscribe('pm:create', geoJson => {
-            this.logger.debug('pm:create', geoJson);
-        }));
-        this.subscriptions.push(this.eventAggregator.subscribe('pm:edit', geoJson => {
-            this.logger.debug('pm:edit', geoJson);
-        }));
-        this.subscriptions.push(this.eventAggregator.subscribe('pm:update', geoJson => {
-            this.logger.debug('pm:update', geoJson);
-        }));
-        this.subscriptions.push(this.eventAggregator.subscribe('pm:remove', geoJson => {
-            this.logger.debug('pm:remove', geoJson);
-        }));
         this.subscriptions.push(this.eventAggregator.subscribe('dark-mode-changed', isDarkMode => {
             this.isDarkMode = isDarkMode;
         }));

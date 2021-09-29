@@ -1,0 +1,19 @@
+<template>
+
+    <require from="./../leaflet"></require>
+
+    <leaflet layers.bind="layers"
+             with-layer-control.bind="false"
+             with-scale-control.bind="true"
+             center.bind="center"
+             layer-events.bind="layerEvents"
+             with-edit-control.bind="{position: 'topleft',
+                                         drawCircleMarker: false,
+                                         drawCircle: false,
+                                         cutPolygon: false,
+                                         drawControls: drawEnabled,
+                                         continueDrawing: false
+                                     }">
+    </leaflet>
+
+</template>
