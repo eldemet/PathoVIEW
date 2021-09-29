@@ -13,6 +13,7 @@ export class LeafletCustomElement extends BasicComponent {
 
     @bindable layers;
     @bindable mapEvents;
+    @bindable layerEvents;
     @bindable mapOptions;
     @bindable withLayerControl;
     @bindable withScaleControl;
@@ -57,6 +58,7 @@ export class LeafletCustomElement extends BasicComponent {
     }
 
     async attached() {
+        super.attached();
         let mapOptions = this.defaultMapOptions;
         if (this.mapOptions) {
             mapOptions = this._.merge({}, this.defaultMapOptions, this.mapOptions);
@@ -80,7 +82,11 @@ export class LeafletCustomElement extends BasicComponent {
                 this.mapInitReject();
                 reject();
             }
+            if (this.layerEvents) {
+                this.layerEventsChanged();
+            }
             if (this.mapEvents) {
+                this.mapEventsChanged();
                 this.eventsBound.then(() => {
                     this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
                 });
@@ -191,18 +197,48 @@ export class LeafletCustomElement extends BasicComponent {
 
     mapEventsChanged(newEvents, oldEvents) {
         this.mapInit.then(() => {
-            if (newEvents && newEvents.length) {
-                for (let eventName of newEvents) {
-                    this.map.on(eventName, (e) => this.eventAggregator.publish('aurelia-leaflet', Object.assign(e, {map: this.map})));
+            if (oldEvents) {
+                for (let removedEvent of oldEvents.filter((e) => this.mapEvents.indexOf(e) === -1)) {
+                    this.map.off(removedEvent);
                 }
             }
-            if (oldEvents !== null) {
-                for (let removedEvent of oldEvents.filter((e) => newEvents.indexOf(e) === -1)) {
-                    this.map.off(removedEvent);
+            if (this.mapEvents && this.mapEvents.length) {
+                for (let eventName of this.mapEvents) {
+                    this.map.on(eventName, (e) => this.eventAggregator.publish('aurelia-leaflet', Object.assign(e, {map: this.map})));
                 }
             }
             if (!this.eventsBound.resolved) {
                 this.eventsBoundResolve();
+            }
+        });
+    }
+
+    layerEventsChanged(newEvents, oldEvents) {
+        this.mapInit.then(() => {
+            if (oldEvents) {
+                this.map.off('pm:create');
+            }
+            if (this.layerEvents && this.layerEvents.length) {
+                const handleEvent = ev => {
+                    let geoJson = ev.layer.toGeoJSON();
+                    geoJson.properties = Object.assign({}, ev.layer.options, {
+                        shape: ev.shape,
+                        name: 'leaflet_id ' + ev.layer._leaflet_id,
+                        category: 'default'
+                    });
+                    this.eventAggregator.publish('aurelia-leaflet', Object.assign(ev, {
+                        map: this.map,
+                        geoJson: geoJson
+                    }));
+                };
+                this.map.on('pm:create', e => {
+                    for (let layerEvent of this.layerEvents) {
+                        e.layer.on(layerEvent, ev => {
+                            handleEvent(ev);
+                        });
+                    }
+                    handleEvent(e);
+                });
             }
         });
     }
@@ -237,22 +273,6 @@ export class LeafletCustomElement extends BasicComponent {
             if (this.withEditControl) {
                 this.map.pm.addControls(this.withEditControl);
                 this.map.pm.setLang(this.i18n.getLocale());
-                this.map.on('pm:create', e => {
-                    const pmEventHandler = ev => {
-                        let geoJSON = e.layer.toGeoJSON();
-                        geoJSON.properties = Object.assign({}, e.layer.options, {
-                            shape: e.shape,
-                            name: 'leaflet_id ' + e.layer._leaflet_id,
-                            category: 'default'
-                        });
-                        this.eventAggregator.publish(ev.type, geoJSON);
-                    };
-                    pmEventHandler(e);
-                    const pmEvents = ['pm:edit', 'pm:update', 'pm:remove', 'pm:drag', 'pm:rotate'];
-                    for (let pmEvent of pmEvents) {
-                        e.layer.on(pmEvent, pmEventHandler);
-                    }
-                });
             }
         });
     }
