@@ -9,7 +9,9 @@
         "toast": "Toast",
         "toast_other": "Toasts",
         "alert": "Alarm",
-        "alert_other": "Alarme"
+        "alert_other": "Alarme",
+        "contributor": "Mitwirkender",
+        "contributor_other": "Mitwirkende"
     },
     "views": {
         "map": "Karte"

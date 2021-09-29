@@ -28,7 +28,7 @@ export class LeafletCustomElement extends BasicComponent {
                 type: 'tile',
                 url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 options: {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' + this.i18n.tr('model.contributor', {count: 2})
                 }
             }
         ],

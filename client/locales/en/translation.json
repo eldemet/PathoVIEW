@@ -9,7 +9,9 @@
         "toast": "toast",
         "toast_plural": "toasts",
         "alert": "alert",
-        "alert_other": "alerts"
+        "alert_other": "alerts",
+        "contributor": "contributor",
+        "contributor_other": "contributors"
     },
     "views": {
         "map": "map"
