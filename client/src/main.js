@@ -11,7 +11,10 @@ window.environment = environment;
 
 export function configure(aurelia) {
     aurelia.use.standardConfiguration();
-    aurelia.use.globalResources([]);
+    aurelia.use.globalResources([
+        PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),
+        PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-map')
+    ]);
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-cookie'));
     LogHelper.initialize(aurelia, environment.testing);
