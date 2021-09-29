@@ -7,20 +7,44 @@ required:
   - category
   - dateIssued
 properties:
-  address:
-    $ref: './../$defs.yaml#/Address'
-  alertSource:
+  id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
-    description: 'Source of the alert'
+    description: 'Unique identifier of the entity'
+    ui:formItemType: text
+    ui:hide:
+      table: true
+  type:
+    type: string
+    description: 'NGSI Entity type. It has to be Alert.'
+    enum:
+      - Alert
+    default: Alert
+    ui:hide:
+      form: true
+      table: true
+  name:
+    type: string
+    description: 'The name of this item.'
     ui:formItemType: text
   alternateName:
     type: string
     description: 'An alternative name for this item'
     ui:formItemType: text
-  areaServed:
+  description:
     type: string
-    description: 'The geographic area where a service or offered item is provided'
-    ui:formItemType: text
+    description: 'A description of this item'
+  severity:
+    type: string
+    description: 'Severity of the Alarm'
+    enum:
+      - informational
+      - low
+      - medium
+      - high
+      - critical
+    ui:formItemType: select
+    ui:i18n: true
+    ui:i18nPathPrefix: enum.alert.severity
   category:
     type: string
     description: 'Category of the Alert. Enum:''traffic, naturalDisaster, weather, environment, health, security, agriculture'''
@@ -34,81 +58,6 @@ properties:
     ui:formItemType: select
     ui:i18n: true
     ui:i18nPathPrefix: enum.alert.category
-  data:
-    type: object
-    description: 'Payload containing the data retrieved.'
-    ui:hide:
-      table: true
-  dataProvider:
-    type: string
-    description: 'A sequence of characters identifying the provider of the harmonised data entity.'
-    ui:hide:
-      table: true
-  dateCreated:
-    type: string
-    description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'
-    format: date-time
-    ui:hide:
-      table: true
-  dateIssued:
-    type: string
-    description: 'The date and time the item was issued in ISO8601 UTC format.'
-    format: date-time
-    ui:hide:
-      table: true
-  dateModified:
-    type: string
-    description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'
-    format: date-time
-    ui:hide:
-      table: true
-  description:
-    type: string
-    description: 'A description of this item'
-  id:
-    $ref: './../$defs.yaml#/NGSIentityFormat'
-    description: 'Unique identifier of the entity'
-    ui:hide:
-      form: true
-      table: true
-  location:
-    $ref: './../$defs.yaml#/Location'
-  name:
-    type: string
-    description: 'The name of this item.'
-    ui:formItemType: text
-  owner:
-    type: array
-    description: 'A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)'
-    items:
-      $ref: './../$defs.yaml#/NGSIentityFormat'
-      description: 'Property. Unique identifier of the entity'
-  seeAlso:
-    type: array
-    description: 'list of uri pointing to additional resources about the item'
-    items:
-      format: uri
-      type: string
-    minItems: 1
-    ui:formItemType: array
-    ui:hide:
-      table: true
-  severity:
-    type: string
-    description: 'Severity of the Alarm'
-    enum:
-      - informational
-      - low
-      - medium
-      - high
-      - critical
-    ui:formItemType: select
-    ui:i18n: true
-    ui:i18nPathPrefix: enum.alert.severity
-  source:
-    type: string
-    description: 'A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.'
-    ui:formItemType: text
   subCategory:
     type: string
     description: 'Describe the sub category of alert. Enum:''trafficJam, carAccident, carWrongDirection, carStopped, pothole, roadClosed, roadWorks, hazardOnRoad, injuredBiker, pedestrianOnRoad, bikerOnRoad, tramApproaching, flood, tsunami, coastalEvent, earthquake, rainfall, highTemperature, lowTemperature, heatWave, coldWave, ice, snow, wind, fog, tornado, tropicalCyclone, hurricane, snow/ice, thunderstorms, fireRisk, avalancheRisk, floodRisk, airPollution, waterPollution, pollenConcentration, asthmaAttack, bumpedPatient, fallenPatient, heartAttack, suspiciousAction, robbery, assault, civilDisorder, buildingFire, forestFire, noxiousWeed, snail, insect, rodent, bacteria, microbe, fungus,mite, virus, nematodes, irrigation, fertilisation'
@@ -144,21 +93,76 @@ properties:
     ui:formItemType: select
     ui:i18n: true
     ui:i18nPathPrefix: enum.alert.subCategory
-  type:
-    type: string
-    description: 'NGSI Entity type. It has to be Alert.'
-    enum:
-      - Alert
+  owner:
+    type: array
+    description: 'A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)'
+    items:
+      $ref: './../$defs.yaml#/NGSIentityFormat'
+      description: 'Property. Unique identifier of the entity'
+  seeAlso:
+    type: array
+    description: 'list of uri pointing to additional resources about the item'
+    items:
+      format: uri
+      type: string
+    minItems: 1
+    ui:formItemType: array
     ui:hide:
-      form: true
+      table: true
+    db:skipInSchemaDefinition: true
+  source:
+    type: string
+    description: 'A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.'
+    ui:formItemType: text
+  address:
+    $ref: './../$defs.yaml#/Address'
+  location:
+    $ref: './../$defs.yaml#/Location'
+  alertSource:
+    $ref: './../$defs.yaml#/NGSIentityFormat'
+    description: 'Source of the alert'
+    ui:formItemType: text
+  areaServed:
+    type: string
+    description: 'The geographic area where a service or offered item is provided'
+    ui:formItemType: text
+  dataProvider:
+    type: string
+    description: 'A sequence of characters identifying the provider of the harmonised data entity.'
+    ui:hide:
+      table: true
+  data:
+    type: object
+    description: 'Payload containing the data retrieved.'
+    ui:hide:
+      table: true
+  dateCreated:
+    type: string
+    description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'
+    format: date-time
+    ui:hide:
+      table: true
+  dateIssued:
+    type: string
+    description: 'The date and time the item was issued in ISO8601 UTC format.'
+    format: date-time
+    ui:hide:
+      table: true
+  dateModified:
+    type: string
+    description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'
+    format: date-time
+    ui:hide:
       table: true
   validFrom:
     type: string
     description: 'The start of the validity period for this forecast as a ISO8601 format'
     format: date-time
-    ui:formItemType: date
+    ui:formItemType: date-time
+    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-date-time'
   validTo:
     type: string
     description: 'The end of the validity period for this forecast as a ISO8601 format'
     format: date-time
-    ui:formItemType: date
+    ui:formItemType: date-time
+    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-date-time'

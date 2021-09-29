@@ -7,8 +7,9 @@ NGSIentityFormat:
 
 Location:
   description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+  ui:formItemType: map
+  ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
   ui:hide:
-    form: true
     table: true
   oneOf:
     - description: 'Geoproperty. Geojson reference to the item. Point'
@@ -162,6 +163,8 @@ Location:
 
 Address:
   description: 'The mailing address'
+  ui:hide:
+    table: true
   properties:
     addressCountry:
       description: 'Property. The country. For example, Spain. Model:''https://schema.org/addressCountry'''
