@@ -1,5 +1,10 @@
 export default {
     debug: true,
     testing: false,
-    baseUrl: '..'
+    baseUrl: '..',
+    keycloak: {
+        realm: 'pathocert',
+        url: 'https://idm.digital-enabler.eng.it/auth/',
+        clientId: 'pathoview'
+    }
 };

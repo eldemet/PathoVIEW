@@ -9,6 +9,7 @@
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
         "@geoman-io/leaflet-geoman-free": "^2.11.2",
+        "keycloak-js": "^15.0.2",
         "leaflet": "^1.7.1",
         "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v3.7.2"
     },

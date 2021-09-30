@@ -16,6 +16,11 @@
     "views": {
         "map": "Karte"
     },
+    "buttons": {
+        "logout": "Abmelden",
+        "userManagement": "Nutzerverwaltung",
+        "logoutIn": "Abmeldung in"
+    },
     "propertyKeys": {
         "address": "Adresse",
         "addressLocality": "Adresse Standort",

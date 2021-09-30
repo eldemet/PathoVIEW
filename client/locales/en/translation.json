@@ -16,6 +16,11 @@
     "views": {
         "map": "map"
     },
+    "buttons": {
+        "logout": "logout",
+        "userManagement": "user management",
+        "logoutIn": "logout in"
+    },
     "propertyKeys": {
         "address": "address",
         "addressLocality": "address locality",

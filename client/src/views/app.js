@@ -1,14 +1,16 @@
 import {BasicViewRouterExtended} from 'library-aurelia/src/prototypes/basic-view-router-extended';
 import {inject} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
+import {BindingSignaler} from 'aurelia-templating-resources';
 import {DialogService} from 'aurelia-dialog';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {ModelServiceAsyncUISchema} from '../services/model-service-async-ui-schema';
 import {AureliaCookie} from 'aurelia-cookie';
+import {AuthService} from '../services/auth-service';
 
-@inject(NotificationService, DialogService, HttpService)
+@inject(BindingSignaler, DialogService, NotificationService, HttpService)
 export class App extends BasicViewRouterExtended {
 
     routes = [
@@ -56,10 +58,12 @@ export class App extends BasicViewRouterExtended {
         {name: 'Deutsch (de)', value: 'de'}
     ];
 
-    constructor(notificationService, dialogService, httpService, ...rest) {
+    constructor(bindingSignaler, dialogService, notificationService, httpService, ...rest) {
         super(...rest);
-        this.notificationService = notificationService;
+        this.bindingSignaler = bindingSignaler;
         this.dialogService = dialogService;
+        this.notificationService = notificationService;
+        this.authService = AuthService;
         this.proxy.registerService('alert', new ModelServiceAsyncUISchema('alert', '/api/v1/model', httpService));
     }
 
@@ -105,6 +109,12 @@ export class App extends BasicViewRouterExtended {
         this.subscriptions.push(this.eventAggregator.subscribe('dark-mode-changed', isDarkMode => {
             this.isDarkMode = isDarkMode;
         }));
+        this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
+    }
+
+    detached() {
+        super.detached();
+        clearInterval(this.interval);
     }
 
     changeLanguage(language) {
