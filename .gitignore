@@ -26,6 +26,7 @@ logs/*
 .idea
 .vscode
 .env
+.run
 
 jsconfig.json
 
