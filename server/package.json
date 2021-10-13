@@ -18,16 +18,17 @@
         "smart-data-models-risk-management": "https://github.com/smart-data-models/dataModel.RiskManagement.git",
         "smart-data-models-waste-water": "https://github.com/smart-data-models/dataModel.WasteWater.git",
         "smart-data-models-satellite-imagery": "https://github.com/smart-data-models/dataModel.SatelliteImagery.git",
-        "smart-data-models-water-quality": "https://github.com/smart-data-models/dataModel.WaterQuality",
+        "smart-data-models-water-quality": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
         "smart-data-models-device": "https://github.com/smart-data-models/dataModel.Device.git",
         "smart-data-models-point-of-interest": "https://github.com/smart-data-models/dataModel.PointOfInterest.git",
         "smart-data-models-point-of-interaction": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git",
-        "smart-data-models-multimedia": "https://github.com/smart-data-models/dataModel.Multimedia"
+        "smart-data-models-multimedia": "https://github.com/smart-data-models/dataModel.Multimedia.git",
+        "smart-data-model-user": "https://github.com/smart-data-models/dataModel.User.git"
     },
     "author": "Christian Knecht",
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.7.1"
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.7.2"
     },
     "directories": {
         "doc": "docs"

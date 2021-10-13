@@ -38,10 +38,11 @@ const configAppDefaults = {
         port: '3002'
     },
     database: {
-        uniqueProperty: '_id',
+        uniqueProperty: 'id',
         jsondbPath: '../data/db',
         jsondbReadOnly: false,
-        uploadDirectory: '../data/uploads'
+        uploadDirectory: '../data/uploads',
+        customIdGeneratorFunction: 'api/v1/ngsi-id-generator.js'
     }
 };
 
