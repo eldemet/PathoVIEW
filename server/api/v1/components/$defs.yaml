@@ -9,6 +9,7 @@ Location:
   description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
   ui:formItemType: map
   ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
+  ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
   ui:hide:
     table: true
   oneOf:
@@ -162,7 +163,9 @@ Location:
       type: object
 
 Address:
+  type: object
   description: 'The mailing address'
+  ui:formItemType: object
   ui:hide:
     table: true
   properties:
@@ -170,24 +173,28 @@ Address:
       description: 'Property. The country. For example, Spain. Model:''https://schema.org/addressCountry'''
       type: string
       ui:formItemType: text
-    addressLocality:
-      description: 'Property. The locality in which the street address is, and which is in the region. Model:''https://schema.org/addressLocality'''
-      type: string
-      ui:formItemType: text
-    addressRegion:
-      description: 'Property. The region in which the locality is, and which is in the country. Model:''https://schema.org/addressRegion'''
-      type: string
-      ui:formItemType: text
-    postOfficeBoxNumber:
-      description: 'Property. The post office box number for PO box addresses. For example, 03578. Model:''https://schema.org/postOfficeBoxNumber'''
-      type: string
-      ui:formItemType: text
     postalCode:
       description: 'Property. The postal code. For example, 24004. Model:''https://schema.org/https://schema.org/postalCode'''
       type: string
       ui:formItemType: text
+      ui:formItemGridClass: 'col-md-5'
+    addressLocality:
+      description: 'Property. The locality in which the street address is, and which is in the region. Model:''https://schema.org/addressLocality'''
+      type: string
+      ui:formItemType: text
+      ui:formItemGridClass: 'col-md-5'
+    addressRegion:
+      description: 'Property. The region in which the locality is, and which is in the country. Model:''https://schema.org/addressRegion'''
+      type: string
+      ui:formItemType: text
+      ui:formItemGridClass: 'col-md-2'
     streetAddress:
       description: 'Property. The street address. Model:''https://schema.org/streetAddress'''
       type: string
       ui:formItemType: text
-  type: object
+      ui:formItemGridClass: 'col-md-10'
+    postOfficeBoxNumber:
+      description: 'Property. The post office box number for PO box addresses. For example, 03578. Model:''https://schema.org/postOfficeBoxNumber'''
+      type: string
+      ui:formItemType: text
+      ui:formItemGridClass: 'col-md-2'
