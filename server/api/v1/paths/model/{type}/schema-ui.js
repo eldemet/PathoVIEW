@@ -19,7 +19,7 @@ async function initializeUISchemas(schemaDirectory) {
                 schema = await jsonSchemaHelper.dereferenceAndMergeSchema(schema, schemaDirectory);
                 uiSchemas[filename] = schema;
             } catch (error) {
-                this.logger.debug(error.message);
+                logger.debug(error.message);
             }
         }
     }
