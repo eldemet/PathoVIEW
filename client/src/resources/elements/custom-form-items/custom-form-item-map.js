@@ -18,7 +18,8 @@ export class CustomFormItemMap extends BasicComposableExtended {
                     {
                         id: this.propertyKey,
                         type: 'geoJSON',
-                        data: this.object[this.propertyKey]
+                        data: this.object[this.propertyKey],
+                        events: this.layerEvents
                     }
                 ]
             };

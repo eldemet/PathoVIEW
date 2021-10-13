@@ -116,7 +116,7 @@ export class LeafletCustomElement extends BasicComponent {
             for (let layer of layers.overlay) {
                 const id = this.getLayerId(layer);
                 if (!this.attachedLayers.overlay.hasOwnProperty(id)) {
-                    layersToAttach.overlay[this.getLayerId(layer)] = this.layerFactory.getLayer(layer);
+                    layersToAttach.overlay[this.getLayerId(layer)] = this.layerFactory.getLayer(layer, this.handleEvent);
                 }
             }
         }
@@ -219,25 +219,11 @@ export class LeafletCustomElement extends BasicComponent {
                 this.map.off('pm:create');
             }
             if (this.layerEvents && this.layerEvents.length) {
-                const handleEvent = ev => {
-                    let geoJson = ev.layer.toGeoJSON();
-                    geoJson.properties = Object.assign({}, ev.layer.options, {
-                        shape: ev.shape,
-                        name: 'leaflet_id ' + ev.layer._leaflet_id,
-                        category: 'default'
-                    });
-                    this.eventAggregator.publish('aurelia-leaflet', Object.assign(ev, {
-                        map: this.map,
-                        geoJson: geoJson
-                    }));
-                };
                 this.map.on('pm:create', e => {
                     for (let layerEvent of this.layerEvents) {
-                        e.layer.on(layerEvent, ev => {
-                            handleEvent(ev);
-                        });
+                        e.layer.on(layerEvent, this.handleEvent);
                     }
-                    handleEvent(e);
+                    this.handleEvent(e);
                 });
             }
         });
@@ -277,6 +263,19 @@ export class LeafletCustomElement extends BasicComponent {
         });
     }
 
+    handleEvent = ev => {
+        let geoJson = ev.layer.toGeoJSON();
+        geoJson.properties = Object.assign({}, ev.layer.options, {
+            shape: ev.shape,
+            name: 'leaflet_id ' + ev.layer._leaflet_id,
+            category: 'default'
+        });
+        this.eventAggregator.publish('aurelia-leaflet', Object.assign(ev, {
+            map: this.map,
+            geoJson: geoJson
+        }));
+    };
+
 }
 
 export class AureliaLeafletException {
@@ -295,7 +294,7 @@ class LayerFactory {
         this.L = Leaflet;
     }
 
-    getLayer(layer) {
+    getLayer(layer, handleEvent) {
         if (!layer.hasOwnProperty('type')) {
             layer.type = 'tile';
         }
@@ -358,7 +357,7 @@ class LayerFactory {
         if (layer.hasOwnProperty('events')) {
             for (let e of layer.events) {
                 if (typeof instance.on === 'function') {
-                    instance.on(e.name, e.callback);
+                    instance.on(e, handleEvent);
                 }
             }
         }
