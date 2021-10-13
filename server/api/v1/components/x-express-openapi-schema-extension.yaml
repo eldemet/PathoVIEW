@@ -27,12 +27,53 @@ definitions:
         example: array, boolean, color, date, enum, file, number, password, radio, revision, select, text, textarea, visibility, ref
       "ui:formItemCustomCompose":
         type: string
-        description: specify custom compose element on client
+        description: specify custom compose element in forms on client
+      "ui:formItemGridClass":
+        type: string
+        description: bootstrap column classes, col-*(x,sm,md,lg,xl,xxl)-(1-12)
+      "ui:formItemRule":
+        type: object
+        required:
+          - effect
+          - property
+          - conditionSchema
+        properties:
+          effect:
+            type: string
+            enum:
+              - show
+              - hide
+              - enable
+              - disable
+          property:
+            type: string
+          conditionSchema:
+            type: object
+      "ui:formItemEnumRules":
+        type: array
+        items:
+          type: object
+          required:
+            - property
+            - conditionSchema
+            - enum
+          properties:
+            property:
+              type: string
+            conditionSchema:
+              type: object
+            enum:
+              type: array
+              items:
+                type: string
       "ui:dependence":
         type: string
-        description: CHECK IF IT CAN BE DEPRECATED
+        # TODO CHECK IF IT CAN BE DEPRECATED
       "ui:noLabel":
         type: boolean
+      "ui:detailCustomCompose":
+        type: string
+        description: specify custom compose element in detail views on client
       "ui:accept":
         type: string
       "ui:hide":

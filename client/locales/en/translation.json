@@ -42,9 +42,7 @@
         "severity": "severity",
         "source": "source",
         "subCategory": "sub category",
-        "type": "type",
-        "validFrom": "valid from",
-        "validTo": "valid to"
+        "type": "type"
     },
     "enum": {
         "alert": {

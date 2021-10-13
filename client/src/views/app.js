@@ -64,7 +64,9 @@ export class App extends BasicViewRouterExtended {
         this.dialogService = dialogService;
         this.notificationService = notificationService;
         this.authService = AuthService;
-        this.proxy.registerService('alert', new ModelServiceAsyncUISchema('alert', '/api/v1/model', httpService));
+        this.proxy.registerService('alert',
+            new ModelServiceAsyncUISchema('alert', {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'}, httpService)
+        );
     }
 
     configureRouter(config, router) {

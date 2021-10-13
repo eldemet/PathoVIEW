@@ -42,9 +42,7 @@
         "severity": "Schweregrad",
         "source": "Quelle",
         "subCategory": "Unterkategorie",
-        "type": "Typ",
-        "validFrom": "gültig von",
-        "validTo": "gültig bis"
+        "type": "Typ"
     },
     "enum": {
         "alert": {
