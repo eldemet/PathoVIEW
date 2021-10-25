@@ -1,7 +1,7 @@
+import {AureliaCookie} from 'aurelia-cookie';
 import * as Keycloak from 'keycloak-js';
 
 /**
- * @extends BasicService
  * @category services
  */
 class AuthService {
@@ -20,10 +20,12 @@ class AuthService {
             AuthService.keycloak = new Keycloak(window.environment.keycloak);
             await AuthService.keycloak.init(options);
             AuthService.userInfo = await AuthService.keycloak.loadUserInfo();
+            AureliaCookie.set('auth_token', AuthService.keycloak.token, {});
             AuthService.interval = setInterval(async() => {
                 try {
                     await AuthService.keycloak.loadUserInfo();
                     await AuthService.keycloak.updateToken();
+                    AureliaCookie.set('auth_token', AuthService.keycloak.token, {});
                 } catch (error) {
                     AuthService.keycloak.logout({redirectUri: window.environment.keycloak.url});
                 }
