@@ -198,3 +198,22 @@ Address:
       type: string
       ui:formItemType: text
       ui:formItemGridClass: 'col-md-2'
+
+owner:
+  type: array
+  description: 'A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)'
+  items:
+    $ref: '#/NGSIentityFormat'
+    description: 'Property. Unique identifier of the entity'
+
+seeAlso:
+  type: array
+  description: 'list of uri pointing to additional resources about the item'
+  items:
+    format: uri
+    type: string
+  minItems: 1
+  ui:formItemType: array
+  ui:hide:
+    table: true
+  db:skipInSchemaDefinition: true
