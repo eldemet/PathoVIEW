@@ -8,6 +8,7 @@ const project = require('./aurelia_project/aurelia.json');
 const {AureliaPlugin, ModuleDependenciesPlugin} = require('aurelia-webpack-plugin');
 const {IgnorePlugin} = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const fs = require('fs');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -41,7 +42,7 @@ const sassRules = [
     }
 ];
 
-module.exports = ({production, server, extractCss, coverage, analyze, karma} = {}) => ({
+module.exports = ({production, server, extractCss, coverage, analyze, karma, https} = {}) => ({
     resolve: {
         extensions: ['.js'],
         modules: [srcDir, 'node_modules'],
@@ -74,6 +75,10 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
             directory: outDir,
             publicPath: production ? './' : '/'
         },
+        https: https ? {
+            key: fs.readFileSync(path.resolve(__dirname, '../../cert/server.key')),
+            cert: fs.readFileSync(path.resolve('../../cert/server.crt'))
+        } : false,
         historyApiFallback: true,
         setupExitSignals: true
     },

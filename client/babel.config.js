@@ -3,23 +3,20 @@ module.exports = api => {
         // cache based on the two env vars
         return 'babel:' + process.env.BABEL_TARGET + ' protractor:' + process.env.IN_PROTRACTOR;
     });
-
     return {
-        "plugins": [
+        'plugins': [
             ['@babel/plugin-proposal-decorators', {legacy: true}],
-            ['@babel/plugin-proposal-class-properties', {loose: true}]
+            ['@babel/plugin-proposal-class-properties', {loose: true}],
+            ['@babel/plugin-proposal-optional-chaining']
         ],
-        "presets": [
+        'presets': [
             [
-                "@babel/preset-env",
-                {
-                    "targets": process.env.BABEL_TARGET === 'node' ?
-                        {"node": process.env.IN_PROTRACTOR ? '6' : 'current'} :
-                        {"browsers": ["last 2 versions"]},
-                    "loose": true,
-                    "modules": process.env.BABEL_TARGET === 'node' ? 'commonjs' : false
+                '@babel/preset-env', {
+                    'targets': process.env.BABEL_TARGET === 'node' ? {'node': process.env.IN_PROTRACTOR ? '6' : 'current'} : {'browsers': ['last 2 versions']},
+                    'loose': true,
+                    'modules': process.env.BABEL_TARGET === 'node' ? 'commonjs' : false
                 }
             ]
         ]
-    }
+    };
 };

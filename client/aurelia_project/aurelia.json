@@ -17,7 +17,8 @@
         "options": {
             "server": "dev",
             "extractCss": "prod",
-            "coverage": false
+            "coverage": false,
+            "https": false
         }
     },
     "platform": {
