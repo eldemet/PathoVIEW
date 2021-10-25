@@ -78,6 +78,7 @@
                 "thunderstorms": "thunderstorms",
                 "avalancheRisk": "avalanche risk",
                 "floodRisk": "flood risk",
+                "airPollution": "air pollution",
                 "waterPollution": "water pollution",
                 "suspiciousAction": "suspicious action",
                 "assault": "assault",
