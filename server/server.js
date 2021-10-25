@@ -32,7 +32,18 @@ const configAppDefaults = {
         database: 'jsondb', //none, 'mongodb'
         swaggerUi: true,
         accessControlCheckerMiddleware: true,
+        keycloakMiddleware: true,
         notifications: 'sse'
+    },
+    api: {
+        modelReinitializeObjects: true,
+        modelDeleteObjects: true,
+        securitySchemes: [
+            {scheme: 'keycloakScheme', operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification'], scope: ['realm:admin']},
+            {scheme: 'keycloakScheme', operations: ['createObject', 'updateObject', 'deleteObject'], scope: ['realm:commander']},
+            {scheme: 'keycloakScheme', operations: ['getObjects', 'getObject', 'subscribeNotification'], scope: ['realm:first_responder']},
+            {scheme: 'keycloakScheme', operations: ['getObjects'], scope: ['healthcare']}
+        ]
     },
     server: {
         port: '3002'
@@ -43,6 +54,19 @@ const configAppDefaults = {
         jsondbReadOnly: false,
         uploadDirectory: '../data/uploads',
         customIdGeneratorFunction: 'api/v1/ngsi-id-generator.js'
+    },
+    keycloak: {
+        store: 'session',
+        schemeFlow: 'implicit',
+        protocol: 'openid-connect'
+    },
+    keycloakConfig: {
+        realm: 'pathocert',
+        clientId: 'pathoview',
+        authServerUrl: 'http://localhost:9990/auth/'
+    },
+    sessionMiddleware: {
+        secret: 'unsafe secret'
     }
 };
 

@@ -1,6 +1,6 @@
 {
     "name": "pathoview-server",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "PathoVIEW server application",
     "main": "server.js",
     "scripts": {
@@ -25,10 +25,13 @@
         "smart-data-models-multimedia": "https://github.com/smart-data-models/dataModel.Multimedia.git",
         "smart-data-model-user": "https://github.com/smart-data-models/dataModel.User.git"
     },
+    "napa-config": {
+        "cache": false
+    },
     "author": "Christian Knecht",
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.7.2"
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.8.2"
     },
     "directories": {
         "doc": "docs"
