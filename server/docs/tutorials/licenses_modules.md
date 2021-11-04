@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 628
+* MIT: 627
 * ISC: 72
 * Apache-2.0: 16
 * BSD-2-Clause: 14
@@ -1766,11 +1766,11 @@
     - licenses: MIT
     - description: Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.
     - copyright: Copyright (c) 2014-present, Jon Schlinkert.
- - **[mime-db@1.48.0](https://github.com/jshttp/mime-db)**
+ - **[mime-db@1.50.0](https://github.com/jshttp/mime-db)**
     - licenses: MIT
     - description: Media Type Database
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[mime-types@2.1.31](https://github.com/jshttp/mime-types)**
+ - **[mime-types@2.1.33](https://github.com/jshttp/mime-types)**
     - licenses: MIT
     - description: The ultimate javascript content-type utility.
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
@@ -1878,7 +1878,7 @@
     - licenses: MIT
     - description: Environment agnostic nextTick polyfill
     - copyright: Copyright (C) 2012-2016 Mariusz Nowak
- - **[node-fetch@2.6.5](https://github.com/bitinn/node-fetch)**
+ - **[node-fetch@2.6.6](https://github.com/bitinn/node-fetch)**
     - licenses: MIT
     - description: A light-weight module that brings window.fetch to node.js
     - copyright: Copyright (c) 2016 David Frank
@@ -2690,14 +2690,10 @@
     - licenses: MIT
     - description: Simple Semver and SemverRange classes
     - copyright: Copyright (C) 2017 Guy Bedford
- - **[swagger-ui-dist@3.52.5](https://github.com/swagger-api/swagger-ui)**
+ - **[swagger-ui-dist@4.0.0](https://github.com/swagger-api/swagger-ui)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://badge.fury.io/js/swagger-ui-dist.svg)](http://badge.fury.io/js/swagger-ui-dist)
     - copyright: none
- - **[swagger-ui-express@4.1.6](https://github.com/scottie1984/swagger-ui-express)**
-    - licenses: MIT
-    - description: Swagger UI Express
-    - copyright: Copyright (c) 2018 Scott IT London
  - **[tar-pack@3.4.1](https://github.com/ForbesLindesay/tar-pack)**
     - licenses: BSD-2-Clause
     - description: Package and un-package modules of some sort (in tar/gz bundles).
@@ -2906,7 +2902,7 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@3.8.2](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@3.8.3](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework/skeleton, helper functions,  middleware and services
     - copyright: Copyright (c) 2021, Fraunhofer IAO. All rights reserved.
