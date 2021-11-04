@@ -30,13 +30,13 @@ async function initializeUISchemas(schemaDirectory) {
  * @module paths/model/type/schema
  * @category paths
  */
-module.exports = function(config, apiVersion) {
+module.exports = function(config, getApiDoc) {
 
     let operations = {
         GET: logger.catchErrors(GET)
     };
 
-    operations.GET['apiDoc'] = getObjectSchema[apiVersion];
+    operations.GET['apiDoc'] = getApiDoc(getObjectUiSchema);
 
     async function GET(req, res) {
         if (!uiSchemas) {
@@ -49,10 +49,12 @@ module.exports = function(config, apiVersion) {
     return operations;
 };
 
-const getObjectSchema = {
+const getObjectUiSchema = {
+    'general': {
+        summary: 'Returns object ui schema to the caller',
+        operationId: 'getObjectUiSchema'
+    },
     '2.0': {
-        summary: 'Returns object schema to the caller',
-        operationId: 'getObjectSchema',
         parameters: [
             {
                 $ref: '#/parameters/modelType'
@@ -71,8 +73,6 @@ const getObjectSchema = {
         }
     },
     '3.0.2': {
-        summary: 'Returns object schema to the caller',
-        operationId: 'getObjectSchema',
         parameters: [
             {
                 $ref: '#/components/parameters/modelType'
