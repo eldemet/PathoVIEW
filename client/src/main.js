@@ -6,7 +6,7 @@ import {FormHelper} from 'library-aurelia/src/helpers/form-helper';
 import {I18nHelper} from 'library-aurelia/src/helpers/i18n-helper';
 import {DialogHelper} from 'library-aurelia/src/helpers/dialog-helper';
 import {AuthService} from './services/auth-service';
-import environment from './environment';
+import environment from '../config/environment.json';
 
 window.environment = environment;
 

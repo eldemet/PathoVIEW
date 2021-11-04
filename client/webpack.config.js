@@ -2,12 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const project = require('./aurelia_project/aurelia.json');
 const {AureliaPlugin, ModuleDependenciesPlugin} = require('aurelia-webpack-plugin');
 const {IgnorePlugin} = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const fs = require('fs');
 
 // config helpers:
@@ -27,7 +27,10 @@ const cssRules = [
         loader: 'postcss-loader',
         options: {
             postcssOptions: {
-                plugins: ['autoprefixer']
+                plugins: [
+                    'autoprefixer',
+                    'cssnano'
+                ]
             }
         }
     }
@@ -42,7 +45,7 @@ const sassRules = [
     }
 ];
 
-module.exports = ({production, server, extractCss, coverage, analyze, karma, https} = {}) => ({
+module.exports = ({production}, {analyze, hmr, port, host}) => ({
     resolve: {
         extensions: ['.js'],
         modules: [srcDir, 'node_modules'],
@@ -63,10 +66,6 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma, htt
         chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[fullhash].chunk.js'
     },
     optimization: {
-        minimizer: [
-            new CssMinimizerPlugin()
-        ],
-        minimize: production,
         runtimeChunk: true
     },
     performance: {hints: false},
@@ -75,20 +74,24 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma, htt
             directory: outDir,
             publicPath: production ? './' : '/'
         },
-        https: https ? {
-            key: fs.readFileSync(path.resolve(__dirname, '../../cert/server.key')),
-            cert: fs.readFileSync(path.resolve('../../cert/server.crt'))
-        } : false,
         historyApiFallback: true,
-        setupExitSignals: true
+        setupExitSignals: true,
+        open: project.platform.open,
+        hot: hmr || project.platform.hmr,
+        port: port || project.platform.port,
+        host: host || project.platform.host,
+        https: project.platform.https ? {
+            key: fs.readFileSync(path.resolve(__dirname, '../../cert/server.key')),
+            cert: fs.readFileSync(path.resolve(__dirname, '../../cert/server.crt'))
+        } : false
     },
-    devtool: production ? undefined : 'eval-cheap-module-source-map',
+    devtool: production ? undefined : 'cheap-module-source-map',
     module: {
         rules: [
             {
                 test: /\.css$/,
                 issuer: {not: /\.html$/},
-                use: extractCss ? [MiniCssExtractPlugin.loader, 'css-loader'] : ['style-loader', ...cssRules]
+                use: ['style-loader', ...cssRules]
             },
             {
                 test: /\.css$/,
@@ -97,7 +100,7 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma, htt
             },
             {
                 test: /\.scss$/,
-                use: extractCss ? [MiniCssExtractPlugin.loader, ...cssRules, ...sassRules] : ['style-loader', ...cssRules, ...sassRules],
+                use: ['style-loader', ...cssRules, ...sassRules],
                 issuer: /\.[tj]s$/
             },
             {
@@ -118,7 +121,7 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma, htt
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules(?!(\/|\\)library-aurelia)/,
-                options: coverage ? {sourceMap: 'inline', plugins: ['istanbul']} : {}
+                options: project.build.options.coverage ? {sourceMap: 'inline', plugins: ['istanbul']} : {}
             },
             {
                 test: /\.(png|gif|jpg|cur)$/,
@@ -140,11 +143,16 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma, htt
             {
                 test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 type: 'asset/resource'
+            },
+            {
+                test: /environment\.json$/i, use: [
+                    {loader: 'app-settings-loader', options: {env: production ? 'production' : 'development'}}
+                ]
             }
         ]
     },
     plugins: [
-        ...when(!karma, new DuplicatePackageCheckerPlugin()),
+        new DuplicatePackageCheckerPlugin(),
         new AureliaPlugin(),
         new ModuleDependenciesPlugin({
             'aurelia-testing': ['./compile-spy', './view-spy']
@@ -163,23 +171,24 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma, htt
                 removeStyleLinkTypeAttributes: true,
                 ignoreCustomFragments: [/\${.*?}/g]
             } : undefined,
-            metadata: {title, server, baseUrl: production ? './' : '/'}
+            metadata: {title, baseUrl: production ? './' : '/'}
         }),
         new IgnorePlugin({
             resourceRegExp: /^\.\/locale$/,
             contextRegExp: /moment$/
         }),
-        ...when(extractCss, new MiniCssExtractPlugin({
+        new MiniCssExtractPlugin({
             filename: production ? 'css/[name].[contenthash].bundle.css' : 'css/[name].[hash].bundle.css',
             chunkFilename: production ? 'css/[name].[contenthash].chunk.css' : 'css/[name].[hash].chunk.css'
-        })),
-        ...when(production || server, new CopyWebpackPlugin({
+        }),
+        new CopyWebpackPlugin({
             patterns: [{
                 from: 'static',
                 to: outDir,
                 globOptions: {ignore: ['.*']}
             }]
-        })),
-        ...when(analyze, new BundleAnalyzerPlugin())
+        }),
+        ...when(analyze, new BundleAnalyzerPlugin()),
+        new CleanWebpackPlugin()
     ]
 });
