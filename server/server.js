@@ -39,10 +39,9 @@ const configAppDefaults = {
         modelReinitializeObjects: true,
         modelDeleteObjects: true,
         securitySchemes: [
-            {scheme: 'keycloakScheme', operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification'], scope: ['realm:admin']},
-            {scheme: 'keycloakScheme', operations: ['createObject', 'updateObject', 'deleteObject'], scope: ['realm:commander']},
-            {scheme: 'keycloakScheme', operations: ['getObjects', 'getObject', 'subscribeNotification'], scope: ['realm:first_responder']},
-            {scheme: 'keycloakScheme', operations: ['getObjects'], scope: ['healthcare']}
+            {scheme: 'keycloakScheme', operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification'], scope: []},
+            {scheme: 'keycloakScheme', operations: ['createObject', 'updateObject', 'deleteObject'], scope: []},
+            {scheme: 'keycloakScheme', operations: ['getObjects', 'getObject', 'subscribeNotification'], scope: []}
         ]
     },
     server: {
@@ -81,7 +80,7 @@ const additionalDbSchemas = {
     Alert: {$ref: 'node_modules/smart-data-models-alert/Alert/model.yaml#/Alert'},
     Anomaly: {$ref: 'node_modules/smart-data-models-alert/Anomaly/model.yaml#/Anomaly'},
     Asset: {$ref: 'node_modules/smart-data-models-risk-management/Asset/model.yaml#/Asset'},
-    CyberAnalysis: {$ref: 'node_modules/smart-data-models-risk-management/CyberAnalysis/model.yaml#/CyberAnalysis'},
+    Device: {$ref: 'node_modules/smart-data-models-device/Device/model.yaml#/Device'},
     Exposure: {$ref: 'node_modules/smart-data-models-risk-management/Exposure/model.yaml#/Exposure'},
     GISData: {$ref: 'node_modules/smart-data-models-risk-management/GISData/model.yaml#/GISData'},
     Hazard: {$ref: 'node_modules/smart-data-models-risk-management/Hazard/model.yaml#/Hazard'},
@@ -92,6 +91,7 @@ const additionalDbSchemas = {
     Vulnerability: {$ref: 'node_modules/smart-data-models-risk-management/Vulnerability/model.yaml#/Vulnerability'},
     PointOfInterest: {$ref: 'node_modules/smart-data-models-point-of-interest/PointOfInterest/model.yaml#/PointOfInterest'},
     WaterQualityObserved: {$ref: 'node_modules/smart-data-models-water-quality/WaterQualityObserved/model.yaml#/WaterQualityObserved'}
+    // CyberAnalysis: {$ref: 'node_modules/smart-data-models-risk-management/CyberAnalysis/model.yaml#/CyberAnalysis'},
     // SmartPointOfInteraction: {$ref: 'node_modules/smart-data-models-point-of-interaction/SmartPointOfInteraction/model.yaml#/SmartPointOfInteraction'},
     // SmartSpot: {$ref: 'node_modules/smart-data-models-point-of-interaction/SmartSpot/model.yaml#/SmartSpot'},
     // Blower: {$ref: 'node_modules/smart-data-models-waste-water/Blower/model.yaml#/Blower'},
