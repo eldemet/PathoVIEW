@@ -13,7 +13,7 @@
              display-is-navigating.bind="true"
              home-icon-src.bind="'assets/icon-pathocert.png'">
 
-        <div class="dropdown">
+        <div class="dropdown" if.bind="!authService.userInfo.locale">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="language-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-translate"></i>
