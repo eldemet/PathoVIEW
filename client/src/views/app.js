@@ -50,6 +50,16 @@ export class App extends BasicViewRouterExtended {
             settings: {
                 detailView: true
             }
+        },
+        {
+            route: 'device',
+            name: 'device',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('views.searchModel', {type: 'model.device', count: 2}),
+            settings: {
+                detailView: true
+            }
         }
     ];
 
@@ -67,6 +77,10 @@ export class App extends BasicViewRouterExtended {
         this.proxy.registerService('alert',
             new ModelServiceAsyncUISchema('alert', {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'}, httpService)
         );
+        this.proxy.registerService('device',
+            new ModelServiceAsyncUISchema('device', {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'}, httpService)
+        );
+        this.contextService = contextService;
     }
 
     configureRouter(config, router) {
