@@ -1,6 +1,22 @@
 definitions:
   schema:
     properties:
+      "x-derived-from":
+        type: string
+      "x-disclaimer":
+        type: string
+      "x-license-url":
+        type: string
+      "x-model-schema":
+        type: string
+      "x-model-tags":
+        type: string
+      "x-version":
+        type: string
+      "const":
+        oneOf:
+          - type: string
+          - type: number
       "ui:readOnly":
         type: boolean
         description: can be used to to decide whether to display a create/update/delete button or not

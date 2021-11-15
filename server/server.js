@@ -5,6 +5,7 @@
 global.__basedir = __dirname;
 const framework = require('utilities-node/src/framework');
 const fs = require('fs');
+const idnEmail = require('ajv-formats-draft2019/formats/idn-email');
 
 const openApi = {
     apiDoc: {
@@ -24,6 +25,9 @@ const openApi = {
         './api/v1/paths'
     ],
     externalSchemas: {},
+    customFormats: {
+        'idn-email': idnEmail
+    },
     'x-express-openapi-schema-extension': './api/v1/components/x-express-openapi-schema-extension.yaml'
 };
 

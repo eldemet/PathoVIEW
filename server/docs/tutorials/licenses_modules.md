@@ -2,12 +2,13 @@
 
 ## Summary
 
-* MIT: 627
+* MIT: 633
 * ISC: 72
 * Apache-2.0: 16
 * BSD-2-Clause: 14
-* BSD-3-Clause: 8
+* BSD-3-Clause: 9
 * BSD-3-Clause-Clear: 3
+* CC0-1.0: 2
 * Python-2.0: 1
 * (MIT OR Apache-2.0): 1
 * Custom: https://github.com/dominictarr/event-stream: 1
@@ -24,7 +25,6 @@
 * Custom: https://github.com/smart-data-models/dataModel.WasteWater/blob/master/Blower/README.md: 1
 * Custom: https://github.com/smart-data-models/dataModel.WaterQuality/blob/master/WaterQualityObserved/README.md: 1
 * CC-BY-3.0: 1
-* CC0-1.0: 1
 * (MIT AND CC-BY-3.0): 1
 * (MIT OR CC0-1.0): 1
 
@@ -38,7 +38,7 @@
     - licenses: MIT
     - description: Tools for debugging your node.js modules and event loop
     - copyright: Copyright (c) 2015 Arnout Kazemier, Martijn Swaagman, the Contributors.
- - **[@eslint/eslintrc@1.0.3](https://github.com/eslint/eslintrc)**
+ - **[@eslint/eslintrc@1.0.4](https://github.com/eslint/eslintrc)**
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright (c) 2020 ESLint
@@ -46,7 +46,7 @@
     - licenses: Apache-2.0
     - description: Glob-based configuration matching.
     - copyright: none
- - **[@humanwhocodes/object-schema@1.2.0](https://github.com/humanwhocodes/object-schema)**
+ - **[@humanwhocodes/object-schema@1.2.1](https://github.com/humanwhocodes/object-schema)**
     - licenses: BSD-3-Clause
     - description: An object schema merger/validator
     - copyright: Copyright (c) 2019, Human Who Codes. All rights reserved.
@@ -118,6 +118,10 @@
     - licenses: MIT
     - description: Create an error from multiple errors
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[ajv-formats-draft2019@1.6.1](https://github.com/luzlab/ajv-formats-draft2019)**
+    - licenses: MIT
+    - description: Plugin for AJV that adds support for some of string formats adding in the draft2019 JSON Schema.
+    - copyright: Copyright (c) 2020 Carlo Q
  - **[ajv-formats@2.1.1](https://github.com/ajv-validator/ajv-formats)**
     - licenses: MIT
     - description: Format validation for Ajv v7+
@@ -126,7 +130,7 @@
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2017 Evgeny Poberezkin
- - **[ajv@8.6.3](https://github.com/ajv-validator/ajv)**
+ - **[ajv@8.8.0](https://github.com/ajv-validator/ajv)**
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2021 Evgeny Poberezkin
@@ -750,6 +754,10 @@
     - licenses: MIT
     - description: Convert directories to glob compatible strings
     - copyright: Copyright (c) Kevin Mårtensson <kevinmartensson@gmail.com> (github.com/kevva)
+ - **[discontinuous-range@1.0.0](https://github.com/dtudury/discontinuous-range)**
+    - licenses: MIT
+    - description: for adding, subtracting, and indexing discontinuous ranges of numbers
+    - copyright: Copyright (c) 2014 David Tudury
  - **[doctrine@3.0.0](https://github.com/eslint/doctrine)**
     - licenses: Apache-2.0
     - description: JSDoc parser
@@ -842,11 +850,11 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint-visitor-keys@3.0.0](https://github.com/eslint/eslint-visitor-keys)**
+ - **[eslint-visitor-keys@3.1.0](https://github.com/eslint/eslint-visitor-keys)**
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.1.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.2.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -866,7 +874,7 @@
     - licenses: BSD-2-Clause
     - description: ECMAScript AST recursive visitor
     - copyright: Copyright (C) 2014 [Yusuke Suzuki](https://github.com/Constellation).  (twitter: [@Constellation](https://twitter.com/Constellation)) and other contributors.
- - **[estraverse@5.2.0](https://github.com/estools/estraverse)**
+ - **[estraverse@5.3.0](https://github.com/estools/estraverse)**
     - licenses: BSD-2-Clause
     - description: ECMAScript JS AST traversal functions
     - copyright: none
@@ -890,7 +898,7 @@
     - licenses: MIT
     - description: express middleware that normalizes incoming query param names
     - copyright: Copyright (c) 2016 Kogo Software LLC
- - **[express-openapi@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/express-openapi)**
+ - **[express-openapi@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/express-openapi)**
     - licenses: MIT
     - description: An unopinionated OpenAPI framework for express
     - copyright: Copyright (c) 2018 Kogo Softare LLC
@@ -1038,7 +1046,7 @@
     - licenses: MIT
     - description: A stupidly simple key/value storage using files to persist some data
     - copyright: Copyright (c) 2015 Roy Riojas
- - **[flatted@3.2.2](https://github.com/WebReflection/flatted)**
+ - **[flatted@3.2.4](https://github.com/WebReflection/flatted)**
     - licenses: ISC
     - description: A super light and fast circular JSON parser.
     - copyright: Copyright (c) 2018-2020, Andrea Giammarchi, @WebReflection
@@ -1174,7 +1182,7 @@
     - licenses: MIT
     - description: Get the npm global path prefix.
     - copyright: Copyright (c) 2015-2017, Jon Schlinkert.
- - **[globals@13.11.0](https://github.com/sindresorhus/globals)**
+ - **[globals@13.12.0](https://github.com/sindresorhus/globals)**
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1822,6 +1830,10 @@
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
+ - **[moo@0.5.1](https://github.com/tjvr/moo)**
+    - licenses: BSD-3-Clause
+    - description: Optimised tokenizer/lexer generator! 🐄 Much performance. Moo!
+    - copyright: Copyright (c) 2017, Tim Radvan (tjvr). All rights reserved.
  - **[morgan@1.10.0](https://github.com/expressjs/morgan)**
     - licenses: MIT
     - description: HTTP request logger middleware for node.js
@@ -1870,6 +1882,10 @@
     - licenses: MIT
     - description: Compare strings containing a mix of letters and numbers in the way a human being would in sort order.
     - copyright: Copyright (c) 2012-2015 Lauri Rooden &lt;lauri@rooden.ee&gt;  . [The MIT License](http://lauri.rooden.ee/mit-license.txt)
+ - **[nearley@2.20.1](https://github.com/hardmath123/nearley)**
+    - licenses: MIT
+    - description: Simple, fast, powerful parser toolkit for JavaScript.
+    - copyright: Copyright (c) 2014, 2015, 2016, 2017, 2018, 2019 Kartik Chandra, Tim Radvan
  - **[negotiator@0.6.2](https://github.com/jshttp/negotiator)**
     - licenses: MIT
     - description: HTTP content negotiation
@@ -1982,39 +1998,39 @@
     - licenses: MIT
     - description: Run the supplied function exactly one time (once)
     - copyright: Copyright (c) 2015 Unshift.io, Arnout Kazemier,  the Contributors.
- - **[openapi-default-setter@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-default-setter)**
+ - **[openapi-default-setter@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-default-setter)**
     - licenses: MIT
     - description: Sets default values in request properties according to defaults defined in openapi parameter lists.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-framework@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-framework)**
+ - **[openapi-framework@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-framework)**
     - licenses: MIT
     - description: An OpenAPI framework for any web framework
     - copyright: Copyright (c) 2018 Kogo Softare LLC
- - **[openapi-jsonschema-parameters@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-jsonschema-parameters)**
+ - **[openapi-jsonschema-parameters@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-jsonschema-parameters)**
     - licenses: MIT
     - description: Converts openapi parameters to a jsonschema format.
     - copyright: Copyright (c) 2016 Kogo Software LLC
- - **[openapi-request-coercer@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-coercer)**
+ - **[openapi-request-coercer@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-coercer)**
     - licenses: MIT
     - description: Coerce request properties according to an openapi parameter list.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-request-validator@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-validator)**
+ - **[openapi-request-validator@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-validator)**
     - licenses: MIT
     - description: Validate request properties against an OpenAPI spec.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-response-validator@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-response-validator)**
+ - **[openapi-response-validator@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-response-validator)**
     - licenses: MIT
     - description: Validate a response according to an openapi schema.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-schema-validator@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-schema-validator)**
+ - **[openapi-schema-validator@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-schema-validator)**
     - licenses: MIT
     - description: A validator for OpenAPI documents.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-security-handler@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-security-handler)**
+ - **[openapi-security-handler@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-security-handler)**
     - licenses: MIT
     - description: A library to process OpenAPI security definitions in parallel.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-types@9.3.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-types)**
+ - **[openapi-types@9.3.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-types)**
     - licenses: MIT
     - description: Types for OpenAPI documents.
     - copyright: Copyright (c) 2018 Kogo Softare LLC
@@ -2230,6 +2246,14 @@
     - licenses: MIT
     - description: fast, tiny `queueMicrotask` shim for modern engines
     - copyright: Copyright (c) Feross Aboukhadijeh
+ - **[railroad-diagrams@1.0.0](https://github.com/tabatkins/railroad-diagrams)**
+    - licenses: CC0-1.0
+    - description: A small JS+SVG library for drawing railroad syntax diagrams.
+    - copyright: none
+ - **[randexp@0.4.6](https://github.com/fent/randexp.js)**
+    - licenses: MIT
+    - description: Create random strings that match a given regular expression.
+    - copyright: Copyright (C) 2011 by Roly Fentanes
  - **[random-bytes@1.0.0](https://github.com/crypto-utils/random-bytes)**
     - licenses: MIT
     - description: URL and cookie safe UIDs
@@ -2402,6 +2426,10 @@
     - licenses: MIT
     - description: SASLprep: Stringprep Profile for User Names and Passwords, rfc4013.
     - copyright: Copyright (c) 2014 Dmitry Tsvettsikh
+ - **[schemes@1.4.0](https://github.com/Munter/schemes)**
+    - licenses: MIT
+    - description: IANA Uniform Resource Identifier (URI) Schemes list, including crowd sourced unofficial ones
+    - copyright: Copyright (c) 2015 Peter Müller <munter@fumle.dk>
  - **[seek-bzip@1.0.6](https://github.com/cscott/seek-bzip)**
     - licenses: MIT
     - description: a pure-JavaScript Node.JS module for random-access decoding bzip2 data
@@ -2514,6 +2542,10 @@
     - licenses: Custom: https://github.com/smart-data-models/dataModel.WaterQuality/blob/master/WaterQualityObserved/README.md
     - description: -
     - copyright: none
+ - **[smtp-address-parser@1.0.7](https://github.com/gene-hightower/smtp-address-parser)**
+    - licenses: MIT
+    - description: Parse an SMTP (RFC-5321) address
+    - copyright: Copyright (c) 2021 Gene Hightower
  - **[snapdragon-node@2.1.1](https://github.com/jonschlinkert/snapdragon-node)**
     - licenses: MIT
     - description: Snapdragon utility for creating a new AST node in custom code, such as plugins.
@@ -2690,7 +2722,7 @@
     - licenses: MIT
     - description: Simple Semver and SemverRange classes
     - copyright: Copyright (C) 2017 Guy Bedford
- - **[swagger-ui-dist@4.0.0](https://github.com/swagger-api/swagger-ui)**
+ - **[swagger-ui-dist@4.1.0](https://github.com/swagger-api/swagger-ui)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://badge.fury.io/js/swagger-ui-dist.svg)](http://badge.fury.io/js/swagger-ui-dist)
     - copyright: none
@@ -2798,7 +2830,7 @@
     - licenses: MIT
     - description: Definitions of levels for logging purposes & shareable Symbol constants.
     - copyright: Copyright (c) 2017 winstonjs
- - **[ts-log@2.2.3](https://github.com/kallaspriit/ts-log)**
+ - **[ts-log@2.2.4](https://github.com/kallaspriit/ts-log)**
     - licenses: MIT
     - description: Abstract logger TypeScript interface with a dummy logger that does nothing, useful for libraries.
     - copyright: Copyright (c) 2018 Priit Kallas
@@ -2902,7 +2934,7 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@3.8.3](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@3.8.4](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework/skeleton, helper functions,  middleware and services
     - copyright: Copyright (c) 2021, Fraunhofer IAO. All rights reserved.
