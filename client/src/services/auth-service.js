@@ -19,8 +19,8 @@ class AuthService {
         if (!AuthService.keycloak) {
             AuthService.keycloak = new Keycloak(window.environment.keycloak);
             await AuthService.keycloak.init(options);
-            AuthService.userInfo = await AuthService.keycloak.loadUserInfo();
             AureliaCookie.set('auth_token', AuthService.keycloak.token, {});
+            AuthService.userInfo = await AuthService.keycloak.loadUserInfo();
             AuthService.interval = setInterval(async() => {
                 try {
                     await AuthService.keycloak.loadUserInfo();
@@ -41,6 +41,10 @@ class AuthService {
 
     static getTokenExpiresIn() {
         return Math.round(AuthService.keycloak.tokenParsed.exp + AuthService.keycloak.timeSkew - new Date().getTime() / 1000);
+    }
+
+    static async setUserAttribute(httpService, attributeObject) {
+        await httpService.fetch('PUT', window.environment.keycloak.url + 'admin/realms/' + AuthService.keycloak.realm + '/users/' + AuthService.userInfo.sub, {attributes: attributeObject}, 2000);
     }
 
 }
