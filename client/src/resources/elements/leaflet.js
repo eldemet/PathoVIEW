@@ -339,7 +339,7 @@ class LayerFactory {
             case 'circleMarker':
                 instance = this.getCircleMarker(layer);
                 break;
-            case 'group':
+            case 'layerGroup':
                 instance = this.getLayerGroup(layer);
                 break;
             case 'featureGroup':
@@ -361,6 +361,9 @@ class LayerFactory {
                 }
             }
         }
+        if (layer.hasOwnProperty('popupContent')) {
+            instance.bindPopup(layer.popupContent).openPopup();
+        }
         return instance;
     }
 
@@ -368,11 +371,7 @@ class LayerFactory {
         if (!layer.hasOwnProperty('latLng')) {
             throw new AureliaLeafletException('No latLng given for layer.type "marker"');
         }
-        let marker = this.L.marker(layer.latLng, layer.options);
-        if (layer.hasOwnProperty('popupContent')) {
-            marker.bindPopup(layer.popupContent).openPopup();
-        }
-        return marker;
+        return this.L.marker(layer.latLng, layer.options);
     }
 
     getPopup(layer) {
