@@ -5,6 +5,7 @@ import * as platform from 'platform';
 import pick from 'lodash/pick';
 import isEqual from 'lodash/isEqual';
 import {AuthService} from './auth-service';
+import {deviceUtilities} from '../utilities';
 
 /**
  * @extends BasicService
@@ -90,13 +91,7 @@ class ContextService extends BasicService {
     }
 
     getDeviceIcon(device) {
-        let icon = 'windows';
-        if (device.manufacturer === 'Apple' || device.manufacturer === 'Google') {
-            icon = 'phone';
-        } else if (device?.osVersion?.includes('Mac')) {
-            icon = 'apple';
-        }
-        return icon;
+        return deviceUtilities.getDeviceIcon(device);
     }
 
 }
