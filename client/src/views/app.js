@@ -76,18 +76,15 @@ export class App extends BasicViewRouterExtended {
         this.dialogService = dialogService;
         this.notificationService = notificationService;
         this.authService = AuthService;
-        this.proxy.registerService('alert',
-            new ModelServiceAsyncUISchema('alert', {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'}, httpService)
-        );
-        this.proxy.registerService('device',
-            new ModelServiceAsyncUISchema('device', {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'}, httpService)
-        );
+        const modelOptions = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'};
+        this.proxy.registerService('alert', new ModelServiceAsyncUISchema('alert', modelOptions, httpService));
+        this.proxy.registerService('device', new ModelServiceAsyncUISchema('device', modelOptions, httpService));
         this.contextService = contextService;
     }
 
     configureRouter(config, router) {
         super.configureRouter(config, router);
-        config.title = 'Example Project';
+        config.title = this.i18n.tr('app');
         config.map(this.routes);
         config.mapUnknownRoutes(PLATFORM.moduleName('library-aurelia/src/views-general/not-found'));
     }

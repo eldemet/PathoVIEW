@@ -1,4 +1,5 @@
 {
+    "app": "PathoVIEW Web App",
     "model": {
         "object": "object",
         "object_plural": "objects",

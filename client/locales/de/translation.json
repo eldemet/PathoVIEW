@@ -1,4 +1,5 @@
 {
+    "app": "PathoVIEW Web App",
     "model": {
         "object": "Objekt",
         "object_other": "Objekte",
