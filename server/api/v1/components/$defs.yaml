@@ -7,11 +7,6 @@ NGSIentityFormat:
 
 Location:
   description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
-  ui:formItemType: map
-  ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
-  ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
-  ui:hide:
-    table: true
   oneOf:
     - description: 'Geoproperty. Geojson reference to the item. Point'
       properties:

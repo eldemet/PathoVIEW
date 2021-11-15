@@ -172,3 +172,8 @@ properties:
     ui:formItemType: text
   location:
     $ref: './../$defs.yaml#/Location'
+    ui:formItemType: map
+    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
+    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
+    ui:hide:
+      table: true

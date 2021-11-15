@@ -74,7 +74,8 @@
         "dateObserved": "date observed",
         "value": "value",
         "distance": "distance",
-        "rssi": "received signal strength indicator (RSSI)"
+        "rssi": "received signal strength indicator (RSSI)",
+        "parameter": "parameter"
     },
     "enum": {
         "alert": {

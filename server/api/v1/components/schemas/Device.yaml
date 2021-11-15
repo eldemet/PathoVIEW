@@ -2,6 +2,7 @@ type: object
 description: 'An apparatus (hardware + software + firmware) intended to accomplish a particular task (sensing the environment, actuating, etc.).'
 required:
   - id
+  - name
   - type
   - controlledProperty
 properties:
@@ -147,20 +148,25 @@ properties:
     ui:formItemType: array
     items:
       type: object
+      ui:formItemType: object
       properties:
         parameter:
           type: string
           ui:formItemType: text
+          ui:formItemGridClass: 'col-md-6'
+          ui:i18n: true
         value:
           type: string
           ui:formItemType: text
+          ui:formItemGridClass: 'col-md-6'
+          ui:i18n: true
+  seeAlso:
+    $ref: './../$defs.yaml#/seeAlso'
   controlledAsset:
     type: array
     description: 'List of the asset(s) (building, object, etc.) controlled by the device.'
     items:
       $ref: './../$defs.yaml#/NGSIentityFormat'
-  seeAlso:
-    $ref: './../$defs.yaml#/seeAlso'
   owner:
     type: array
     description: 'A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)'
@@ -183,6 +189,9 @@ properties:
     $ref: './../$defs.yaml#/Address'
   location:
     $ref: './../$defs.yaml#/Location'
+    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
+    ui:hide:
+      table: true
   areaServed:
     type: string
     description: 'The geographic area where a service or offered item is provided'
