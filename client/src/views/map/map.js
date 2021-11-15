@@ -1,22 +1,61 @@
 import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
+import {catchError} from 'library-aurelia/src/decorators';
+import {loadingEvent} from '../../decorators';
+import {alertUtilities, deviceUtilities} from '../../utilities';
 
-export class StylesView extends BasicViewExtended {
+class MapView extends BasicViewExtended {
 
     constructor(...rest) {
         super(...rest);
     }
 
-    activate() {
+    async attached() {
+        await this.loadAlerts();
+        await this.loadDevices();
         this.layers = {
             overlay: [
                 {
-                    id: 'iat',
-                    type: 'marker',
-                    latLng: [48.74151639537436, 9.096060098145793],
-                    popupContent: 'Institut für Arbeitswissenschaft und Technologiemanagement'
+                    id: this.i18n.tr('model.alert', {count: 0}),
+                    type: 'layerGroup',
+                    layers: this.alerts.map(alert => {
+                        return {
+                            id: alert.id,
+                            type: 'geoJSON',
+                            data: alert.location,
+                            popupContent: `<h6><i class="${alertUtilities.getSeverityIcon(alert.severity)}"></i> ${alert.name}</h6>
+                                           ${this.i18n.tr('enum.alert.category.' + alert.category)}, ${this.i18n.tr('enum.alert.subCategory.' + alert.subCategory)}`
+                        };
+                    })
+                },
+                {
+                    id: this.i18n.tr('model.device', {count: 0}),
+                    type: 'layerGroup',
+                    layers: this.devices.map(device => {
+                        return {
+                            id: device.id,
+                            type: 'geoJSON',
+                            data: device.location,
+                            popupContent: `<h6><i class="${deviceUtilities.getDeviceIcon(device)}"></i> ${device.name}</h6>
+                                           ${this.i18n.tr('enum.device.category.' + device.category)}`
+                        };
+                    })
                 }
             ]
         };
     }
 
+    @catchError('app-alert')
+    @loadingEvent('app-alert', 'alert')
+    async loadAlerts() {
+        this.alerts = (await this.proxy.get('alert').getObjects()).objects;
+    }
+
+    @catchError('app-alert')
+    @loadingEvent('app-alert', 'device')
+    async loadDevices() {
+        this.devices = (await this.proxy.get('device').getObjects()).objects;
+    }
+
 }
+
+export {MapView};
