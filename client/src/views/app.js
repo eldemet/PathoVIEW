@@ -5,12 +5,14 @@ import {BindingSignaler} from 'aurelia-templating-resources';
 import {DialogService} from 'aurelia-dialog';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
+import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {HttpService} from 'library-aurelia/src/services/http-service';
+import {ContextService} from '../services/context-service';
 import {ModelServiceAsyncUISchema} from '../services/model-service-async-ui-schema';
 import {AureliaCookie} from 'aurelia-cookie';
 import {AuthService} from '../services/auth-service';
 
-@inject(BindingSignaler, DialogService, NotificationService, HttpService)
+@inject(BindingSignaler, DialogService, NotificationService, HttpService, ContextService)
 export class App extends BasicViewRouterExtended {
 
     routes = [
@@ -68,7 +70,7 @@ export class App extends BasicViewRouterExtended {
         {name: 'Deutsch (de)', value: 'de'}
     ];
 
-    constructor(bindingSignaler, dialogService, notificationService, httpService, ...rest) {
+    constructor(bindingSignaler, dialogService, notificationService, httpService, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
         this.dialogService = dialogService;
@@ -90,11 +92,12 @@ export class App extends BasicViewRouterExtended {
         config.mapUnknownRoutes(PLATFORM.moduleName('library-aurelia/src/views-general/not-found'));
     }
 
-    attached() {
+    async attached() {
         super.attached();
         this.isDarkMode = this.responsiveService.isDarkMode();
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener('http://localhost:3002/api/v1/notification', ['model', 'event']);
+        this.contextService.initialize();
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {
                 this.eventAggregator.publish('toast', {
@@ -136,6 +139,22 @@ export class App extends BasicViewRouterExtended {
     changeLanguage(language) {
         AureliaCookie.set('lang', language, {});
         window.location.reload();
+    }
+
+    openAddDeviceModal(formType, id) {
+        let model = {
+            kind: 'device',
+            formType: 'create',
+            objectData: {owner: [AuthService.userInfo.sub]}
+        };
+        this.dialogService.open({viewModel: AuFormDialog, model: model, modalSize: 'modal-xl'}).whenClosed(response => {
+            if (response.wasCancelled) {
+                this.logger.debug('Dialog was cancelled!');
+            } else {
+                this.logger.debug('Dialog was confirmed!');
+                this.contextService.initialize();
+            }
+        });
     }
 
 }
