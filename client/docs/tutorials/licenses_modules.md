@@ -2,10 +2,10 @@
 
 ## Summary
 
-* MIT: 1066
+* MIT: 1053
 * ISC: 90
-* BSD-2-Clause: 28
-* Apache-2.0: 22
+* BSD-2-Clause: 26
+* Apache-2.0: 23
 * BSD-3-Clause: 21
 * Unlicense: 3
 * BSD-3-Clause-Clear: 3
@@ -14,7 +14,6 @@
 * Python-2.0: 1
 * (MIT OR Apache-2.0): 1
 * CC-BY-4.0: 1
-* Apache*: 1
 * AFLv2.1,BSD: 1
 * (BSD-3-Clause OR GPL-2.0): 1
 * (MIT AND Zlib): 1
@@ -442,7 +441,7 @@
     - licenses: MIT
     - description: A set of utilities that extend the use of JSON
     - copyright: Copyright (c) 2020 Roman Dvornov <rdvornov@gmail.com>
- - **[@eslint/eslintrc@1.0.3](https://github.com/eslint/eslintrc)**
+ - **[@eslint/eslintrc@1.0.4](https://github.com/eslint/eslintrc)**
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright (c) 2020 ESLint
@@ -758,7 +757,7 @@
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2017 Evgeny Poberezkin
- - **[ajv@8.6.3](https://github.com/ajv-validator/ajv)**
+ - **[ajv@8.7.1](https://github.com/ajv-validator/ajv)**
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2021 Evgeny Poberezkin
@@ -934,10 +933,6 @@
     - licenses: MIT
     - description: Assign the enumerable es6 Symbol properties from an object (or objects) to the first object passed on the arguments. Can be used as a supplement to other extend, assign or merge methods as a polyfill for the Symbols part of the es6 Object.assign method.
     - copyright: Copyright (c) 2015, Jon Schlinkert.
- - **[ast-types@0.9.6](https://github.com/benjamn/ast-types)**
-    - licenses: MIT
-    - description: Esprima-compatible implementation of the Mozilla JS Parser API
-    - copyright: Copyright (c) 2013 Ben Newman <bn@cs.stanford.edu>
  - **[async-done@1.3.2](https://github.com/gulpjs/async-done)**
     - licenses: MIT
     - description: Allows libraries to handle various caller provided asynchronous functions uniformly. Maps promises, observables, child processes and streams, and callbacks to callback style.
@@ -1102,7 +1097,7 @@
     - licenses: MIT
     - description: Validation for Aurelia applications
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
- - **[aurelia-webpack-plugin@5.0.2](https://github.com/aurelia/webpack-plugin)**
+ - **[aurelia-webpack-plugin@5.0.3](https://github.com/aurelia/webpack-plugin)**
     - licenses: MIT
     - description: A plugin for webpack that enables bundling Aurelia applications.
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
@@ -1306,10 +1301,6 @@
     - licenses: MIT
     - description: Get callsites from the V8 stack trace API
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[camel-case@3.0.0](https://github.com/blakeembrey/camel-case)**
-    - licenses: MIT
-    - description: Camel case a string
-    - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
  - **[camel-case@4.1.2](https://github.com/blakeembrey/change-case)**
     - licenses: MIT
     - description: Transform into a string with the separator denoted by the next word capitalized
@@ -1362,10 +1353,6 @@
     - licenses: MIT
     - description: Utils for working with JavaScript classes and prototype methods.
     - copyright: Copyright (c) 2015, 2017-2018, Jon Schlinkert.
- - **[clean-css@4.2.4](https://github.com/jakubpawlowicz/clean-css)**
-    - licenses: MIT
-    - description: A well-tested CSS minifier
-    - copyright: Copyright (C) 2017 JakubPawlowicz.com
  - **[clean-css@5.2.2](https://github.com/clean-css/clean-css)**
     - licenses: MIT
     - description: A well-tested CSS minifier
@@ -1450,14 +1437,6 @@
     - licenses: MIT
     - description: A stream that emits multiple other streams one after another.
     - copyright: Copyright (c) 2011 Debuggable Limited <felix@debuggable.com>
- - **[commander@2.17.1](https://github.com/tj/commander.js)**
-    - licenses: MIT
-    - description: the complete solution for node.js command-line programs
-    - copyright: Copyright (c) 2011 TJ Holowaychuk <tj@vision-media.ca>
- - **[commander@2.19.0](https://github.com/tj/commander.js)**
-    - licenses: MIT
-    - description: the complete solution for node.js command-line programs
-    - copyright: Copyright (c) 2011 TJ Holowaychuk <tj@vision-media.ca>
  - **[commander@2.20.3](https://github.com/tj/commander.js)**
     - licenses: MIT
     - description: the complete solution for node.js command-line programs
@@ -1586,7 +1565,7 @@
     - licenses: ISC
     - description: Sorts CSS declarations fast and automatically in a certain order.
     - copyright: Copyright (c)
- - **[css-loader@6.5.0](https://github.com/webpack-contrib/css-loader)**
+ - **[css-loader@6.5.1](https://github.com/webpack-contrib/css-loader)**
     - licenses: MIT
     - description: css loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
@@ -1606,7 +1585,7 @@
     - licenses: MIT
     - description: A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
- - **[cssnano-preset-default@5.1.5](https://github.com/cssnano/cssnano)**
+ - **[cssnano-preset-default@5.1.6](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Safe defaults for cssnano which require minimal configuration.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -1614,7 +1593,7 @@
     - licenses: MIT
     - description: Utility methods and plugin for cssnano projects
     - copyright: none
- - **[cssnano@5.0.9](https://github.com/cssnano/cssnano)**
+ - **[cssnano@5.0.10](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: A modular minifier, built on top of the PostCSS ecosystem.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -1898,10 +1877,6 @@
     - licenses: ISC
     - description: ECMAScript 6 Symbol polyfill
     - copyright: Copyright (c) 2013-2019, Mariusz Nowak, @medikoo, medikoo.com
- - **[es6-templates@0.2.3](https://github.com/esnext/es6-templates)**
-    - licenses: Apache*
-    - description: ES6 template strings compiled to ES5.
-    - copyright: Copyright 2014 Square Inc..  . Licensed under the Apache License, Version 2.0 (the "License");. you may not use this file except in compliance with the License.. You may obtain a copy of the License at.  .     http://www.apache.org/licenses/LICENSE-2.0.  . Unless required by applicable law or agreed to in writing, software. distributed under the License is distributed on an "AS IS" BASIS,. WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.. See the License for the specific language governing permissions and. limitations under the License..
  - **[es6-weak-map@2.0.3](https://github.com/medikoo/es6-weak-map)**
     - licenses: ISC
     - description: ECMAScript6 WeakMap polyfill
@@ -1946,7 +1921,11 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.1.0](https://github.com/eslint/eslint)**
+ - **[eslint-visitor-keys@3.1.0](https://github.com/eslint/eslint-visitor-keys)**
+    - licenses: Apache-2.0
+    - description: Constants and utilities about visitor keys to traverse AST.
+    - copyright: none
+ - **[eslint@8.2.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -1954,10 +1933,6 @@
     - licenses: BSD-2-Clause
     - description: An Esprima-compatible JavaScript parser built on Acorn
     - copyright: Copyright (c) Open JS Foundation. All rights reserved.
- - **[esprima@3.1.3](https://github.com/jquery/esprima)**
-    - licenses: BSD-2-Clause
-    - description: ECMAScript parsing infrastructure for multipurpose analysis
-    - copyright: Copyright JS Foundation and other contributors, https://js.foundation/
  - **[esprima@4.0.1](https://github.com/jquery/esprima)**
     - licenses: BSD-2-Clause
     - description: ECMAScript parsing infrastructure for multipurpose analysis
@@ -2074,10 +2049,6 @@
     - licenses: MIT
     - description: Fastest Levenshtein distance implementation in JS.
     - copyright: Copyright (c) 2020 Kasper Unn Weihe
- - **[fastparse@1.1.2](https://github.com/webpack/fastparse)**
-    - licenses: MIT
-    - description: A very simple and stupid parser, based on a statemachine and regular expressions.
-    - copyright: Copyright 2018 Tobias Koppers
  - **[fastq@1.13.0](https://github.com/mcollina/fastq)**
     - licenses: ISC
     - description: Fast, in memory work queue
@@ -2438,10 +2409,6 @@
     - licenses: MIT
     - description: Fastest HTML entities encode/decode library.
     - copyright: Copyright (c) 2021 Dulin Marat
- - **[html-loader@0.5.5](https://github.com/webpack-contrib/html-loader)**
-    - licenses: MIT
-    - description: html loader module for webpack
-    - copyright: Copyright JS Foundation and other contributors
  - **[html-loader@3.0.1](https://github.com/webpack-contrib/html-loader)**
     - licenses: MIT
     - description: Html loader module for webpack
@@ -2450,10 +2417,6 @@
     - licenses: MIT
     - description: Highly configurable, well-tested, JavaScript-based HTML minifier.
     - copyright: Copyright (c) 2010-2019 Juriy "kangax" Zaytsev
- - **[html-minifier@3.5.21](https://github.com/kangax/html-minifier)**
-    - licenses: MIT
-    - description: Highly configurable, well-tested, JavaScript-based HTML minifier.
-    - copyright: Copyright (c) 2010-2018 Juriy "kangax" Zaytsev
  - **[html-webpack-plugin@5.5.0](https://github.com/jantimon/html-webpack-plugin)**
     - licenses: MIT
     - description: Simplifies creation of HTML files to serve your webpack bundles
@@ -2502,7 +2465,7 @@
     - licenses: MIT
     - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
     - copyright: Copyright (c) 2021 i18next
- - **[i18next@21.4.0](https://github.com/i18next/i18next)**
+ - **[i18next@21.4.1](https://github.com/i18next/i18next)**
     - licenses: MIT
     - description: i18next internationalization framework
     - copyright: Copyright (c) 2021 i18next
@@ -3002,7 +2965,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@3.11.1](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@3.11.2](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: none
@@ -3014,7 +2977,7 @@
     - licenses: MIT
     - description: Launch your command line tool with ease.
     - copyright: Copyright (c) 2014 Tyler Kellen
- - **[lilconfig@2.0.3](https://github.com/antonk52/lilconfig)**
+ - **[lilconfig@2.0.4](https://github.com/antonk52/lilconfig)**
     - licenses: MIT
     - description: A zero-dependency alternative to cosmiconfig
     - copyright: none
@@ -3074,10 +3037,6 @@
     - licenses: MIT
     - description: Lodash modular utilities.
     - copyright: Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
- - **[lower-case@1.1.4](https://github.com/blakeembrey/lower-case)**
-    - licenses: MIT
-    - description: Lowercase a string
-    - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
  - **[lower-case@2.0.2](https://github.com/blakeembrey/change-case)**
     - licenses: MIT
     - description: Transforms the string to lower case
@@ -3086,7 +3045,7 @@
     - licenses: ISC
     - description: A cache object that deletes the least-recently-used items.
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[luxon@2.0.2](https://github.com/moment/luxon)**
+ - **[luxon@2.1.1](https://github.com/moment/luxon)**
     - licenses: MIT
     - description: Immutable date wrapper
     - copyright: Copyright 2019 JS Foundation and other contributors
@@ -3186,7 +3145,7 @@
     - licenses: MIT
     - description: Make a function mimic another one
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[mini-css-extract-plugin@2.4.3](https://github.com/webpack-contrib/mini-css-extract-plugin)**
+ - **[mini-css-extract-plugin@2.4.4](https://github.com/webpack-contrib/mini-css-extract-plugin)**
     - licenses: MIT
     - description: extracts CSS into separate files
     - copyright: Copyright JS Foundation and other contributors
@@ -3266,10 +3225,6 @@
     - licenses: MIT
     - description: Environment agnostic nextTick polyfill
     - copyright: Copyright (C) 2012-2016 Mariusz Nowak
- - **[no-case@2.3.2](https://github.com/blakeembrey/no-case)**
-    - licenses: MIT
-    - description: Remove case from a string
-    - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
  - **[no-case@3.0.4](https://github.com/blakeembrey/change-case)**
     - licenses: MIT
     - description: Transform into a lower cased string with spaces between words
@@ -3510,10 +3465,6 @@
     - licenses: (MIT AND Zlib)
     - description: zlib port to javascript - fast, modularized, with browser support
     - copyright: Copyright (C) 2014-2017 by Vitaly Puzrin and Andrei Tuputcyn
- - **[param-case@2.1.1](https://github.com/blakeembrey/param-case)**
-    - licenses: MIT
-    - description: Param case a string
-    - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
  - **[param-case@3.0.4](https://github.com/blakeembrey/change-case)**
     - licenses: MIT
     - description: Transform into a lower cased string with dashes between words
@@ -3550,6 +3501,10 @@
     - licenses: MIT
     - description: HTML parser and serializer.
     - copyright: none
+ - **[parse5@5.1.1](https://github.com/inikulin/parse5)**
+    - licenses: MIT
+    - description: HTML parser and serializer.
+    - copyright: Copyright (c) 2013-2019 Ivan Nikulin (ifaaan@gmail.com, https://github.com/inikulin)
  - **[parse5@6.0.1](https://github.com/inikulin/parse5)**
     - licenses: MIT
     - description: HTML parser and serializer.
@@ -3730,7 +3685,7 @@
     - licenses: MIT
     - description: PostCSS loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[postcss-merge-longhand@5.0.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-longhand@5.0.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge longhand properties into shorthand with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3858,10 +3813,6 @@
     - licenses: MIT
     - description: Lightweight, robust, elegant syntax highlighting. A spin-off project from Dabblet.
     - copyright: Copyright (c) 2012 Lea Verou
- - **[private@0.1.8](https://github.com/benjamn/private)**
-    - licenses: MIT
-    - description: Utility for associating truly private state with any JavaScript object
-    - copyright: Copyright (c) 2014 Ben Newman <bn@cs.stanford.edu>
  - **[process-nextick-args@2.0.1](https://github.com/calvinmetcalf/process-nextick-args)**
     - licenses: MIT
     - description: process.nextTick but always with args
@@ -3990,10 +3941,6 @@
     - licenses: MIT
     - description: Recursive version of fs.readdir with streaming API.
     - copyright: Copyright (c) 2012-2019 Thorsten Lorenz, Paul Miller (https://paulmillr.com)
- - **[recast@0.11.23](https://github.com/benjamn/recast)**
-    - licenses: MIT
-    - description: JavaScript syntax tree transformer, nondestructive pretty-printer, and automatic source map generator
-    - copyright: Copyright (c) 2012 Ben Newman <bn@cs.stanford.edu>
  - **[rechoir@0.6.2](https://github.com/tkellen/node-rechoir)**
     - licenses: MIT
     - description: Require any supported file as a node module.
@@ -4694,10 +4641,6 @@
     - licenses: Apache-2.0
     - description: TypeScript is a language for application scale JavaScript development
     - copyright: none
- - **[uglify-js@3.4.10](https://github.com/mishoo/UglifyJS2)**
-    - licenses: BSD-2-Clause
-    - description: JavaScript parser, mangler/compressor and beautifier toolkit
-    - copyright: Copyright 2012-2018 (c) Mihai Bazon <mihai.bazon@gmail.com>
  - **[unbox-primitive@1.0.1](https://github.com/ljharb/unbox-primitive)**
     - licenses: MIT
     - description: Unbox a boxed JS primitive value.
@@ -4754,10 +4697,6 @@
     - licenses: MIT
     - description: A proxy to `path`, replacing `\` with `/` for all results & new methods to normalize & join keeping leading `./` and add, change, default, trim file extensions.
     - copyright: Copyright(c) 2014-2019 Angelos Pikoulas (agelos.pikoulas@gmail.com)
- - **[upper-case@1.1.3](https://github.com/blakeembrey/upper-case)**
-    - licenses: MIT
-    - description: Upper case a string
-    - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
  - **[uri-js@4.4.1](https://github.com/garycourt/uri-js)**
     - licenses: BSD-2-Clause
     - description: An RFC 3986/3987 compliant, scheme extendable URI/IRI parsing/validating/resolving library for JavaScript.
@@ -4898,7 +4837,7 @@
     - licenses: MIT
     - description: Source code handling classes for webpack
     - copyright: Copyright (c) 2017 JS Foundation and other contributors
- - **[webpack@5.61.0](https://github.com/webpack/webpack)**
+ - **[webpack@5.62.1](https://github.com/webpack/webpack)**
     - licenses: MIT
     - description: Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
     - copyright: Copyright JS Foundation and other contributors
