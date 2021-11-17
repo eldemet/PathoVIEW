@@ -51,7 +51,11 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
         modules: [srcDir, 'node_modules'],
         alias: {
             'aurelia-binding': path.resolve(__dirname, 'node_modules/aurelia-binding'),
-            'aurelia-dependency-injection': path.resolve(__dirname, 'node_modules/aurelia-dependency-injection')
+            'aurelia-dependency-injection': path.resolve(__dirname, 'node_modules/aurelia-dependency-injection'),
+            punycode: path.resolve(__dirname, 'node_modules/punycode')
+        },
+        fallback: {
+            'path': false
         }
     },
     entry: {

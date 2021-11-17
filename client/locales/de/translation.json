@@ -24,6 +24,14 @@
         "userManagement": "Nutzerverwaltung",
         "logoutIn": "Abmeldung in"
     },
+    "alerts": {
+        "camera": {
+            "videoSource": "Videoquelle",
+            "init": "Initialisiere Kamera...",
+            "noVideoSource": "Keine Kamera gefunden...",
+            "videoSourceError": "Fehler beim initialisieren der Kamera"
+        }
+    },
     "propertyKeys": {
         "address": "Adresse",
         "addressLocality": "Adresse Standort",

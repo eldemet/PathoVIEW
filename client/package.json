@@ -1,7 +1,7 @@
 {
     "name": "pathoview-client",
     "description": "PathoVIEW client application.",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "repository": {
         "type": "git",
         "url": "https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git"
@@ -9,6 +9,7 @@
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
         "@geoman-io/leaflet-geoman-free": "^2.11.3",
+        "fabric": "^4.6.0",
         "keycloak-js": "^15.0.2",
         "leaflet": "^1.7.1",
         "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v3.11.4",

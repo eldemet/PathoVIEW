@@ -24,6 +24,14 @@
         "userManagement": "user management",
         "logoutIn": "logout in"
     },
+    "alerts": {
+        "camera": {
+            "videoSource": "video source",
+            "init": "initialize camera...",
+            "noVideoSource": "no camera found...",
+            "videoSourceError": "error occurred initializing camera"
+        }
+    },
     "propertyKeys": {
         "address": "address",
         "addressLocality": "address locality",

@@ -1,0 +1,123 @@
+<template>
+
+    <require from="./camera.scss"></require>
+
+    <div if.bind="mediaOptions.length !== 0"
+         class="input-group w-100 py-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                ${'alerts.camera.videoSource' | t}
+            </span>
+        </div>
+        <select class="form-select"
+                value.bind="selectedMedia"
+                change.delegate="initializeMediaStream()">
+            <option repeat.for="option of mediaOptions"
+                    model.bind="option.deviceId">
+                ${option.label ? option.label : 'camera ' + ($index + 1)}
+            </option>
+        </select>
+    </div>
+    <div class="d-flex flex-row w-100">
+        <div class="d-flex flex-column b-0">
+            <button if.bind="isCaptureMode"
+                    type="button"
+                    class="btn btn-outline-secondary m-1"
+                    click.delegate="initializeDrawing()"
+                    disabled.bind="isLoading || cameraError">
+                <i class="bi bi-camera"></i>
+            </button>
+            <button if.bind="!isCaptureMode"
+                    type="button"
+                    class="btn btn-outline-secondary m-1"
+                    click.delegate="initializeMediaStream()">
+                <i class="bi bi-arrow-counterclockwise"></i>
+            </button>
+            <div if.bind="!isCaptureMode"
+                 class="btn-group-vertical m-1" role="group">
+                <input type="color"
+                       class="form-control form-control-color"
+                       value.bind="fabColor"
+                       change.delegate="changeColor()">
+            </div>
+            <div if.bind="!isCaptureMode"
+                 class="btn-group-vertical m-1" role="group">
+                <button type="button"
+                        class="btn btn-outline-secondary ${selectedTool === 'thick' ? 'active' : ''}"
+                        click.delegate="changeSelectedTool('thick')">
+                    <i class="bi bi-circle-fill tool-thick"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary ${selectedTool === 'middle' ? 'active' : ''}"
+                        click.delegate="changeSelectedTool('middle')">
+                    <i class="bi bi-circle-fill tool-middle"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary ${selectedTool === 'thin' ? 'active' : ''}"
+                        click.delegate="changeSelectedTool('thin')">
+                    <i class="bi bi-circle-fill tool-thin"></i>
+                </button>
+            </div>
+            <div if.bind="!isCaptureMode"
+                 class="btn-group-vertical m-1" role="group">
+                <button type="button"
+                        class="btn btn-outline-secondary ${selectedTool === 'rect' ? 'active' : ''}"
+                        click.delegate="changeSelectedTool('rect')">
+                    <i class="bi bi-square"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary ${selectedTool === 'circle' ? 'active' : ''}"
+                        click.delegate="changeSelectedTool('circle')">
+                    <i class="bi bi-circle"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary ${selectedTool === 'arrow' ? 'active' : ''}"
+                        click.delegate="changeSelectedTool('arrow')">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+            <div if.bind="!isCaptureMode"
+                 class="btn-group-vertical m-1" role="group">
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        click.delegate="undoLastDrawing()">
+                    <i class="bi bi-backspace"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        click.delegate="undoAllDrawings()">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+        <div ref="wrap"
+             id="wrap"
+             class="w-100 p-0">
+            <canvas ref="drawingCanvas"
+                    class="drawing-canvas">
+            </canvas>
+            <video ref="cameraVideo"
+                   class="camera-video"
+                   autoplay="true">
+            </video>
+            <canvas ref="cameraCanvas"
+                    class="camera-canvas">
+            </canvas>
+            <div class="position-absolute top-0 start-0 h-100 w-100"
+                 if.bind="isLoading || cameraError">
+                <div class="d-flex justify-content-center align-items-center h-100 bg-gray">
+                    <div if.bind="isLoading">
+                        <div class="spinner-border" role="status"></div>
+                        <span class="ms-2">${'alerts.camera.init' | t}</span>
+                    </div>
+                    <div if.bind="cameraError"
+                        class.bind="'text-' + cameraError.type">
+                        <i class.bind="'bi bi-' + (cameraError.type === 'danger' ? 'exclamation-circle' : 'exclamation-triangle')"></i>
+                        <span>${cameraError.message | t}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

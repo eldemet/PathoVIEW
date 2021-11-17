@@ -1,0 +1,43 @@
+camera {
+
+    .camera-canvas {
+        display: none;
+        width: 100%;
+    }
+
+    .drawing-canvas {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+    }
+
+    .camera-video {
+        width: 100%;
+        z-index: 0;
+    }
+
+    #wrap {
+        position: relative;
+        overflow: hidden;
+        margin: 0.25rem !important;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #e9ecef;
+    }
+
+    .tool-thick {
+        font-size: 1rem;
+    }
+
+    .tool-middle {
+        font-size: 1rem * 0.75;
+    }
+
+    .tool-thin {
+        font-size: 1rem * 0.5;
+    }
+
+}
