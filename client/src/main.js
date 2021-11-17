@@ -20,6 +20,7 @@ export async function configure(aurelia) {
     aurelia.use.globalResources([
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-map'),
+        PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-image'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-map')
     ]);
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));

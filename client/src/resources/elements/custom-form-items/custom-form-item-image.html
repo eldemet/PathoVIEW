@@ -1,0 +1,36 @@
+<template>
+
+    <require from="./../camera"></require>
+
+    <ul class="nav nav-tabs mb-2">
+        <li class="nav-item">
+            <button class="nav-link ${mode === 'camera' ? 'active' : ''}"
+                    type="button"
+                    click.delegate="mode = 'camera'">
+                <i class="bi bi-camera"
+                   aria-hidden="true">
+                </i>
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link ${mode === 'file' ? 'active' : ''}"
+                    click.delegate="mode = 'file'">
+                <i class="bi bi-file-image"
+                   aria-hidden="true">
+                </i>
+            </button>
+        </li>
+    </ul>
+
+    <camera if.bind="mode === 'camera'"
+            image-data.two-way="object[propertyKey]">
+    </camera>
+
+    <input if.bind="mode === 'file'"
+           class="form-control"
+           ref="imageFile"
+           type="file"
+           accept="image/*"
+           change.delegate="onFileSelectedChanged()">
+
+</template>
