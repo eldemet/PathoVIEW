@@ -84,7 +84,8 @@
         "value": "Wert",
         "distance": "Distanz",
         "rssi": "Anzeige der empfangenen Signalstärke (RSSI)",
-        "parameter": "Parameter"
+        "parameter": "Parameter",
+        "image": "Bild"
     },
     "enum": {
         "alert": {

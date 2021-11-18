@@ -12,7 +12,7 @@ class Camera extends BasicComponentExtended {
         audio: false,
         video: {
             mandatory: {maxWidth: 1920, maxHeight: 1080},
-            optional: [{minWidth: 1920}, {minHeight: 1080}]
+            optional: [{minWidth: 1280}, {minHeight: 720}]
         }
     };
     mediaOptions = [];
@@ -37,6 +37,10 @@ class Camera extends BasicComponentExtended {
                 this.logger.error(error.message);
             }
         }
+        this.showToolbarLeft = this.responsiveService.matchCondition('md', true, this.wrap);
+        this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', payload => {
+            this.showToolbarLeft = this.responsiveService.matchCondition('md', true, this.wrap);
+        }));
         await this.initializeMediaStream();
     }
 
@@ -242,17 +246,12 @@ class Camera extends BasicComponentExtended {
     }
 
     resizeCanvas() {
-        let scaleWidth = this.wrap.clientWidth;
-        let scaleHeight = (this.cameraVideo.videoHeight / this.cameraVideo.videoWidth) * scaleWidth;
-        let canvasContainer = document.querySelector('.canvas-container');
-        canvasContainer.style.height = scaleHeight + 'px';
-        canvasContainer.style.width = '100%';
-        canvasContainer.style.position = 'absolute';
-        let upperCanvas = document.querySelector('.upper-canvas');
-        upperCanvas.style.height = scaleHeight + 'px';
-        upperCanvas.style.width = '100%';
-        this.drawingCanvas.style.height = scaleHeight + 'px';
-        this.drawingCanvas.style.width = '100%';
+        const ratio = this.fabcanvas.getWidth() / this.fabcanvas.getHeight();
+        const containerWidth = this.wrap.clientWidth;
+        const scale = containerWidth / this.fabcanvas.getWidth();
+        const zoom = this.fabcanvas.getZoom() * scale;
+        this.fabcanvas.setDimensions({width: containerWidth, height: containerWidth / ratio});
+        this.fabcanvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
     }
 
     @catchError()
@@ -271,9 +270,6 @@ class Camera extends BasicComponentExtended {
         let id;
         clearTimeout(id);
         id = setTimeout(() => {
-            if (this.wrap && this.wrap.clientWidth >= 480) {
-                this.cameraVideo.getBoundingClientRect().width = this.wrap.clientWidth;
-            }
             if (this.fabcanvas) {
                 this.resizeCanvas();
             }
