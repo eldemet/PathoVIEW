@@ -204,5 +204,43 @@
                 "windSpeed": "wind speed"
             }
         }
+    },
+    "iso7010": {
+        "signs": "ISO7010 signs",
+        "W": "Warning of hazards",
+        "W001": "Generic warning",
+        "W009": "Biohazard",
+        "W012": "High Voltage",
+        "W016": "Poisonous substances",
+        "W017": "Warning for hot surface",
+        "W018": "Remotely started equipment",
+        "W023": "Corrosive substances",
+        "p": "Prohibited actions",
+        "P001": "Generic prohibition sign",
+        "P005": "No potable water",
+        "P010": "Do not touch",
+        "P024": "Do not step in this area",
+        "P028": "Do not use wearing gloves",
+        "P029": "No Photography",
+        "m": "Mandatory actions",
+        "M001": "Attention",
+        "M002": "Refer to instruction manual/booklet",
+        "M004": "Use protective eyewear",
+        "M008": "Use protective footwear",
+        "M009": "Use protective handwear",
+        "M010": "Use protective clothing",
+        "M011": "Rinse hands",
+        "M013": "Use protective face shield",
+        "M016": "Use surgical mask",
+        "M017": "Use respiratory protection",
+        "M022": "Use barrier cream",
+        "M030": "Place trash in the bin",
+        "M047": "Use breathing equipment (SCBA)",
+        "e": "Emergency",
+        "E001": "Emergency Exit (left)",
+        "E002": "Emergency Exit (right)",
+        "E003": "First Aid",
+        "E009": "Doctor",
+        "E011": "Eye shower"
     }
 }

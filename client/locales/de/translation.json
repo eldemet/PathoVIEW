@@ -204,5 +204,43 @@
                 "windSpeed": "Windgeschwindigkeit"
             }
         }
+    },
+    "iso7010": {
+        "signs": "ISO7010 Kennzeichen",
+        "w": "Warnzeichen",
+        "W001": "Allgemeines Warnzeichen",
+        "W009": "Warnung vor Biogefährdung",
+        "W012": "Warnung vor elektrischer Spannung",
+        "W016": "Warnung vor giftigen Stoffen",
+        "W017": "Warnung vor heißer Oberfläche",
+        "W018": "Warnung vor automatischem Anlauf",
+        "W013": "Warnung vor ätzenden Stoffen",
+        "p": "Verbotszeichen",
+        "P001": "Allgemeines Verbotszeichen",
+        "P005": "Kein Trinkwasser",
+        "P010": "Berühren verboten",
+        "P024": "Betreten der Fläche verboten",
+        "P028": "Benutzen von Handschuhen verboten",
+        "P029": "Fotografieren verboten",
+        "m": "Gebotszeichen",
+        "M001": "Allgemeines Gebotszeichen",
+        "M002": "Gebrauchsanweisung beachten",
+        "M004": "Augenschutz benutzen",
+        "M008": "Fußschutz benutzen",
+        "M009": "Handschutz benutzen",
+        "M010": "Schutzkleidung benutzen",
+        "M011": "Hände waschen",
+        "M013": "Gesichtsschutz benutzen",
+        "M016": "Maske benutzen",
+        "M017": "Atemschutz benutzen",
+        "M022": "Hautschutzmittel benutzen",
+        "M030": "Abfall in den Mülleimer werfen",
+        "M047": "Atemschutzgeräten (SCBA) benutzen",
+        "e": "Rettungszeichen",
+        "E001": " Rettungsweg/Notausgang (links)",
+        "E002": " Rettungsweg/Notausgang (rechts)",
+        "E003": "Erste Hilfe",
+        "E009": "Arzt",
+        "E011": "Augenspüleinrichtung"
     }
 }
