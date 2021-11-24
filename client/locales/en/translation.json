@@ -207,7 +207,7 @@
     },
     "iso7010": {
         "signs": "ISO7010 signs",
-        "W": "Warning of hazards",
+        "w": "Warning of hazards",
         "W001": "Generic warning",
         "W009": "Biohazard",
         "W012": "High Voltage",
