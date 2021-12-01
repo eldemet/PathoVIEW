@@ -43,9 +43,16 @@ const configAppDefaults = {
         modelReinitializeObjects: true,
         modelDeleteObjects: true,
         securitySchemes: [
-            {scheme: 'keycloakScheme', operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification'], scope: []},
-            {scheme: 'keycloakScheme', operations: ['createObject', 'updateObject', 'deleteObject'], scope: []},
-            {scheme: 'keycloakScheme', operations: ['getObjects', 'getObject', 'subscribeNotification'], scope: []}
+            {
+                scheme: 'keycloakScheme',
+                operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification']
+                // scope: ['realm:admin']
+            },
+            {
+                scheme: 'keycloakScheme',
+                operations: ['createObject', 'updateObject', 'deleteObject', 'getObjects', 'getObject', 'subscribeNotification', 'getObjectUiSchema']
+                // scope: ['realm:first_responder']
+            }
         ]
     },
     server: {

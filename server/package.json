@@ -32,7 +32,7 @@
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
         "ajv-formats-draft2019": "^1.6.1",
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.8.4"
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.8.5"
     },
     "directories": {
         "doc": "docs"

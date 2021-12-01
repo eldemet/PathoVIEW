@@ -106,7 +106,7 @@
     - licenses: MIT
     - description: Modern, fast React.js JSX parser
     - copyright: Copyright (C) 2012-2017 by Ingvar Stepanyan
- - **[acorn@8.5.0](https://github.com/acornjs/acorn)**
+ - **[acorn@8.6.0](https://github.com/acornjs/acorn)**
     - licenses: MIT
     - description: ECMAScript parser
     - copyright: Copyright (C) 2012-2020 by various contributors (see AUTHORS)
@@ -130,7 +130,7 @@
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2017 Evgeny Poberezkin
- - **[ajv@8.8.0](https://github.com/ajv-validator/ajv)**
+ - **[ajv@8.8.2](https://github.com/ajv-validator/ajv)**
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2021 Evgeny Poberezkin
@@ -366,7 +366,7 @@
     - licenses: MIT
     - description: Random number generator for browsers and node.js
     - copyright: Copyright Fedor Indutny, 2014.
- - **[bson@4.5.3](https://github.com/mongodb/js-bson)**
+ - **[bson@4.6.0](https://github.com/mongodb/js-bson)**
     - licenses: Apache-2.0
     - description: A bson parser for node.js and the browser
     - copyright: none
@@ -578,7 +578,7 @@
     - licenses: MIT
     - description: Converts a source-map from/to  different formats and allows adding/changing properties.
     - copyright: Copyright 2013 Thorsten Lorenz. . All rights reserved.
- - **[cookie-parser@1.4.5](https://github.com/expressjs/cookie-parser)**
+ - **[cookie-parser@1.4.6](https://github.com/expressjs/cookie-parser)**
     - licenses: MIT
     - description: Parse HTTP request cookies
     - copyright: Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>. Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
@@ -838,7 +838,7 @@
     - licenses: MIT
     - description: Escape RegExp special characters
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[eslint-scope@6.0.0](https://github.com/eslint/eslint-scope)**
+ - **[eslint-scope@7.1.0](https://github.com/eslint/eslint-scope)**
     - licenses: BSD-2-Clause
     - description: ECMAScript scope analyzer for ESLint
     - copyright: Copyright JS Foundation and other contributors, https://js.foundation. Copyright (C) 2012-2013 Yusuke Suzuki (twitter: @Constellation) and other contributors.
@@ -854,11 +854,11 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.2.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.3.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[espree@9.0.0](https://github.com/eslint/espree)**
+ - **[espree@9.1.0](https://github.com/eslint/espree)**
     - licenses: BSD-2-Clause
     - description: An Esprima-compatible JavaScript parser built on Acorn
     - copyright: Copyright (c) Open JS Foundation. All rights reserved.
@@ -1814,11 +1814,11 @@
     - licenses: MIT
     - description: Recursively mkdir, like `mkdir -p`
     - copyright: Copyright 2010 James Halliday (mail@substack.net)
- - **[mongodb-connection-string-url@2.1.0](https://github.com/mongodb-js/mongodb-connection-string-url)**
+ - **[mongodb-connection-string-url@2.2.0](https://github.com/mongodb-js/mongodb-connection-string-url)**
     - licenses: Apache-2.0
     - description: MongoDB connection strings, based on the WhatWG URL API
     - copyright: none
- - **[mongodb@4.1.3](https://github.com/mongodb/node-mongodb-native)**
+ - **[mongodb@4.1.4](https://github.com/mongodb/node-mongodb-native)**
     - licenses: Apache-2.0
     - description: The official MongoDB driver for Node.js
     - copyright: none
@@ -1826,7 +1826,7 @@
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose@6.0.12](https://github.com/Automattic/mongoose)**
+ - **[mongoose@6.0.13](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -2806,10 +2806,10 @@
     - licenses: MIT
     - description: An implementation of the Unicode TR46 spec
     - copyright: none
- - **[tr46@2.1.0](https://github.com/jsdom/tr46)**
+ - **[tr46@3.0.0](https://github.com/jsdom/tr46)**
     - licenses: MIT
     - description: An implementation of the Unicode UTS #46: Unicode IDNA Compatibility Processing
-    - copyright: Copyright (c) 2016 Sebastian Mayr
+    - copyright: Copyright (c) Sebastian Mayr
  - **[traverse@0.6.6](https://github.com/substack/js-traverse)**
     - licenses: MIT
     - description: traverse and transform objects by visiting every node on a recursive walk
@@ -2934,7 +2934,7 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@3.8.4](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@3.8.5](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework/skeleton, helper functions,  middleware and services
     - copyright: Copyright (c) 2021, Fraunhofer IAO. All rights reserved.
@@ -3010,15 +3010,15 @@
     - licenses: BSD-2-Clause
     - description: Implements the WebIDL algorithms for converting to and from JavaScript values
     - copyright: Copyright (c) 2014, Domenic Denicola. All rights reserved.
- - **[webidl-conversions@6.1.0](https://github.com/jsdom/webidl-conversions)**
+ - **[webidl-conversions@7.0.0](https://github.com/jsdom/webidl-conversions)**
     - licenses: BSD-2-Clause
     - description: Implements the WebIDL algorithms for converting to and from JavaScript values
     - copyright: Copyright (c) 2014, Domenic Denicola. All rights reserved.
- - **[whatwg-url@5.0.0](https://github.com/jsdom/whatwg-url)**
+ - **[whatwg-url@11.0.0](https://github.com/jsdom/whatwg-url)**
     - licenses: MIT
     - description: An implementation of the WHATWG URL Standard's URL API and parsing machinery
-    - copyright: Copyright (c) 2015–2016 Sebastian Mayr
- - **[whatwg-url@9.1.0](https://github.com/jsdom/whatwg-url)**
+    - copyright: Copyright (c) Sebastian Mayr
+ - **[whatwg-url@5.0.0](https://github.com/jsdom/whatwg-url)**
     - licenses: MIT
     - description: An implementation of the WHATWG URL Standard's URL API and parsing machinery
     - copyright: Copyright (c) 2015–2016 Sebastian Mayr
