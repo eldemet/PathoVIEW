@@ -1,0 +1,25 @@
+<template>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>${devices[params.device].name}</h1>
+                <img src.bind="devices[params.device].image" class="w-25 img-fluid p-3">
+                <p>${devices[params.device].description}</p>
+                <p>It can be used to quantify:</p>
+                <ul>
+                    <li repeat.for="pathogen of devices[params.device].pathogens">
+                        ${pathogen}
+                    </li>
+                </ul>
+                <p>Detection limits are:</p>
+                <ul>
+                    <li repeat.for="detectionLimit of devices[params.device].detectionLimits">
+                        ${detectionLimit}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</template>

@@ -1,0 +1,24 @@
+<template>
+
+    <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
+
+    <div class="d-flex flex-wrap h-100 align-items-center overflow-auto">
+        <div class="container overflow-auto">
+            <div class="row">
+                <h1 class="w-100 text-center my-3">Device selection</h1>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-xl-5 g-4 overflow-auto">
+                <div class="col" repeat.for="key of devices | objectKeys">
+                    <div class="card text-center h-100">
+                        <img src.bind="devices[key].image" class="w-100 img-fluid p-3">
+                        <div class="card-body">
+                            <h5 class="card-title">${devices[key].name}</h5>
+                            <a route-href="route.bind: 'device'; params.bind: {device: key}" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

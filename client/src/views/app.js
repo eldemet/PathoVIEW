@@ -44,6 +44,13 @@ export class App extends BasicViewRouterExtended {
             title: 'iso7010.signs'
         },
         {
+            route: 'instructions',
+            name: 'instructions',
+            moduleId: PLATFORM.moduleName('./instructions/instructions'),
+            nav: true,
+            title: 'views.instructions'
+        },
+        {
             route: 'map',
             name: 'map',
             moduleId: PLATFORM.moduleName('./map/map'),

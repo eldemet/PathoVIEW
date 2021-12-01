@@ -1,0 +1,21 @@
+<template>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>${devices[params.device].name}</h1>
+                <ol>
+                    <li repeat.for="instruction of devices[params.device].samplingInstructions">
+                        ${instruction.step}
+                        <ol type="a">
+                            <li repeat.for="subStep of instruction.subSteps">
+                                ${subStep}
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</template>

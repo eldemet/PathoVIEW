@@ -17,7 +17,8 @@
         "device_other": "Geräte"
     },
     "views": {
-        "map": "Karte"
+        "map": "Karte",
+        "instructions": "Anleitungen"
     },
     "buttons": {
         "logout": "Abmelden",

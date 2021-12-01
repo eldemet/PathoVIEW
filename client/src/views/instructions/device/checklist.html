@@ -1,0 +1,21 @@
+<template>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>${devices[params.device].name} ${devices[params.device].checklist.name}</h1>
+                <div class="mt-4" repeat.for="item of devices[params.device].checklist.items">
+                    <p>${item.name}</p>
+                    <ul class="list-group">
+                        <label repeat.for="subItem of item.subItems" class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            ${subItem}
+                        </label>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
