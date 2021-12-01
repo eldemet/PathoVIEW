@@ -134,6 +134,12 @@ properties:
     description: 'Payload containing the data retrieved.'
     ui:hide:
       table: true
+    ui:formItemType: object
+    properties:
+      image:
+        type: string
+        ui:formItemType: image
+        ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-image'
   dateIssued:
     type: string
     description: 'The date and time the item was issued in ISO8601 UTC format.'
