@@ -41,19 +41,19 @@ const configAppDefaults = {
     },
     api: {
         modelReinitializeObjects: true,
-        modelDeleteObjects: true,
-        securitySchemes: [
-            {
-                scheme: 'keycloakScheme',
-                operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification']
-                // scope: ['realm:admin']
-            },
-            {
-                scheme: 'keycloakScheme',
-                operations: ['createObject', 'updateObject', 'deleteObject', 'getObjects', 'getObject', 'subscribeNotification', 'getObjectUiSchema']
-                // scope: ['realm:first_responder']
-            }
-        ]
+        modelDeleteObjects: true
+        // securitySchemes: [
+        //     {
+        //         scheme: 'keycloakScheme'
+        //         // operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification']
+        //         // scope: ['realm:admin']
+        //     },
+        //     {
+        //         scheme: 'keycloakScheme'
+        //         // operations: ['createObject', 'updateObject', 'deleteObject', 'getObjects', 'getObject', 'subscribeNotification', 'getObjectUiSchema']
+        //         // scope: ['realm:first_responder']
+        //     }
+        // ]
     },
     server: {
         port: '3002'

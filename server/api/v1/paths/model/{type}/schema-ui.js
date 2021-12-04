@@ -2,19 +2,20 @@
 const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
-const yamljs = require('yamljs');
 const jsonSchemaHelper = require('utilities-node/src/utilities/jsonSchema');
-let logger = require('utilities-node/src/utilities/logger')(module);
+const logger = require('utilities-node/src/utilities/logger')(module);
+const {loadFile} = require('utilities-node/src/utilities/fs');
+
 let uiSchemas;
 
 async function initializeUISchemas(schemaDirectory) {
     let uiSchemas = {};
     for (let file of fs.readdirSync(schemaDirectory)) {
         //ignore files other than .yaml or .json
-        if (path.extname(file) === '.yaml' || path.extname(file) === '.yml' || path.extname(file) === '.json') {
-            let ext = path.extname(file);
+        const ext = path.extname(file).toLowerCase();
+        if (ext === '.yaml' || ext === '.yml' || ext === '.json') {
             let filename = _.upperFirst(_.camelCase(path.basename(file, ext)));
-            let schema = ext === '.yaml' || path.extname(file) === '.yml' ? yamljs.load(path.join(schemaDirectory, file)) : require(path.join(schemaDirectory, file));
+            let schema = loadFile([schemaDirectory, file]);
             try {
                 schema = await jsonSchemaHelper.dereferenceAndMergeSchema(schema, schemaDirectory);
                 uiSchemas[filename] = schema;
