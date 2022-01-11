@@ -6,13 +6,11 @@ import {DialogService} from 'aurelia-dialog';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
-import {HttpService} from 'library-aurelia/src/services/http-service';
 import {ContextService} from '../services/context-service';
-import {ModelServiceAsyncUISchema} from '../services/model-service-async-ui-schema';
 import {AureliaCookie} from 'aurelia-cookie';
 import {AuthService} from '../services/auth-service';
 
-@inject(BindingSignaler, DialogService, NotificationService, HttpService, ContextService)
+@inject(BindingSignaler, DialogService, NotificationService, ContextService)
 export class App extends BasicViewRouterExtended {
 
     routes = [
@@ -84,15 +82,12 @@ export class App extends BasicViewRouterExtended {
         {name: 'Deutsch (de)', value: 'de'}
     ];
 
-    constructor(bindingSignaler, dialogService, notificationService, httpService, contextService, ...rest) {
+    constructor(bindingSignaler, dialogService, notificationService, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
         this.dialogService = dialogService;
         this.notificationService = notificationService;
         this.authService = AuthService;
-        const modelOptions = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'};
-        this.proxy.registerService('alert', new ModelServiceAsyncUISchema('alert', modelOptions, httpService));
-        this.proxy.registerService('device', new ModelServiceAsyncUISchema('device', modelOptions, httpService));
         this.contextService = contextService;
     }
 

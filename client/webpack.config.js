@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
 const project = require('./aurelia_project/aurelia.json');
 const {AureliaPlugin, ModuleDependenciesPlugin} = require('aurelia-webpack-plugin');
 const {IgnorePlugin} = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const fs = require('fs');
 
 // config helpers:
@@ -67,7 +67,8 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
         publicPath: production ? './' : '/',
         filename: production ? '[name].[chunkhash].bundle.js' : '[name].[fullhash].bundle.js',
         sourceMapFilename: production ? '[name].[chunkhash].bundle.map' : '[name].[fullhash].bundle.map',
-        chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[fullhash].chunk.js'
+        chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[fullhash].chunk.js',
+        clean: true
     },
     optimization: {
         runtimeChunk: true
@@ -145,6 +146,12 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
                 generator: {filename: 'webfonts/[name][ext]'}
             },
             {
+                test: /\.(svg)$/,
+                include: path.resolve(__dirname, './node_modules/bootstrap-icons/icons'),
+                type: 'asset/resource',
+                generator: {filename: 'assets/icons/[name][ext]'}
+            },
+            {
                 test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 type: 'asset/resource'
             },
@@ -185,6 +192,20 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
             filename: production ? 'css/[name].[contenthash].bundle.css' : 'css/[name].[hash].bundle.css',
             chunkFilename: production ? 'css/[name].[contenthash].chunk.css' : 'css/[name].[hash].chunk.css'
         }),
+        new MergeJsonWebpackPlugin({
+            output: {
+                groupBy: [
+                    {
+                        pattern: '{./node_modules/library-aurelia/locales/de/*.json,./locales/de/*.json}',
+                        fileName: './locales/de/translation.json'
+                    },
+                    {
+                        pattern: '{./node_modules/library-aurelia/locales/en/*.json,./locales/en/*.json}',
+                        fileName: './locales/en/translation.json'
+                    }
+                ]
+            }
+        }),
         new CopyWebpackPlugin({
             patterns: [{
                 from: 'static',
@@ -192,7 +213,6 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
                 globOptions: {ignore: ['.*']}
             }]
         }),
-        ...when(analyze, new BundleAnalyzerPlugin()),
-        new CleanWebpackPlugin()
+        ...when(analyze, new BundleAnalyzerPlugin())
     ]
 });
