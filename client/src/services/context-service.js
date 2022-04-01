@@ -64,9 +64,7 @@ class ContextService extends BasicService {
     }
 
     async initialize(timeout = 20000) {
-        let urlString = '/api/v1/model/device?filter[owner]=' + AuthService.userInfo.sub;
-        this.logger.info(urlString);
-        this.devices = (await this.httpService.fetch('GET', urlString, null, 5000)).objects;
+        this.devices = (await this.httpService.fetch('GET', '/api/v1/model/device?filter[owner]=' + AuthService.getUserId(), null, 5000)).objects;
         this.currentDevice = this.getCurrentDevice();
         this.initialized = true;
         while (this.initialized) {
