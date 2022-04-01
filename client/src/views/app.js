@@ -102,7 +102,7 @@ export class App extends BasicViewRouterExtended {
         super.attached();
         this.isDarkMode = this.responsiveService.isDarkMode();
         this.responsiveService.initialize();
-        this.notificationService.registerNotificationListener('http://localhost:3002/api/v1/notification', ['model', 'event']);
+        this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         this.contextService.initialize();
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {
