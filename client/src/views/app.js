@@ -21,13 +21,6 @@ export class App extends BasicViewRouterExtended {
             nav: false
         },
         {
-            route: 'styles',
-            name: 'styles',
-            moduleId: PLATFORM.moduleName('./styles/styles'),
-            nav: true,
-            title: 'views.styles'
-        },
-        {
             route: 'components',
             name: 'components',
             moduleId: PLATFORM.moduleName('./components/components'),
