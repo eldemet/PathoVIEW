@@ -17,15 +17,15 @@
         "options": {
             "server": "dev",
             "extractCss": "prod",
-            "coverage": false,
-            "https": false
+            "coverage": false
         }
     },
     "platform": {
         "hmr": false,
         "open": false,
         "port": 8080,
-        "host": "localhost",
-        "output": "dist"
+        "host": "0.0.0.0",
+        "output": "dist",
+        "https": true
     }
 }
