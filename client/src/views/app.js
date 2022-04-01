@@ -21,18 +21,11 @@ export class App extends BasicViewRouterExtended {
             nav: false
         },
         {
-            route: 'components',
-            name: 'components',
-            moduleId: PLATFORM.moduleName('./components/components'),
+            route: 'map',
+            name: 'map',
+            moduleId: PLATFORM.moduleName('./map/map'),
             nav: true,
-            title: 'views.components'
-        },
-        {
-            route: 'signs',
-            name: 'signs',
-            moduleId: PLATFORM.moduleName('./signs/signs'),
-            nav: true,
-            title: 'iso7010.signs'
+            title: 'views.map'
         },
         {
             route: 'instructions',
@@ -42,18 +35,18 @@ export class App extends BasicViewRouterExtended {
             title: 'views.instructions'
         },
         {
-            route: 'map',
-            name: 'map',
-            moduleId: PLATFORM.moduleName('./map/map'),
+            route: 'signs',
+            name: 'signs',
+            moduleId: PLATFORM.moduleName('./signs/signs'),
             nav: true,
-            title: 'views.map'
+            title: 'iso7010.signs'
         },
         {
             route: 'alert',
             name: 'alert',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('views.searchModel', {type: 'model.alert', count: 2}),
+            title: this.i18n.tr('model.alert', {count: 2}),
             settings: {
                 detailView: true
             }
@@ -63,10 +56,17 @@ export class App extends BasicViewRouterExtended {
             name: 'device',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('views.searchModel', {type: 'model.device', count: 2}),
+            title: this.i18n.tr('model.device', {count: 2}),
             settings: {
                 detailView: true
             }
+        },
+        {
+            route: 'components',
+            name: 'components',
+            moduleId: PLATFORM.moduleName('./components/components'),
+            nav: true,
+            title: 'views.components'
         }
     ];
 
