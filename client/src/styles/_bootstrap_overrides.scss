@@ -17,12 +17,12 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #151515;
 
-$blue:    #007bff !default;
+$blue:    #1b75bc;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #d9534f;
-$orange:  #f39327;
+$orange:  #bc5327;
 $yellow:  #ffc107 !default;
 $green:   #5cb85c;
 $teal:    #20c997 !default;
@@ -54,6 +54,9 @@ $spacers: (
 );
 
 $font-size-base: 1rem !default;
+
+$font-family-sans-serif: Calibri, sans-serif;
+$font-family-base:       $font-family-sans-serif !default;
 
 $h1-font-size:        $font-size-base * 2.5 !default;
 $h2-font-size:        $font-size-base * 2 !default;

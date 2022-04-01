@@ -10,3 +10,11 @@
     width: 1.5rem;
     text-align: center;
 }
+
+.nav-item {
+    text-transform: uppercase;
+}
+
+.nav-link.active {
+    border-bottom: solid $primary 2px;
+}
