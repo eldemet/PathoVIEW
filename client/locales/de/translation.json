@@ -31,7 +31,8 @@
             "init": "Initialisiere Kamera...",
             "noVideoSource": "Keine Kamera gefunden...",
             "videoSourceError": "Fehler beim initialisieren der Kamera"
-        }
+        },
+        "noDevice": "Sie haben noch kein Gerät registriert. Es kann noch kein Standort geteilt werden!"
     },
     "propertyKeys": {
         "address": "Adresse",

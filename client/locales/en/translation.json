@@ -31,7 +31,8 @@
             "init": "initialize camera...",
             "noVideoSource": "no camera found...",
             "videoSourceError": "error occurred initializing camera"
-        }
+        },
+        "noDevice": "You have not registered a device yet. No location can be shared yet!"
     },
     "propertyKeys": {
         "address": "address",

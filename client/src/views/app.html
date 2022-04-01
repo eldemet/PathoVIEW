@@ -29,7 +29,7 @@
             </ul>
         </div>
 
-        <div class="dropdown" if.bind="contextService.devices">
+        <div class="dropdown" if.bind="contextService.currentDevice">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="devices-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="${contextService.getDeviceIcon(contextService.currentDevice)}"></i>

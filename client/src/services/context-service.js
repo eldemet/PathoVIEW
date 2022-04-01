@@ -80,6 +80,9 @@ class ContextService extends BasicService {
     }
 
     getCurrentDevice() {
+        if (!Array.isArray(this.devices) || this.devices.length === 0) {
+            throw new Error('No device for user found!');
+        }
         let currentDevice = this.devices[0];
         for (let device of this.devices) {
             if (device.osVersion === platform.os.toString() || device.manufacturer === platform.manufacturer) {
