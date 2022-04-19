@@ -29,10 +29,13 @@
             </ul>
         </div>
 
-        <div class="dropdown" if.bind="contextService.currentDevice">
+        <div class="dropdown">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="devices-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="${contextService.getDeviceIcon(contextService.currentDevice)}"></i>
+                <i if.bind="contextService.currentDevice"
+                   class="${contextService.getDeviceIcon(contextService.currentDevice)}"></i>
+                <i if.bind="!contextService.currentDevice"
+                   class="bi bi-question-circle-fill"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="devices-menu">
                 <li repeat.for="device of contextService.devices">
@@ -41,7 +44,9 @@
                         <i class="${contextService.getDeviceIcon(device)}"></i> ${device.name}
                     </button>
                 </li>
-                <li><hr class="dropdown-divider"></li>
+                <li if.bind="contextService.currentDevice">
+                    <hr class="dropdown-divider">
+                </li>
                 <li>
                     <button class="dropdown-item"
                             click.trigger="openAddDeviceModal()">
