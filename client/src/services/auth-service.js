@@ -1,58 +1,55 @@
 import {AureliaCookie} from 'aurelia-cookie';
-import * as Keycloak from 'keycloak-js';
+import Keycloak from 'keycloak-js';
+import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 
-/**
- * @category services
- */
-class AuthService {
+class AuthService extends BasicService {
 
-    static config;
-    static keycloak;
-    static userInfo;
-    static interval;
+    constructor(...rest) {
+        super('auth', ...rest);
+    }
 
-    static async initialize(config, testing) {
-        if (!AuthService.keycloak) {
-            AuthService.config = config;
-            AuthService.keycloak = new Keycloak(config);
-            await AuthService.keycloak.init({
+    async initialize(config, testing) {
+        if (!this.keycloak) {
+            this.config = config;
+            this.keycloak = new Keycloak(config);
+            await this.keycloak.init({
                 onLoad: 'login-required',
                 enableLogging: testing,
                 checkLoginIframe: false
             });
-            AureliaCookie.set('auth_token', AuthService.keycloak.token, {});
-            AuthService.userInfo = await AuthService.keycloak.loadUserInfo();
-            AuthService.interval = setInterval(async() => {
+            AureliaCookie.set('auth_token', this.keycloak.token, {});
+            this.userInfo = await this.keycloak.loadUserInfo();
+            this.interval = setInterval(async() => {
                 try {
-                    await AuthService.keycloak.loadUserInfo();
-                    await AuthService.keycloak.updateToken();
-                    AureliaCookie.set('auth_token', AuthService.keycloak.token, {});
+                    await this.keycloak.loadUserInfo();
+                    await this.keycloak.updateToken();
+                    AureliaCookie.set('auth_token', this.keycloak.token, {});
                 } catch (error) {
-                    AuthService.keycloak.logout({redirectUri: config.url});
+                    this.keycloak.logout({redirectUri: this.keycloak.createLoginUrl()});
                 }
             }, 5000);
         }
     }
 
-    static async close() {
-        clearInterval(AuthService.interval);
-        AuthService.userInfo = undefined;
-        AuthService.keycloak.logout({redirectUri: AuthService.config.url});
+    async close() {
+        clearInterval(this.interval);
+        this.userInfo = undefined;
+        this.keycloak.logout({redirectUri: this.keycloak.createLoginUrl()});
     }
 
-    static getTokenExpiresIn() {
-        return Math.round(AuthService.keycloak.tokenParsed.exp + AuthService.keycloak.timeSkew - new Date().getTime() / 1000);
+    getTokenExpiresIn() {
+        return Math.round(this.keycloak.tokenParsed.exp + this.keycloak.timeSkew - new Date().getTime() / 1000);
     }
 
-    static getUserId() {
-        if (!AuthService.userInfo) {
+    async setUserAttribute(httpService, attributeObject) {
+        await httpService.fetch('PUT', this.config.url + 'admin/realms/' + this.keycloak.realm + '/users/' + this.userInfo.sub, {attributes: attributeObject}, 2000);
+    }
+
+    getUserId() {
+        if (!this.userInfo) {
             throw new Error('Not logged in!');
         }
-        return AuthService.userInfo.sub;
-    }
-
-    static async setUserAttribute(httpService, attributeObject) {
-        await httpService.fetch('PUT', AuthService.config.url + 'admin/realms/' + AuthService.keycloak.realm + '/users/' + AuthService.userInfo.sub, {attributes: attributeObject}, 2000);
+        return this.userInfo.sub;
     }
 
 }

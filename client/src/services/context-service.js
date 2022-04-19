@@ -4,7 +4,6 @@ import {HttpService} from 'library-aurelia/src/services/http-service';
 import * as platform from 'platform';
 import pick from 'lodash/pick';
 import isEqual from 'lodash/isEqual';
-import {AuthService} from './auth-service';
 import {deviceUtilities} from '../utilities';
 
 /**
@@ -63,8 +62,8 @@ class ContextService extends BasicService {
         }
     }
 
-    async initialize(timeout = 20000) {
-        this.devices = (await this.httpService.fetch('GET', '/api/v1/model/device?filter=' + JSON.stringify({owner: AuthService.getUserId()}), null, 5000)).objects;
+    async initialize(userId, timeout = 20000) {
+        this.devices = (await this.httpService.fetch('GET', '/api/v1/model/device?filter=' + JSON.stringify({owner: userId}), null, 5000)).objects;
         this.currentDevice = this.getCurrentDevice();
         this.initialized = true;
         while (this.initialized) {

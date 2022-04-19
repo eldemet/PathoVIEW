@@ -6,11 +6,11 @@ import {DialogService} from 'aurelia-dialog';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
+import {AuthService} from '../services/auth-service';
 import {ContextService} from '../services/context-service';
 import {AureliaCookie} from 'aurelia-cookie';
-import {AuthService} from '../services/auth-service';
 
-@inject(BindingSignaler, DialogService, NotificationService, ContextService)
+@inject(BindingSignaler, DialogService, NotificationService, AuthService, ContextService)
 export class App extends BasicViewRouterExtended {
 
     routes = [
@@ -75,12 +75,12 @@ export class App extends BasicViewRouterExtended {
         {name: 'Deutsch (de)', value: 'de'}
     ];
 
-    constructor(bindingSignaler, dialogService, notificationService, contextService, ...rest) {
+    constructor(bindingSignaler, dialogService, notificationService, authService, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
         this.dialogService = dialogService;
         this.notificationService = notificationService;
-        this.authService = AuthService;
+        this.authService = authService;
         this.contextService = contextService;
     }
 
@@ -97,7 +97,7 @@ export class App extends BasicViewRouterExtended {
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         try {
-            await this.contextService.initialize();
+            await this.contextService.initialize(this.authService.getUserId());
         } catch (error) {
             this.logger.warn(error.message);
             this.eventAggregator.publish('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true});
@@ -149,7 +149,7 @@ export class App extends BasicViewRouterExtended {
         let model = {
             kind: 'device',
             formType: 'create',
-            objectData: {owner: [AuthService.userInfo.sub]}
+            objectData: {owner: [this.authService.userInfo.sub]}
         };
         this.dialogService.open({viewModel: AuFormDialog, model: model, modalSize: 'modal-xl'}).whenClosed(response => {
             if (response.wasCancelled) {

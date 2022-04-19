@@ -9,9 +9,10 @@ import environment from '../config/environment.json';
 import {ModelServiceAsyncUISchema} from './services/model-service-async-ui-schema';
 
 export async function configure(aurelia) {
-    await AuthService.initialize(environment.keycloak);
-    if (AuthService.userInfo.locale) {
-        AureliaCookie.set('lang', AuthService.userInfo.locale, {});
+    let authService = aurelia.container.get(AuthService);
+    await authService.initialize(environment.keycloak, environment.testing);
+    if (authService.userInfo.locale) {
+        AureliaCookie.set('lang', authService.userInfo.locale, {});
     }
     let root = PLATFORM.moduleName('views/app');
     let globalResources = [
@@ -23,6 +24,7 @@ export async function configure(aurelia) {
     const modelOptions = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'};
     let httpService = aurelia.container.get(HttpService);
     let registerServices = [
+        authService,
         new ModelServiceAsyncUISchema('alert', modelOptions, httpService),
         new ModelServiceAsyncUISchema('device', modelOptions, httpService)
     ];
