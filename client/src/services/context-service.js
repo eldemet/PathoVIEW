@@ -50,7 +50,7 @@ class ContextService extends BasicService {
         if (!isEqual(old, device)) {
             this.logger.info(device);
             try {
-                this.currentDevice = await this.httpService.fetch('PUT', '/api/v1/model/device/' + this.currentDevice.id, device, 2000);
+                this.currentDevice = await this.httpService.fetch('PUT', '/api/v1/model/device/' + this.currentDevice.id, Object.assign({}, this.currentDevice, device), 2000);
             } catch (error) {
                 if (error.status === 406) {
                     this.currentDevice = device;
