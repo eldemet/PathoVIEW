@@ -96,12 +96,7 @@ export class App extends BasicViewRouterExtended {
         this.isDarkMode = this.responsiveService.isDarkMode();
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
-        try {
-            await this.contextService.initialize(this.authService.getUserId());
-        } catch (error) {
-            this.logger.warn(error.message);
-            this.eventAggregator.publish('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true});
-        }
+        this.contextService.initialize(this.authService.getUserId());
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {
                 this.eventAggregator.publish('toast', {

@@ -5,6 +5,7 @@ import * as platform from 'platform';
 import pick from 'lodash/pick';
 import isEqual from 'lodash/isEqual';
 import {deviceUtilities} from '../utilities';
+import {catchError} from 'library-aurelia/src/decorators';
 
 /**
  * @extends BasicService
@@ -62,6 +63,7 @@ class ContextService extends BasicService {
         }
     }
 
+    @catchError('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true})
     async initialize(userId, timeout = 20000) {
         this.devices = (await this.httpService.fetch('GET', '/api/v1/model/device?filter=' + JSON.stringify({owner: userId}), null, 5000)).objects;
         this.currentDevice = this.getCurrentDevice();
