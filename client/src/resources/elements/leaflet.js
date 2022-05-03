@@ -362,7 +362,7 @@ class LayerFactory {
             }
         }
         if (layer.hasOwnProperty('popupContent')) {
-            instance.bindPopup(layer.popupContent).openPopup();
+            instance.bindPopup(layer.popupContent, {closeButton: false}).openPopup();
         }
         return instance;
     }
