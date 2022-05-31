@@ -4,12 +4,14 @@ required:
   - id
   - name
   - type
+  - category
   - controlledProperty
+model:searchProperties:
+  - name
 properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
     description: 'Unique identifier of the entity'
-    db:skipInSchemaDefinition: true
     default: Device:00000
     ui:hide:
       table: true
@@ -168,13 +170,7 @@ properties:
     items:
       $ref: './../$defs.yaml#/NGSIentityFormat'
   owner:
-    type: array
-    description: 'A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)'
-    items:
-      $ref: './../$defs.yaml#/NGSIentityFormat'
-      description: 'Property. Unique identifier of the entity'
-    ui:hide:
-      table: true
+    $ref: './../$defs.yaml#/owner'
   provider:
     type: string
     description: 'The provider of the device.'
@@ -185,8 +181,6 @@ properties:
     description: 'A sequence of characters identifying the provider of the harmonised data entity.'
     ui:hide:
       table: true
-  address:
-    $ref: './../$defs.yaml#/Address'
   location:
     $ref: './../$defs.yaml#/Location'
     ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'

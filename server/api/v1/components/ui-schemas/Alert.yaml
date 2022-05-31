@@ -6,11 +6,12 @@ required:
   - alertSource
   - category
   - dateIssued
+model:searchProperties:
+  - name
 properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
     description: 'Unique identifier of the entity'
-    db:skipInSchemaDefinition: true
     default: Alert:00000
     ui:hide:
       table: true
@@ -138,7 +139,6 @@ properties:
     properties:
       image:
         type: string
-        ui:formItemType: image
         ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-image'
   dateIssued:
     type: string
@@ -178,7 +178,6 @@ properties:
     ui:formItemType: text
   location:
     $ref: './../$defs.yaml#/Location'
-    ui:formItemType: map
     ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
     ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
     ui:hide:
