@@ -62,6 +62,7 @@ const configAppDefaults = {
         uniqueProperty: 'id',
         jsondbPath: '../data/db',
         jsondbReadOnly: false,
+        schemaDirectory: 'api/v1/components/schemas',
         uploadDirectory: '../data/uploads',
         customIdGeneratorFunction: 'api/v1/ngsi-id-generator.js'
     },
