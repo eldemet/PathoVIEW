@@ -6,6 +6,7 @@ import {AureliaFramework} from 'library-aurelia/src/framework';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {AuthService} from './services/auth-service';
 import environment from '../config/environment.json';
+import {ModelServiceAsync} from 'library-aurelia/src/services/model-service-async';
 import {ModelServiceAsyncUISchema} from './services/model-service-async-ui-schema';
 
 export async function configure(aurelia) {
@@ -26,7 +27,8 @@ export async function configure(aurelia) {
     let registerServices = [
         authService,
         new ModelServiceAsyncUISchema('alert', modelOptions, httpService),
-        new ModelServiceAsyncUISchema('device', modelOptions, httpService)
+        new ModelServiceAsyncUISchema('device', modelOptions, httpService),
+        new ModelServiceAsync('emergency-event', modelOptions, httpService)
     ];
     await AureliaFramework.initialize(aurelia, environment, root, globalResources, registerServices);
 }

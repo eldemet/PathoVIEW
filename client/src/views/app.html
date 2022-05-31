@@ -29,13 +29,37 @@
             </ul>
         </div>
 
+        <div class="dropdown" if.bind="emergencyEvents">
+            <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="emergency-menu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <span if.bind="currentEmergencyEvent">${currentEmergencyEvent.name}</span>
+                <span else>${'alerts.noEmergencyEventSelected' | t}</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="language-menu">
+                <li repeat.for="emergencyEvent of emergencyEvents">
+                    <button class="dropdown-item ${currentEmergencyEvent === emergencyEvent ? 'active' : ''}"
+                            click.trigger="changeEmergencyEvent(emergencyEvent)">
+                        ${emergencyEvent.name}
+                    </button>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <button class="dropdown-item"
+                            click.trigger="openCreateModal('emergencyEvent')">
+                        <i class="bi bi-plus"></i> ${'views.create' | t:{'type': 'model.emergencyEvent'}}
+                    </button>
+                </li>
+            </ul>
+        </div>
+
         <div class="dropdown">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="devices-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i if.bind="contextService.currentDevice"
                    class="${contextService.getDeviceIcon(contextService.currentDevice)}"></i>
-                <i if.bind="!contextService.currentDevice"
-                   class="bi bi-question-circle-fill"></i>
+                <i else class="bi bi-question-circle-fill"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="devices-menu">
                 <li repeat.for="device of contextService.devices">
@@ -49,7 +73,7 @@
                 </li>
                 <li>
                     <button class="dropdown-item"
-                            click.trigger="openAddDeviceModal()">
+                            click.trigger="openCreateModal('device')">
                         <i class="bi bi-plus"></i> ${'views.create' | t:{'type': 'model.device'}}
                     </button>
                 </li>

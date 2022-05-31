@@ -14,7 +14,9 @@
         "contributor": "contributor",
         "contributor_other": "contributors",
         "device": "device",
-        "device_other": "devices"
+        "device_other": "devices",
+        "emergencyEvent": "emergency event",
+        "emergencyEvent_other": "emergency events"
     },
     "views": {
         "map": "Map",
@@ -32,7 +34,8 @@
             "noVideoSource": "no camera found...",
             "videoSourceError": "error occurred initializing camera"
         },
-        "noDevice": "You have not registered a device yet. No location can be shared yet!"
+        "noDevice": "You have not registered a device yet. No location can be shared yet!",
+        "noEmergencyEventSelected": "not emergency event selected"
     },
     "propertyKeys": {
         "address": "address",

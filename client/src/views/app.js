@@ -62,6 +62,16 @@ export class App extends BasicViewRouterExtended {
             }
         },
         {
+            route: 'emergency-event',
+            name: 'emergency-event',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.emergencyEvent', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
             route: 'components',
             name: 'components',
             moduleId: PLATFORM.moduleName('./components/components'),
@@ -94,6 +104,11 @@ export class App extends BasicViewRouterExtended {
     async attached() {
         super.attached();
         this.isDarkMode = this.responsiveService.isDarkMode();
+        try {
+            this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
+        } catch (error) {
+            this.logger.error(error.message);
+        }
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         this.contextService.initialize(this.authService.getUserId());
@@ -140,9 +155,13 @@ export class App extends BasicViewRouterExtended {
         window.location.reload();
     }
 
-    openAddDeviceModal(formType, id) {
+    changeEmergencyEvent(emergencyEvent) {
+        this.currentEmergencyEvent = emergencyEvent;
+    }
+
+    openCreateModal(type, id) {
         let model = {
-            kind: 'device',
+            kind: type,
             formType: 'create',
             objectData: {owner: [this.authService.userInfo.sub]}
         };

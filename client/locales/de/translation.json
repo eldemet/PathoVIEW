@@ -14,7 +14,9 @@
         "contributor": "Mitwirkender",
         "contributor_other": "Mitwirkende",
         "device": "Gerät",
-        "device_other": "Geräte"
+        "device_other": "Geräte",
+        "emergencyEvent": "Notfallsituation",
+        "emergencyEvent_other": "Notfallsituationen"
     },
     "views": {
         "map": "Karte",
@@ -32,7 +34,8 @@
             "noVideoSource": "Keine Kamera gefunden...",
             "videoSourceError": "Fehler beim initialisieren der Kamera"
         },
-        "noDevice": "Sie haben noch kein Gerät registriert. Es kann noch kein Standort geteilt werden!"
+        "noDevice": "Sie haben noch kein Gerät registriert. Es kann noch kein Standort geteilt werden!",
+        "noEmergencyEventSelected": "Keine Notfallsituation ausgewählt"
     },
     "propertyKeys": {
         "address": "Adresse",
