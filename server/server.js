@@ -93,23 +93,8 @@ const additionalDbSchemas = {
     Anomaly: {$ref: 'node_modules/smart-data-models-alert/Anomaly/model.yaml#/Anomaly'},
     Asset: {$ref: 'node_modules/smart-data-models-risk-management/Asset/model.yaml#/Asset'},
     Device: {$ref: 'node_modules/smart-data-models-device/Device/model.yaml#/Device'},
-    Exposure: {$ref: 'node_modules/smart-data-models-risk-management/Exposure/model.yaml#/Exposure'},
-    GISData: {$ref: 'node_modules/smart-data-models-risk-management/GISData/model.yaml#/GISData'},
-    Hazard: {$ref: 'node_modules/smart-data-models-risk-management/Hazard/model.yaml#/Hazard'},
-    Measure: {$ref: 'node_modules/smart-data-models-risk-management/Measure/model.yaml#/Measure'},
-    Mitigation: {$ref: 'node_modules/smart-data-models-risk-management/Mitigation/model.yaml#/Mitigation'},
-    NetworkServiceAlert: {$ref: 'node_modules/smart-data-models-risk-management/NetworkServiceAlert/model.yaml#/NetworkServiceAlert'},
-    Risk: {$ref: 'node_modules/smart-data-models-risk-management/Risk/model.yaml#/Risk'},
-    Vulnerability: {$ref: 'node_modules/smart-data-models-risk-management/Vulnerability/model.yaml#/Vulnerability'},
     PointOfInterest: {$ref: 'node_modules/smart-data-models-point-of-interest/PointOfInterest/model.yaml#/PointOfInterest'},
-    WaterQualityObserved: {$ref: 'node_modules/smart-data-models-water-quality/WaterQualityObserved/model.yaml#/WaterQualityObserved'}
-    // CyberAnalysis: {$ref: 'node_modules/smart-data-models-risk-management/CyberAnalysis/model.yaml#/CyberAnalysis'},
-    // SmartPointOfInteraction: {$ref: 'node_modules/smart-data-models-point-of-interaction/SmartPointOfInteraction/model.yaml#/SmartPointOfInteraction'},
-    // SmartSpot: {$ref: 'node_modules/smart-data-models-point-of-interaction/SmartSpot/model.yaml#/SmartSpot'},
-    // Blower: {$ref: 'node_modules/smart-data-models-waste-water/Blower/model.yaml#/Blower'},
-    // OffGasStack: {$ref: 'node_modules/smart-data-models-waste-water/OffGasStack/model.yaml#/OffGasStack'},
-    // WasteWaterJunction: {$ref: 'node_modules/smart-data-models-waste-water/WasteWaterJunction/model.yaml#/WasteWaterJunction'},
-    // WasteWaterTank: {$ref: 'node_modules/smart-data-models-waste-water/WasteWaterTank/model.yaml#/WasteWaterTank'},
+    Measure: {$ref: 'node_modules/smart-data-models-risk-management/Measure/model.yaml#/Measure'}
 };
 
 framework.initialize({openApi, configAppDefaults, additionalDbSchemas});
