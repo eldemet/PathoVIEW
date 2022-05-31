@@ -1,0 +1,162 @@
+@startuml
+class EmergencyEvent {
+    id: String
+    type: String
+    name : String
+    description: String
+    owner: Array<UserId>
+    ..
+    createdAt: Date
+    updatedAt: Date
+}
+class Incident {
+    id: String
+    type: String
+    name : String
+    description: String
+    owner: Array<UserId>
+    refId: String<EmergencyEventId>
+    location: Location
+    ..
+    createdAt: Date
+    updatedAt: Date
+}
+class Action {
+    id: String
+    type: String
+    name : String
+    description: String
+    owner: Array<UserId>
+    assignedTo: Array<UserId>
+    refId: String<IncidentId/AlertId>
+    location: Location
+    ..
+    validFrom: Date
+    validTo: Date
+    ..
+    createdAt: Date
+    updatedAt: Date
+}
+class User <<Keycloak Identity Management>> {
+    id: String
+    email: String
+    email_verified: Boolean
+    family_name: String
+    given_name: String
+    locale: String
+    name: String
+    preferred_username: String
+    sub: String
+}
+class Alert <<Smart Data Model>> {
+    id: String
+    type: String
+    name: String
+    alternateName: String
+    description: String
+    severity: EnumAlertSeverity
+    category: EnumAlertCategory
+    subCategory: EnumAlertSubCategory
+    owner: Array<UserId>
+    seeAlso: Array<String>
+    source: String
+    alertSource: String
+    ..
+    address: Address
+    areaServed: String
+    location: Location
+    ..
+    dataProvider: String
+    data: Object
+    ..
+    dateIssued: Date
+    validFrom: Date
+    validTo: Date
+    ..
+    dateCreated: Date
+    dateModified: Date
+}
+class Device <<Smart Data Model>> {
+    id: String
+    type: String
+    name: String
+    alternateName: String
+    description: String
+    category: Array
+    owner: Array<String>
+    seeAlso Array<String>
+    location: Location
+    ..
+    supportedProtocol: Array
+    controlledProperty: Array
+    configuration: Array
+    controlledAsset
+    provider
+    dataProvider
+    areaServed
+    depth
+    direction
+    distance
+    deviceState
+    value
+    batteryLevel
+    dstAware
+    firmwareVersion
+    hardwareVersion
+    osVersion
+    softwareVersion
+    ipAddress
+    macAddress
+    mcc
+    mnc
+    refDeviceModel
+    relativePosition
+    rssi
+    serialNumber
+    source
+    ..
+    dateFirstUsed
+    dateInstalled
+    dateLastCalibration
+    dateLastValueReported
+    dateManufactured
+    dateObserved
+    ..
+    dateCreated
+    dateModified
+}
+class Annotation {
+    id: String
+    owner: String<UserId>
+    refId: String
+    ..
+    createdAt: Date
+    updatedAt: Date
+}
+class AnnotationText {
+    text: String
+}
+class AnnotationImage {
+    name: String
+    description: String
+    data: String<Base64>
+}
+class AnnotationAudio {
+    source: AudioSource
+    data: String<Base64>
+}
+
+Annotation <|-- AnnotationText
+Annotation <|-- AnnotationImage
+Annotation <|-- AnnotationAudio
+
+EmergencyEvent o-- "0..*" Alert
+EmergencyEvent o-- "0..*" Incident
+User o-- "0..*" Device
+Incident o-- "0..*" Action
+Annotation o-- "0..*" Annotation
+Incident o-- "0..*" Annotation
+Action o-- "0..*" Annotation
+Alert o-- "0..*" Annotation
+
+@enduml
