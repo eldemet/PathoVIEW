@@ -197,6 +197,9 @@ Address:
 owner:
   type: array
   description: 'A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)'
+  ui:dependence: serviceFunction:auth:getUserId
+  ui:hide:
+    table: true
   items:
     $ref: '#/NGSIentityFormat'
     description: 'Property. Unique identifier of the entity'
