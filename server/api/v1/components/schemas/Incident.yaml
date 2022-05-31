@@ -1,0 +1,59 @@
+type: object
+required:
+  - id
+  - type
+  - name
+  - owner
+model:searchProperties:
+  - name
+db:referencedByModels:
+  - model: Annotation
+    property: refId
+    handling: deleteObject
+db:options:
+  timestamps: true
+properties:
+  id:
+    $ref: './../$defs.yaml#/NGSIentityFormat'
+    description: 'Unique identifier of the entity'
+    default: Incident:00000
+    ui:hide:
+      table: true
+      form: true
+  type:
+    type: string
+    enum:
+      - Incident
+    default: Incident
+    ui:hide:
+      form: true
+      table: true
+  name:
+    type: string
+    description: 'The name of this item.'
+    ui:formItemType: text
+    ui:formItemGridClass: 'col-md-6'
+  description:
+    type: string
+    description: 'A description of this item'
+    ui:formItemType: textarea
+  owner:
+    $ref: './../$defs.yaml#/owner'
+  refId:
+    type: string
+    ui:formItemType: select
+    db:ref: EmergencyEvent
+  location:
+    $ref: './../$defs.yaml#/Location'
+    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
+    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
+    ui:hide:
+      table: true
+  createdAt:
+    type: string
+    format: "date-time"
+    db:skipInSchemaDefinition: true
+  updatedAt:
+    type: string
+    format: "date-time"
+    db:skipInSchemaDefinition: true
