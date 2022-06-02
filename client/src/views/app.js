@@ -9,6 +9,8 @@ import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog
 import {AuthService} from '../services/auth-service';
 import {ContextService} from '../services/context-service';
 import {AureliaCookie} from 'aurelia-cookie';
+import {catchError} from 'library-aurelia/src/decorators';
+import {loadingEvent} from '../decorators';
 
 @inject(BindingSignaler, DialogService, NotificationService, AuthService, ContextService)
 export class App extends BasicViewRouterExtended {
@@ -80,10 +82,7 @@ export class App extends BasicViewRouterExtended {
         }
     ];
 
-    languages = [
-        {name: 'English (en)', value: 'en'},
-        {name: 'Deutsch (de)', value: 'de'}
-    ];
+    languages = [{name: 'English (en)', value: 'en'}, {name: 'Deutsch (de)', value: 'de'}];
 
     constructor(bindingSignaler, dialogService, notificationService, authService, contextService, ...rest) {
         super(...rest);
@@ -104,11 +103,7 @@ export class App extends BasicViewRouterExtended {
     async attached() {
         super.attached();
         this.isDarkMode = this.responsiveService.isDarkMode();
-        try {
-            this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
-        } catch (error) {
-            this.logger.error(error.message);
-        }
+        await this.loadEmergencyEvents();
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         this.contextService.initialize(this.authService.getUserId());
@@ -150,29 +145,45 @@ export class App extends BasicViewRouterExtended {
         clearInterval(this.interval);
     }
 
+    @loadingEvent('app-alert', 'emergency-event')
+    @catchError('app-alert', {
+        type: 'warning',
+        message: 'alerts.general.arrayEmpty',
+        translateOptions: {type: 'emergencyEvent'},
+        dismissible: true
+    })
+    async loadEmergencyEvents() {
+        this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
+        let currentEmergencyEventId = AureliaCookie.get('emergency-event');
+        this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
+    }
+
     changeLanguage(language) {
         AureliaCookie.set('lang', language, {});
         window.location.reload();
     }
 
     changeEmergencyEvent(emergencyEvent) {
+        AureliaCookie.set('emergency-event', emergencyEvent.id, {});
         this.currentEmergencyEvent = emergencyEvent;
     }
 
-    openCreateModal(type, id) {
-        let model = {
-            kind: type,
-            formType: 'create',
-            objectData: {owner: [this.authService.userInfo.sub]}
-        };
-        this.dialogService.open({viewModel: AuFormDialog, model: model, modalSize: 'modal-xl'}).whenClosed(response => {
-            if (response.wasCancelled) {
-                this.logger.debug('Dialog was cancelled!');
-            } else {
-                this.logger.debug('Dialog was confirmed!');
-                this.contextService.initialize();
-            }
-        });
+    openCreateModal(type) {
+        let model = {kind: type, formType: 'create', objectData: {owner: [this.authService.userInfo.sub]}};
+        this.dialogService.open({viewModel: AuFormDialog, model: model, modalSize: 'modal-xl'})
+            .whenClosed(async response => {
+                if (response.wasCancelled) {
+                    this.logger.debug('Dialog was cancelled!');
+                } else {
+                    this.logger.debug('Dialog was confirmed!');
+                    if (type === 'device') {
+                        this.contextService.initialize(this.authService.getUserId());
+                    } else if (type === 'emergencyEvent') {
+                        AureliaCookie.set('emergency-event', response.output.id, {});
+                        await this.loadEmergencyEvents();
+                    }
+                }
+            });
     }
 
 }
