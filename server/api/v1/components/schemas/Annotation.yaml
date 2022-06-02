@@ -1,0 +1,66 @@
+db:options:
+  timestamps: true
+db:referencedByModels:
+  - model: Annotation
+    property: refId
+    handling: deleteObject
+type: object
+required:
+  - creator
+  - refId
+model:searchProperties:
+  - creator
+properties:
+  owner:
+    $ref: './../$defs.yaml#/owner'
+  refId:
+    type: string
+    db:ref: Annotation
+  createdAt:
+    type: string
+    format: date-time
+    db:skipInSchemaDefinition: true
+  updatedAt:
+    type: string
+    format: date-time
+    db:skipInSchemaDefinition: true
+db:discriminatorSchemas:
+  AnnotationText:
+    type: object
+    required:
+      - text
+    model:searchProperties:
+      - text
+    properties:
+      text:
+        type: string
+  AnnotationImage:
+    type: object
+    required:
+      - name
+      - imageData
+    properties:
+      name:
+        type: string
+        ui:formItemType: text
+      description:
+        type: string
+        ui:formItemType: textarea
+      data:
+        type: string
+        ui:formItemType: file
+        ui:hide:
+          form: true
+  AnnotationAudio:
+    type: object
+    required:
+      - source
+      - data
+    properties:
+      source:
+        type: string
+        enum:
+          - wav
+          - mp3
+      data:
+        type: string
