@@ -44,34 +44,11 @@ export class App extends BasicViewRouterExtended {
             title: 'iso7010.signs'
         },
         {
-            route: 'alert',
-            name: 'alert',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            route: 'cms',
+            name: 'cms',
+            moduleId: PLATFORM.moduleName('./cms/cms'),
             nav: true,
-            title: this.i18n.tr('model.alert', {count: 2}),
-            settings: {
-                detailView: true
-            }
-        },
-        {
-            route: 'device',
-            name: 'device',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
-            nav: true,
-            title: this.i18n.tr('model.device', {count: 2}),
-            settings: {
-                detailView: true
-            }
-        },
-        {
-            route: 'emergency-event',
-            name: 'emergency-event',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
-            nav: true,
-            title: this.i18n.tr('model.emergencyEvent', {count: 2}),
-            settings: {
-                detailView: true
-            }
+            title: this.i18n.tr('cms')
         },
         {
             route: 'components',

@@ -16,7 +16,15 @@
         "device": "Gerät",
         "device_other": "Geräte",
         "emergencyEvent": "Notfallsituation",
-        "emergencyEvent_other": "Notfallsituationen"
+        "emergencyEvent_other": "Notfallsituationen",
+        "incident": "Ereignis",
+        "incident_other": "Ereignisse",
+        "action": "Maßnahme",
+        "action_other": "Maßnahmen",
+        "pointOfInterest": "Sonderziel",
+        "pointOfInterest_other": "Sonderziele",
+        "annotation": "Anhanng",
+        "annotation_other": "Anhänge"
     },
     "views": {
         "map": "Karte",
@@ -90,7 +98,8 @@
         "distance": "Distanz",
         "rssi": "Anzeige der empfangenen Signalstärke (RSSI)",
         "parameter": "Parameter",
-        "image": "Bild"
+        "image": "Bild",
+        "assignedTo": "zugewiesen an"
     },
     "enum": {
         "alert": {

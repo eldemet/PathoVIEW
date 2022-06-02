@@ -1,0 +1,87 @@
+import {BasicViewRouterExtended} from 'library-aurelia/src/prototypes/basic-view-router-extended';
+import {inject} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-pal';
+
+@inject()
+export class Cms extends BasicViewRouterExtended {
+
+    routes = [
+        {
+            route: ['', 'alert'],
+            name: 'alert',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.alert', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'device',
+            name: 'device',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.device', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'emergency-event',
+            name: 'emergency-event',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.emergencyEvent', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'incident',
+            name: 'incident',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.incident', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'action',
+            name: 'action',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.action', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'poi',
+            name: 'point-of-interest',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.pointOfInterest', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'annotation',
+            name: 'annotation',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.annotation', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        }
+    ];
+
+    configureRouter(config, router) {
+        super.configureRouter(config, router);
+        config.title = this.i18n.tr('cms');
+        config.map(this.routes);
+    }
+
+}

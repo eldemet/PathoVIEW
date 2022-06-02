@@ -28,7 +28,11 @@ export async function configure(aurelia) {
         authService,
         new ModelServiceAsyncUISchema('alert', modelOptions, httpService),
         new ModelServiceAsyncUISchema('device', modelOptions, httpService),
-        new ModelServiceAsync('emergency-event', modelOptions, httpService)
+        new ModelServiceAsyncUISchema('point-of-interest', modelOptions, httpService),
+        new ModelServiceAsync('annotation', modelOptions, httpService),
+        new ModelServiceAsync('action', modelOptions, httpService),
+        new ModelServiceAsync('emergency-event', modelOptions, httpService),
+        new ModelServiceAsync('incident', modelOptions, httpService)
     ];
     await AureliaFramework.initialize(aurelia, environment, root, globalResources, registerServices);
 }

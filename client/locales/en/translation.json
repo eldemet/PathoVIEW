@@ -16,7 +16,15 @@
         "device": "device",
         "device_other": "devices",
         "emergencyEvent": "emergency event",
-        "emergencyEvent_other": "emergency events"
+        "emergencyEvent_other": "emergency events",
+        "incident": "incident",
+        "incident_other": "incidents",
+        "action": "action",
+        "action_other": "actions",
+        "pointOfInterest": "point of interest",
+        "pointOfInterest_other": "point of interests",
+        "annotation": "annotation",
+        "annotation_other": "annotations"
     },
     "views": {
         "map": "Map",
@@ -90,7 +98,8 @@
         "distance": "distance",
         "rssi": "received signal strength indicator (RSSI)",
         "parameter": "parameter",
-        "image": "image"
+        "image": "image",
+        "assignedTo": "assigned to"
     },
     "enum": {
         "alert": {
