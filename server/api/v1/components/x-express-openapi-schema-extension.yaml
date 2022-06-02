@@ -83,8 +83,32 @@ definitions:
               items:
                 type: string
       "ui:dependence":
-        type: string
-        # TODO CHECK IF IT CAN BE DEPRECATED
+        description: 'can either be parentReference to set the params of a parent route, cookie or serviceFunction'
+        oneOf:
+          - type: object
+            required:
+              - source
+              - property
+            properties:
+              source:
+                type: string
+                enum:
+                  - parentReference
+                  - cookie
+              property:
+                type: string
+          - type: object
+            required:
+              - source
+              - serviceName
+              - functionToCall
+            properties:
+              source:
+                const: serviceFunction
+              serviceName:
+                type: string
+              functionToCall:
+                type: string
       "ui:noLabel":
         type: boolean
       "ui:detailCustomCompose":
