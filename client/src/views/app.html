@@ -4,10 +4,10 @@
     <require from="library-aurelia/src/resources/attributes/bs-color-scheme"></require>
     <require from="library-aurelia/src/resources/elements/nav-bar"></require>
     <require from="library-aurelia/src/resources/elements/toolbar/toolbar"></require>
-    <require from="library-aurelia/src/resources/elements/alert"></require>
     <require from="library-aurelia/src/resources/elements/toast"></require>
     <require from="library-aurelia/src/resources/value-converters/format-number"></require>
     <require from="leaflet/dist/leaflet.css"></require>
+    <require from="../resources/elements/alert-flexible"></require>
 
     <nav-bar display-dark-mode-switch.bind="true"
              display-is-navigating.bind="true"
@@ -111,7 +111,7 @@
     </nav-bar>
 
     <toast event="toast"></toast>
-    <alert event="app-alert"></alert>
+    <alert-flexible event="app-alert"></alert-flexible>
 
     <router-view class="overflow-auto" bs-color-scheme.bind="{type: 'bg', setText: true, bw: true}"></router-view>
 
