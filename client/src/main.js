@@ -12,7 +12,7 @@ import {ModelServiceAsyncUISchema} from './services/model-service-async-ui-schem
 export async function configure(aurelia) {
     let authService = aurelia.container.get(AuthService);
     await authService.initialize(environment.keycloak, environment.testing);
-    if (authService.userInfo.locale) {
+    if (authService?.userInfo?.locale) {
         AureliaCookie.set('lang', authService.userInfo.locale, {});
     }
     let root = PLATFORM.moduleName('views/app');
