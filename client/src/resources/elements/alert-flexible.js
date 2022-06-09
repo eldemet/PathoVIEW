@@ -34,7 +34,7 @@ class AlertFlexible extends BasicComponent {
                 let alert = this.createAlertEvent(payload);
                 let oldAlert = this.alerts.find(x => x.id === alert.id);
                 if (oldAlert) {
-                    this.alerts[this.alerts.indexOf(oldAlert)] = alert;
+                    Object.assign(oldAlert, alert);
                 } else {
                     this.alerts.push(alert);
                 }
