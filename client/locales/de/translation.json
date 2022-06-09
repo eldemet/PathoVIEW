@@ -43,7 +43,10 @@
             "videoSourceError": "Fehler beim initialisieren der Kamera"
         },
         "noDevice": "Sie haben noch kein Gerät registriert. Es kann noch kein Standort geteilt werden!",
-        "noEmergencyEventSelected": "Keine Notfallsituation ausgewählt"
+        "noEmergencyEventSelected": "Keine Notfallsituation ausgewählt",
+        "alertLocationEntered": "Sie befinden sich innerhalb eines Alarmbereichs",
+        "alertLocationClose": "Sie befinden sich in der Nähe eines Alarmbereichs",
+        "alertLocationVeryClose": "Sie befinden sich in unmittelbarer Nähe eines Alarmbereichs"
     },
     "propertyKeys": {
         "address": "Adresse",
@@ -223,12 +226,16 @@
         "signs": "ISO7010 Kennzeichen",
         "w": "Warnzeichen",
         "W001": "Allgemeines Warnzeichen",
+        "W003": "Warnung vor radioaktiven Stoffen oder ionisierender Strahlung",
         "W009": "Warnung vor Biogefährdung",
+        "W010": "Warnung vor niedriger Temperatur/Frost",
         "W012": "Warnung vor elektrischer Spannung",
         "W016": "Warnung vor giftigen Stoffen",
         "W017": "Warnung vor heißer Oberfläche",
         "W018": "Warnung vor automatischem Anlauf",
-        "W013": "Warnung vor ätzenden Stoffen",
+        "W021": "Warnung vor feuergefährlichen Stoffen",
+        "W023": "Warnung vor ätzenden Stoffen",
+        "W056": "Warnung vor Tsunami-gefährdetem Bereich",
         "p": "Verbotszeichen",
         "P001": "Allgemeines Verbotszeichen",
         "P005": "Kein Trinkwasser",

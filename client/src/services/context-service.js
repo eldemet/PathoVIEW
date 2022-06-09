@@ -1,59 +1,68 @@
 import {inject} from 'aurelia-framework';
-import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {HttpService} from 'library-aurelia/src/services/http-service';
+import {AureliaCookie} from 'aurelia-cookie';
 import * as platform from 'platform';
-import pick from 'lodash/pick';
-import isEqual from 'lodash/isEqual';
-import {deviceUtilities} from '../utilities';
+import numeral from 'numeral';
+import {Proxy} from 'library-aurelia/src/proxy';
+import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
+import {FormatDateValueConverter} from 'library-aurelia/src/resources/value-converters/format-date';
+import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
 import {catchError} from 'library-aurelia/src/decorators';
+import {point, polygon, multiPolygon} from '@turf/helpers';
+import distance from '@turf/distance';
+import center from '@turf/center';
+import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 
 /**
  * @extends BasicService
  * @category services
  */
-@inject(HttpService)
+@inject(Proxy)
 class ContextService extends BasicService {
 
-    constructor(httpService) {
-        super();
-        this.httpService = httpService;
+    constructor(proxy, ...rest) {
+        super('context', ...rest);
+        this.proxy = proxy;
+    }
+
+    @catchError('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true})
+    async initialize(userId, timeout = 20000) {
+        this.devices = (await this.proxy.get('device').getObjects({filter: {owner: userId}})).objects;
+        this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
+        this.currentDevice = this.getCurrentDevice();
+        this.interval = setInterval(async() => await this.update(), timeout);
+    }
+
+    async close() {
+        clearInterval(this.interval);
     }
 
     async update() {
-        let batteryLevel;
-        let location;
-        try {
-            batteryLevel = (await navigator.getBattery()).level;
-        } catch (error) {
-            // silently handle error
+        let location = await locationUtilities.getCurrentGeoJSONPoint();
+        if (location) {
+            await this.updateDevice(location);
+            await this.checkForAlertsNearCurrentLocation(location);
         }
-        try {
-            const pos = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
-            location = {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
-        } catch (error) {
-            // silently handle error
-        }
-        let old = pick(this.currentDevice, ['batteryLevel', 'osVersion', 'softwareVersion', 'supportedProtocol', 'provider', 'location']);
-        let device = {
+    }
+
+    async updateDevice(location) {
+        let batteryLevel = await deviceUtilities.getBatteryLevel();
+        let oldDeviceValues = this._.pick(this.currentDevice, ['batteryLevel', 'osVersion', 'softwareVersion', 'supportedProtocol', 'provider', 'location']);
+        let newDeviceValues = {
             batteryLevel: batteryLevel,
             osVersion: platform.os.toString(),
             softwareVersion: platform.name + ' ' + platform.version,
             supportedProtocol: ['http'],
             provider: platform.manufacturer || '',
             location: location
-            // firmwareVersion: '',
-            // hardwareVersion: '',
-            // ipAddress: '',
-            // macAddress: '',
-            // rssi: '',
+            // firmwareVersion, hardwareVersion, ipAddress, macAddress, rssi
         };
-        if (!isEqual(old, device)) {
-            this.logger.info(device);
+        if (!this._.isEqual(oldDeviceValues, newDeviceValues)) {
+            this.logger.debug(newDeviceValues);
             try {
-                this.currentDevice = await this.httpService.fetch('PUT', '/api/v1/model/device/' + this.currentDevice.id, Object.assign({}, this.currentDevice, device), 2000);
+                this.currentDevice = await this.proxy.get('device').updateObject(Object.assign({}, this.currentDevice, newDeviceValues), 2000);
             } catch (error) {
                 if (error.status === 406) {
-                    this.currentDevice = device;
+                    this.currentDevice = newDeviceValues;
                 } else {
                     this.logger.error(error.message);
                 }
@@ -63,19 +72,51 @@ class ContextService extends BasicService {
         }
     }
 
-    @catchError('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true})
-    async initialize(userId, timeout = 20000) {
-        this.devices = (await this.httpService.fetch('GET', '/api/v1/model/device?filter=' + JSON.stringify({owner: userId}), null, 5000)).objects;
-        this.currentDevice = this.getCurrentDevice();
-        this.initialized = true;
-        while (this.initialized) {
-            await this.update();
-            await new Promise((resolve) => setTimeout(resolve, timeout));
+    @catchError()
+    checkForAlertsNearCurrentLocation(location) {
+        let from = point(location.coordinates);
+        for (let alert of this.alerts) {
+            let distanceResult = distance(from, center(alert.location), {units: 'kilometers'});
+            let type;
+            let message;
+            let properties = {};
+            let dismissible = true;
+            if ((alert.location.type === 'Polygon' && booleanPointInPolygon(from, polygon(alert.location.coordinates))) ||
+                (alert.location.type === 'MultiPolygon' && booleanPointInPolygon(from, multiPolygon(alert.location.coordinates)))) {
+                distanceResult = 0;
+            }
+            if (distanceResult < 1.5) {
+                if (distanceResult > 0.75) {
+                    type = 'warning';
+                    message = 'alerts.alertLocationClose';
+                } else {
+                    type = 'danger';
+                    message = distanceResult === 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
+                    properties = distanceResult > 0 ? {distance: numeral(distanceResult).format('0,0.00') + ' km'} : {};
+                    dismissible = false;
+                }
+                numeral.locale(this.i18n.getLocale());
+                this.eventAggregator.publish('app-alert',
+                    {
+                        id: alert.id,
+                        type: type,
+                        message: this.i18n.tr(message),
+                        link: {
+                            name: alert.name,
+                            href: '#'
+                        },
+                        properties: Object.assign(properties, {
+                            validTo: FormatDateValueConverter.apply(alert.validTo, 'D T', this.i18n.getLocale()),
+                            subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
+                            severity: this.i18n.tr('enum.alert.severity.' + alert.severity)
+                        }),
+                        image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
+                        dismissible: dismissible
+                    });
+            } else {
+                this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+            }
         }
-    }
-
-    async close() {
-        this.initialized = false;
     }
 
     getCurrentDevice() {

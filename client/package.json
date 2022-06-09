@@ -1,18 +1,21 @@
 {
     "name": "pathoview-client",
     "description": "PathoVIEW client application.",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "repository": {
         "type": "git",
         "url": "https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git"
     },
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
-        "@geoman-io/leaflet-geoman-free": "^2.11.4",
+        "@geoman-io/leaflet-geoman-free": "^2.13.0",
+        "@turf/boolean-point-in-polygon": "^6.5.0",
+        "@turf/center": "^6.5.0",
+        "@turf/distance": "^6.5.0",
         "fabric": "^5.2.1",
-        "keycloak-js": "^17.0.1",
-        "leaflet": "^1.7.1",
-        "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v3.14.3",
+        "keycloak-js": "^18.0.0",
+        "leaflet": "^1.8.0",
+        "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v3.14.7",
         "platform": "^1.3.6"
     },
     "browserslist": [

@@ -1,3 +1,5 @@
+import {catchError} from 'library-aurelia/src/decorators';
+
 export const deviceUtilities = {
     getDeviceIcon(device) {
         let icon = 'bi bi-';
@@ -9,6 +11,18 @@ export const deviceUtilities = {
             icon += 'windows';
         }
         return icon;
+    },
+    @catchError()
+    async getBatteryLevel() {
+        return (await navigator.getBattery()).level;
+    }
+};
+
+export const locationUtilities = {
+    @catchError()
+    async getCurrentGeoJSONPoint() {
+        const pos = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
+        return {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
     }
 };
 
@@ -38,5 +52,20 @@ export const alertUtilities = {
                 color = 'success';
         }
         return icon + ' text-' + color;
+    },
+    getISO7010WarningIcon(category, subCategory) {
+        let icon = '001';
+        if (subCategory === 'tsunami') {
+            icon = '056';
+        } else if (subCategory === 'snow/ice') {
+            icon = '010';
+        } else if (subCategory === 'buildingFire' || subCategory === 'forestFire') {
+            icon = '021';
+        } else if (['fertilisation', 'irrigation', 'waterPollution', 'airPollution'].includes(subCategory)) {
+            icon = '016';
+        } else if (category === 'agriculture') {
+            icon = '009';
+        }
+        return icon;
     }
 };

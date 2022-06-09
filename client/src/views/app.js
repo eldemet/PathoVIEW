@@ -83,7 +83,7 @@ export class App extends BasicViewRouterExtended {
         await this.loadEmergencyEvents();
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
-        this.contextService.initialize(this.authService.getUserId());
+        await this.contextService.initialize(this.authService.getUserId());
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {
                 this.eventAggregator.publish('toast', {

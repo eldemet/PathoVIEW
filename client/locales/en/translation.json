@@ -43,7 +43,10 @@
             "videoSourceError": "error occurred initializing camera"
         },
         "noDevice": "You have not registered a device yet. No location can be shared yet!",
-        "noEmergencyEventSelected": "not emergency event selected"
+        "noEmergencyEventSelected": "not emergency event selected",
+        "alertLocationEntered": "You are inside an alert location",
+        "alertLocationClose": "You are close to an alert location",
+        "alertLocationVeryClose": "You are very close to an alert location"
     },
     "propertyKeys": {
         "address": "address",
@@ -223,12 +226,16 @@
         "signs": "ISO7010 signs",
         "w": "Warning of hazards",
         "W001": "Generic warning",
+        "W003": "Radioactive substances or ionising radiation",
         "W009": "Biohazard",
+        "W010": "Low temperatures",
         "W012": "High Voltage",
         "W016": "Poisonous substances",
         "W017": "Warning for hot surface",
         "W018": "Remotely started equipment",
+        "W021": "Combustible and flammable materials",
         "W023": "Corrosive substances",
+        "W056": "Tsunami hazard area",
         "p": "Prohibited actions",
         "P001": "Generic prohibition sign",
         "P005": "No potable water",

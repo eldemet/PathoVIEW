@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
 const project = require('./aurelia_project/aurelia.json');
-const {AureliaPlugin, ModuleDependenciesPlugin} = require('aurelia-webpack-plugin');
+const {AureliaPlugin} = require('aurelia-webpack-plugin');
 const {IgnorePlugin} = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const fs = require('fs');
@@ -165,9 +165,6 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
     plugins: [
         new DuplicatePackageCheckerPlugin(),
         new AureliaPlugin(),
-        new ModuleDependenciesPlugin({
-            'aurelia-testing': ['./compile-spy', './view-spy']
-        }),
         new HtmlWebpackPlugin({
             template: 'index.ejs',
             minify: production ? {
