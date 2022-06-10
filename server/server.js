@@ -88,6 +88,8 @@ if (fs.existsSync('client')) {
     };
 }
 
+const configAdditionsSchemaPath = './api/v1/components/config-additions.yaml';
+
 const additionalDbSchemas = {
     Alert: {$ref: 'node_modules/smart-data-models-alert/Alert/model.yaml#/Alert'},
     Anomaly: {$ref: 'node_modules/smart-data-models-alert/Anomaly/model.yaml#/Anomaly'},
@@ -97,4 +99,4 @@ const additionalDbSchemas = {
     Measure: {$ref: 'node_modules/smart-data-models-risk-management/Measure/model.yaml#/Measure'}
 };
 
-framework.initialize({openApi, configAppDefaults, additionalDbSchemas});
+framework.initialize({openApi, configAppDefaults, configAdditionsSchemaPath, additionalDbSchemas});

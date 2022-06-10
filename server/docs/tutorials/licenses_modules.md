@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 388
+* MIT: 393
 * ISC: 53
 * Apache-2.0: 16
 * BSD-2-Clause: 13
@@ -415,6 +415,10 @@
     - licenses: MIT
     - description: backport of util.debuglog from node v0.11
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+ - **[decode-uri-component@0.2.0](https://github.com/SamVerschueren/decode-uri-component)**
+    - licenses: MIT
+    - description: A better decodeURIComponent
+    - copyright: Copyright (c) Sam Verschueren <sam.verschueren@gmail.com> (github.com/SamVerschueren)
  - **[decompress-response@3.3.0](https://github.com/sindresorhus/decompress-response)**
     - licenses: MIT
     - description: Decompress a HTTP response if needed
@@ -683,6 +687,10 @@
     - licenses: MIT
     - description: Fill in a range of numbers or letters, optionally passing an increment or `step` to use, or create a regex-compatible range with `options.toRegex`
     - copyright: Copyright (c) 2014-present, Jon Schlinkert.
+ - **[filter-obj@1.1.0](https://github.com/sindresorhus/filter-obj)**
+    - licenses: MIT
+    - description: Filter object keys and values into a new object
+    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
  - **[finalhandler@1.1.2](https://github.com/pillarjs/finalhandler)**
     - licenses: MIT
     - description: Node.js final http responder
@@ -1375,7 +1383,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-server@0.3.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-server@0.4.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW server application
     - copyright: none
@@ -1447,6 +1455,10 @@
     - licenses: BSD-3-Clause
     - description: A querystring parser that supports nesting and arrays, with a depth limit
     - copyright: Copyright (c) 2014, Nathan LaFreniere and other [contributors](https://github.com/ljharb/qs/graphs/contributors). All rights reserved.
+ - **[query-string@7.1.1](https://github.com/sindresorhus/query-string)**
+    - licenses: MIT
+    - description: Parse and stringify URL query strings
+    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (http://sindresorhus.com)
  - **[queue-microtask@1.2.3](https://github.com/feross/queue-microtask)**
     - licenses: MIT
     - description: fast, tiny `queueMicrotask` shim for modern engines
@@ -1723,6 +1735,10 @@
     - licenses: MIT
     - description: Implementation of the SPDY protocol on node.js.
     - copyright: Copyright Fedor Indutny, 2015.
+ - **[split-on-first@1.1.0](https://github.com/sindresorhus/split-on-first)**
+    - licenses: MIT
+    - description: Split a string on the first occurance of a given separator
+    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
  - **[sprintf-js@1.0.3](https://github.com/alexei/sprintf.js)**
     - licenses: BSD-3-Clause
     - description: JavaScript sprintf implementation
@@ -1739,6 +1755,10 @@
     - licenses: MIT
     - description: HTTP status utility
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2016 Douglas Christopher Wilson <doug@somethingdoug.com>
+ - **[strict-uri-encode@2.0.0](https://github.com/kevva/strict-uri-encode)**
+    - licenses: MIT
+    - description: A stricter URI encode adhering to RFC 3986
+    - copyright: Copyright (c) Kevin Martensson <kevinmartensson@gmail.com> (github.com/kevva)
  - **[string-width@1.0.2](https://github.com/sindresorhus/string-width)**
     - licenses: MIT
     - description: Get the visual width of a string - the number of columns required to display it

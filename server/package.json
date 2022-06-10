@@ -1,6 +1,6 @@
 {
     "name": "pathoview-server",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "PathoVIEW server application",
     "main": "server.js",
     "scripts": {
@@ -32,6 +32,7 @@
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
         "ajv-formats-draft2019": "^1.6.1",
+        "query-string": "^7.1.1",
         "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.10.1"
     },
     "directories": {
