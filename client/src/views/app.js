@@ -17,9 +17,9 @@ export class App extends BasicViewRouterExtended {
 
     routes = [
         {
-            route: ['', '/empty'],
-            name: 'empty',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/empty'),
+            route: ['', '/dashboard'],
+            name: 'dashboard',
+            moduleId: PLATFORM.moduleName('./dashboard/dashboard'),
             nav: false
         },
         {

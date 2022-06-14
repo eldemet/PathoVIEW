@@ -69,3 +69,23 @@ export const alertUtilities = {
         return icon;
     }
 };
+
+export const weatherUtilities = {
+    getUnitByProperty(property, units) {
+        let unit;
+        if (property === 'humidity') {
+            unit = '%';
+        } else if (['pressure', 'sea_level', 'grnd_level'].includes(property)) {
+            unit = 'hPa';
+        } else if (['temp', 'feels_like', 'temp_min', 'temp_max'].includes(property)) {
+            if (units === 'imperial') {
+                unit = '°F';
+            } else if (units === 'metric') {
+                unit = '°C';
+            } else { //units === 'standard'
+                unit = '°K';
+            }
+        }
+        return unit;
+    }
+};

@@ -1,0 +1,21 @@
+<template>
+
+    <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
+
+    <div class="container">
+        <div class="row">
+            <h1>${'propertyKeys.weather' | t}</h1>
+            <div repeat.for="weather of currentWeather.weather"
+                 class="d-flex flex-column align-items-start">
+                <img src.bind="openWeatherMapIconUrl + weather.icon + '@2x.png'" alt="${weather.main}">
+                <span>${weather.description}</span>
+            </div>
+            <h2>${'propertyKeys.weatherMain' | t}</h2>
+            <p repeat.for="property of currentWeather.main | objectKeys"
+               class="mb-0">
+                <span>${'propertyKeys.' + property | t}: </span>${currentWeather.main[property] + ' ' + weatherUtilities.getUnitByProperty(property, 'metric')}
+            </p>
+        </div>
+    </div>
+
+</template>
