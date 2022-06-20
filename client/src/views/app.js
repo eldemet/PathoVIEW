@@ -6,6 +6,7 @@ import {DialogService} from 'aurelia-dialog';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
+import {deviceUtilities} from '../utilities';
 import {AuthService} from '../services/auth-service';
 import {ContextService} from '../services/context-service';
 import {AureliaCookie} from 'aurelia-cookie';
@@ -68,6 +69,7 @@ export class App extends BasicViewRouterExtended {
         this.notificationService = notificationService;
         this.authService = authService;
         this.contextService = contextService;
+        this.deviceUtilities = deviceUtilities;
     }
 
     configureRouter(config, router) {

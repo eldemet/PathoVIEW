@@ -133,10 +133,6 @@ class ContextService extends BasicService {
         return currentDevice;
     }
 
-    getDeviceIcon(device) {
-        return deviceUtilities.getDeviceIcon(device);
-    }
-
 }
 
 export {ContextService};
