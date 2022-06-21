@@ -1,4 +1,5 @@
 import {catchError} from 'library-aurelia/src/decorators';
+import get from 'lodash/get';
 
 export const deviceUtilities = {
     getDeviceIcon(device) {
@@ -71,13 +72,39 @@ export const alertUtilities = {
 };
 
 export const weatherUtilities = {
-    getUnitByProperty(property, units) {
+    weatherProperties: {
+        temp: 'main.temp',
+        feels_like: 'main.feels_like',
+        pressure: 'main.pressure',
+        humidity: 'main.humidity',
+        visibility: 'visibility',
+        speed: 'wind.speed',
+        deg: 'wind.deg',
+        gust: 'wind.gust',
+        clouds: 'clouds.all',
+        'rain1h': 'rain.1h',
+        'rain3h': 'rain.3h',
+        'snow1h': 'snow.1h',
+        'snow3h': 'snow.3h'
+    },
+    getValueAndUnit(object, path, units) {
         let unit;
-        if (property === 'humidity') {
+        if (path === 'visibility') {
+            unit = 'm';
+        } else if (path === 'wind.deg') {
+            unit = '°';
+            //TODO get cardinal direction http://snowfence.umn.edu/Components/winddirectionanddegrees.htm
+        } else if (['main.humidity', 'clouds.all'].includes(path)) {
             unit = '%';
-        } else if (['pressure', 'sea_level', 'grnd_level'].includes(property)) {
+        } else if (['wind.gust', 'wind.speed'].includes(path)) {
+            if (units === 'imperial') {
+                unit = 'miles/h';
+            } else {
+                unit = 'm/s';
+            }
+        } else if (['main.pressure', 'main.sea_level', 'main.grnd_level'].includes(path)) {
             unit = 'hPa';
-        } else if (['temp', 'feels_like', 'temp_min', 'temp_max'].includes(property)) {
+        } else if (['main.temp', 'main.feels_like', 'main.temp_min', 'main.temp_max'].includes(path)) {
             if (units === 'imperial') {
                 unit = '°F';
             } else if (units === 'metric') {
@@ -85,7 +112,9 @@ export const weatherUtilities = {
             } else { //units === 'standard'
                 unit = '°K';
             }
+        } else if (['rain.1h', 'rain.3h', 'snow.1h', 'snow.3h'].includes(path)) {
+            unit = 'mm';
         }
-        return unit;
+        return get(object, path) + ' ' + unit;
     }
 };

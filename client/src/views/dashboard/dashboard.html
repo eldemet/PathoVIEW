@@ -1,20 +1,97 @@
 <template>
 
     <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
+    <require from='library-aurelia/src/resources/elements/all-properties'></require>
+    <require from='library-aurelia/src/resources/value-converters/format-date'></require>
 
     <div class="container">
-        <div class="row">
-            <h1>${'propertyKeys.weather' | t}</h1>
-            <div repeat.for="weather of currentWeather.weather"
-                 class="d-flex flex-column align-items-start">
-                <img src.bind="openWeatherMapIconUrl + weather.icon + '@2x.png'" alt="${weather.main}">
-                <span>${weather.description}</span>
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1>${'app' | t}</h1>
             </div>
-            <h2>${'propertyKeys.weatherMain' | t}</h2>
-            <p repeat.for="property of currentWeather.main | objectKeys"
-               class="mb-0">
-                <span>${'propertyKeys.' + property | t}: </span>${currentWeather.main[property] + ' ' + weatherUtilities.getUnitByProperty(property, 'metric')}
-            </p>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <h4>${'views.dashboard.welcome' | t}</h4>
+                    ${'views.dashboard.prototype' | t}
+                    <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview/-/issues"
+                       target="_blank">
+                        Gitlab
+                    </a>!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src.bind="'./assets/logo-pathocert.png'" class="mw-100 mb-4">
+            </div>
+            <div class="col-md-9">
+                <h2>${'views.dashboard.learnMore' | t}</h2>
+                <p class="my-2">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>${'views.dashboard.learnMoreWebpage' | t}</span>
+                    <a href="https://pathocert.eu/" target="_blank"> pathocert.eu </a>
+                </p>
+                <p class="my-2">
+                    <i class="bi bi-twitter"></i>
+                    <span>${'views.dashboard.learnMoreSocialMedia' | t}</span>
+                    <a href="https://twitter.com/pathocert?lang=de" target="_blank">Twitter</a>
+                </p>
+                <p class="my-2">
+                    <i class="bi bi-linkedin"></i>
+                    <span>${'views.dashboard.learnMoreSocialMedia' | t}</span>
+                    <a href="https://www.linkedin.com/company/pathocert/" target="_blank">LinkedIn</a>
+                </p>
+                <p class="my-2">
+                    <i class="bi bi-git"></i>
+                    <span>${'views.dashboard.learnMoreGitlab' | t}</span>
+                    <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert" target="_blank">Gitlab</a>
+                </p>
+            </div>
+        </div>
+        <div class="row mt-5 mb-4">
+            <div class="col-12">
+                <h2>${'views.dashboard.emergencyEvent' | t}</h2>
+            </div>
+        </div>
+        <div class="row"
+             if.bind="!contextService.currentEmergencyEvent">
+            <div class="col-12">
+                <div class="alert alert-info" role="alert">
+                    <h4>${'views.dashboard.noEmergencyEventHeadline' | t}</h4>
+                    ${'views.dashboard.noEmergencyEvent' | t}
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5"
+             else>
+            <div class="col-md-6">
+                <all-properties schema.bind="contextService.emergencyEventSchema"
+                                object.bind="contextService.currentEmergencyEvent">
+                </all-properties>
+            </div>
+            <div class="col-md-6"
+                 if.bind="contextService.currentWeather">
+                <h2>${'propertyKeys.weather' | t}</h2>
+                <div repeat.for="weather of contextService.currentWeather.weather"
+                     class="d-flex flex-column align-items-start">
+                    <img src.bind="openWeatherMapIconUrl + weather.icon + '@2x.png'" alt="${weather.main}">
+                    <span>${weather.description}</span>
+                </div>
+                <h3>${'propertyKeys.weatherMain' | t}</h3>
+                <p repeat.for="property of weatherUtilities.weatherProperties | objectKeys"
+                   if.bind="_.get(contextService.currentWeather, weatherUtilities.weatherProperties[property])"
+                   class="mb-0">
+                    <span>${'propertyKeys.' + property | t}: </span>
+                    ${weatherUtilities.getValueAndUnit(contextService.currentWeather, weatherUtilities.weatherProperties[property], 'metric')}
+                </p>
+                <p class="mb-0">
+                    <span>${'propertyKeys.sunrise' | t}: ${getDate(contextService.currentWeather.sys.sunrise) | formatDate:'T':i18n.getLocale()}</span>
+                </p>
+                <p class="mb-0">
+                    <span>${'propertyKeys.sunset' | t}: ${getDate(contextService.currentWeather.sys.sunset) | formatDate:'T':i18n.getLocale()}</span>
+                </p>
+            </div>
         </div>
     </div>
 

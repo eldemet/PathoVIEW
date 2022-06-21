@@ -28,7 +28,19 @@
     },
     "views": {
         "map": "Karte",
-        "instructions": "Anleitungen"
+        "instructions": "Anleitungen",
+        "dashboard": {
+            "welcome": "Vielen Dank, dass Sie PathoVIEW ausprobieren!",
+            "funding": "Das PathoCERT-Projekt wird durch das Forschungs- und Innovationsprogramm Horizont 2020 der Europäischen Union unter der Fördervereinbarung Nr. 883484 gefördert.",
+            "prototype": "Die Anwendung befindet sich auf dem technischen Stand eines Demonstrators. Sie werden deshalb auf Fehler und Schwierigkeiten stoßen. Bitte melden Sie diese auf",
+            "emergencyEvent": "Informationen zur Notfallsituation",
+            "noEmergencyEventHeadline": "Keine Notfallsituation ausgewählt",
+            "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!",
+            "learnMore": "Lernen Sie mehr über das Projekt PathoCERT",
+            "learnMoreWebpage": "Die Webseite des Forschungsprojekts: ",
+            "learnMoreSocialMedia": "Der Auftritt auf: ",
+            "learnMoreGitlab": "Die Repositories (für Entwickler*innen): "
+        }
     },
     "buttons": {
         "logout": "Abmelden",
@@ -120,8 +132,10 @@
         "clouds": "Wolken",
         "rain": "Regen",
         "snow": "Schnee",
-        "1h": "Menge für die letzte 1 Stunde",
-        "3h": "Menge für die letzten 3 Stunden",
+        "rain1h": "Menge Regen für die letzte 1 Stunde",
+        "rain3h": "Menge Regen für die letzten 3 Stunden",
+        "snow1h": "Menge Schnee für die letzte 1 Stunde",
+        "snow3h": "Menge Schnee für die letzten 3 Stunden",
         "sunrise": "Sonnenaufgang",
         "sunset": "Sonnenuntergang"
     },
