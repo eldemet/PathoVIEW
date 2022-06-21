@@ -2,30 +2,35 @@ import {inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import * as platform from 'platform';
 import numeral from 'numeral';
-import {Proxy} from 'library-aurelia/src/proxy';
-import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {FormatDateValueConverter} from 'library-aurelia/src/resources/value-converters/format-date';
-import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
-import {catchError} from 'library-aurelia/src/decorators';
 import {point, polygon, multiPolygon} from '@turf/helpers';
 import distance from '@turf/distance';
 import center from '@turf/center';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
+import {Proxy} from 'library-aurelia/src/proxy';
+import {HttpService} from 'library-aurelia/src/services/http-service';
+import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
+import {FormatDateValueConverter} from 'library-aurelia/src/resources/value-converters/format-date';
+import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
+import {catchError} from 'library-aurelia/src/decorators';
+import {loadingEvent} from '../decorators';
+import {stringify} from 'query-string';
 
 /**
  * @extends BasicService
  * @category services
  */
-@inject(Proxy)
+@inject(Proxy, HttpService)
 class ContextService extends BasicService {
 
-    constructor(proxy, ...rest) {
+    constructor(proxy, httpService, ...rest) {
         super('context', ...rest);
         this.proxy = proxy;
+        this.httpService = httpService;
     }
 
     @catchError('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true})
     async initialize(userId, timeout = 20000) {
+        await this.loadEmergencyEvents();
         this.devices = (await this.proxy.get('device').getObjects({filter: {owner: userId}})).objects;
         this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
         this.currentDevice = this.getCurrentDevice();
@@ -43,6 +48,37 @@ class ContextService extends BasicService {
             await this.updateDevice(location);
             await this.checkForAlertsNearCurrentLocation(location);
         }
+    }
+
+    @loadingEvent('app-alert', 'emergency-event')
+    @catchError('app-alert', {
+        type: 'warning',
+        message: 'alerts.general.arrayEmpty',
+        translateOptions: {type: 'emergencyEvent'},
+        dismissible: true
+    })
+    async loadEmergencyEvents() {
+        this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
+        this.emergencyEventSchema = await this.proxy.get('emergency-event').getSchema();
+        let currentEmergencyEventId = AureliaCookie.get('emergency-event');
+        if (currentEmergencyEventId) {
+            this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
+            await this.changeEmergencyEvent(this.currentEmergencyEvent);
+        }
+    }
+
+    async changeEmergencyEvent(emergencyEvent) {
+        AureliaCookie.set('emergency-event', emergencyEvent.id, {});
+        this.currentEmergencyEvent = emergencyEvent;
+        let coordinates = center(this.currentEmergencyEvent.location).geometry.coordinates;
+        let url = '/api/v1/weather/current?' + stringify({
+            lat: coordinates[0],
+            lon: coordinates[1],
+            units: 'metric',
+            lang: AureliaCookie.get('lang') || 'de'
+        });
+        this.currentWeather = await this.httpService.fetch('GET', url);
+        this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
     }
 
     async updateDevice(location) {

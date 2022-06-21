@@ -3,15 +3,13 @@ import {inject} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {DialogService} from 'aurelia-dialog';
+import {AureliaCookie} from 'aurelia-cookie';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {deviceUtilities} from '../utilities';
 import {AuthService} from '../services/auth-service';
 import {ContextService} from '../services/context-service';
-import {AureliaCookie} from 'aurelia-cookie';
-import {catchError} from 'library-aurelia/src/decorators';
-import {loadingEvent} from '../decorators';
 
 @inject(BindingSignaler, DialogService, NotificationService, AuthService, ContextService)
 export class App extends BasicViewRouterExtended {
@@ -82,7 +80,6 @@ export class App extends BasicViewRouterExtended {
     async attached() {
         super.attached();
         this.isDarkMode = this.responsiveService.isDarkMode();
-        await this.loadEmergencyEvents();
         this.responsiveService.initialize();
         this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         await this.contextService.initialize(this.authService.getUserId());
@@ -124,27 +121,9 @@ export class App extends BasicViewRouterExtended {
         clearInterval(this.interval);
     }
 
-    @loadingEvent('app-alert', 'emergency-event')
-    @catchError('app-alert', {
-        type: 'warning',
-        message: 'alerts.general.arrayEmpty',
-        translateOptions: {type: 'emergencyEvent'},
-        dismissible: true
-    })
-    async loadEmergencyEvents() {
-        this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
-        let currentEmergencyEventId = AureliaCookie.get('emergency-event');
-        this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
-    }
-
     changeLanguage(language) {
         AureliaCookie.set('lang', language, {});
         window.location.reload();
-    }
-
-    changeEmergencyEvent(emergencyEvent) {
-        AureliaCookie.set('emergency-event', emergencyEvent.id, {});
-        this.currentEmergencyEvent = emergencyEvent;
     }
 
     openCreateModal(type) {

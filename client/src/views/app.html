@@ -29,16 +29,16 @@
             </ul>
         </div>
 
-        <div class="dropdown" if.bind="emergencyEvents">
+        <div class="dropdown" if.bind="contextService.emergencyEvents">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <span if.bind="currentEmergencyEvent">${currentEmergencyEvent.name}</span>
+                <span if.bind="contextService.currentEmergencyEvent">${contextService.currentEmergencyEvent.name}</span>
                 <span else>${'alerts.noEmergencyEventSelected' | t}</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="language-menu">
-                <li repeat.for="emergencyEvent of emergencyEvents">
-                    <button class="dropdown-item ${currentEmergencyEvent === emergencyEvent ? 'active' : ''}"
-                            click.trigger="changeEmergencyEvent(emergencyEvent)">
+                <li repeat.for="emergencyEvent of contextService.emergencyEvents">
+                    <button class="dropdown-item ${contextService.currentEmergencyEvent === emergencyEvent ? 'active' : ''}"
+                            click.trigger="contextService.changeEmergencyEvent(emergencyEvent)">
                         ${emergencyEvent.name}
                     </button>
                 </li>
