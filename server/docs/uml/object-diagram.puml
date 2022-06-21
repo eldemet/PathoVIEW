@@ -5,6 +5,7 @@ class EmergencyEvent {
     name : String
     description: String
     owner: Array<UserId>
+    location: Location
     ..
     createdAt: Date
     updatedAt: Date

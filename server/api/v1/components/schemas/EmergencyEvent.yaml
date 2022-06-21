@@ -4,6 +4,7 @@ required:
   - type
   - name
   - owner
+  - location
 model:searchProperties:
   - name
 db:options:
@@ -35,6 +36,12 @@ properties:
     ui:formItemType: textarea
   owner:
     $ref: './../$defs.yaml#/owner'
+  location:
+    $ref: './../$defs.yaml#/Location'
+    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
+    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
+    ui:hide:
+      table: true
   createdAt:
     type: string
     format: "date-time"
