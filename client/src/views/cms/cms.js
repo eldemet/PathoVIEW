@@ -7,7 +7,11 @@ export class Cms extends BasicViewRouterExtended {
 
     routes = [
         {
-            route: ['', 'alert'],
+            route: '',
+            redirect: 'alert'
+        },
+        {
+            route: 'alert',
             name: 'alert',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
