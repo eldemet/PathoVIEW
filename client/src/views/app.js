@@ -16,10 +16,17 @@ export class App extends BasicViewRouterExtended {
 
     routes = [
         {
-            route: ['', '/dashboard'],
+            route: ['', '/home'],
+            name: 'home',
+            moduleId: PLATFORM.moduleName('./home/home'),
+            nav: false
+        },
+        {
+            route: 'dashboard',
             name: 'dashboard',
             moduleId: PLATFORM.moduleName('./dashboard/dashboard'),
-            nav: false
+            nav: true,
+            title: 'views.dashboard.title'
         },
         {
             route: 'map',
@@ -47,7 +54,7 @@ export class App extends BasicViewRouterExtended {
             name: 'cms',
             moduleId: PLATFORM.moduleName('./cms/cms'),
             nav: true,
-            title: this.i18n.tr('cms')
+            title: 'views.cms'
         },
         {
             route: 'components',

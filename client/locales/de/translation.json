@@ -29,18 +29,22 @@
     "views": {
         "map": "Karte",
         "instructions": "Anleitungen",
-        "dashboard": {
+        "home": {
             "welcome": "Vielen Dank, dass Sie PathoVIEW ausprobieren!",
             "funding": "Das PathoCERT-Projekt wird durch das Forschungs- und Innovationsprogramm Horizont 2020 der Europäischen Union unter der Fördervereinbarung Nr. 883484 gefördert.",
             "prototype": "Die Anwendung befindet sich auf dem technischen Stand eines Demonstrators. Sie werden deshalb auf Fehler und Schwierigkeiten stoßen. Bitte melden Sie diese auf",
-            "emergencyEvent": "Informationen zur Notfallsituation",
-            "noEmergencyEventHeadline": "Keine Notfallsituation ausgewählt",
-            "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!",
             "learnMore": "Lernen Sie mehr über das Projekt PathoCERT",
             "learnMoreWebpage": "Die Webseite des Forschungsprojekts: ",
             "learnMoreSocialMedia": "Der Auftritt auf: ",
             "learnMoreGitlab": "Die Repositories (für Entwickler*innen): "
-        }
+        },
+        "dashboard": {
+            "title": "Dashboard",
+            "emergencyEvent": "Informationen zur Notfallsituation",
+            "noEmergencyEventHeadline": "Keine Notfallsituation ausgewählt",
+            "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!"
+        },
+        "cms": "Verwaltung (CMS)"
     },
     "buttons": {
         "logout": "Abmelden",

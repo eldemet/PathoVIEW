@@ -2,13 +2,13 @@
     "app": "PathoVIEW Web App",
     "model": {
         "object": "object",
-        "object_plural": "objects",
+        "object_other": "objects",
         "dialog": "dialog",
-        "dialog_plural": "dialogs",
+        "dialog_other": "dialogs",
         "promptDialog": "prompt dialog",
-        "promptDialog_plural": "prompts dialogs",
+        "promptDialog_other": "prompts dialogs",
         "toast": "toast",
-        "toast_plural": "toasts",
+        "toast_other": "toasts",
         "alert": "alert",
         "alert_other": "alerts",
         "contributor": "contributor",
@@ -29,18 +29,22 @@
     "views": {
         "map": "Map",
         "instructions": "Instructions",
-        "dashboard": {
+        "home": {
             "welcome": "Thank you for testing PathoVIEW!",
             "funding": "The PathoCERT project has received funding from the European  Union’s Horizon 2020 research and innovation programme under grant agreement No. 883484.",
             "prototype": "The application is at the technical level of a demonstrator. You will therefore encounter errors and difficulties. Please report them on",
-            "emergencyEvent": "Emergency event information",
-            "noEmergencyEventHeadline": "No emergency event selected",
-            "noEmergencyEvent": "Please select an emergency event in the navigation bar first to get more information!",
             "learnMore": "Learn more about the PathoCERT project",
             "learnMoreWebpage": "The website of the research project: ",
             "learnMoreSocialMedia": "The appearance on: ",
             "learnMoreGitlab": "The repositories (for developers): "
-        }
+        },
+        "dashboard": {
+            "title": "dashboard",
+            "emergencyEvent": "Emergency event information",
+            "noEmergencyEventHeadline": "No emergency event selected",
+            "noEmergencyEvent": "Please select an emergency event in the navigation bar first to get more information!"
+        },
+        "cms": "Management (CMS)"
     },
     "buttons": {
         "logout": "logout",

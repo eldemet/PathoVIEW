@@ -5,50 +5,6 @@
     <require from='library-aurelia/src/resources/value-converters/format-date'></require>
 
     <div class="container">
-        <div class="row mb-4">
-            <div class="col-12">
-                <h1>${'app' | t}</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <h4>${'views.dashboard.welcome' | t}</h4>
-                    ${'views.dashboard.prototype' | t}
-                    <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview/-/issues"
-                       target="_blank">
-                        Gitlab
-                    </a>!
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <img src.bind="'./assets/logo-pathocert.png'" class="mw-100 mb-4">
-            </div>
-            <div class="col-md-9">
-                <h2>${'views.dashboard.learnMore' | t}</h2>
-                <p class="my-2">
-                    <i class="bi bi-house-door-fill"></i>
-                    <span>${'views.dashboard.learnMoreWebpage' | t}</span>
-                    <a href="https://pathocert.eu/" target="_blank"> pathocert.eu </a>
-                </p>
-                <p class="my-2">
-                    <i class="bi bi-twitter"></i>
-                    <span>${'views.dashboard.learnMoreSocialMedia' | t}</span>
-                    <a href="https://twitter.com/pathocert?lang=de" target="_blank">Twitter</a>
-                </p>
-                <p class="my-2">
-                    <i class="bi bi-linkedin"></i>
-                    <span>${'views.dashboard.learnMoreSocialMedia' | t}</span>
-                    <a href="https://www.linkedin.com/company/pathocert/" target="_blank">LinkedIn</a>
-                </p>
-                <p class="my-2">
-                    <i class="bi bi-git"></i>
-                    <span>${'views.dashboard.learnMoreGitlab' | t}</span>
-                    <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert" target="_blank">Gitlab</a>
-                </p>
-            </div>
-        </div>
         <div class="row mt-5 mb-4">
             <div class="col-12">
                 <h2>${'views.dashboard.emergencyEvent' | t}</h2>
