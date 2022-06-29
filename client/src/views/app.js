@@ -43,13 +43,6 @@ export class App extends BasicViewRouterExtended {
             title: 'views.instructions'
         },
         {
-            route: 'signs',
-            name: 'signs',
-            moduleId: PLATFORM.moduleName('./signs/signs'),
-            nav: true,
-            title: 'iso7010.signs'
-        },
-        {
             route: 'cms',
             name: 'cms',
             moduleId: PLATFORM.moduleName('./cms/cms'),

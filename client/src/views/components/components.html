@@ -1,15 +1,15 @@
 <template>
 
+    <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
     <require from="./../../resources/elements/camera"></require>
 
     <div class="h-100 overflow-auto">
         <div class="container">
             <div class="row justify-content-center pb-4">
-                <div class="col-md-10 col-lg-8 col-xl-6">
+                <div class="col-md-6">
+                    <h1>Camera annotation</h1>
                     <camera></camera>
                 </div>
-            </div>
-            <div class="row justify-content-center pb-4">
                 <div class="col-md-6">
                     <h1>Dialogs and Toasts</h1>
                     <form autocomplete="off">
@@ -70,6 +70,26 @@
                             Create Prompt Dialog
                         </button>
                     </form>
+                </div>
+            </div>
+            <div class="row justify-content-center pb-4"
+                 repeat.for="key of iso | objectKeys">
+                <div class="col-xl-10">
+                    <h1>${'iso7010.' + key | t}</h1>
+                    <div class="row row-cols-1 row-cols-md-5 g-4">
+                        <div class="col"
+                             repeat.for="sign of iso[key]">
+                            <div class="card text-center h-100">
+                                <img src.bind="'./assets/iso7010/ISO_7010_' + sign + '.svg'" class="card-img-top p-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">${'iso7010.' + sign | t}</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">ISO7010 ${sign}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
