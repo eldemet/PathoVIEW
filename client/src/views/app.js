@@ -135,10 +135,12 @@ export class App extends BasicViewRouterExtended {
                 } else {
                     this.logger.debug('Dialog was confirmed!');
                     if (type === 'device') {
-                        this.contextService.initialize(this.authService.getUserId());
+                        await this.contextService.loadDevices();
+                        this.contextService.setCurrentDevice(response.output.id);
                     } else if (type === 'emergencyEvent') {
-                        AureliaCookie.set('emergency-event', response.output.id, {});
-                        await this.loadEmergencyEvents();
+                        await this.contextService.loadEmergencyEvents();
+                        let emergencyEvent = this.contextService.emergencyEvents.find(x => x.id === response.output.id);
+                        await this.contextService.changeEmergencyEvent(emergencyEvent);
                     }
                 }
             });

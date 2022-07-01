@@ -22,20 +22,28 @@ import {stringify} from 'query-string';
 @inject(Proxy, HttpService)
 class ContextService extends BasicService {
 
+    initialized = new Promise(resolve => {
+        this.initializeResolve = resolve;
+    });
+
     constructor(proxy, httpService, ...rest) {
         super('context', ...rest);
         this.proxy = proxy;
         this.httpService = httpService;
     }
 
-    @catchError('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true})
+    @catchError('app-alert')
     async initialize(userId, timeout = 20000) {
+        this.userId = userId;
         await this.loadEmergencyEvents();
-        this.devices = (await this.proxy.get('device').getObjects({filter: {owner: userId}})).objects;
-        this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
-        this.currentDevice = this.getCurrentDevice();
+        await this.loadDevices();
+        await this.loadAlerts();
+        this.setCurrentEmergencyEvent();
+        this.setCurrentDevice();
+        await this.setCurrentWeather();
         await this.update();
         this.interval = setInterval(async() => await this.update(), timeout);
+        this.initializeResolve();
     }
 
     async close() {
@@ -51,34 +59,81 @@ class ContextService extends BasicService {
     }
 
     @loadingEvent('app-alert', 'emergency-event')
+    @catchError('app-alert')
+    async loadEmergencyEvents() {
+        this.emergencyEventSchema = await this.proxy.get('emergency-event').getSchema();
+        this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
+    }
+
+    @loadingEvent('app-alert', 'device')
     @catchError('app-alert', {
         type: 'warning',
         message: 'alerts.general.arrayEmpty',
-        translateOptions: {type: 'emergencyEvent'},
+        translateOptions: {type: 'device'},
         dismissible: true
     })
-    async loadEmergencyEvents() {
-        this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
-        this.emergencyEventSchema = await this.proxy.get('emergency-event').getSchema();
+    async loadDevices() {
+        this.devices = (await this.proxy.get('device').getObjects({filter: {owner: this.userId}})).objects;
+    }
+
+    @loadingEvent('app-alert', 'alert')
+    @catchError('app-alert', {
+        type: 'warning',
+        message: 'alerts.general.arrayEmpty',
+        translateOptions: {type: 'alert'},
+        dismissible: true
+    })
+    async loadAlerts() {
+        this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
+    }
+
+    setCurrentEmergencyEvent() {
         let currentEmergencyEventId = AureliaCookie.get('emergency-event');
         if (currentEmergencyEventId) {
             this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
-            await this.changeEmergencyEvent(this.currentEmergencyEvent);
+        }
+    }
+
+    @catchError('app-alert', {type: 'warning', message: 'alerts.noDevice', dismissible: true})
+    setCurrentDevice(deviceId) {
+        if (!Array.isArray(this.devices) || this.devices.length === 0) {
+            throw new Error('No device for user found!');
+        }
+        let currentDevice = this.devices[0];
+        if (deviceId) {
+            currentDevice = this.devices.find(x => x.id === deviceId);
+        } else {
+            for (let device of this.devices) {
+                if (device.osVersion === platform.os.toString() || device.manufacturer === platform.manufacturer) {
+                    currentDevice = device;
+                    break;
+                }
+            }
+        }
+        this.currentDevice = currentDevice;
+    }
+
+    async setCurrentWeather() {
+        if (this.currentEmergencyEvent) {
+            let coordinates = center(this.currentEmergencyEvent.location).geometry.coordinates;
+            let url = '/api/v1/weather/current?' + stringify({
+                lat: coordinates[0],
+                lon: coordinates[1],
+                units: 'metric',
+                lang: AureliaCookie.get('lang') || 'de'
+            });
+            this.currentWeather = await this.httpService.fetch('GET', url);
         }
     }
 
     async changeEmergencyEvent(emergencyEvent) {
         AureliaCookie.set('emergency-event', emergencyEvent.id, {});
         this.currentEmergencyEvent = emergencyEvent;
-        let coordinates = center(this.currentEmergencyEvent.location).geometry.coordinates;
-        let url = '/api/v1/weather/current?' + stringify({
-            lat: coordinates[0],
-            lon: coordinates[1],
-            units: 'metric',
-            lang: AureliaCookie.get('lang') || 'de'
-        });
-        this.currentWeather = await this.httpService.fetch('GET', url);
-        this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
+        await this.setCurrentWeather();
+        for (let alert of this.alerts) {
+            this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+        }
+        await this.loadAlerts();
     }
 
     async updateDevice(location) {
@@ -153,20 +208,6 @@ class ContextService extends BasicService {
                 this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
             }
         }
-    }
-
-    getCurrentDevice() {
-        if (!Array.isArray(this.devices) || this.devices.length === 0) {
-            throw new Error('No device for user found!');
-        }
-        let currentDevice = this.devices[0];
-        for (let device of this.devices) {
-            if (device.osVersion === platform.os.toString() || device.manufacturer === platform.manufacturer) {
-                currentDevice = device;
-                break;
-            }
-        }
-        return currentDevice;
     }
 
 }
