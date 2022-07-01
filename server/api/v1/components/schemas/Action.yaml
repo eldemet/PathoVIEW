@@ -3,6 +3,7 @@ required:
   - id
   - type
   - name
+  - status
   - owner
 model:searchProperties:
   - name
@@ -33,6 +34,18 @@ properties:
     description: 'The name of this item.'
     ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
+  status:
+    type: string
+    description: 'The status of this item.'
+    enum:
+      - open
+      - successful
+      - unsuccessful
+      - onHold
+      - cancelled
+    ui:formItemType: select
+    ui:i18n: true
+    ui:i18nPathPrefix: enum.action.status
   description:
     type: string
     description: 'A description of this item'

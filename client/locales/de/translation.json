@@ -141,7 +141,8 @@
         "snow1h": "Menge Schnee für die letzte 1 Stunde",
         "snow3h": "Menge Schnee für die letzten 3 Stunden",
         "sunrise": "Sonnenaufgang",
-        "sunset": "Sonnenuntergang"
+        "sunset": "Sonnenuntergang",
+        "status": "Status"
     },
     "enum": {
         "alert": {
@@ -192,6 +193,15 @@
                 "irrigation": "Bewässerung",
                 "fertilisation": "Düngung",
                 "trafficJam": "Verkehrsstau"
+            }
+        },
+        "action": {
+            "status": {
+                "open": "offen",
+                "successful": "erfolgreich",
+                "unsuccessful": "nicht erfolgreich",
+                "onHold": "in der Warteschleife",
+                "cancelled": "abgebrochen"
             }
         },
         "device": {

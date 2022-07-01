@@ -141,7 +141,8 @@
         "snow1h": "volume snow for the last 1 hour",
         "snow3h": "volume snow for the last 3 hours",
         "sunrise": "sunrise",
-        "sunset": "sunset"
+        "sunset": "sunset",
+        "status": "status"
     },
     "enum": {
         "alert": {
@@ -192,6 +193,15 @@
                 "irrigation": "irrigation",
                 "fertilisation": "fertilisation",
                 "trafficJam": "traffic jam"
+            }
+        },
+        "action": {
+            "status": {
+                "open": "open",
+                "successful": "successful",
+                "unsuccessful": "unsuccessful",
+                "onHold": "on hold",
+                "cancelled": "cancelled"
             }
         },
         "device": {
