@@ -43,6 +43,13 @@ export class App extends BasicViewRouterExtended {
             title: 'views.instructions'
         },
         {
+            route: 'pathogens',
+            name: 'pathogens',
+            moduleId: PLATFORM.moduleName('./pathogens/pathogens'),
+            nav: true,
+            title: 'views.pathogens.title'
+        },
+        {
             route: 'cms',
             name: 'cms',
             moduleId: PLATFORM.moduleName('./cms/cms'),

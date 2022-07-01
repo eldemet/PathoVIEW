@@ -24,7 +24,9 @@
         "pointOfInterest": "Sonderziel",
         "pointOfInterest_other": "Sonderziele",
         "annotation": "Anhanng",
-        "annotation_other": "Anhänge"
+        "annotation_other": "Anhänge",
+        "pathogen": "Krankheitserreger",
+        "pathogen_other": "Krankheitserreger"
     },
     "views": {
         "map": "Karte",
@@ -43,6 +45,9 @@
             "emergencyEvent": "Informationen zur Notfallsituation",
             "noEmergencyEventHeadline": "Keine Notfallsituation ausgewählt",
             "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!"
+        },
+        "pathogens": {
+            "title": "Krankheitserreger"
         },
         "cms": "Verwaltung (CMS)"
     },
@@ -142,7 +147,14 @@
         "snow3h": "Menge Schnee für die letzten 3 Stunden",
         "sunrise": "Sonnenaufgang",
         "sunset": "Sonnenuntergang",
-        "status": "Status"
+        "status": "Status",
+        "transmission": "Übertragung",
+        "symptoms": "Symptome",
+        "complications": "Komplikationen",
+        "diagnosis": "Diagnose",
+        "treatment": "Behandlung",
+        "prevention": "Prävention",
+        "controlMeasures": "Kontrollmaßnahmen"
     },
     "enum": {
         "alert": {

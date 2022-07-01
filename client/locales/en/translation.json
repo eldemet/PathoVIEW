@@ -24,7 +24,9 @@
         "pointOfInterest": "point of interest",
         "pointOfInterest_other": "point of interests",
         "annotation": "annotation",
-        "annotation_other": "annotations"
+        "annotation_other": "annotations",
+        "pathogen": "pathogen",
+        "pathogen_other": "pathogens"
     },
     "views": {
         "map": "Map",
@@ -43,6 +45,9 @@
             "emergencyEvent": "Emergency event information",
             "noEmergencyEventHeadline": "No emergency event selected",
             "noEmergencyEvent": "Please select an emergency event in the navigation bar first to get more information!"
+        },
+        "pathogens": {
+            "title": "Pathogens"
         },
         "cms": "Management (CMS)"
     },
@@ -142,7 +147,14 @@
         "snow3h": "volume snow for the last 3 hours",
         "sunrise": "sunrise",
         "sunset": "sunset",
-        "status": "status"
+        "status": "status",
+        "transmission": "transmission",
+        "symptoms": "symptoms",
+        "complications": "complications",
+        "diagnosis": "diagnosis",
+        "treatment": "treatment",
+        "prevention": "prevention",
+        "controlMeasures": "control measures"
     },
     "enum": {
         "alert": {

@@ -1,0 +1,75 @@
+type: object
+required:
+  - id
+  - type
+  - name
+  - owner
+model:searchProperties:
+  - name
+#model:i18nProperties:
+#  - description
+#  - transmission
+#  - symptoms
+#  - complications
+#  - diagnosis
+#  - treatment
+#  - prevention
+#  - controlMeasures
+db:options:
+  timestamps: true
+properties:
+  id:
+    $ref: './../$defs.yaml#/NGSIentityFormat'
+    description: 'Unique identifier of the entity'
+    default: Pathogen:00000
+    ui:hide:
+      table: true
+      form: true
+  type:
+    type: string
+    enum:
+      - Pathogen
+    default: Pathogen
+    ui:hide:
+      form: true
+      table: true
+  name:
+    type: string
+    description: 'The name of this item.'
+    ui:formItemType: text
+    ui:formItemGridClass: 'col-md-6'
+  description:
+    type: string
+    description: 'A description of this item'
+    ui:formItemType: textarea
+  owner:
+    $ref: './../$defs.yaml#/owner'
+  transmission:
+    type: string
+    ui:formItemType: textarea
+  symptoms:
+    type: string
+    ui:formItemType: textarea
+  complications:
+    type: string
+    ui:formItemType: textarea
+  diagnosis:
+    type: string
+    ui:formItemType: textarea
+  treatment:
+    type: string
+    ui:formItemType: textarea
+  prevention:
+    type: string
+    ui:formItemType: textarea
+  controlMeasures:
+    type: string
+    ui:formItemType: textarea
+  createdAt:
+    type: string
+    format: "date-time"
+    db:skipInSchemaDefinition: true
+  updatedAt:
+    type: string
+    format: "date-time"
+    db:skipInSchemaDefinition: true
