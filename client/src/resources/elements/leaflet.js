@@ -11,6 +11,7 @@ import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
 
 export class LeafletCustomElement extends BasicComponent {
 
+    @bindable containerId;
     @bindable layers;
     @bindable mapEvents;
     @bindable layerEvents;
@@ -19,6 +20,10 @@ export class LeafletCustomElement extends BasicComponent {
     @bindable withScaleControl;
     @bindable withEditControl;
     @bindable center;
+
+    initialized = new Promise((resolve, reject) => {
+        this.initializeResolve = resolve;
+    });
 
     defaultMapOptions = {zoomLevel: 12};
 
@@ -46,15 +51,8 @@ export class LeafletCustomElement extends BasicComponent {
         this.L = Leaflet;
         Leaflet.Icon.Default.imagePath = 'assets/';
         this.layerFactory = new LayerFactory(this.L);
-        this.mapInit = new Promise((resolve, reject) => {
-            this.mapInitResolve = resolve;
-            this.mapInitReject = reject;
-        });
-        this.eventsBound = new Promise((resolve, reject) => {
-            this.eventsBoundResolve = resolve;
-            this.eventsBoundReject = reject;
-        });
         this.layers = this.defaultLayers;
+        this.containerId = 'map';
     }
 
     async attached() {
@@ -72,87 +70,23 @@ export class LeafletCustomElement extends BasicComponent {
                 center = {lng: pos.coords.longitude, lat: pos.coords.latitude};
             }
         }
-        return new Promise((resolve, reject) => {
-            if (!this.map) {
-                this.map = this.L.map('map', mapOptions);
-            }
-            if (this.map) {
-                this.mapInitResolve();
-            } else {
-                this.mapInitReject();
-                reject();
-            }
-            if (this.layerEvents) {
-                this.layerEventsChanged();
-            }
-            if (this.mapEvents) {
-                this.mapEventsChanged();
-                this.eventsBound.then(() => {
-                    this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
-                });
-            } else {
-                this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
-            }
-            this.attachLayers();
-            this.withLayerControlChanged();
-            this.withScaleControlChanged();
-            this.withEditControlChanged();
-            resolve();
-        });
+        this.map = this.L.map(this.containerId, mapOptions);
+        this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
+        this.attachLayers();
+        this.setMapEvents();
+        this.setLayerEvents();
+        this.setScaleControl();
+        this.setLayerControl();
+        this.setEditControl();
+        this.initializeResolve();
     }
 
-    attachLayers() {
-        let layersToAttach = {base: {}, overlay: {}};
-        let layers = Object.assign({}, this.defaultLayers, this.layers);
-        if (layers.hasOwnProperty('base')) {
-            for (let layer of layers.base) {
-                const id = this.getLayerId(layer);
-                if (!this.attachedLayers.base.hasOwnProperty(id)) {
-                    layersToAttach.base[id] = this.layerFactory.getLayer(layer);
-                }
-            }
-        }
-        if (layers.hasOwnProperty('overlay')) {
-            for (let layer of layers.overlay) {
-                const id = this.getLayerId(layer);
-                if (!this.attachedLayers.overlay.hasOwnProperty(id)) {
-                    layersToAttach.overlay[this.getLayerId(layer)] = this.layerFactory.getLayer(layer, this.handleEvent);
-                }
-            }
-        }
-        this.mapInit.then(() => {
-            for (let layerId in layersToAttach.base) {
-                this.attachedLayers.base[layerId] = layersToAttach.base[layerId].addTo(this.map);
-            }
-            for (let layerId in layersToAttach.overlay) {
-                this.attachedLayers.overlay[layerId] = layersToAttach.overlay[layerId].addTo(this.map);
-            }
-        });
-    }
-
-    removeOldLayers(oldLayers, type) {
-        if (!oldLayers || !oldLayers.length) {
-            return;
-        }
-        let removedLayers = oldLayers.filter((oldLayer) => {
-            let removed = true;
-            if (this.layers.hasOwnProperty(type)) {
-                for (let newLayer of this.layers[type]) {
-                    if (this.getLayerId(newLayer) === this.getLayerId(oldLayer)) {
-                        removed = false;
-                    }
-                }
-            }
-            return removed;
-        });
-        for (let removedLayer of removedLayers) {
-            this.mapInit.then(() => {
-                let id = this.getLayerId(removedLayer);
-                if (this.attachedLayers[type].hasOwnProperty(id)) {
-                    this.map.removeLayer(this.attachedLayers[type][id]);
-                    delete this.attachedLayers[type][this.getLayerId(removedLayer)];
-                }
-            });
+    detached() {
+        super.detached();
+        try {
+            this.map.remove();
+        } catch (error) {
+            //handle silently
         }
     }
 
@@ -164,103 +98,135 @@ export class LeafletCustomElement extends BasicComponent {
         return id;
     }
 
-    layersChanged(newLayers, oldLayers) {
+    async layersChanged(newLayers, oldLayers) {
+        await this.initialized;
         if (oldLayers) {
-            this.removeOldLayers(oldLayers.base, 'base');
-            this.removeOldLayers(oldLayers.overlay, 'overlay');
+            Object.keys(this.attachedLayers.overlay).forEach((key, index) => {
+                this.attachedLayers.overlay[key].clearLayers();
+                delete this.attachedLayers.overlay[key];
+            });
         }
         this.attachLayers();
     }
 
-    mapOptionsChanged(newOptions, oldOptions) {
-        this.mapInit.then(() => {
-            if (oldOptions) {
-                if (this.mapOptions.zoom !== oldOptions.zoom) {
-                    this.map.setZoom(this.mapOptions.zoom);
-                }
-                if (this.mapOptions.maxBounds !== oldOptions.maxBounds) {
-                    this.map.setMaxBounds(this.mapOptions.maxBounds);
-                }
-            }
-        });
-    }
-
-    centerChanged(newCenter, oldCenter) {
-        this.mapInit.then(() => {
-            if (oldCenter) {
-                if (this.center !== oldCenter) {
-                    this.map.setView(this.center);
+    attachLayers() {
+        let layersToAttach = {base: {}, overlay: {}};
+        let layers = Object.assign({}, this.defaultLayers, this.layers);
+        if (layers.hasOwnProperty('base')) {
+            for (let layer of layers.base) {
+                let id = this.getLayerId(layer);
+                if (!this.attachedLayers.base.hasOwnProperty(id)) {
+                    layersToAttach.base[id] = this.layerFactory.getLayer(layer);
                 }
             }
-        });
+        }
+        if (layers.hasOwnProperty('overlay')) {
+            for (let layer of layers.overlay) {
+                let id = this.getLayerId(layer);
+                layersToAttach.overlay[id] = this.layerFactory.getLayer(layer, this.handleEvent);
+            }
+        }
+        for (let layerId in layersToAttach.base) {
+            this.attachedLayers.base[layerId] = layersToAttach.base[layerId].addTo(this.map);
+        }
+        for (let layerId in layersToAttach.overlay) {
+            this.attachedLayers.overlay[layerId] = layersToAttach.overlay[layerId].addTo(this.map);
+        }
     }
 
-    mapEventsChanged(newEvents, oldEvents) {
-        this.mapInit.then(() => {
-            if (oldEvents) {
-                for (let removedEvent of oldEvents.filter((e) => this.mapEvents.indexOf(e) === -1)) {
-                    this.map.off(removedEvent);
+    async mapOptionsChanged(newOptions, oldOptions) {
+        await this.initialized;
+        if (this.mapOptions.zoom !== oldOptions?.zoom) {
+            this.map.setZoom(this.mapOptions.zoom);
+        }
+        if (this.mapOptions.maxBounds !== oldOptions?.maxBounds) {
+            this.map.setMaxBounds(this.mapOptions.maxBounds);
+        }
+    }
+
+    async centerChanged(newCenter, oldCenter) {
+        await this.initialized;
+        this.map.setView(this.center);
+    }
+
+    async mapEventsChanged(newEvents, oldEvents) {
+        await this.initialized;
+        if (oldEvents) {
+            for (let removedEvent of oldEvents.filter((e) => this.mapEvents.indexOf(e) === -1)) {
+                this.map.off(removedEvent);
+            }
+        }
+        this.setMapEvents();
+    }
+
+    setMapEvents() {
+        if (this.mapEvents && this.mapEvents.length) {
+            for (let eventName of this.mapEvents) {
+                this.map.on(eventName, (e) => this.eventAggregator.publish('aurelia-leaflet', Object.assign(e, {map: this.map})));
+            }
+        }
+    }
+
+    async layerEventsChanged(newEvents, oldEvents) {
+        await this.initialized;
+        if (oldEvents) {
+            this.map.off('pm:create');
+        }
+        this.setLayerEvents();
+    }
+
+    setLayerEvents() {
+        if (this.layerEvents && this.layerEvents.length) {
+            this.map.on('pm:create', e => {
+                for (let layerEvent of this.layerEvents) {
+                    e.layer.on(layerEvent, this.handleEvent);
                 }
-            }
-            if (this.mapEvents && this.mapEvents.length) {
-                for (let eventName of this.mapEvents) {
-                    this.map.on(eventName, (e) => this.eventAggregator.publish('aurelia-leaflet', Object.assign(e, {map: this.map})));
-                }
-            }
-            if (!this.eventsBound.resolved) {
-                this.eventsBoundResolve();
-            }
-        });
+                this.handleEvent(e);
+            });
+        }
     }
 
-    layerEventsChanged(newEvents, oldEvents) {
-        this.mapInit.then(() => {
-            if (oldEvents) {
-                this.map.off('pm:create');
-            }
-            if (this.layerEvents && this.layerEvents.length) {
-                this.map.on('pm:create', e => {
-                    for (let layerEvent of this.layerEvents) {
-                        e.layer.on(layerEvent, this.handleEvent);
-                    }
-                    this.handleEvent(e);
-                });
-            }
-        });
+    async withLayerControlChanged() {
+        await this.initialized;
+        if (this.layerControl) {
+            this.map.removeControl(this.layerControl);
+        }
+        this.setLayerControl();
     }
 
-    withLayerControlChanged() {
-        this.mapInit.then(() => {
-            if (this.layerControl) {
-                this.map.removeControl(this.layerControl);
-            }
-            if (this.withLayerControl) {
-                this.layerControl = this.L.control.layers(this.attachedLayers.base, this.attachedLayers.overlay, this.withLayerControl).addTo(this.map);
-            }
-        });
+    setLayerControl() {
+        if (this.withLayerControl) {
+            this.layerControl = this.L.control.layers(this.attachedLayers.base, this.attachedLayers.overlay, this.withLayerControl).addTo(this.map);
+        }
     }
 
-    withScaleControlChanged() {
-        this.mapInit.then(() => {
-            if (this.scaleControl) {
-                this.map.removeControl(this.scaleControl);
-            }
-            if (this.withScaleControl) {
-                this.scaleControl = this.L.control.scale(this.withScaleControl).addTo(this.map);
-            }
-        });
+    async withScaleControlChanged() {
+        await this.initialized;
+        if (this.scaleControl) {
+            this.map.removeControl(this.scaleControl);
+        }
+        this.setScaleControl();
     }
 
-    withEditControlChanged() {
-        this.mapInit.then(() => {
-            if (this.map.pm.controlsVisible()) {
-                this.map.pm.removeControls();
-            }
-            if (this.withEditControl) {
-                this.map.pm.addControls(this.withEditControl);
-                this.map.pm.setLang(this.i18n.getLocale());
-            }
-        });
+    setScaleControl() {
+        if (this.withScaleControl) {
+            this.scaleControl = this.L.control.scale(this.withScaleControl).addTo(this.map);
+        }
+    }
+
+    async withEditControlChanged() {
+        await this.initialized;
+        if (this.map.pm.controlsVisible()) {
+            this.map.pm.removeControls();
+        }
+        this.setEditControl();
+    }
+
+    setEditControl() {
+        if (this.withEditControl) {
+            this.map.pm.addControls(this.withEditControl);
+            this.map.pm.setLang(this.i18n.getLocale());
+        }
     }
 
     handleEvent = ev => {
