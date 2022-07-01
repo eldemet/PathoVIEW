@@ -8,27 +8,7 @@ export class Cms extends BasicViewRouterExtended {
     routes = [
         {
             route: '',
-            redirect: 'alert'
-        },
-        {
-            route: 'alert',
-            name: 'alert',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
-            nav: true,
-            title: this.i18n.tr('model.alert', {count: 2}),
-            settings: {
-                detailView: true
-            }
-        },
-        {
-            route: 'device',
-            name: 'device',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
-            nav: true,
-            title: this.i18n.tr('model.device', {count: 2}),
-            settings: {
-                detailView: true
-            }
+            redirect: 'emergency-event'
         },
         {
             route: 'emergency-event',
@@ -36,6 +16,16 @@ export class Cms extends BasicViewRouterExtended {
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
             title: this.i18n.tr('model.emergencyEvent', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'alert',
+            name: 'alert',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.alert', {count: 1}),
             settings: {
                 detailView: true
             }
@@ -56,6 +46,16 @@ export class Cms extends BasicViewRouterExtended {
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
             title: this.i18n.tr('model.action', {count: 2}),
+            settings: {
+                detailView: true
+            }
+        },
+        {
+            route: 'device',
+            name: 'device',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.device', {count: 2}),
             settings: {
                 detailView: true
             }
