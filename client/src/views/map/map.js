@@ -1,74 +1,58 @@
+import {BindingEngine, inject} from 'aurelia-framework';
 import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
-import {catchError} from 'library-aurelia/src/decorators';
-import {loadingEvent} from '../../decorators';
 import {alertUtilities, deviceUtilities} from '../../utilities';
+import {ContextService} from '../../services/context-service';
 
+@inject(BindingEngine, ContextService)
 class MapView extends BasicViewExtended {
 
-    constructor(...rest) {
+    constructor(bindingEngine, contextService, ...rest) {
         super(...rest);
+        this.bindingEngine = bindingEngine;
+        this.contextService = contextService;
     }
 
     async attached() {
-        await this.loadAlerts();
-        await this.loadDevices();
-        this.setLayers();
+        await this.contextService.initialized;
+        this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
+            .subscribe(async(newValue, oldValue) => {
+                this.updateLayerGroup('alert', this.contextService.alerts, alertUtilities);
+            }));
+        this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'devices')
+            .subscribe(async(newValue, oldValue) => {
+                this.updateLayerGroup('device', this.contextService.devices, deviceUtilities);
+            }));
+        let overlay = [];
+        overlay.push(this.getLayerGroup('device', this.contextService.devices, deviceUtilities));
+        overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
+        this.layers = {overlay};
     }
 
-    setLayers() {
-        this.layers = {overlay: []};
-        if (this.alerts) {
-            this.layers.overlay.push({
-                id: this.i18n.tr('model.alert', {count: 0}),
-                type: 'layerGroup',
-                layers: this.alerts.map(alert => {
-                    return {
-                        id: alert.id,
-                        type: 'geoJSON',
-                        data: alert.location,
-                        popupContent: `<h6><i class="${alertUtilities.getSeverityIcon(alert.severity)}"></i> ${alert.name}</h6>
-                                           ${this.i18n.tr('enum.alert.category.' + alert.category)}, ${this.i18n.tr('enum.alert.subCategory.' + alert.subCategory)}`
-                    };
-                })
-            });
-        }
-        if (this.devices) {
-            this.layers.overlay.push({
-                id: this.i18n.tr('model.device', {count: 0}),
-                type: 'layerGroup',
-                layers: this.devices.map(device => {
-                    return {
-                        id: device.id,
-                        type: 'geoJSON',
-                        data: device.location,
-                        popupContent: `<h6><i class="${deviceUtilities.getDeviceIcon(device)}"></i> ${device.name}</h6>
-                                           ${this.i18n.tr('enum.device.category.' + device.category)}`
-                    };
-                })
-            });
+    updateLayerGroup(type, objects, utilities) {
+        if (objects) {
+            let layers = Object.assign({}, this.layers);
+            let oldAlertLayerGroup = layers.overlay.find(x => x.id === type);
+            if (oldAlertLayerGroup) {
+                layers.overlay.splice(layers.overlay.indexOf(oldAlertLayerGroup), 1);
+            }
+            layers.overlay.push(this.getLayerGroup(type, objects, utilities));
+            this.layers = layers;
         }
     }
 
-    @catchError('app-alert', {
-        type: 'warning',
-        message: 'alerts.general.arrayEmpty',
-        translateOptions: {type: 'alert'},
-        dismissible: true
-    })
-    @loadingEvent('app-alert', 'alert')
-    async loadAlerts() {
-        this.alerts = (await this.proxy.get('alert').getObjects()).objects;
-    }
-
-    @catchError('app-alert', {
-        type: 'warning',
-        message: 'alerts.general.arrayEmpty',
-        translateOptions: {type: 'device'},
-        dismissible: true
-    })
-    @loadingEvent('app-alert', 'device')
-    async loadDevices() {
-        this.devices = (await this.proxy.get('device').getObjects()).objects;
+    getLayerGroup(type, objects, utilities) {
+        return {
+            id: type,
+            type: 'layerGroup',
+            layers: objects.map(object => {
+                return {
+                    id: object.id,
+                    type: 'geoJSON',
+                    data: object.location,
+                    popupContent: utilities.getPopupContent(this.i18n, object)
+                };
+            })
+        };
     }
 
 }

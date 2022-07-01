@@ -13,6 +13,10 @@ export const deviceUtilities = {
         }
         return icon;
     },
+    getPopupContent(i18n, device) {
+        return `<h6><i class="${deviceUtilities.getDeviceIcon(device)}"></i> ${device.name}</h6>
+                ${i18n.tr('enum.device.category.' + device.category)}`;
+    },
     @catchError()
     async getBatteryLevel() {
         return (await navigator.getBattery()).level;
@@ -53,6 +57,10 @@ export const alertUtilities = {
                 color = 'success';
         }
         return icon + ' text-' + color;
+    },
+    getPopupContent(i18n, alert) {
+        return `<h6><i class="${alertUtilities.getSeverityIcon(alert.severity)}"></i> ${alert.name}</h6>
+                ${i18n.tr('enum.alert.category.' + alert.category)}, ${i18n.tr('enum.alert.subCategory.' + alert.subCategory)}`;
     },
     getISO7010WarningIcon(category, subCategory) {
         let icon = '001';
