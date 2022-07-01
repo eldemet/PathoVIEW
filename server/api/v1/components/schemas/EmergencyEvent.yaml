@@ -25,6 +25,7 @@ properties:
     ui:hide:
       form: true
       table: true
+      info: true
   name:
     type: string
     description: 'The name of this item.'
