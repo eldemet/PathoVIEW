@@ -2,7 +2,8 @@
 
     <require from="./../leaflet"></require>
 
-    <leaflet layers.bind="layers"
+    <leaflet container-id.bind="uniqueId"
+             layers.bind="layers"
              with-layer-control.bind="false"
              with-scale-control.bind="true"
              center.bind="center">

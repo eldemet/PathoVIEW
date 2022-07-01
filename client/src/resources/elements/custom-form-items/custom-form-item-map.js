@@ -1,3 +1,4 @@
+import {v1 as uuid} from 'uuid';
 import Leaflet from 'leaflet';
 import {BasicComposableExtended} from 'library-aurelia/src/prototypes/basic-composable-extended';
 
@@ -8,6 +9,7 @@ export class CustomFormItemMap extends BasicComposableExtended {
 
     constructor(...rest) {
         super(...rest);
+        this.uniqueId = uuid();
     }
 
     activate(model) {

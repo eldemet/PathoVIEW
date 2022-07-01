@@ -1,7 +1,13 @@
+import {v1 as uuid} from 'uuid';
 import {BasicComposableExtended} from 'library-aurelia/src/prototypes/basic-composable-extended';
 import Leaflet from 'leaflet';
 
 class CustomDetailPropertyMap extends BasicComposableExtended {
+
+    constructor(...rest) {
+        super(...rest);
+        this.uniqueId = uuid();
+    }
 
     activate(model) {
         super.activate(model);
