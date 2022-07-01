@@ -90,6 +90,15 @@ const getObjectUiSchema = {
                 required: false
             },
             {
+                in: 'query',
+                name: 'lang',
+                description: '',
+                schema: {
+                    type: 'string'
+                },
+                required: false
+            },
+            {
                 $ref: '#/components/parameters/language'
             }
         ],
