@@ -64,7 +64,7 @@
             "videoSourceError": "error occurred initializing camera"
         },
         "noDevice": "You have not registered a device yet. No location can be shared yet!",
-        "noEmergencyEventSelected": "not emergency event selected",
+        "noEmergencyEventSelected": "no emergency event selected",
         "alertLocationEntered": "You are inside an alert location",
         "alertLocationClose": "You are close to an alert location",
         "alertLocationVeryClose": "You are very close to an alert location"
