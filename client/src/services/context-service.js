@@ -117,8 +117,8 @@ class ContextService extends BasicService {
         if (this.currentEmergencyEvent) {
             let coordinates = center(this.currentEmergencyEvent.location).geometry.coordinates;
             let url = '/api/v1/weather/current?' + stringify({
-                lat: coordinates[0],
-                lon: coordinates[1],
+                lat: coordinates[1],
+                lon: coordinates[0],
                 units: 'metric',
                 lang: AureliaCookie.get('lang') || 'de'
             });
