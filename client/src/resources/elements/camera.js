@@ -70,11 +70,13 @@ class Camera extends BasicComponentExtended {
         try {
             const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
             this.mediaStream = mediaStream;
-            this.cameraVideo.srcObject = mediaStream;
-            this.cameraVideo.onloadedmetadata = () => {
-                this.cameraVideo.play();
-                this.isLoading = false;
-            };
+            if (this.cameraVideo) {
+                this.cameraVideo.srcObject = mediaStream;
+                this.cameraVideo.onloadedmetadata = () => {
+                    this.cameraVideo.play();
+                    this.isLoading = false;
+                };
+            }
         } catch (error) {
             this.logger.error(error.message);
             let cameraError;
