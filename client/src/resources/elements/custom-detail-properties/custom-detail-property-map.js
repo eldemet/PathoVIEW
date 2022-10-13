@@ -1,8 +1,8 @@
 import {v1 as uuid} from 'uuid';
-import {BasicComposableExtended} from 'library-aurelia/src/prototypes/basic-composable-extended';
+import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
 import Leaflet from 'leaflet';
 
-class CustomDetailPropertyMap extends BasicComposableExtended {
+class CustomDetailPropertyMap extends BasicComposable {
 
     constructor(...rest) {
         super(...rest);

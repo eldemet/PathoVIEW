@@ -1,9 +1,9 @@
-import {BasicComponentExtended} from 'library-aurelia/src/prototypes/basic-component-extended';
+import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
 import {bindable} from 'aurelia-framework';
 import {fabric} from 'fabric';
 import {catchError} from 'library-aurelia/src/decorators';
 
-class Camera extends BasicComponentExtended {
+class Camera extends BasicComponent {
 
     @bindable imageData;
 

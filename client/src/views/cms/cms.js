@@ -1,9 +1,9 @@
-import {BasicViewRouterExtended} from 'library-aurelia/src/prototypes/basic-view-router-extended';
 import {inject} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
+import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 
 @inject()
-export class Cms extends BasicViewRouterExtended {
+export class Cms extends BasicViewRouter {
 
     routes = [
         {

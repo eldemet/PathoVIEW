@@ -1,6 +1,6 @@
-import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 
-class InstructionsView extends BasicViewExtended {
+class InstructionsView extends BasicView {
 
 }
 

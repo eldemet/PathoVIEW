@@ -3,7 +3,9 @@
     <require from="library-aurelia/src/resources/elements/nav-bar"></require>
 
     <div class="d-flex flex-column h-100">
-        <nav-bar router.bind="router"></nav-bar>
+        <nav-bar target-id.bind="'cms'"
+                 router.bind="router">
+        </nav-bar>
 
         <router-view class="overflow-auto" bs-color-scheme.bind="{type: 'bg', setText: true, bw: true}"></router-view>
     </div>

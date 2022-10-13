@@ -1,10 +1,10 @@
 import {inject} from 'aurelia-framework';
-import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {weatherUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(ContextService)
-class DashboardView extends BasicViewExtended {
+class DashboardView extends BasicView {
 
     openWeatherMapIconUrl = 'https://openweathermap.org/img/wn/';
 

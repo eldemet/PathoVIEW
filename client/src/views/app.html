@@ -11,7 +11,7 @@
 
     <nav-bar display-dark-mode-switch.bind="true"
              display-is-navigating.bind="true"
-             home-icon-src.bind="'assets/icon-pathocert.png'">
+             brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
         <div class="dropdown" if.bind="!authService.userInfo.locale">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="language-menu"

@@ -1,7 +1,7 @@
-import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {devices} from '../data';
 
-class TechnologyView extends BasicViewExtended {
+class TechnologyView extends BasicView {
 
     constructor(...rest) {
         super(...rest);

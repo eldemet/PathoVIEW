@@ -1,10 +1,10 @@
 import {inject} from 'aurelia-framework';
 import {DialogService} from 'aurelia-dialog';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
-import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 
 @inject(DialogService)
-export class ComponentsView extends BasicViewExtended {
+export class ComponentsView extends BasicView {
 
     bootstrapIcons = [
         'alarm',

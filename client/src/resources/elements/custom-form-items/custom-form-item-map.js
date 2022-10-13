@@ -1,8 +1,8 @@
 import {v1 as uuid} from 'uuid';
 import Leaflet from 'leaflet';
-import {BasicComposableExtended} from 'library-aurelia/src/prototypes/basic-composable-extended';
+import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
 
-export class CustomFormItemMap extends BasicComposableExtended {
+export class CustomFormItemMap extends BasicComposable {
 
     drawEnabled = true;
     layerEvents = ['pm:edit', 'pm:update', 'pm:remove', 'pm:rotate'];

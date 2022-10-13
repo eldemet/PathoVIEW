@@ -1,10 +1,10 @@
 import {BindingEngine, inject} from 'aurelia-framework';
-import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {alertUtilities, deviceUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(BindingEngine, ContextService)
-class MapView extends BasicViewExtended {
+class MapView extends BasicView {
 
     constructor(bindingEngine, contextService, ...rest) {
         super(...rest);

@@ -1,6 +1,6 @@
-import {BasicViewExtended} from 'library-aurelia/src/prototypes/basic-view-extended';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 
-class HomeView extends BasicViewExtended {
+class HomeView extends BasicView {
 
     constructor(contextService, ...rest) {
         super(...rest);

@@ -1,7 +1,7 @@
-import {BasicComposableExtended} from 'library-aurelia/src/prototypes/basic-composable-extended';
+import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
 
 /**
- * @extends BasicComposableExtended
+ * @extends BasicComposable
  * @category resources
  * @subcategory custom-elements
  *
@@ -9,7 +9,7 @@ import {BasicComposableExtended} from 'library-aurelia/src/prototypes/basic-comp
  * <require from="./resources/elements/custom-form-items/custom-form-item-image"></require>
  *
  */
-class CustomFormItemImage extends BasicComposableExtended {
+class CustomFormItemImage extends BasicComposable {
 
     activate(model) {
         super.activate(model);

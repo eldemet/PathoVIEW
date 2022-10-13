@@ -1,9 +1,9 @@
-import {BasicViewRouterExtended} from 'library-aurelia/src/prototypes/basic-view-router-extended';
 import {inject} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {DialogService} from 'aurelia-dialog';
 import {AureliaCookie} from 'aurelia-cookie';
+import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {NotificationService} from 'library-aurelia/src/services/notification-service';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
@@ -12,7 +12,7 @@ import {AuthService} from '../services/auth-service';
 import {ContextService} from '../services/context-service';
 
 @inject(BindingSignaler, DialogService, NotificationService, AuthService, ContextService)
-export class App extends BasicViewRouterExtended {
+export class App extends BasicViewRouter {
 
     routes = [
         {

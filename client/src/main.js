@@ -32,7 +32,8 @@ export async function configure(aurelia) {
         new ModelServiceAsync('annotation', modelOptions, httpService),
         new ModelServiceAsync('action', modelOptions, httpService),
         new ModelServiceAsync('emergency-event', modelOptions, httpService),
-        new ModelServiceAsync('incident', modelOptions, httpService)
+        new ModelServiceAsync('incident', modelOptions, httpService),
+        new ModelServiceAsync('pathogen', modelOptions, httpService)
     ];
-    await AureliaFramework.initialize(aurelia, environment, root, globalResources, registerServices);
+    await AureliaFramework.initialize(aurelia, {environment, root, globalResources, registerServices});
 }
