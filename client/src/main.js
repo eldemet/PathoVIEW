@@ -24,16 +24,17 @@ export async function configure(aurelia) {
     ];
     const modelOptions = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'};
     let httpService = aurelia.container.get(HttpService);
+    let options = {formats: ['uri-reference', 'date-time']};
     let registerServices = [
         authService,
-        new ModelServiceAsyncUISchema('alert', modelOptions, httpService),
-        new ModelServiceAsyncUISchema('device', modelOptions, httpService),
-        new ModelServiceAsyncUISchema('point-of-interest', modelOptions, httpService),
-        new ModelServiceAsync('annotation', modelOptions, httpService),
-        new ModelServiceAsync('action', modelOptions, httpService),
-        new ModelServiceAsync('emergency-event', modelOptions, httpService),
-        new ModelServiceAsync('incident', modelOptions, httpService),
-        new ModelServiceAsync('pathogen', modelOptions, httpService)
+        new ModelServiceAsyncUISchema('alert', modelOptions, httpService, options),
+        new ModelServiceAsyncUISchema('device', modelOptions, httpService, options),
+        new ModelServiceAsyncUISchema('point-of-interest', modelOptions, httpService, options),
+        new ModelServiceAsync('annotation', modelOptions, httpService, options),
+        new ModelServiceAsync('action', modelOptions, httpService, options),
+        new ModelServiceAsync('emergency-event', modelOptions, httpService, options),
+        new ModelServiceAsync('incident', modelOptions, httpService, options),
+        new ModelServiceAsync('pathogen', modelOptions, httpService, options)
     ];
     await AureliaFramework.initialize(aurelia, {environment, root, globalResources, registerServices});
 }
