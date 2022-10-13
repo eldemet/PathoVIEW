@@ -1,0 +1,73 @@
+version: '3.1'
+volumes:
+  mysql_data:
+    driver: local
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    restart: always
+  keycloak:
+    image: quay.io/keycloak/keycloak:19.0.3
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+      REALM_FILE: './data/realm-export.json'
+    ports:
+      - '9991:8080'
+      - '9990:8443'
+    volumes:
+      - type: bind
+        source: ./../certificates/server.crt
+        target: /etc/x509/https/tls.crt
+      - type: bind
+        source: ./../certificates/server.key
+        target: /etc/x509/https/tls.key
+    restart: always
+    depends_on:
+      - mysql
+  app:
+    image: app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - '443:3002'
+    secrets:
+      - sslcert
+      - sslkey
+    environment:
+      CAPABILITIES_ACCESS_CONTROL_CHECKER_MIDDLEWARE: 'true'
+      CAPABILITIES_DATABASE: jsondb
+      CAPABILITIES_SWAGGER_UI: 'true'
+      SERVER_HOST: ${SERVER_HOST}
+      SERVER_MODE: production
+      SERVER_PROTOCOL: https
+      SERVER_PORT: 3002
+      SERVER_SSL_CERT_FILE: '/run/secrets/sslcert'
+      SERVER_SSL_KEY_FILE: '/run/secrets/sslkey'
+      SERVER_LOG_FILENAME: server-log.log
+      SERVER_LOG_LEVEL_CONSOLE: ${SERVER_LOG_LEVEL_CONSOLE}
+      SERVER_LOG_LEVEL_FILE: ${SERVER_LOG_LEVEL_FILE}
+      SERVER_LOG_FORMAT_HTTP_REQUESTS: short
+      SERVER_OPEN_WEATHER_MAP_API_KEY_FILE: ${SERVER_OPEN_WEATHER_MAP_API_KEY_FILE}
+      DATABASE_JSONDB_READ_ONLY: 'true'
+    restart: always
+    depends_on:
+      - keycloak
+secrets:
+  sslcert:
+    file: ./../certificates/server.crt
+  sslkey:
+    file: ./../certificates/server.key
