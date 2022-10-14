@@ -13,20 +13,10 @@ definitions:
         type: string
       "x-version":
         type: string
-      "const":
-        oneOf:
-          - type: string
-          - type: number
-      "ui:readOnly":
-        type: boolean
-        description: can be used to to decide whether to display a create/update/delete button or not
       "ui:ref":
         type: string
         description: name of a referenced model type, important e.g. for getting specific objects as enum values
         example: app
-      "ui:refObject":
-        type: boolean
-        description: can be used to differentiate where to access the id of an object, either directly on re or ref._refId
       "ui:filter":
         type: object
         description: filter object that can be applied if only specific elements of an array should be displayed by default
@@ -91,10 +81,7 @@ definitions:
               - property
             properties:
               source:
-                type: string
-                enum:
-                  - parentReference
-                  - cookie
+                const: cookie
               property:
                 type: string
           - type: object
@@ -116,6 +103,14 @@ definitions:
         description: specify custom compose element in detail views on client
       "ui:accept":
         type: string
+        description: is used for for input type file to only allow specific file types
+      "ui:capture":
+        type: string
+        description: is used for for input type file to directly mobile apps to capture picture, video or audio
+        enum:
+          - user
+          - environment
+          - microphone
       "ui:hide":
         type: object
         description: can be used to hide specific properties in specific components of a client side application
@@ -123,6 +118,8 @@ definitions:
           form:
             type: boolean
           table:
+            type: boolean
+          info:
             type: boolean
       "ui:showInTable":
         type: string
