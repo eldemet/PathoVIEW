@@ -44,32 +44,52 @@ properties:
     ui:formItemType: textarea
   owner:
     $ref: './../$defs.yaml#/owner'
+    ui:hide:
+      form: true
+      table: true
   transmission:
     type: string
     ui:formItemType: textarea
   symptoms:
     type: string
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   complications:
     type: string
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   diagnosis:
     type: string
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   treatment:
     type: string
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   prevention:
     type: string
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   controlMeasures:
     type: string
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   createdAt:
     type: string
     format: "date-time"
     db:skipInSchemaDefinition: true
+    ui:hide:
+      table: true
+      form: true
   updatedAt:
     type: string
     format: "date-time"
     db:skipInSchemaDefinition: true
+    ui:hide:
+      form: true

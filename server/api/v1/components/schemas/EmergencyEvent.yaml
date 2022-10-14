@@ -7,6 +7,7 @@ required:
   - location
 model:searchProperties:
   - name
+model:defaultProperty: name
 db:options:
   timestamps: true
 properties:
@@ -17,6 +18,7 @@ properties:
     ui:hide:
       table: true
       form: true
+      info: true
   type:
     type: string
     enum:
@@ -37,12 +39,12 @@ properties:
     ui:formItemType: textarea
   owner:
     $ref: './../$defs.yaml#/owner'
-  location:
-    $ref: './../$defs.yaml#/Location'
-    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
-    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
     ui:hide:
       table: true
+      form: true
+      info: true
+  location:
+    $ref: './../$defs.yaml#/Location'
   createdAt:
     type: string
     format: "date-time"
@@ -51,3 +53,7 @@ properties:
     type: string
     format: "date-time"
     db:skipInSchemaDefinition: true
+    ui:hide:
+      table: true
+      form: true
+      info: true

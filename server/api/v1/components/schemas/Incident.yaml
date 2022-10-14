@@ -45,10 +45,6 @@ properties:
     db:ref: EmergencyEvent
   location:
     $ref: './../$defs.yaml#/Location'
-    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
-    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
-    ui:hide:
-      table: true
   createdAt:
     type: string
     format: "date-time"

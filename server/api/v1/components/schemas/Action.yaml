@@ -62,10 +62,6 @@ properties:
     db:ref: Incident
   location:
     $ref: './../$defs.yaml#/Location'
-    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
-    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
-    ui:hide:
-      table: true
   validFrom:
     type: string
     description: 'The start of the validity period for this forecast as a ISO8601 format'

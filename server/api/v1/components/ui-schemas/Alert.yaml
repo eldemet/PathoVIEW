@@ -135,7 +135,6 @@ properties:
     description: 'Payload containing the data retrieved.'
     ui:hide:
       table: true
-    ui:formItemType: object
     properties:
       image:
         type: string
@@ -150,12 +149,14 @@ properties:
     type: string
     description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'
     format: date-time
+    db:skipInSchemaDefinition: true
     ui:hide:
       table: true
   dateModified:
     type: string
     description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'
     format: date-time
+    db:skipInSchemaDefinition: true
     ui:hide:
       table: true
   validFrom:
@@ -178,7 +179,3 @@ properties:
     ui:formItemType: text
   location:
     $ref: './../$defs.yaml#/Location'
-    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-map'
-    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
-    ui:hide:
-      table: true

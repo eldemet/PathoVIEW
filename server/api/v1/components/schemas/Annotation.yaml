@@ -4,63 +4,104 @@ db:referencedByModels:
   - model: Annotation
     property: refId
     handling: deleteObject
-type: object
-required:
-  - creator
-  - refId
-model:searchProperties:
-  - creator
-properties:
-  owner:
-    $ref: './../$defs.yaml#/owner'
-  refId:
-    type: string
-    db:ref: Annotation
-  createdAt:
-    type: string
-    format: date-time
-    db:skipInSchemaDefinition: true
-  updatedAt:
-    type: string
-    format: date-time
-    db:skipInSchemaDefinition: true
-db:discriminatorSchemas:
-  AnnotationText:
+discriminator:
+  propertyName: kind
+  baseSchema:
     type: object
     required:
-      - text
+      - kind
+      - owner
     model:searchProperties:
-      - text
+      - creator
+    model:defaultProperty: kind
     properties:
-      text:
-        type: string
-  AnnotationImage:
-    type: object
-    required:
-      - name
-      - imageData
-    properties:
-      name:
-        type: string
-        ui:formItemType: text
-      description:
-        type: string
-        ui:formItemType: textarea
-      data:
-        type: string
-        ui:formItemType: file
+      id:
+        $ref: './../$defs.yaml#/NGSIentityFormat'
+        description: 'Unique identifier of the entity'
+        default: Annotation:00000
         ui:hide:
+          table: true
           form: true
-  AnnotationAudio:
-    type: object
-    required:
-      - source
-      - data
-    properties:
-      source:
+      kind:
         type: string
         enum:
-          - wav
-          - mp3
-      data:
+          - AnnotationAudio
+          - AnnotationImage
+          - AnnotationText
+      owner:
+        $ref: './../$defs.yaml#/owner'
+        ui:hide:
+          form: true
+      refId:
         type: string
+        db:ref: Annotation
+        ui:formItemType: 'select'
+        ui:hide:
+          form: true
+          table: true
+      createdAt:
+        type: string
+        format: date-time
+        ui:hide:
+          form: true
+        db:skipInSchemaDefinition: true
+      updatedAt:
+        type: string
+        format: date-time
+        ui:hide:
+          form: true
+          table: true
+        db:skipInSchemaDefinition: true
+oneOf:
+  - allOf:
+      - $ref: '#/discriminator/baseSchema'
+      - type: object
+        title: model.annotationText
+        required:
+          - text
+        model:searchProperties:
+          - text
+        properties:
+          kind:
+            const: AnnotationText
+            ui:hide:
+              form: true
+          text:
+            type: string
+            ui:noLabel: true
+  - allOf:
+      - $ref: '#/discriminator/baseSchema'
+      - type: object
+        title: model.annotationImage
+        required:
+          - text
+          - data
+        properties:
+          kind:
+            const: AnnotationImage
+            ui:hide:
+              form: true
+          text:
+            type: string
+            ui:formItemType: textarea
+          data:
+            type: string
+            ui:formItemType: file
+            ui:accept: 'image/*'
+            ui:capture: environment
+  - allOf:
+      - $ref: '#/discriminator/baseSchema'
+      - type: object
+        title: model.annotationAudio
+        required:
+          - data
+        properties:
+          kind:
+            const: AnnotationAudio
+            ui:hide:
+              form: true
+          data:
+            type: string
+            ui:formItemType: file
+            ui:accept: 'audio/*'
+            ui:capture: 'microphone'

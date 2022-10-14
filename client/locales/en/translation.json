@@ -49,7 +49,7 @@
         "pathogens": {
             "title": "Pathogens"
         },
-        "cms": "Management (CMS)"
+        "cms": "CMS"
     },
     "buttons": {
         "logout": "logout",
@@ -76,6 +76,7 @@
         "alternateName": "alternate name",
         "areaServed": "area served",
         "category": "category",
+        "contactPoint": "contact point",
         "data": "data",
         "dataProvider": "data provider",
         "dateCreated": "date created",

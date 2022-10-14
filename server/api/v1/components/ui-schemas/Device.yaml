@@ -150,7 +150,6 @@ properties:
     ui:formItemType: array
     items:
       type: object
-      ui:formItemType: object
       properties:
         parameter:
           type: string
@@ -183,9 +182,6 @@ properties:
       table: true
   location:
     $ref: './../$defs.yaml#/Location'
-    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-map'
-    ui:hide:
-      table: true
   areaServed:
     type: string
     description: 'The geographic area where a service or offered item is provided'
@@ -223,7 +219,7 @@ properties:
   batteryLevel:
     description: 'Device battery level. It must be equal to 1.0 when battery is full. 0.0 when battery is empty. -1 when transiently cannot be determined.'
     maximum: 1
-    minimum: 0
+    minimum: -1
     type: number
     default: -1
     ui:hide:
