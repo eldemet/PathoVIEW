@@ -15,7 +15,7 @@
         "fabric": "^5.2.4",
         "keycloak-js": "^19.0.3",
         "leaflet": "^1.9.2",
-        "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v4.1.1",
+        "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v4.1.3",
         "platform": "^1.3.6"
     },
     "browserslist": [

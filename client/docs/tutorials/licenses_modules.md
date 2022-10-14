@@ -3121,7 +3121,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.1.1](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.1.2](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -4117,7 +4117,7 @@
     - licenses: MIT
     - description: Generate JavaScript-compatible regular expressions based on a given set of Unicode symbols or code points.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
- - **[regenerator-runtime@0.13.9](https://github.com/facebook/regenerator/tree/master/packages/runtime)**
+ - **[regenerator-runtime@0.13.10](https://github.com/facebook/regenerator/tree/master/packages/runtime)**
     - licenses: MIT
     - description: Runtime for Regenerator-compiled generator and async functions.
     - copyright: Copyright (c) 2014-present, Facebook, Inc.

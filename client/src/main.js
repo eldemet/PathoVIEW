@@ -36,5 +36,8 @@ export async function configure(aurelia) {
         new ModelServiceAsync('incident', modelOptions, httpService, options),
         new ModelServiceAsync('pathogen', modelOptions, httpService, options)
     ];
-    await AureliaFramework.initialize(aurelia, {environment, root, globalResources, registerServices});
+    let registerPlugins = [
+        PLATFORM.moduleName('aurelia-animator-css')
+    ];
+    await AureliaFramework.initialize(aurelia, {environment, root, globalResources, registerServices, registerPlugins});
 }
