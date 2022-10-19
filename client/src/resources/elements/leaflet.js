@@ -107,6 +107,7 @@ export class LeafletCustomElement extends BasicComponent {
             });
         }
         this.attachLayers();
+        await this.withLayerControlChanged();
     }
 
     attachLayers() {
