@@ -1,8 +1,9 @@
 import Ajv from 'ajv';
+import addFormats from 'ajv-formats';
+import {AureliaCookie} from 'aurelia-cookie';
+import 'eventsource/example/eventsource-polyfill.js';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {catchError} from 'library-aurelia/src/decorators';
-import 'eventsource/example/eventsource-polyfill.js';
-import {AureliaCookie} from 'aurelia-cookie';
 
 /**
  * @extends BasicService
@@ -47,6 +48,7 @@ class NotificationService extends BasicService {
     constructor(...rest) {
         super('notification', ...rest);
         this.ajv = new Ajv({allErrors: true, strict: false});
+        addFormats(this.ajv, ['date-time']);
     }
 
     /**
