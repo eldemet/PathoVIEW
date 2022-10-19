@@ -30,7 +30,17 @@
     },
     "views": {
         "map": "Map",
-        "instructions": "Instructions",
+        "instructions": {
+            "title": "Instructions",
+            "selection": "Selection device",
+            "checklist": "Checklist",
+            "sampling": "Sampling",
+            "pathogens": "It can be used to quantify:",
+            "detectionLimits": "Detection limits are:",
+            "availableInstructions": "Available instructions:",
+            "commissioning": "Commissioning",
+            "maintenance": "Maintenance"
+        },
         "home": {
             "welcome": "Thank you for testing PathoVIEW!",
             "funding": "The PathoCERT project has received funding from the European  Union’s Horizon 2020 research and innovation programme under grant agreement No. 883484.",

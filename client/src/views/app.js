@@ -40,7 +40,7 @@ export class App extends BasicViewRouter {
             name: 'instructions',
             moduleId: PLATFORM.moduleName('./instructions/instructions'),
             nav: true,
-            title: 'views.instructions'
+            title: 'views.instructions.title'
         },
         {
             route: 'pathogens',

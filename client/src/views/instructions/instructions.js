@@ -11,15 +11,15 @@ class InstructionsView extends BasicViewRouter {
             name: 'selection',
             moduleId: PLATFORM.moduleName('./selection'),
             nav: true,
-            title: 'views.instructionsSelection'
+            title: 'views.instructions.selection'
         },
         {
-            route: '/device/:device',
-            name: 'device',
-            href: 'device',
-            moduleId: PLATFORM.moduleName('./device'),
+            route: '/:device/:index',
+            name: 'instruction',
+            href: 'instruction',
+            moduleId: PLATFORM.moduleName('./instruction'),
             nav: true,
-            title: 'views.instructionsDevice'
+            title: 'views.instructions.title'
         }
     ];
 
@@ -30,4 +30,18 @@ class InstructionsView extends BasicViewRouter {
 
 }
 
-export {InstructionsView};
+function getIconByType(type) {
+    let icon;
+    if (type === 'checklist') {
+        icon = 'list-check';
+    } else if (type === 'sampling') {
+        icon = 'eyedropper';
+    } else if (type === 'commissioning') {
+        icon = 'gear';
+    } else if (type === 'maintenance') {
+        icon = 'wrench';
+    }
+    return icon;
+}
+
+export {InstructionsView, getIconByType};

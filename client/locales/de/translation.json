@@ -30,7 +30,17 @@
     },
     "views": {
         "map": "Karte",
-        "instructions": "Anleitungen",
+        "instructions": {
+            "title": "Anleitungen",
+            "selection": "Auswahl Gerät",
+            "checklist": "Checkliste",
+            "sampling": "Probenahme",
+            "pathogens": "Es kann zur Erfassung folgender Punkte verwendet werden:",
+            "detectionLimits": "Die Nachweisgrenzen sind:",
+            "availableInstructions": "Verfügbare Anleitungen:",
+            "commissioning": "Inbetriebnahme",
+            "maintenance": "Wartung"
+        },
         "home": {
             "welcome": "Vielen Dank, dass Sie PathoVIEW ausprobieren!",
             "funding": "Das PathoCERT-Projekt wird durch das Forschungs- und Innovationsprogramm Horizont 2020 der Europäischen Union unter der Fördervereinbarung Nr. 883484 gefördert.",
