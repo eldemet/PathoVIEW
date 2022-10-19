@@ -49,6 +49,7 @@ class MapView extends BasicView {
                     id: object.id,
                     type: 'geoJSON',
                     data: object.location,
+                    options: utilities.getOptions?.(),
                     popupContent: utilities.getPopupContent(this.i18n, object)
                 };
             })
