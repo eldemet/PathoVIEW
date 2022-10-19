@@ -1,6 +1,6 @@
 import {BindingEngine, inject} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {alertUtilities, deviceUtilities} from '../../utilities';
+import {emergencyEventUtilities, alertUtilities, deviceUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(BindingEngine, ContextService)
@@ -14,6 +14,10 @@ class MapView extends BasicView {
 
     async attached() {
         await this.contextService.initialized;
+        this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'currentEmergencyEvent')
+            .subscribe(async(newValue, oldValue) => {
+                this.updateLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities);
+            }));
         this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
             .subscribe(async(newValue, oldValue) => {
                 this.updateLayerGroup('alert', this.contextService.alerts, alertUtilities);
@@ -23,6 +27,7 @@ class MapView extends BasicView {
                 this.updateLayerGroup('device', this.contextService.devices, deviceUtilities);
             }));
         let overlay = [];
+        overlay.push(this.getLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities));
         overlay.push(this.getLayerGroup('device', this.contextService.devices, deviceUtilities));
         overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
         this.layers = {overlay};

@@ -1,6 +1,12 @@
 import {catchError} from 'library-aurelia/src/decorators';
 import get from 'lodash/get';
 
+export const emergencyEventUtilities = {
+    getPopupContent(i18n, emergencyEvent) {
+        return `<h6>${emergencyEvent.name}</h6>`;
+    }
+};
+
 export const deviceUtilities = {
     getDeviceIcon(device) {
         let icon = 'bi bi-';
