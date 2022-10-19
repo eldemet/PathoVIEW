@@ -85,7 +85,7 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
         hot: hmr || project.platform.hmr,
         port: port || project.platform.port,
         host: host || project.platform.host,
-        https: project.platform.https ? {
+        https: !production && project.platform.https ? {
             key: fs.readFileSync(path.resolve(__dirname, '../../cert/server.key')),
             cert: fs.readFileSync(path.resolve(__dirname, '../../cert/server.crt'))
         } : false
