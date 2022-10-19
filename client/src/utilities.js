@@ -76,6 +76,15 @@ export const alertUtilities = {
             icon = '009';
         }
         return icon;
+    },
+    getOptions() {
+        return {
+            style: {
+                color: '#ff0000',
+                weight: 3,
+                opacity: 0.5
+            }
+        };
     }
 };
 
