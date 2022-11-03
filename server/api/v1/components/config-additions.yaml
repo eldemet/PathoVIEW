@@ -5,3 +5,8 @@ properties:
     properties:
       openWeatherMapApiKey:
         type: string
+  keycloakConfig:
+    type: object
+    properties:
+      adminClientPasswordFile:
+        type: string

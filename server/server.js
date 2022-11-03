@@ -6,6 +6,7 @@ global.__basedir = __dirname;
 const framework = require('utilities-node/src/framework');
 const fs = require('fs');
 const idnEmail = require('ajv-formats-draft2019/formats/idn-email');
+const kcAdminService = new (require('./services/keycloak-admin').KeycloakAdminService)();
 
 const openApi = {
     apiDoc: {
@@ -18,6 +19,9 @@ const openApi = {
         servers: [
             {url: '/api/v1'}
         ]
+    },
+    dependencies: {
+        kcAdminService
     },
     paths: [
         './node_modules/utilities-node/src/paths/model',
@@ -41,19 +45,19 @@ const configAppDefaults = {
     },
     api: {
         modelReinitializeObjects: true,
-        modelDeleteObjects: true
-        // securitySchemes: [
-        //     {
-        //         scheme: 'keycloakScheme'
-        //         // operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification']
-        //         // scope: ['realm:admin']
-        //     },
-        //     {
-        //         scheme: 'keycloakScheme'
-        //         // operations: ['createObject', 'updateObject', 'deleteObject', 'getObjects', 'getObject', 'subscribeNotification', 'getObjectUiSchema']
-        //         // scope: ['realm:first_responder']
-        //     }
-        // ]
+        modelDeleteObjects: true,
+        securitySchemes: [
+            {
+                scheme: 'keycloakScheme',
+                operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification'],
+                scope: ['realm:admin']
+            },
+            {
+                scheme: 'keycloakScheme',
+                operations: ['createObject', 'updateObject', 'deleteObject', 'getObjects', 'getObject', 'subscribeNotification', 'getObjectUiSchema'],
+                scope: ['realm:first_responder']
+            }
+        ]
     },
     server: {
         port: '3002'
@@ -99,4 +103,12 @@ const additionalDbSchemas = {
     Measure: {$ref: 'node_modules/smart-data-models-risk-management/Measure/model.yaml#/Measure'}
 };
 
-framework.initialize({openApi, configAppDefaults, configAdditionsSchemaPath, additionalDbSchemas});
+const initializeAddOnsCallback = async(app, configService) => {
+    await kcAdminService.initialize(configService.config);
+};
+
+const shutdownAddOnsCallback = async() => {
+    await kcAdminService.close();
+};
+
+framework.initialize({openApi, configAppDefaults, configAdditionsSchemaPath, additionalDbSchemas, initializeAddOnsCallback, shutdownAddOnsCallback});

@@ -2,11 +2,11 @@
 
 ## Summary
 
-* MIT: 400
+* MIT: 403
 * ISC: 53
-* Apache-2.0: 17
+* Apache-2.0: 18
 * BSD-2-Clause: 13
-* BSD-3-Clause: 8
+* BSD-3-Clause: 9
 * BSD-3-Clause-Clear: 3
 * CC0-1.0: 2
 * Python-2.0: 1
@@ -59,6 +59,10 @@
     - licenses: MIT
     - description: Throw better errors.
     - copyright: Copyright (c) 2015 James Messinger
+ - **[@keycloak/keycloak-admin-client@20.0.0](https://github.com/keycloak/keycloak-nodejs-admin-client)**
+    - licenses: Apache-2.0
+    - description: keycloak admin client
+    - copyright: none
  - **[@nodelib/fs.scandir@2.1.5](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.scandir)**
     - licenses: MIT
     - description: List files and directories inside the specified directory
@@ -287,6 +291,10 @@
     - licenses: MIT
     - description: Get callsites from the V8 stack trace API
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[camelize-ts@2.1.1](https://github.com/kbrabrand/camelize-ts)**
+    - licenses: MIT
+    - description: Recursive camel casing of object property names with proper typing
+    - copyright: none
  - **[caw@2.0.1](https://github.com/kevva/caw)**
     - licenses: MIT
     - description: Construct HTTP/HTTPS agents for tunneling proxies
@@ -1083,6 +1091,10 @@
     - licenses: MIT
     - description: Get the first path that exists on disk of multiple paths
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+ - **[lodash-es@4.17.21](https://github.com/lodash/lodash)**
+    - licenses: MIT
+    - description: Lodash exported as ES modules.
+    - copyright: Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
  - **[lodash.merge@4.6.2](https://github.com/lodash/lodash)**
     - licenses: MIT
     - description: The Lodash method `_.merge` exported as a module.
@@ -1939,10 +1951,18 @@
     - licenses: BSD-2-Clause
     - description: An RFC 3986/3987 compliant, scheme extendable URI/IRI parsing/validating/resolving library for JavaScript.
     - copyright: Copyright 2011 Gary Court. All rights reserved.
+ - **[url-join@5.0.0](https://github.com/jfromaniello/url-join)**
+    - licenses: MIT
+    - description: Join urls and normalize as in path.join.
+    - copyright: Copyright (c) 2015 José F. Romaniello
  - **[url-parse-lax@1.0.0](https://github.com/sindresorhus/url-parse-lax)**
     - licenses: MIT
     - description: url.parse() with support for protocol-less URLs & IPs
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[url-template@3.1.0](https://github.com/bramstein/url-template)**
+    - licenses: BSD-3-Clause
+    - description: A URI template implementation (RFC 6570 compliant)
+    - copyright: Copyright (c) 2012-2014, Bram Stein
  - **[url-to-options@1.0.1](https://github.com/stevenvachon/url-to-options)**
     - licenses: MIT
     - description: Convert a WHATWG URL to an http(s).request options object.
