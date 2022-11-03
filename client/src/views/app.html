@@ -10,6 +10,7 @@
     <require from="../resources/elements/alert-flexible"></require>
 
     <nav-bar display-dark-mode-switch.bind="true"
+             style="background-color: var(--bs-blue) !important;"
              display-is-navigating.bind="true"
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
@@ -85,13 +86,13 @@
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-circle"></i>
-                ${authService.userInfo.name}
             </button>
             <ul class="dropdown-menu" aria-labelledby="language-menu">
                 <li class="px-3">
-                    <span class="text-muted">${authService.userInfo.preferred_username}</span>
-                    <span class="text-muted">${authService.userInfo.email}</span>
-                    <span class="text-muted">${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'update-logout-in'}</span>
+                    <span class="d-block text-muted">${authService.userInfo.name}</span>
+                    <span class="d-block text-muted">${authService.userInfo.preferred_username}</span>
+                    <span class="d-block text-muted" if.bind="authService.userInfo.email">${authService.userInfo.email}</span>
+                    <span class="d-block text-muted">${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'update-logout-in'}</span>
                 </li>
                 <li>
                     <a class="dropdown-item"

@@ -9,3 +9,13 @@
 .nav-link.active {
     border-bottom: solid $primary 2px;
 }
+
+nav-bar nav {
+    border-radius: var(--bs-border-radius-sm) !important;
+    margin: 0.25rem !important;
+}
+
+span.d-block.d-md-none.text-primary {
+    text-transform: uppercase;
+    border-bottom: solid $primary 2px;
+}
