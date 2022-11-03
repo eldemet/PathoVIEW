@@ -13,7 +13,7 @@ class EmergencyEvent {
 class Incident {
     id: String
     type: String
-    name : String
+    validFrom: Date
     description: String
     owner: Array<UserId>
     refId: String<EmergencyEventId>

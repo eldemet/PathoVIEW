@@ -73,7 +73,7 @@ definitions:
               items:
                 type: string
       "ui:dependence":
-        description: 'can either be parentReference to set the params of a parent route, cookie or serviceFunction'
+        description: 'can either be cookie or serviceFunction'
         oneOf:
           - type: object
             required:

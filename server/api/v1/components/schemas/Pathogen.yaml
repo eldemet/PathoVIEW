@@ -44,9 +44,6 @@ properties:
     ui:formItemType: textarea
   owner:
     $ref: './../$defs.yaml#/owner'
-    ui:hide:
-      form: true
-      table: true
   transmission:
     type: string
     ui:formItemType: textarea

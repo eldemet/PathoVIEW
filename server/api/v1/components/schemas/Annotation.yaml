@@ -30,8 +30,6 @@ discriminator:
           - AnnotationText
       owner:
         $ref: './../$defs.yaml#/owner'
-        ui:hide:
-          form: true
       refId:
         type: string
         db:ref: Annotation
@@ -74,7 +72,6 @@ oneOf:
       - type: object
         title: model.annotationImage
         required:
-          - text
           - data
         properties:
           kind:

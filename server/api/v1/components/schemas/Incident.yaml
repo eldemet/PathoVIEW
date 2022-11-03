@@ -21,17 +21,15 @@ properties:
       table: true
       form: true
   type:
-    type: string
-    enum:
-      - Incident
-    default: Incident
+    const: Incident
     ui:hide:
       form: true
       table: true
-  name:
+  validFrom:
     type: string
-    description: 'The name of this item.'
-    ui:formItemType: text
+    description: 'The start of the validity period for this forecast as a ISO8601 format'
+    format: date-time
+    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
   description:
     type: string
@@ -43,13 +41,21 @@ properties:
     type: string
     ui:formItemType: select
     db:ref: EmergencyEvent
+    ui:hide:
+      table: true
   location:
     $ref: './../$defs.yaml#/Location'
   createdAt:
     type: string
     format: "date-time"
     db:skipInSchemaDefinition: true
+    ui:hide:
+      table: true
+      form: true
   updatedAt:
     type: string
     format: "date-time"
     db:skipInSchemaDefinition: true
+    ui:hide:
+      table: true
+      form: true

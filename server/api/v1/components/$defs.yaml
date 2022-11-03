@@ -206,6 +206,7 @@ owner:
     functionToCall: getUserId
   ui:hide:
     table: true
+    form: true
   items:
     $ref: '#/NGSIentityFormat'
     description: 'Property. Unique identifier of the entity'
