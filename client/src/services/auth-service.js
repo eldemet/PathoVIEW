@@ -1,11 +1,15 @@
+import {inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import Keycloak from 'keycloak-js';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
+import {HttpService} from 'library-aurelia/src/services/http-service';
 
+@inject(HttpService)
 class AuthService extends BasicService {
 
-    constructor(...rest) {
+    constructor(httpService, ...rest) {
         super('auth', ...rest);
+        this.httpService = httpService;
     }
 
     async initialize(config, testing) {
@@ -43,6 +47,10 @@ class AuthService extends BasicService {
 
     async setUserAttribute(httpService, attributeObject) {
         await httpService.fetch('PUT', this.config.url + 'admin/realms/' + this.keycloak.realm + '/users/' + this.userInfo.sub, {attributes: attributeObject}, 2000);
+    }
+
+    async getUsers() {
+        return await this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 2000);
     }
 
     getUserId() {
