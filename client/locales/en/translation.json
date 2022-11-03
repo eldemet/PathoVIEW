@@ -165,7 +165,9 @@
         "diagnosis": "diagnosis",
         "treatment": "treatment",
         "prevention": "prevention",
-        "controlMeasures": "control measures"
+        "controlMeasures": "control measures",
+        "groups": "groups",
+        "email": "email"
     },
     "enum": {
         "alert": {

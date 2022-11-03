@@ -1,0 +1,33 @@
+<template>
+
+    <h3><i class="bi bi-person-circle me-2"></i>${user.username}</h3>
+    <div class.bind="user.status === 'online' ? 'text-success' : ''"
+         class="d-block align-middle text-truncate">
+        <label class="d-inline-block text-muted text-end" style="width: 40px;">${'propertyKeys.status' | t}:</label>
+        <i class="bi bi-circle${user.status === 'online' ? '-fill text-success' : ''}"></i>
+        ${user.status}
+    </div>
+    <div if.bind="user.firstName || user.lastName"
+         class="d-block align-middle text-truncate">
+        <label class="d-inline-block text-muted text-end" style="width: 40px;">${'propertyKeys.name' | t}:</label>
+        ${user.firstName} ${user.lastName}
+    </div>
+    <div if.bind="user.roles.length > 0"
+         class="d-block align-middle text-truncate">
+        <label class="d-inline-block text-muted text-end" style="width: 40px;">${'propertyKeys.roles' | t}:</label>
+        <i class="bi bi-person-square"></i>
+        ${user.roles.join(',')}
+    </div>
+    <div if.bind="user.groups.length > 0"
+         class="d-block align-middle text-truncate">
+        <label class="d-inline-block text-muted text-end" style="width: 40px;">${'propertyKeys.groups' | t}:</label>
+        ${user.groups.join(',')}
+    </div>
+    <div if.bind="user.email"
+         class="d-block align-middle text-truncate">
+        <label class="d-inline-block text-muted text-end" style="width: 40px;">${'propertyKeys.email' | t}:</label>
+        <i class="bi bi-envelope"></i>
+        ${user.email}
+    </div>
+
+</template>

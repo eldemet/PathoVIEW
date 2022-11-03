@@ -1,0 +1,161 @@
+<template>
+
+    <require from='library-aurelia/src/resources/attributes/bs-color-scheme'></require>
+    <require from='library-aurelia/src/resources/elements/alert'></require>
+    <require from='library-aurelia/src/resources/elements/au-content/au-content-item'></require>
+    <require from="library-aurelia/src/resources/elements/toolbar/toolbar"></require>
+    <require from='library-aurelia/src/resources/value-converters/filter'></require>
+    <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
+
+    <div class="d-flex flex-column h-100 overflow-auto">
+
+        <toolbar></toolbar>
+
+        <div class="container${routeConfig.settings.fluidContainer ? '-fluid' : ''} overflow-auto">
+            <div class="row h-100 overflow-auto justify-content-${routeConfig.settings.justification ? routeConfig.settings.justification : 'center'}">
+                <div class="col-${routeConfig.settings.gridColumns ? routeConfig.settings.gridColumns : 12} h-100 overflow-auto">
+                    <div class="d-flex flex-column h-100 overflow-auto">
+                        <div if.bind="total > 0" class="mt-2">
+                            <i class="bi bi-check"></i> ${'labels.result' | t}: ${total}
+                        </div>
+                        <div if.bind="total > limit" class="mt-2">
+                            <nav aria-label="pagination">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item ${skip < 1 ? 'disabled' : ''}">
+                                        <button class="page-link"
+                                                disabled.bind="skip < 1"
+                                                click.delegate="changeSkip(skip-1)"
+                                                tabindex="-1">
+                                            ${'buttons.previous' | t}
+                                        </button>
+                                    </li>
+                                    <li repeat.for="i of pages"
+                                        class="page-item ${skip === i ? 'active' : ''}">
+                                        <button class="page-link"
+                                                click.delegate="changeSkip(i)">
+                                            ${i+1}
+                                        </button>
+                                    </li>
+                                    <li class="page-item ${skip >= pages-1 ? 'disabled' : ''}">
+                                        <button class="page-link"
+                                                disabled.bind="skip >= pages-1"
+                                                click.delegate="changeSkip(skip+1)">
+                                            ${'buttons.next' | t}
+                                        </button>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <alert event.bind="'general-search-alert'"></alert>
+                        <div if.bind="schema && objects && objects.length > 0"
+                             class="table-responsive overflow-auto mt-2">
+                            <table class="table table-hover search-table"
+                                   bs-color-scheme.bind="{type: 'table', setText: true, bw: true}">
+                                <thead>
+                                <tr>
+                                    <th if.bind="routeConfig.settings.showExternalLink"
+                                        class="no-before link">
+                                    </th>
+                                    <th repeat.for="key of schema.properties | objectKeys"
+                                        if.bind="!schema.properties[key].oneOf && !schema.properties[key].hide.table"
+                                        class="${sortBy === key ? ascending ? 'ascending' : 'descending' : ''}"
+                                        click.delegate="changeSortProperty(key, schema.properties[key].showInTable)">
+                                        ${'propertyKeys.' + key | t}
+                                    </th>
+                                    <th if.bind="annotable"
+                                        class="no-before">
+                                        ${'propertyKeys.annotations' | t}
+                                    </th>
+                                    <th if.bind="!readOnly"
+                                        class="tools no-before">
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr repeat.for="object of objects"
+                                    class="${router.currentInstruction.params.id === object[service.options.uniqueProperty] ? 'active' : ''} hover"
+                                    click.trigger="navigateToRoute('detail', object, $event, router)">
+                                    <td if.bind="routeConfig.settings.showExternalLink"
+                                        class="link">
+                                        <i class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi bi-box-arrow-up-right"
+                                           click.trigger="navigateToRoute('print', object, $event)">
+                                        </i>
+                                    </td>
+                                    <td repeat.for="key of schema.properties | objectKeys"
+                                        if.bind="!schema.properties[key].oneOf && !schema.properties[key].hide.table">
+                                        <div if.bind="schema.properties[key].populateProperty">
+                                            <span if.bind="!Array.isArray(object[key])">
+                                                ${_.find(object[key])}
+                                            </span>
+                                            <div if.bind="Array.isArray(object[key])"
+                                                 repeat.for="item of object[key]">
+                                                <span>${_.find(object[key])}</span>
+                                                <span if.bind="!$last">, </span>
+                                            </div>
+                                        </div>
+                                        <div else>
+                                            <au-content-item
+                                                    if.bind="schema.properties[key].type !== 'object' && schema.properties[key].type !== 'array'"
+                                                    item.bind="object[key]"
+                                                    schema.bind="schema.properties[key]"
+                                                    index.bind="1">
+                                            </au-content-item>
+
+                                            <div if.bind="schema.properties[key].type === 'array'">
+                                                <div if.bind="schema.properties[key].items.type === 'string'">
+                                                    ${object[key].join()}
+                                                </div>
+                                                <div if.bind="schema.properties[key].items.type === 'object'"
+                                                     repeat.for="item of object[key]">
+                                                    <span>${schema.properties[key].showInTable ? item[schema.properties[key].showInTable] : object[key][Object.keys(object[key])[0]]}</span>
+                                                    <span if.bind="!$last">, </span>
+                                                </div>
+                                            </div>
+                                            <div if.bind="schema.properties[key].type === 'object'">
+                                                ${schema.properties[key].showInTable ?
+                                                object[key][schema.properties[key].showInTable] :
+                                                object[key][Object.keys(object[key])[0]]}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td if.bind="annotable && $parent.annotations">
+                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationText'}]}
+                                                                     & signal:'annotations-updated'"
+                                             if.bind="$this.length > 0">
+                                            ${$this.length}
+                                            <i class="bi bi-chat-square"></i>
+                                        </span>
+                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationImage'}]}
+                                                                     & signal:'annotations-updated'"
+                                             if.bind="$this.length > 0">
+                                            ${$this.length}
+                                            <i class="bi bi-camera-fill"></i>
+                                        </span>
+                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationAudio'}]}
+                                                                     & signal:'annotations-updated'"
+                                             if.bind="$this.length > 0">
+                                            ${$this.length}
+                                            <i class="bi bi-mic-fill"></i>
+                                        </span>
+                                    </td>
+                                    <td class="tools">
+                                        <i if.bind="!schema.readOnly"
+                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi bi-pencil"
+                                           click.trigger="navigateToRoute('update', object, $event, router)">
+                                        </i>
+                                        <i if.bind="!schema.readOnly"
+                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi bi-trash"
+                                           click.trigger="deleteObject(object, $event)">
+                                        </i>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

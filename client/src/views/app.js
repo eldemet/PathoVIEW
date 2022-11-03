@@ -29,6 +29,21 @@ export class App extends BasicViewRouter {
             title: 'views.dashboard.title'
         },
         {
+            route: 'incident',
+            name: 'incident',
+            moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
+            nav: true,
+            title: this.i18n.tr('model.incident', {count: 2}),
+            settings: {
+                fluidContainer: true,
+                gridColumnsMain: 9,
+                gridColumnsDetail: 3,
+                detailView: true,
+                customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
+                customDetailView: PLATFORM.moduleName('views-general/annotations')
+            }
+        },
+        {
             route: 'map',
             name: 'map',
             moduleId: PLATFORM.moduleName('./map/map'),

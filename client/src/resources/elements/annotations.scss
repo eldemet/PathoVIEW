@@ -1,0 +1,28 @@
+.annotation {
+
+    .creator {
+        border: 2px solid #212529;
+        border-radius: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        padding: 0 0.2rem;
+        cursor: pointer;
+
+        .creator-inner {
+            width: 2rem;
+            height: 1.6rem;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+    }
+
+    .tool {
+        visibility: hidden;
+    }
+
+}
+
+.annotation:hover .tool {
+    visibility: visible;
+}
