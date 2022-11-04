@@ -1,4 +1,3 @@
-import {catchError} from 'library-aurelia/src/decorators';
 import get from 'lodash/get';
 
 export const emergencyEventUtilities = {
@@ -23,14 +22,16 @@ export const deviceUtilities = {
         return `<h6><i class="${deviceUtilities.getDeviceIcon(device)}"></i> ${device.name}</h6>
                 ${i18n.tr('enum.device.category.' + device.category)}`;
     },
-    @catchError()
     async getBatteryLevel() {
-        return (await navigator.getBattery()).level;
+        let batteryLevel = -1;
+        if (typeof navigator.getBattery === 'function') {
+            batteryLevel = (await navigator.getBattery()).level;
+        }
+        return batteryLevel;
     }
 };
 
 export const locationUtilities = {
-    @catchError()
     async getCurrentGeoJSONPoint() {
         const pos = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
         return {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
