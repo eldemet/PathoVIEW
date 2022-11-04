@@ -17,9 +17,9 @@
         </div>
     </div>
 
-    <div class="container"
+    <div class="container-fluid"
          if.bind="contextService.currentEmergencyEvent">
-        <div class="row mt-5">
+        <div class="row">
             <div class="col-md-6">
                 <all-properties schema.bind="contextService.emergencyEventSchema"
                                 object.bind="contextService.currentEmergencyEvent">
@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-6"
                  if.bind="contextService.currentWeather">
-                <h2>${'propertyKeys.weather' | t}</h2>
+                <h2 class="mt-3">${'propertyKeys.weather' | t}</h2>
                 <div repeat.for="weather of contextService.currentWeather.weather"
                      class="d-flex flex-column align-items-start">
                     <img src.bind="openWeatherMapIconUrl + weather.icon + '@2x.png'" alt="${weather.main}">
