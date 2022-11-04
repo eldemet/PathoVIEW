@@ -101,10 +101,14 @@ export class App extends BasicViewRouter {
 
     async attached() {
         super.attached();
-        this.isDarkMode = this.responsiveService.isDarkMode();
         this.responsiveService.initialize();
-        this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
+        this.isDarkMode = this.responsiveService.isDarkMode();
+        this.subscriptions.push(this.eventAggregator.subscribe('dark-mode-changed', isDarkMode => {
+            this.isDarkMode = isDarkMode;
+        }));
         await this.contextService.initialize(this.authService.getUserId());
+        this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
+        this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {
                 this.eventAggregator.publish('toast', {
@@ -132,10 +136,6 @@ export class App extends BasicViewRouter {
                 });
             }
         }));
-        this.subscriptions.push(this.eventAggregator.subscribe('dark-mode-changed', isDarkMode => {
-            this.isDarkMode = isDarkMode;
-        }));
-        this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
     }
 
     detached() {
