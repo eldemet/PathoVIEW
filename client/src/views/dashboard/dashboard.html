@@ -4,18 +4,22 @@
     <require from='library-aurelia/src/resources/elements/all-properties'></require>
     <require from='library-aurelia/src/resources/value-converters/format-date'></require>
 
-    <div class="container">
-        <div class="row"
-             if.bind="!contextService.currentEmergencyEvent">
-            <div class="col-12">
-                <div class="alert alert-info" role="alert">
+    <div class="h-100 d-flex align-content-center flex-wrap justify-content-center"
+         if.bind="!contextService.currentEmergencyEvent">
+        <div class="alert alert-info rounded" role="alert">
+            <div class="d-flex flex-row">
+                <i class="bi bi-hospital fs-1 pe-3"></i>
+                <div>
                     <h4>${'views.dashboard.noEmergencyEventHeadline' | t}</h4>
                     ${'views.dashboard.noEmergencyEvent' | t}
                 </div>
             </div>
         </div>
-        <div class="row mt-5"
-             else>
+    </div>
+
+    <div class="container"
+         if.bind="contextService.currentEmergencyEvent">
+        <div class="row mt-5">
             <div class="col-md-6">
                 <all-properties schema.bind="contextService.emergencyEventSchema"
                                 object.bind="contextService.currentEmergencyEvent">
