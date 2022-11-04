@@ -8,9 +8,9 @@
     <require from="library-aurelia/src/resources/value-converters/format-number"></require>
     <require from="leaflet/dist/leaflet.css"></require>
     <require from="../resources/elements/alert-flexible"></require>
+    <require from="../resources/elements/toolbar/toolbar-element-darkmode-switch-adapted"></require>
 
-    <nav-bar display-dark-mode-switch.bind="true"
-             style="background-color: var(--bs-blue) !important;"
+    <nav-bar class="bg-blue"
              display-is-navigating.bind="true"
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
@@ -81,13 +81,15 @@
             </ul>
         </div>
 
+        <toolbar-element-darkmode-switch-adapted></toolbar-element-darkmode-switch-adapted>
+
         <div class="dropdown"
              if.bind="authService.userInfo">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-circle"></i>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="language-menu">
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="language-menu">
                 <li class="px-3">
                     <span class="d-block text-muted">${authService.userInfo.name}</span>
                     <span class="d-block text-muted">${authService.userInfo.preferred_username}</span>
@@ -114,6 +116,6 @@
     <toast event="toast"></toast>
     <alert-flexible event="app-alert"></alert-flexible>
 
-    <router-view class="overflow-auto" bs-color-scheme.bind="{type: 'bg', setText: true, bw: true}"></router-view>
+    <router-view class="overflow-auto rounded" bs-color-scheme.bind="{type: 'bg', setText: true, bw: true}"></router-view>
 
 </template>

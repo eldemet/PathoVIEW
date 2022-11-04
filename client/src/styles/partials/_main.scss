@@ -1,4 +1,10 @@
+.bg-blue {
+    --bs-bg-opacity: 1;
+    background-color: $blue !important;
+}
+
 .bg-gray {
+    --bs-bg-opacity: 1;
     background-color: $gray-200;
 }
 
@@ -10,9 +16,15 @@
     border-bottom: solid $primary 2px;
 }
 
+body {
+    border-radius: var(--bs-border-radius-sm) !important;
+    margin: 0.5rem !important;
+    background-color: $blue !important;
+}
+
 nav-bar nav {
     border-radius: var(--bs-border-radius-sm) !important;
-    margin: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
 }
 
 span.d-block.d-md-none.text-primary {

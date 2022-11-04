@@ -3,7 +3,7 @@
     <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
 
     <div repeat.for="alert of alerts"
-         class="alert alert-${alert.type} ${alert.dismissible ? 'alert-dismissible' : ''} mb-0">
+         class="alert alert-${alert.type} ${alert.dismissible ? 'alert-dismissible' : ''} mb-1 rounded">
         <div class="d-flex flex-row align-items-center">
             <i if.bind="!alert.image" class="${alert.icon}"></i>
             <img if.bind="alert.image" class="image-3rem" src.bind="alert.image">
