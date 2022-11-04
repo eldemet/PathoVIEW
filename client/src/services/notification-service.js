@@ -57,59 +57,68 @@ class NotificationService extends BasicService {
      * @param {Array<String>} topics only receive specific topics
      * @param {Array<String>} validContentTypes only allow specific content types
      */
-    @catchError('app-alert')
     registerNotificationListener(url, topics, validContentTypes) {
         if (Array.isArray(validContentTypes)) {
             this.NotificationSchema.properties.contentType.enum = validContentTypes;
         }
-        try {
-            if (topics) url += '?topics=' + topics.join();
-            let authToken = AureliaCookie.get('auth_token');
-            this.notificationListener = new window.EventSourcePolyfill(url, !this._.isNil(authToken) ? {headers: {'Authorization': 'Bearer ' + authToken}} : undefined);
-            this.notificationListener.onopen = () => {
-                this.logger.info('Registered to notification service!');
+        if (topics) url += '?topics=' + topics.join();
+        let authToken = AureliaCookie.get('auth_token');
+        this.notificationListener = new window.EventSourcePolyfill(url, !this._.isNil(authToken) ? {headers: {'Authorization': 'Bearer ' + authToken}} : undefined);
+        this.notificationListener.onopen = () => {
+            this.logger.info('Registered to notification service!');
+            this.eventAggregator.publish('toast',
+                {
+                    biIcon: 'bell',
+                    title: 'alerts.notificationService.name',
+                    autohide: true,
+                    delay: 3000,
+                    body: 'alerts.notificationService.registered'
+                }
+            );
+        };
+        this.notificationListener.onerror = (notification) => {
+            let message = notification.message;
+            if (notification.readyState === window.EventSourcePolyfill.CLOSED) {
+                message = 'alerts.notificationService.connectionClosed';
                 this.eventAggregator.publish('toast',
                     {
-                        biIcon: 'bell',
+                        biIcon: 'bell-slash',
                         title: 'alerts.notificationService.name',
-                        autohide: true,
-                        delay: 3000,
-                        body: 'alerts.notificationService.registered'
+                        dismissible: true,
+                        body: 'alerts.notificationService.connectionClosed'
                     }
                 );
-            };
-            this.notificationListener.onerror = (notification) => {
-                let message = '';
-                if (notification.readyState === window.EventSourcePolyfill.CLOSED) {
-                    message = 'alerts.notificationService.connectionClosed';
-                    this.eventAggregator.publish('toast',
-                        {
-                            biIcon: 'bell-slash',
-                            title: 'alerts.notificationService.name',
-                            dismissible: true,
-                            body: 'alerts.notificationService.connectionClosed'
-                        }
-                    );
-                }
-                //easily allow logging of other events
-                if (message) {
-                    this.logger.error(message);
-                }
-            };
-            this.notificationListener.onmessage = notification => {
-                this.notificationCallback(notification);
-            };
-            if (Array.isArray(topics)) {
-                this.NotificationSchema.properties.topic.enum = topics;
-                for (let topic of topics) {
-                    this.notificationListener.addEventListener(topic, notification => {
-                        this.notificationCallback(notification);
-                    }, false);
-                }
             }
-        } catch (error) {
-            throw new Error('alerts.notificationService.noConnection');
+            //easily allow logging of other events
+            if (message) {
+                this.logger.error(message);
+            }
+            if (notification.type === 'error') {
+                this.handleConnectionError();
+            }
+        };
+        this.notificationListener.onmessage = notification => {
+            this.notificationCallback(notification);
+        };
+        if (Array.isArray(topics)) {
+            this.NotificationSchema.properties.topic.enum = topics;
+            for (let topic of topics) {
+                this.notificationListener.addEventListener(topic, notification => {
+                    this.notificationCallback(notification);
+                }, false);
+            }
         }
+    }
+
+    @catchError('app-alert', {
+        id: 'notificationService.noConnection',
+        type: 'danger',
+        message: 'alerts.notificationService.noConnection',
+        dismissible: false
+    })
+    handleConnectionError() {
+        this.removeNotificationListener();
+        throw new Error('Could not connect to notification service! Is the server running and reachable?');
     }
 
     /**
