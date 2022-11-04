@@ -50,6 +50,7 @@ class AlertFlexible extends BasicComponent {
         if (payload instanceof AlertEvent) {
             alert = payload;
         } else {
+            let id = payload.id ? payload.id : 'default';
             let type = payload.type ? payload.type : 'info';
             let message;
             let translateOptions = payload.translateOptions ? payload.translateOptions : {};
@@ -68,7 +69,7 @@ class AlertFlexible extends BasicComponent {
             } else {
                 message = payload.message;
             }
-            alert = new AlertEvent(payload.id, type, message, payload.properties, payload.image, payload.link, translateOptions, dismissible);
+            alert = new AlertEvent(id, type, message, payload.properties, payload.image, payload.link, translateOptions, dismissible);
         }
         return alert;
     }

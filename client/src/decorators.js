@@ -13,15 +13,15 @@ const loadingEvent = (eventTarget, modelType) => {
     return (target, propertyKey, descriptor) => {
         const targetMethod = descriptor.value;
         descriptor.value = function(...args) {
-            this.eventAggregator.publish(eventTarget, {type: 'loading', message: 'alerts.general.loading', translateOptions: {type: modelType}});
+            this.eventAggregator.publish(eventTarget, {id: modelType, type: 'loading', message: 'alerts.general.loading', translateOptions: {type: modelType}});
             let result = targetMethod.apply(this, args);
             if (result && result instanceof Promise) {
                 result = result.then(data => {
-                    this.eventAggregator.publish(eventTarget + '-dismiss');
+                    this.eventAggregator.publish(eventTarget + '-dismiss', {id: modelType});
                     return data;
                 });
             } else {
-                this.eventAggregator.publish(eventTarget + '-dismiss');
+                this.eventAggregator.publish(eventTarget + '-dismiss', {id: modelType});
             }
             return result;
         };
