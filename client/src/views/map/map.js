@@ -14,22 +14,28 @@ class MapView extends BasicView {
 
     async attached() {
         await this.contextService.initialized;
-        this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'currentEmergencyEvent')
-            .subscribe(async(newValue, oldValue) => {
-                this.updateLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities);
-            }));
-        this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
-            .subscribe(async(newValue, oldValue) => {
-                this.updateLayerGroup('alert', this.contextService.alerts, alertUtilities);
-            }));
-        this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'devices')
-            .subscribe(async(newValue, oldValue) => {
-                this.updateLayerGroup('device', this.contextService.devices, deviceUtilities);
-            }));
         let overlay = [];
-        overlay.push(this.getLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities));
-        overlay.push(this.getLayerGroup('device', this.contextService.devices, deviceUtilities));
-        overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
+        if (this.contextService.currentEmergencyEvent) {
+            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'currentEmergencyEvent')
+                .subscribe(async(newValue, oldValue) => {
+                    this.updateLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities);
+                }));
+            overlay.push(this.getLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities));
+        }
+        if (this.contextService.alerts) {
+            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
+                .subscribe(async(newValue, oldValue) => {
+                    this.updateLayerGroup('alert', this.contextService.alerts, alertUtilities);
+                }));
+            overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
+        }
+        if (this.contextService.device) {
+            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'devices')
+                .subscribe(async(newValue, oldValue) => {
+                    this.updateLayerGroup('device', this.contextService.devices, deviceUtilities);
+                }));
+            overlay.push(this.getLayerGroup('device', this.contextService.devices, deviceUtilities));
+        }
         this.layers = {overlay};
     }
 
