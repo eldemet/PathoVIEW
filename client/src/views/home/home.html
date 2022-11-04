@@ -5,21 +5,13 @@
     <require from='library-aurelia/src/resources/value-converters/format-date'></require>
 
     <div class="container">
-        <div class="row mb-4">
-            <div class="col-12">
-                <h1>${'app' | t}</h1>
-            </div>
-        </div>
         <div class="row">
             <div class="col-12">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <div class="alert alert-info fade show mt-4 rounded" role="alert">
                     <h4>${'views.home.welcome' | t}</h4>
                     ${'views.home.prototype' | t}
                     <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview/-/issues"
-                       target="_blank">
-                        Gitlab
-                    </a>!
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       target="_blank">Gitlab</a>!
                 </div>
             </div>
             <div class="col-md-3">
