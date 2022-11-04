@@ -12,8 +12,12 @@
     text-transform: uppercase;
 }
 
+.nav-link {
+    border-bottom: solid transparent 2px;
+}
+
 .nav-link.active {
-    border-bottom: solid $primary 2px;
+    border-color: $primary;
 }
 
 body {
