@@ -15,7 +15,7 @@ export async function configure(aurelia) {
     if (authService?.userInfo?.locale) {
         AureliaCookie.set('lang', authService.userInfo.locale, {});
     }
-    let root = PLATFORM.moduleName('views/app');
+    let root = PLATFORM.moduleName('app');
     let globalResources = [
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-map'),

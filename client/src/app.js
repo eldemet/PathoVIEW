@@ -6,10 +6,10 @@ import {AureliaCookie} from 'aurelia-cookie';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
-import {deviceUtilities} from '../utilities';
-import {NotificationService} from '../services/notification-service';
-import {AuthService} from '../services/auth-service';
-import {ContextService} from '../services/context-service';
+import {deviceUtilities} from 'utilities';
+import {NotificationService} from 'services/notification-service';
+import {AuthService} from 'services/auth-service';
+import {ContextService} from 'services/context-service';
 
 @inject(BindingSignaler, DialogService, NotificationService, AuthService, ContextService)
 export class App extends BasicViewRouter {
@@ -18,13 +18,13 @@ export class App extends BasicViewRouter {
         {
             route: ['', '/home'],
             name: 'home',
-            moduleId: PLATFORM.moduleName('./home/home'),
+            moduleId: PLATFORM.moduleName('./views/home/home'),
             nav: false
         },
         {
             route: 'dashboard',
             name: 'dashboard',
-            moduleId: PLATFORM.moduleName('./dashboard/dashboard'),
+            moduleId: PLATFORM.moduleName('./views/dashboard/dashboard'),
             nav: true,
             title: 'views.dashboard.title'
         },
@@ -46,35 +46,35 @@ export class App extends BasicViewRouter {
         {
             route: 'map',
             name: 'map',
-            moduleId: PLATFORM.moduleName('./map/map'),
+            moduleId: PLATFORM.moduleName('./views/map/map'),
             nav: true,
             title: 'views.map'
         },
         {
             route: 'instructions',
             name: 'instructions',
-            moduleId: PLATFORM.moduleName('./instructions/instructions'),
+            moduleId: PLATFORM.moduleName('./views/instructions/instructions'),
             nav: true,
             title: 'views.instructions.title'
         },
         {
             route: 'pathogens',
             name: 'pathogens',
-            moduleId: PLATFORM.moduleName('./pathogens/pathogens'),
+            moduleId: PLATFORM.moduleName('./views/pathogens/pathogens'),
             nav: true,
             title: 'views.pathogens.title'
         },
         {
             route: 'cms',
             name: 'cms',
-            moduleId: PLATFORM.moduleName('./cms/cms'),
+            moduleId: PLATFORM.moduleName('./views/cms/cms'),
             nav: true,
             title: 'views.cms'
         },
         {
             route: 'components',
             name: 'components',
-            moduleId: PLATFORM.moduleName('./components/components'),
+            moduleId: PLATFORM.moduleName('./views/components/components'),
             nav: true,
             title: 'views.components'
         }
