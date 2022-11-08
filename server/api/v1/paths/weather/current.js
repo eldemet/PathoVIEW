@@ -7,6 +7,7 @@ const createError = require('http-errors');
 /**
  * @module paths/weather/current
  * @category paths
+ * @param {ConfigWithAdditions} config
  */
 module.exports = function(config) {
 

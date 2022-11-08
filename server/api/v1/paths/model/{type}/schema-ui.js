@@ -8,6 +8,10 @@ const {loadFile} = require('utilities-node/src/utilities/fs');
 
 let uiSchemas;
 
+/**
+ * @param {String} schemaDirectory
+ * @returns {Promise<{}>}
+ */
 async function initializeUISchemas(schemaDirectory) {
     let uiSchemas = {};
     for (let file of fs.readdirSync(schemaDirectory)) {
@@ -30,6 +34,8 @@ async function initializeUISchemas(schemaDirectory) {
 /**
  * @module paths/model/type/schema
  * @category paths
+ * @param {Config} config
+ * @param {Function} getApiDoc
  */
 module.exports = function(config, getApiDoc) {
 

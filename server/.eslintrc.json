@@ -1,3 +1,4 @@
 {
-     "extends": "./node_modules/utilities-node/.eslintrc.json"
+     "extends": "./node_modules/utilities-node/.eslintrc.json",
+     "ignorePatterns": ["*.ts"]
 }

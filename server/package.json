@@ -1,6 +1,6 @@
 {
     "name": "pathoview-server",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "PathoVIEW server application",
     "main": "server.js",
     "scripts": {
@@ -36,6 +36,7 @@
         "query-string": "^7.1.1",
         "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.11.2"
     },
+    "types": "./types/types.d.ts",
     "directories": {
         "doc": "docs"
     },

@@ -25,6 +25,7 @@ class KeycloakAdminService extends Service {
             baseUrl: config.keycloakConfig.authServerUrl.slice(0, -1),
             realmName: config.keycloakConfig.realm || 'master'
         });
+        /** @type {import('@keycloak/keycloak-admin-client/lib/utils/auth').Credentials} */
         const credentials = {
             username: 'admin',
             password: config.keycloakConfig.adminClientPasswordFile ? loadFile(config.keycloakConfig.adminClientPasswordFile) : 'admin',

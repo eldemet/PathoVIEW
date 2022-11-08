@@ -4,6 +4,9 @@ const logger = require('utilities-node/src/utilities/logger')(module);
 /**
  * @module paths/keycloak-admin/user
  * @category paths
+ * @param {Config} config
+ * @param {Function} getApiDoc
+ * @param {KeycloakAdminService} kcAdminService
  */
 module.exports = function(config, getApiDoc, kcAdminService) {
 
