@@ -8,4 +8,10 @@
                  ref-id.bind="params.id">
     </annotations>
 
+    <div if.bind="!annotations"
+         class="alert alert-info rounded mt-2" role="alert">
+        <i class="spinner-border spinner-border-sm"></i>
+        ${'alerts.general.loading' | t:{type: 'annotation'}}
+    </div>
+
 </template>

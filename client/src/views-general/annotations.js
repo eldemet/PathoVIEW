@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
-import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {activationStrategy} from 'aurelia-router';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
+import {catchError} from 'library-aurelia/src/decorators';
 import {AuthService} from '../services/auth-service';
 
 /**
@@ -23,10 +24,14 @@ class AnnotationsView extends BasicView {
         return activationStrategy.replace;
     }
 
-    async activate(params, routeConfig, navigationInstruction) {
-        super.activate(params, routeConfig, navigationInstruction);
-        this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
+    async attached() {
+        await this.loadAnnotations();
+    }
+
+    @catchError('app-alert')
+    async loadAnnotations() {
         this.users = await this.authService.getUsers();
+        this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
     }
 
 }
