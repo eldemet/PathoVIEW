@@ -24,7 +24,9 @@ export const deviceUtilities = {
     },
     async getBatteryLevel() {
         let batteryLevel = -1;
+        // @ts-ignore
         if (typeof navigator.getBattery === 'function') {
+            // @ts-ignore
             batteryLevel = (await navigator.getBattery()).level;
         }
         return batteryLevel;

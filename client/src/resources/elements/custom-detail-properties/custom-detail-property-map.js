@@ -4,6 +4,14 @@ import Leaflet from 'leaflet';
 
 class CustomDetailPropertyMap extends BasicComposable {
 
+    value;
+    propertyKey;
+    schema;
+    layer;
+
+    /**
+     * @param {ConstructorParameters<typeof BasicComposable>} rest
+     */
     constructor(...rest) {
         super(...rest);
         this.uniqueId = uuid();

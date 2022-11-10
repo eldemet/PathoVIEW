@@ -8,6 +8,10 @@ class DashboardView extends BasicView {
 
     openWeatherMapIconUrl = 'https://openweathermap.org/img/wn/';
 
+    /**
+     * @param {ContextService} contextService
+     * @param {ConstructorParameters<typeof BasicView>} rest
+     */
     constructor(contextService, ...rest) {
         super(...rest);
         this.contextService = contextService;

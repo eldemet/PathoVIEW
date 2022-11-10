@@ -7,10 +7,21 @@ class Camera extends BasicComponent {
 
     @bindable imageData;
 
+    /** @type {HTMLVideoElement} */
+    cameraVideo;
+    /** @type {HTMLCanvasElement} */
+    cameraCanvas;
+    /** @type {HTMLCanvasElement} */
+    drawingCanvas;
+    /** @type {HTMLElement} */
+    wrap;
+
     isLoading = true;
+    /** @type {MediaStreamConstraints} */
     constraints = {
         audio: false,
         video: {
+            // @ts-ignore
             mandatory: {maxWidth: 1920, maxHeight: 1080},
             optional: [{minWidth: 1280}, {minHeight: 720}]
         }

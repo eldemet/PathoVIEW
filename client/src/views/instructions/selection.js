@@ -4,6 +4,9 @@ import {devices} from './data';
 
 class SelectionView extends BasicView {
 
+    /**
+     * @param {ConstructorParameters<typeof BasicView>} rest
+     */
     constructor(...rest) {
         super(...rest);
         this.devices = devices;

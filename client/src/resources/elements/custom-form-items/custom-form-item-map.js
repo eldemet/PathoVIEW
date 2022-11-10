@@ -1,12 +1,15 @@
 import {v1 as uuid} from 'uuid';
 import Leaflet from 'leaflet';
-import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
+import {BasicComposableAuFormItem} from 'library-aurelia/src/prototypes/basic-composable-au-form-item';
 
-export class CustomFormItemMap extends BasicComposable {
+export class CustomFormItemMap extends BasicComposableAuFormItem {
 
     drawEnabled = true;
     layerEvents = ['pm:edit', 'pm:update', 'pm:remove', 'pm:rotate'];
 
+    /**
+     * @param {ConstructorParameters<typeof BasicComposableAuFormItem>} rest
+     */
     constructor(...rest) {
         super(...rest);
         this.uniqueId = uuid();

@@ -4,6 +4,9 @@ import {devices} from './data';
 
 class ChecklistView extends BasicView {
 
+    /**
+     * @param {ConstructorParameters<typeof BasicView>} rest
+     */
     constructor(...rest) {
         super(...rest);
     }

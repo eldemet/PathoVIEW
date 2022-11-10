@@ -46,6 +46,9 @@ export class LeafletCustomElement extends BasicComponent {
         overlay: {}
     };
 
+    /**
+     * @param {ConstructorParameters<typeof BasicComponent>} rest
+     */
     constructor(...rest) {
         super(...rest);
         this.L = Leaflet;
@@ -257,8 +260,8 @@ export class AureliaLeafletException {
 
 class LayerFactory {
 
-    constructor() {
-        this.L = Leaflet;
+    constructor(L) {
+        this.L = L;
     }
 
     getLayer(layer, handleEvent) {

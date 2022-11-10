@@ -6,6 +6,13 @@ import {ModelServiceAsync} from 'library-aurelia/src/services/model-service-asyn
  */
 class ModelServiceAsyncUISchema extends ModelServiceAsync {
 
+    /**
+     * @param {ConstructorParameters<typeof ModelServiceAsync>} rest
+     */
+    constructor(...rest) {
+        super(...rest);
+    }
+
     async initialize() {
         let schema = await this.httpService.fetch('GET', this.options.apiEntrypoint + '/' + this.typeKebabCase + '/schema-ui');
         this.extractSimplifiedSchemas(schema);

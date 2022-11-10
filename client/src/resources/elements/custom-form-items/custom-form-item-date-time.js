@@ -1,7 +1,7 @@
-import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
+import {BasicComposableAuFormItem} from 'library-aurelia/src/prototypes/basic-composable-au-form-item';
 
 /**
- * @extends BasicComposable
+ * @extends BasicComposableAuFormItem
  * @category resources
  * @subcategory custom-elements
  *
@@ -17,7 +17,7 @@ import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
  *          view="${composeViewModel() + '.html'}">
  * </compose>
  */
-class CustomFormItemDateTime extends BasicComposable {
+class CustomFormItemDateTime extends BasicComposableAuFormItem {
 
     dateTime = '';
 

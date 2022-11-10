@@ -40,6 +40,11 @@ export class ComponentsView extends BasicView {
         e: ['E001', 'E002', 'E003', 'E009', 'E011']
     };
 
+    /**
+     *
+     * @param {DialogService} dialogService
+     * @param {ConstructorParameters<typeof BasicView>} rest
+     */
     constructor(dialogService, ...rest) {
         super(...rest);
         this.dialogService = dialogService;

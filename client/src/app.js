@@ -6,10 +6,10 @@ import {AureliaCookie} from 'aurelia-cookie';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
-import {deviceUtilities} from 'utilities';
-import {NotificationService} from 'services/notification-service';
-import {AuthService} from 'services/auth-service';
-import {ContextService} from 'services/context-service';
+import {deviceUtilities} from './utilities';
+import {NotificationService} from './services/notification-service';
+import {AuthService} from './services/auth-service';
+import {ContextService} from './services/context-service';
 
 @inject(BindingSignaler, DialogService, NotificationService, AuthService, ContextService)
 export class App extends BasicViewRouter {
@@ -82,6 +82,14 @@ export class App extends BasicViewRouter {
 
     languages = [{name: 'English (en)', value: 'en'}, {name: 'Deutsch (de)', value: 'de'}];
 
+    /**
+     * @param {BindingSignaler} bindingSignaler
+     * @param {DialogService} dialogService
+     * @param {NotificationService} notificationService
+     * @param {AuthService} authService
+     * @param {ContextService} contextService
+     * @param {ConstructorParameters<typeof BasicViewRouter>} rest
+     */
     constructor(bindingSignaler, dialogService, notificationService, authService, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;

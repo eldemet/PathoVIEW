@@ -8,6 +8,7 @@ import center from '@turf/center';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import {Proxy} from 'library-aurelia/src/proxy';
 import {HttpService} from 'library-aurelia/src/services/http-service';
+import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {FormatDateValueConverter} from 'library-aurelia/src/resources/value-converters/format-date';
 import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
@@ -26,6 +27,11 @@ class ContextService extends BasicService {
         this.initializeResolve = resolve;
     });
 
+    /**
+     * @param {Proxy} proxy
+     * @param {HttpService} httpService
+     * @param {ConstructorParameters<typeof BasicObject>} rest
+     */
     constructor(proxy, httpService, ...rest) {
         super('context', ...rest);
         this.proxy = proxy;

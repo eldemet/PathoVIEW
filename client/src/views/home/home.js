@@ -2,7 +2,10 @@ import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 
 class HomeView extends BasicView {
 
-    constructor(contextService, ...rest) {
+    /**
+     * @param {ConstructorParameters<typeof BasicView>} rest
+     */
+    constructor(...rest) {
         super(...rest);
     }
 

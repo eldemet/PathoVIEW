@@ -1,5 +1,5 @@
 // Type definitions for pathoview-server
-// Project: git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git
+// Project: git+https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git
 
 import 'utilities-node/types/types';
 

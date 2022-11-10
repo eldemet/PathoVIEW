@@ -5,6 +5,7 @@ import {AureliaCookie} from 'aurelia-cookie';
 import {AureliaFramework} from 'library-aurelia/src/framework';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {AuthService} from './services/auth-service';
+// @ts-ignore
 import environment from '../config/environment.json';
 import {ModelServiceAsync} from 'library-aurelia/src/services/model-service-async';
 import {ModelServiceAsyncUISchema} from './services/model-service-async-ui-schema';
@@ -22,19 +23,18 @@ export async function configure(aurelia) {
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-image'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-map')
     ];
-    const modelOptions = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id'};
+    const options = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id', formats: ['uri-reference', 'date-time']};
     let httpService = aurelia.container.get(HttpService);
-    let options = {formats: ['uri-reference', 'date-time']};
     let registerServices = [
         authService,
-        new ModelServiceAsyncUISchema('alert', modelOptions, httpService, options),
-        new ModelServiceAsyncUISchema('device', modelOptions, httpService, options),
-        new ModelServiceAsyncUISchema('point-of-interest', modelOptions, httpService, options),
-        new ModelServiceAsync('annotation', modelOptions, httpService, options),
-        new ModelServiceAsync('action', modelOptions, httpService, options),
-        new ModelServiceAsync('emergency-event', modelOptions, httpService, options),
-        new ModelServiceAsync('incident', modelOptions, httpService, options),
-        new ModelServiceAsync('pathogen', modelOptions, httpService, options)
+        new ModelServiceAsyncUISchema('alert', options, httpService),
+        new ModelServiceAsyncUISchema('device', options, httpService),
+        new ModelServiceAsyncUISchema('point-of-interest', options, httpService),
+        new ModelServiceAsync('annotation', options, httpService),
+        new ModelServiceAsync('action', options, httpService),
+        new ModelServiceAsync('emergency-event', options, httpService),
+        new ModelServiceAsync('incident', options, httpService),
+        new ModelServiceAsync('pathogen', options, httpService)
     ];
     let registerPlugins = [
         PLATFORM.moduleName('aurelia-animator-css')

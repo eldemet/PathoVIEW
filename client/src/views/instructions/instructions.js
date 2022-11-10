@@ -23,8 +23,8 @@ class InstructionsView extends BasicViewRouter {
         }
     ];
 
-    configureRouter(config, router, params, routeConfig) {
-        super.configureRouter(config, router, params, routeConfig);
+    configureRouter(config, router) {
+        super.configureRouter(config, router);
         config.map(InstructionsView.routes);
     }
 

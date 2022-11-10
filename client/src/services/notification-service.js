@@ -4,6 +4,7 @@ import {AureliaCookie} from 'aurelia-cookie';
 import 'eventsource/example/eventsource-polyfill.js';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {catchError} from 'library-aurelia/src/decorators';
+import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 
 /**
  * @extends BasicService
@@ -43,7 +44,7 @@ class NotificationService extends BasicService {
     };
 
     /**
-     * @param {ConstructorParameters<typeof BasicService>} rest
+     * @param {ConstructorParameters<typeof BasicObject>} rest
      */
     constructor(...rest) {
         super('notification', ...rest);
@@ -54,8 +55,8 @@ class NotificationService extends BasicService {
     /**
      * register notification listener
      * @param {String} url url of the server sent event endpoint
-     * @param {Array<String>} topics only receive specific topics
-     * @param {Array<String>} validContentTypes only allow specific content types
+     * @param {Array<String>} [topics] only receive specific topics
+     * @param {Array<String>} [validContentTypes] only allow specific content types
      */
     registerNotificationListener(url, topics, validContentTypes) {
         if (Array.isArray(validContentTypes)) {
@@ -63,6 +64,7 @@ class NotificationService extends BasicService {
         }
         if (topics) url += '?topics=' + topics.join();
         let authToken = AureliaCookie.get('auth_token');
+        // @ts-ignore
         this.notificationListener = new window.EventSourcePolyfill(url, !this._.isNil(authToken) ? {headers: {'Authorization': 'Bearer ' + authToken}} : undefined);
         this.notificationListener.onopen = () => {
             this.logger.info('Registered to notification service!');
@@ -78,6 +80,7 @@ class NotificationService extends BasicService {
         };
         this.notificationListener.onerror = (notification) => {
             let message = notification.message;
+            // @ts-ignore
             if (notification.readyState === window.EventSourcePolyfill.CLOSED) {
                 message = 'alerts.notificationService.connectionClosed';
                 this.eventAggregator.publish('toast',

@@ -1,7 +1,7 @@
-import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
+import {BasicComposableAuFormItem} from 'library-aurelia/src/prototypes/basic-composable-au-form-item';
 
 /**
- * @extends BasicComposable
+ * @extends BasicComposableAuFormItem
  * @category resources
  * @subcategory custom-elements
  *
@@ -9,11 +9,14 @@ import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
  * <require from="./resources/elements/custom-form-items/custom-form-item-image"></require>
  *
  */
-class CustomFormItemImage extends BasicComposable {
+class CustomFormItemImage extends BasicComposableAuFormItem {
+
+    /** @type {HTMLInputElement} */
+    imageFile;
 
     activate(model) {
         super.activate(model);
-        if (this.propertySchema.required) {
+        if (this.schema.required) {
             this.mode = 'camera';
         }
     }

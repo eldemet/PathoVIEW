@@ -6,6 +6,12 @@ import {ContextService} from '../../services/context-service';
 @inject(BindingEngine, ContextService)
 class MapView extends BasicView {
 
+    /**
+     *
+     * @param {BindingEngine}bindingEngine
+     * @param {ContextService} contextService
+     * @param {ConstructorParameters<typeof BasicView>} rest
+     */
     constructor(bindingEngine, contextService, ...rest) {
         super(...rest);
         this.bindingEngine = bindingEngine;
@@ -29,7 +35,7 @@ class MapView extends BasicView {
                 }));
             overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
         }
-        if (this.contextService.device) {
+        if (this.contextService.devices) {
             this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'devices')
                 .subscribe(async(newValue, oldValue) => {
                     this.updateLayerGroup('device', this.contextService.devices, deviceUtilities);

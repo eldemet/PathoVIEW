@@ -1,5 +1,6 @@
 import {bindable} from 'aurelia-framework';
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
+import {HttpError} from 'library-aurelia/src/prototypes/basic-errors';
 
 /**
  * @extends BasicComponent
@@ -61,11 +62,11 @@ class AlertFlexible extends BasicComponent {
                 type = 'danger';
                 if (payload.message === 'Failed to fetch') {
                     message = 'alerts.general.fetch';
-                } else if (payload.status) {
-                    message = 'alerts.httpStatusCodes.' + payload.status;
                 } else {
                     message = payload.message;
                 }
+            } else if (payload instanceof HttpError) {
+                message = 'alerts.httpStatusCodes.' + payload.status;
             } else {
                 message = payload.message;
             }

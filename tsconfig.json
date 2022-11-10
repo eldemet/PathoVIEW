@@ -1,24 +1,29 @@
 {
     "compilerOptions": {
+        "experimentalDecorators": true,
         "allowJs": true,
         "checkJs": true,
         "noEmit": true,
         "module": "commonjs",
         "target": "es6",
         "rootDir": "./",
-        "typeRoots": [
-            "./node_modules/@keycloak/keycloak-admin-client/lib/utils/auth",
-            "./src/types"
-        ]
+        "skipLibCheck": true,
+        "esModuleInterop": true
     },
+    "types": [
+        "./server/types/types.d.ts",
+        "./server/node_modules/utilities-node/types/types.d.ts",
+        "./client/types/types.d.ts",
+        "./client/node_modules/library-aurelia/types/types.d.ts"
+    ],
     "include": [
-        "server/server.js",
         "server/**/*",
-        "client/src/**/*"
+        "server/node_modules/utilities-node/src/**/*",
+        "client/src/**/*",
+        "client/node_modules/library-aurelia/src/**/*"
     ],
     "exclude": [
         "test",
-        "node_modules",
         "docs"
     ]
 }

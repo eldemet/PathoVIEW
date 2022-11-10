@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 1089
+* MIT: 1086
 * ISC: 96
 * BSD-2-Clause: 31
 * Apache-2.0: 26
@@ -33,11 +33,11 @@
     - licenses: MIT
     - description: Generate errors that contain a code frame that point to source locations.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/compat-data@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/compat-data@7.20.1](https://github.com/babel/babel)**
     - licenses: MIT
     - description: >
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/core@7.19.3](https://github.com/babel/babel)**
+ - **[@babel/core@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel compiler core.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -45,7 +45,7 @@
     - licenses: MIT
     - description: ESLint parser that allows for linting of experimental syntax transformed by Babel
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/generator@7.19.5](https://github.com/babel/babel)**
+ - **[@babel/generator@7.20.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Turns an AST into code.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -57,11 +57,11 @@
     - licenses: MIT
     - description: Helper function to build binary assignment operator visitors
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-compilation-targets@7.19.3](https://github.com/babel/babel)**
+ - **[@babel/helper-compilation-targets@7.20.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Helper functions on Babel compilation targets
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-create-class-features-plugin@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-create-class-features-plugin@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile class public and private fields, private methods and decorators to ES6
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -97,7 +97,7 @@
     - licenses: MIT
     - description: Babel helper functions for inserting module loads
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-module-transforms@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-module-transforms@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel helper functions for implementing ES6 module transformations
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -105,7 +105,7 @@
     - licenses: MIT
     - description: Helper function to optimise call expression
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-plugin-utils@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-plugin-utils@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: General utilities for plugins to use
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -117,11 +117,11 @@
     - licenses: MIT
     - description: Helper function to replace supers
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-simple-access@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/helper-simple-access@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel helper for ensuring that access to a given value is performed through simple accesses
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-skip-transparent-expression-wrappers@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/helper-skip-transparent-expression-wrappers@7.20.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Helper which skips types and parentheses
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -145,7 +145,7 @@
     - licenses: MIT
     - description: Helper to wrap functions inside a function call.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helpers@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/helpers@7.20.1](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Collection of helper functions used by Babel transforms.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -153,7 +153,7 @@
     - licenses: MIT
     - description: Syntax highlight JavaScript strings for output in terminals.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/parser@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/parser@7.20.3](https://github.com/babel/babel)**
     - licenses: MIT
     - description: A JavaScript parser
     - copyright: Copyright (C) 2012-2014 by various contributors (see AUTHORS)
@@ -165,7 +165,7 @@
     - licenses: MIT
     - description: Transform optional chaining operators to workaround https://crbug.com/v8/11558
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-async-generator-functions@7.19.1](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-async-generator-functions@7.20.1](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Turn async generator functions into ES2015 generators
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -177,7 +177,7 @@
     - licenses: MIT
     - description: Transform class static blocks
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-decorators@7.19.3](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-decorators@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile class and object decorators to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -205,7 +205,7 @@
     - licenses: MIT
     - description: Remove numeric separators from Decimal, Binary, Hex and Octal literals
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-object-rest-spread@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-object-rest-spread@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile object rest and spread to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -253,7 +253,7 @@
     - licenses: MIT
     - description: Allow parsing of export namespace from
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-syntax-import-assertions@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-syntax-import-assertions@7.20.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Allow parsing of the module assertion attributes in the import statement
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -305,11 +305,11 @@
     - licenses: MIT
     - description: Babel plugin to ensure function declarations at the block level are block scoped
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-block-scoping@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-block-scoping@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 block scoping (const and let) to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-classes@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-classes@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 classes to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -317,7 +317,7 @@
     - licenses: MIT
     - description: Compile ES2015 computed properties to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-destructuring@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-destructuring@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 destructuring to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -349,15 +349,15 @@
     - licenses: MIT
     - description: Ensure that reserved words are quoted in property accesses
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-modules-amd@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-modules-amd@7.19.6](https://github.com/babel/babel)**
     - licenses: MIT
     - description: This plugin transforms ES2015 modules to AMD
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-modules-commonjs@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-modules-commonjs@7.19.6](https://github.com/babel/babel)**
     - licenses: MIT
     - description: This plugin transforms ES2015 modules to CommonJS
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-modules-systemjs@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-modules-systemjs@7.19.6](https://github.com/babel/babel)**
     - licenses: MIT
     - description: This plugin transforms ES2015 modules to SystemJS
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -377,7 +377,7 @@
     - licenses: MIT
     - description: Compile ES2015 object super to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-parameters@7.18.8](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-parameters@7.20.3](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 default and rest parameters to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -421,7 +421,7 @@
     - licenses: MIT
     - description: Compile ES2015 Unicode regex to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/preset-env@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/preset-env@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: A Babel preset for each environment.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -441,11 +441,11 @@
     - licenses: MIT
     - description: Generate an AST from a string template.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/traverse@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/traverse@7.20.1](https://github.com/babel/babel)**
     - licenses: MIT
     - description: The Babel Traverse module maintains the overall tree state, and is responsible for replacing, removing, and adding nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/types@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/types@7.20.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel Types is a Lodash-esque utility library for AST nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -461,7 +461,7 @@
     - licenses: MIT
     - description: A Leaflet Plugin For Editing Geometry Layers in Leaflet 1.0
     - copyright: Copyright (c) 2017 Sumit Kumar
- - **[@humanwhocodes/config-array@0.10.7](https://github.com/humanwhocodes/config-array)**
+ - **[@humanwhocodes/config-array@0.11.7](https://github.com/humanwhocodes/config-array)**
     - licenses: Apache-2.0
     - description: Glob-based configuration matching.
     - copyright: none
@@ -1205,7 +1205,7 @@
     - licenses: MIT
     - description: A plugin for webpack that enables bundling Aurelia applications.
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
- - **[autoprefixer@10.4.12](https://github.com/postcss/autoprefixer)**
+ - **[autoprefixer@10.4.13](https://github.com/postcss/autoprefixer)**
     - licenses: MIT
     - description: Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website
     - copyright: Copyright 2013 Andrey Sitnik <andrey@sitnik.ru>
@@ -1221,14 +1221,10 @@
     - licenses: MIT
     - description: Signs and prepares requests using AWS Signature Version 4
     - copyright: Copyright 2013 Michael Hart (michael.hart.au@gmail.com)
- - **[babel-loader@8.2.5](https://github.com/babel/babel-loader)**
+ - **[babel-loader@9.1.0](https://github.com/babel/babel-loader)**
     - licenses: MIT
     - description: babel module loader for webpack
     - copyright: Copyright (c) 2014-2019 Luís Couto <hello@luiscouto.pt>
- - **[babel-plugin-dynamic-import-node@2.3.3](https://github.com/airbnb/babel-plugin-dynamic-import-node)**
-    - licenses: MIT
-    - description: Babel plugin to transpile import() to a deferred require(), for node
-    - copyright: Copyright (c) 2016 Airbnb
  - **[babel-plugin-istanbul@6.1.1](https://github.com/istanbuljs/babel-plugin-istanbul)**
     - licenses: BSD-3-Clause
     - description: A babel plugin that adds istanbul instrumentation to ES6 code
@@ -1421,7 +1417,7 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001419](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001431](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
@@ -1637,7 +1633,7 @@
     - licenses: MIT
     - description: Copy files && directories with webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[core-js-compat@3.25.5](https://github.com/zloirock/core-js)**
+ - **[core-js-compat@3.26.0](https://github.com/zloirock/core-js)**
     - licenses: MIT
     - description: core-js compat
     - copyright: Copyright (c) 2014-2022 Denis Pushkarev
@@ -1697,7 +1693,7 @@
     - licenses: MIT
     - description: A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
- - **[cssnano-preset-default@5.2.12](https://github.com/cssnano/cssnano)**
+ - **[cssnano-preset-default@5.2.13](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Safe defaults for cssnano which require minimal configuration.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -1705,7 +1701,7 @@
     - licenses: MIT
     - description: Utility methods and plugin for cssnano projects
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[cssnano@5.1.13](https://github.com/cssnano/cssnano)**
+ - **[cssnano@5.1.14](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: A modular minifier, built on top of the PostCSS ecosystem.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -2073,7 +2069,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.25.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.27.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -2653,11 +2649,11 @@
     - licenses: Apache-2.0
     - description: Human-friendly process signals
     - copyright: none
- - **[i18next-http-backend@1.4.4](https://github.com/i18next/i18next-http-backend)**
+ - **[i18next-http-backend@2.0.1](https://github.com/i18next/i18next-http-backend)**
     - licenses: MIT
     - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
     - copyright: Copyright (c) 2022 i18next
- - **[i18next@21.10.0](https://github.com/i18next/i18next)**
+ - **[i18next@22.0.4](https://github.com/i18next/i18next)**
     - licenses: MIT
     - description: i18next internationalization framework
     - copyright: Copyright (c) 2022 i18next
@@ -3121,7 +3117,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.1.2](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.1.4](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -3150,10 +3146,6 @@
     - description: Runs (webpack) loaders
     - copyright: Copyright (c) Tobias Koppers @sokra
  - **[loader-utils@1.4.0](https://github.com/webpack/loader-utils)**
-    - licenses: MIT
-    - description: utils for webpack loaders
-    - copyright: Copyright JS Foundation and other contributors
- - **[loader-utils@2.0.2](https://github.com/webpack/loader-utils)**
     - licenses: MIT
     - description: utils for webpack loaders
     - copyright: Copyright JS Foundation and other contributors
@@ -3205,7 +3197,7 @@
     - licenses: ISC
     - description: A cache object that deletes the least-recently-used items.
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[luxon@3.0.4](https://github.com/moment/luxon)**
+ - **[luxon@3.1.0](https://github.com/moment/luxon)**
     - licenses: MIT
     - description: Immutable date wrapper
     - copyright: Copyright 2019 JS Foundation and other contributors
@@ -3821,7 +3813,7 @@
     - licenses: MIT
     - description: Minify colors in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-convert-values@5.1.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-convert-values@5.1.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Convert values with PostCSS (e.g. ms -> s)
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3845,11 +3837,11 @@
     - licenses: MIT
     - description: PostCSS loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[postcss-merge-longhand@5.1.6](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-longhand@5.1.7](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge longhand properties into shorthand with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-merge-rules@5.1.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-rules@5.1.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge CSS rules with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3861,7 +3853,7 @@
     - licenses: MIT
     - description: Minify gradient parameters with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-minify-params@5.1.3](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-params@5.1.4](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify at-rule params with PostCSS
     - copyright: Copyright 2015 Bogdan Chadkin <trysound@yandex.ru>
@@ -3909,7 +3901,7 @@
     - licenses: MIT
     - description: Normalize CSS animation/transition timing functions.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-unicode@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-unicode@5.1.1](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize unicode-range descriptors, and can convert to wildcard ranges.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3925,7 +3917,7 @@
     - licenses: MIT
     - description: Ensure values are ordered consistently in your CSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-reduce-initial@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-reduce-initial@5.1.1](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Reduce initial definitions to the actual initial value, where possible.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -4285,7 +4277,7 @@
     - licenses: MIT
     - description: Modern Buffer API polyfill without footguns
     - copyright: Copyright (c) 2018 Nikita Skovoroda <chalkerx@gmail.com>
- - **[sass-loader@13.1.0](https://github.com/webpack-contrib/sass-loader)**
+ - **[sass-loader@13.2.0](https://github.com/webpack-contrib/sass-loader)**
     - licenses: MIT
     - description: Sass loader for webpack
     - copyright: Copyright JS Foundation and other contributors
@@ -4301,10 +4293,6 @@
     - licenses: ISC
     - description: An evented streaming XML parser in JavaScript
     - copyright: none
- - **[schema-utils@2.7.1](https://github.com/webpack/schema-utils)**
-    - licenses: MIT
-    - description: webpack Validation Utils
-    - copyright: Copyright JS Foundation and other contributors
  - **[schema-utils@3.1.1](https://github.com/webpack/schema-utils)**
     - licenses: MIT
     - description: webpack Validation Utils
@@ -4621,7 +4609,7 @@
     - licenses: MIT
     - description: style loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[stylehacks@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[stylehacks@5.1.1](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Detect/remove browser hacks from CSS files.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -5001,7 +4989,7 @@
     - licenses: BSD-2-Clause
     - description: Implements the WebIDL algorithms for converting to and from JavaScript values
     - copyright: Copyright (c) 2014, Domenic Denicola. All rights reserved.
- - **[webpack-bundle-analyzer@4.6.1](https://github.com/webpack-contrib/webpack-bundle-analyzer)**
+ - **[webpack-bundle-analyzer@4.7.0](https://github.com/webpack-contrib/webpack-bundle-analyzer)**
     - licenses: MIT
     - description: Webpack plugin and CLI utility that represents bundle content as convenient interactive zoomable treemap
     - copyright: Copyright JS Foundation and other contributors
@@ -5025,7 +5013,7 @@
     - licenses: MIT
     - description: Source code handling classes for webpack
     - copyright: Copyright (c) 2017 JS Foundation and other contributors
- - **[webpack@5.74.0](https://github.com/webpack/webpack)**
+ - **[webpack@5.75.0](https://github.com/webpack/webpack)**
     - licenses: MIT
     - description: Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
     - copyright: Copyright JS Foundation and other contributors

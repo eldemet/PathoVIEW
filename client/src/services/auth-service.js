@@ -1,12 +1,29 @@
 import {inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import Keycloak from 'keycloak-js';
+import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 
 @inject(HttpService)
 class AuthService extends BasicService {
 
+    /**
+     * @typedef {Object} UserInfo
+     * @property {string} locale
+     * @property {string} name
+     * @property {string} preferred_username
+     * @property {string} email
+     * @property {string} sub - token id
+     */
+    /** @type {UserInfo} */
+    userInfo;
+
+    /**
+     *
+     * @param {HttpService} httpService
+     * @param {ConstructorParameters<typeof BasicObject>} rest
+     */
     constructor(httpService, ...rest) {
         super('auth', ...rest);
         this.httpService = httpService;
@@ -22,10 +39,12 @@ class AuthService extends BasicService {
                 checkLoginIframe: false
             });
             AureliaCookie.set('auth_token', this.keycloak.token, {});
+            // @ts-ignore
             this.userInfo = await this.keycloak.loadUserInfo();
             this.interval = setInterval(async() => {
                 try {
                     await this.keycloak.loadUserInfo();
+                    // @ts-ignore
                     await this.keycloak.updateToken();
                     AureliaCookie.set('auth_token', this.keycloak.token, {});
                 } catch (error) {
