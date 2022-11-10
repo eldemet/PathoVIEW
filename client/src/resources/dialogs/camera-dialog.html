@@ -1,0 +1,26 @@
+<template>
+
+    <require from="./../elements/camera"></require>
+
+    <ux-dialog title.bind="title | t"
+               bi-icon.bind="biIcon"
+               icon.bind="icon">
+        <div slot="ux-dialog-body">
+            <camera image-data.two-way="imageData"></camera>
+        </div>
+        <div slot="ux-dialog-footer">
+            <button type="button"
+                    class="btn btn-outline-secondary"
+                    click.trigger="close(true)">
+                ${'buttons.cancel' | t}
+            </button>
+            <button type="button"
+                    class="btn btn-primary"
+                    click.trigger="close()"
+                    disabled.bind="!imageData">
+                ${'buttons.ok' | t}
+            </button>
+        </div>
+    </ux-dialog>
+
+</template>
