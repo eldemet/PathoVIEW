@@ -40,10 +40,10 @@ export class SearchView extends RouterViewMainDetail {
                 nav: true,
                 viewPorts: {
                     main: {
-                        moduleId: searchView
+                        moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/au-form-view')
                     },
                     detail: {
-                        moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/au-form-view')
+                        moduleId: null
                     }
                 }
             },
