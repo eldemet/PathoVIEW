@@ -2,7 +2,7 @@ import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {instructionsUtilities} from '../../utilities';
 import {devices} from './data';
 
-class ChecklistView extends BasicView {
+class InstructionDetailView extends BasicView {
 
     /**
      * @param {ConstructorParameters<typeof BasicView>} rest
@@ -24,4 +24,4 @@ class ChecklistView extends BasicView {
 
 }
 
-export {ChecklistView};
+export {InstructionDetailView};

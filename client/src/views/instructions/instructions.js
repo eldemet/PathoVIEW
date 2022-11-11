@@ -17,7 +17,7 @@ class InstructionsView extends BasicViewRouter {
             route: '/:device/:index',
             name: 'instruction',
             href: 'instruction',
-            moduleId: PLATFORM.moduleName('./instruction'),
+            moduleId: PLATFORM.moduleName('./detail'),
             nav: true,
             title: 'views.instructions.title'
         }
