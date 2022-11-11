@@ -18,6 +18,7 @@ class AuthService extends BasicService {
      */
     /** @type {UserInfo} */
     userInfo;
+    users;
 
     /**
      *
@@ -68,8 +69,12 @@ class AuthService extends BasicService {
         await httpService.fetch('PUT', this.config.url + 'admin/realms/' + this.keycloak.realm + '/users/' + this.userInfo.sub, {attributes: attributeObject}, 2000);
     }
 
-    async getUsers() {
-        return await this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 2000);
+    async getUsers(forceReload) {
+        let users = this.users;
+        if (forceReload || !this.users) {
+            users = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 2000);
+        }
+        return users;
     }
 
     getUserId() {
