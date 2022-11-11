@@ -35,12 +35,13 @@ class MapView extends BasicView {
                 }));
             overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
         }
-        if (this.contextService.devices) {
-            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'devices')
+        this.devices = (await this.proxy.get('device').getObjects()).objects;
+        if (this.devices) {
+            this.subscriptions.push(this.bindingEngine.propertyObserver(this, 'devices')
                 .subscribe(async(newValue, oldValue) => {
-                    this.updateLayerGroup('device', this.contextService.devices, deviceUtilities);
+                    this.updateLayerGroup('device', this.devices, deviceUtilities);
                 }));
-            overlay.push(this.getLayerGroup('device', this.contextService.devices, deviceUtilities));
+            overlay.push(this.getLayerGroup('device', this.devices, deviceUtilities));
         }
         this.layers = {overlay};
     }
