@@ -1,5 +1,5 @@
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {getIconByType} from './instructions';
+import {instructionsUtilities} from '../../utilities';
 import {devices} from './data';
 
 class SelectionView extends BasicView {
@@ -13,7 +13,7 @@ class SelectionView extends BasicView {
     }
 
     getIconByType(type) {
-        return getIconByType(type);
+        return instructionsUtilities.getIconByType(type);
     }
 
 }

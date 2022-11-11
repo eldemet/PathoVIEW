@@ -1,5 +1,5 @@
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {getIconByType} from './instructions';
+import {instructionsUtilities} from '../../utilities';
 import {devices} from './data';
 
 class ChecklistView extends BasicView {
@@ -19,7 +19,7 @@ class ChecklistView extends BasicView {
     }
 
     getIconByType(type) {
-        return getIconByType(type);
+        return instructionsUtilities.getIconByType(type);
     }
 
 }

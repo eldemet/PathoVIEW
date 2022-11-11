@@ -30,18 +30,4 @@ class InstructionsView extends BasicViewRouter {
 
 }
 
-function getIconByType(type) {
-    let icon;
-    if (type === 'checklist') {
-        icon = 'list-check';
-    } else if (type === 'sampling') {
-        icon = 'eyedropper';
-    } else if (type === 'commissioning') {
-        icon = 'gear';
-    } else if (type === 'maintenance') {
-        icon = 'wrench';
-    }
-    return icon;
-}
-
-export {InstructionsView, getIconByType};
+export {InstructionsView};
