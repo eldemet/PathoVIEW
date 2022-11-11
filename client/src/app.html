@@ -33,6 +33,7 @@
         <div class="dropdown" if.bind="contextService.emergencyEvents">
             <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-hospital-fill"></i>
                 <span if.bind="contextService.currentEmergencyEvent">${contextService.currentEmergencyEvent.name}</span>
                 <span else>${'alerts.noEmergencyEventSelected' | t}</span>
             </button>
