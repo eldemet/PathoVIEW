@@ -57,9 +57,18 @@
             "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!"
         },
         "pathogens": {
-            "title": "Krankheitserreger"
+            "title": "Krankheitserreger",
+            "selection": "Auswahl",
+            "noInformation": "Keine Informationen vorhanden",
+            "transmission": "Übertragung",
+            "symptoms": "Symptome",
+            "complications": "Komplikationen",
+            "diagnosis": "Diagnose",
+            "treatment": "Behandlung",
+            "prevention": "Prävention",
+            "controlMeasures": "Kontrollmaßnahmen"
         },
-        "cms": "Verwaltung (CMS)"
+        "cms": "CMS"
     },
     "buttons": {
         "logout": "Abmelden",

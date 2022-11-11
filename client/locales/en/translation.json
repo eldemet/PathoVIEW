@@ -57,7 +57,16 @@
             "noEmergencyEvent": "Please select an emergency event in the navigation bar first to get more information!"
         },
         "pathogens": {
-            "title": "Pathogens"
+            "title": "Pathogens",
+            "selection": "selection",
+            "noInformation": "no information available",
+            "transmission": "transmission",
+            "symptoms": "symptoms",
+            "complications": "complications",
+            "diagnosis": "diagnosis",
+            "treatment": "treatment",
+            "prevention": "prevention",
+            "controlMeasures": "controlMeasures"
         },
         "cms": "CMS"
     },

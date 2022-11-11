@@ -70,13 +70,6 @@ export class App extends BasicViewRouter {
             moduleId: PLATFORM.moduleName('./views/cms/cms'),
             nav: true,
             title: 'views.cms'
-        },
-        {
-            route: 'components',
-            name: 'components',
-            moduleId: PLATFORM.moduleName('./views/components/components'),
-            nav: true,
-            title: 'views.components'
         }
     ];
 

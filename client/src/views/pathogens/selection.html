@@ -1,0 +1,48 @@
+<template>
+
+    <require from="library-aurelia/src/resources/elements/markdown"></require>
+
+    <div>
+        <a class="btn btn-link"
+           route-href="route: signs;">
+            <i class="bi bi-book me-1"></i> ${'iso7010.signs' | t}
+        </a>
+    </div>
+    <div if.bind="pathogens"
+         class="container-fluid mt-4">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6 col-xl-4" repeat.for="pathogen of pathogens">
+                <h1>${pathogen.name}</h1>
+                <p>${pathogen.description.en}</p>
+                <div class="accordion" id="${'pathogenAccordion-' + $index}">
+                    <div class="accordion-item"
+                         repeat.for="pathogenContent of pathogenContents">
+                        <h2 class="accordion-header" id="${pathogenContent.propertyKey + 'Heading-' + $parent.$index}">
+                            <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="${'#' + pathogenContent.propertyKey + 'Collapse-' + $parent.$index}"
+                                    aria-controls="${pathogenContent.propertyKey + 'Collapse-' + $parent.$index}">
+                                <img src.bind="'./assets/healthicons/' + pathogenContent.icon"
+                                     class="image-2rem me-2">
+                                ${'views.pathogens.' + pathogenContent.propertyKey | t}
+                            </button>
+                        </h2>
+                        <div id="${pathogenContent.propertyKey + 'Collapse-' + $parent.$index}" class="accordion-collapse collapse"
+                             aria-labelledby="${pathogenContent.propertyKey + 'Heading-' + $parent.$index}"
+                             data-bs-parent="${'#pathogenAccordion-' + $parent.$index}">
+                            <div class="accordion-body">
+                                <markdown if.bind="pathogen[pathogenContent.propertyKey].en"
+                                          value.bind="pathogen[pathogenContent.propertyKey].en" layer.bind="1">
+                                </markdown>
+                                <span else>
+                                    ${'views.pathogens.noInformation' | t}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
