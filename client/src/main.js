@@ -32,7 +32,6 @@ export async function configure(aurelia) {
         new ModelServiceAsyncUISchema('device', options, httpService),
         new ModelServiceAsyncUISchema('point-of-interest', options, httpService),
         new ModelServiceAsync('annotation', options, httpService),
-        new ModelServiceAsync('action', options, httpService),
         new ModelServiceAsync('emergency-event', options, httpService),
         new ModelServiceAsync('incident', options, httpService),
         new ModelServiceAsync('pathogen', options, httpService)

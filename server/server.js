@@ -96,11 +96,8 @@ const configAdditionsSchemaPath = './api/v1/components/config-additions.yaml';
 
 const additionalDbSchemas = {
     Alert: {$ref: 'node_modules/smart-data-models-alert/Alert/model.yaml#/Alert'},
-    Anomaly: {$ref: 'node_modules/smart-data-models-alert/Anomaly/model.yaml#/Anomaly'},
-    Asset: {$ref: 'node_modules/smart-data-models-risk-management/Asset/model.yaml#/Asset'},
     Device: {$ref: 'node_modules/smart-data-models-device/Device/model.yaml#/Device'},
-    PointOfInterest: {$ref: 'node_modules/smart-data-models-point-of-interest/PointOfInterest/model.yaml#/PointOfInterest'},
-    Measure: {$ref: 'node_modules/smart-data-models-risk-management/Measure/model.yaml#/Measure'}
+    PointOfInterest: {$ref: 'node_modules/smart-data-models-point-of-interest/PointOfInterest/model.yaml#/PointOfInterest'}
 };
 
 const initializeAddOnsCallback = async(app, configService) => {

@@ -19,16 +19,6 @@ export class Cms extends BasicViewRouter {
             }
         },
         {
-            route: 'alert',
-            name: 'alert',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
-            nav: true,
-            title: this.i18n.tr('model.alert', {count: 1}),
-            settings: {
-                detailView: true
-            }
-        },
-        {
             route: 'incident',
             name: 'incident',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
@@ -39,11 +29,11 @@ export class Cms extends BasicViewRouter {
             }
         },
         {
-            route: 'action',
-            name: 'action',
+            route: 'alert',
+            name: 'alert',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.action', {count: 2}),
+            title: this.i18n.tr('model.alert', {count: 1}),
             settings: {
                 detailView: true
             }
