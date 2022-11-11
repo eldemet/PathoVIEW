@@ -1,0 +1,17 @@
+<template>
+
+    <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
+
+    <span class="tabstop-label">${'propertyKeys.owner' | t}</span>
+    <div if.bind="user"
+         class="creator mb-4"
+         class.bind="user.status === 'online' ? 'border-success' : ''"
+         bs-popover="event.bind: 'user-popover-' + user.id;
+                                 view.bind: 'resources/elements/user-popover';
+                                 trigger.bind: 'hover';
+                                 model.bind: {user: user}">
+        <div class="creator-inner">${getAbbreviation(user)}</div>
+    </div>
+    <span class="tabstop-text" if.bind="!user">${'labels.notDefined' | t}</span>
+
+</template>

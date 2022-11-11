@@ -204,6 +204,7 @@ owner:
     source: serviceFunction
     serviceName: auth
     functionToCall: getUserId
+  ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-owner'
   ui:hide:
     table: true
     form: true
