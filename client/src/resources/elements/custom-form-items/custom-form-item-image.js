@@ -13,10 +13,11 @@ class CustomFormItemImage extends BasicComposableAuFormItem {
 
     /** @type {HTMLInputElement} */
     imageFile;
+    mode = 'file';
 
     activate(model) {
         super.activate(model);
-        if (this.schema.required) {
+        if (this.schema.requiredProperty) {
             this.mode = 'camera';
         }
     }
