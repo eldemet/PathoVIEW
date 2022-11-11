@@ -157,7 +157,7 @@ export class App extends BasicViewRouter {
     }
 
     openCreateModal(type) {
-        let model = {kind: type, formType: 'create', objectData: {owner: [this.authService.userInfo.sub]}};
+        let model = {type: type, formType: 'create', objectData: {owner: [this.authService.userInfo.sub]}};
         this.dialogService.open({viewModel: AuFormDialog, model: model, modalSize: 'modal-xl'})
             .whenClosed(async response => {
                 if (response.wasCancelled) {
