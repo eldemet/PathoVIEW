@@ -1,4 +1,5 @@
 const path = require('path');
+const {DefinePlugin} = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -165,6 +166,9 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
     plugins: [
         new DuplicatePackageCheckerPlugin(),
         new AureliaPlugin(),
+        new DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development')
+        }),
         new HtmlWebpackPlugin({
             template: 'index.ejs',
             minify: production ? {
