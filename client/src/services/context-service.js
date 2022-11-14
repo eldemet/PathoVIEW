@@ -44,6 +44,7 @@ class ContextService extends BasicService {
         await this.loadEmergencyEvents();
         await this.loadDevices();
         await this.loadAlerts();
+        await this.loadIncidents();
         this.setCurrentEmergencyEvent();
         this.setCurrentDevice();
         await this.setCurrentWeather();
@@ -93,6 +94,12 @@ class ContextService extends BasicService {
     @catchError()
     async loadAlerts() {
         this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
+    }
+
+    @loadingEvent('app-alert', 'incident')
+    @catchError()
+    async loadIncidents() {
+        this.incidents = (await this.proxy.get('incident').getObjects({filter: {refId: AureliaCookie.get('emergency-event')}})).objects;
     }
 
     @catchError('app-alert', {
@@ -151,6 +158,7 @@ class ContextService extends BasicService {
         }
         await this.setCurrentWeather();
         await this.loadAlerts();
+        await this.loadIncidents();
         this.eventAggregator.publish('context-changed', emergencyEvent.id);
     }
 
