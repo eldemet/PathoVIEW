@@ -877,7 +877,7 @@
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2017 Evgeny Poberezkin
- - **[ajv@8.11.0](https://github.com/ajv-validator/ajv)**
+ - **[ajv@8.11.2](https://github.com/ajv-validator/ajv)**
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2021 Evgeny Poberezkin
@@ -1297,7 +1297,7 @@
     - licenses: ISC
     - description: two functions: One that returns true, one that returns false
     - copyright: none
- - **[bootstrap-icons@1.9.1](https://github.com/twbs/icons)**
+ - **[bootstrap-icons@1.10.2](https://github.com/twbs/icons)**
     - licenses: MIT
     - description: Official open source SVG icon library for Bootstrap
     - copyright: Copyright (c) 2019-2021 The Bootstrap Authors
@@ -1673,7 +1673,7 @@
     - licenses: ISC
     - description: Sorts CSS declarations fast and automatically in a certain order.
     - copyright: Copyright (c)
- - **[css-loader@6.7.1](https://github.com/webpack-contrib/css-loader)**
+ - **[css-loader@6.7.2](https://github.com/webpack-contrib/css-loader)**
     - licenses: MIT
     - description: css loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
@@ -2653,7 +2653,7 @@
     - licenses: MIT
     - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
     - copyright: Copyright (c) 2022 i18next
- - **[i18next@22.0.4](https://github.com/i18next/i18next)**
+ - **[i18next@22.0.5](https://github.com/i18next/i18next)**
     - licenses: MIT
     - description: i18next internationalization framework
     - copyright: Copyright (c) 2022 i18next
@@ -3117,7 +3117,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.1.4](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.1.5](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -3741,7 +3741,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@0.5.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@0.5.1](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
