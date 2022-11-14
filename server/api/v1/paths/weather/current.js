@@ -1,8 +1,9 @@
 'use strict';
 const queryString = require('query-string');
 const fetch = require('node-fetch');
-const logger = require('utilities-node/src/utilities/logger')(module);
 const createError = require('http-errors');
+const logger = require('utilities-node/src/utilities/logger')(module);
+const {loadFile} = require('utilities-node/src/utilities/fs');
 
 /**
  * @module paths/weather/current
@@ -11,6 +12,8 @@ const createError = require('http-errors');
  */
 module.exports = function(config) {
 
+    const owmapikey = loadFile(config.server.openWeatherMapApiKeyFile);
+
     let operations = {
         GET: logger.catchErrors(GET)
     };
@@ -18,7 +21,7 @@ module.exports = function(config) {
     operations.GET['apiDoc'] = getCurrentWeatherSchema;
 
     async function GET(req, res) {
-        let params = Object.assign({}, req.query, {appid: config.server.openWeatherMapApiKey});
+        let params = Object.assign({}, req.query, {appid: owmapikey});
         let url = 'https://api.openweathermap.org/data/2.5/weather?' + queryString.stringify(params, {arrayFormat: 'comma'});
         let result = await (await fetch(url, {
             headers: {

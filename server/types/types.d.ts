@@ -6,7 +6,7 @@ import 'utilities-node/types/types';
 declare global {
     type ConfigAdditions = {
         server: {
-            openWeatherMapApiKey: string
+            openWeatherMapApiKeyFile: string
         }
         keycloakConfig: {
             adminClientPasswordFile: string

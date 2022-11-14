@@ -3,8 +3,9 @@ properties:
   server:
     type: object
     properties:
-      openWeatherMapApiKey:
+      openWeatherMapApiKeyFile:
         type: string
+        default: '../../cert/owmapikey.txt'
   keycloakConfig:
     type: object
     properties:

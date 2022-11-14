@@ -61,7 +61,7 @@ services:
       SERVER_LOG_LEVEL_CONSOLE: ${SERVER_LOG_LEVEL_CONSOLE}
       SERVER_LOG_LEVEL_FILE: ${SERVER_LOG_LEVEL_FILE}
       SERVER_LOG_FORMAT_HTTP_REQUESTS: short
-      SERVER_OPEN_WEATHER_MAP_API_KEY_FILE: ${SERVER_OPEN_WEATHER_MAP_API_KEY_FILE}
+      SERVER_OPEN_WEATHER_MAP_API_KEY_FILE: '/run/secrets/owmapikey'
       KEYCLOAK_CONFIG_AUTH_SERVER_URL: ${KEYCLOAK_CONFIG_AUTH_SERVER_URL}
       DATABASE_JSONDB_READ_ONLY: 'true'
     restart: always
@@ -72,3 +72,5 @@ secrets:
     file: ./../certificates/server.crt
   sslkey:
     file: ./../certificates/server.key
+  owmapikey:
+    file: ./../credentials/owmapikey.txt
