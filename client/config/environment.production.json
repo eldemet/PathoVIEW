@@ -1,10 +1,10 @@
 {
     "debug": false,
     "testing": false,
-    "baseUrl": "..",
+    "baseUrl": ".",
     "keycloak": {
         "realm": "pathocert",
-        "url": "https://idm.digital-enabler.eng.it/auth/",
-        "clientId": "pathoview-app"
+        "url": "https://pathocert.iao.fraunhofer.de:9990/auth/",
+        "clientId": "pathoview"
     }
 }
