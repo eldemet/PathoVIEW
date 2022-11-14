@@ -89,7 +89,7 @@ const configAppDefaults = {
 if (fs.existsSync('client')) {
     configAppDefaults.client = {
         directory: 'client',
-        endpoint: 'client'
+        endpoint: ''
     };
 }
 
