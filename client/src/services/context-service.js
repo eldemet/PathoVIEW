@@ -40,6 +40,7 @@ class ContextService extends BasicService {
 
     async initialize(userId, timeout = 20000) {
         this.userId = userId;
+        this.timeout = timeout;
         await this.loadEmergencyEvents();
         await this.loadDevices();
         await this.loadAlerts();
@@ -48,11 +49,13 @@ class ContextService extends BasicService {
         await this.setCurrentWeather();
         await this.update();
         this.interval = setInterval(async() => await this.update(), timeout);
+        document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
         this.initializeResolve();
     }
 
     async close() {
         clearInterval(this.interval);
+        document.removeEventListener('visibilitychange', this.visibilityChangeEventListener);
     }
 
     async update() {
@@ -62,6 +65,16 @@ class ContextService extends BasicService {
             await this.checkForAlertsNearCurrentLocation(location);
         }
     }
+
+    visibilityChangeEventListener = () => {
+        if (document.hidden) {
+            this.logger.silly('Page is hidden from user view! Clear interval...');
+            clearInterval(this.interval);
+        } else {
+            this.logger.silly('Page is in user view! Set interval...');
+            this.interval = setInterval(async() => await this.update(), this.timeout);
+        }
+    };
 
     @loadingEvent('app-alert', 'emergency-event')
     @catchError()
