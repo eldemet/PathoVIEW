@@ -1,5 +1,25 @@
 import get from 'lodash/get';
 
+export const modelUtilities = {
+    getIconByType(type) {
+        let icon;
+        if (type === 'alert') {
+            icon = 'alarm';
+        } else if (type === 'device') {
+            icon = 'phone';
+        } else if (type === 'emergency-event') {
+            icon = 'hospital';
+        } else if (type === 'incident') {
+            icon = 'journal-medical';
+        } else if (type === 'point-of-interest') {
+            icon = 'pin-map-fill';
+        } else if (type === 'pathogen') {
+            icon = 'virus';
+        }
+        return icon;
+    }
+};
+
 export const emergencyEventUtilities = {
     getPopupContent(i18n, emergencyEvent) {
         return `<h6>${emergencyEvent.name}</h6>`;

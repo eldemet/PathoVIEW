@@ -5,6 +5,7 @@ import 'eventsource/example/eventsource-polyfill.js';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {catchError} from 'library-aurelia/src/decorators';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
+import {modelUtilities} from '../utilities';
 
 /**
  * @extends BasicService
@@ -146,7 +147,22 @@ class NotificationService extends BasicService {
             let valid = this.ajv.validate(this.NotificationSchema, notificationData);
             if (valid) {
                 this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
-                this.logger.debug(notificationData);
+                if (notificationData.topic === 'model') {
+                    let modelType = this._.lowerFirst(this._.camelCase(notificationData.contentType));
+                    this.eventAggregator.publish('toast', {
+                        title: this.i18n.tr(
+                            'alerts.notifications.model.' + notificationData.operationType,
+                            // @ts-ignore
+                            {type: modelType}
+                        ),
+                        body: 'alerts.notifications.model.message',
+                        biIcon: modelUtilities.getIconByType(modelType),
+                        autohide: true,
+                        dismissible: false,
+                        timestamp: new Date(notificationData.dateTimeSent)
+                    });
+                }
+                this.logger.silly(notificationData);
             } else {
                 this.logger.error(this.ajv.errors);
             }

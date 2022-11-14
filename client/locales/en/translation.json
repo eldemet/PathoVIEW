@@ -86,7 +86,15 @@
         "noEmergencyEventSelected": "no emergency event selected",
         "alertLocationEntered": "You are inside an alert location",
         "alertLocationClose": "You are close to an alert location",
-        "alertLocationVeryClose": "You are very close to an alert location"
+        "alertLocationVeryClose": "You are very close to an alert location",
+        "notifications": {
+            "model": {
+                "create": "New $t(model.{{type}},{'count': 1})",
+                "update": "Updated $t(model.{{type}},{'count': 1})",
+                "delete": "Deleted $t(model.{{type}},{'count': 1})",
+                "message": "You can now see the changes in the corresponding views!"
+            }
+        }
     },
     "propertyKeys": {
         "address": "address",

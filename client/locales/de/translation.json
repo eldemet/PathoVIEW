@@ -86,7 +86,15 @@
         "noEmergencyEventSelected": "Keine Notfallsituation ausgewählt",
         "alertLocationEntered": "Sie befinden sich innerhalb eines Alarmbereichs",
         "alertLocationClose": "Sie befinden sich in der Nähe eines Alarmbereichs",
-        "alertLocationVeryClose": "Sie befinden sich in unmittelbarer Nähe eines Alarmbereichs"
+        "alertLocationVeryClose": "Sie befinden sich in unmittelbarer Nähe eines Alarmbereichs",
+        "notifications": {
+            "model": {
+                "create": "$t(model.{{type}},{'count': 1}) erstellt",
+                "update": "$t(model.{{type}},{'count': 1}) aktualisiert",
+                "delete": "$t(model.{{type}},{'count': 1}) gelöscht",
+                "message": "Sie können die Änderungen in den Ansichten sehen!"
+            }
+        }
     },
     "propertyKeys": {
         "address": "Adresse",
