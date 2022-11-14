@@ -54,7 +54,19 @@
             "title": "Dashboard",
             "emergencyEvent": "Informationen zur Notfallsituation",
             "noEmergencyEventHeadline": "Keine Notfallsituation ausgewählt",
-            "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!"
+            "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!",
+            "importantDates": "Wichtige Zeitpunkte",
+            "statistics": "Statistiken",
+            "currentTime": "Aktuelle Urzeit",
+            "timeToSunset": "Zeit bis zum Sonnenuntergang",
+            "timeSinceT0": "Zeit seit T0",
+            "userCount": "Anzahl Nutzer",
+            "userOnlineCount": "Anzahl Nutzer (online)",
+            "groups": "Gruppen",
+            "roles": "Rollen",
+            "lastIncident": "letztes Ereignis",
+            "lastAlert": "letzter Alarm",
+            "lastAnnotation": "letzter Vermerk"
         },
         "pathogens": {
             "title": "Krankheitserreger",

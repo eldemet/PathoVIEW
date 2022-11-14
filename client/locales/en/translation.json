@@ -54,7 +54,19 @@
             "title": "dashboard",
             "emergencyEvent": "Emergency event information",
             "noEmergencyEventHeadline": "No emergency event selected",
-            "noEmergencyEvent": "Please select an emergency event in the navigation bar first to get more information!"
+            "noEmergencyEvent": "Please select an emergency event in the navigation bar first to get more information!",
+            "importantDates": "important dates",
+            "statistics": "statistics",
+            "currentTime": "current time",
+            "timeToSunset": "time to sunset",
+            "timeSinceT0": "time since T0",
+            "userCount": "user count",
+            "userOnlineCount": "user count (online)",
+            "groups": "groups",
+            "roles": "roles",
+            "lastIncident": "last incident",
+            "lastAlert": "last alarm",
+            "lastAnnotation": "last annotation"
         },
         "pathogens": {
             "title": "Pathogens",
