@@ -36,8 +36,8 @@ export class App extends BasicViewRouter {
             title: this.i18n.tr('model.incident', {count: 2}),
             settings: {
                 fluidContainer: true,
-                gridColumnsMain: 9,
-                gridColumnsDetail: 3,
+                gridColumnsMain: 8,
+                gridColumnsDetail: 4,
                 detailView: true,
                 customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
                 customDetailView: PLATFORM.moduleName('views-general/annotations')
