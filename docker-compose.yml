@@ -46,6 +46,7 @@ services:
     secrets:
       - sslcert
       - sslkey
+      - owmapikey
     environment:
       CAPABILITIES_ACCESS_CONTROL_CHECKER_MIDDLEWARE: 'true'
       CAPABILITIES_DATABASE: jsondb
