@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const {v1: uuid} = require('uuid');
 
 /**
  * ngsiIdGenerator
@@ -12,10 +12,7 @@ const _ = require('lodash');
  * @example urn:ngsi-ld:Alert:00001
  */
 function ngsiIdGenerator(schema, objects, object) {
-    let currentIndex = objects.length + 1;
-    let _id = 'urn:ngsi-ld:' + object.type + ':';
-    _id += _.padStart(currentIndex, 5, '0');
-    return _id;
+    return 'urn:ngsi-ld:' + (object.type ? object.type : object.kind) + ':' + uuid();
 }
 
 module.exports = ngsiIdGenerator;
