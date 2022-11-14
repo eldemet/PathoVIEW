@@ -13,7 +13,7 @@ discriminator:
       - owner
     model:searchProperties:
       - creator
-    model:defaultProperty: kind
+    model:defaultProperty: createdAt
     properties:
       id:
         $ref: './../$defs.yaml#/NGSIentityFormat'
@@ -67,6 +67,7 @@ oneOf:
           text:
             type: string
             ui:noLabel: true
+            ui:formItemType: textarea
   - allOf:
       - $ref: '#/discriminator/baseSchema'
       - type: object
@@ -78,14 +79,10 @@ oneOf:
             const: AnnotationImage
             ui:hide:
               form: true
-          text:
-            type: string
-            ui:formItemType: textarea
           data:
             type: string
-            ui:formItemType: file
-            ui:accept: 'image/*'
-            ui:capture: environment
+            ui:noLabel: true
+            ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-image'
   - allOf:
       - $ref: '#/discriminator/baseSchema'
       - type: object

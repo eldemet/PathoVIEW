@@ -68,7 +68,8 @@ const configAppDefaults = {
         jsondbReadOnly: false,
         schemaDirectory: 'api/v1/components/schemas',
         uploadDirectory: '../data/uploads',
-        customIdGeneratorFunction: 'api/v1/ngsi-id-generator.js'
+        customIdGeneratorFunction: 'api/v1/ngsi-id-generator.js',
+        locales: ['de', 'en']
     },
     keycloak: {
         store: 'session',

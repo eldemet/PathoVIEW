@@ -6,15 +6,15 @@ required:
   - owner
 model:searchProperties:
   - name
-#model:i18nProperties:
-#  - description
-#  - transmission
-#  - symptoms
-#  - complications
-#  - diagnosis
-#  - treatment
-#  - prevention
-#  - controlMeasures
+model:i18nProperties:
+  - description
+  - transmission
+  - symptoms
+  - complications
+  - diagnosis
+  - treatment
+  - prevention
+  - controlMeasures
 db:options:
   timestamps: true
 properties:
