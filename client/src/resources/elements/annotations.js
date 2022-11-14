@@ -26,12 +26,14 @@ class Annotations extends BasicComponent {
         this.subscriptions.push(this.eventAggregator.subscribe('au-form-close', payload => {
             if (payload?.type === 'annotation') {
                 this.annotationObject = null;
+                this.annotationsContainer.scrollTop = this.annotationsContainer.scrollHeight;
             }
         }));
     }
 
-    attached() {
-        super.attached();
+    async attached() {
+        await super.attached();
+        await new Promise((resolve) => setTimeout(resolve, 50));
         this.annotationsContainer.scrollTop = this.annotationsContainer.scrollHeight;
     }
 
