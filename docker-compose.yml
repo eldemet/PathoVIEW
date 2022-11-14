@@ -15,6 +15,8 @@ services:
     restart: always
   keycloak:
     image: quay.io/keycloak/keycloak:19.0.3
+    secrets:
+      - keycloakadminpassword
     environment:
       DB_VENDOR: MYSQL
       DB_ADDR: mysql
@@ -22,7 +24,7 @@ services:
       DB_USER: keycloak
       DB_PASSWORD: ${MYSQL_PASSWORD}
       KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+      KEYCLOAK_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
     ports:
       - '9991:8080'
       - '9990:8443'
@@ -47,6 +49,7 @@ services:
       - sslcert
       - sslkey
       - owmapikey
+      - keycloakadminpassword
     environment:
       CAPABILITIES_ACCESS_CONTROL_CHECKER_MIDDLEWARE: 'true'
       CAPABILITIES_DATABASE: jsondb
@@ -63,6 +66,7 @@ services:
       SERVER_LOG_FORMAT_HTTP_REQUESTS: short
       SERVER_OPEN_WEATHER_MAP_API_KEY_FILE: '/run/secrets/owmapikey'
       KEYCLOAK_CONFIG_AUTH_SERVER_URL: ${KEYCLOAK_CONFIG_AUTH_SERVER_URL}
+      KEYCLOAK_CONFIG_ADMIN_CLIENT_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
       DATABASE_JSONDB_READ_ONLY: 'true'
     restart: always
     depends_on:
@@ -74,3 +78,5 @@ secrets:
     file: ./../certificates/server.key
   owmapikey:
     file: ./../credentials/owmapikey.txt
+  keycloakadminpassword:
+    file: ./../credentials/keycloakadminpassword.txt
