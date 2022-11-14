@@ -151,6 +151,7 @@ class ContextService extends BasicService {
         }
         await this.setCurrentWeather();
         await this.loadAlerts();
+        this.eventAggregator.publish('context-changed', emergencyEvent.id);
     }
 
     async updateDevice(location) {

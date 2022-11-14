@@ -1,6 +1,7 @@
 import {BindingEngine, inject} from 'aurelia-framework';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {Search} from 'library-aurelia/src/views-general/search';
+import {AureliaCookie} from 'aurelia-cookie';
 
 /**
  * @extends Search
@@ -20,7 +21,16 @@ class SearchWithAnnotations extends Search {
         this.bindingSignaler = bindingSignaler;
     }
 
+    async attached() {
+        await super.attached();
+        this.subscriptions.push(this.eventAggregator.subscribe('context-changed', async id => {
+            await this.initialize();
+            this.routerService.navigateToRoute('search', {}, this.router);
+        }));
+    }
+
     async initialize() {
+        this.routeConfig.settings.filter = {'refId': AureliaCookie.get('emergency-event')};
         await super.initialize();
         this.uniqueProperty = this.proxy.get('annotation')?.options?.uniqueProperty || '_id';
         this.annotable = this.schema?.referencedByModels?.some(e => e.model === 'Annotation');
