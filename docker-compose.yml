@@ -23,7 +23,6 @@ services:
       DB_PASSWORD: ${MYSQL_PASSWORD}
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
-      REALM_FILE: './data/realm-export.json'
     ports:
       - '9991:8080'
       - '9990:8443'

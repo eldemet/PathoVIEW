@@ -716,7 +716,7 @@
       "id": "31c58ce9-f0b3-410d-874b-a77f37ec783e",
       "clientId": "pathoview",
       "name": "PathoVIEW Web App",
-      "rootUrl": "http://localhost:8080",
+      "rootUrl": "https://pathocert.iao.fraunhofer.de/",
       "adminUrl": "",
       "baseUrl": "",
       "surrogateAuthRequired": false,
@@ -725,15 +725,17 @@
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
         "http://localhost:8080/*",
-        "http://localhost:9990/*",
-        "http://localhost:3002/*",
-        "https://192.168.178.*",
-        "https://localhost:8080/*"
+        "https://localhost:8080/*",
+        "https://pathocert.iao.fraunhofer.de:9990/*",
+        "https://localhost:3002/*",
+        "https://pathocert.iao.fraunhofer.de:3002/*",
+        "https://192.168.178.*"
       ],
       "webOrigins": [
         "http://localhost:8080",
+        "https://localhost:8080",
         "https://192.168.178.*",
-        "https://localhost:8080"
+        "https://pathocert.iao.fraunhofer.de"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -1453,7 +1455,7 @@
     "xContentTypeOptions": "nosniff",
     "xRobotsTag": "none",
     "xFrameOptions": "SAMEORIGIN",
-    "contentSecurityPolicy": "frame-src 'self'; frame-ancestors 'self' http://127.0.0.1:8080 http://localhost:8080 https://localhost:8080 http://localhost:9990 http://localhost:3002; object-src 'none';",
+    "contentSecurityPolicy": "frame-src 'self'; frame-ancestors 'self' http://localhost:8080 https://localhost:8080 https://pathocert.iao.fraunhofer.de:9990 https://pathocert.iao.fraunhofer.de:3002; object-src 'none';",
     "xXSSProtection": "1; mode=block",
     "strictTransportSecurity": "max-age=31536000; includeSubDomains"
   },
