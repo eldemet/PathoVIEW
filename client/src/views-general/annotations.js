@@ -12,6 +12,7 @@ import {AuthService} from '../services/auth-service';
 class AnnotationsView extends BasicView {
 
     /**
+     * @param {AuthService} authService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
     constructor(authService, ...rest) {
