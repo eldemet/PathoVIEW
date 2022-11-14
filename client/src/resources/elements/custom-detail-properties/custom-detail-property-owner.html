@@ -12,6 +12,7 @@
                                  model.bind: {user: user}">
         <div class="creator-inner">${getAbbreviation(user)}</div>
     </div>
-    <span class="tabstop-text" if.bind="!user">${'labels.notDefined' | t}</span>
+    <span class="tabstop-text" if.bind="user === 'notDefined'">${'labels.notDefined' | t}</span>
+    <div if.bind="!users" class="spinner-border mb-4" role="status"></div>
 
 </template>

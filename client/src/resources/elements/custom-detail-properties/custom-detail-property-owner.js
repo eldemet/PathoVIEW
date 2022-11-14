@@ -21,8 +21,9 @@ class CustomDetailPropertyOwner extends BasicComposable {
     }
 
     async attached() {
-        const users = await this.authService.getUsers();
-        this.user = users.find(u => u.id === this.value[0]);
+        this.users = await this.authService.getUsers();
+        const user = this.users.find(u => u.id === this.value[0]);
+        this.user = user ? user : 'notDefined';
     }
 
     getAbbreviation(user) {
