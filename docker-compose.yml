@@ -2,6 +2,8 @@ version: '3.1'
 volumes:
   mysql_data:
     driver: local
+  app_data:
+    driver: local
 services:
   mysql:
     image: mysql:5.7
@@ -40,6 +42,8 @@ services:
       - mysql
   app:
     image: app
+    volumes:
+      - app_data:/usr/app/data
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -68,6 +72,7 @@ services:
       KEYCLOAK_CONFIG_AUTH_SERVER_URL: ${KEYCLOAK_CONFIG_AUTH_SERVER_URL}
       KEYCLOAK_CONFIG_ADMIN_CLIENT_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
       DATABASE_JSONDB_READ_ONLY: 'true'
+      DATABASE_JSONDB_PATH: '/usr/app/data'
     restart: always
     depends_on:
       - keycloak
