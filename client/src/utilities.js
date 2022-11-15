@@ -26,6 +26,12 @@ export const emergencyEventUtilities = {
     }
 };
 
+export const incidentUtilities = {
+    getPopupContent(i18n, incident) {
+        return `<h6>${incident.description}</h6>`;
+    }
+};
+
 export const deviceUtilities = {
     getDeviceIcon(device) {
         let icon = 'bi bi-';

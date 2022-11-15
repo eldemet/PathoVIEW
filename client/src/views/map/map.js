@@ -1,6 +1,6 @@
 import {BindingEngine, inject} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {emergencyEventUtilities, alertUtilities, deviceUtilities} from '../../utilities';
+import {emergencyEventUtilities, alertUtilities, deviceUtilities, incidentUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(BindingEngine, ContextService)
@@ -35,13 +35,24 @@ class MapView extends BasicView {
                 }));
             overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
         }
-        this.devices = (await this.proxy.get('device').getObjects()).objects;
-        if (this.devices) {
-            this.subscriptions.push(this.bindingEngine.propertyObserver(this, 'devices')
+        if (this.contextService.incidents) {
+            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'incidents')
                 .subscribe(async(newValue, oldValue) => {
-                    this.updateLayerGroup('device', this.devices, deviceUtilities);
+                    this.updateLayerGroup('incident', this.contextService.incidents, incidentUtilities);
                 }));
-            overlay.push(this.getLayerGroup('device', this.devices, deviceUtilities));
+            overlay.push(this.getLayerGroup('incident', this.contextService.incidents, incidentUtilities));
+        }
+        try {
+            this.devices = (await this.proxy.get('device').getObjects()).objects;
+            if (this.devices) {
+                this.subscriptions.push(this.bindingEngine.propertyObserver(this, 'devices')
+                    .subscribe(async(newValue, oldValue) => {
+                        this.updateLayerGroup('device', this.devices, deviceUtilities);
+                    }));
+                overlay.push(this.getLayerGroup('device', this.devices, deviceUtilities));
+            }
+        } catch (error) {
+            //silently handle error
         }
         this.layers = {overlay};
     }
