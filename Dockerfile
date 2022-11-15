@@ -23,8 +23,5 @@ COPY server/ ./
 # copy client
 COPY --from=build-stage /usr/app/client/dist /usr/app/server/client
 
-# copy data
-# COPY data/ /usr/app/data
-
 EXPOSE 3002
 CMD [ "npm", "start" ]
