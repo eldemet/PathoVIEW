@@ -8,6 +8,7 @@ import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 import '@geoman-io/leaflet-geoman-free';
 import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
+import {locationUtilities} from '../../utilities';
 
 export class LeafletCustomElement extends BasicComponent {
 
@@ -66,11 +67,11 @@ export class LeafletCustomElement extends BasicComponent {
         }
         let center = {lat: 48.783333, lng: 9.183333};
         if (!this.center) {
-            if (navigator.geolocation) {
-                const pos = await new Promise((resolve, reject) => {
-                    navigator.geolocation.getCurrentPosition(resolve, reject);
-                });
-                center = {lng: pos.coords.longitude, lat: pos.coords.latitude};
+            try {
+                // @ts-ignore
+                center = await locationUtilities.getCurrenPosition();
+            } catch (error) {
+                this.logger.error(error);
             }
         }
         this.map = this.L.map(this.containerId, mapOptions);

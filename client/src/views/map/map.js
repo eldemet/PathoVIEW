@@ -19,6 +19,7 @@ class MapView extends BasicView {
     }
 
     async attached() {
+        super.attached();
         await this.contextService.initialized;
         let overlay = [];
         if (this.contextService.currentEmergencyEvent) {

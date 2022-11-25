@@ -59,8 +59,9 @@ class ContextService extends BasicService {
         document.removeEventListener('visibilitychange', this.visibilityChangeEventListener);
     }
 
+    @catchError()
     async update() {
-        let location = await locationUtilities.getCurrentGeoJSONPoint();
+        let location = await locationUtilities.getCurrenPosition('geoJSON');
         if (location) {
             await this.updateDevice(location);
             await this.checkForAlertsNearCurrentLocation(location);
@@ -136,6 +137,7 @@ class ContextService extends BasicService {
         this.currentDevice = currentDevice;
     }
 
+    @catchError()
     async setCurrentWeather() {
         if (this.currentEmergencyEvent) {
             let coordinates = center(this.currentEmergencyEvent.location).geometry.coordinates;
@@ -149,6 +151,7 @@ class ContextService extends BasicService {
         }
     }
 
+    @catchError()
     async changeEmergencyEvent(emergencyEvent) {
         AureliaCookie.set('emergency-event', emergencyEvent.id, {});
         this.currentEmergencyEvent = emergencyEvent;
@@ -162,6 +165,7 @@ class ContextService extends BasicService {
         this.eventAggregator.publish('context-changed', emergencyEvent.id);
     }
 
+    @catchError()
     async updateDevice(location) {
         if (this.currentDevice) {
             let batteryLevel = await deviceUtilities.getBatteryLevel();

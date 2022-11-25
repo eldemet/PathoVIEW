@@ -60,9 +60,15 @@ export const deviceUtilities = {
 };
 
 export const locationUtilities = {
-    async getCurrentGeoJSONPoint() {
+    async getCurrenPosition(format) {
         const pos = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
-        return {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
+        let position;
+        if (format === 'geoJSON') {
+            position = {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
+        } else {
+            position = {lng: pos.coords.longitude, lat: pos.coords.latitude};
+        }
+        return position;
     }
 };
 
