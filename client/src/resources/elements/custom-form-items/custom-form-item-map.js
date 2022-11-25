@@ -1,6 +1,6 @@
 import {v1 as uuid} from 'uuid';
-import Leaflet from 'leaflet';
 import {BasicComposableAuFormItem} from 'library-aurelia/src/prototypes/basic-composable-au-form-item';
+import {locationUtilities} from '../../../utilities';
 
 export class CustomFormItemMap extends BasicComposableAuFormItem {
 
@@ -30,7 +30,7 @@ export class CustomFormItemMap extends BasicComposableAuFormItem {
             };
             this.drawEnabled = false;
             try {
-                this.center = Leaflet.geoJson(this.object[this.propertyKey]).getBounds().getCenter();
+                this.center = locationUtilities.getCenter(this.object[this.propertyKey]);
             } catch (e) {
                 //silently catch error
             }

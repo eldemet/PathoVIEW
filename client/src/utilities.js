@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import center from '@turf/center';
 
 export const modelUtilities = {
     getIconByType(type) {
@@ -65,8 +66,22 @@ export const locationUtilities = {
         let position;
         if (format === 'geoJSON') {
             position = {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
+        } else if (format === 'array') {
+            position = [pos.coords.longitude, pos.coords.latitude];
         } else {
             position = {lng: pos.coords.longitude, lat: pos.coords.latitude};
+        }
+        return position;
+    },
+    getCenter(location, format) {
+        const pos = center(location).geometry.coordinates;
+        let position;
+        if (format === 'geoJSON') {
+            position = {type: 'Point', coordinates: pos};
+        } else if (format === 'array') {
+            position = pos;
+        } else {
+            position = {lng: pos[0], lat: pos[1]};
         }
         return position;
     }

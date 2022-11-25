@@ -1,13 +1,10 @@
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
 import {bindable} from 'aurelia-framework';
-import Leaflet from 'leaflet';
 import 'leaflet/dist/images/layers.png';
 import 'leaflet/dist/images/layers-2x.png';
 import 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
-import '@geoman-io/leaflet-geoman-free';
-import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
 import {locationUtilities} from '../../utilities';
 
 export class LeafletCustomElement extends BasicComponent {
@@ -52,15 +49,18 @@ export class LeafletCustomElement extends BasicComponent {
      */
     constructor(...rest) {
         super(...rest);
-        this.L = Leaflet;
-        Leaflet.Icon.Default.imagePath = 'assets/';
-        this.layerFactory = new LayerFactory(this.L);
         this.layers = this.defaultLayers;
         this.containerId = 'map';
     }
 
     async attached() {
         super.attached();
+        this.L = await import('leaflet');
+        await import('@geoman-io/leaflet-geoman-free');
+        // @ts-ignore
+        await import ('@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css?raw');
+        this.L.Icon.Default.imagePath = 'assets/';
+        this.layerFactory = new LayerFactory(this.L);
         let mapOptions = this.defaultMapOptions;
         if (this.mapOptions) {
             mapOptions = this._.merge({}, this.defaultMapOptions, this.mapOptions);

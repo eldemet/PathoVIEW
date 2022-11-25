@@ -1,6 +1,6 @@
 import {v1 as uuid} from 'uuid';
 import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
-import Leaflet from 'leaflet';
+import {locationUtilities} from '../../../utilities';
 
 class CustomDetailPropertyMap extends BasicComposable {
 
@@ -31,7 +31,7 @@ class CustomDetailPropertyMap extends BasicComposable {
             };
             this.drawEnabled = false;
             try {
-                this.center = Leaflet.geoJson(this.value).getBounds().getCenter();
+                this.center = locationUtilities.getCenter(this.value);
             } catch (e) {
                 //silently catch error
             }
