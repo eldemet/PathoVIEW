@@ -6,6 +6,9 @@ required:
   - owner
 model:searchProperties:
   - name
+model:i18nLocales:
+  - de
+  - en
 model:i18nProperties:
   - description
   - transmission
@@ -42,39 +45,47 @@ properties:
     type: string
     description: 'A description of this item'
     ui:formItemType: textarea
+    ui:rows: 6
   owner:
     $ref: './../$defs.yaml#/owner'
   transmission:
     type: string
     ui:formItemType: textarea
+    ui:rows: 6
   symptoms:
     type: string
     ui:formItemType: textarea
+    ui:rows: 6
     ui:hide:
       table: true
   complications:
     type: string
     ui:formItemType: textarea
+    ui:rows: 6
     ui:hide:
       table: true
   diagnosis:
     type: string
     ui:formItemType: textarea
+    ui:rows: 6
     ui:hide:
       table: true
   treatment:
     type: string
     ui:formItemType: textarea
+    ui:rows: 6
     ui:hide:
       table: true
   prevention:
     type: string
     ui:formItemType: textarea
+    ui:rows: 6
     ui:hide:
       table: true
   controlMeasures:
     type: string
     ui:formItemType: textarea
+    ui:rows: 6
     ui:hide:
       table: true
   createdAt:

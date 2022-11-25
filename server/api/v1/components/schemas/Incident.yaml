@@ -7,7 +7,7 @@ required:
   - owner
   - location
 model:searchProperties:
-  - name
+  - description
 db:referencedByModels:
   - model: Annotation
     property: refId

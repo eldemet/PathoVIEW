@@ -11,6 +11,8 @@ required:
   - location
 model:searchProperties:
   - name
+  - alternateName
+  - description
 properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
