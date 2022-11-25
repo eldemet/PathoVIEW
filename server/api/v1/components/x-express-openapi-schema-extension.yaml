@@ -132,3 +132,5 @@ definitions:
         type: string
         description: can be used to specify a path prefix for translations (mainly enums)
         example: enum.colors
+      "ui:rows":
+        type: number
