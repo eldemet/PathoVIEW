@@ -1,6 +1,5 @@
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
 import {bindable} from 'aurelia-framework';
-import {fabric} from 'fabric';
 import {catchError} from 'library-aurelia/src/decorators';
 
 class Camera extends BasicComponent {
@@ -53,6 +52,8 @@ class Camera extends BasicComponent {
             this.showToolbarLeft = this.responsiveService.matchCondition('md', true, this.wrap);
         }));
         await this.initializeMediaStream();
+        this.fabric = (await import('fabric')).fabric;
+        this.fabricFactory = new FabricFactory(this.fabric);
     }
 
     detached() {
@@ -121,13 +122,13 @@ class Camera extends BasicComponent {
         ctx.canvas.width = this.cameraVideo.videoWidth;
         ctx.canvas.height = this.cameraVideo.videoHeight;
         this.setImageData();
-        this.fabcanvas = new fabric.Canvas(this.drawingCanvas, {selection: false});
+        this.fabcanvas = new this.fabric.Canvas(this.drawingCanvas, {selection: false});
         let circle, rect, line, triangle, arrow; // eslint-disable-line one-var
         this.mouseDownHandler = event => {
             if ((this.selectedTool === 'rect' || this.selectedTool === 'circle' || this.selectedTool === 'arrow') && !this.fabcanvas.getActiveObject()) {
                 let pointer = this.fabcanvas.getPointer(event.e);
                 if (this.selectedTool === 'rect') {
-                    rect = FabricFactory.createRectangle(pointer.y, pointer.x, this.fabColor, this.fabColor);
+                    rect = this.fabricFactory.createRectangle(pointer.y, pointer.x, this.fabColor, this.fabColor);
                     this.fabcanvas.add(rect);
                     this.mouseMoveHandler = e => {
                         rect.set(FabricProcessor.getRectangleResizeOptions(pointer.y, pointer.x, this.fabcanvas.getPointer(e.e)));
@@ -135,7 +136,7 @@ class Camera extends BasicComponent {
                         this.fabcanvas.renderAll();
                     };
                 } else if (this.selectedTool === 'circle') {
-                    circle = FabricFactory.createCircle(pointer.y, pointer.x, this.fabColor, this.fabColor);
+                    circle = this.fabricFactory.createCircle(pointer.y, pointer.x, this.fabColor, this.fabColor);
                     this.fabcanvas.add(circle);
                     this.mouseMoveHandler = e => {
                         let p = this.fabcanvas.getPointer(e.e);
@@ -144,8 +145,8 @@ class Camera extends BasicComponent {
                         this.fabcanvas.renderAll();
                     };
                 } else if (this.selectedTool === 'arrow') {
-                    line = FabricFactory.createLine(pointer.y, pointer.x, this.fabColor);
-                    triangle = FabricFactory.createTriangle(pointer.y, pointer.x, this.fabColor);
+                    line = this.fabricFactory.createLine(pointer.y, pointer.x, this.fabColor);
+                    triangle = this.fabricFactory.createTriangle(pointer.y, pointer.x, this.fabColor);
                     this.fabcanvas.add(line);
                     this.fabcanvas.add(triangle);
                     this.mouseMoveHandler = e => {
@@ -171,7 +172,7 @@ class Camera extends BasicComponent {
                         this.fabcanvas.setActiveObject(circle);
                     }
                     if (this.selectedTool === 'arrow') {
-                        arrow = new fabric.Group([line, triangle]);
+                        arrow = new this.fabric.Group([line, triangle]);
                         this.fabcanvas.remove(line);
                         this.fabcanvas.remove(triangle);
                         this.fabcanvas.add(arrow);
@@ -301,8 +302,12 @@ export class FabricFactory {
     static FABRIC_ARROW_TRIANGLE_WIDTH = 25;
     static FABRIC_ARROW_TRIANGLE_HEIGHT = 40;
 
-    static createRectangle(startY, startX, fillColor, strokeColor, id, selectable, hasControls) {
-        return new fabric.Rect({
+    constructor(fabric) {
+        this.fabric = fabric;
+    }
+
+    createRectangle(startY, startX, fillColor, strokeColor, id, selectable, hasControls) {
+        return new this.fabric.Rect({
             top: startY,
             left: startX,
             originX: 'left',
@@ -318,8 +323,8 @@ export class FabricFactory {
         });
     }
 
-    static createCircle(startY, startX, fillColor, strokeColor, id, selectable, hasControls) {
-        return new fabric.Circle({
+    createCircle(startY, startX, fillColor, strokeColor, id, selectable, hasControls) {
+        return new this.fabric.Circle({
             top: startY,
             left: startX,
             originX: 'left',
@@ -335,8 +340,8 @@ export class FabricFactory {
         });
     }
 
-    static createLine(startY, startX, color, id, selectable, hasControls, scale) {
-        return new fabric.Line([startX, startY, startX, startY], {
+    createLine(startY, startX, color, id, selectable, hasControls, scale) {
+        return new this.fabric.Line([startX, startY, startX, startY], {
             top: startY,
             left: startX,
             originX: 'left',
@@ -350,8 +355,8 @@ export class FabricFactory {
         });
     }
 
-    static createTriangle(startY, startX, color, id, selectable, hasControls, scale) {
-        return new fabric.Triangle({
+    createTriangle(startY, startX, color, id, selectable, hasControls, scale) {
+        return new this.fabric.Triangle({
             top: startY,
             left: startX,
             originX: 'center',
@@ -366,8 +371,8 @@ export class FabricFactory {
         });
     }
 
-    static createArrow(startY, startX, color, id, selectable, hasControls) {
-        let line = new fabric.Line([startX, startY, startX, startY], {
+    createArrow(startY, startX, color, id, selectable, hasControls) {
+        let line = new this.fabric.Line([startX, startY, startX, startY], {
             top: startY,
             left: startX,
             originX: 'left',
@@ -376,7 +381,7 @@ export class FabricFactory {
             strokeWidth: FabricFactory.FABRIC_ARROW_STROKE_WIDTH,
             opacity: FabricFactory.FABRIC_ACTIVE_OPACITY
         });
-        let triangle = new fabric.Triangle({
+        let triangle = new this.fabric.Triangle({
             top: startY,
             left: startX,
             originX: 'center',
@@ -386,7 +391,7 @@ export class FabricFactory {
             width: FabricFactory.FABRIC_ARROW_TRIANGLE_WIDTH,
             height: FabricFactory.FABRIC_ARROW_TRIANGLE_HEIGHT
         });
-        return new fabric.Group([line, triangle], {id: id, selectable: selectable, hasControls: hasControls});
+        return new this.fabric.Group([line, triangle], {id: id, selectable: selectable, hasControls: hasControls});
     }
 
 }
