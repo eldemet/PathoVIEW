@@ -33,12 +33,23 @@ class KeycloakAdminService extends Service {
             clientId: 'admin-cli'
         };
         await this.kcAdminClient.auth(credentials);
-        this.interval = setInterval(() => this.kcAdminClient.auth(credentials), 5 * 1000 * 60);
+        const refreshAccessToken = () => {
+            this.interval = setTimeout(async() => {
+                try {
+                    await this.kcAdminClient.auth(credentials);
+                    this.logger.verbose('Access token for Keycloak admin service refreshed!');
+                } catch (error) {
+                    this.logger.error(error.message);
+                }
+                refreshAccessToken();
+            }, 5 * 1000 * 60);
+        };
+        refreshAccessToken();
         logger.info('Successfully initialized Keycloak admin service!');
     }
 
     async close() {
-        clearInterval(this.interval);
+        clearTimeout(this.interval);
         logger.info('Successfully closed Keycloak admin service!');
     }
 
@@ -51,7 +62,7 @@ class KeycloakAdminService extends Service {
         for (let user of users) {
             user.roles = (await this.kcAdminClient.users.listRealmRoleMappings({id: user.id})).filter(role => !role.composite).map(role => role.name);
             user.groups = (await this.kcAdminClient.users.listGroups({id: user.id})).map(group => group.name);
-            user.status = clientSessions.find(session => session.userId  === user.id) ? 'online' : 'offline';
+            user.status = clientSessions.find(session => session.userId === user.id) ? 'online' : 'offline';
         }
         return users;
     }
