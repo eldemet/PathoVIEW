@@ -196,7 +196,9 @@
         "prevention": "Prävention",
         "controlMeasures": "Kontrollmaßnahmen",
         "groups": "Gruppen",
-        "email": "E-Mail"
+        "email": "E-Mail",
+        "de": "Deutsch",
+        "en": "English"
     },
     "enum": {
         "alert": {

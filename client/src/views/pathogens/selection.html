@@ -13,7 +13,7 @@
         <div class="row justify-content-md-center">
             <div class="col-md-6 col-xl-4" repeat.for="pathogen of pathogens">
                 <h1>${pathogen.name}</h1>
-                <p>${pathogen.description.en}</p>
+                <p>${pathogen.description}</p>
                 <div class="accordion" id="${'pathogenAccordion-' + $index}">
                     <div class="accordion-item"
                          repeat.for="pathogenContent of pathogenContents">
@@ -31,8 +31,8 @@
                              aria-labelledby="${pathogenContent.propertyKey + 'Heading-' + $parent.$index}"
                              data-bs-parent="${'#pathogenAccordion-' + $parent.$index}">
                             <div class="accordion-body">
-                                <markdown if.bind="pathogen[pathogenContent.propertyKey].en"
-                                          value.bind="pathogen[pathogenContent.propertyKey].en" layer.bind="1">
+                                <markdown if.bind="pathogen[pathogenContent.propertyKey]"
+                                          value.bind="pathogen[pathogenContent.propertyKey]" layer.bind="1">
                                 </markdown>
                                 <span else>
                                     ${'views.pathogens.noInformation' | t}

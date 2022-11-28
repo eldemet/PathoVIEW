@@ -21,7 +21,7 @@ class SelectionView extends BasicView {
     }
 
     async attached() {
-        this.pathogens = (await this.proxy.get('pathogen').getObjects()).objects;
+        this.pathogens = (await this.proxy.get('pathogen').getObjects({localize: true})).objects;
     }
 
 }
