@@ -6,13 +6,14 @@
 const logger = require('utilities-node/src/utilities/logger')(module);
 const _ = require('lodash');
 const {loadFile} = require('utilities-node/src/utilities/fs');
-const {Service} = require('utilities-node/src/services/_service');
+const {BasicObject} = require('utilities-node/src/services/_prototypes');
 
 /**
- * @extends Service
+ * @extends BasicObject
  * @category services
+ * @implements IService
  */
-class KeycloakAdminService extends Service {
+class KeycloakAdminService extends BasicObject {
 
     constructor() {
         super();
@@ -27,7 +28,7 @@ class KeycloakAdminService extends Service {
         });
         /** @type {import('@keycloak/keycloak-admin-client/lib/utils/auth').Credentials} */
         const credentials = {
-            username: 'admin',
+            username: config.keycloakConfig.adminClientUser,
             password: config.keycloakConfig.adminClientPasswordFile ? loadFile(config.keycloakConfig.adminClientPasswordFile) : 'admin',
             grantType: 'password',
             clientId: 'admin-cli'

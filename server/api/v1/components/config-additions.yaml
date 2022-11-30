@@ -9,5 +9,8 @@ properties:
   keycloakConfig:
     type: object
     properties:
+      adminClientUser:
+        type: string
+        default: admin
       adminClientPasswordFile:
         type: string

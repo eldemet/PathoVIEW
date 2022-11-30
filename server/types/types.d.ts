@@ -9,15 +9,17 @@ declare global {
             openWeatherMapApiKeyFile: string
         }
         keycloakConfig: {
+            adminClientUser: string,
             adminClientPasswordFile: string
         }
     }
     type ConfigWithAdditions = Config & ConfigAdditions;
-    interface KeycloakAdminService {
-        initialize(),
-        close(),
+
+    interface KeycloakAdminService extends IService {
         getUsers(),
+
         getRoles(),
+
         getGroups()
     }
 }
