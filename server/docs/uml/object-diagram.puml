@@ -22,22 +22,6 @@ class Incident {
     createdAt: Date
     updatedAt: Date
 }
-class Action {
-    id: String
-    type: String
-    name : String
-    description: String
-    owner: Array<UserId>
-    assignedTo: Array<UserId>
-    refId: String<IncidentId/AlertId>
-    location: Location
-    ..
-    validFrom: Date
-    validTo: Date
-    ..
-    createdAt: Date
-    updatedAt: Date
-}
 class User <<Keycloak Identity Management>> {
     id: String
     email: String
@@ -154,10 +138,8 @@ Annotation <|-- AnnotationAudio
 EmergencyEvent o-- "0..*" Alert
 EmergencyEvent o-- "0..*" Incident
 User o-- "0..*" Device
-Incident o-- "0..*" Action
 Annotation o-- "0..*" Annotation
 Incident o-- "0..*" Annotation
-Action o-- "0..*" Annotation
 Alert o-- "0..*" Annotation
 
 @enduml
