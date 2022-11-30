@@ -24,9 +24,9 @@
                 <div class="ms-3 flex-fill">
                     <div if.bind="annotation.text">${annotation.text}</div>
                     <img if.bind="annotation.kind === 'AnnotationImage' && annotation.data"
-                         src.bind="annotation.data" class="mw-100 my-2">
+                         src.bind="baseUrl + '/' + annotation.data" class="mw-100 my-2">
                     <audio if.bind="annotation.kind === 'AnnotationAudio' && annotation.data"
-                           src.bind="annotation.data" controls>
+                           src.bind="baseUrl + '/' + annotation.data" controls>
                         ${'alerts.general.audioElementNotSupported' | t}
                     </audio>
                     <div class="text-muted">${annotation.createdAt | formatDate:'f':i18n.getLocale()}</div>

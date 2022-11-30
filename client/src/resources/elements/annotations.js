@@ -23,6 +23,7 @@ class Annotations extends BasicComponent {
 
     bind(bindingContext, overrideContext) {
         super.bind(bindingContext, overrideContext);
+        this.baseUrl = this.proxy.get('config').get('baseUrl');
         this.subscriptions.push(this.eventAggregator.subscribe('au-form-close', payload => {
             if (payload?.type === 'annotation') {
                 this.annotationObject = null;
