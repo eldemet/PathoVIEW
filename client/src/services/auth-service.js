@@ -70,21 +70,21 @@ class AuthService extends BasicService {
 
     async getUsers(forceReload) {
         if (forceReload || !this.usersPromise) {
-            this.usersPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 2000);
+            this.usersPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 10000);
         }
         return await this.usersPromise;
     }
 
     async getRoles(forceReload) {
         if (forceReload || !this.rolesPromise) {
-            this.rolesPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/role', null, 2000);
+            this.rolesPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/role', null, 10000);
         }
         return await this.rolesPromise;
     }
 
     async getGroups(forceReload) {
         if (forceReload || !this.groupsPromise) {
-            this.groupsPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/group', null, 2000);
+            this.groupsPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/group', null, 10000);
         }
         return await this.groupsPromise;
     }
