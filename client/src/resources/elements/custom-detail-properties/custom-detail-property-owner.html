@@ -3,7 +3,7 @@
     <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
 
     <span class="tabstop-label">${'propertyKeys.owner' | t}</span>
-    <div if.bind="user"
+    <div if.bind="user && user !== 'notDefined'"
          class="creator mb-4"
          class.bind="user.status === 'online' ? 'border-success' : ''"
          bs-popover="event.bind: 'user-popover-' + user.id;
