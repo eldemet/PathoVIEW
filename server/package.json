@@ -31,7 +31,7 @@
         "@keycloak/keycloak-admin-client": "^20.0.1",
         "ajv-formats-draft2019": "^1.6.1",
         "query-string": "^7.1.1",
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.11.4"
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v3.11.6"
     },
     "types": "./types/types.d.ts",
     "directories": {

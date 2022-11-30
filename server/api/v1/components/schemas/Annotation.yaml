@@ -72,6 +72,8 @@ oneOf:
       - $ref: '#/discriminator/baseSchema'
       - type: object
         title: model.annotationImage
+        db:dataUrlToFileProperties:
+          - data
         required:
           - data
         properties:
@@ -87,6 +89,8 @@ oneOf:
       - $ref: '#/discriminator/baseSchema'
       - type: object
         title: model.annotationAudio
+        db:dataUrlToFileProperties:
+          - data
         required:
           - data
         properties:

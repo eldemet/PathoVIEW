@@ -33,3 +33,4 @@ jsconfig.json
 server/client
 
 data/db
+data/uploads

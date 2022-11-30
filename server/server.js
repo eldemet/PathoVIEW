@@ -68,6 +68,7 @@ const configAppDefaults = {
         jsondbReadOnly: false,
         schemaDirectory: 'api/v1/components/schemas',
         uploadDirectory: '../data/uploads',
+        allowedUploadFileExtensions: ['jpg', 'jpeg', 'png', 'svg', 'wav', 'mp3'],
         customIdGeneratorFunction: 'api/v1/ngsi-id-generator.js',
         locales: ['de', 'en']
     },
