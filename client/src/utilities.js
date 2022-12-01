@@ -61,6 +61,12 @@ export const deviceUtilities = {
 };
 
 export const locationUtilities = {
+    /**
+     *
+     * @param {undefined | 'geoJSON' | 'array'} [format]
+     * @param {PositionOptions} [options]
+     * @returns {Promise<{lng: number, lat: number}|{coordinates: number[], type: string}|number[]>}
+     */
     async getCurrenPosition(format, options = {timeout: 5000, enableHighAccuracy: true}) {
         let position;
         try {

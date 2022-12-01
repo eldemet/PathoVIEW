@@ -91,14 +91,7 @@ class ContextService extends BasicService {
                 throw new Error('Cannot get current position!');
             }
         } catch (error) {
-            const message = error instanceof GeolocationPositionError ? 'alerts.geoLocationDenied' : 'alerts.geoLocationUnavailable';
-            this.eventAggregator.publish('toast', {
-                title: 'alerts.geolocation',
-                body: message,
-                biIcon: 'geo-alt',
-                autohide: false,
-                dismissible: true
-            });
+            this.logger.warn(error.message);
         }
     }
 

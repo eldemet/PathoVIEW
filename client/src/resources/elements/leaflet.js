@@ -71,7 +71,16 @@ export class LeafletCustomElement extends BasicComponent {
                 // @ts-ignore
                 center = await locationUtilities.getCurrenPosition();
             } catch (error) {
-                this.logger.error(error);
+                this.logger.warn(error.message);
+                // eslint-disable-next-line no-undef
+                const message = window.isSecureContext && error instanceof GeolocationPositionError ? 'alerts.geoLocationDenied' : 'alerts.geoLocationUnavailable';
+                this.eventAggregator.publish('toast', {
+                    title: 'alerts.geoLocation',
+                    body: message,
+                    biIcon: 'geo-alt',
+                    autohide: false,
+                    dismissible: true
+                });
             }
         }
         this.map = this.L.map(this.containerId, mapOptions);
