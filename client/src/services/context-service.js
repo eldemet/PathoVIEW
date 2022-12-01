@@ -48,7 +48,6 @@ class ContextService extends BasicService {
         this.setCurrentEmergencyEvent();
         this.setCurrentDevice();
         await this.setCurrentWeather();
-        await this.update();
         this.interval = setInterval(async() => await this.update(), timeout);
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
         if (AureliaCookie.get('bhaptics') === 'true') {
@@ -82,12 +81,24 @@ class ContextService extends BasicService {
         document.removeEventListener('visibilitychange', this.visibilityChangeEventListener);
     }
 
-    @catchError()
     async update() {
-        let location = await locationUtilities.getCurrenPosition('geoJSON');
-        if (location) {
-            await this.updateDevice(location);
-            await this.checkForAlertsNearCurrentLocation(location);
+        try {
+            let location = await locationUtilities.getCurrenPosition('geoJSON');
+            if (location) {
+                await this.updateDevice(location);
+                await this.checkForAlertsNearCurrentLocation(location);
+            } else {
+                throw new Error('Cannot get current position!');
+            }
+        } catch (error) {
+            const message = error instanceof GeolocationPositionError ? 'alerts.geoLocationDenied' : 'alerts.geoLocationUnavailable';
+            this.eventAggregator.publish('toast', {
+                title: 'alerts.geolocation',
+                body: message,
+                biIcon: 'geo-alt',
+                autohide: false,
+                dismissible: true
+            });
         }
     }
 

@@ -99,6 +99,9 @@
         "alertLocationEntered": "You are inside an alert location",
         "alertLocationClose": "You are close to an alert location",
         "alertLocationVeryClose": "You are very close to an alert location",
+        "geoLocation": "Current position of the device not available",
+        "geoLocationDenied": "Geolocation denied! Please grant the permission...",
+        "geoLocationUnavailable": "Geolocation is currently not working. Please try again later...",
         "notifications": {
             "model": {
                 "create": "New $t(model.{{type}},{'count': 1})",

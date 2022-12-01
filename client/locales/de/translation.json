@@ -99,6 +99,9 @@
         "alertLocationEntered": "Sie befinden sich innerhalb eines Alarmbereichs",
         "alertLocationClose": "Sie befinden sich in der Nähe eines Alarmbereichs",
         "alertLocationVeryClose": "Sie befinden sich in unmittelbarer Nähe eines Alarmbereichs",
+        "geoLocation": "Aktuelle Position des Gerätes nicht verfügbar",
+        "geoLocationDenied": "Geolokalisierung verweigert! Bitte geben Sie die Freigabe...",
+        "geoLocationUnavailable": "Geolokalisierung funktioniert aktuell nicht. Bitte versuchen Sie es später nochmal...",
         "notifications": {
             "model": {
                 "create": "$t(model.{{type}},{'count': 1}) erstellt",
