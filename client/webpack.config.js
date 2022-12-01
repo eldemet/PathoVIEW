@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const project = require('./aurelia_project/aurelia.json');
 const {AureliaPlugin} = require('aurelia-webpack-plugin');
 const {IgnorePlugin} = require('webpack');
@@ -72,7 +73,9 @@ module.exports = ({production}, {analyze, hmr, port, host}) => ({
         clean: true
     },
     optimization: {
-        runtimeChunk: true
+        runtimeChunk: true,
+        minimize: !!production,
+        minimizer: production ? [new TerserPlugin()] : []
     },
     performance: {hints: false},
     devServer: {
