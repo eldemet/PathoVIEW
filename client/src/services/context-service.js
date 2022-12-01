@@ -83,12 +83,14 @@ class ContextService extends BasicService {
 
     async update() {
         try {
-            let location = await locationUtilities.getCurrenPosition('geoJSON');
-            if (location) {
-                await this.updateDevice(location);
-                await this.checkForAlertsNearCurrentLocation(location);
-            } else {
-                throw new Error('Cannot get current position!');
+            if ((Array.isArray(this.alerts) && this.alerts.length > 0) || this.currentDevice) {
+                let location = await locationUtilities.getCurrenPosition('geoJSON');
+                if (location) {
+                    await this.updateDevice(location);
+                    await this.checkForAlertsNearCurrentLocation(location);
+                } else {
+                    throw new Error('Cannot get current position!');
+                }
             }
         } catch (error) {
             this.logger.warn(error.message);
@@ -106,26 +108,26 @@ class ContextService extends BasicService {
     };
 
     @loadingEvent('app-alert', 'emergency-event')
-    @catchError()
+    @catchError('app-alert')
     async loadEmergencyEvents() {
         this.emergencyEventSchema = await this.proxy.get('emergency-event').getSchema();
         this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
     }
 
     @loadingEvent('app-alert', 'device')
-    @catchError()
+    @catchError('app-alert')
     async loadDevices() {
         this.devices = (await this.proxy.get('device').getObjects({filter: {owner: this.userId}})).objects;
     }
 
     @loadingEvent('app-alert', 'alert')
-    @catchError()
+    @catchError('app-alert')
     async loadAlerts() {
         this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
     }
 
     @loadingEvent('app-alert', 'incident')
-    @catchError()
+    @catchError('app-alert')
     async loadIncidents() {
         this.incidents = (await this.proxy.get('incident').getObjects({filter: {refId: AureliaCookie.get('emergency-event')}})).objects;
     }
@@ -137,6 +139,9 @@ class ContextService extends BasicService {
         dismissible: true
     })
     setCurrentEmergencyEvent() {
+        if (!Array.isArray(this.emergencyEvents) || this.emergencyEvents.length === 0) {
+            throw new Error('No emergencies loaded!');
+        }
         let currentEmergencyEventId = AureliaCookie.get('emergency-event');
         if (currentEmergencyEventId) {
             this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
