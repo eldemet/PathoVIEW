@@ -61,15 +61,19 @@ export const deviceUtilities = {
 };
 
 export const locationUtilities = {
-    async getCurrenPosition(format) {
-        const pos = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
+    async getCurrenPosition(format, options = {timeout: 5000, enableHighAccuracy: true}) {
         let position;
-        if (format === 'geoJSON') {
-            position = {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
-        } else if (format === 'array') {
-            position = [pos.coords.longitude, pos.coords.latitude];
-        } else {
-            position = {lng: pos.coords.longitude, lat: pos.coords.latitude};
+        try {
+            const pos = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, options));
+            if (format === 'geoJSON') {
+                position = {type: 'Point', coordinates: [pos.coords.longitude, pos.coords.latitude]};
+            } else if (format === 'array') {
+                position = [pos.coords.longitude, pos.coords.latitude];
+            } else {
+                position = {lng: pos.coords.longitude, lat: pos.coords.latitude};
+            }
+        } catch (error) {
+            throw error;
         }
         return position;
     },
