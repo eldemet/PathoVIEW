@@ -1,9 +1,7 @@
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import {AureliaCookie} from 'aurelia-cookie';
-import 'eventsource/example/eventsource-polyfill.js';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {catchError} from 'library-aurelia/src/decorators';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {modelUtilities} from '../utilities';
 
@@ -59,14 +57,18 @@ class NotificationService extends BasicService {
      * @param {Array<String>} [topics] only receive specific topics
      * @param {Array<String>} [validContentTypes] only allow specific content types
      */
-    registerNotificationListener(url, topics, validContentTypes) {
+    async initialize(url, topics, validContentTypes) {
         if (Array.isArray(validContentTypes)) {
             this.NotificationSchema.properties.contentType.enum = validContentTypes;
         }
         if (topics) url += '?topics=' + topics.join();
         let authToken = AureliaCookie.get('auth_token');
+        const options = !this._.isNil(authToken) ?
+            {headers: {'Authorization': 'Bearer ' + authToken, withCredentials: true}} :
+            {withCredentials: true}
+        ;
         // @ts-ignore
-        this.notificationListener = new window.EventSourcePolyfill(url, !this._.isNil(authToken) ? {headers: {'Authorization': 'Bearer ' + authToken}} : undefined);
+        this.notificationListener = new EventSource(url, options);
         this.notificationListener.onopen = () => {
             this.logger.info('Registered to notification service!');
             this.eventAggregator.publish('toast',
@@ -79,27 +81,16 @@ class NotificationService extends BasicService {
                 }
             );
         };
-        this.notificationListener.onerror = (notification) => {
-            let message = notification.message;
-            // @ts-ignore
-            if (notification.readyState === window.EventSourcePolyfill.CLOSED) {
-                message = 'alerts.notificationService.connectionClosed';
-                this.eventAggregator.publish('toast',
-                    {
-                        biIcon: 'bell-slash',
-                        title: 'alerts.notificationService.name',
-                        dismissible: true,
-                        body: 'alerts.notificationService.connectionClosed'
-                    }
-                );
-            }
-            //easily allow logging of other events
-            if (message) {
-                this.logger.error(message);
-            }
-            if (notification.type === 'error') {
-                this.handleConnectionError();
-            }
+        this.notificationListener.onerror = () => {
+            this.removeNotificationListener();
+            this.eventAggregator.publish('toast',
+                {
+                    biIcon: 'bell-slash',
+                    title: 'alerts.notificationService.name',
+                    dismissible: true,
+                    body: 'alerts.notificationService.connectionClosed'
+                }
+            );
         };
         this.notificationListener.onmessage = notification => {
             this.notificationCallback(notification);
@@ -112,17 +103,6 @@ class NotificationService extends BasicService {
                 }, false);
             }
         }
-    }
-
-    @catchError('app-alert', {
-        id: 'notificationService.noConnection',
-        type: 'danger',
-        message: 'alerts.notificationService.noConnection',
-        dismissible: false
-    })
-    handleConnectionError() {
-        this.removeNotificationListener();
-        throw new Error('Could not connect to notification service! Is the server running and reachable?');
     }
 
     /**
@@ -138,6 +118,10 @@ class NotificationService extends BasicService {
             }
             this.logger.info('Notification listener removed!');
         }
+    }
+
+    async close() {
+        this.removeNotificationListener();
     }
 
     notificationCallback = (notification) => {
@@ -158,7 +142,7 @@ class NotificationService extends BasicService {
                         body: 'alerts.notifications.model.message',
                         biIcon: modelUtilities.getIconByType(modelType),
                         autohide: true,
-                        dismissible: false,
+                        delay: 3000,
                         timestamp: new Date(notificationData.dateTimeSent)
                     });
                 }

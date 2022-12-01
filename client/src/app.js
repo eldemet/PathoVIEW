@@ -109,7 +109,7 @@ export class App extends BasicViewRouter {
         }));
         await this.contextService.initialize(this.authService.getUserId());
         this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
-        this.notificationService.registerNotificationListener(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
+        await this.notificationService.initialize(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {
                 this.eventAggregator.publish('toast', {
