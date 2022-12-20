@@ -1,5 +1,6 @@
-'use strict';
-const logger = require('utilities-node/src/utilities/logger')(module);
+import Logger from 'utilities-node/src/utilities/logger.js';
+
+const logger = new Logger(import.meta);
 
 /**
  * @module paths/keycloak-admin/role
@@ -8,7 +9,7 @@ const logger = require('utilities-node/src/utilities/logger')(module);
  * @param {Function} getApiDoc
  * @param {KeycloakAdminService} kcAdminService
  */
-module.exports = function(config, getApiDoc, kcAdminService) {
+export default function(config, getApiDoc, kcAdminService) {
 
     let operations = {
         GET: logger.catchErrors(GET)

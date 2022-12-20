@@ -1,16 +1,16 @@
-'use strict';
-const queryString = require('query-string');
-const fetch = require('node-fetch');
-const createError = require('http-errors');
-const logger = require('utilities-node/src/utilities/logger')(module);
-const {loadFile} = require('utilities-node/src/utilities/fs');
+import queryString from 'query-string';
+import createError from 'http-errors';
+import {loadFile} from 'utilities-node/src/utilities/fs.js';
+import Logger from 'utilities-node/src/utilities/logger.js';
+
+const logger = new Logger(import.meta);
 
 /**
  * @module paths/weather/current
  * @category paths
  * @param {ConfigWithAdditions} config
  */
-module.exports = function(config) {
+export default function(config) {
 
     const owmapikey = loadFile(config.server.openWeatherMapApiKeyFile);
 

@@ -1,10 +1,11 @@
-'use strict';
-const _ = require('lodash');
-const fs = require('fs');
-const path = require('path');
-const jsonSchemaHelper = require('utilities-node/src/utilities/jsonSchema');
-const logger = require('utilities-node/src/utilities/logger')(module);
-const {loadFile} = require('utilities-node/src/utilities/fs');
+import fs from 'node:fs';
+import path from 'node:path';
+import _ from 'lodash';
+import {dereferenceAndMergeSchema} from 'utilities-node/src/utilities/jsonSchema.js';
+import {loadFile} from 'utilities-node/src/utilities/fs.js';
+import Logger from 'utilities-node/src/utilities/logger.js';
+
+const logger = new Logger(import.meta);
 
 let uiSchemas;
 
@@ -21,7 +22,7 @@ async function initializeUISchemas(schemaDirectory) {
             let filename = _.upperFirst(_.camelCase(path.basename(file, ext)));
             let schema = loadFile([schemaDirectory, file]);
             try {
-                schema = await jsonSchemaHelper.dereferenceAndMergeSchema(schema, schemaDirectory);
+                schema = await dereferenceAndMergeSchema(schema, schemaDirectory);
                 uiSchemas[filename] = schema;
             } catch (error) {
                 logger.debug(error.message);
@@ -37,7 +38,7 @@ async function initializeUISchemas(schemaDirectory) {
  * @param {Config} config
  * @param {Function} getApiDoc
  */
-module.exports = function(config, getApiDoc) {
+export default function(config, getApiDoc) {
 
     let operations = {
         GET: logger.catchErrors(GET)

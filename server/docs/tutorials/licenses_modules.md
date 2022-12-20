@@ -2,10 +2,10 @@
 
 ## Summary
 
-* MIT: 390
+* MIT: 386
 * Apache-2.0: 82
 * ISC: 52
-* BSD-2-Clause: 13
+* BSD-2-Clause: 12
 * BSD-3-Clause: 9
 * BSD-3-Clause-Clear: 3
 * CC0-1.0: 2
@@ -49,75 +49,75 @@
     - licenses: Apache-2.0
     - description: Helper functions
     - copyright: none
- - **[@aws-sdk/abort-controller@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/abort-controller@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A simple abort controller library
     - copyright: none
- - **[@aws-sdk/client-cognito-identity@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-cognito-identity@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sso-oidc@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sso-oidc@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sso@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sso@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sts@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sts@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/config-resolver@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/config-resolver@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/config-resolver/latest.svg)](https://www.npmjs.com/package/@aws-sdk/config-resolver) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/config-resolver.svg)](https://www.npmjs.com/package/@aws-sdk/config-resolver)
     - copyright: none
- - **[@aws-sdk/credential-provider-cognito-identity@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-cognito-identity@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-cognito-identity/latest.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-cognito-identity.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity)
     - copyright: none
- - **[@aws-sdk/credential-provider-env@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-env@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from known environment variables
     - copyright: none
- - **[@aws-sdk/credential-provider-imds@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-imds@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service
     - copyright: none
- - **[@aws-sdk/credential-provider-ini@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-ini@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config
     - copyright: none
- - **[@aws-sdk/credential-provider-node@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-node@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from a Node.JS environment. 
     - copyright: none
- - **[@aws-sdk/credential-provider-process@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-process@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config
     - copyright: none
- - **[@aws-sdk/credential-provider-sso@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-sso@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials
     - copyright: none
- - **[@aws-sdk/credential-provider-web-identity@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-web-identity@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that calls STS assumeRole for temporary AWS credentials
     - copyright: none
- - **[@aws-sdk/credential-providers@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-providers@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A collection of credential providers, without requiring service clients like STS, Cognito
     - copyright: none
- - **[@aws-sdk/fetch-http-handler@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/fetch-http-handler@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Provides a way to make requests
     - copyright: none
- - **[@aws-sdk/hash-node@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/hash-node@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/hash-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/hash-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/hash-node.svg)](https://www.npmjs.com/package/@aws-sdk/hash-node)
     - copyright: none
- - **[@aws-sdk/invalid-dependency@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/invalid-dependency@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/invalid-dependency/latest.svg)](https://www.npmjs.com/package/@aws-sdk/invalid-dependency) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/invalid-dependency.svg)](https://www.npmjs.com/package/@aws-sdk/invalid-dependency)
     - copyright: none
@@ -125,99 +125,99 @@
     - licenses: Apache-2.0
     - description: Provides a function for detecting if an argument is an ArrayBuffer
     - copyright: none
- - **[@aws-sdk/middleware-content-length@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-content-length@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-content-length.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-content-length)
     - copyright: none
- - **[@aws-sdk/middleware-endpoint@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-endpoint@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-endpoint/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-endpoint) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-endpoint.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-endpoint)
     - copyright: none
- - **[@aws-sdk/middleware-host-header@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-host-header@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-host-header/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-host-header) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-host-header.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-host-header)
     - copyright: none
- - **[@aws-sdk/middleware-logger@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-logger@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-logger/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-logger) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-logger.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-logger)
     - copyright: none
- - **[@aws-sdk/middleware-recursion-detection@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-recursion-detection@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-recursion-detection/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-recursion-detection) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-recursion-detection.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-recursion-detection)
     - copyright: none
- - **[@aws-sdk/middleware-retry@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-retry@3.229.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-retry/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-retry) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-retry.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-retry)
     - copyright: none
- - **[@aws-sdk/middleware-sdk-sts@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-sdk-sts@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-sdk-sts/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-sdk-sts) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-sdk-sts.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-sdk-sts)
     - copyright: none
- - **[@aws-sdk/middleware-serde@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-serde@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-serde/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-serde) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-serde.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-serde)
     - copyright: none
- - **[@aws-sdk/middleware-signing@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-signing@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-signing/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-signing) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-signing.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-signing)
     - copyright: none
- - **[@aws-sdk/middleware-stack@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-stack@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Provides a means for composing multiple middleware functions into a single handler
     - copyright: none
- - **[@aws-sdk/middleware-user-agent@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-user-agent@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-user-agent/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-user-agent) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-user-agent.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-user-agent)
     - copyright: none
- - **[@aws-sdk/node-config-provider@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/node-config-provider@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Load config default values from ini config files and environmental variable
     - copyright: none
- - **[@aws-sdk/node-http-handler@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/node-http-handler@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Provides a way to make requests
     - copyright: none
- - **[@aws-sdk/property-provider@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/property-provider@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/property-provider/latest.svg)](https://www.npmjs.com/package/@aws-sdk/property-provider) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/property-provider.svg)](https://www.npmjs.com/package/@aws-sdk/property-provider)
     - copyright: none
- - **[@aws-sdk/protocol-http@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/protocol-http@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/protocol-http/latest.svg)](https://www.npmjs.com/package/@aws-sdk/protocol-http) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/protocol-http.svg)](https://www.npmjs.com/package/@aws-sdk/protocol-http)
     - copyright: none
- - **[@aws-sdk/querystring-builder@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/querystring-builder@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/querystring-builder/latest.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-builder) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/querystring-builder.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-builder)
     - copyright: none
- - **[@aws-sdk/querystring-parser@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/querystring-parser@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/querystring-parser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/querystring-parser.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-parser)
     - copyright: none
- - **[@aws-sdk/service-error-classification@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/service-error-classification@3.229.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/service-error-classification/latest.svg)](https://www.npmjs.com/package/@aws-sdk/service-error-classification) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/service-error-classification.svg)](https://www.npmjs.com/package/@aws-sdk/service-error-classification)
     - copyright: none
- - **[@aws-sdk/shared-ini-file-loader@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/shared-ini-file-loader@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/shared-ini-file-loader/latest.svg)](https://www.npmjs.com/package/@aws-sdk/shared-ini-file-loader) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/shared-ini-file-loader.svg)](https://www.npmjs.com/package/@aws-sdk/shared-ini-file-loader)
     - copyright: none
- - **[@aws-sdk/signature-v4@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/signature-v4@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A standalone implementation of the AWS Signature V4 request signing algorithm
     - copyright: none
- - **[@aws-sdk/smithy-client@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/smithy-client@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/smithy-client/latest.svg)](https://www.npmjs.com/package/@aws-sdk/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/smithy-client.svg)](https://www.npmjs.com/package/@aws-sdk/smithy-client)
     - copyright: none
- - **[@aws-sdk/token-providers@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/token-providers@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A collection of token providers
     - copyright: none
- - **[@aws-sdk/types@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/types@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Types for the AWS SDK
     - copyright: none
- - **[@aws-sdk/url-parser@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/url-parser@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/url-parser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/url-parser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/url-parser.svg)](https://www.npmjs.com/package/@aws-sdk/url-parser)
     - copyright: none
@@ -241,15 +241,15 @@
     - licenses: Apache-2.0
     - description: Utilities package for configuration providers
     - copyright: none
- - **[@aws-sdk/util-defaults-mode-browser@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-defaults-mode-browser@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-defaults-mode-browser.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-browser)
     - copyright: none
- - **[@aws-sdk/util-defaults-mode-node@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-defaults-mode-node@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-defaults-mode-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-defaults-mode-node.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-node)
     - copyright: none
- - **[@aws-sdk/util-endpoints@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-endpoints@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Utilities to help with endpoint resolution
     - copyright: none
@@ -261,19 +261,23 @@
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-locate-window/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-locate-window) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-locate-window.svg)](https://www.npmjs.com/package/@aws-sdk/util-locate-window)
     - copyright: none
- - **[@aws-sdk/util-middleware@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-middleware@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Shared utilities for to be used in middleware packages.
+    - copyright: none
+ - **[@aws-sdk/util-retry@3.229.0](https://github.com/aws/aws-sdk-js-v3)**
+    - licenses: Apache-2.0
+    - description: Shared retry utilities to be used in middleware packages.
     - copyright: none
  - **[@aws-sdk/util-uri-escape@3.201.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-uri-escape/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-uri-escape) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-uri-escape.svg)](https://www.npmjs.com/package/@aws-sdk/util-uri-escape)
     - copyright: none
- - **[@aws-sdk/util-user-agent-browser@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-user-agent-browser@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-user-agent-browser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-browser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-user-agent-browser.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-browser)
     - copyright: none
- - **[@aws-sdk/util-user-agent-node@3.215.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-user-agent-node@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-user-agent-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-user-agent-node.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-node)
     - copyright: none
@@ -293,11 +297,11 @@
     - licenses: MIT
     - description: Tools for debugging your node.js modules and event loop
     - copyright: Copyright (c) 2015 Arnout Kazemier, Martijn Swaagman, the Contributors.
- - **[@eslint/eslintrc@1.3.3](https://github.com/eslint/eslintrc)**
+ - **[@eslint/eslintrc@1.4.0](https://github.com/eslint/eslintrc)**
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@humanwhocodes/config-array@0.11.7](https://github.com/humanwhocodes/config-array)**
+ - **[@humanwhocodes/config-array@0.11.8](https://github.com/humanwhocodes/config-array)**
     - licenses: Apache-2.0
     - description: Glob-based configuration matching.
     - copyright: none
@@ -313,7 +317,7 @@
     - licenses: MIT
     - description: Throw better errors.
     - copyright: Copyright (c) 2015 James Messinger
- - **[@keycloak/keycloak-admin-client@20.0.1](https://github.com/keycloak/keycloak-nodejs-admin-client)**
+ - **[@keycloak/keycloak-admin-client@20.0.2](https://github.com/keycloak/keycloak-nodejs-admin-client)**
     - licenses: Apache-2.0
     - description: keycloak admin client
     - copyright: none
@@ -337,7 +341,7 @@
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
     - copyright: none
- - **[@types/node@18.11.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@18.11.17](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
     - copyright: none
@@ -453,7 +457,7 @@
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: Copyright (c) 2014-present Matt Zabriskie
- - **[axios@1.1.3](https://github.com/axios/axios)**
+ - **[axios@1.2.1](https://github.com/axios/axios)**
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: none
@@ -541,7 +545,7 @@
     - licenses: MIT
     - description: Get callsites from the V8 stack trace API
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[camelize-ts@2.1.1](https://github.com/kbrabrand/camelize-ts)**
+ - **[camelize-ts@2.2.0](https://github.com/kbrabrand/camelize-ts)**
     - licenses: MIT
     - description: Recursive camel casing of object property names with proper typing
     - copyright: none
@@ -557,7 +561,7 @@
     - licenses: MIT
     - description: Terminal string styling done right
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[chromedriver@107.0.3](https://github.com/giggio/node-chromedriver)**
+ - **[chromedriver@108.0.0](https://github.com/giggio/node-chromedriver)**
     - licenses: Apache-2.0
     - description: ChromeDriver for Selenium
     - copyright: none
@@ -601,7 +605,7 @@
     - licenses: MIT
     - description: the complete solution for node.js command-line programs
     - copyright: Copyright (c) 2011 TJ Holowaychuk <tj@vision-media.ca>
- - **[compare-versions@5.0.1](https://github.com/omichelsen/compare-versions)**
+ - **[compare-versions@5.0.3](https://github.com/omichelsen/compare-versions)**
     - licenses: MIT
     - description: Compare semver version strings to find greater, equal or lesser.
     - copyright: Copyright (c) 2015-2021 Ole Michelsen
@@ -685,10 +689,10 @@
     - licenses: MIT
     - description: backport of util.debuglog from node v0.11
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.
- - **[decode-uri-component@0.2.0](https://github.com/SamVerschueren/decode-uri-component)**
+ - **[decode-uri-component@0.2.2](https://github.com/SamVerschueren/decode-uri-component)**
     - licenses: MIT
     - description: A better decodeURIComponent
-    - copyright: Copyright (c) Sam Verschueren <sam.verschueren@gmail.com> (github.com/SamVerschueren)
+    - copyright: Copyright (c) 2017, Sam Verschueren <sam.verschueren@gmail.com> (github.com/SamVerschueren)
  - **[decompress-response@3.3.0](https://github.com/sindresorhus/decompress-response)**
     - licenses: MIT
     - description: Decompress a HTTP response if needed
@@ -725,10 +729,6 @@
     - licenses: MIT
     - description: delegate methods and accessors to another property
     - copyright: Copyright (c) 2015 TJ Holowaychuk <tj@vision-media.ca>
- - **[denque@2.1.0](https://github.com/invertase/denque)**
-    - licenses: Apache-2.0
-    - description: The fastest javascript implementation of a double-ended queue. Used by the official Redis, MongoDB, MariaDB & MySQL libraries for Node.js and many other libraries. Maintains compatability with deque.
-    - copyright: none
  - **[depd@2.0.0](https://github.com/dougwilson/nodejs-depd)**
     - licenses: MIT
     - description: Deprecate all the things
@@ -825,7 +825,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.28.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.30.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -861,7 +861,7 @@
     - licenses: MIT
     - description: express middleware that normalizes incoming query param names
     - copyright: Copyright (c) 2016 Kogo Software LLC
- - **[express-openapi@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/express-openapi)**
+ - **[express-openapi@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/express-openapi)**
     - licenses: MIT
     - description: An unopinionated OpenAPI framework for express
     - copyright: Copyright (c) 2018 Kogo Softare LLC
@@ -905,7 +905,7 @@
     - licenses: MIT
     - description: Validate XML, Parse XML, Build XML without C/C++ based libraries
     - copyright: Copyright (c) 2017 Amit Kumar Gupta
- - **[fastq@1.13.0](https://github.com/mcollina/fastq)**
+ - **[fastq@1.14.0](https://github.com/mcollina/fastq)**
     - licenses: ISC
     - description: Fast, in memory work queue
     - copyright: Copyright (c) 2015-2020, Matteo Collina <matteo.collina@gmail.com>
@@ -941,10 +941,10 @@
     - licenses: MIT
     - description: Convert a string to a valid safe filename
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[filter-obj@1.1.0](https://github.com/sindresorhus/filter-obj)**
+ - **[filter-obj@5.1.0](https://github.com/sindresorhus/filter-obj)**
     - licenses: MIT
     - description: Filter object keys and values into a new object
-    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
  - **[finalhandler@1.2.0](https://github.com/pillarjs/finalhandler)**
     - licenses: MIT
     - description: Node.js final http responder
@@ -985,7 +985,7 @@
     - licenses: MIT
     - description: Require constants across node and the browser
     - copyright: Copyright (c) 2018 Mathias Buus
- - **[fs-routes@11.0.1](https://github.com/kogosoftwarellc/open-api/tree/master/packages/fs-routes)**
+ - **[fs-routes@12.0.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/fs-routes)**
     - licenses: MIT
     - description: Scan a filesystem for route files.
     - copyright: Copyright (c) 2018 Kogo Softare LLC
@@ -1037,7 +1037,7 @@
     - licenses: ISC
     - description: a little globber
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[globals@13.18.0](https://github.com/sindresorhus/globals)**
+ - **[globals@13.19.0](https://github.com/sindresorhus/globals)**
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1121,7 +1121,7 @@
     - licenses: BSD-3-Clause
     - description: Read/write IEEE754 floating point numbers from/to a Buffer or array-like object
     - copyright: Copyright 2008 Fair Oaks Labs, Inc.
- - **[ignore@5.2.0](https://github.com/kaelzhang/node-ignore)**
+ - **[ignore@5.2.4](https://github.com/kaelzhang/node-ignore)**
     - licenses: MIT
     - description: Ignore is a manager and filter for .gitignore rules, the one used by eslint, gitbook and many others.
     - copyright: Copyright (c) 2013 Kael Zhang <i@kael.me>, contributors. http://kael.me/
@@ -1277,7 +1277,7 @@
     - licenses: Apache-2.0
     - description: Convert a JSON Web Key to a PEM
     - copyright: none
- - **[kareem@2.4.1](https://github.com/vkarpov15/kareem)**
+ - **[kareem@2.5.0](https://github.com/vkarpov15/kareem)**
     - licenses: Apache-2.0
     - description: Next-generation take on pre/post function hooks
     - copyright: none
@@ -1393,11 +1393,11 @@
     - licenses: MIT
     - description: Recursively mkdir, like `mkdir -p`
     - copyright: Copyright 2010 James Halliday (mail@substack.net)
- - **[mongodb-connection-string-url@2.5.4](https://github.com/mongodb-js/mongodb-connection-string-url)**
+ - **[mongodb-connection-string-url@2.6.0](https://github.com/mongodb-js/mongodb-connection-string-url)**
     - licenses: Apache-2.0
     - description: MongoDB connection strings, based on the WhatWG URL API
     - copyright: none
- - **[mongodb@4.11.0](https://github.com/mongodb/node-mongodb-native)**
+ - **[mongodb@4.12.1](https://github.com/mongodb/node-mongodb-native)**
     - licenses: Apache-2.0
     - description: The official MongoDB driver for Node.js
     - copyright: none
@@ -1405,7 +1405,7 @@
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose@6.7.4](https://github.com/Automattic/mongoose)**
+ - **[mongoose@6.8.1](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -1457,10 +1457,6 @@
     - licenses: MIT
     - description: HTTP content negotiation
     - copyright: Copyright (c) 2012-2014 Federico Romero. Copyright (c) 2012-2014 Isaac Z. Schlueter. Copyright (c) 2014-2015 Douglas Christopher Wilson
- - **[node-fetch@2.6.7](https://github.com/bitinn/node-fetch)**
-    - licenses: MIT
-    - description: A light-weight module that brings window.fetch to node.js
-    - copyright: Copyright (c) 2016 David Frank
  - **[nopt@4.0.3](https://github.com/npm/nopt)**
     - licenses: ISC
     - description: Option parsing for Node, supporting types, shorthands, etc. Used by npm.
@@ -1525,39 +1521,39 @@
     - licenses: MIT
     - description: Run the supplied function exactly one time (once)
     - copyright: Copyright (c) 2015 Unshift.io, Arnout Kazemier,  the Contributors.
- - **[openapi-default-setter@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-default-setter)**
+ - **[openapi-default-setter@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-default-setter)**
     - licenses: MIT
     - description: Sets default values in request properties according to defaults defined in openapi parameter lists.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-framework@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-framework)**
+ - **[openapi-framework@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-framework)**
     - licenses: MIT
     - description: An OpenAPI framework for any web framework
     - copyright: Copyright (c) 2018 Kogo Softare LLC
- - **[openapi-jsonschema-parameters@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-jsonschema-parameters)**
+ - **[openapi-jsonschema-parameters@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-jsonschema-parameters)**
     - licenses: MIT
     - description: Converts openapi parameters to a jsonschema format.
     - copyright: Copyright (c) 2016 Kogo Software LLC
- - **[openapi-request-coercer@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-coercer)**
+ - **[openapi-request-coercer@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-coercer)**
     - licenses: MIT
     - description: Coerce request properties according to an openapi parameter list.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-request-validator@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-validator)**
+ - **[openapi-request-validator@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-request-validator)**
     - licenses: MIT
     - description: Validate request properties against an OpenAPI spec.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-response-validator@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-response-validator)**
+ - **[openapi-response-validator@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-response-validator)**
     - licenses: MIT
     - description: Validate a response according to an openapi schema.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-schema-validator@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-schema-validator)**
+ - **[openapi-schema-validator@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-schema-validator)**
     - licenses: MIT
     - description: A validator for OpenAPI documents.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-security-handler@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-security-handler)**
+ - **[openapi-security-handler@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-security-handler)**
     - licenses: MIT
     - description: A library to process OpenAPI security definitions in parallel.
     - copyright: Copyright (c) 2018 Kogo Software LLC
- - **[openapi-types@11.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-types)**
+ - **[openapi-types@12.1.0](https://github.com/kogosoftwarellc/open-api/tree/master/packages/openapi-types)**
     - licenses: MIT
     - description: Types for OpenAPI documents.
     - copyright: Copyright (c) 2018 Kogo Softare LLC
@@ -1633,7 +1629,7 @@
     - licenses: MIT
     - description: Express style path to RegExp utility
     - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
- - **[pathoview-server@0.5.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-server@0.6.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW server application
     - copyright: none
@@ -1697,10 +1693,10 @@
     - licenses: BSD-3-Clause
     - description: A querystring parser that supports nesting and arrays, with a depth limit
     - copyright: Copyright (c) 2014, Nathan LaFreniere and other [contributors](https://github.com/ljharb/qs/graphs/contributors). All rights reserved.
- - **[query-string@7.1.1](https://github.com/sindresorhus/query-string)**
+ - **[query-string@8.0.3](https://github.com/sindresorhus/query-string)**
     - licenses: MIT
     - description: Parse and stringify URL query strings
-    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (http://sindresorhus.com)
+    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
  - **[queue-microtask@1.2.3](https://github.com/feross/queue-microtask)**
     - licenses: MIT
     - description: fast, tiny `queueMicrotask` shim for modern engines
@@ -1973,10 +1969,6 @@
     - licenses: MIT
     - description: HTTP status utility
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2016 Douglas Christopher Wilson <doug@somethingdoug.com>
- - **[strict-uri-encode@2.0.0](https://github.com/kevva/strict-uri-encode)**
-    - licenses: MIT
-    - description: A stricter URI encode adhering to RFC 3986
-    - copyright: Copyright (c) Kevin Martensson <kevinmartensson@gmail.com> (github.com/kevva)
  - **[string-width@1.0.2](https://github.com/sindresorhus/string-width)**
     - licenses: MIT
     - description: Get the visual width of a string - the number of columns required to display it
@@ -2069,10 +2061,6 @@
     - licenses: MIT
     - description: Convert a string of words to a JavaScript identifier
     - copyright: Copyright (c) 2016 Douglas Christopher Wilson <doug@somethingdoug.com>
- - **[tr46@0.0.3](https://github.com/Sebmaster/tr46.js)**
-    - licenses: MIT
-    - description: An implementation of the Unicode TR46 spec
-    - copyright: none
  - **[tr46@3.0.0](https://github.com/jsdom/tr46)**
     - licenses: MIT
     - description: An implementation of the Unicode UTS #46: Unicode IDNA Compatibility Processing
@@ -2165,7 +2153,7 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@3.11.6](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@4.0.1](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework, helper functions,  middleware and services
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -2205,7 +2193,7 @@
     - licenses: MIT
     - description: Validates if a value is a number.
     - copyright: Copyright (c) 2014 Athan Reines.
- - **[value-converters@1.4.0](https://gitlab.cc-asp.fraunhofer.de/knecht/value-converters)**
+ - **[value-converters@1.4.1](https://gitlab.cc-asp.fraunhofer.de/knecht/value-converters)**
     - licenses: BSD-3-Clause-Clear
     - description: extended filtering function, sorting, localization, dissolving urls and reusable validators
     - copyright: Copyright (c) 2021, Fraunhofer IAO. All rights reserved.
@@ -2217,10 +2205,6 @@
     - licenses: MIT
     - description: Write buffer
     - copyright: Copyright Fedor Indutny, 2014.
- - **[webidl-conversions@3.0.1](https://github.com/jsdom/webidl-conversions)**
-    - licenses: BSD-2-Clause
-    - description: Implements the WebIDL algorithms for converting to and from JavaScript values
-    - copyright: Copyright (c) 2014, Domenic Denicola. All rights reserved.
  - **[webidl-conversions@7.0.0](https://github.com/jsdom/webidl-conversions)**
     - licenses: BSD-2-Clause
     - description: Implements the WebIDL algorithms for converting to and from JavaScript values
@@ -2229,10 +2213,6 @@
     - licenses: MIT
     - description: An implementation of the WHATWG URL Standard's URL API and parsing machinery
     - copyright: Copyright (c) Sebastian Mayr
- - **[whatwg-url@5.0.0](https://github.com/jsdom/whatwg-url)**
-    - licenses: MIT
-    - description: An implementation of the WHATWG URL Standard's URL API and parsing machinery
-    - copyright: Copyright (c) 2015–2016 Sebastian Mayr
  - **[which@2.0.2](https://github.com/isaacs/node-which)**
     - licenses: ISC
     - description: Like which(1) unix command. Find the first instance of an executable in the PATH.

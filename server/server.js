@@ -1,12 +1,12 @@
-'use strict';
 /*******************************************************************
  *   server.js
  *******************************************************************/
-global.__basedir = __dirname;
-const framework = require('utilities-node/src/framework');
-const fs = require('fs');
-const idnEmail = require('ajv-formats-draft2019/formats/idn-email');
-const kcAdminService = new (require('./services/keycloak-admin').KeycloakAdminService)();
+import idnEmail from 'ajv-formats-draft2019/formats/idn-email.js';
+import {initialize} from 'utilities-node/src/framework.js';
+import {isDirectory} from 'utilities-node/src/utilities/fs.js'
+import {KeycloakAdminService} from './services/keycloak-admin.js'
+
+const kcAdminService = new KeycloakAdminService();
 
 const openApi = {
     apiDoc: {
@@ -87,7 +87,7 @@ const configAppDefaults = {
     }
 };
 
-if (fs.existsSync('client')) {
+if (isDirectory('client')) {
     configAppDefaults.client = {
         directory: 'client',
         endpoint: ''
@@ -110,4 +110,4 @@ const shutdownAddOnsCallback = async() => {
     await kcAdminService.close();
 };
 
-framework.initialize({openApi, configAppDefaults, configAdditionsSchemaPath, additionalDbSchemas, initializeAddOnsCallback, shutdownAddOnsCallback});
+initialize({openApi, configAppDefaults, configAdditionsSchemaPath, additionalDbSchemas, initializeAddOnsCallback, shutdownAddOnsCallback});

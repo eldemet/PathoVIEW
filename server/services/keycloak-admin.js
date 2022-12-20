@@ -1,12 +1,10 @@
-'use strict';
 /**
- * @module etcd
+ * @module keycloak-admin
  * @category services
  */
-const logger = require('utilities-node/src/utilities/logger')(module);
-const _ = require('lodash');
-const {loadFile} = require('utilities-node/src/utilities/fs');
-const {BasicObject} = require('utilities-node/src/services/_prototypes');
+import _ from 'lodash';
+import {loadFile} from 'utilities-node/src/utilities/fs.js';
+import {BasicObject} from 'utilities-node/src/services/_prototypes.js';
 
 /**
  * @extends BasicObject
@@ -35,7 +33,7 @@ class KeycloakAdminService extends BasicObject {
         };
         await this.kcAdminClient.auth(credentials);
         const refreshAccessToken = () => {
-            this.interval = setTimeout(async() => {
+            this.interval = setTimeout(async () => {
                 try {
                     await this.kcAdminClient.auth(credentials);
                     this.logger.verbose('Access token for Keycloak admin service refreshed!');
@@ -46,12 +44,12 @@ class KeycloakAdminService extends BasicObject {
             }, 5 * 1000 * 60);
         };
         refreshAccessToken();
-        logger.info('Successfully initialized Keycloak admin service!');
+        this.logger.info('Successfully initialized Keycloak admin service!');
     }
 
     async close() {
         clearTimeout(this.interval);
-        logger.info('Successfully closed Keycloak admin service!');
+        this.logger.info('Successfully closed Keycloak admin service!');
     }
 
     async getUsers() {
@@ -80,4 +78,4 @@ class KeycloakAdminService extends BasicObject {
 
 }
 
-module.exports = {KeycloakAdminService};
+export {KeycloakAdminService};
