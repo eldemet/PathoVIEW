@@ -26,11 +26,6 @@ body {
     background-color: $blue !important;
 }
 
-nav-bar nav {
-    border-radius: var(--bs-border-radius-sm) !important;
-    margin-bottom: 0.25rem !important;
-}
-
 span.d-block.d-md-none.text-primary {
     text-transform: uppercase;
     border-bottom: solid $primary 2px;

@@ -1,21 +1,20 @@
 <template>
 
     <require from="app.scss"></require>
-    <require from="library-aurelia/src/resources/attributes/bs-color-scheme"></require>
     <require from="library-aurelia/src/resources/elements/nav-bar"></require>
     <require from="library-aurelia/src/resources/elements/toolbar/toolbar"></require>
     <require from="library-aurelia/src/resources/elements/toast"></require>
     <require from="library-aurelia/src/resources/value-converters/format-number"></require>
     <require from="leaflet/dist/leaflet.css"></require>
     <require from="resources/elements/alert-flexible"></require>
-    <require from="resources/elements/toolbar/toolbar-element-darkmode-switch-adapted"></require>
 
-    <nav-bar class="bg-blue"
+    <nav-bar class="bg-body-tertiary rounded mb-1"
+             display-dark-mode-switch.bind="true"
              display-is-navigating.bind="true"
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
         <div class="dropdown" if.bind="!authService.userInfo.locale">
-            <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="language-menu"
+            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-translate"></i>
             </button>
@@ -31,7 +30,7 @@
         </div>
 
         <div class="dropdown" if.bind="contextService.emergencyEvents">
-            <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="emergency-menu"
+            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-hospital-fill"></i>
                 <span if.bind="contextService.currentEmergencyEvent">${contextService.currentEmergencyEvent.name}</span>
@@ -57,7 +56,7 @@
         </div>
 
         <div class="dropdown">
-            <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="devices-menu"
+            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="devices-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i if.bind="contextService.currentDevice"
                    class="${deviceUtilities.getDeviceIcon(contextService.currentDevice)}"></i>
@@ -82,11 +81,9 @@
             </ul>
         </div>
 
-        <toolbar-element-darkmode-switch-adapted></toolbar-element-darkmode-switch-adapted>
-
         <div class="dropdown"
              if.bind="authService.userInfo">
-            <button class="btn btn-${isDarkMode ? 'dark' : 'light'} dropdown-toggle" type="button" id="profile-menu"
+            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-circle"></i>
             </button>
@@ -117,6 +114,6 @@
     <toast event="toast" position-class="bottom-0 start-50 translate-middle-x mb-5"></toast>
     <alert-flexible event="app-alert"></alert-flexible>
 
-    <router-view class="overflow-auto rounded" bs-color-scheme.bind="{type: 'bg', setText: true, bw: true}"></router-view>
+    <router-view class="overflow-auto rounded bg-body"></router-view>
 
 </template>
