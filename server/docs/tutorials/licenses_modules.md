@@ -53,27 +53,27 @@
     - licenses: Apache-2.0
     - description: A simple abort controller library
     - copyright: none
- - **[@aws-sdk/client-cognito-identity@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-cognito-identity@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sso-oidc@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sso-oidc@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sso@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sso@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sts@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sts@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/config-resolver@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/config-resolver@3.234.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/config-resolver/latest.svg)](https://www.npmjs.com/package/@aws-sdk/config-resolver) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/config-resolver.svg)](https://www.npmjs.com/package/@aws-sdk/config-resolver)
     - copyright: none
- - **[@aws-sdk/credential-provider-cognito-identity@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-cognito-identity@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-cognito-identity/latest.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-cognito-identity.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity)
     - copyright: none
@@ -85,11 +85,11 @@
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service
     - copyright: none
- - **[@aws-sdk/credential-provider-ini@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-ini@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config
     - copyright: none
- - **[@aws-sdk/credential-provider-node@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-node@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from a Node.JS environment. 
     - copyright: none
@@ -97,7 +97,7 @@
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config
     - copyright: none
- - **[@aws-sdk/credential-provider-sso@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-sso@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials
     - copyright: none
@@ -105,7 +105,7 @@
     - licenses: Apache-2.0
     - description: AWS credential provider that calls STS assumeRole for temporary AWS credentials
     - copyright: none
- - **[@aws-sdk/credential-providers@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-providers@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A collection of credential providers, without requiring service clients like STS, Cognito
     - copyright: none
@@ -145,7 +145,7 @@
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-recursion-detection/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-recursion-detection) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-recursion-detection.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-recursion-detection)
     - copyright: none
- - **[@aws-sdk/middleware-retry@3.229.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-retry@3.235.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-retry/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-retry) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-retry.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-retry)
     - copyright: none
@@ -205,11 +205,11 @@
     - licenses: Apache-2.0
     - description: A standalone implementation of the AWS Signature V4 request signing algorithm
     - copyright: none
- - **[@aws-sdk/smithy-client@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/smithy-client@3.234.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/smithy-client/latest.svg)](https://www.npmjs.com/package/@aws-sdk/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/smithy-client.svg)](https://www.npmjs.com/package/@aws-sdk/smithy-client)
     - copyright: none
- - **[@aws-sdk/token-providers@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/token-providers@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A collection of token providers
     - copyright: none
@@ -241,15 +241,15 @@
     - licenses: Apache-2.0
     - description: Utilities package for configuration providers
     - copyright: none
- - **[@aws-sdk/util-defaults-mode-browser@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-defaults-mode-browser@3.234.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-defaults-mode-browser.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-browser)
     - copyright: none
- - **[@aws-sdk/util-defaults-mode-node@3.231.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-defaults-mode-node@3.234.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-defaults-mode-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-defaults-mode-node.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-node)
     - copyright: none
- - **[@aws-sdk/util-endpoints@3.226.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-endpoints@3.245.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Utilities to help with endpoint resolution
     - copyright: none
@@ -297,7 +297,7 @@
     - licenses: MIT
     - description: Tools for debugging your node.js modules and event loop
     - copyright: Copyright (c) 2015 Arnout Kazemier, Martijn Swaagman, the Contributors.
- - **[@eslint/eslintrc@1.4.0](https://github.com/eslint/eslintrc)**
+ - **[@eslint/eslintrc@1.4.1](https://github.com/eslint/eslintrc)**
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -341,7 +341,7 @@
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
     - copyright: none
- - **[@types/node@18.11.17](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@18.11.18](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
     - copyright: none
@@ -389,7 +389,7 @@
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2017 Evgeny Poberezkin
- - **[ajv@8.11.2](https://github.com/ajv-validator/ajv)**
+ - **[ajv@8.12.0](https://github.com/ajv-validator/ajv)**
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2021 Evgeny Poberezkin
@@ -457,7 +457,7 @@
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: Copyright (c) 2014-present Matt Zabriskie
- - **[axios@1.2.1](https://github.com/axios/axios)**
+ - **[axios@1.2.2](https://github.com/axios/axios)**
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: none
@@ -505,7 +505,7 @@
     - licenses: MIT
     - description: Random number generator for browsers and node.js
     - copyright: Copyright Fedor Indutny, 2014.
- - **[bson@4.7.0](https://github.com/mongodb/js-bson)**
+ - **[bson@4.7.1](https://github.com/mongodb/js-bson)**
     - licenses: Apache-2.0
     - description: A bson parser for node.js and the browser
     - copyright: none
@@ -689,7 +689,7 @@
     - licenses: MIT
     - description: backport of util.debuglog from node v0.11
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.
- - **[decode-uri-component@0.2.2](https://github.com/SamVerschueren/decode-uri-component)**
+ - **[decode-uri-component@0.4.1](https://github.com/SamVerschueren/decode-uri-component)**
     - licenses: MIT
     - description: A better decodeURIComponent
     - copyright: Copyright (c) 2017, Sam Verschueren <sam.verschueren@gmail.com> (github.com/SamVerschueren)
@@ -825,7 +825,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.30.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.31.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -905,7 +905,7 @@
     - licenses: MIT
     - description: Validate XML, Parse XML, Build XML without C/C++ based libraries
     - copyright: Copyright (c) 2017 Amit Kumar Gupta
- - **[fastq@1.14.0](https://github.com/mcollina/fastq)**
+ - **[fastq@1.15.0](https://github.com/mcollina/fastq)**
     - licenses: ISC
     - description: Fast, in memory work queue
     - copyright: Copyright (c) 2015-2020, Matteo Collina <matteo.collina@gmail.com>
@@ -1277,7 +1277,7 @@
     - licenses: Apache-2.0
     - description: Convert a JSON Web Key to a PEM
     - copyright: none
- - **[kareem@2.5.0](https://github.com/vkarpov15/kareem)**
+ - **[kareem@2.5.1](https://github.com/vkarpov15/kareem)**
     - licenses: Apache-2.0
     - description: Next-generation take on pre/post function hooks
     - copyright: none
@@ -1401,11 +1401,11 @@
     - licenses: Apache-2.0
     - description: The official MongoDB driver for Node.js
     - copyright: none
- - **[mongoose-lean-getters@0.3.5](https://github.com/mongoosejs/mongoose-lean-getters)**
+ - **[mongoose-lean-getters@0.3.6](https://github.com/mongoosejs/mongoose-lean-getters)**
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose@6.8.1](https://github.com/Automattic/mongoose)**
+ - **[mongoose@6.8.3](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -1693,7 +1693,7 @@
     - licenses: BSD-3-Clause
     - description: A querystring parser that supports nesting and arrays, with a depth limit
     - copyright: Copyright (c) 2014, Nathan LaFreniere and other [contributors](https://github.com/ljharb/qs/graphs/contributors). All rights reserved.
- - **[query-string@8.0.3](https://github.com/sindresorhus/query-string)**
+ - **[query-string@8.1.0](https://github.com/sindresorhus/query-string)**
     - licenses: MIT
     - description: Parse and stringify URL query strings
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1785,7 +1785,7 @@
     - licenses: MIT
     - description: Safer Node.js Buffer API
     - copyright: Copyright (c) Feross Aboukhadijeh
- - **[safe-stable-stringify@2.4.1](https://github.com/BridgeAR/safe-stable-stringify)**
+ - **[safe-stable-stringify@2.4.2](https://github.com/BridgeAR/safe-stable-stringify)**
     - licenses: MIT
     - description: Deterministic and safely JSON.stringify to quickly serialize JavaScript objects
     - copyright: Copyright (c) Ruben Bridgewater
@@ -1953,10 +1953,10 @@
     - licenses: MIT
     - description: Implementation of the SPDY protocol on node.js.
     - copyright: Copyright Fedor Indutny, 2015.
- - **[split-on-first@1.1.0](https://github.com/sindresorhus/split-on-first)**
+ - **[split-on-first@3.0.0](https://github.com/sindresorhus/split-on-first)**
     - licenses: MIT
     - description: Split a string on the first occurance of a given separator
-    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
  - **[sprintf-js@1.0.3](https://github.com/alexei/sprintf.js)**
     - licenses: BSD-3-Clause
     - description: JavaScript sprintf implementation

@@ -48,7 +48,7 @@ export default function(config, getApiDoc) {
 
     async function GET(req, res) {
         if (!uiSchemas) {
-            uiSchemas = await initializeUISchemas(path.join(global.__basedir, 'api/v1/components/ui-schemas'));
+            uiSchemas = await initializeUISchemas('api/v1/components/ui-schemas');
         }
         let schema = uiSchemas[_.upperFirst(_.camelCase(req.params.type))];
         res.validateAndSend(200, schema);
