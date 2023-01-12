@@ -6,7 +6,8 @@ import {AureliaFramework} from 'library-aurelia/src/framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {I18N} from 'aurelia-i18n';
-import {AuthService} from './services/auth-service';
+// @ts-ignore
+import {AuthServiceImplementation} from './services/auth-service-APP_TARGET';
 // @ts-ignore
 import environment from '../config/environment.json';
 import {ModelServiceAsync} from 'library-aurelia/src/services/model-service-async';
@@ -14,7 +15,7 @@ import {ModelServiceAsyncUISchema} from './services/model-service-async-ui-schem
 import {ModelServiceBasicSchema} from './services/model-service-basic-schema';
 
 export async function configure(aurelia) {
-    let authService = aurelia.container.get(AuthService);
+    let authService = aurelia.container.get(AuthServiceImplementation);
     await authService.initialize(environment.keycloak, environment.testing);
     if (authService?.userInfo?.locale) {
         AureliaCookie.set('lang', authService.userInfo.locale, {});

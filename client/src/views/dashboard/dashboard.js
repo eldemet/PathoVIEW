@@ -3,9 +3,8 @@ import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {weatherUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
-import {AuthService} from '../../services/auth-service';
 
-@inject(BindingSignaler, ContextService, AuthService)
+@inject(BindingSignaler, ContextService)
 class DashboardView extends BasicView {
 
     openWeatherMapIconUrl = 'https://openweathermap.org/img/wn/';
@@ -13,20 +12,19 @@ class DashboardView extends BasicView {
     /**
      * @param {BindingSignaler} bindingSignaler
      * @param {ContextService} contextService
-     * @param {AuthService} authService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
-    constructor(bindingSignaler, contextService, authService, ...rest) {
+    constructor(bindingSignaler, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
         this.contextService = contextService;
-        this.authService = authService;
         this.weatherUtilities = weatherUtilities;
     }
 
     async attached() {
         await super.attached();
         this.interval = setInterval(() => this.bindingSignaler.signal('update-dates'), 1000);
+        this.authService = this.proxy.get('auth');
         this.users = await this.authService.getUsers();
         this.roles = await this.authService.getRoles();
         this.groups = await this.authService.getGroups();

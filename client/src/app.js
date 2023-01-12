@@ -8,10 +8,9 @@ import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog'
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {deviceUtilities} from './utilities';
 import {NotificationService} from './services/notification-service';
-import {AuthService} from './services/auth-service';
 import {ContextService} from './services/context-service';
 
-@inject(BindingSignaler, DialogService, NotificationService, AuthService, ContextService)
+@inject(BindingSignaler, DialogService, NotificationService, ContextService)
 export class App extends BasicViewRouter {
 
     routes = [
@@ -79,16 +78,14 @@ export class App extends BasicViewRouter {
      * @param {BindingSignaler} bindingSignaler
      * @param {DialogService} dialogService
      * @param {NotificationService} notificationService
-     * @param {AuthService} authService
      * @param {ContextService} contextService
      * @param {ConstructorParameters<typeof BasicViewRouter>} rest
      */
-    constructor(bindingSignaler, dialogService, notificationService, authService, contextService, ...rest) {
+    constructor(bindingSignaler, dialogService, notificationService, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
         this.dialogService = dialogService;
         this.notificationService = notificationService;
-        this.authService = authService;
         this.contextService = contextService;
         this.deviceUtilities = deviceUtilities;
     }

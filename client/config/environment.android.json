@@ -1,7 +1,7 @@
 {
-    "debug": true,
-    "testing": true,
-    "baseUrl": "https://localhost:3002",
+    "debug": false,
+    "testing": false,
+    "baseUrl": "https://pathocert.iao.fraunhofer.de",
     "keycloak": {
         "realm": "pathocert",
         "url": "https://pathocert.iao.fraunhofer.de:9990/auth/",

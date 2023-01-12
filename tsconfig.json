@@ -11,20 +11,19 @@
         "skipLibCheck": true,
         "esModuleInterop": true
     },
-    "types": [
-        "./server/types/types.d.ts",
-        "./server/node_modules/utilities-node/types/types.d.ts",
-        "./client/types/types.d.ts",
-        "./client/node_modules/library-aurelia/types/types.d.ts"
-    ],
     "include": [
+        "types/*",
         "server/**/*",
         "server/node_modules/utilities-node/src/**/*",
+        "client/types/*",
         "client/src/**/*",
+        "client/node_modules/library-aurelia/types/*",
         "client/node_modules/library-aurelia/src/**/*"
     ],
     "exclude": [
         "test",
-        "docs"
+        "docs",
+        "dist",
+        "server/client"
     ]
 }
