@@ -2,11 +2,8 @@
 // Project: git+https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git
 
 import 'library-aurelia/types/types';
-import {KeycloakTokenParsed} from 'keycloak-js/dist/keycloak.d.ts';
 
 declare global {
-
-    export {KeycloakTokenParsed} from 'keycloak-js/dist/keycloak.d.ts'
 
     export interface KeycloakUserInfo {
         name: string,
@@ -17,10 +14,15 @@ declare global {
         locale: string
     }
 
+    export interface TokenInformation {
+        value: string,
+        expiry: number
+    }
+
     export interface AuthServicePlugin {
         getUserInfo(): Promise<KeycloakUserInfo>;
 
-        getToken(): Promise<KeycloakTokenParsed>;
+        getToken(): Promise<TokenInformation>;
 
         logout()
     }

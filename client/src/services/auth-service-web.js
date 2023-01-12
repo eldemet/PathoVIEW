@@ -1,6 +1,5 @@
 import {AuthService} from "./auth-service";
 import Keycloak from "keycloak-js";
-import {AureliaCookie} from "aurelia-cookie";
 
 class AuthServiceImplementation extends AuthService {
 
@@ -13,8 +12,8 @@ class AuthServiceImplementation extends AuthService {
                 enableLogging: testing,
                 checkLoginIframe: false
             });
-            this.token = this.keycloak.tokenParsed;
-            this.setCookie(this.token.sub, this.token.exp);
+            this.token = {value: this.keycloak.token, expiry: this.keycloak.tokenParsed.exp};
+            this.setCookie(this.token);
             // @ts-ignore
             this.userInfo = await this.keycloak.loadUserInfo();
             this.interval = setInterval(async () => {
@@ -22,12 +21,12 @@ class AuthServiceImplementation extends AuthService {
                     await this.keycloak.loadUserInfo();
                     // @ts-ignore
                     await this.keycloak.updateToken();
-                    this.token = this.keycloak.tokenParsed;
-                    this.setCookie(this.token.sub, this.token.exp);
+                    this.token = {value: this.keycloak.token, expiry: this.keycloak.tokenParsed.exp};
+                    this.setCookie(this.token);
                 } catch (error) {
                     this.keycloak.logout({redirectUri: this.keycloak.createLoginUrl()});
                 }
-            }, 5000);
+            }, 1000 * 60 * 5);
         }
     }
 

@@ -9,14 +9,15 @@ class AuthServiceImplementation extends AuthService {
         this.authServicePlugin = registerPlugin('AuthService');
         this.userInfo = await this.authServicePlugin.getUserInfo();
         this.token = await this.authServicePlugin.getToken();
-        this.setCookie(this.token.sub, this.token.exp);
+        this.setCookie(this.token);
         this.interval = setInterval(async () => {
             this.token = await this.authServicePlugin.getToken();
-            this.setCookie(this.token.sub, this.token.exp);
-        }, 5000);
+            this.setCookie(this.token);
+        }, 1000 * 60 * 5);
     }
 
     async close() {
+        await super.close();
         clearInterval(this.interval);
         this.userInfo = undefined;
         await this.authServicePlugin.logout();

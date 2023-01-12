@@ -10,7 +10,7 @@ class AuthService extends BasicService {
     /** @type {KeycloakUserInfo} */
     userInfo;
     config;
-    /** @type {KeycloakTokenParsed} */
+    /** @type {TokenInformation} */
     token;
 
     /**
@@ -24,15 +24,15 @@ class AuthService extends BasicService {
     }
 
     getTokenExpiresIn() {
-        return Math.round(this.token.exp - new Date().getTime() / 1000);
+        return Math.round(this.token.expiry - new Date().getTime() / 1000);
     }
 
     async setUserAttribute(httpService, attributeObject) {
         await httpService.fetch('PUT', this.config.url + 'admin/realms/' + this.config.realm + '/users/' + this.userInfo.sub, {attributes: attributeObject}, 2000);
     }
 
-    setCookie(token, expiry) {
-        AureliaCookie.set('auth_token', token, {expiry});
+    setCookie(token) {
+        AureliaCookie.set('auth_token', token.value, {expiry: token.expiry});
     }
 
     async getUsers(forceReload) {
