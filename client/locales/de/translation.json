@@ -85,7 +85,9 @@
     "buttons": {
         "logout": "Abmelden",
         "userManagement": "Nutzerverwaltung",
-        "logoutIn": "Abmeldung in"
+        "logoutIn": "Abmeldung in",
+        "ping": "Anklopfen",
+        "pingALl": "Alle anklopfen"
     },
     "alerts": {
         "camera": {

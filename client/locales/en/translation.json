@@ -85,7 +85,9 @@
     "buttons": {
         "logout": "logout",
         "userManagement": "user management",
-        "logoutIn": "logout in"
+        "logoutIn": "logout in",
+        "ping": "ping",
+        "pingAll": "ping all"
     },
     "alerts": {
         "camera": {

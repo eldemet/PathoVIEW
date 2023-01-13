@@ -6,17 +6,29 @@ import 'library-aurelia/types/types';
 declare global {
 
     export interface KeycloakUserInfo {
-        name: string,
-        preferred_username: string,
-        email: string,
-        emailVerified: boolean,
-        sub: string,
-        locale: string
+        name: string;
+        preferred_username: string;
+        email: string;
+        emailVerified: boolean;
+        sub: string;
+        locale: string;
     }
 
     export interface TokenInformation {
-        value: string,
-        expiry: number
+        value: string;
+        expiry: number;
+    }
+
+    export interface BhapticsDevice {
+        deviceName: string;
+        address: string;
+        position: string;
+        isConnected: boolean;
+        isPaired: boolean;
+    }
+
+    export interface BhapticsDeviceList {
+        devices: Array<BhapticsDevice>;
     }
 
     export interface AuthServicePlugin {
@@ -24,7 +36,19 @@ declare global {
 
         getToken(): Promise<TokenInformation>;
 
-        logout()
+        logout(): Promise<void>;
+    }
+
+    export interface BhapticsServicePlugin {
+
+        close(): Promise<void>;
+
+        getDeviceList(): Promise<BhapticsDeviceList>;
+
+        pingAll(): Promise<void>;
+
+        submitRegistered(): Promise<void>;
+
     }
 
 }

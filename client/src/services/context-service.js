@@ -48,31 +48,8 @@ class ContextService extends BasicService {
         this.setCurrentEmergencyEvent();
         this.setCurrentDevice();
         await this.setCurrentWeather();
-        this.interval = setInterval(async() => await this.update(), timeout);
+        this.interval = setInterval(async () => await this.update(), timeout);
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
-        if (AureliaCookie.get('bhaptics') === 'true') {
-            this.tactJs = (await import('tact-js')).default;
-            const heartbeat = (await import('../assets/tact-files')).heartbeat;
-            this.tactJs.turnOffAll();
-            let prevState = undefined;
-            this.tactJs.addListener((msg) => {
-                if (prevState !== msg.status && msg.status === 'Connected') {
-                    this.bhapticsAvailable = true;
-                    let code = this.tactJs.registerFile('heartbeat', heartbeat);
-                    if (code === 0) {
-                        this.logger.info('bhaptics connected!');
-                    } else {
-                        this.logger.debug('bhaptics error ' + code);
-                    }
-                } else if (prevState !== msg.status && msg.status === 'Disconnected') {
-                    this.bhapticsAvailable = false;
-                    this.logger.info('bhaptics disconnected!');
-                } else if (prevState !== msg.status && msg.status === 'Connecting') {
-                    this.logger.info('bhaptics connecting...');
-                }
-                prevState = msg.status;
-            });
-        }
         this.initializeResolve();
     }
 
@@ -103,7 +80,7 @@ class ContextService extends BasicService {
             clearInterval(this.interval);
         } else {
             this.logger.silly('Page is in user view! Set interval...');
-            this.interval = setInterval(async() => await this.update(), this.timeout);
+            this.interval = setInterval(async () => await this.update(), this.timeout);
         }
     };
 
@@ -251,20 +228,8 @@ class ContextService extends BasicService {
                         message = distanceResult === 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
                         dismissible = false;
                     }
-                    if (this.bhapticsAvailable) {
-                        let i = 0;
-                        let interval = setInterval(async() => {
-                            let code = this.tactJs.submitRegistered('heartbeat');
-                            if (code !== 0) {
-                                this.logger.debug('bhaptics error ' + code);
-                            }
-                            i++;
-                            if (i > 5) {
-                                clearInterval(interval);
-                            }
-                        }, 1000);
-                    }
                     numeral.locale(this.i18n.getLocale());
+                    this.eventAggregator.publish('haptics-event', {type, alert});
                     this.eventAggregator.publish('app-alert',
                         {
                             id: alert.id,
