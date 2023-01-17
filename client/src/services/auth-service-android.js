@@ -10,15 +10,16 @@ class AuthServiceImplementation extends AuthService {
         this.userInfo = await this.authServicePlugin.getUserInfo();
         this.token = await this.authServicePlugin.getToken();
         this.setCookie(this.token);
-        this.interval = setInterval(async () => {
-            this.token = await this.authServicePlugin.getToken();
+        this.androidSubscription = this.authServicePlugin.addListener('token-update-event', payload => {
+            this.logger.info('token update received', payload);
+            this.token = payload;
             this.setCookie(this.token);
-        }, 1000 * 60 * 5);
+        });
     }
 
     async close() {
         await super.close();
-        clearInterval(this.interval);
+        this.androidSubscription.remove();
         this.userInfo = undefined;
         await this.authServicePlugin.logout();
     }
