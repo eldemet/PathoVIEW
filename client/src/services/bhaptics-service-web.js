@@ -1,7 +1,6 @@
 import {inject} from "aurelia-framework";
 import TactJs from 'tact-js';
 import {BhapticsService} from "./bhaptics-service";
-import {heartbeat} from "../assets/tact-files";
 
 @inject(TactJs)
 class BhapticsServiceImplementation extends BhapticsService {
@@ -20,12 +19,7 @@ class BhapticsServiceImplementation extends BhapticsService {
         let prevState = undefined;
         this.tactJs.addListener((msg) => {
             if (prevState !== msg.status && msg.status === 'Connected') {
-                let code = this.tactJs.registerFile('heartbeat', heartbeat);
-                if (code === 0) {
-                    this.logger.info('bhaptics connected!');
-                } else {
-                    this.logger.debug('bhaptics error ' + code);
-                }
+                this.logger.info('bhaptics connected!');
             } else if (prevState !== msg.status && msg.status === 'Disconnected') {
                 this.logger.info('bhaptics disconnected!');
             } else if (prevState !== msg.status && msg.status === 'Connecting') {
@@ -35,18 +29,18 @@ class BhapticsServiceImplementation extends BhapticsService {
         });
     }
 
-    async submitRegistered() {
-        let i = 0;
-        let interval = setInterval(async () => {
-            let code = this.tactJs.submitRegistered('heartbeat');
-            if (code !== 0) {
-                this.logger.debug('bhaptics error ' + code);
-            }
-            i++;
-            if (i > 5) {
-                clearInterval(interval);
-            }
-        }, 1000);
+    async register(tactFile) {
+        let code = this.tactJs.registerFile(tactFile.fileName, tactFile.content);
+        if (code !== 0) {
+            this.logger.debug('bhaptics error ' + code);
+        }
+    }
+
+    async submitRegistered(callRegistered) {
+        let code = this.tactJs.submitRegistered(callRegistered.name);
+        if (code !== 0) {
+            this.logger.debug('bhaptics error ' + code);
+        }
     }
 
 }

@@ -2,6 +2,7 @@ import {inject} from "aurelia-framework";
 import {EventAggregator} from "aurelia-event-aggregator";
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object';
+import tactFiles from "../assets/tact-files";
 
 @inject(EventAggregator)
 class BhapticsService extends BasicService {
@@ -16,8 +17,33 @@ class BhapticsService extends BasicService {
     }
 
     async initialize() {
-        this.subscriptions.push(this.eventAggregator.subscribe('haptics-event', payload => {
-            this.submitRegistered();
+        for (let tactFile of tactFiles) {
+            try {
+                await this.register(tactFile);
+            } catch (error) {
+                //handle silently
+            }
+        }
+        this.subscriptions.push(this.eventAggregator.subscribe('haptics-event', async payload => {
+            let callRegistered = {name: 'heartbeat', fallback: 'none', offsetAngleX: 0, offsetY: 0}
+            if (payload.type === 'warning') {
+                callRegistered.intesity = 0.5;
+                callRegistered.duration = 0;
+                await this.submitRegistered(callRegistered);
+            } else if (payload.type === 'danger') {
+                callRegistered.intesity = 1;
+                callRegistered.duration = 0;
+                let i = 0;
+                let interval = setInterval(async () => {
+                    await this.submitRegistered(callRegistered);
+                    i++;
+                    if (i > 5) {
+                        clearInterval(interval);
+                    }
+                }, 1000);
+            } else {
+                // not implemented
+            }
         }));
     }
 
@@ -25,7 +51,11 @@ class BhapticsService extends BasicService {
         this.disposeSubscriptions();
     }
 
-    async submitRegistered(tact) {
+    async register(tactFile) {
+        this.logger.warn('register: not implemented');
+    }
+
+    async submitRegistered(callRegistered) {
         this.logger.warn('submitRegistered: not implemented')
     }
 

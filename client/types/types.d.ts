@@ -27,6 +27,20 @@ declare global {
         isPaired: boolean;
     }
 
+    export interface BhapticsTactFile {
+        fileName: string;
+        content: string;
+    }
+
+    export interface BhapticsCallRegistered {
+        name: string;
+        fallback: string;
+        intensity: number;
+        duration: number;
+        offsetAngleX: number;
+        offsetY: number;
+    }
+
     export interface BhapticsDeviceList {
         devices: Array<BhapticsDevice>;
     }
@@ -47,7 +61,9 @@ declare global {
 
         pingAll(): Promise<void>;
 
-        submitRegistered(): Promise<void>;
+        register(tactFile: BhapticsTactFile): Promise<void>
+
+        submitRegistered(callRegistered: BhapticsCallRegistered): Promise<void>;
 
     }
 

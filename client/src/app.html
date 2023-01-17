@@ -82,6 +82,34 @@
         </div>
 
         <div class="dropdown"
+             if.bind="true">
+            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="bhaptics-menu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <img src.bind="'./assets/icon-vest.svg'" style="width: 1.5rem">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bhaptics-menu">
+                <li if.bind="bhapticsService.devices"
+                    repeat.for="bhapticsDevice of bhapticsService.devices"
+                    class="px-3">
+                    <span class="d-block"><img src.bind="'./assets/logo-bhaptics.svg'" class="me-1" style="width: 1.5rem">${bhapticDevice.deviceName}</span>
+                    <span class="d-block">${bhapticsDevice.address}</span>
+                    <span class="d-block">${bhapticsDevice.position}</span>
+                    <span class="d-block">${bhapticsDevice.isConnected}</span>
+                    <span class="d-block">${bhapticsDevice.isPaired}</span>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <button class="dropdown-item"
+                            click.trigger="bhapticsService.pingAll()">
+                        ${'buttons.pingAll' | t}
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown"
              if.bind="authService.userInfo">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -105,33 +133,6 @@
                     <button class="dropdown-item"
                             click.trigger="authService.close()">
                         ${'buttons.logout' | t}
-                    </button>
-                </li>
-            </ul>
-        </div>
-        <div class="dropdown"
-             if.bind="true">
-            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="bhaptics-menu"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                <img src.bind="'./assets/icon-vest.svg'" style="width: 1.5rem">
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bhaptics-menu">
-                <li if.bind="bhapticsService.devices"
-                    repeat.for="bhapticsDevice of bhapticsService.devices"
-                    class="px-3">
-                    <span class="d-block"><img src.bind="'./assets/logo-bhaptics.svg'" class="me-1" style="width: 1.5rem">${bhapticDevice.deviceName}</span>
-                    <span class="d-block">${bhapticsDevice.address}</span>
-                    <span class="d-block">${bhapticsDevice.position}</span>
-                    <span class="d-block">${bhapticsDevice.isConnected}</span>
-                    <span class="d-block">${bhapticsDevice.isPaired}</span>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li>
-                    <button class="dropdown-item"
-                            click.trigger="bhapticsService.pingAll()">
-                        ${'buttons.pingAll' | t}
                     </button>
                 </li>
             </ul>
