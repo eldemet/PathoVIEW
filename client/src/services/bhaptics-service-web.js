@@ -6,6 +6,7 @@ import {BhapticsService} from "./bhaptics-service";
 class BhapticsServiceImplementation extends BhapticsService {
 
     /**
+     * @param {import("tact-js/dist/types/HapticPlayer").default} tactJs
      * @param {ConstructorParameters<typeof BhapticsService>} rest
      */
     constructor(tactJs, ...rest) {

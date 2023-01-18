@@ -6,12 +6,12 @@ class BhapticsServiceImplementation extends BhapticsService {
     async initialize(config) {
         /** @returns BhapticsServicePlugin */
         this.bhapticsServicePlugin = registerPlugin('BhapticsService');
-        await super.initialize();
         this.androidSubscription = this.bhapticsServicePlugin.addListener('device-list-update-event', payload => {
             this.logger.info('device list update received', payload);
             this.devices = payload.devices;
         });
         this.devices = (await this.bhapticsServicePlugin.getDeviceList()).devices;
+        await super.initialize();
     }
 
     async close() {

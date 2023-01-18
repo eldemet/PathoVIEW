@@ -27,12 +27,12 @@ class BhapticsService extends BasicService {
         this.subscriptions.push(this.eventAggregator.subscribe('haptics-event', async payload => {
             let callRegistered = {name: 'heartbeat', fallback: 'none', offsetAngleX: 0, offsetY: 0}
             if (payload.type === 'warning') {
-                callRegistered.intesity = 0.5;
-                callRegistered.duration = 0;
+                callRegistered.intensity = 0.5;
+                callRegistered.duration = 1.0;
                 await this.submitRegistered(callRegistered);
             } else if (payload.type === 'danger') {
-                callRegistered.intesity = 1;
-                callRegistered.duration = 0;
+                callRegistered.intensity = 1.0;
+                callRegistered.duration = 1.0;
                 let i = 0;
                 let interval = setInterval(async () => {
                     await this.submitRegistered(callRegistered);
