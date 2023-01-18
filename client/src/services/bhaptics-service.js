@@ -7,6 +7,8 @@ import tactFiles from "../assets/tact-files";
 @inject(EventAggregator)
 class BhapticsService extends BasicService {
 
+    status = 'disabled';
+
     /**
      * @param {EventAggregator} eventAggregator
      * @param {ConstructorParameters<typeof BasicObject>} rest
@@ -49,6 +51,8 @@ class BhapticsService extends BasicService {
 
     async close() {
         this.disposeSubscriptions();
+        this.status = 'disabled';
+        this.logger.info('bhaptics closed');
     }
 
     async register(tactFile) {

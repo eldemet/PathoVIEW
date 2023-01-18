@@ -32,9 +32,10 @@
         <div class="dropdown" if.bind="contextService.emergencyEvents">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-hospital-fill"></i>
-                <span if.bind="contextService.currentEmergencyEvent">${contextService.currentEmergencyEvent.name}</span>
-                <span else>${'alerts.noEmergencyEventSelected' | t}</span>
+                <i if.bind="contextService.currentEmergencyEvent" class="bi bi-hospital-fill"></i>
+                <i else class="bi bi-question-circle-fill"></i>
+                <span if.bind="contextService.currentEmergencyEvent" class="d-inline d-md-none d-lg-inline ms-2">${contextService.currentEmergencyEvent.name}</span>
+                <span else class="d-inline d-md-none d-lg-inline ms-2">${'alerts.noEmergencyEventSelected' | t}</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="language-menu">
                 <li repeat.for="emergencyEvent of contextService.emergencyEvents">
@@ -49,24 +50,25 @@
                 <li>
                     <button class="dropdown-item"
                             click.trigger="openCreateModal('emergencyEvent')">
-                        <i class="bi bi-plus"></i> ${'views.create' | t:{'type': 'model.emergencyEvent'}}
+                        <i class="bi bi-plus me-2"></i>${'views.create' | t:{'type': 'model.emergencyEvent'}}
                     </button>
                 </li>
             </ul>
         </div>
 
-        <div class="dropdown">
+        <div class="dropdown" if.bind="contextService.devices">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="devices-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i if.bind="contextService.currentDevice"
                    class="${deviceUtilities.getDeviceIcon(contextService.currentDevice)}"></i>
                 <i else class="bi bi-question-circle-fill"></i>
+                <span if.bind="contextService.currentDevice" class="d-md-none ms-2">${contextService.currentDevice.name}</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="devices-menu">
                 <li repeat.for="device of contextService.devices">
                     <button class="dropdown-item ${device === contextService.currentDevice ? 'active' : ''}"
                             click.trigger="contextService.currentDevice = device">
-                        <i class="${deviceUtilities.getDeviceIcon(device)}"></i> ${device.name}
+                        <i class="${deviceUtilities.getDeviceIcon(device)} me-2"></i>${device.name}
                     </button>
                 </li>
                 <li if.bind="contextService.currentDevice">
@@ -75,35 +77,62 @@
                 <li>
                     <button class="dropdown-item"
                             click.trigger="openCreateModal('device')">
-                        <i class="bi bi-plus"></i> ${'views.create' | t:{'type': 'model.device'}}
+                        <i class="bi bi-plus me-2"></i>${'views.create' | t:{'type': 'model.device'}}
                     </button>
                 </li>
             </ul>
         </div>
 
-        <div class="dropdown"
-             if.bind="true">
+        <div class="dropdown">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="bhaptics-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <img src.bind="'./assets/icon-vest.svg'" style="width: 1.5rem">
+                <img src.bind="'./assets/logo-bhaptics.svg'" style="width: 1rem"><span class="d-md-none ms-2">bHaptics</span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bhaptics-menu">
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="bhaptics-menu">
+                <li class="px-3 text-nowrap">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="bhapticsServiceToggle" checked.bind="bhapticsServiceEnabled" change.trigger="toggleBhapticsService()">
+                        <label class="form-check-label" for="bhapticsServiceToggle">${'alerts.bhaptics.status' | t}</label>
+                    </div>
+                </li>
+                <li if.bind="bhapticsServiceEnabled">
+                    <hr class="dropdown-divider">
+                </li>
+                <li class="px-3 text-body-tertiary text-nowrap">
+                    <div if.bind="bhapticsService.status === 'connecting'">
+                        <div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Connecting...</span></div>
+                        ${'alerts.bhaptics.connecting' | t}
+                    </div>
+                    <div if.bind="bhapticsService.status === 'connected'">
+                        <i class="bi bi-circle text-success"></i>
+                        ${'alerts.bhaptics.connected' | t}
+                    </div>
+                    <div if.bind="bhapticsService.status === 'error'">
+                        <i class="bi bi-exclamation-triangle text-warning"></i>
+                        ${'alerts.bhaptics.error' | t}
+                    </div>
+                </li>
+                <li if.bind="bhapticsService.devices">
+                    <hr class="dropdown-divider">
+                </li>
                 <li if.bind="bhapticsService.devices"
                     repeat.for="bhapticsDevice of bhapticsService.devices"
                     class="px-3">
-                    <span class="d-block"><img src.bind="'./assets/logo-bhaptics.svg'" class="me-1" style="width: 1.5rem">${bhapticDevice.deviceName}</span>
-                    <span class="d-block">${bhapticsDevice.address}</span>
-                    <span class="d-block">${bhapticsDevice.position}</span>
-                    <span class="d-block">${bhapticsDevice.isConnected}</span>
-                    <span class="d-block">${bhapticsDevice.isPaired}</span>
+                    <span class="d-block">
+                        <img if.bind="bhapticsDevice.position === 'Vest'" src.bind="'./assets/icon-vest.svg'" class="me-1" style="width: 1.5rem">
+                        ${bhapticDevice.deviceName} ${bhapticsDevice.address}
+                        <i class="bi bi-circle${bhapticsDevice.isConnected ? '-fill text-success' : ''}"></i>
+                        <i class="bi bi-bluetooth${bhapticsDevice.isPaired ? ' text-success' : ''}"></i>
+                    </span>
                 </li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>
                     <button class="dropdown-item"
+                            disabled.bind="bhapticsService.status !== 'connected'"
                             click.trigger="bhapticsService.pingAll()">
-                        ${'buttons.pingAll' | t}
+                        <i class="bi bi-activity me-2"></i>${'buttons.pingAll' | t}
                     </button>
                 </li>
             </ul>
@@ -113,26 +142,34 @@
              if.bind="authService.userInfo">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-circle"></i>
+                <i class="bi bi-person-circle"></i><span class="d-md-none ms-2">${authService.userInfo.name}</span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="language-menu">
-                <li class="px-3">
-                    <span class="d-block text-muted">${authService.userInfo.name}</span>
-                    <span class="d-block text-muted">${authService.userInfo.preferred_username}</span>
-                    <span class="d-block text-muted" if.bind="authService.userInfo.email">${authService.userInfo.email}</span>
-                    <span class="d-block text-muted">${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'update-logout-in'}</span>
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
+                <li class="px-3 text-body-tertiary text-nowrap">
+                    <span class="d-block">
+                        <i class="bi bi-person-vcard me-2"></i>${authService.userInfo.name} (${authService.userInfo.preferred_username})
+                    </span>
+                    <span class="d-block" if.bind="authService.userInfo.email">
+                        <i class="bi bi-envelope-at invisible me-2"></i>${authService.userInfo.email}
+                    </span>
+                    <span class="d-block">
+                        <i class="bi bi-clock me-2"></i>${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'update-logout-in'}
+                    </span>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
                 </li>
                 <li>
                     <a class="dropdown-item"
                        href.bind="authService.keycloak.createAccountUrl({redirectUri: window.environment.keycloak.url})"
                        target="_blank">
-                        ${'buttons.userManagement' | t}
+                        <i class="bi bi-person-gear me-2"></i>${'buttons.userManagement' | t}
                     </a>
                 </li>
                 <li>
                     <button class="dropdown-item"
                             click.trigger="authService.close()">
-                        ${'buttons.logout' | t}
+                        <i class="bi bi-box-arrow-left me-2"></i>${'buttons.logout' | t}
                     </button>
                 </li>
             </ul>

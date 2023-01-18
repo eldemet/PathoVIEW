@@ -88,6 +88,7 @@ export class App extends BasicViewRouter {
         this.notificationService = notificationService;
         this.contextService = contextService;
         this.deviceUtilities = deviceUtilities;
+        this.bhapticsServiceEnabled = false;
     }
 
     configureRouter(config, router) {
@@ -162,6 +163,14 @@ export class App extends BasicViewRouter {
                     }
                 }
             });
+    }
+
+    async toggleBhapticsService() {
+        if (this.bhapticsService.status === 'disabled') {
+            await this.bhapticsService.initialize();
+        } else {
+            await this.bhapticsService.close();
+        }
     }
 
 }

@@ -22,8 +22,6 @@ export async function configure(aurelia) {
     if (authService?.userInfo?.locale) {
         AureliaCookie.set('lang', authService.userInfo.locale, {});
     }
-    let bhapticsService = aurelia.container.get(BhapticsServiceImplementation);
-    await bhapticsService.initialize();
     let root = PLATFORM.moduleName('app');
     let globalResources = [
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),
@@ -38,7 +36,7 @@ export async function configure(aurelia) {
     let i18n = aurelia.container.get(I18N);
     let registerServices = [
         authService,
-        bhapticsService,
+        aurelia.container.get(BhapticsServiceImplementation),
         new ModelServiceAsyncUISchema('alert', options, httpService),
         new ModelServiceAsyncUISchema('device', options, httpService),
         new ModelServiceAsyncUISchema('point-of-interest', options, httpService),

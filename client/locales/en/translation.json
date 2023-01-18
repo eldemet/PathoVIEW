@@ -111,6 +111,12 @@
                 "delete": "Deleted $t(model.{{type}},{'count': 1})",
                 "message": "You can now see the changes in the corresponding views!"
             }
+        },
+        "bhaptics": {
+            "connecting": "connecting bHaptics-player...",
+            "connected": "bHaptics-player connected",
+            "error": "Connection to bHaptics-player was not possible",
+            "status": "bHaptics enabled"
         }
     },
     "propertyKeys": {

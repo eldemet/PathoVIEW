@@ -55,6 +55,8 @@ declare global {
 
     export interface BhapticsServicePlugin {
 
+        initialize(): Promise<void>;
+
         close(): Promise<void>;
 
         getDeviceList(): Promise<BhapticsDeviceList>;
