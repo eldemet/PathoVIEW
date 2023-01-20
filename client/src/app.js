@@ -28,6 +28,20 @@ export class App extends BasicViewRouter {
             title: 'views.dashboard.title'
         },
         {
+            route: 'alert',
+            name: 'alert',
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
+            nav: true,
+            title: this.i18n.tr('model.alert', {count: 1}),
+            settings: {
+                detailView: true,
+                customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
+                filter: () => {
+                    return {alertSource: AureliaCookie.get('emergency-event') || 'notSet'}
+                }
+            }
+        },
+        {
             route: 'incident',
             name: 'incident',
             moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
