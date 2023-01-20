@@ -150,6 +150,10 @@ export class App extends BasicViewRouter {
                 });
             }
         }));
+        this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
+        this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', () => {
+            this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
+        }));
     }
 
     detached() {
