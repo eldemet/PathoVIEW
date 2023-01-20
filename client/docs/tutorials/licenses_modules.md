@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 816
+* MIT: 817
 * ISC: 79
 * BSD-2-Clause: 29
 * Apache-2.0: 27
@@ -446,15 +446,15 @@
     - licenses: MIT
     - description: Babel Types is a Lodash-esque utility library for AST nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@capacitor/android@4.6.1](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/android@4.6.2](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/cli@4.6.1](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/cli@4.6.2](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/core@4.6.1](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/core@4.6.2](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
@@ -470,7 +470,7 @@
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@geoman-io/leaflet-geoman-free@2.13.1](https://github.com/geoman-io/leaflet-geoman)**
+ - **[@geoman-io/leaflet-geoman-free@2.14.1](https://github.com/geoman-io/leaflet-geoman)**
     - licenses: MIT
     - description: A Leaflet Plugin For Editing Geometry Layers in Leaflet 1.0
     - copyright: Copyright (c) 2017 Sumit Kumar
@@ -1310,7 +1310,7 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001443](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001445](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
@@ -1774,7 +1774,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.31.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.32.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -2430,7 +2430,7 @@
     - licenses: MIT
     - description: The fastest Node.js library for formatting terminal text with ANSI colors~!
     - copyright: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
- - **[klona@2.0.5](https://github.com/lukeed/klona)**
+ - **[klona@2.0.6](https://github.com/lukeed/klona)**
     - licenses: MIT
     - description: A tiny (240B to 501B) and fast utility to "deep clone" Objects, Arrays, Dates, RegExps, and more!
     - copyright: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
@@ -2446,7 +2446,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.2.0](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.2.2](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -2602,10 +2602,10 @@
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[minimatch@5.1.2](https://github.com/isaacs/minimatch)**
+ - **[minimatch@6.1.5](https://github.com/isaacs/minimatch)**
     - licenses: ISC
     - description: a glob matcher in javascript
-    - copyright: Copyright (c) 2011-2022 Isaac Z. Schlueter and Contributors
+    - copyright: Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
  - **[minimist@1.2.7](https://github.com/minimistjs/minimist)**
     - licenses: MIT
     - description: parse argument options
@@ -2682,6 +2682,10 @@
     - licenses: MIT
     - description: A light-weight module that brings window.fetch to node.js
     - copyright: Copyright (c) 2016 David Frank
+ - **[node-fetch@2.6.8](https://github.com/bitinn/node-fetch)**
+    - licenses: MIT
+    - description: A light-weight module that brings window.fetch to node.js
+    - copyright: Copyright (c) 2016 David Frank
  - **[node-forge@1.3.1](https://github.com/digitalbazaar/forge)**
     - licenses: (BSD-3-Clause OR GPL-2.0)
     - description: JavaScript implementations of network transports, cryptography, ciphers, PKI, message digests, and various utilities.
@@ -2746,7 +2750,7 @@
     - licenses: MIT
     - description: ES2015 `Object.assign()` ponyfill
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[object-inspect@1.12.2](https://github.com/inspect-js/object-inspect)**
+ - **[object-inspect@1.12.3](https://github.com/inspect-js/object-inspect)**
     - licenses: MIT
     - description: string representations of objects in node and the browser
     - copyright: Copyright (c) 2013 James Halliday
@@ -2898,7 +2902,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@0.6.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@0.7.1](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
@@ -3366,7 +3370,7 @@
     - licenses: MIT
     - description: Better streaming static file server with Range and conditional-GET support
     - copyright: Copyright (c) 2012 TJ Holowaychuk. Copyright (c) 2014-2022 Douglas Christopher Wilson
- - **[serialize-javascript@6.0.0](https://github.com/yahoo/serialize-javascript)**
+ - **[serialize-javascript@6.0.1](https://github.com/yahoo/serialize-javascript)**
     - licenses: BSD-3-Clause
     - description: Serialize JavaScript to a superset of JSON that includes regular expressions and functions.
     - copyright: Copyright 2014 Yahoo! Inc.. All rights reserved.

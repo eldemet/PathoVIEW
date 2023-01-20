@@ -1,19 +1,20 @@
-import {BindingEngine, inject} from 'aurelia-framework';
+import {BindingEngine, inject, useView} from 'aurelia-framework';
 import {BindingSignaler} from 'aurelia-templating-resources';
-import {Search} from 'library-aurelia/src/views-general/search';
-import {AureliaCookie} from 'aurelia-cookie';
+import {SearchContextAware} from './search-context-aware';
+import {PLATFORM} from "aurelia-pal";
 
 /**
- * @extends Search
+ * @extends SearchContextAware
  * @category views-general
  */
+@useView(PLATFORM.moduleName('./search-with-annotations.html'))
 @inject(BindingEngine, BindingSignaler)
-class SearchWithAnnotations extends Search {
+class SearchWithAnnotations extends SearchContextAware {
 
     /**
      * @param {BindingEngine} bindingEngine
      * @param {BindingSignaler} bindingSignaler
-     * @param {ConstructorParameters<typeof Search>} rest
+     * @param {ConstructorParameters<typeof SearchContextAware>} rest
      */
     constructor(bindingEngine, bindingSignaler, ...rest) {
         super(...rest);
@@ -21,16 +22,7 @@ class SearchWithAnnotations extends Search {
         this.bindingSignaler = bindingSignaler;
     }
 
-    async attached() {
-        await super.attached();
-        this.subscriptions.push(this.eventAggregator.subscribe('context-changed', async id => {
-            await this.initialize();
-            this.routerService.navigateToRoute('search', {}, this.router);
-        }));
-    }
-
     async initialize() {
-        this.routeConfig.settings.filter = {'refId': AureliaCookie.get('emergency-event')};
         await super.initialize();
         this.uniqueProperty = this.proxy.get('annotation')?.options?.uniqueProperty || '_id';
         this.annotable = this.schema?.referencedByModels?.some(e => e.model === 'Annotation');
@@ -42,7 +34,7 @@ class SearchWithAnnotations extends Search {
         }
     }
 
-    navigateToRoute(route, object, event, router) {
+    async navigateToRoute(route, object, event, router) {
         if (route === 'print') {
             window.open(this.router.generate('search-' + route, {
                 id: object[this.uniqueProperty],
@@ -50,7 +42,7 @@ class SearchWithAnnotations extends Search {
             }));
             if (event) event.stopPropagation();
         } else {
-            super.navigateToRoute(route, object, event, router);
+            await super.navigateToRoute(route, object, event, router);
         }
     }
 

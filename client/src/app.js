@@ -39,7 +39,10 @@ export class App extends BasicViewRouter {
                 gridColumnsDetail: 4,
                 detailView: true,
                 customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
-                customDetailView: PLATFORM.moduleName('views-general/annotations')
+                customDetailView: PLATFORM.moduleName('views-general/annotations'),
+                filter: () => {
+                    return {refId: AureliaCookie.get('emergency-event') || 'notSet'}
+                }
             }
         },
         {
