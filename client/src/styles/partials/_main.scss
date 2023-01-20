@@ -47,3 +47,8 @@ span.d-block.d-md-none.text-primary {
         text-align: center;
     }
 }
+
+.navbar-collapse {
+    max-height: calc(100vh - 78px);
+    overflow-y: auto;
+}
