@@ -12,7 +12,7 @@ class AuthServiceImplementation extends AuthService {
                 enableLogging: testing,
                 checkLoginIframe: false
             });
-            this.token = {value: this.keycloak.token, expiry: this.keycloak.tokenParsed.exp};
+            this.token = {value: this.keycloak.token, expiry: this.keycloak.tokenParsed.exp + this.keycloak.timeSkew};
             this.setCookie(this.token);
             // @ts-ignore
             this.userInfo = await this.keycloak.loadUserInfo();
@@ -21,7 +21,7 @@ class AuthServiceImplementation extends AuthService {
                     await this.keycloak.loadUserInfo();
                     // @ts-ignore
                     await this.keycloak.updateToken();
-                    this.token = {value: this.keycloak.token, expiry: this.keycloak.tokenParsed.exp};
+                    this.token = {value: this.keycloak.token, expiry: this.keycloak.tokenParsed.exp + this.keycloak.timeSkew};
                     this.setCookie(this.token);
                 } catch (error) {
                     this.keycloak.logout({redirectUri: this.keycloak.createLoginUrl()});
