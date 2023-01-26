@@ -48,7 +48,7 @@ class ContextService extends BasicService {
         this.setCurrentEmergencyEvent();
         this.setCurrentDevice();
         await this.setCurrentWeather();
-        this.interval = setInterval(async () => await this.update(), timeout);
+        this.interval = setInterval(async() => await this.update(), timeout);
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
         this.initializeResolve();
     }
@@ -80,7 +80,7 @@ class ContextService extends BasicService {
             clearInterval(this.interval);
         } else {
             this.logger.silly('Page is in user view! Set interval...');
-            this.interval = setInterval(async () => await this.update(), this.timeout);
+            this.interval = setInterval(async() => await this.update(), this.timeout);
         }
     };
 
@@ -189,6 +189,7 @@ class ContextService extends BasicService {
                 // firmwareVersion, hardwareVersion, ipAddress, macAddress, rssi
             };
             if (!this._.isEqual(oldDeviceValues, newDeviceValues)) {
+                // @ts-ignore
                 this.logger.debug(newDeviceValues);
                 try {
                     this.currentDevice = await this.proxy.get('device').updateObject(Object.assign({}, this.currentDevice, newDeviceValues), 2000);
@@ -219,7 +220,7 @@ class ContextService extends BasicService {
                     distanceResult = 0;
                 }
                 let properties = distanceResult === 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
-                if (distanceResult < 1.5) {
+                if (distanceResult < 1.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
                     if (distanceResult > 0.75) {
                         type = 'warning';
                         message = 'alerts.alertLocationClose';
