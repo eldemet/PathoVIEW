@@ -30,12 +30,10 @@ properties:
   name:
     type: string
     description: 'The name of this item.'
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   alternateName:
     type: string
     description: 'An alternative name for this item'
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   description:
     type: string
@@ -90,7 +88,7 @@ properties:
   controlledProperty:
     type: array
     description: 'Anything that can be sensed, measured or controlled by. Enum:''airPollution, atmosphericPressure, averageVelocity, batteryLife, batterySupply, cdom, conductance, conductivity, depth, eatingActivity, eatingActivity, electricityConsumption, energy, fillingLevel, freeChlorine, gasConsumption, gateOpening, heading, humidity, light, location, milking, motion, movementActivity, noiseLevel, occupancy, orp, pH, power, precipitation, pressure, refractiveIndex, salinity, smoke, soilMoisture, solarRadiation, speed, tds, temperature, trafficFlow, tss, turbidity, waterConsumption, waterFlow, waterLevel, waterPollution, weatherConditions, weight, windDirection, windSpeed'''
-    ui:formItemType: 'checkbox'
+    ui:formItemType: checkbox
     ui:i18n: true
     ui:i18nPathPrefix: enum.device.controlledProperty
     ui:formItemGridClass: 'col-md-4'
@@ -155,12 +153,10 @@ properties:
       properties:
         parameter:
           type: string
-          ui:formItemType: text
           ui:formItemGridClass: 'col-md-6'
           ui:i18n: true
         value:
           type: string
-          ui:formItemType: text
           ui:formItemGridClass: 'col-md-6'
           ui:i18n: true
   seeAlso:
@@ -187,7 +183,6 @@ properties:
   areaServed:
     type: string
     description: 'The geographic area where a service or offered item is provided'
-    ui:formItemType: text
   depth:
     type: number
     description: 'Location of this device represented by a depth from a starting point. All units are accepted in [CEFACT](https://www.unece.org/cefact.html) code'
@@ -304,7 +299,6 @@ properties:
     type: string
     description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true
@@ -318,7 +312,6 @@ properties:
     type: string
     description: 'A timestamp which denotes when the device was first used.'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true
@@ -326,7 +319,6 @@ properties:
     type: string
     description: 'A timestamp which denotes when the device was installed (if it requires installation).'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true
@@ -334,7 +326,6 @@ properties:
     type: string
     description: 'A timestamp which denotes when the last calibration of the device happened.'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true

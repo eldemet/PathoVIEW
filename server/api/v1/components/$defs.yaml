@@ -170,31 +170,25 @@ Address:
     addressCountry:
       description: 'Property. The country. For example, Spain. Model:''https://schema.org/addressCountry'''
       type: string
-      ui:formItemType: text
     postalCode:
       description: 'Property. The postal code. For example, 24004. Model:''https://schema.org/https://schema.org/postalCode'''
       type: string
-      ui:formItemType: text
       ui:formItemGridClass: 'col-md-5'
     addressLocality:
       description: 'Property. The locality in which the street address is, and which is in the region. Model:''https://schema.org/addressLocality'''
       type: string
-      ui:formItemType: text
       ui:formItemGridClass: 'col-md-5'
     addressRegion:
       description: 'Property. The region in which the locality is, and which is in the country. Model:''https://schema.org/addressRegion'''
       type: string
-      ui:formItemType: text
       ui:formItemGridClass: 'col-md-2'
     streetAddress:
       description: 'Property. The street address. Model:''https://schema.org/streetAddress'''
       type: string
-      ui:formItemType: text
       ui:formItemGridClass: 'col-md-10'
     postOfficeBoxNumber:
       description: 'Property. The post office box number for PO box addresses. For example, 03578. Model:''https://schema.org/postOfficeBoxNumber'''
       type: string
-      ui:formItemType: text
       ui:formItemGridClass: 'col-md-2'
 
 owner:
@@ -220,7 +214,6 @@ seeAlso:
     format: uri
     ui:formItemType: text
   minItems: 1
-  ui:formItemType: array
   ui:hide:
     table: true
   db:skipInSchemaDefinition: true

@@ -32,11 +32,9 @@ properties:
       table: true
   name:
     type: string
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   alternateName:
     type: string
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   description:
     type: string
@@ -118,7 +116,6 @@ properties:
     $ref: './../$defs.yaml#/seeAlso'
   source:
     type: string
-    ui:formItemType: text
     readOnly: true
     const: PathoVIEW
   alertSource:
@@ -165,19 +162,16 @@ properties:
     type: string
     description: 'The start of the validity period for this forecast as a ISO8601 format'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
   validTo:
     type: string
     description: 'The end of the validity period for this forecast as a ISO8601 format'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
   address:
     $ref: './../$defs.yaml#/Address'
   areaServed:
     type: string
     description: 'The geographic area where a service or offered item is provided'
-    ui:formItemType: text
   location:
     $ref: './../$defs.yaml#/Location'

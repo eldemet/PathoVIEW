@@ -32,7 +32,6 @@ properties:
   name:
     type: string
     description: 'The name of this item.'
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   status:
     type: string
@@ -66,13 +65,11 @@ properties:
     type: string
     description: 'The start of the validity period for this forecast as a ISO8601 format'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
   validTo:
     type: string
     description: 'The end of the validity period for this forecast as a ISO8601 format'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
   createdAt:
     type: string

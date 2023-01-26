@@ -33,7 +33,7 @@ discriminator:
       refId:
         type: string
         db:ref: Annotation
-        ui:formItemType: 'select'
+        ui:formItemType: select
         ui:hide:
           form: true
           table: true

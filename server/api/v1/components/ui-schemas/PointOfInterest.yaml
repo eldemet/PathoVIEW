@@ -25,12 +25,10 @@ properties:
   name:
     type: string
     description: 'The name of this item.'
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   alternateName:
     type: string
     description: 'An alternative name for this item'
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   description:
     type: string

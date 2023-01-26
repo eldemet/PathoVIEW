@@ -31,7 +31,6 @@ properties:
     type: string
     description: 'The start of the validity period for this forecast as a ISO8601 format'
     format: date-time
-    ui:formItemType: date-time
     ui:formItemGridClass: 'col-md-6'
   description:
     type: string

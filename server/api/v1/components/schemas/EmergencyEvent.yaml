@@ -2,6 +2,7 @@ type: object
 required:
   - id
   - type
+  - scenario
   - name
   - owner
   - location
@@ -29,10 +30,18 @@ properties:
       form: true
       table: true
       info: true
+  scenario:
+    type: string
+    enum:
+      - limassol
+      - seoul
+      - granada
+      - thessaloniki
+      - sofia
+      - amsterdam
   name:
     type: string
     description: 'The name of this item.'
-    ui:formItemType: text
     ui:formItemGridClass: 'col-md-6'
   description:
     type: string
