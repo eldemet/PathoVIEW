@@ -211,45 +211,49 @@ class ContextService extends BasicService {
         if (Array.isArray(this.alerts) && this.alerts.length > 0) {
             let from = point(location.coordinates);
             for (let alert of this.alerts) {
-                let distanceResult = distance(from, center(alert.location), {units: 'kilometers'});
-                let type;
-                let message;
-                let dismissible = true;
-                if ((alert.location.type === 'Polygon' && booleanPointInPolygon(from, polygon(alert.location.coordinates))) ||
-                    (alert.location.type === 'MultiPolygon' && booleanPointInPolygon(from, multiPolygon(alert.location.coordinates)))) {
-                    distanceResult = 0;
-                }
-                let properties = distanceResult === 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
-                if (distanceResult < 1.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
-                    if (distanceResult > 0.75) {
-                        type = 'warning';
-                        message = 'alerts.alertLocationClose';
-                    } else {
-                        type = 'danger';
-                        message = distanceResult === 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
-                        dismissible = false;
+                try {
+                    let distanceResult = distance(from, center(alert.location), {units: 'kilometers'});
+                    let type;
+                    let message;
+                    let dismissible = true;
+                    if ((alert.location.type === 'Polygon' && booleanPointInPolygon(from, polygon(alert.location.coordinates))) ||
+                        (alert.location.type === 'MultiPolygon' && booleanPointInPolygon(from, multiPolygon(alert.location.coordinates)))) {
+                        distanceResult = 0;
                     }
-                    numeral.locale(this.i18n.getLocale());
-                    this.eventAggregator.publish('haptics-event', {type, alert});
-                    this.eventAggregator.publish('app-alert',
-                        {
-                            id: alert.id,
-                            type: type,
-                            message: this.i18n.tr(message),
-                            link: {
-                                name: alert.name,
-                                href: '#'
-                            },
-                            properties: Object.assign(properties, {
-                                validTo: FormatDateValueConverter.apply(alert.validTo, 'D T', this.i18n.getLocale()),
-                                subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
-                                severity: this.i18n.tr('enum.alert.severity.' + alert.severity)
-                            }),
-                            image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
-                            dismissible: dismissible
-                        });
-                } else {
-                    this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+                    let properties = distanceResult === 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
+                    if (distanceResult < 1.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
+                        if (distanceResult > 0.75) {
+                            type = 'warning';
+                            message = 'alerts.alertLocationClose';
+                        } else {
+                            type = 'danger';
+                            message = distanceResult === 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
+                            dismissible = false;
+                        }
+                        numeral.locale(this.i18n.getLocale());
+                        this.eventAggregator.publish('haptics-event', {type, alert});
+                        this.eventAggregator.publish('app-alert',
+                            {
+                                id: alert.id,
+                                type: type,
+                                message: this.i18n.tr(message),
+                                link: {
+                                    name: alert.name,
+                                    href: '#'
+                                },
+                                properties: Object.assign(properties, {
+                                    validTo: FormatDateValueConverter.apply(alert.validTo, 'D T', this.i18n.getLocale()),
+                                    subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
+                                    severity: this.i18n.tr('enum.alert.severity.' + alert.severity)
+                                }),
+                                image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
+                                dismissible: dismissible
+                            });
+                    } else {
+                        this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+                    }
+                } catch (error) {
+                    this.logger.debug(error.message);
                 }
             }
         }
