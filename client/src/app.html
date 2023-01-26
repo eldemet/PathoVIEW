@@ -15,11 +15,11 @@
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
         <div class="dropdown" if.bind="!authService.userInfo.locale">
-            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
+            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-translate"></i>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="language-menu">
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
                 <li repeat.for="language of languages"
                     if.bind="language.value !== i18n.getLocale()">
                     <button class="dropdown-item"
@@ -35,10 +35,10 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i if.bind="contextService.currentEmergencyEvent" class="bi bi-hospital-fill"></i>
                 <i else class="bi bi-question-circle-fill"></i>
-                <span if.bind="contextService.currentEmergencyEvent" class="d-inline d-md-none d-lg-inline ms-2">${contextService.currentEmergencyEvent.name}</span>
-                <span else class="d-inline d-md-none d-lg-inline ms-2">${'alerts.noEmergencyEventSelected' | t}</span>
+                <span if.bind="contextService.currentEmergencyEvent" class="d-inline d-md-none d-xxl-inline ms-2">${contextService.currentEmergencyEvent.name}</span>
+                <span else class="d-inline d-md-none d-xxl-inline ms-2">${'alerts.noEmergencyEventSelected' | t}</span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="language-menu">
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
                 <li repeat.for="emergencyEvent of contextService.emergencyEvents">
                     <button class="dropdown-item ${contextService.currentEmergencyEvent === emergencyEvent ? 'active' : ''}"
                             click.trigger="contextService.changeEmergencyEvent(emergencyEvent)">
@@ -65,7 +65,7 @@
                 <i else class="bi bi-question-circle-fill"></i>
                 <span if.bind="contextService.currentDevice" class="d-md-none ms-2">${contextService.currentDevice.name}</span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="devices-menu">
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="devices-menu">
                 <li repeat.for="device of contextService.devices">
                     <button class="dropdown-item ${device === contextService.currentDevice ? 'active' : ''}"
                             click.trigger="contextService.currentDevice = device">

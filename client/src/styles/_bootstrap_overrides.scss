@@ -1,11 +1,11 @@
-$enable-caret:              true;
-$enable-rounded:            false;
-$enable-shadows:            false;
-$enable-gradients:          false;
-$enable-transitions:        true;
-$enable-grid-classes:       true;
+$enable-caret: true;
+$enable-rounded: false;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-grid-classes: true;
 
-$white:    #fff !default;
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -17,25 +17,25 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #151515;
 
-$blue:    #1b75bc;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #d9534f;
-$orange:  #bc5327;
-$yellow:  #ffc107 !default;
-$green:   #5cb85c;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
+$blue: #1b75bc;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #d9534f;
+$orange: #bc5327;
+$yellow: #ffc107 !default;
+$green: #5cb85c;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
 
-$primary:       $orange;
-$secondary:     $gray-600;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-800 !default;
+$primary: $orange;
+$secondary: $gray-600;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
 
 $navbar-dark-active-color: $primary;
 $navbar-light-active-color: $primary;
@@ -56,13 +56,13 @@ $spacers: (
 $font-size-base: 1rem !default;
 
 $font-family-sans-serif: Calibri, sans-serif;
-$font-family-base:       $font-family-sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
 
-$h1-font-size:        $font-size-base * 2.5 !default;
-$h2-font-size:        $font-size-base * 2 !default;
-$h3-font-size:        $font-size-base * 1.75 !default;
-$h4-font-size:        $font-size-base * 1.5 !default;
-$h5-font-size:        $font-size-base * 1.25 !default;
-$h6-font-size:        $font-size-base !default;
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
 
 $label-margin-bottom: map_get($spacers, 1);

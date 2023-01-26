@@ -174,7 +174,7 @@
     - licenses: MIT
     - description: Transform class static blocks
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-decorators@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-decorators@7.20.13](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile class and object decorators to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -2446,7 +2446,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.2.2](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.2.3](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -2602,7 +2602,7 @@
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[minimatch@6.1.5](https://github.com/isaacs/minimatch)**
+ - **[minimatch@6.1.6](https://github.com/isaacs/minimatch)**
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors

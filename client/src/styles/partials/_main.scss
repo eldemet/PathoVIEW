@@ -1,13 +1,3 @@
-.bg-blue {
-    --bs-bg-opacity: 1;
-    background-color: $blue !important;
-}
-
-.bg-gray {
-    --bs-bg-opacity: 1;
-    background-color: $gray-200;
-}
-
 .nav-item {
     text-transform: uppercase;
 }
@@ -24,11 +14,6 @@ body {
     border-radius: var(--bs-border-radius-sm) !important;
     margin: 0.5rem !important;
     background-color: $blue !important;
-}
-
-span.d-block.d-md-none.text-primary {
-    text-transform: uppercase;
-    border-bottom: solid $primary 2px;
 }
 
 .creator {
@@ -48,7 +33,9 @@ span.d-block.d-md-none.text-primary {
     }
 }
 
-.navbar-collapse {
-    max-height: calc(100vh - 78px);
-    overflow-y: auto;
+@include media-breakpoint-down(md) {
+    .navbar-collapse {
+        max-height: calc(100vh - 78px);
+        overflow-y: auto;
+    }
 }
