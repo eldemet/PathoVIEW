@@ -163,6 +163,7 @@ class ContextService extends BasicService {
     @catchError()
     async changeEmergencyEvent(emergencyEvent) {
         AureliaCookie.set('emergency-event', emergencyEvent.id, {});
+        AureliaCookie.set('scenario', emergencyEvent.scenario, {});
         this.currentEmergencyEvent = emergencyEvent;
         this.eventAggregator.publish('app-alert-dismiss', {id: 'noEmergencyEvent'});
         for (let alert of this.alerts) {

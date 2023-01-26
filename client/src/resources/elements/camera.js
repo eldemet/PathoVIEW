@@ -78,6 +78,7 @@ class Camera extends BasicComponent {
             this.stopMediaStream();
             constraints = this._.merge({}, this.constraints, {video: {optional: [{}, {}, {sourceId: this.selectedMedia}]}});
         }
+        // @ts-ignore
         this.logger.debug(constraints);
         try {
             const mediaStream = await navigator.mediaDevices.getUserMedia(constraints);

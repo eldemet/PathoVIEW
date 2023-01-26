@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime';
 import 'bootstrap';
 import {PLATFORM} from 'aurelia-pal';
 import {AureliaCookie} from 'aurelia-cookie';
@@ -9,12 +8,13 @@ import {I18N} from 'aurelia-i18n';
 // @ts-ignore
 import {AuthServiceImplementation} from './services/auth-service-APP_TARGET';
 // @ts-ignore
-import {BhapticsServiceImplementation} from "./services/bhaptics-service-APP_TARGET";
+import {BhapticsServiceImplementation} from './services/bhaptics-service-APP_TARGET';
 // @ts-ignore
 import environment from '../config/environment.json';
 import {ModelServiceAsync} from 'library-aurelia/src/services/model-service-async';
 import {ModelServiceAsyncUISchema} from './services/model-service-async-ui-schema';
 import {ModelServiceBasicSchema} from './services/model-service-basic-schema';
+import {ModelServiceAlert} from './services/model-service-alert';
 
 export async function configure(aurelia) {
     let authService = aurelia.container.get(AuthServiceImplementation);
@@ -37,7 +37,7 @@ export async function configure(aurelia) {
     let registerServices = [
         authService,
         aurelia.container.get(BhapticsServiceImplementation),
-        new ModelServiceAsyncUISchema('alert', options, httpService),
+        environment.usePathoware ? new ModelServiceAlert('alert', options, httpService) : new ModelServiceAsyncUISchema('alert', options, httpService),
         new ModelServiceAsyncUISchema('device', options, httpService),
         new ModelServiceAsyncUISchema('point-of-interest', options, httpService),
         new ModelServiceBasicSchema('annotation', options, httpService, i18n, eventAggregator),
