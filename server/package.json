@@ -29,10 +29,10 @@
     "author": "Christian Knecht",
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
-        "@keycloak/keycloak-admin-client": "^20.0.2",
+        "@keycloak/keycloak-admin-client": "^20.0.3",
         "ajv-formats-draft2019": "^1.6.1",
         "query-string": "^8.1.0",
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v4.0.1"
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v4.1.0"
     },
     "types": "./types/types.d.ts",
     "directories": {

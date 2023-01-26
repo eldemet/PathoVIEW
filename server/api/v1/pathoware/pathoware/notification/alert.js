@@ -21,7 +21,7 @@ export default function(notificationService, getApiDoc) {
 
 const publishNotification = {
     summary: 'publish a notification',
-    operationId: 'publishNotification',
+    operationId: 'publishAlertNotification',
     parameters: [],
     requestBody: {
         required: true,

@@ -6,6 +6,13 @@ properties:
       openWeatherMapApiKeyFile:
         type: string
         default: '../../cert/owmapikey.txt'
+  pathoware:
+    type: object
+    properties:
+      northboundApi:
+        type: string
+      dataConnectorApi:
+        type: string
   keycloakConfig:
     type: object
     properties:

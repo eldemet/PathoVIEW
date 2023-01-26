@@ -1,10 +1,11 @@
 /*******************************************************************
  *   server.js
  *******************************************************************/
+import 'utilities-node/src/utilities/dotenv.js';
 import idnEmail from 'ajv-formats-draft2019/formats/idn-email.js';
 import {initialize} from 'utilities-node/src/framework.js';
-import {isDirectory} from 'utilities-node/src/utilities/fs.js'
-import {KeycloakAdminService} from './services/keycloak-admin.js'
+import {isDirectory} from 'utilities-node/src/utilities/fs.js';
+import {KeycloakAdminService} from './services/keycloak-admin.js';
 
 const kcAdminService = new KeycloakAdminService();
 
@@ -46,6 +47,9 @@ const configAppDefaults = {
     api: {
         modelReinitializeObjects: true,
         modelDeleteObjects: true,
+        modelDiscriminator: {
+            propertyName: 'type'
+        },
         securitySchemes: [
             {
                 scheme: 'keycloakScheme',
@@ -92,6 +96,10 @@ if (isDirectory('client')) {
         directory: 'client',
         endpoint: ''
     };
+}
+
+if (process.env.PATHOWARE_NORTHBOUND_API && process.env.PATHOWARE_DATA_CONNECTOR_API) {
+    openApi.paths.push('./api/v1/pathoware');
 }
 
 const configAdditionsSchemaPath = './api/v1/components/config-additions.yaml';
