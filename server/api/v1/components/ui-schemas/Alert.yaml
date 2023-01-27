@@ -13,6 +13,7 @@ model:searchProperties:
   - name
   - alternateName
   - description
+model:defaultProperty: name
 properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
@@ -36,6 +37,8 @@ properties:
   alternateName:
     type: string
     ui:formItemGridClass: 'col-md-6'
+    ui:hide:
+      table: true
   description:
     type: string
     ui:formItemType: textarea
@@ -122,6 +125,8 @@ properties:
     $ref: './../$defs.yaml#/NGSIentityFormat'
     ui:formItemType: select
     db:ref: EmergencyEvent
+    ui:hide:
+      table: true
   dataProvider:
     type: string
     description: 'A sequence of characters identifying the provider of the harmonised data entity.'
@@ -163,6 +168,8 @@ properties:
     description: 'The start of the validity period for this forecast as a ISO8601 format'
     format: date-time
     ui:formItemGridClass: 'col-md-6'
+    ui:hide:
+      table: true
   validTo:
     type: string
     description: 'The end of the validity period for this forecast as a ISO8601 format'
@@ -173,5 +180,7 @@ properties:
   areaServed:
     type: string
     description: 'The geographic area where a service or offered item is provided'
+    ui:hide:
+      table: true
   location:
     $ref: './../$defs.yaml#/Location'

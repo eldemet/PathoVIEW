@@ -22,6 +22,8 @@ discriminator:
         ui:hide:
           table: true
           form: true
+      type:
+        const: Annotation
       kind:
         type: string
         enum:
