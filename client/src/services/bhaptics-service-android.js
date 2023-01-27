@@ -1,5 +1,5 @@
-import {registerPlugin} from "@capacitor/core";
-import {BhapticsService} from "./bhaptics-service";
+import {registerPlugin} from '@capacitor/core';
+import {BhapticsService} from './bhaptics-service';
 
 class BhapticsServiceImplementation extends BhapticsService {
 

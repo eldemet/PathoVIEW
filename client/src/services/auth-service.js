@@ -2,7 +2,7 @@ import {inject} from 'aurelia-framework';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {HttpService} from 'library-aurelia/src/services/http-service';
-import {AureliaCookie} from "aurelia-cookie";
+import {AureliaCookie} from 'aurelia-cookie';
 
 @inject(HttpService)
 class AuthService extends BasicService {

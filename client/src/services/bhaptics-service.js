@@ -1,8 +1,8 @@
-import {inject} from "aurelia-framework";
-import {EventAggregator} from "aurelia-event-aggregator";
+import {inject} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {BasicObject} from 'library-aurelia/src/prototypes/basic-object';
-import tactFiles from "../assets/tact-files";
+import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
+import tactFiles from '../assets/tact-files';
 
 @inject(EventAggregator)
 class BhapticsService extends BasicService {
@@ -27,7 +27,7 @@ class BhapticsService extends BasicService {
             }
         }
         this.subscriptions.push(this.eventAggregator.subscribe('haptics-event', async payload => {
-            let callRegistered = {name: 'heartbeat', fallback: 'none', offsetAngleX: 0, offsetY: 0}
+            let callRegistered = {name: 'heartbeat', fallback: 'none', offsetAngleX: 0, offsetY: 0};
             if (payload.type === 'warning') {
                 callRegistered.intensity = 0.5;
                 callRegistered.duration = 1.0;
@@ -36,7 +36,7 @@ class BhapticsService extends BasicService {
                 callRegistered.intensity = 1.0;
                 callRegistered.duration = 1.0;
                 let i = 0;
-                let interval = setInterval(async () => {
+                let interval = setInterval(async() => {
                     await this.submitRegistered(callRegistered);
                     i++;
                     if (i > 5) {
@@ -60,7 +60,7 @@ class BhapticsService extends BasicService {
     }
 
     async submitRegistered(callRegistered) {
-        this.logger.warn('submitRegistered: not implemented')
+        this.logger.warn('submitRegistered: not implemented');
     }
 
 }

@@ -3,7 +3,6 @@ import addFormats from 'ajv-formats';
 import {AureliaCookie} from 'aurelia-cookie';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
-import {modelUtilities} from '../utilities';
 
 /**
  * @extends BasicService
@@ -71,6 +70,7 @@ class NotificationService extends BasicService {
         this.notificationListener = new EventSource(url, options);
         this.notificationListener.onopen = () => {
             this.logger.info('Registered to notification service!');
+            this.eventAggregator.publish('haptics-event', {type: 'SUCCESS'});
             this.eventAggregator.publish('toast',
                 {
                     biIcon: 'bell',
@@ -83,6 +83,7 @@ class NotificationService extends BasicService {
         };
         this.notificationListener.onerror = () => {
             this.removeNotificationListener();
+            this.eventAggregator.publish('haptics-event', {type: 'ERROR'});
             this.eventAggregator.publish('toast',
                 {
                     biIcon: 'bell-slash',
@@ -125,34 +126,7 @@ class NotificationService extends BasicService {
     }
 
     notificationCallback = (notification) => {
-        try {
-            let notificationData = JSON.parse(notification.data);
-            this.logger.info('Received notification ' + (notificationData.topic ? notificationData.topic + ' ' : '') + notificationData.contentType);
-            let valid = this.ajv.validate(this.NotificationSchema, notificationData);
-            if (valid) {
-                this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
-                if (notificationData.topic === 'model') {
-                    let modelType = this._.lowerFirst(this._.camelCase(notificationData.contentType));
-                    this.eventAggregator.publish('toast', {
-                        title: this.i18n.tr(
-                            'alerts.notifications.model.' + notificationData.operationType,
-                            // @ts-ignore
-                            {type: modelType}
-                        ),
-                        body: 'alerts.notifications.model.message',
-                        biIcon: modelUtilities.getIconByType(modelType),
-                        autohide: true,
-                        delay: 3000,
-                        timestamp: new Date(notificationData.dateTimeSent)
-                    });
-                }
-                this.logger.silly(notificationData);
-            } else {
-                this.logger.error(this.ajv.errors);
-            }
-        } catch (error) {
-            this.logger.error(error.message);
-        }
+        this.logger.warn('Not implemented!');
     };
 
 }

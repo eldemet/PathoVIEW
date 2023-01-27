@@ -6,11 +6,13 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {I18N} from 'aurelia-i18n';
 // @ts-ignore
+import environment from '../config/environment.json';
+// @ts-ignore
 import {AuthServiceImplementation} from './services/auth-service-APP_TARGET';
 // @ts-ignore
 import {BhapticsServiceImplementation} from './services/bhaptics-service-APP_TARGET';
 // @ts-ignore
-import environment from '../config/environment.json';
+import {NotificationServiceImplementation} from './services/notification-service-APP_TARGET';
 import {ModelServiceAsync} from 'library-aurelia/src/services/model-service-async';
 import {ModelServiceAsyncUISchema} from './services/model-service-async-ui-schema';
 import {ModelServiceBasicSchema} from './services/model-service-basic-schema';
@@ -37,6 +39,7 @@ export async function configure(aurelia) {
     let registerServices = [
         authService,
         aurelia.container.get(BhapticsServiceImplementation),
+        aurelia.container.get(NotificationServiceImplementation),
         environment.usePathoware ? new ModelServiceAlert('alert', options, httpService) : new ModelServiceAsyncUISchema('alert', options, httpService),
         new ModelServiceAsyncUISchema('device', options, httpService),
         new ModelServiceAsyncUISchema('point-of-interest', options, httpService),

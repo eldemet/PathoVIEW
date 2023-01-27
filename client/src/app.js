@@ -7,10 +7,9 @@ import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router'
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {deviceUtilities} from './utilities';
-import {NotificationService} from './services/notification-service';
 import {ContextService} from './services/context-service';
 
-@inject(BindingSignaler, DialogService, NotificationService, ContextService)
+@inject(BindingSignaler, DialogService, ContextService)
 export class App extends BasicViewRouter {
 
     routes = [
@@ -94,15 +93,13 @@ export class App extends BasicViewRouter {
     /**
      * @param {BindingSignaler} bindingSignaler
      * @param {DialogService} dialogService
-     * @param {NotificationService} notificationService
      * @param {ContextService} contextService
      * @param {ConstructorParameters<typeof BasicViewRouter>} rest
      */
-    constructor(bindingSignaler, dialogService, notificationService, contextService, ...rest) {
+    constructor(bindingSignaler, dialogService, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
         this.dialogService = dialogService;
-        this.notificationService = notificationService;
         this.contextService = contextService;
         this.deviceUtilities = deviceUtilities;
         this.bhapticsServiceEnabled = false;
@@ -120,6 +117,7 @@ export class App extends BasicViewRouter {
         this.responsiveService.initialize();
         this.authService = this.proxy.get('auth');
         this.bhapticsService = this.proxy.get('bhaptics');
+        this.notificationService = this.proxy.get('notification');
         await this.contextService.initialize(this.authService.getUserId());
         this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
         await this.notificationService.initialize(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
@@ -156,9 +154,11 @@ export class App extends BasicViewRouter {
         }));
     }
 
-    detached() {
-        super.detached();
+    async detached() {
+        await super.detached();
         clearInterval(this.interval);
+        await this.bhapticsService.close();
+        await this.notificationService.close();
     }
 
     changeLanguage(language) {

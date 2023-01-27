@@ -1,6 +1,6 @@
 import HapticPlayer from 'tact-js/dist/lib/HapticPlayer';
-import {PositionType} from "tact-js";
-import {BhapticsService} from "./bhaptics-service";
+import {PositionType} from 'tact-js';
+import {BhapticsService} from './bhaptics-service';
 
 class BhapticsServiceImplementation extends BhapticsService {
 
@@ -28,15 +28,17 @@ class BhapticsServiceImplementation extends BhapticsService {
     async close() {
         this.tactJs.turnOffAll();
         this.tactJs.socket.handlers = [];
-        this.tactJs.socket.connect = function () {};
-        this.tactJs.socket.websocketClient.onclose = function () {};
+        this.tactJs.socket.connect = function() {
+        };
+        this.tactJs.socket.websocketClient.onclose = function() {
+        };
         this.tactJs.socket.websocketClient.close();
         this.tactJs = null;
         await super.close();
     }
 
     async pingAll() {
-        let code = this.tactJs.submitDot('test', PositionType.VestBack, [{index: 0, intensity: 100}], 1000);;
+        let code = this.tactJs.submitDot('test', PositionType.VestBack, [{index: 0, intensity: 100}], 1000);
         if (code !== 0) {
             this.logger.debug('bhaptics error ' + code);
         }

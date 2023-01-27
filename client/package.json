@@ -27,6 +27,7 @@
     "dependencies": {
         "@capacitor/android": "^4.6.2",
         "@capacitor/core": "^4.6.2",
+        "@capacitor/haptics": "^4.1.0",
         "@capacitor/local-notifications": "^4.1.4",
         "@geoman-io/leaflet-geoman-free": "^2.14.1",
         "@turf/boolean-point-in-polygon": "^6.5.0",

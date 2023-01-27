@@ -1,5 +1,5 @@
-import {AuthService} from "./auth-service";
-import Keycloak from "keycloak-js";
+import {AuthService} from './auth-service';
+import Keycloak from 'keycloak-js';
 
 class AuthServiceImplementation extends AuthService {
 
@@ -16,7 +16,7 @@ class AuthServiceImplementation extends AuthService {
             this.setCookie(this.token);
             // @ts-ignore
             this.userInfo = await this.keycloak.loadUserInfo();
-            this.interval = setInterval(async () => {
+            this.interval = setInterval(async() => {
                 try {
                     await this.keycloak.loadUserInfo();
                     // @ts-ignore

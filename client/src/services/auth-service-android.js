@@ -1,5 +1,5 @@
-import {registerPlugin} from "@capacitor/core";
-import {AuthService} from "./auth-service";
+import {registerPlugin} from '@capacitor/core';
+import {AuthService} from './auth-service';
 
 class AuthServiceImplementation extends AuthService {
 

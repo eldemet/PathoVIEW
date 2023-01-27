@@ -231,7 +231,7 @@ class ContextService extends BasicService {
                             dismissible = false;
                         }
                         numeral.locale(this.i18n.getLocale());
-                        this.eventAggregator.publish('haptics-event', {type, alert});
+                        this.eventAggregator.publish('haptics-event', {type: type === 'warning' ? 'WARNING' : 'ERROR'});
                         this.eventAggregator.publish('app-alert',
                             {
                                 id: alert.id,
