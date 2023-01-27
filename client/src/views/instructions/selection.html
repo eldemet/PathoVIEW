@@ -25,7 +25,7 @@
                     <a repeat.for="instruction of devices[key].instructions"
                        route-href="route.bind: 'instruction'; params.bind:{device: key, index: $index}"
                        class="list-group-item list-group-item-action">
-                        <i class="bi bi-${getIconByType(instruction.type)}"></i>
+                        <i class="bi-${getIconByType(instruction.type)}"></i>
                         ${instruction.name}
                     </a>
                 </div>

@@ -15,7 +15,7 @@
                 <div class="col-${routeConfig.settings.gridColumns ? routeConfig.settings.gridColumns : 12} h-100 overflow-auto">
                     <div class="d-flex flex-column h-100 overflow-auto">
                         <div if.bind="total > 0" class="mt-2">
-                            <i class="bi bi-check"></i> ${'labels.result' | t}: ${total}
+                            <i class="bi-check"></i> ${'labels.result' | t}: ${total}
                         </div>
                         <div if.bind="total > limit" class="mt-2">
                             <nav aria-label="pagination">
@@ -75,7 +75,7 @@
                                     click.trigger="navigateToRoute('detail', object, $event, router)">
                                     <td if.bind="routeConfig.settings.showExternalLink"
                                         class="link">
-                                        <i class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi bi-box-arrow-up-right"
+                                        <i class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi-box-arrow-up-right"
                                            click.trigger="navigateToRoute('print', object, $event)">
                                         </i>
                                     </td>
@@ -121,28 +121,28 @@
                                                                      & signal:'annotations-updated'"
                                              if.bind="$this.length > 0">
                                             ${$this.length}
-                                            <i class="bi bi-chat-square"></i>
+                                            <i class="bi-chat-square"></i>
                                         </span>
                                         <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationImage'}]}
                                                                      & signal:'annotations-updated'"
                                              if.bind="$this.length > 0">
                                             ${$this.length}
-                                            <i class="bi bi-camera-fill"></i>
+                                            <i class="bi-camera-fill"></i>
                                         </span>
                                         <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationAudio'}]}
                                                                      & signal:'annotations-updated'"
                                              if.bind="$this.length > 0">
                                             ${$this.length}
-                                            <i class="bi bi-mic-fill"></i>
+                                            <i class="bi-mic-fill"></i>
                                         </span>
                                     </td>
                                     <td class="tools">
                                         <i if.bind="!schema.readOnly"
-                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi bi-pencil"
+                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi-pencil"
                                            click.trigger="navigateToRoute('update', object, $event, router)">
                                         </i>
                                         <i if.bind="!schema.readOnly"
-                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi bi-trash"
+                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi-trash"
                                            click.trigger="deleteObject(object, $event)">
                                         </i>
                                     </td>

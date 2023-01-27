@@ -17,7 +17,7 @@
         <div class="dropdown" if.bind="!authService.userInfo.locale">
             <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-translate"></i>
+                <i class="bi-translate"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
                 <li repeat.for="language of languages"
@@ -33,8 +33,8 @@
         <div class="dropdown" if.bind="contextService.emergencyEvents">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i if.bind="contextService.currentEmergencyEvent" class="bi bi-hospital-fill"></i>
-                <i else class="bi bi-question-circle-fill"></i>
+                <i if.bind="contextService.currentEmergencyEvent" class="bi-hospital-fill"></i>
+                <i else class="bi-question-circle-fill"></i>
                 <span if.bind="contextService.currentEmergencyEvent" class="d-inline d-md-none d-xxl-inline ms-2">${contextService.currentEmergencyEvent.name}</span>
                 <span else class="d-inline d-md-none d-xxl-inline ms-2">${'alerts.noEmergencyEventSelected' | t}</span>
             </button>
@@ -51,7 +51,7 @@
                 <li>
                     <button class="dropdown-item"
                             click.trigger="openCreateModal('emergencyEvent')">
-                        <i class="bi bi-plus me-2"></i>${'views.create' | t:{'type': 'model.emergencyEvent'}}
+                        <i class="bi-plus me-2"></i>${'views.create' | t:{'type': 'model.emergencyEvent'}}
                     </button>
                 </li>
             </ul>
@@ -62,7 +62,7 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i if.bind="contextService.currentDevice"
                    class="${deviceUtilities.getDeviceIcon(contextService.currentDevice)}"></i>
-                <i else class="bi bi-question-circle-fill"></i>
+                <i else class="bi-question-circle-fill"></i>
                 <span if.bind="contextService.currentDevice" class="d-md-none ms-2">${contextService.currentDevice.name}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="devices-menu">
@@ -78,7 +78,7 @@
                 <li>
                     <button class="dropdown-item"
                             click.trigger="openCreateModal('device')">
-                        <i class="bi bi-plus me-2"></i>${'views.create' | t:{'type': 'model.device'}}
+                        <i class="bi-plus me-2"></i>${'views.create' | t:{'type': 'model.device'}}
                     </button>
                 </li>
             </ul>
@@ -105,11 +105,11 @@
                         ${'alerts.bhaptics.connecting' | t}
                     </div>
                     <div if.bind="bhapticsService.status === 'connected'">
-                        <i class="bi bi-circle text-success"></i>
+                        <i class="bi-circle text-success"></i>
                         ${'alerts.bhaptics.connected' | t}
                     </div>
                     <div if.bind="bhapticsService.status === 'error'">
-                        <i class="bi bi-exclamation-triangle text-warning"></i>
+                        <i class="bi-exclamation-triangle text-warning"></i>
                         ${'alerts.bhaptics.error' | t}
                     </div>
                 </li>
@@ -122,8 +122,8 @@
                     <span class="d-block">
                         <img if.bind="bhapticsDevice.position === 'Vest'" src.bind="'./assets/icon-vest.svg'" class="me-1" style="width: 1.5rem">
                         ${bhapticDevice.deviceName} ${bhapticsDevice.address}
-                        <i class="bi bi-circle${bhapticsDevice.isConnected ? '-fill text-success' : ''}"></i>
-                        <i class="bi bi-bluetooth${bhapticsDevice.isPaired ? ' text-success' : ''}"></i>
+                        <i class="bi-circle${bhapticsDevice.isConnected ? '-fill text-success' : ''}"></i>
+                        <i class="bi-bluetooth${bhapticsDevice.isPaired ? ' text-success' : ''}"></i>
                     </span>
                 </li>
                 <li>
@@ -133,7 +133,7 @@
                     <button class="dropdown-item"
                             disabled.bind="bhapticsService.status !== 'connected'"
                             click.trigger="bhapticsService.pingAll()">
-                        <i class="bi bi-activity me-2"></i>${'buttons.pingAll' | t}
+                        <i class="bi-activity me-2"></i>${'buttons.pingAll' | t}
                     </button>
                 </li>
             </ul>
@@ -143,18 +143,18 @@
              if.bind="authService.userInfo">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-circle"></i><span class="d-md-none ms-2">${authService.userInfo.name}</span>
+                <i class="bi-person-circle"></i><span class="d-md-none ms-2">${authService.userInfo.name}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
                 <li class="px-3 text-body-tertiary text-nowrap">
                     <span class="d-block">
-                        <i class="bi bi-person-vcard me-2"></i>${authService.userInfo.name} (${authService.userInfo.preferred_username})
+                        <i class="bi-person-vcard me-2"></i>${authService.userInfo.name} (${authService.userInfo.preferred_username})
                     </span>
                     <span class="d-block" if.bind="authService.userInfo.email">
-                        <i class="bi bi-envelope-at invisible me-2"></i>${authService.userInfo.email}
+                        <i class="bi-envelope-at invisible me-2"></i>${authService.userInfo.email}
                     </span>
                     <span class="d-block">
-                        <i class="bi bi-clock me-2"></i>${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'update-logout-in'}
+                        <i class="bi-clock me-2"></i>${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'update-logout-in'}
                     </span>
                 </li>
                 <li>
@@ -164,13 +164,13 @@
                     <a class="dropdown-item"
                        href.bind="authService.keycloak.createAccountUrl({redirectUri: window.environment.keycloak.url})"
                        target="_blank">
-                        <i class="bi bi-person-gear me-2"></i>${'buttons.userManagement' | t}
+                        <i class="bi-person-gear me-2"></i>${'buttons.userManagement' | t}
                     </a>
                 </li>
                 <li>
                     <button class="dropdown-item"
                             click.trigger="authService.close()">
-                        <i class="bi bi-box-arrow-left me-2"></i>${'buttons.logout' | t}
+                        <i class="bi-box-arrow-left me-2"></i>${'buttons.logout' | t}
                     </button>
                 </li>
             </ul>

@@ -3,7 +3,7 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-8">
-                <h1><i class="bi bi-${getIconByType(instruction.type)}"></i> ${devices[params.device].name}: ${instruction.name}</h1>
+                <h1><i class="bi-${getIconByType(instruction.type)}"></i> ${devices[params.device].name}: ${instruction.name}</h1>
                 <div repeat.for="item of instruction.items"
                      class="mt-4">
                     <h3>${item.section}</h3>
