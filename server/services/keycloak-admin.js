@@ -13,6 +13,10 @@ import {BasicObject} from 'utilities-node/src/services/_prototypes.js';
  */
 class KeycloakAdminService extends BasicObject {
 
+    users;
+    roles;
+    groups;
+
     constructor() {
         super();
     }
@@ -32,48 +36,78 @@ class KeycloakAdminService extends BasicObject {
             clientId: 'admin-cli'
         };
         await this.kcAdminClient.auth(credentials);
-        const refreshAccessToken = () => {
-            this.interval = setTimeout(async () => {
-                try {
-                    await this.kcAdminClient.auth(credentials);
-                    this.logger.verbose('Access token for Keycloak admin service refreshed!');
-                } catch (error) {
-                    this.logger.error(error.message);
-                }
-                refreshAccessToken();
-            }, 5 * 1000 * 60);
+        const refreshAccessToken = async() => {
+            try {
+                await this.kcAdminClient.auth(credentials);
+                this.logger.verbose('Access token for Keycloak admin service refreshed!');
+            } catch (error) {
+                this.logger.error(error.message);
+            }
+            this.interval = setTimeout(refreshAccessToken, 5 * 1000 * 60);
         };
-        refreshAccessToken();
+        await refreshAccessToken();
+        const refreshUserData = async() => {
+            try {
+                this.users = await this.getUsers(true);
+                this.roles = await this.getRoles(true);
+                this.groups = await this.getGroups(true);
+            } catch (error) {
+                this.logger.error(error.message);
+            }
+            this.userInterval = setTimeout(refreshUserData, 5 * 1000 * 60);
+        };
+        await refreshUserData();
         this.logger.info('Successfully initialized Keycloak admin service!');
     }
 
     async close() {
         clearTimeout(this.interval);
+        clearTimeout(this.userInterval);
         this.logger.info('Successfully closed Keycloak admin service!');
     }
 
-    async getUsers() {
-        let users = (await this.kcAdminClient.users.find()).map(user => _.pick(user, ['id', 'username', 'firstName', 'lastName', 'email', 'enabled']));
-        let client = (await this.kcAdminClient.clients.find({clientId: this.config.keycloakConfig.clientId}))[0];
-        const clientSessions = await this.kcAdminClient.clients.listSessions({
-            id: client.id
-        });
-        for (let user of users) {
-            user.roles = (await this.kcAdminClient.users.listRealmRoleMappings({id: user.id})).filter(role => !role.composite).map(role => role.name);
-            user.groups = (await this.kcAdminClient.users.listGroups({id: user.id})).map(group => group.name);
-            user.status = clientSessions.find(session => session.userId === user.id) ? 'online' : 'offline';
+    async getUsers(force) {
+        let users;
+        if (!this.users || force) {
+            users = (await this.kcAdminClient.users.find()).map(user => _.pick(user, ['id', 'username', 'firstName', 'lastName', 'email', 'enabled']));
+            let client = (await this.kcAdminClient.clients.find({clientId: this.config.keycloakConfig.clientId}))[0];
+            const clientSessions = await this.kcAdminClient.clients.listSessions({
+                id: client.id
+            });
+            for (let user of users) {
+                user.roles = (await this.kcAdminClient.users.listRealmRoleMappings({id: user.id})).filter(role => !role.composite).map(role => role.name);
+                user.groups = (await this.kcAdminClient.users.listGroups({id: user.id})).map(group => group.name);
+                user.status = clientSessions.find(session => session.userId === user.id) ? 'online' : 'offline';
+            }
+            this.logger.verbose('Users in Keycloak admin service refreshed!');
+        } else {
+            users = this.users;
         }
         return users;
     }
 
-    async getRoles() {
-        return (await this.kcAdminClient.roles.find())
-            .map(role => _.pick(role, ['id', 'name']))
-            .filter(role => !['manage-users', 'offline_access', 'uma_authorization'].includes(role.name) && !role.composite);
+    async getRoles(force) {
+        let roles;
+        if (!this.roles || force) {
+            roles = (await this.kcAdminClient.roles.find())
+                .map(role => _.pick(role, ['id', 'name']))
+                .filter(role => !['manage-users', 'offline_access', 'uma_authorization'].includes(role.name) && !role.composite);
+            this.logger.verbose('Roles in Keycloak admin service refreshed!');
+        } else {
+            roles = this.roles;
+        }
+        return roles;
     }
 
-    async getGroups() {
-        return (await this.kcAdminClient.groups.find());
+    async getGroups(force) {
+        let groups;
+        if (!this.groups || force) {
+            groups = (await this.kcAdminClient.groups.find());
+            this.logger.verbose('Groups in Keycloak admin service refreshed!');
+        } else {
+            groups = this.groups;
+        }
+        return groups;
     }
 
 }
