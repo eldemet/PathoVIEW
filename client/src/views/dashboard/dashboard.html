@@ -5,12 +5,15 @@
     <require from='library-aurelia/src/resources/value-converters/format-date'></require>
     <require from="library-aurelia/src/resources/value-converters/format-number"></require>
     <require from="library-aurelia/src/resources/value-converters/format-duration"></require>
+    <require from="library-aurelia/src/resources/attributes/bs-tooltip"></require>
+    <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
+    <require from="resources/elements/user-popover"></require>
 
     <div class="h-100 d-flex align-content-center flex-wrap justify-content-center"
          if.bind="!contextService.currentEmergencyEvent">
         <div class="alert alert-info rounded" role="alert">
             <div class="d-flex flex-row">
-                <i class="bi bi-hospital fs-1 pe-3"></i>
+                <i class="bi-hospital fs-1 pe-3"></i>
                 <div>
                     <h4>${'views.dashboard.noEmergencyEventHeadline' | t}</h4>
                     ${'views.dashboard.noEmergencyEvent' | t}
@@ -28,42 +31,84 @@
                 </all-properties>
             </div>
             <div class="col-md-4">
-                <h2 class="mt-3">${'views.dashboard.importantDates' | t}</h2>
-                <ul>
-                    <li>${'views.dashboard.currentTime' | t}: <span>${getDate() | formatDate:'tt':i18n.getLocale() & signal:'update-dates'}</span></li>
-                    <li>${'views.dashboard.timeToSunset' | t}: <span>${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</span></li>
-                    <li>${'views.dashboard.timeSinceT0' | t}: <span>${getDate(contextService.currentEmergencyEvent.createdAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</span></li>
-                </ul>
-
-                <h2 class="mt-3">${'views.dashboard.statistics' | t}</h2>
-                <ul>
-                    <li>
-                        ${'views.dashboard.userCount' | t}:
-                        <span if.bind="users">${users.length}</span>
-                        <div else class="spinner-border spinner-border-sm" role="status"></div>
-                    </li>
-                    <li>
-                        ${'views.dashboard.userOnlineCount' | t}:
-                        <span if.bind="users">${users.filter(onlineUsers).length}</span>
-                        <div else class="spinner-border spinner-border-sm" role="status"></div>
-                    </li>
-                    <li>
-                        ${'views.dashboard.groups' | t}:
-                        <span if.bind="groups">${groups.map(mapNames).join(', ')}</span>
-                        <div else class="spinner-border spinner-border-sm" role="status"></div>
-                    </li>
-                    <li>
-                        ${'views.dashboard.roles' | t}:
-                        <span if.bind="roles">${roles.map(mapNames).join(', ')}</span>
-                        <div else class="spinner-border spinner-border-sm" role="status"></div>
-                    </li>
-                    <li>
-                        ${'views.dashboard.lastAlert' | t}:
-                        <span if.bind="initialized && lastAlert">${lastAlert.name} (${lastAlert.dateIssued | formatDate:'f':i18n.getLocale()})</span>
-                        <span if.bind="initialized && !lastAlert">${'alerts.general.noResults' | t}</span>
+                <div>
+                    <h2 class="mt-3">${'views.dashboard.importantDates' | t}</h2>
+                    <span class="text-muted">${'views.dashboard.currentTime' | t}:</span>
+                    <p class="fs-6"><i class="bi-clock"></i> ${getDate() | formatDate:'tt':i18n.getLocale() & signal:'update-dates'}</p>
+                    <span class="text-muted">${'views.dashboard.timeToSunset' | t}:</span>
+                    <p class="fs-6"><i class="bi-sunset"></i> ${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
+                    <span class="text-muted">${'views.dashboard.timeSinceT0' | t}:</span>
+                    <p class="fs-6"><i class="bi-clock-history"></i> ${getDate(contextService.currentEmergencyEvent.createdAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
+                </div>
+                <div>
+                    <h2 class="mt-4">${'views.dashboard.news' | t}</h2>
+                    <div>
+                        <span class="text-muted">${'views.dashboard.lastAlert' | t}:</span>
+                        <p class="fs-6" if.bind="initialized && lastAlert">
+                            <a href.bind="'#/alert/search/detail/' + lastAlert.id"><i class="bi-bell"></i> ${lastAlert.name} (${lastAlert.dateIssued | formatDate:'f':i18n.getLocale()})</a>
+                        </p>
+                        <p class="fs-6" if.bind="initialized && !lastAlert">${'alerts.general.noResults' | t}</p>
                         <div if.bind="!initialized" class="spinner-border spinner-border-sm" role="status"></div>
-                    </li>
-                </ul>
+                    </div>
+                    <div>
+                        <span class="text-muted">${'views.dashboard.lastMission' | t}:</span>
+                        <p class="fs-6" if.bind="initialized && lastAlert">
+                            <a href.bind="'#/mission/search/detail/' + lastMission.id"><i class="bi-flag"></i> ${lastMission.name} (${lastMission.updatedAt | formatDate:'f':i18n.getLocale()})</a>
+                        </p>
+                        <p class="fs-6" if.bind="initialized && !lastAlert">${'alerts.general.noResults' | t}</p>
+                        <div if.bind="!initialized" class="spinner-border spinner-border-sm" role="status"></div>
+                    </div>
+                </div>
+                <div if.bind="currentPosition">
+                    <h2 class="mt-4">${'views.dashboard.ownPosition' | t}
+                        <button class="btn btn-outline-primary" click.delegate="copyOwnPositionToDashboard()" bs-tooltip="title: views.dashboard.copyPositionToClipboard;"><i class="bi-clipboard"></i></button>
+                    </h2>
+                    <i class="bi-geo"></i>
+                    <span class="fs-6"><i class="bi-distribute-horizontal"></i> ${currentPosition.lat}°</span>
+                    <span class="fs-6"><i class="bi-distribute-vertical"></i> ${currentPosition.lng}°</span>
+                </div>
+                <div>
+                    <h2 class="mt-4">${'views.dashboard.statistics' | t}</h2>
+                    <div>
+                        <span class="text-muted">${'views.dashboard.userCount' | t}:</span>
+                        <p class="fs-6" if.bind="users"><i class="bi-person"></i> ${users.length} (${users.filter(onlineUsers).length})</p>
+                        <div else class="spinner-border spinner-border-sm" role="status"></div>
+                    </div>
+                    <div>
+                        <span class="text-muted">${'views.dashboard.users' | t}:</span>
+                        <ul if.bind="users" class="list-inline">
+                            <li repeat.for="user of users" class="list-inline-item fs-6">
+                                <div class="creator"
+                                     class.bind="user.status === 'online' ? 'border-success' : ''"
+                                     bs-popover="event.bind: 'user-popover-' + user.id;
+                                                 view.bind: 'resources/elements/user-popover';
+                                                 trigger.bind: 'hover';
+                                                 model.bind: {user: user}">
+                                    <div class="creator-inner">${userUtilities.getAbbreviation(user)}</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div else class="spinner-border spinner-border-sm" role="status"></div>
+                    </div>
+                    <div>
+                        <span class="text-muted">${'views.dashboard.groups' | t}:</span>
+                        <ul if.bind="groups" class="list-inline">
+                            <li repeat.for="group of groups" class="list-inline-item fs-6">
+                                <i class="bi-people"></i> ${group.name}
+                            </li>
+                        </ul>
+                        <div else class="spinner-border spinner-border-sm" role="status"></div>
+                    </div>
+                    <div>
+                        <span class="text-muted">${'views.dashboard.roles' | t}:</span>
+                        <ul if.bind="roles" class="list-inline">
+                            <li repeat.for="role of roles" class="list-inline-item fs-6">
+                                <i class="bi-person-badge"></i> ${role.name}
+                            </li>
+                        </ul>
+                        <div else class="spinner-border spinner-border-sm" role="status"></div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4"
                  if.bind="contextService.currentWeather">
@@ -73,17 +118,20 @@
                     <img src.bind="openWeatherMapIconUrl + weather.icon + '@2x.png'" alt="${weather.main}">
                     <span>${weather.description}</span>
                 </div>
-                <h3>${'propertyKeys.weatherMain' | t}</h3>
+                <h3 class="mt-4">${'propertyKeys.weatherMain' | t}</h3>
                 <p repeat.for="property of weatherUtilities.weatherProperties | objectKeys"
                    if.bind="_.get(contextService.currentWeather, weatherUtilities.weatherProperties[property])"
                    class="mb-0">
+                    <i if.bind="weatherUtilities.weatherIcons[property]" class.bind="weatherUtilities.weatherIcons[property]"></i>
                     <span>${'propertyKeys.' + property | t}: </span>
                     ${weatherUtilities.getValueAndUnit(contextService.currentWeather, weatherUtilities.weatherProperties[property], 'metric')}
                 </p>
                 <p class="mb-0">
+                    <i class="bi-sunrise"></i>
                     <span>${'propertyKeys.sunrise' | t}: ${getDate(contextService.currentWeather.sys.sunrise, 'seconds') | formatDate:'T':i18n.getLocale()}</span>
                 </p>
                 <p class="mb-0">
+                    <i class="bi-sunset"></i>
                     <span>${'propertyKeys.sunset' | t}: ${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDate:'T':i18n.getLocale()}</span>
                 </p>
             </div>

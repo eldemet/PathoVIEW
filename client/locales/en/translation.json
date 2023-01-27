@@ -58,12 +58,17 @@
             "currentTime": "current time",
             "timeToSunset": "time to sunset",
             "timeSinceT0": "time since T0",
-            "userCount": "user count",
-            "userOnlineCount": "user count (online)",
+            "userCount": "user count (online)",
+            "users": "users",
             "groups": "groups",
             "roles": "roles",
             "lastAlert": "last alarm",
-            "lastAnnotation": "last annotation"
+            "lastAnnotation": "last annotation",
+            "lastMission": "last mission",
+            "news": "news",
+            "ownPosition": "own position",
+            "copyPositionToClipboard": "copy own position to clipboard",
+            "copiedPositionToClipboard": "Copied own position to clipboard!"
         },
         "pathogens": {
             "title": "Pathogens",
@@ -206,7 +211,8 @@
         "groups": "groups",
         "email": "email",
         "de": "Deutsch",
-        "en": "English"
+        "en": "English",
+        "scenario": "scenario"
     },
     "enum": {
         "alert": {

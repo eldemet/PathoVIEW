@@ -58,12 +58,17 @@
             "currentTime": "Aktuelle Urzeit",
             "timeToSunset": "Zeit bis zum Sonnenuntergang",
             "timeSinceT0": "Zeit seit T0",
-            "userCount": "Anzahl Nutzer",
-            "userOnlineCount": "Anzahl Nutzer (online)",
+            "userCount": "Anzahl Nutzer (online)",
+            "users": "Nutzer",
             "groups": "Gruppen",
             "roles": "Rollen",
             "lastAlert": "letzter Alarm",
-            "lastAnnotation": "letzter Vermerk"
+            "lastAnnotation": "letzter Vermerk",
+            "lastMission": "Letzte Mission",
+            "news": "Neuigkeiten",
+            "ownPosition": "Eigene Position",
+            "copyPositionToClipboard": "Kopiere eigene Position in die Zwischenablage",
+            "copiedPositionToClipboard": "Eigene Position in die Zwischenablage kopiert!"
         },
         "pathogens": {
             "title": "Krankheitserreger",
@@ -206,7 +211,8 @@
         "groups": "Gruppen",
         "email": "E-Mail",
         "de": "Deutsch",
-        "en": "English"
+        "en": "English",
+        "scenario": "Szenario"
     },
     "enum": {
         "alert": {

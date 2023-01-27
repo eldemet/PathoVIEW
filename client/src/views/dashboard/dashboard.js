@@ -1,13 +1,14 @@
 import {inject, computedFrom} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {BindingSignaler} from 'aurelia-templating-resources';
-import {weatherUtilities} from '../../utilities';
+import {userUtilities, locationUtilities, weatherUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(BindingSignaler, ContextService)
 class DashboardView extends BasicView {
 
     openWeatherMapIconUrl = 'https://openweathermap.org/img/wn/';
+    currentPosition;
 
     /**
      * @param {BindingSignaler} bindingSignaler
@@ -18,6 +19,7 @@ class DashboardView extends BasicView {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
         this.contextService = contextService;
+        this.userUtilities = userUtilities;
         this.weatherUtilities = weatherUtilities;
     }
 
@@ -30,6 +32,7 @@ class DashboardView extends BasicView {
         this.groups = await this.authService.getGroups();
         await this.contextService.initialized;
         this.initialized = true;
+        this.currentPosition = await this.getOwnPosition();
     }
 
     detached() {
@@ -38,7 +41,12 @@ class DashboardView extends BasicView {
 
     @computedFrom('contextService.alerts')
     get lastAlert() {
-        return this.contextService.alerts.at(-1);
+        return this.contextService?.alerts?.at(-1);
+    }
+
+    @computedFrom('contextService.missions')
+    get lastMission() {
+        return this.contextService?.missions?.at(-1);
     }
 
     getDate(input, format) {
@@ -57,7 +65,30 @@ class DashboardView extends BasicView {
 
     onlineUsers = u => u.status === 'online';
 
-    mapNames = e => e.name;
+    async getOwnPosition() {
+        let result;
+        try {
+            result = await locationUtilities.getCurrenPosition();
+        } catch (error) {
+            this.logger.warn(error.message);
+            // eslint-disable-next-line no-undef
+            const message = window.isSecureContext && error instanceof GeolocationPositionError ? 'alerts.geoLocationDenied' : 'alerts.geoLocationUnavailable';
+            this.eventAggregator.publish('toast', {
+                title: 'alerts.geoLocation',
+                body: message,
+                biIcon: 'geo-alt',
+                autohide: false,
+                dismissible: true
+            });
+        }
+        return result;
+    }
+
+    async copyOwnPositionToDashboard() {
+        const text = this.currentPosition.lat + ', ' + this.currentPosition.lng;
+        await navigator.clipboard.writeText(text);
+        this.eventAggregator.publish('toast', {title: 'views.dashboard.copiedPositionToClipboard', body: text, biIcon: 'clipboard', autohide: true});
+    }
 
 }
 

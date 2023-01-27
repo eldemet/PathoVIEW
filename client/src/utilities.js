@@ -35,7 +35,7 @@ export const missionUtilities = {
 
 export const deviceUtilities = {
     getDeviceIcon(device) {
-        let icon = 'bi bi-';
+        let icon = 'bi-';
         if (device.manufacturer === 'Apple' || device.manufacturer === 'Google') {
             icon += 'phone';
         } else if (device?.osVersion?.includes('Mac')) {
@@ -99,7 +99,7 @@ export const locationUtilities = {
 
 export const alertUtilities = {
     getSeverityIcon(severity) {
-        let icon = 'bi bi-';
+        let icon = 'bi-';
         let color;
         switch (severity) {
             case 'low':
@@ -169,6 +169,21 @@ export const weatherUtilities = {
         'rain3h': 'rain.3h',
         'snow1h': 'snow.1h',
         'snow3h': 'snow.3h'
+    },
+    weatherIcons: {
+        temp: 'bi-thermometer',
+        feels_like: 'bi-emoji-sunglasses',
+        pressure: 'bi-chevron-double-down',
+        humidity: 'bi-droplet',
+        visibility: 'bi-eye',
+        speed: 'bi-wind',
+        deg: 'bi-compass',
+        gust: '',
+        clouds: 'bi-cloud',
+        'rain1h': 'bi-cloud-rain',
+        'rain3h': '',
+        'snow1h': 'bi-snow',
+        'snow3h': ''
     },
     getValueAndUnit(object, path, units) {
         let unit;
