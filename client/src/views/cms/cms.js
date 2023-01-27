@@ -19,11 +19,11 @@ export class Cms extends BasicViewRouter {
             }
         },
         {
-            route: 'incident',
-            name: 'incident',
+            route: 'mission',
+            name: 'mission',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.incident', {count: 2}),
+            title: this.i18n.tr('model.mission', {count: 2}),
             settings: {
                 detailView: true
             }

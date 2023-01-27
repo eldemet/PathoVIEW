@@ -17,10 +17,8 @@
         "device_other": "Geräte",
         "emergencyEvent": "Notfallsituation",
         "emergencyEvent_other": "Notfallsituationen",
-        "incident": "Ereignis",
-        "incident_other": "Ereignisse",
-        "action": "Maßnahme",
-        "action_other": "Maßnahmen",
+        "mission": "Mission",
+        "mission_other": "Missionen",
         "pointOfInterest": "Sonderziel",
         "pointOfInterest_other": "Sonderziele",
         "annotation": "Anhanng",
@@ -64,7 +62,6 @@
             "userOnlineCount": "Anzahl Nutzer (online)",
             "groups": "Gruppen",
             "roles": "Rollen",
-            "lastIncident": "letztes Ereignis",
             "lastAlert": "letzter Alarm",
             "lastAnnotation": "letzter Vermerk"
         },
@@ -262,7 +259,7 @@
                 "trafficJam": "Verkehrsstau"
             }
         },
-        "action": {
+        "mission": {
             "status": {
                 "open": "offen",
                 "successful": "erfolgreich",

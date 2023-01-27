@@ -3,10 +3,11 @@ required:
   - id
   - type
   - name
-  - status
+  - description
   - owner
+  - location
 model:searchProperties:
-  - name
+  - description
 db:referencedByModels:
   - model: Annotation
     property: refId
@@ -17,15 +18,12 @@ properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
     description: 'Unique identifier of the entity'
-    default: Incident:00000
+    default: Mission:00000
     ui:hide:
       table: true
       form: true
   type:
-    type: string
-    enum:
-      - Incident
-    default: Incident
+    const: Mission
     ui:hide:
       form: true
       table: true
@@ -33,6 +31,10 @@ properties:
     type: string
     description: 'The name of this item.'
     ui:formItemGridClass: 'col-md-6'
+  description:
+    type: string
+    description: 'A description of this item'
+    ui:formItemType: textarea
   status:
     type: string
     description: 'The status of this item.'
@@ -44,38 +46,32 @@ properties:
       - cancelled
     ui:formItemType: select
     ui:i18n: true
-    ui:i18nPathPrefix: enum.action.status
-  description:
-    type: string
-    description: 'A description of this item'
-    ui:formItemType: textarea
+    ui:i18nPathPrefix: enum.mission.status
   owner:
     $ref: './../$defs.yaml#/owner'
   assignedTo:
     type: string
     ui:formItemType: select
-    db:ref: User
+    db:ref: Role
   refId:
     type: string
     ui:formItemType: select
-    db:ref: Incident
+    db:ref: EmergencyEvent
+    ui:hide:
+      table: true
   location:
     $ref: './../$defs.yaml#/Location'
-  validFrom:
-    type: string
-    description: 'The start of the validity period for this forecast as a ISO8601 format'
-    format: date-time
-    ui:formItemGridClass: 'col-md-6'
-  validTo:
-    type: string
-    description: 'The end of the validity period for this forecast as a ISO8601 format'
-    format: date-time
-    ui:formItemGridClass: 'col-md-6'
   createdAt:
     type: string
     format: "date-time"
     db:skipInSchemaDefinition: true
+    ui:hide:
+      table: true
+      form: true
   updatedAt:
     type: string
     format: "date-time"
     db:skipInSchemaDefinition: true
+    ui:hide:
+      table: true
+      form: true

@@ -17,10 +17,8 @@
         "device_other": "devices",
         "emergencyEvent": "emergency event",
         "emergencyEvent_other": "emergency events",
-        "incident": "incident",
-        "incident_other": "incidents",
-        "action": "action",
-        "action_other": "actions",
+        "mission": "mission",
+        "mission_other": "missions",
         "pointOfInterest": "point of interest",
         "pointOfInterest_other": "point of interests",
         "annotation": "annotation",
@@ -64,7 +62,6 @@
             "userOnlineCount": "user count (online)",
             "groups": "groups",
             "roles": "roles",
-            "lastIncident": "last incident",
             "lastAlert": "last alarm",
             "lastAnnotation": "last annotation"
         },
@@ -262,7 +259,7 @@
                 "trafficJam": "traffic jam"
             }
         },
-        "action": {
+        "mission": {
             "status": {
                 "open": "open",
                 "successful": "successful",

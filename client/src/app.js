@@ -42,11 +42,11 @@ export class App extends BasicViewRouter {
             }
         },
         {
-            route: 'incident',
-            name: 'incident',
+            route: 'mission',
+            name: 'mission',
             moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
             nav: true,
-            title: this.i18n.tr('model.incident', {count: 2}),
+            title: this.i18n.tr('model.mission', {count: 2}),
             settings: {
                 fluidContainer: true,
                 gridColumnsMain: 8,

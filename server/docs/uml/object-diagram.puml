@@ -10,11 +10,12 @@ class EmergencyEvent {
     createdAt: Date
     updatedAt: Date
 }
-class Incident {
+class Mission {
     id: String
     type: String
-    validFrom: Date
+    name: String
     description: String
+    status: EnumMissionStatus
     owner: Array<UserId>
     refId: String<EmergencyEventId>
     location: Location
@@ -136,10 +137,10 @@ Annotation <|-- AnnotationImage
 Annotation <|-- AnnotationAudio
 
 EmergencyEvent o-- "0..*" Alert
-EmergencyEvent o-- "0..*" Incident
+EmergencyEvent o-- "0..*" Mission
 User o-- "0..*" Device
 Annotation o-- "0..*" Annotation
-Incident o-- "0..*" Annotation
+Mission o-- "0..*" Annotation
 Alert o-- "0..*" Annotation
 
 @enduml

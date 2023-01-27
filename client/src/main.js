@@ -42,7 +42,7 @@ export async function configure(aurelia) {
         new ModelServiceAsyncUISchema('point-of-interest', options, httpService),
         new ModelServiceBasicSchema('annotation', options, httpService, i18n, eventAggregator),
         new ModelServiceAsync('emergency-event', options, httpService),
-        new ModelServiceAsync('incident', options, httpService),
+        new ModelServiceAsync('mission', options, httpService),
         new ModelServiceAsync('pathogen', options, httpService)
     ];
     let registerPlugins = [

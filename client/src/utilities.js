@@ -10,7 +10,7 @@ export const modelUtilities = {
             icon = 'phone';
         } else if (type === 'emergency-event') {
             icon = 'hospital';
-        } else if (type === 'incident') {
+        } else if (type === 'mission') {
             icon = 'journal-medical';
         } else if (type === 'point-of-interest') {
             icon = 'pin-map-fill';
@@ -27,9 +27,9 @@ export const emergencyEventUtilities = {
     }
 };
 
-export const incidentUtilities = {
-    getPopupContent(i18n, incident) {
-        return `<h6>${incident.description}</h6>`;
+export const missionUtilities = {
+    getPopupContent(i18n, mission) {
+        return `<h6>${mission.description}</h6>`;
     }
 };
 

@@ -63,12 +63,6 @@
                         <span if.bind="initialized && !lastAlert">${'alerts.general.noResults' | t}</span>
                         <div if.bind="!initialized" class="spinner-border spinner-border-sm" role="status"></div>
                     </li>
-                    <li>
-                        ${'views.dashboard.lastIncident' | t}:
-                        <span if.bind="initialized && lastIncident">${lastIncident.description} (${lastIncident.validFrom | formatDate:'f':i18n.getLocale()})</span>
-                        <span if.bind="initialized && !lastIncident">${'alerts.general.noResults' | t}</span>
-                        <div if.bind="!initialized" class="spinner-border spinner-border-sm" role="status"></div>
-                    </li>
                 </ul>
             </div>
             <div class="col-md-4"

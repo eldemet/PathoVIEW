@@ -36,11 +36,6 @@ class DashboardView extends BasicView {
         clearInterval(this.interval);
     }
 
-    @computedFrom('contextService.incidents')
-    get lastIncident() {
-        return this.contextService.incidents.at(-1);
-    }
-
     @computedFrom('contextService.alerts')
     get lastAlert() {
         return this.contextService.alerts.at(-1);
