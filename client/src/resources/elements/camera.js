@@ -195,9 +195,11 @@ class Camera extends BasicComponent {
     @catchError()
     stopDrawing() {
         this.undoAllDrawings();
-        this.fabcanvas.off('mouse:up', this.mouseUpHandler);
-        this.fabcanvas.off('mouse:down', this.mouseDownHandler);
-        this.fabcanvas = null;
+        if (this.fabcanvas) {
+            this.fabcanvas.off('mouse:up', this.mouseUpHandler);
+            this.fabcanvas.off('mouse:down', this.mouseDownHandler);
+            this.fabcanvas = null;
+        }
         this.cameraVideo.before(this.drawingCanvas);
         const upperCanvas = document.querySelector('.upper-canvas');
         if (upperCanvas) upperCanvas.remove();

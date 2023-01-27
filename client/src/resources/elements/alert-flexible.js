@@ -102,13 +102,13 @@ class AlertEvent {
         let icon;
         switch (type) {
             case 'danger':
-                icon = 'bi bi-exclamation-circle';
+                icon = 'bi-exclamation-circle';
                 break;
             case 'warning':
-                icon = 'bi bi-exclamation-triangle';
+                icon = 'bi-exclamation-triangle';
                 break;
             case 'success':
-                icon = 'bi bi-check-circle';
+                icon = 'bi-check-circle';
                 break;
             case 'loading':
                 icon = 'spinner-border spinner-border-sm';
@@ -121,7 +121,7 @@ class AlertEvent {
                 break;
             //info
             default:
-                icon = 'bi bi-info-circle';
+                icon = 'bi-info-circle';
         }
         return icon;
     }
