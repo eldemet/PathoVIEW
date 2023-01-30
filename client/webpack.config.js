@@ -49,7 +49,12 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
     const srcDir = path.resolve(__dirname, 'src');
     const appTarget = android ? 'android' : 'web';
     const isProduction = production || android;
-    const environment = android ? 'android' : (production ? 'production' : 'development');
+    let environment = 'development';
+    if (android) {
+        environment = 'android';
+    } else if (production) {
+        environment = 'production';
+    }
     return ({
         resolve: {
             extensions: ['.js'],
@@ -230,4 +235,4 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
             new CleanWebpackPlugin()
         ]
     });
-}
+};
