@@ -1,6 +1,5 @@
 import {activationStrategy} from 'aurelia-router';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {catchError} from 'library-aurelia/src/decorators';
 
 /**
  * @extends BasicView

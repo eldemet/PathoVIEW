@@ -6,5 +6,6 @@
         "realm": "pathocert",
         "url": "https://pathocert.iao.fraunhofer.de:9990/auth/",
         "clientId": "pathoview"
-    }
+    },
+    "usePathoware": true
 }
