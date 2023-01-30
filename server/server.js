@@ -50,16 +50,14 @@ const configAppDefaults = {
         modelDiscriminator: {
             propertyName: 'type'
         },
-        securitySchemes: [
+        securedOperations: [
             {
-                scheme: 'keycloakScheme',
-                operations: ['getConfig', 'reinitializeObjects', 'deleteObjects', 'publishNotification'],
-                scope: ['realm:admin']
+                scheme: 'basicAdminPasswordScheme',
+                operations: ['getConfig', 'reinitializeObjects', 'deleteObjects']
             },
             {
                 scheme: 'keycloakScheme',
-                operations: ['createObject', 'updateObject', 'deleteObject', 'getObjects', 'getObject', 'subscribeNotification', 'getObjectUiSchema'],
-                scope: ['realm:first_responder']
+                operations: ['createObject', 'updateObject', 'deleteObject', 'getObjects', 'getObject', 'getObjectUiSchema', 'getCurrentWeather', 'getUsers', 'getRoles', 'getGroups']
             }
         ]
     },
@@ -88,6 +86,9 @@ const configAppDefaults = {
     },
     sessionMiddleware: {
         secret: 'unsafe secret'
+    },
+    security: {
+        adminPasswordFile: '../../credentials/adminPassword.txt'
     }
 };
 

@@ -44,7 +44,20 @@ export default function(config, getApiDoc) {
         GET: logger.catchErrors(GET)
     };
 
-    operations.GET['apiDoc'] = getApiDoc(getObjectUiSchema);
+    operations.GET['apiDoc'] = getApiDoc(`
+        summary: Returns object ui schema to the caller
+        operationId: getObjectUiSchema
+        parameters:
+          - $ref: '#/components/parameters/modelType'
+        responses:
+            200:
+                description: Success
+                content:
+                    application/json:
+                        schema:
+                            type: object
+            default:
+                $ref: '#/components/responses/Error'`);
 
     async function GET(req, res) {
         if (!uiSchemas) {
@@ -55,51 +68,4 @@ export default function(config, getApiDoc) {
     }
 
     return operations;
-};
-
-const getObjectUiSchema = {
-    'general': {
-        summary: 'Returns object ui schema to the caller',
-        operationId: 'getObjectUiSchema'
-    },
-    '2.0': {
-        parameters: [
-            {
-                $ref: '#/parameters/modelType'
-            }
-        ],
-        responses: {
-            200: {
-                description: 'Success',
-                schema: {
-                    type: 'object'
-                }
-            },
-            default: {
-                $ref: '#/responses/Error'
-            }
-        }
-    },
-    '3.0.2': {
-        parameters: [
-            {
-                $ref: '#/components/parameters/modelType'
-            }
-        ],
-        responses: {
-            200: {
-                description: 'Success',
-                content: {
-                    'application/json': {
-                        schema: {
-                            type: 'object'
-                        }
-                    }
-                }
-            },
-            default: {
-                $ref: '#/components/responses/Error'
-            }
-        }
-    }
-};
+}

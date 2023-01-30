@@ -369,7 +369,7 @@
     - licenses: MIT
     - description: Modern, fast React.js JSX parser
     - copyright: Copyright (C) 2012-2017 by Ingvar Stepanyan
- - **[acorn@8.8.1](https://github.com/acornjs/acorn)**
+ - **[acorn@8.8.2](https://github.com/acornjs/acorn)**
     - licenses: MIT
     - description: ECMAScript parser
     - copyright: Copyright (C) 2012-2022 by various contributors (see AUTHORS)
@@ -825,7 +825,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.32.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.33.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -1037,7 +1037,7 @@
     - licenses: ISC
     - description: a little globber
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[globals@13.19.0](https://github.com/sindresorhus/globals)**
+ - **[globals@13.20.0](https://github.com/sindresorhus/globals)**
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1233,7 +1233,7 @@
     - licenses: MIT
     - description: Checks whether a value is a WHATWG URL.
     - copyright: Copyright (c) 2017 Steven Vachon
- - **[js-sdsl@4.2.0](https://github.com/js-sdsl/js-sdsl)**
+ - **[js-sdsl@4.3.0](https://github.com/js-sdsl/js-sdsl)**
     - licenses: MIT
     - description: javascript standard data structure library which benchmark against C++ STL
     - copyright: Copyright (c) 2021 Zilong Yao
@@ -2153,7 +2153,7 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@4.1.0](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@4.1.2](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework, helper functions,  middleware and services
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.

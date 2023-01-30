@@ -15,7 +15,7 @@ export default function(config, getApiDoc, kcAdminService) {
         GET: logger.catchErrors(GET)
     };
 
-    operations.GET['apiDoc'] = `
+    operations.GET['apiDoc'] = getApiDoc(`
         summary: Returns groups to the caller
         operationId: getGroups
         responses:
@@ -26,12 +26,11 @@ export default function(config, getApiDoc, kcAdminService) {
                 schema:
                   type: array
             default:
-                $ref: '#/components/responses/Error'
-    `;
+                $ref: '#/components/responses/Error'`);
 
     async function GET(req, res) {
         res.validateAndSend(200, await kcAdminService.getGroups());
     }
 
     return operations;
-};
+}

@@ -15,7 +15,7 @@ export default function(config, getApiDoc, kcAdminService) {
         GET: logger.catchErrors(GET)
     };
 
-    operations.GET['apiDoc'] = `
+    operations.GET['apiDoc'] = getApiDoc(`
         summary: Returns users to the caller
         operationId: getUsers
         responses:
@@ -59,12 +59,11 @@ export default function(config, getApiDoc, kcAdminService) {
                           - offline
                     additionalProperties: false
             default:
-                $ref: '#/components/responses/Error'
-    `;
+                $ref: '#/components/responses/Error'`);
 
     async function GET(req, res) {
         res.validateAndSend(200, await kcAdminService.getUsers());
     }
 
     return operations;
-};
+}
