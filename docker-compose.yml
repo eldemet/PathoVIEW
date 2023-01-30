@@ -54,6 +54,7 @@ services:
       - sslkey
       - owmapikey
       - keycloakadminpassword
+      - basicAdminPasswordSchemePassword
     environment:
       CAPABILITIES_ACCESS_CONTROL_CHECKER_MIDDLEWARE: 'true'
       CAPABILITIES_DATABASE: jsondb
@@ -71,6 +72,7 @@ services:
       SERVER_OPEN_WEATHER_MAP_API_KEY_FILE: '/run/secrets/owmapikey'
       KEYCLOAK_CONFIG_AUTH_SERVER_URL: ${KEYCLOAK_CONFIG_AUTH_SERVER_URL}
       KEYCLOAK_CONFIG_ADMIN_CLIENT_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
+      SECURITY_ADMIN_PASSWORD_FILE: '/run/secrets/basicAdminPasswordSchemePassword'
     restart: always
     depends_on:
       - keycloak
@@ -83,3 +85,5 @@ secrets:
     file: ./../credentials/owmapikey.txt
   keycloakadminpassword:
     file: ./../credentials/keycloakadminpassword.txt
+  basicAdminPasswordSchemePassword:
+    file: ./../credentials/basicadminpasswordscheme.txt
