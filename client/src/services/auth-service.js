@@ -12,6 +12,7 @@ class AuthService extends BasicService {
     config;
     /** @type {TokenInformation} */
     token;
+    options = {uniqueProperty: 'id'};
 
     /**
      *
@@ -61,6 +62,11 @@ class AuthService extends BasicService {
             throw new Error('Not logged in!');
         }
         return this.userInfo.sub;
+    }
+
+    async getObjects() {
+        let roles = await this.getRoles();
+        return {objects: roles};
     }
 
 }

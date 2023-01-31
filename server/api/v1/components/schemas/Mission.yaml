@@ -53,7 +53,7 @@ properties:
   assignedTo:
     type: string
     ui:formItemType: select
-    db:ref: Role
+    db:ref: Auth
   refId:
     type: string
     ui:formItemType: select
