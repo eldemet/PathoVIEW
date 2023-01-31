@@ -1,9 +1,24 @@
-$enable-caret: true;
+@import "~bootstrap/scss/functions";
+
+$enable-caret: true !default;
 $enable-rounded: false;
-$enable-shadows: false;
-$enable-gradients: false;
-$enable-transitions: true;
-$enable-grid-classes: true;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-reduced-motion: true !default;
+$enable-smooth-scroll: true !default;
+$enable-grid-classes: true !default;
+$enable-container-classes: true !default;
+$enable-cssgrid: false !default;
+$enable-button-pointers: true !default;
+$enable-rfs: true !default;
+$enable-validation-icons: false;
+$enable-negative-margins: true;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities: true !default;
+
+$enable-dark-mode: true !default;
+$color-mode-type: data !default; // `data` or `media-query`
 
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -28,6 +43,16 @@ $green: #5cb85c;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
 
+$orange-100: tint-color($orange, 80%) !default;
+$orange-200: tint-color($orange, 60%) !default;
+$orange-300: tint-color($orange, 40%) !default;
+$orange-400: tint-color($orange, 20%) !default;
+$orange-500: $orange !default;
+$orange-600: shade-color($orange, 20%) !default;
+$orange-700: shade-color($orange, 40%) !default;
+$orange-800: shade-color($orange, 60%) !default;
+$orange-900: shade-color($orange, 80%) !default;
+
 $primary: $orange;
 $secondary: $gray-600;
 $success: $green !default;
@@ -36,6 +61,16 @@ $warning: $yellow !default;
 $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
+
+$primary-text: $orange-600;
+$primary-bg-subtle: $orange-100;
+$primary-border-subtle: $orange-200;
+
+$primary-text-dark: $orange-300 !default;
+$primary-bg-subtle-dark: $orange-900 !default;
+$primary-border-subtle-dark: $orange-700 !default;
+$link-color-dark: $orange-300;
+$link-hover-color-dark: $orange-200;
 
 $navbar-dark-active-color: $primary;
 $navbar-light-active-color: $primary;

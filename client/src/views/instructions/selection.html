@@ -2,8 +2,8 @@
 
     <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
 
-    <div class="container-fluid mt-4">
-        <div class="row justify-content-md-center">
+    <div class="container-fluid my-4">
+        <div class="row justify-content-md-center gy-5">
             <div class="col-md-4 col-xl-3" repeat.for="key of devices | objectKeys">
                 <h1>${devices[key].name}</h1>
                 <img src.bind="devices[key].image" class="image-10rem">
