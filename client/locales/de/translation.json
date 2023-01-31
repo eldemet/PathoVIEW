@@ -99,6 +99,7 @@
             "videoSourceError": "Fehler beim initialisieren der Kamera"
         },
         "noDevice": "Sie haben noch kein Gerät registriert. Es kann noch kein Standort geteilt werden!",
+        "noDeviceSelected": "kein Gerät ausgewählt",
         "noEmergencyEventSelected": "Keine Notfallsituation ausgewählt",
         "alertLocationEntered": "Sie befinden sich innerhalb eines Alarmbereichs",
         "alertLocationClose": "Sie befinden sich in der Nähe eines Alarmbereichs",
@@ -210,9 +211,12 @@
         "controlMeasures": "Kontrollmaßnahmen",
         "groups": "Gruppen",
         "email": "E-Mail",
+        "scenario": "Szenario",
+        "bg": "Bulgarisch",
         "de": "Deutsch",
-        "en": "English",
-        "scenario": "Szenario"
+        "el": "Griechisch",
+        "en": "Englisch",
+        "es": "Spanisch"
     },
     "enum": {
         "alert": {

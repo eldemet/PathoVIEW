@@ -158,6 +158,7 @@ export class App extends BasicViewRouter {
         this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', () => {
             this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
         }));
+        this.currentLanguage = this.languages.find(language => language.value === this.i18n.getLocale());
     }
 
     async detached() {
