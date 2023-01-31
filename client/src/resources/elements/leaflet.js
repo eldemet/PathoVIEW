@@ -1,5 +1,5 @@
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
-import {bindable} from 'aurelia-framework';
+import {LogManager, bindable} from 'aurelia-framework';
 import 'leaflet/dist/images/layers.png';
 import 'leaflet/dist/images/layers-2x.png';
 import 'leaflet/dist/images/marker-icon.png';
@@ -127,17 +127,25 @@ export class LeafletCustomElement extends BasicComponent {
         let layersToAttach = {base: {}, overlay: {}};
         let layers = Object.assign({}, this.defaultLayers, this.layers);
         if (layers.hasOwnProperty('base')) {
-            for (let layer of layers.base) {
-                let id = this.getLayerId(layer);
+            for (let base of layers.base) {
+                let id = this.getLayerId(base);
                 if (!this.attachedLayers.base.hasOwnProperty(id)) {
-                    layersToAttach.base[id] = this.layerFactory.getLayer(layer);
+                    try {
+                        layersToAttach.base[id] = this.layerFactory.getLayer(base);
+                    } catch (error) {
+                        this.handleError(error);
+                    }
                 }
             }
         }
         if (layers.hasOwnProperty('overlay')) {
-            for (let layer of layers.overlay) {
-                let id = this.getLayerId(layer);
-                layersToAttach.overlay[id] = this.layerFactory.getLayer(layer, this.handleEvent);
+            for (let overlay of layers.overlay) {
+                try {
+                    let id = this.getLayerId(overlay);
+                    layersToAttach.overlay[id] = this.layerFactory.getLayer(overlay, this.handleEvent);
+                } catch (error) {
+                    this.handleError(error);
+                }
             }
         }
         for (let layerId in layersToAttach.base) {
@@ -272,6 +280,7 @@ class LayerFactory {
 
     constructor(L) {
         this.L = L;
+        this.logger = LogManager.getLogger(this.constructor.name);
     }
 
     getLayer(layer, handleEvent) {
@@ -458,7 +467,11 @@ class LayerFactory {
         }
         let layers = [];
         for (let l of layer.layers) {
-            layers.push(this.getLayer(l));
+            try {
+                layers.push(this.getLayer(l));
+            } catch (error) {
+                this.logger.error(error.message);
+            }
         }
         return this.L.layerGroup(layers);
     }
