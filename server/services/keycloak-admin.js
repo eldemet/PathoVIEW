@@ -29,7 +29,7 @@ class KeycloakAdminService extends BasicObject {
             realmName: config.keycloakConfig.realm || 'master'
         });
         let password = config.keycloakConfig.adminClientPasswordFile ? loadFile(config.keycloakConfig.adminClientPasswordFile) : 'admin';
-        password.replace(/(\r\n|\n|\r)/gm, '')
+        password = password.replace(/(\r\n|\n|\r)/gm, '')
         /** @type {import('@keycloak/keycloak-admin-client/lib/utils/auth').Credentials} */
         const credentials = {
             username: config.keycloakConfig.adminClientUser,
