@@ -20,9 +20,8 @@
                 <i class="bi-translate"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
-                <li repeat.for="language of languages"
-                    if.bind="language.value !== i18n.getLocale()">
-                    <button class="dropdown-item"
+                <li repeat.for="language of languages">
+                    <button class="dropdown-item ${language.value === i18n.getLocale() ? 'active' : ''}"
                             click.trigger="changeLanguage(language.value)">
                         ${language.name}
                     </button>

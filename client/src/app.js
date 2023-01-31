@@ -36,7 +36,7 @@ export class App extends BasicViewRouter {
                 detailView: true,
                 customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
                 filter: () => {
-                    return {alertSource: AureliaCookie.get('emergency-event') || 'notSet'}
+                    return {alertSource: AureliaCookie.get('emergency-event') || 'notSet'};
                 }
             }
         },
@@ -54,7 +54,7 @@ export class App extends BasicViewRouter {
                 customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
                 customDetailView: PLATFORM.moduleName('views-general/annotations'),
                 filter: () => {
-                    return {refId: AureliaCookie.get('emergency-event') || 'notSet'}
+                    return {refId: AureliaCookie.get('emergency-event') || 'notSet'};
                 }
             }
         },
@@ -88,7 +88,13 @@ export class App extends BasicViewRouter {
         }
     ];
 
-    languages = [{name: 'English (en)', value: 'en'}, {name: 'Deutsch (de)', value: 'de'}];
+    languages = [
+        {name: 'English (en)', value: 'en'},
+        {name: 'Deutsch (de)', value: 'de'},
+        {name: 'български език (bg)', value: 'bg'},
+        {name: 'ελληνικά (el)', value: 'el'},
+        {name: 'Español (es)', value: 'es'}
+    ];
 
     /**
      * @param {BindingSignaler} bindingSignaler

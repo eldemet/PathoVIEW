@@ -214,12 +214,24 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
                 output: {
                     groupBy: [
                         {
+                            pattern: '{./node_modules/library-aurelia/locales/bg/*.json,./locales/bg/*.json}',
+                            fileName: './locales/bg/translation.json'
+                        },
+                        {
                             pattern: '{./node_modules/library-aurelia/locales/de/*.json,./locales/de/*.json}',
                             fileName: './locales/de/translation.json'
                         },
                         {
+                            pattern: '{./node_modules/library-aurelia/locales/el/*.json,./locales/el/*.json}',
+                            fileName: './locales/el/translation.json'
+                        },
+                        {
                             pattern: '{./node_modules/library-aurelia/locales/en/*.json,./locales/en/*.json}',
                             fileName: './locales/en/translation.json'
+                        },
+                        {
+                            pattern: '{./node_modules/library-aurelia/locales/es/*.json,./locales/es/*.json}',
+                            fileName: './locales/es/translation.json'
                         }
                     ]
                 }

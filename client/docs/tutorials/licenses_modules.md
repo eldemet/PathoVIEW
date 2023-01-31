@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 817
+* MIT: 818
 * ISC: 79
 * BSD-2-Clause: 29
 * Apache-2.0: 27
@@ -458,6 +458,10 @@
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
+ - **[@capacitor/haptics@4.1.0](https://github.com/ionic-team/capacitor-plugins)**
+    - licenses: MIT
+    - description: The Haptics API provides physical feedback to the user through touch or vibration.
+    - copyright: Copyright 2020-present Ionic. https://ionic.io
  - **[@capacitor/local-notifications@4.1.4](https://github.com/ionic-team/capacitor-plugins)**
     - licenses: MIT
     - description: The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
@@ -1774,7 +1778,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.32.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.33.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -2446,7 +2450,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.2.3](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.2.4](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
