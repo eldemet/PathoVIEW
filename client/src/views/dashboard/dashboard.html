@@ -52,10 +52,10 @@
                     </div>
                     <div>
                         <span class="text-muted">${'views.dashboard.lastMission' | t}:</span>
-                        <p class="fs-6" if.bind="initialized && lastAlert">
+                        <p class="fs-6" if.bind="initialized && lastMission">
                             <a href.bind="'#/mission/search/detail/' + lastMission.id"><i class="bi-flag"></i> ${lastMission.name} (${lastMission.updatedAt | formatDate:'f':i18n.getLocale()})</a>
                         </p>
-                        <p class="fs-6" if.bind="initialized && !lastAlert">${'alerts.general.noResults' | t}</p>
+                        <p class="fs-6" if.bind="initialized && !lastMission">${'alerts.general.noResults' | t}</p>
                         <div if.bind="!initialized" class="spinner-border spinner-border-sm" role="status"></div>
                     </div>
                 </div>
