@@ -28,10 +28,12 @@ class KeycloakAdminService extends BasicObject {
             baseUrl: config.keycloakConfig.authServerUrl.slice(0, -1),
             realmName: config.keycloakConfig.realm || 'master'
         });
+        let password = config.keycloakConfig.adminClientPasswordFile ? loadFile(config.keycloakConfig.adminClientPasswordFile) : 'admin';
+        password.replace(/(\r\n|\n|\r)/gm, '')
         /** @type {import('@keycloak/keycloak-admin-client/lib/utils/auth').Credentials} */
         const credentials = {
             username: config.keycloakConfig.adminClientUser,
-            password: config.keycloakConfig.adminClientPasswordFile ? loadFile(config.keycloakConfig.adminClientPasswordFile) : 'admin',
+            password: password,
             grantType: 'password',
             clientId: 'admin-cli'
         };
