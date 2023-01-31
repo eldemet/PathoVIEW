@@ -37,11 +37,9 @@ properties:
     ui:formItemGridClass: 'col-md-6'
   description:
     type: string
-    description: 'A description of this item'
     ui:formItemType: textarea
   category:
     type: array
-    description: "Sensor: A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. https://w3id.org/saref#Sensor. actuator : A device responsible for moving or controlling a mechanism or system. https://w3id.org/saref#Actuator. Meter : A device built to accurately detect and display a quantity in a form readable by a human being. Partially defined by SAREF. HVAC : Heating, Ventilation and Air Conditioning (HVAC) device that provides indoor environmental comfort. https://w3id.org/saref#HVAC. Network : A device used to connect other devices in a network, such as hub, switch or router in a LAN or Sensor network. (https://w3id.org/saref#Network. Multimedia : A device designed to display, store, record or play multimedia content such as audio, images, animation, video. Enum:'actuator, beacon, endgun, HVAC, implement, irrSection, irrSystem, meter, multimedia, network, sensor'"
     ui:formItemType: checkbox
     ui:formItemGridClass: 'col-md-4'
     ui:i18n: true
@@ -87,7 +85,7 @@ properties:
         - websocket
   controlledProperty:
     type: array
-    description: 'Anything that can be sensed, measured or controlled by. Enum:''airPollution, atmosphericPressure, averageVelocity, batteryLife, batterySupply, cdom, conductance, conductivity, depth, eatingActivity, eatingActivity, electricityConsumption, energy, fillingLevel, freeChlorine, gasConsumption, gateOpening, heading, humidity, light, location, milking, motion, movementActivity, noiseLevel, occupancy, orp, pH, power, precipitation, pressure, refractiveIndex, salinity, smoke, soilMoisture, solarRadiation, speed, tds, temperature, trafficFlow, tss, turbidity, waterConsumption, waterFlow, waterLevel, waterPollution, weatherConditions, weight, windDirection, windSpeed'''
+    description: 'Anything that can be sensed, measured or controlled by.'
     ui:formItemType: checkbox
     ui:i18n: true
     ui:i18nPathPrefix: enum.device.controlledProperty
@@ -190,7 +188,6 @@ properties:
       table: true
   direction:
     type: string
-    description: 'Enum:''Inlet, Outlet, Entry, Exit''. A timestamp which denotes when the device was installed (if it requires installation).'
     enum:
       - Inlet
       - Outlet

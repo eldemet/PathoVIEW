@@ -9,6 +9,9 @@ model:searchProperties:
 model:i18nLocales:
   - de
   - en
+  - bg
+  - el
+  - es
 model:i18nProperties:
   - description
   - transmission

@@ -72,7 +72,7 @@ const configAppDefaults = {
         uploadDirectory: '../data/uploads',
         allowedUploadFileExtensions: ['jpg', 'jpeg', 'png', 'svg', 'wav', 'mp3'],
         customIdGeneratorFunction: 'api/v1/ngsi-id-generator.js',
-        locales: ['de', 'en']
+        locales: ['de', 'en', 'bg', 'el', 'es']
     },
     keycloak: {
         store: 'session',
