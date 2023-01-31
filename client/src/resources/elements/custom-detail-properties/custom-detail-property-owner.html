@@ -3,7 +3,7 @@
     <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
 
     <span class="tabstop-label">${'propertyKeys.owner' | t}</span>
-    <div if.bind="user && user !== 'notDefined'"
+    <div if.bind="user"
          class="creator mb-4"
          class.bind="user.status === 'online' ? 'border-success' : ''"
          bs-popover="event.bind: 'user-popover-' + user.id;
@@ -12,7 +12,7 @@
                                  model.bind: {user: user}">
         <div class="creator-inner">${getAbbreviation(user)}</div>
     </div>
-    <span class="tabstop-text" if.bind="user === 'notDefined'">${'labels.notDefined' | t}</span>
+    <span class="tabstop-text" if.bind="!user">${'labels.notDefined' | t}</span>
     <div if.bind="!users" class="spinner-border mb-4" role="status"></div>
 
 </template>
