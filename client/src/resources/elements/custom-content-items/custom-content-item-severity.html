@@ -1,0 +1,11 @@
+<template>
+
+    <i if.bind="_.camelCase(item) === 'critical'" class="bi-exclamation-circle text-danger"></i>
+    <i if.bind="_.camelCase(item) === 'high'" class="bi-exclamation-triangle text-warning"></i>
+    <i if.bind="_.camelCase(item) === 'medium'" class="bi-exclamation text-info"></i>
+    <i if.bind="_.camelCase(item) === 'low'" class="bi-check-circle text-success"></i>
+    <i if.bind="_.camelCase(item) === 'informational'" class="bi-info-circle text-info"></i>
+    <i if.bind="!schema.enum.includes(_.camelCase(item))" class="bi-question-circle-fill"></i>
+    <span>${schema.i18nPathPrefix + '.' + _.camelCase(item) | t}</span>
+
+</template>

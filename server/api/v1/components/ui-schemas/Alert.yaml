@@ -52,6 +52,7 @@ properties:
       - critical
     ui:formItemType: select
     ui:formItemGridClass: 'col-12 col-xl-4'
+    ui:contentCustomCompose: 'resources/elements/custom-content-items/custom-content-item-severity'
     ui:i18n: true
     ui:i18nPathPrefix: enum.alert.severity
   category:

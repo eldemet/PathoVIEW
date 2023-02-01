@@ -101,6 +101,9 @@ definitions:
       ui:detailCustomCompose:
         type: string
         description: specify custom compose element in detail views on client
+      "ui:contentCustomCompose":
+        type: string
+        description: specify custom compose element for content item
       ui:accept:
         type: string
         description: is used for for input type file to only allow specific file types
