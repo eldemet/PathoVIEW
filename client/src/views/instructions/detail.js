@@ -4,6 +4,8 @@ import {devices} from './data';
 
 class InstructionDetailView extends BasicView {
 
+    currentStep = 0;
+
     /**
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
@@ -20,6 +22,14 @@ class InstructionDetailView extends BasicView {
 
     getIconByType(type) {
         return instructionsUtilities.getIconByType(type);
+    }
+
+    setAllIconsChecked(item) {
+        let checked = true;
+        if (Array.isArray(item.checklistItems)) {
+            checked = item.checklistItems.filter(i => !!i.checked).length === item.checklistItems.length;
+        }
+        item.allItemsChecked = checked;
     }
 
 }

@@ -1,27 +1,68 @@
 <template>
 
-    <div class="container mt-4">
+    <div class="container my-4">
         <div class="row">
             <div class="col-md-8">
-                <h1><i class="bi-${getIconByType(instruction.type)}"></i> ${devices[params.device].name}: ${instruction.name}</h1>
-                <div repeat.for="item of instruction.items"
-                     class="mt-4">
-                    <h3>${item.section}</h3>
-                    <p if.bind="item.description">${item.description}</p>
-                    <img if.bind="item.image"
-                         src.bind="item.image" class="image-10rem">
-                    <ul if.bind="item.checklistItems"
-                        class="list-group">
-                        <label repeat.for="subItem of item.checklistItems" class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            ${subItem}
-                        </label>
-                    </ul>
-                    <ul if.bind="item.steps">
-                        <li repeat.for="subItem of item.steps">
-                            ${subItem}
-                        </li>
-                    </ul>
+                <h1><i class="bi-${getIconByType(instruction.type)}"></i> ${devices[params.device].name}</h1>
+                <p class="h4">${instruction.name}</p>
+                <div class="list-group list-group-horizontal" id="nav-tab" role="tablist">
+                    <button repeat.for="item of instruction.items"
+                            class="list-group-item d-flex flex-column flex-lg-row flex-grow-1 align-items-center ${currentStep === $index ? 'active' : ''}"
+                            id="${'instruction-' + $index + '-tab'}"
+                            data-bs-toggle="tab"
+                            data-bs-target="${'instruction-' + $index}"
+                            click.delegate="currentStep = $index"
+                            type="button"
+                            role="tab"
+                            aria-controls="nav-home"
+                            aria-selected="true">
+                        <span class="badge bg-${currentStep === $index ? 'body text-primary' : 'primary'} rounded-pill mb-2 mb-lg-0 me-lg-2">${$index + 1}</span>
+                        ${item.section}
+                    </button>
+                </div>
+                <div class="tab-content border border-top-0" id="nav-tabContent">
+                    <div repeat.for="item of instruction.items"
+                         class="tab-pane fade ${currentStep === $index ? 'show active' : ''}"
+                         id="${'instruction-' + $index}"
+                         role="tabpanel"
+                         aria-labelledby="${'instruction-' + $index + '-tab'}"
+                         tabindex="0">
+                        <div class="container mt-4">
+                            <div class="row g-4">
+                                <div if.bind="item.image"
+                                     class="col-md-6 col-lg-4">
+                                    <img src.bind="item.image" class="img-fluid">
+                                </div>
+                                <div class="${item.image ? 'col-md-6 col-lg-8' : 'col-12'}">
+                                    <p if.bind="item.description">${item.description}</p>
+                                    <ul if.bind="item.checklistItems"
+                                        class="list-group">
+                                        <label repeat.for="checklistItem of item.checklistItems" class="list-group-item d-flex align-items-center">
+                                            <input class="form-check-input me-2" type="checkbox" checked.bind="checklistItem.checked" change.trigger="setAllIconsChecked(item)" aria-label="...">
+                                            ${checklistItem.name}
+                                            <img if.bind="checklistItem.image" src.bind="checklistItem.image" class="image-10rem ms-2">
+                                        </label>
+                                    </ul>
+                                    <ul if.bind="item.steps">
+                                        <li repeat.for="subItem of item.steps">
+                                            ${subItem}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row mt-4 bg-body-tertiary py-2">
+                                <div class="col-12 d-flex justify-content-center align-items-center">
+                                    <button class="btn btn-outline-secondary me-2"
+                                            click.delegate="currentStep = currentStep - 1"
+                                            disabled.bind="currentStep < 1"><<</button>
+                                    <span class="me-2">${$index + 1} / ${instruction.items.length}</span>
+                                    <button class="btn btn-outline-secondary"
+                                            click.delegate="currentStep = currentStep + 1"
+                                            disabled.bind="currentStep >= instruction.items.length - 1 || (item.checklistItems && !item.allItemsChecked)">>></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
