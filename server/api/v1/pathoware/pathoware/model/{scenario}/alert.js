@@ -39,7 +39,6 @@ export default function(config, getApiDoc) {
                 for (let alert of result) {
                     alert.id = alert.entityId;
                 }
-                result = {total: result.length, queryTotal: result.length, collectionTotal: result.total, objects: result};
                 res.validateAndSend(200, result);
             }
         }
@@ -102,23 +101,10 @@ const getObjects = {
             content: {
                 'application/json': {
                     schema: {
-                        type: 'object',
-                        properties: {
-                            total: {
-                                type: 'number'
-                            },
-                            queryTotal: {
-                                type: 'number'
-                            },
-                            collectionTotal: {
-                                type: 'number'
-                            },
-                            objects: {
-                                type: 'array',
-                                items: {
-                                    // $ref: '#/components/schemas/Alert'
-                                }
-                            }
+                        type: 'array',
+                        items: {
+                            type: 'object'
+                            // $ref: '#/components/schemas/Alert'
                         }
                     }
                 }
@@ -141,7 +127,7 @@ const createObject = {
         content: {
             'application/json': {
                 schema: {
-                    $ref: '#/components/schemas/modelResult'
+                    $ref: '#/components/schemas/Alert'
                 }
             }
         }

@@ -1,35 +1,46 @@
 import {AureliaCookie} from 'aurelia-cookie';
-import {ModelServiceAsyncUISchema} from './model-service-async-ui-schema';
+import {ModelService} from 'library-aurelia/src/services/model-service';
 
 /**
- * @extends ModelServiceAsyncUISchema
+ * @extends ModelService
  * @category services
  */
-class ModelServiceAlert extends ModelServiceAsyncUISchema {
+class ModelServiceAlert extends ModelService {
 
     scenario;
     objects;
 
-    async getObjects() {
-        const scenario = AureliaCookie.get('scenario');
-        let result;
-        if (scenario) {
-            if (!this.objects || this.scenario !== scenario) {
-                result = await this.httpService.fetch('GET', '/api/v1/pathoware/model/' + scenario + '/alert');
-                this.logger.debug(`successfully loaded ${result.total} alerts`);
-                this.objects = result.objects;
-            } else {
-                result = {total: this.objects.length, queryTotal: this.objects.length, collectionTotal: this.objects.total, objects: this.objects};
-            }
-        } else {
-            result = {total: 0, queryTotal: 0, collectionTotal: 0, objects: []};
-        }
-        return result;
+    /**
+     * @param type
+     * @param options
+     * @param httpService
+     * @param {ConstructorParameters<typeof BasicObject>} rest
+     */
+    constructor(type, options, httpService, ...rest) {
+        super(type, options, ...rest);
+        this.httpService = httpService;
     }
 
-    async getObject(id) {
-        await this.checkInitialized();
-        return this.getObjectById(id);
+    async initialize() {
+        let schema = await this.httpService.fetch('GET', this.options.apiEntrypoint + '/' + this.type + '/schema-ui');
+        this.extractSimplifiedSchemas(schema);
+        this.logger.debug('successfully loaded schema of ' + this.type + '!');
+        this.isInitialized = true;
+    }
+
+    async getObjects(query, searchProperties) {
+        const scenario = AureliaCookie.get('scenario');
+        if (scenario) {
+            if (!this.objects || this.scenario !== scenario) {
+                this.objects = await this.httpService.fetch('GET', '/api/v1/pathoware/model/' + scenario + '/alert');
+                this.logger.debug('successfully loaded alerts');
+            }
+        } else {
+            this.objects = [];
+        }
+        let adaptedQuery = Object.assign({}, query);
+        adaptedQuery.filter = undefined;
+        return await super.getObjects(adaptedQuery, searchProperties);
     }
 
     async createObject(object) {
@@ -46,12 +57,6 @@ class ModelServiceAlert extends ModelServiceAsyncUISchema {
 
     async close() {
         this.disposeSubscriptions();
-    }
-
-    async checkInitialized() {
-        if (!this.isInitialized) {
-            await this.initialize();
-        }
     }
 
 }
