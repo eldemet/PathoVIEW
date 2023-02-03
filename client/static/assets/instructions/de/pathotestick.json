@@ -1,0 +1,114 @@
+{
+    "name": "PathoTestSTICK",
+    "image": "./assets/instructions/instructions-pathotestick.png",
+    "description": "Der PathoTeSTICK wurde zum Schutz von Ersthelfern entwickelt, da es sich um ein tragbares Gerät handelt, das bei der erstmaligen Annäherung an eine mögliche kontaminierte Stelle verwendet werden kann.",
+    "pathogens": [
+        "E coli",
+        "Pseudomonas aeruginosa",
+        "Campylobacter",
+        "Protozoen-Arten"
+    ],
+    "detectionLimits": [
+        "106 KBE/ml",
+        "105 CFU/mL, für E. coli bzw. Pseudomonas aeruginosa"
+    ],
+    "instructions": [
+        {
+            "type": "checklist",
+            "name": "Checkliste für die Probenahme",
+            "items": [
+                {
+                    "section": "Individuelle Schutzausrüstung (IPEs)",
+                    "description": "Um den PathoTeSTICK zu verwenden, ist das Tragen von persönlicher Schutzausrüstung (IPEs) erforderlich, einschließlich, aber nicht beschränkt auf:",
+                    "checklistItems": [
+                        {
+                            "name": "Wegwerf Handschuhe",
+                            "image": "./assets/instructions/equipment-gloves.jpg"
+                        },
+                        {
+                            "name": "Spritzwassergeschützte Schutzbrille",
+                            "image": "./assets/instructions/equipment-goggles.jpg"
+                        },
+                        {
+                            "name": "Einwegüberschuhe oder geeignete Schuhe"
+                        },
+                        {
+                            "name": "Einweg-Laborkittel"
+                        }
+                    ]
+                },
+                {
+                    "section": "Feldanalyse",
+                    "description": "Es gibt einige Materialien, die während der Feldanalyse erforderlich sein können. ",
+                    "checklistItems": [
+                        {
+                            "name": "Antiseptische Tücher"
+                        },
+                        {
+                            "name": "Flasche mit Spülwasser spritzen"
+                        },
+                        {
+                            "name": "Papiertücher"
+                        },
+                        {
+                            "name": "Taschenlampe/Stirnlampe"
+                        },
+                        {
+                            "name": "Gerät zur Stichprobenentnahme (falls Proben in einem großen Gewässer entnommen werden)"
+                        }
+                    ]
+                },
+                {
+                    "section": " PathoTeSTICK-Feldtestkit",
+                    "description": "Es ist zu prüfen, ob das Feldtestkit PathoTeSTICK vollständig ist und folgendes Material enthält:",
+                    "checklistItems": [
+                        {
+                            "name": "Einweg-Probenbehälter aus Kunststoff 10 ml (4)"
+                        },
+                        {
+                            "name": "PathoTeSTICK (Einwegsticks - Lieferung in separaten Behältern, gekennzeichnet je nach nachweisbarem Erreger)"
+                        },
+                        {
+                            "name": "Mini-Potentiostat - Stromversorgung über das Smartphone (nicht wegwerfbar)"
+                        },
+                        {
+                            "name": "Smartphone mit installierter Anwendung"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "sampling",
+            "name": "Verfahren zur Probenahme vor Ort",
+            "items": [
+                {
+                    "section": "Beispielsammlung",
+                    "description": "Nachdem das Probenahmeverfahren befolgt wurde, wird das spezifische Verfahren für das PathoTeSTICK-Kit detailliert beschrieben.",
+                    "steps": [
+                        "Wenn die Probe aus einem großen Gewässer entnommen werden muss, nehmen Sie das Gerät zur Stichprobenentnahme mit.",
+                        "Spülen Sie den Kunststoffbehälter mit der Probe einige Male aus.",
+                        "Füllen Sie den Behälter mit der Probe."
+                    ]
+                },
+                {
+                    "section": "Probenanalyse mit PathoTeSTICK",
+                    "steps": [
+                        "Verbinden Sie den Potentiostaten mit dem Smartphone. ",
+                        "Öffnen Sie die App und wählen Sie den Zielerreger oder die Nachweismethode des jeweiligen Erregers, richtig benannt und im Anwendungsmenü gespeichert.",
+                        "Führen Sie den Stick in den Plastikbehälter ein. ",
+                        "Starten Sie den Test durch Drücken der Play-Taste.",
+                        "Warten Sie, bis das Ergebnis auf dem Bildschirm erscheint."
+                    ]
+                },
+                {
+                    "section": "Abfallwirtschaft",
+                    "steps": [
+                        "Da der PathoTeSTICK ein Gebrauchs- und Wurfgerät ist und keine Reagenzien verwendet, erfordert er kein spezielles Abfallmanagementverfahren.",
+                        "Das benutzte Stäbchen kann in den Sondermüll geworfen werden, wenn in der analysierten Probe Krankheitserreger vorhanden sind."
+                    ]
+                }
+            ]
+        }
+    ]
+}

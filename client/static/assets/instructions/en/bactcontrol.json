@@ -1,0 +1,146 @@
+{
+    "name": "BactControl",
+    "image": "./assets/instructions/instructions-bactcontrol.png",
+    "description": "The BACTcontrol is an on-line automated instrument for the detection of microbiological activity in water.",
+    "pathogens": [
+        "β-galactosidase (coliforms)",
+        "β-glucoronidase (E.coli)",
+        "ß-glucosidase (Enterococci)",
+        "alkaline phosphatase (Total Activity, biomass)"
+    ],
+    "detectionLimits": [],
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Running the device",
+            "items": [
+                {
+                    "section": "Preparing the device",
+                    "description": "To prepare the device three tubes need to be connected to the device. As shown in the Figure at least three tubes must connect to the device.",
+                    "image": "./assets/instructions/instructions-bactcontrol-connections.jpg",
+                    "steps": [
+                        "Inlet (Sample): The sample should connect to this plug. The prismatic pump will suck the sample water from this connection to fill the chamber and for rinsing the old sample.",
+                        "Cleaning: The cleaning solution must be connected to this plug. This connection is connected to the bottle of cleaning solution. A small amount of this liquid (200-300 µl) is used during the cleaning step.",
+                        "Outlet: The vent water of the device discharge from this plug.",
+                        "Second inlet: If the device is set to use a second inlet, you can connect the water here. The functionality of this input is the same as the main inlet. Note: By default, the second inlet is not used and is optional."
+                    ]
+                },
+                {
+                    "section": "Software: status",
+                    "description": "In this tab, The measured values are shown.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-status.png",
+                    "steps": [
+                        "The first column shows the name of each parameter. The second column shows the value and the third one show the unit.",
+                        "Note: The measurement interval time of each value may be different.",
+                        "FluresenceIncreaseAlarm: If the increase in Fluorescence before incubation does not sufficient this alarm indicator turns to read. The default value can be changed in the script.",
+                        "BubbleAlarm: If the Bubble sensor senses any bubble in the inlet of the device, this alarm arises.",
+                        "NOTE: The device will be stopped after this alarm arises four times. The default value can be changed in the script."
+                    ]
+                },
+                {
+                    "section": "Software: settings",
+                    "description": "In this section, you can find the setting of the software. It is not recommended to change this part of the software. All registers and parameters can be changed here.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-settings.png",
+                    "steps": [
+                        "NOTE: This part is under development."
+                    ]
+                },
+                {
+                    "section": "Software: results",
+                    "description": "In this tab, the final value of each measurement cycle will be saved. The date and time of the measurements and the activity and detection limit for each measurement is logged here and the history of the measurements is shown in tabular data.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-results.png",
+                    "steps": [
+                        "Press “Next” or “Previous” to see historic results.",
+                        "With the “Newest” button the last values will be shown."
+                    ]
+                },
+                {
+                    "section": "Software: chart",
+                    "description": "To view the graph of the parameter you can use this tab. By pressing and holding the mouse\"s left button you can zoom on the graph.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-chart.png",
+                    "steps": [
+                        "The period of the time can be selected by the “Start” and “End” fields. The parameter can be changed by the “Value” drop-down list.",
+                        "Zoom out can be performed by double clicking (mouse left button) on the graph."
+                    ]
+                },
+                {
+                    "section": "Software: end task",
+                    "description": "This button halts the application.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-end.png",
+                    "steps": [
+                        "NOTE: Please “Abort” or “Stop” the software then press this button."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "sampling",
+            "name": "Quick run",
+            "items": [
+                {
+                    "section": "Start program",
+                    "description": "For running the program, Double click on the icon of “BC3.0” on the top left side of the desktop.",
+                    "image": "./assets/instructions/instructions-bactcontrol-windows-desktop.png"
+                },
+                {
+                    "section": "Start sampling",
+                    "description": "When the below screen appeared the device is ready to start.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-program.png",
+                    "steps": [
+                        "By pressing the “Start” button in the middle of the page the device will start to work and take the sample."
+                    ]
+                },
+                {
+                    "section": "Stop program",
+                    "description": "The device worked continuously. The device can be stopped or Aborted. As shown in the figure, on the left downside of the window, the current status of the device is shown. The device can be stopped or immediately aborted by selecting “Stop” or “Abort” from this dropdown list respectively.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-device.png"
+                }
+            ]
+        },
+        {
+            "type": "commissioning",
+            "name": "Commissioning",
+            "items": [
+                {
+                    "section": "Introduction",
+                    "description": "Installation of the BACTcontrol system is performed by engineers of microLAN or qualified engineers of the local distributor. The procedures in this section should only carried out by authorized engineers."
+                },
+                {
+                    "section": "Connection Of the Water Sample Inlet, Outlet & Waste",
+                    "steps": [
+                        "The waste can be separately connected to a container",
+                        "Make sure the tubing is pushed completely into the connectors!"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "maintenance",
+            "name": "Maintenance",
+            "items": [
+                {
+                    "section": "Cleaning Reaction Chamber",
+                    "image": "./assets/instructions/instructions-bactcontrol-chamber.png",
+                    "steps": [
+                        "Opening reaction chamber and remove filter",
+                        "Remove the cover of the reaction chamber. (unscrew nuts)",
+                        "Remove the ceramic filter with the C-ring and check if they are still suitable (not cracked/broken)."
+                    ]
+                },
+                {
+                    "section": "Remove stirrer",
+                    "steps": [
+                        "Remove the stirrer with the stirrer removal tool! Be careful! Stirrer is very small"
+                    ]
+                },
+                {
+                    "section": "Cleaning reaction chamber and stirrer",
+                    "steps": [
+                        "Check for possible biofilm or pollution inside the reaction chamber.",
+                        "Clean the measurement cell, the glass of the lens and the stirrer with the cleaning solution and dry with a paper cloth"
+                    ]
+                }
+            ]
+        }
+    ]
+}

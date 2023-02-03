@@ -1,19 +1,31 @@
+import {inject} from 'aurelia-framework';
+import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
+import {catchError} from 'library-aurelia/src/decorators';
+import {loadingEvent} from '../../decorators';
 import {instructionsUtilities} from '../../utilities';
-import {devices} from './data';
 
+@inject(HttpService)
 class SelectionView extends BasicView {
 
     /**
+     * @param {HttpService} httpService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
-    constructor(...rest) {
+    constructor(httpService, ...rest) {
         super(...rest);
-        this.devices = devices;
+        this.httpService = httpService;
+        this.instructionsUtilities = instructionsUtilities;
     }
 
-    getIconByType(type) {
-        return instructionsUtilities.getIconByType(type);
+    @loadingEvent('instruction-alert', 'device')
+    @catchError('instruction-alert')
+    async attached() {
+        await super.attached();
+        const pathotestick = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/pathotestick.json`);
+        const bactcontrol = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/bactcontrol.json`);
+        const aquasense = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/aquasense.json`);
+        this.devices = {pathotestick, bactcontrol, aquasense};
     }
 
 }

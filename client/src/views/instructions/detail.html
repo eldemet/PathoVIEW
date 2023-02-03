@@ -3,7 +3,7 @@
     <div class="container my-4">
         <div class="row">
             <div class="col-md-8">
-                <h1><i class="bi-${getIconByType(instruction.type)}"></i> ${devices[params.device].name}</h1>
+                <h1><i class="bi-${getIconByType(instruction.type)}"></i> ${device.name}</h1>
                 <p class="h4">${instruction.name}</p>
                 <div class="list-group list-group-horizontal overflow-auto" id="nav-tab" role="tablist">
                     <button repeat.for="item of instruction.items"
@@ -37,10 +37,10 @@
                                     <p if.bind="item.description">${item.description}</p>
                                     <ul if.bind="item.checklistItems"
                                         class="list-group">
-                                        <label repeat.for="checklistItem of item.checklistItems" class="list-group-item d-flex align-items-center">
+                                        <label repeat.for="checklistItem of item.checklistItems" class="list-group-item">
                                             <input class="form-check-input me-2" type="checkbox" checked.bind="checklistItem.checked" change.trigger="setAllIconsChecked(item)" aria-label="...">
                                             ${checklistItem.name}
-                                            <img if.bind="checklistItem.image" src.bind="checklistItem.image" class="image-10rem ms-2">
+                                            <p class="m-0"><img if.bind="checklistItem.image" src.bind="checklistItem.image" class="image-10rem ms-2"></p>
                                         </label>
                                     </ul>
                                     <ul if.bind="item.steps">
@@ -56,9 +56,12 @@
                                             click.delegate="currentStep = currentStep - 1"
                                             disabled.bind="currentStep < 1"><<</button>
                                     <span class="me-2">${$index + 1} / ${instruction.items.length}</span>
-                                    <button class="btn btn-outline-secondary"
+                                    <button class="btn btn-outline-secondary me-2"
                                             click.delegate="currentStep = currentStep + 1"
                                             disabled.bind="currentStep >= instruction.items.length - 1 || (item.checklistItems && !item.allItemsChecked)">>></button>
+                                     <button class="btn btn-outline-primary"
+                                            click.delegate="routerService.getRootRouter().navigateBack()"
+                                            disabled.bind="currentStep !== instruction.items.length - 1 || (item.checklistItems && !item.allItemsChecked)">${'buttons.close' | t }</button>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,146 @@
+{
+    "name": "BactControl",
+    "image": "./assets/instructions/instructions-bactcontrol.png",
+    "description": "El BACTcontrol es un instrumento automatizado en línea para la detección de actividad microbiológica en el agua.",
+    "pathogens": [
+        "β-galactosidasa (coliformes)",
+        "β-glucuronidasa (E.coli)",
+        "ß-glucosidasa (enterococos)",
+        "fosfatasa alcalina (Actividad Total, biomasa)"
+    ],
+    "detectionLimits": [],
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Ejecutando el dispositivo",
+            "items": [
+                {
+                    "section": "Preparando el dispositivo",
+                    "description": "Para preparar el dispositivo, se deben conectar tres tubos al dispositivo. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-conexiones.jpg",
+                    "steps": [
+                        "Entrada (muestra): la muestra debe conectarse a este enchufe. ",
+                        "Limpieza: La solución de limpieza debe conectarse a este enchufe. ",
+                        "Salida: El agua de ventilación del dispositivo descarga de este enchufe.",
+                        "Segunda entrada: si el dispositivo está configurado para usar una segunda entrada, puede conectar el agua aquí. "
+                    ]
+                },
+                {
+                    "section": "Software: estado",
+                    "description": "En esta pestaña, se muestran los valores medidos.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-status.png",
+                    "steps": [
+                        "La primera columna muestra el nombre de cada parámetro. ",
+                        "Nota: El tiempo de intervalo de medición de cada valor puede ser diferente.",
+                        "FluresenceIncreaseAlarm: si el aumento de fluorescencia antes de la incubación no es suficiente, este indicador de alarma se enciende. ",
+                        "BubbleAlarm: si el sensor de burbujas detecta cualquier burbuja en la entrada del dispositivo, surge esta alarma.",
+                        "NOTA: El dispositivo se detendrá después de que esta alarma surja cuatro veces. "
+                    ]
+                },
+                {
+                    "section": "Software: configuración",
+                    "description": "En esta sección, puede encontrar la configuración del software. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-settings.png",
+                    "steps": [
+                        "NOTA: Esta parte está en desarrollo."
+                    ]
+                },
+                {
+                    "section": "Software: resultados",
+                    "description": "En esta pestaña se guardará el valor final de cada ciclo de medida. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-results.png",
+                    "steps": [
+                        "Presione \"Siguiente\" o \"Anterior\" para ver los resultados históricos.",
+                        "Con el botón “Más Nuevo” se mostrarán los últimos valores."
+                    ]
+                },
+                {
+                    "section": "Software: gráfico",
+                    "description": "Para ver el gráfico del parámetro puede utilizar esta pestaña. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-chart.png",
+                    "steps": [
+                        "El período de tiempo se puede seleccionar mediante los campos \"Inicio\" y \"Fin\". ",
+                        "El alejamiento se puede realizar haciendo doble clic (botón izquierdo del mouse) en el gráfico."
+                    ]
+                },
+                {
+                    "section": "Software: tarea final",
+                    "description": "Este botón detiene la aplicación.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-end.png",
+                    "steps": [
+                        "NOTA: \"Cancelar\" o \"Detener\" el software y luego presione este botón."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "sampling",
+            "name": "Carrera rapida",
+            "items": [
+                {
+                    "section": "programa de inicio",
+                    "description": "Para ejecutar el programa, haga doble clic en el icono de \"BC3.0\" en la parte superior izquierda del escritorio.",
+                    "image": "./assets/instructions/instructions-bactcontrol-windows-desktop.png"
+                },
+                {
+                    "section": "Iniciar muestreo",
+                    "description": "Cuando aparezca la siguiente pantalla, el dispositivo estará listo para comenzar.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-program.png",
+                    "steps": [
+                        "Al presionar el botón \"Inicio\" en el medio de la página, el dispositivo comenzará a funcionar y tomará la muestra."
+                    ]
+                },
+                {
+                    "section": "Detener programa",
+                    "description": "El dispositivo funcionó continuamente. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-device.png"
+                }
+            ]
+        },
+        {
+            "type": "commissioning",
+            "name": "Puesta en marcha",
+            "items": [
+                {
+                    "section": "Introducción",
+                    "description": "La instalación del sistema BACTcontrol la realizan ingenieros de microLAN o ingenieros calificados del distribuidor local. "
+                },
+                {
+                    "section": "Conexión de la entrada de muestra de agua, salida",
+                    "steps": [
+                        "Los residuos se pueden conectar por separado a un contenedor.",
+                        "¡Asegúrese de que la tubería esté completamente insertada en los conectores!"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "maintenance",
+            "name": "Mantenimiento",
+            "items": [
+                {
+                    "section": "Cámara de reacción de limpieza",
+                    "image": "./assets/instructions/instructions-bactcontrol-chamber.png",
+                    "steps": [
+                        "Abrir la cámara de reacción y retirar el filtro",
+                        "Retire la tapa de la cámara de reacción. ",
+                        "Retire el filtro de cerámica con el anillo en C y verifique si todavía son adecuados (no están agrietados ni rotos)."
+                    ]
+                },
+                {
+                    "section": "Retire el agitador",
+                    "steps": [
+                        "Retire el agitador con la herramienta de extracción de agitadores. "
+                    ]
+                },
+                {
+                    "section": "Limpieza de la cámara de reacción y el agitador",
+                    "steps": [
+                        "Compruebe si hay una posible biopelícula o contaminación dentro de la cámara de reacción.",
+                        "Limpie la celda de medición, el cristal de la lente y el agitador con la solución de limpieza y séquelos con un paño de papel."
+                    ]
+                }
+            ]
+        }
+    ]
+}

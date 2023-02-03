@@ -1,0 +1,50 @@
+{
+    "name": "AQUA-Sense1",
+    "image": "./assets/instructions/instructions-aquasense.png",
+    "description": "",
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Puesta en marcha de AQUA-Sense1",
+            "items": [
+                {
+                    "section": "Conectar hardware",
+                    "image": "./assets/instructions/instructions-aquasense-inside.jpg",
+                    "steps": [
+                        "Conecte un flujo parcial de 2-3 litros/min, a través de una válvula de cierre/apertura, con una presión de 1-2 bares de su agua filtrada o corriente de agua potable a la entrada de AQUA-Sense1 (AQ-S)",
+                        "Conecte AQ-S a la conexión de alimentación de CA de 230 V",
+                        "Conecte la unidad de toma de muestras AQUA-Sampler (entrada y salida de agua a AQUA-Sense1) salida de agua al desagüe",
+                        "Conecte el AQUA-Sampler a la conexión de alimentación de CA de 230 V en la pared",
+                        "Conecte el AQUA-sampler con AQUA-Sense1 con el cable gris."
+                    ]
+                },
+                {
+                    "section": "Iniciar software",
+                    "image": "./assets/instructions/instructions-aquasense-software.jpg",
+                    "steps": [
+                        "Presione la tecla de inicio del sensor, después de un pitido, el sistema se ejecuta y los valores numéricos aparecerán en el monitor del sensor. ",
+                        "Inicie la PC e inicie sesión con: !WaterFall75. ",
+                        "Se pueden configurar diferentes colores para las líneas en la Serie cuadrada haciendo clic debajo del color."
+                    ]
+                },
+                {
+                    "section": "Muestra durante 15 minutos",
+                    "image": "./assets/instructions/instructions-aquasense-sampler.jpg",
+                    "steps": [
+                        "Deje que el sistema funcione con el flujo de agua durante unos 15 minutos, ignore los valores iniciales, se requieren 15-20 minutos para la estabilidad.",
+                        "Puede dibujar la línea de alarma (-----) en la pantalla señalando el nivel de alarma con el lápiz y dibujar la línea hacia arriba o hacia abajo. ",
+                        "Si los valores medidos superan la línea de alarma, el sistema reaccionará y capturará una muestra de agua para analizarla y alertar al operador."
+                    ]
+                },
+                {
+                    "section": "Definir receptores de alarma",
+                    "steps": [
+                        "Tipos de alarma: puede elegir Retraso de SMS (minutos) si desea 0 Retraso de muestra (minutos) o elegir otro número.",
+                        "Instale una tarjeta SIM en el módem y coloque la antena en la parte superior del AQUA-Sense libre de otras perturbaciones eléctricas. ",
+                        "En el programa establezca el nombre y el número de móvil a quien debe ir el mensaje. "
+                    ]
+                }
+            ]
+        }
+    ]
+}

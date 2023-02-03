@@ -1,0 +1,114 @@
+{
+    "name": "PatoTeSTICK",
+    "image": "./assets/instructions/instructions-pathotestick.png",
+    "description": "El PathoTeSTICK fue diseñado para proteger a los primeros en responder, ya que es un dispositivo portátil que se puede usar cuando se acerca a un sitio posiblemente contaminado por primera vez.",
+    "pathogens": [
+        "E. coli",
+        "Pseudomonas aeruginosa",
+        "Campylobacter",
+        "especies de protozoos"
+    ],
+    "detectionLimits": [
+        "106 UFC/mL",
+        "105 UFC/mL, para E. coli y Pseudomonas aeruginosa, respectivamente"
+    ],
+    "instructions": [
+        {
+            "type": "checklist",
+            "name": "Lista de verificación de muestreo",
+            "items": [
+                {
+                    "section": "Equipos de Protección Individual (EPI)",
+                    "description": "Para usar el PathoTeSTICK, es necesario usar Equipos de Protección Individual (EPI), que incluyen pero no se limitan a:",
+                    "checklistItems": [
+                        {
+                            "name": "Guantes desechables",
+                            "image": "./assets/instructions/equipment-gloves.jpg"
+                        },
+                        {
+                            "name": "Gafas resistentes a salpicaduras",
+                            "image": "./assets/instructions/equipment-goggles.jpg"
+                        },
+                        {
+                            "name": "Cubrezapatos desechables o calzado adecuado"
+                        },
+                        {
+                            "name": "Batas de laboratorio desechables"
+                        }
+                    ]
+                },
+                {
+                    "section": "Análisis en el campo",
+                    "description": "Hay algunos materiales que pueden ser necesarios durante el análisis en el campo. ",
+                    "checklistItems": [
+                        {
+                            "name": "Toallitas antisépticas"
+                        },
+                        {
+                            "name": "Botella rociadora con agua de enjuague"
+                        },
+                        {
+                            "name": "Toallas de papel"
+                        },
+                        {
+                            "name": "linterna/faro"
+                        },
+                        {
+                            "name": "Dispositivo para toma de muestras (en caso de que las muestras se recolecten en un cuerpo de agua grande)"
+                        }
+                    ]
+                },
+                {
+                    "section": " Kit de prueba de campo PathoTeSTICK",
+                    "description": "Es necesario verificar que el kit de prueba de campo PathoTeSTICK esté completo y que contenga el siguiente material:",
+                    "checklistItems": [
+                        {
+                            "name": "Recipientes de muestra de plástico desechables de 10 ml (4)"
+                        },
+                        {
+                            "name": "PathoTeSTICK (barritas desechables - suministradas en envases separados, etiquetados según el patógeno que se pueda detectar con cada uno)"
+                        },
+                        {
+                            "name": "Mini-potenciostato - alimentado por el Smartphone (no desechable)"
+                        },
+                        {
+                            "name": "Smartphone con la aplicación instalada"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "sampling",
+            "name": "Procedimiento de muestreo en campo",
+            "items": [
+                {
+                    "section": "Coleccion de muestra",
+                    "description": "Una vez seguido el procedimiento de toma de muestras, se detalla el procedimiento específico para el kit PathoTeSTICK.",
+                    "steps": [
+                        "Si la muestra se debe recolectar de un cuerpo de agua grande, tome el dispositivo para muestreo manual.",
+                        "Enjuague el recipiente de plástico con la muestra un par de veces.",
+                        "Rellenar el recipiente con la muestra."
+                    ]
+                },
+                {
+                    "section": "Análisis de muestras con PathoTeSTICK",
+                    "steps": [
+                        "Conecta el potenciostato al Smartphone. ",
+                        "Abra la aplicación y seleccione el patógeno objetivo, o el método de detección del patógeno respectivo, debidamente nombrado y guardado en el menú de la aplicación.",
+                        "Introduce el stick en el recipiente de plástico. ",
+                        "Inicie la prueba presionando el botón Reproducir.",
+                        "Espere hasta que el resultado aparezca en la pantalla."
+                    ]
+                },
+                {
+                    "section": "Gestión de residuos",
+                    "steps": [
+                        "Dado que el PathoTeSTICK es un dispositivo de usar y tirar y no utiliza ningún reactivo, no requiere ningún procedimiento específico de gestión de residuos.",
+                        "El stick usado se puede tirar al contenedor de residuos peligrosos si hay presencia de patógenos en la muestra analizada."
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "name": "PathoTeSTICK",
+    "image": "./assets/instructions/instructions-pathotestick.png",
+    "description": "The PathoTeSTICK was designed to protect first responders, since it is a portable device which can be used when approaching a possible contaminated site for the first time.",
+    "pathogens": [
+        "E. coli",
+        "Pseudomonas aeruginosa",
+        "Campylobacter",
+        "protozoa species"
+    ],
+    "detectionLimits": [
+        "106 CFU/mL",
+        "105 CFU/mL, for E. coli and Pseudomonas aeruginosa, respectively"
+    ],
+    "instructions": [
+        {
+            "type": "checklist",
+            "name": "Sampling Checklist",
+            "items": [
+                {
+                    "section": "Individual Protection Equipment (IPEs)",
+                    "description": "To use the PathoTeSTICK, it is necessary to wear Individual Protection Equipment (IPEs), including but not limited to:",
+                    "checklistItems": [
+                        {
+                            "name": "Disposable gloves",
+                            "image": "./assets/instructions/equipment-gloves.jpg"
+                        },
+                        {
+                            "name": "Splash resistant goggles",
+                            "image": "./assets/instructions/equipment-goggles.jpg"
+                        },
+                        {
+                            "name": "Disposable shoe covers or adequate shoes"
+                        },
+                        {
+                            "name": "Disposable laboratory coats"
+                        }
+                    ]
+                },
+                {
+                    "section": "In-field analysis",
+                    "description": "There are some materials which may be necessary during the in-field analysis. Those materials are listed below.",
+                    "checklistItems": [
+                        {
+                            "name": "Antiseptic wipes"
+                        },
+                        {
+                            "name": "Squirt bottle with rinse water"
+                        },
+                        {
+                            "name": "Paper towels"
+                        },
+                        {
+                            "name": "Flashlight/headlamp"
+                        },
+                        {
+                            "name": "Device for grab sampling (in case samples are collected in a large waterbody)"
+                        }
+                    ]
+                },
+                {
+                    "section": " PathoTeSTICK field test kit",
+                    "description": "It is necessary to check that the PathoTeSTICK field test kit is complete, and that it contains the following material:",
+                    "checklistItems": [
+                        {
+                            "name": "Disposable 10 mL plastic sample containers (4)"
+                        },
+                        {
+                            "name": "PathoTeSTICK (disposable sticks - supplied in separate containers, labelled depending on the pathogen that can be detected with each one)"
+                        },
+                        {
+                            "name": "Mini-potentiostat - powered by the Smartphone (not disposable)"
+                        },
+                        {
+                            "name": "Smartphone with the application installed"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "sampling",
+            "name": "On field sampling procedure",
+            "items": [
+                {
+                    "section": "Sample collection",
+                    "description": "Once the sampling procedure has been followed, the specific procedure for PathoTeSTICK kit is detailed.",
+                    "steps": [
+                        "If the sample must be collected from a large water body, take the device for grab sampling.",
+                        "Rinse the plastic container with the sample a couple of times.",
+                        "Fill in the container with the sample."
+                    ]
+                },
+                {
+                    "section": "Sample analysis with PathoTeSTICK",
+                    "steps": [
+                        "Connect the potentiostat to the Smartphone. The potentiostat turns on automatically when connected to the Smartphone.",
+                        "Open the app and select the target pathogen, or the method of detection of the respective pathogen, properly named and saved in the application menu.",
+                        "Introduce the stick in the plastic container. Immerse it only up to the marked line, to avoid splashing the stick.",
+                        "Start the test by pressing the Play button.",
+                        "Wait until the result appears in the screen."
+                    ]
+                },
+                {
+                    "section": "Waste management",
+                    "steps": [
+                        "Since the PathoTeSTICK is a use and throw device and does not use any reactant, it does not require any specific waste management procedure.",
+                        "The used stick can be thrown in the hazardous waste bin if there is presence of pathogens in the analysed sample."
+                    ]
+                }
+            ]
+        }
+    ]
+}

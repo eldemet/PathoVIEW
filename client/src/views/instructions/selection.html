@@ -4,7 +4,9 @@
 
     <div class="container-fluid my-4">
         <div class="row justify-content-md-center gy-5">
-            <div class="col-md-4 col-xl-3" repeat.for="key of devices | objectKeys">
+            <div if.bind="devices"
+                 repeat.for="key of devices | objectKeys"
+                 class="col-md-4 col-xl-3">
                 <h1>${devices[key].name}</h1>
                 <img src.bind="devices[key].image" class="image-10rem">
                 <p>${devices[key].description}</p>
@@ -25,7 +27,7 @@
                     <a repeat.for="instruction of devices[key].instructions"
                        route-href="route.bind: 'instruction'; params.bind:{device: key, index: $index}"
                        class="list-group-item list-group-item-action">
-                        <i class="bi-${getIconByType(instruction.type)}"></i>
+                        <i class="bi-${instructionsUtilities.getIconByType(instruction.type)}"></i>
                         ${instruction.name}
                     </a>
                 </div>

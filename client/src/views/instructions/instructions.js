@@ -1,8 +1,6 @@
-import {useView} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 
-@useView(PLATFORM.moduleName('library-aurelia/src/views-general/router-view.html'))
 class InstructionsView extends BasicViewRouter {
 
     static routes = [

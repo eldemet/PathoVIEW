@@ -1,0 +1,146 @@
+{
+    "name": "BactControl",
+    "image": "./assets/instructions/instructions-bactcontrol.png",
+    "description": "Das BACTcontrol ist ein automatisiertes Online-Instrument zum Nachweis mikrobiologischer Aktivität in Wasser.",
+    "pathogens": [
+        "β-Galactosidase (Coliforme)",
+        "β-Glucoronidase (E. coli)",
+        "ß-Glucosidase (Enterokokken)",
+        "Alkalische Phosphatase (Gesamtaktivität, Biomasse)"
+    ],
+    "detectionLimits": [],
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Betrieb des Geräts",
+            "items": [
+                {
+                    "section": "Vorbereiten des Geräts",
+                    "description": "Um das Gerät vorzubereiten, müssen drei Schläuche an das Gerät angeschlossen werden. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-connections.jpg",
+                    "steps": [
+                        "Einlass (Probe): Die Probe sollte an diesen Stecker angeschlossen werden. ",
+                        "Reinigung: An diesen Stecker muss die Reinigungslösung angeschlossen werden. ",
+                        "Ablauf: An diesem Stopfen tritt das Entlüftungswasser des Gerätes aus.",
+                        "Zweiter Zulauf: Wenn das Gerät auf einen zweiten Zulauf eingestellt ist, können Sie hier das Wasser anschließen. "
+                    ]
+                },
+                {
+                    "section": "Software: Zustand",
+                    "description": "In dieser Registerkarte werden die Messwerte angezeigt.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-status.png",
+                    "steps": [
+                        "Die erste Spalte zeigt den Namen jedes Parameters. ",
+                        "Hinweis: Die Messintervallzeit jedes Werts kann unterschiedlich sein.",
+                        "FluresenceIncreaseAlarm: Wenn der Anstieg der Fluoreszenz vor der Inkubation nicht ausreicht, wird dieser Alarmindikator angezeigt. ",
+                        "BubbleAlarm: Wenn der Bubble-Sensor eine Blase im Einlass des Geräts erkennt, wird dieser Alarm ausgelöst.",
+                        "HINWEIS: Das Gerät wird gestoppt, nachdem dieser Alarm viermal aufgetreten ist. "
+                    ]
+                },
+                {
+                    "section": "Software: Einstellungen",
+                    "description": "In diesem Abschnitt finden Sie die Einstellungen der Software. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-settings.png",
+                    "steps": [
+                        "HINWEIS: Dieser Teil befindet sich in der Entwicklung."
+                    ]
+                },
+                {
+                    "section": "Software: Ergebnisse",
+                    "description": "In dieser Registerkarte wird der Endwert jedes Messzyklus gespeichert. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-results.png",
+                    "steps": [
+                        "Drücken Sie „Weiter“ oder „Zurück“, um historische Ergebnisse anzuzeigen.",
+                        "Mit der Schaltfläche „Neueste“ werden die letzten Werte angezeigt."
+                    ]
+                },
+                {
+                    "section": "Software: Diagramm",
+                    "description": "Um das Diagramm des Parameters anzuzeigen, können Sie diese Registerkarte verwenden. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-chart.png",
+                    "steps": [
+                        "Der Zeitraum kann über die Felder „Beginn“ und „Ende“ ausgewählt werden. ",
+                        "Das Herauszoomen kann durch Doppelklicken (linke Maustaste) auf das Diagramm durchgeführt werden."
+                    ]
+                },
+                {
+                    "section": "Software: Aufgabe beenden",
+                    "description": "Diese Schaltfläche hält die Anwendung an.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-end.png",
+                    "steps": [
+                        "HINWEIS: Bitte „Abbrechen“ oder „Stoppen“ Sie die Software und drücken Sie dann diese Taste."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "sampling",
+            "name": "Schnelldurchlauf",
+            "items": [
+                {
+                    "section": "Programm starten",
+                    "description": "Um das Programm auszuführen, doppelklicken Sie auf das Symbol „BC3.0“ oben links auf dem Desktop.",
+                    "image": "./assets/instructions/instructions-bactcontrol-windows-desktop.png"
+                },
+                {
+                    "section": "Probenahme starten",
+                    "description": "Wenn der folgende Bildschirm angezeigt wird, ist das Gerät startbereit.",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-program.png",
+                    "steps": [
+                        "Durch Drücken der Schaltfläche „Start“ in der Mitte der Seite beginnt das Gerät zu arbeiten und nimmt die Probe."
+                    ]
+                },
+                {
+                    "section": "Programm beenden",
+                    "description": "Das Gerät funktionierte durchgehend. ",
+                    "image": "./assets/instructions/instructions-bactcontrol-software-device.png"
+                }
+            ]
+        },
+        {
+            "type": "commissioning",
+            "name": "Inbetriebnahme",
+            "items": [
+                {
+                    "section": "Einführung",
+                    "description": "Die Installation des BACTcontrol-Systems erfolgt durch Techniker von microLAN oder qualifizierte Techniker des lokalen Distributors. "
+                },
+                {
+                    "section": "Anschluss des Wasserprobeneinlasses, -auslasses",
+                    "steps": [
+                        "Der Abfall kann separat an einen Behälter angeschlossen werden",
+                        "Achten Sie darauf, dass der Schlauch vollständig in die Anschlüsse geschoben wird!"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "maintenance",
+            "name": "Wartung",
+            "items": [
+                {
+                    "section": "Reaktionskammer reinigen",
+                    "image": "./assets/instructions/instructions-bactcontrol-chamber.png",
+                    "steps": [
+                        "Reaktionsraum öffnen und Filter entfernen",
+                        "Entfernen Sie die Abdeckung der Reaktionskammer. ",
+                        "Entfernen Sie den Keramikfilter mit dem C-Ring und prüfen Sie, ob sie noch geeignet sind (nicht gerissen/gebrochen)."
+                    ]
+                },
+                {
+                    "section": "Rührer entfernen",
+                    "steps": [
+                        "Entfernen Sie den Rührer mit dem Rührer-Demontagewerkzeug! "
+                    ]
+                },
+                {
+                    "section": "Reaktionsraum und Rührer reinigen",
+                    "steps": [
+                        "Überprüfen Sie die Reaktionskammer auf möglichen Biofilm oder Verschmutzung.",
+                        "Reinigen Sie die Messzelle, das Glas der Linse und den Rührer mit der Reinigungslösung und trocknen Sie sie mit einem Papiertuch"
+                    ]
+                }
+            ]
+        }
+    ]
+}

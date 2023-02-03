@@ -1,0 +1,50 @@
+{
+    "name": "AQUA-Sense1",
+    "image": "./assets/instructions/instructions-aquasense.png",
+    "description": "",
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Inbetriebnahme von AQUA-Sense1",
+            "items": [
+                {
+                    "section": "Hardware anschließen",
+                    "image": "./assets/instructions/instructions-aquasense-inside.jpg",
+                    "steps": [
+                        "Schließen Sie einen Teilstrom von 2-3 Liter/min über ein Absperr-/Öffnungsventil mit einem Druck von 1-2 bar Ihres gefilterten Wassers oder Trinkwasserstroms an den Einlass von AQUA-Sense1 (AQ-S) an.",
+                        "Schließen Sie AQ-S an den 230-V-Wechselstromanschluss an",
+                        "Verbinden Sie die Probenahmeeinheit AQUA-Sampler (Wassereinlass und Wasserauslass mit AQUA-Sense1) Wasserauslass mit dem Abfluss",
+                        "Schließen Sie den AQUA-Sampler an den 230-V-Wechselstromanschluss an der Wand an",
+                        "Verbinden Sie den AQUA-Sampler mit AQUA-Sense1 mit dem grauen Kabel."
+                    ]
+                },
+                {
+                    "section": "Software starten",
+                    "image": "./assets/instructions/instructions-aquasense-software.jpg",
+                    "steps": [
+                        "Drücken Sie die Starttaste des Sensors, nach einem Piepton läuft das System und auf dem Monitor des Sensors erscheinen Zahlenwerte. ",
+                        "Starten Sie den PC und melden Sie sich an mit: !WaterFall75. ",
+                        "Verschiedene Farben für die Linien können in der quadratischen Serie eingestellt werden, indem Sie unter Farbe klicken."
+                    ]
+                },
+                {
+                    "section": "Probe für 15 Minuten",
+                    "image": "./assets/instructions/instructions-aquasense-sampler.jpg",
+                    "steps": [
+                        "Lassen Sie das System ca. 15 Minuten mit Wasserdurchfluss laufen, beachten Sie die Anfangswerte nicht, 15-20 Minuten sind für die Stabilität erforderlich.",
+                        "Sie können entweder die Alarmlinie (-----) auf dem Bildschirm zeichnen, indem Sie mit dem Bleistift auf die Alarmstufe zeigen und die Linie nach oben oder unten ziehen. ",
+                        "Wenn die gemessenen Werte die Alarmlinie überschreiten, reagiert das System und nimmt eine Wasserprobe zur Analyse auf und alarmiert den Bediener."
+                    ]
+                },
+                {
+                    "section": "Alarmempfänger definieren",
+                    "steps": [
+                        "Alarmtypen Sie können SMS-Verzögerung (Minuten) wählen, wenn Sie 0 Sample-Verzögerung (Minuten) wünschen, oder eine andere Zahl wählen.",
+                        "Installieren Sie eine SIM-Karte im Modem und platzieren Sie die Antenne oben auf dem AQUA-Sense, frei von anderen elektrischen Störungen. ",
+                        "Stellen Sie im Programm den Namen und die Handynummer ein, an die die Nachricht gehen soll. "
+                    ]
+                }
+            ]
+        }
+    ]
+}

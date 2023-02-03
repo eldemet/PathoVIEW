@@ -1,22 +1,30 @@
+import {inject} from 'aurelia-framework';
+import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
+import {catchError} from 'library-aurelia/src/decorators';
+import {loadingEvent} from '../../decorators';
 import {instructionsUtilities} from '../../utilities';
-import {devices} from './data';
 
+@inject(HttpService)
 class InstructionDetailView extends BasicView {
 
     currentStep = 0;
 
     /**
+     * @param {HttpService} httpService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
-    constructor(...rest) {
+    constructor(httpService, ...rest) {
         super(...rest);
+        this.httpService = httpService;
     }
 
+    @loadingEvent('instruction-alert', 'device')
+    @catchError('instruction-alert')
     async activate(params, routeConfig, navigationInstruction) {
         super.activate(params, routeConfig, navigationInstruction);
-        this.devices = devices;
-        this.instruction = this.devices[params.device].instructions[params.index];
+        this.device = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/${params.device}.json`);
+        this.instruction = this.device.instructions[params.index];
         routeConfig.navModel.setTitle(this.instruction.name);
     }
 
