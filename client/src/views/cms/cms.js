@@ -67,16 +67,6 @@ export class Cms extends BasicViewRouter {
             settings: {
                 detailView: true
             }
-        },
-        {
-            route: 'pathogen',
-            name: 'pathogen',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
-            nav: true,
-            title: this.i18n.tr('model.pathogen', {count: 2}),
-            settings: {
-                detailView: true
-            }
         }
     ];
 

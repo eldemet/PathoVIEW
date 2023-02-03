@@ -1,8 +1,6 @@
-import {useView} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 
-@useView(PLATFORM.moduleName('library-aurelia/src/views-general/router-view.html'))
 class PathogensView extends BasicViewRouter {
 
     static routes = [
@@ -20,14 +18,6 @@ class PathogensView extends BasicViewRouter {
             nav: true,
             title: 'views.pathogens.signs'
         }
-        // {
-        //     route: '/:pathogen',
-        //     name: 'pathogen',
-        //     href: 'pathogen',
-        //     moduleId: PLATFORM.moduleName('./detail'),
-        //     nav: true,
-        //     title: 'views.pathogens.detail'
-        // }
     ];
 
     configureRouter(config, router) {

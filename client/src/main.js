@@ -45,8 +45,7 @@ export async function configure(aurelia) {
         new ModelServiceAsyncUISchema('point-of-interest', options, httpService),
         new ModelServiceBasicSchema('annotation', options, httpService, i18n, eventAggregator),
         new ModelServiceAsync('emergency-event', options, httpService),
-        new ModelServiceAsync('mission', options, httpService),
-        new ModelServiceAsync('pathogen', options, httpService)
+        new ModelServiceAsync('mission', options, httpService)
     ];
     let registerPlugins = [
         PLATFORM.moduleName('aurelia-animator-css')

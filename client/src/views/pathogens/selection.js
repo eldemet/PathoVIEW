@@ -1,5 +1,10 @@
+import {inject} from 'aurelia-framework';
+import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
+import {catchError} from 'library-aurelia/src/decorators';
+import {loadingEvent} from '../../decorators';
 
+@inject(HttpService)
 class SelectionView extends BasicView {
 
 
@@ -14,14 +19,20 @@ class SelectionView extends BasicView {
     ];
 
     /**
+     * @param {HttpService} httpService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
-    constructor(...rest) {
+    constructor(httpService, ...rest) {
         super(...rest);
+        this.httpService = httpService;
     }
 
+    @loadingEvent('pathogen-alert', 'pathogen')
+    @catchError('pathogen-alert')
     async attached() {
-        this.pathogens = (await this.proxy.get('pathogen').getObjects({localize: true})).objects;
+        const cryptosporidiosis = await this.httpService.fetch('GET', `${location.origin}/assets/pathogens/${this.i18n.getLocale()}/cryptosporidiosis.json`);
+        const ecoli = await this.httpService.fetch('GET', `${location.origin}/assets/pathogens/${this.i18n.getLocale()}/ecoli.json`);
+        this.pathogens = [cryptosporidiosis, ecoli];
     }
 
 }
