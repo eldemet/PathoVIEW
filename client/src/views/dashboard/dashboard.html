@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="container-fluid"
+    <div class="container-fluid mb-4"
          if.bind="contextService.currentEmergencyEvent">
         <div class="row">
             <div class="col-md-4">
@@ -45,7 +45,7 @@
                     <div>
                         <span class="text-muted">${'views.dashboard.lastAlert' | t}:</span>
                         <p class="fs-6" if.bind="initialized && lastAlert">
-                            <a href.bind="'#/alert/search/detail/' + lastAlert.id"><i class="bi-bell"></i> ${lastAlert.name} (${lastAlert.dateIssued | formatDate:'f':i18n.getLocale()})</a>
+                            <a href.bind="'#/alert/search/detail/' + lastAlert.id"><i class="bi-bell"></i> ${lastAlert.name || lastAlert.description} (${lastAlert.dateCreated | formatDate:'f':i18n.getLocale()})</a>
                         </p>
                         <p class="fs-6" if.bind="initialized && !lastAlert">${'alerts.general.noResults' | t}</p>
                         <div if.bind="!initialized" class="spinner-border spinner-border-sm" role="status"></div>
