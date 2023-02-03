@@ -1629,7 +1629,7 @@
     - licenses: MIT
     - description: Express style path to RegExp utility
     - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
- - **[pathoview-server@0.6.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-server@1.0.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW server application
     - copyright: none
