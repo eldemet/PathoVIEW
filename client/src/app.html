@@ -1,12 +1,12 @@
 <template>
 
     <require from="app.scss"></require>
+    <require from="library-aurelia/src/resources/elements/alert"></require>
     <require from="library-aurelia/src/resources/elements/nav-bar"></require>
     <require from="library-aurelia/src/resources/elements/toolbar/toolbar"></require>
     <require from="library-aurelia/src/resources/elements/toast"></require>
     <require from="library-aurelia/src/resources/value-converters/format-number"></require>
     <require from="leaflet/dist/leaflet.css"></require>
-    <require from="resources/elements/alert-flexible"></require>
     <require from="resources/elements/custom-content-items/custom-content-item-severity.html"></require>
 
     <nav-bar class="bg-body-tertiary rounded mb-1"
@@ -183,7 +183,7 @@
     </nav-bar>
 
     <toast event="toast" position-class="bottom-0 start-50 translate-middle-x mb-5"></toast>
-    <alert-flexible event="app-alert"></alert-flexible>
+    <alert event="app-alert"></alert>
 
     <router-view class="overflow-auto rounded bg-body"></router-view>
 
