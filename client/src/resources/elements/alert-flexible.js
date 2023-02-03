@@ -58,6 +58,9 @@ class AlertFlexible extends BasicComponent {
             let dismissible = payload.dismissible === true;
             if (typeof payload === 'string') {
                 message = payload;
+            } else if (payload instanceof HttpError) {
+                type = 'danger';
+                message = 'alerts.httpStatusCodes.' + payload.status;
             } else if (payload instanceof Error) {
                 type = 'danger';
                 if (payload.message === 'Failed to fetch') {
@@ -65,8 +68,6 @@ class AlertFlexible extends BasicComponent {
                 } else {
                     message = payload.message;
                 }
-            } else if (payload instanceof HttpError) {
-                message = 'alerts.httpStatusCodes.' + payload.status;
             } else {
                 message = payload.message;
             }
