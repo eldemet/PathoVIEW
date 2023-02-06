@@ -48,6 +48,7 @@ class ContextService extends BasicService {
         this.setCurrentEmergencyEvent();
         this.setCurrentDevice();
         await this.setCurrentWeather();
+        await this.update();
         this.interval = setInterval(async() => await this.update(), timeout);
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
         this.initializeResolve();
