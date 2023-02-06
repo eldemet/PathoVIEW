@@ -2,6 +2,7 @@ import {inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import * as platform from 'platform';
 import numeral from 'numeral';
+import {DateTime} from 'luxon';
 import {point, polygon, multiPolygon} from '@turf/helpers';
 import distance from '@turf/distance';
 import center from '@turf/center';
@@ -10,7 +11,6 @@ import {Proxy} from 'library-aurelia/src/proxy';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {FormatDateValueConverter} from 'library-aurelia/src/resources/value-converters/format-date';
 import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
 import {catchError} from 'library-aurelia/src/decorators';
 import {loadingEvent} from '../decorators';
@@ -233,6 +233,13 @@ class ContextService extends BasicService {
                         }
                         numeral.locale(this.i18n.getLocale());
                         this.eventAggregator.publish('haptics-event', {type: type === 'warning' ? 'WARNING' : 'ERROR'});
+                        let validTo;
+                        try {
+                            let dt = typeof alert.validTo === 'object' ? DateTime.fromJSDate(alert.validTo) : DateTime.fromISO(alert.validTo);
+                            validTo = dt.setLocale(this.i18n.getLocale()).toFormat('D T');
+                        } catch (error) {
+                            validTo = this.i18n.tr('alerts.general.invalidDate');
+                        }
                         this.eventAggregator.publish('app-alert',
                             {
                                 id: alert.id,
@@ -243,7 +250,7 @@ class ContextService extends BasicService {
                                     href: '#'
                                 },
                                 properties: Object.assign(properties, {
-                                    validTo: FormatDateValueConverter.apply(alert.validTo, 'D T', this.i18n.getLocale()),
+                                    validTo: validTo,
                                     subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
                                     severity: this.i18n.tr('enum.alert.severity.' + alert.severity)
                                 }),
