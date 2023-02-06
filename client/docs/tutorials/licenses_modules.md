@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 817
+* MIT: 818
 * ISC: 79
 * BSD-2-Clause: 29
 * Apache-2.0: 27
@@ -733,6 +733,10 @@
  - **[@types/json-schema@7.0.11](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
+    - copyright: none
+ - **[@types/leaflet@1.9.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - licenses: MIT
+    - description: TypeScript definitions for Leaflet.js
     - copyright: none
  - **[@types/lodash@4.14.191](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
@@ -2902,7 +2906,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@1.0.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@1.0.1](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none

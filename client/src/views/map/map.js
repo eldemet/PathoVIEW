@@ -47,6 +47,11 @@ class MapView extends BasicView {
         try {
             this.devices = (await this.proxy.get('device').getObjects()).objects;
             if (this.devices) {
+                this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async notification => {
+                    if (notification.contentType.toLowerCase() === 'device') {
+                        this.devices = (await this.proxy.get('device').getObjects()).objects;
+                    }
+                }));
                 this.subscriptions.push(this.bindingEngine.propertyObserver(this, 'devices')
                     .subscribe(async(newValue, oldValue) => {
                         this.updateLayerGroup('device', this.devices, deviceUtilities);
