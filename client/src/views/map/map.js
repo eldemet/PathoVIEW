@@ -1,6 +1,6 @@
 import {BindingEngine, inject} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {emergencyEventUtilities, alertUtilities, deviceUtilities, missionUtilities} from '../../utilities';
+import {modelUtilities, emergencyEventUtilities, alertUtilities, deviceUtilities, missionUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(BindingEngine, ContextService)
@@ -21,13 +21,14 @@ class MapView extends BasicView {
     async attached() {
         super.attached();
         await this.contextService.initialized;
+        this.users = await this.proxy.get('auth').getUsers();
         let overlay = [];
         if (this.contextService.currentEmergencyEvent) {
             this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'currentEmergencyEvent')
                 .subscribe(async(newValue, oldValue) => {
-                    this.updateLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities);
+                    this.updateLayerGroup('emergencyEvent', [this.contextService.currentEmergencyEvent], emergencyEventUtilities);
                 }));
-            overlay.push(this.getLayerGroup('emergency-event', [this.contextService.currentEmergencyEvent], emergencyEventUtilities));
+            overlay.push(this.getLayerGroup('emergencyEvent', [this.contextService.currentEmergencyEvent], emergencyEventUtilities));
         }
         if (this.contextService.alerts) {
             this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
@@ -72,18 +73,36 @@ class MapView extends BasicView {
 
     getLayerGroup(type, objects, utilities) {
         return {
-            id: type,
+            id: `<i class="bi-${modelUtilities.getIconByType(type)} me-1"></i>` + this.i18n.tr('model.' + type, {count: 2}),
             type: 'layerGroup',
             layers: objects.map(object => {
+                let owners = this.getOwners(object.owner);
+                let popupContent = `<h6><i class="bi-${modelUtilities.getIconByType(type)}"></i> ${object.name || this.i18n.tr('model.' + type)}</h6>`;
+                if (object.description) {
+                    popupContent += `<p>${object.description}</p>`;
+                }
+                if (owners.length > 0) {
+                    popupContent += `<p>${owners.join(', ')}</p>`;
+                }
+                let customPopupContent = utilities.getCustomPopupContent?.(object, this.i18n, owners);
+                if (customPopupContent) {
+                    popupContent += customPopupContent;
+                }
                 return {
                     id: object.id,
                     type: 'geoJSON',
+                    divIconContent: `<i class="bi-${modelUtilities.getIconByType(type)} bg-white" />`,
                     data: object.location,
                     options: utilities.getOptions?.(),
-                    popupContent: utilities.getPopupContent(this.i18n, object)
+                    popupContent: popupContent
                 };
             })
         };
+    }
+
+    getOwners(ownerIds) {
+        if (!ownerIds) ownerIds = [];
+        return this.users.filter(u => ownerIds.includes(u.id)).map(u => (u.firstName || u.lastName) ? `${u.firstName} ${u.lastName} (${u.username})` : u.username);
     }
 
 }

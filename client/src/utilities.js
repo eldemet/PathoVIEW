@@ -8,7 +8,7 @@ export const modelUtilities = {
             icon = 'alarm';
         } else if (type === 'device') {
             icon = 'phone';
-        } else if (type === 'emergency-event') {
+        } else if (type === 'emergency-event' || type === 'emergencyEvent') {
             icon = 'hospital';
         } else if (type === 'mission') {
             icon = 'journal-medical';
@@ -21,17 +21,9 @@ export const modelUtilities = {
     }
 };
 
-export const emergencyEventUtilities = {
-    getPopupContent(i18n, emergencyEvent) {
-        return `<h6>${emergencyEvent.name}</h6>`;
-    }
-};
+export const emergencyEventUtilities = {};
 
-export const missionUtilities = {
-    getPopupContent(i18n, mission) {
-        return `<h6>${mission.description}</h6>`;
-    }
-};
+export const missionUtilities = {};
 
 export const deviceUtilities = {
     getDeviceIcon(device) {
@@ -45,9 +37,8 @@ export const deviceUtilities = {
         }
         return icon;
     },
-    getPopupContent(i18n, device) {
-        return `<h6><i class="${deviceUtilities.getDeviceIcon(device)}"></i> ${device.name}</h6>
-                ${i18n.tr('enum.device.category.' + device.category)}`;
+    getCustomPopupContent(device, i18n) {
+        return `<p>${i18n.tr('enum.device.category.' + device.category)}</p>`;
     },
     async getBatteryLevel() {
         let batteryLevel = -1;
@@ -124,9 +115,9 @@ export const alertUtilities = {
         }
         return icon + ' text-' + color;
     },
-    getPopupContent(i18n, alert) {
-        return `<h6><i class="${alertUtilities.getSeverityIcon(alert.severity)}"></i> ${alert.name}</h6>
-                ${i18n.tr('enum.alert.category.' + alert.category)}, ${i18n.tr('enum.alert.subCategory.' + alert.subCategory)}`;
+    getCustomPopupContent(alert, i18n) {
+        return `<p><i class="${alertUtilities.getSeverityIcon(alert.severity)}"></i> ${i18n.tr('enum.alert.severity.' + alert.severity.toLowerCase())}</p>
+                <p>${i18n.tr('enum.alert.category.' + alert.category)}, ${i18n.tr('enum.alert.subCategory.' + alert.subCategory)}</p>`;
     },
     getISO7010WarningIcon(category, subCategory) {
         let icon = '001';

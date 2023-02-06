@@ -254,6 +254,7 @@ export class LeafletCustomElement extends BasicComponent {
     setEditControl() {
         if (this.withEditControl) {
             this.map.pm.addControls(this.withEditControl);
+            // @ts-ignore
             this.map.pm.setLang(this.i18n.getLocale());
         }
     }
@@ -367,7 +368,11 @@ class LayerFactory {
         if (!layer.hasOwnProperty('latLng')) {
             throw new AureliaLeafletException('No latLng given for layer.type "marker"');
         }
-        return this.L.marker(layer.latLng, layer.options);
+        let options = Object.assign({}, layer.options);
+        if (layer.divIconContent) {
+            options.icon = this.L.divIcon({html: layer.divIconContent, className: ''});
+        }
+        return this.L.marker(layer.latLng, options);
     }
 
     getPopup(layer) {
@@ -498,7 +503,11 @@ class LayerFactory {
         if (!layer.hasOwnProperty('data')) {
             throw new AureliaLeafletException('No data property given for layer.type "geoJSON"');
         }
-        return this.L.geoJson(layer.data, layer.options);
+        let options = Object.assign({}, layer.options);
+        if (layer.data.type === 'Point') {
+            options.pointToLayer = (feature, latLng) => this.getMarker({latLng, options: layer.options, divIconContent: layer.divIconContent});
+        }
+        return this.L.geoJson(layer.data, options);
     }
 
 }
