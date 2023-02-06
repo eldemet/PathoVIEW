@@ -1,3 +1,43 @@
 leaflet .map {
     min-height: 500px;
 }
+
+
+:root {
+    --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .map-tiles {
+        filter: var(--map-tiles-filter, none);
+    }
+
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+        background: var(--bs-body-bg);
+        box-shadow: 0 3px 14px rgb(0 0 0 / 40%);
+        color: var(--bs-body-color);
+    }
+
+    .leaflet-control-layers-expanded {
+        background: var(--bs-body-bg);
+        color: var(--bs-body-color);
+    }
+    .leaflet-control-layers {
+        background: var(--bs-body-bg);
+    }
+
+    .leaflet-bar a {
+        background: var(--bs-body-bg);
+        color: var(--bs-body-color);
+    }
+
+    .leaflet-bar a:focus, .leaflet-bar a:hover {
+        background-color: var(--bs-gray-800);
+    }
+
+    .leaflet-pm-toolbar .control-icon {
+         filter: brightness(0) invert(0.65);
+    }
+
+}

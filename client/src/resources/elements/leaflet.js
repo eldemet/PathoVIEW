@@ -32,7 +32,8 @@ export class LeafletCustomElement extends BasicComponent {
                 type: 'tile',
                 url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 options: {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' + this.i18n.tr('model.contributor', {count: 2})
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' + this.i18n.tr('model.contributor', {count: 2}),
+                    className: 'map-tiles'
                 }
             }
         ],
@@ -57,8 +58,6 @@ export class LeafletCustomElement extends BasicComponent {
         super.attached();
         this.L = await import('leaflet');
         await import('@geoman-io/leaflet-geoman-free');
-        // @ts-ignore
-        await import ('@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css?raw');
         this.L.Icon.Default.imagePath = 'assets/';
         this.layerFactory = new LayerFactory(this.L);
         let mapOptions = this.defaultMapOptions;
