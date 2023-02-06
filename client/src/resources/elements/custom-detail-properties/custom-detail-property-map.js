@@ -29,12 +29,12 @@ class CustomDetailPropertyMap extends BasicComposable {
                     }
                 ]
             };
-            this.drawEnabled = false;
             try {
                 this.center = locationUtilities.getCenter(this.value);
             } catch (e) {
                 //silently catch error
             }
+            this.mapOptions = {fitBounds: this.value.coordinates};
         }
     }
 

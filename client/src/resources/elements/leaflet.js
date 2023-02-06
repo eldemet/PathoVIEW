@@ -83,8 +83,12 @@ export class LeafletCustomElement extends BasicComponent {
                 });
             }
         }
+        // @ts-ignore
         this.map = this.L.map(this.containerId, mapOptions);
         this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
+        if (mapOptions.fitBounds) {
+            this.map.fitBounds(mapOptions.fitBounds);
+        }
         this.attachLayers();
         this.setMapEvents();
         this.setLayerEvents();
@@ -163,6 +167,9 @@ export class LeafletCustomElement extends BasicComponent {
         }
         if (this.mapOptions.maxBounds !== oldOptions?.maxBounds) {
             this.map.setMaxBounds(this.mapOptions.maxBounds);
+        }
+        if (this.mapOptions.fitBounds !== oldOptions?.fitBounds) {
+            this.map.fitBounds(this.mapOptions.fitBounds);
         }
     }
 
