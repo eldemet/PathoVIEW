@@ -94,14 +94,27 @@ class ModelServiceBasicSchema extends ModelService {
                     }
                 }
             }));
-            this.isInitialized = true;
+            this.initializeResolve();
         } else {
-            throw new Error('Could not initialize model-service since fetched data is not valid. Expected Array of ' + this.type + ' and received ' + result);
+            this.initializeReject(new Error('Could not initialize model-service since fetched data is not valid. Expected Array of ' + this.type + ' and received ' + result));
         }
     }
 
     async close() {
         this.disposeSubscriptions();
+    }
+
+    async checkInitialized() {
+        if (!this.isInitialized) {
+            // @ts-ignore
+            this.isInitialized = new Promise((resolve, reject) => {
+                this.initializeResolve = resolve;
+                this.initializeReject = reject;
+            });
+            await this.initialize();
+        } else {
+            await this.isInitialized;
+        }
     }
 
 }
