@@ -16,6 +16,9 @@ class AuthServiceImplementation extends AuthService {
             this.setCookie(this.token);
             // @ts-ignore
             this.userInfo = await this.keycloak.loadUserInfo();
+            if (this.userInfo.locale && config.useUserLocale) {
+                this.setLocale(this.userInfo.locale);
+            }
             this.interval = setInterval(async() => {
                 try {
                     await this.keycloak.loadUserInfo();

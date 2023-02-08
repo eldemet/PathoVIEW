@@ -15,7 +15,7 @@
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
         <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
-             if.bind="!authService.userInfo.locale">
+             if.bind="!authService.config.useUserLocale">
             <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi-translate"></i>

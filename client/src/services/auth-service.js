@@ -36,6 +36,10 @@ class AuthService extends BasicService {
         AureliaCookie.set('auth_token', token.value, {expiry: token.expiry});
     }
 
+    setLocale(locale) {
+        AureliaCookie.set('lang', locale, {});
+    }
+
     async getUsers(forceReload) {
         if (forceReload || !this.usersPromise) {
             this.usersPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 10000);

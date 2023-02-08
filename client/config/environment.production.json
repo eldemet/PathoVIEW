@@ -5,7 +5,8 @@
     "keycloak": {
         "realm": "pathocert",
         "url": "https://idm.digital-enabler.eng.it/auth/",
-        "clientId": "pathoview"
+        "clientId": "pathoview",
+        "useUserLocale": true
     },
     "usePathoware": true
 }

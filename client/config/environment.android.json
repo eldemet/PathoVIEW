@@ -4,8 +4,9 @@
     "baseUrl": "https://pathocert.iao.fraunhofer.de",
     "keycloak": {
         "realm": "pathocert",
-        "url": "https://pathocert.iao.fraunhofer.de:9990/auth/",
-        "clientId": "pathoview"
+        "url": "https://idm.digital-enabler.eng.it/auth/",
+        "clientId": "pathoview",
+        "useUserLocale": true
     },
     "usePathoware": true
 }

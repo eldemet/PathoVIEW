@@ -1,6 +1,5 @@
 import 'bootstrap';
 import {PLATFORM} from 'aurelia-pal';
-import {AureliaCookie} from 'aurelia-cookie';
 import {AureliaFramework} from 'library-aurelia/src/framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpService} from 'library-aurelia/src/services/http-service';
@@ -21,9 +20,6 @@ import {ModelServiceAlert} from './services/model-service-alert';
 export async function configure(aurelia) {
     let authService = aurelia.container.get(AuthServiceImplementation);
     await authService.initialize(environment.keycloak, environment.testing);
-    if (authService?.userInfo?.locale) {
-        AureliaCookie.set('lang', authService.userInfo.locale, {});
-    }
     let root = PLATFORM.moduleName('app');
     let globalResources = [
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),
