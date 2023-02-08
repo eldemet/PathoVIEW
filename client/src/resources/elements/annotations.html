@@ -44,15 +44,15 @@
                  form-type.bind="'create'">
         </au-form>
         <div class="d-flex flex-row p-3 border-top justify-content-center">
-            <button class="btn btn-link ${annotationObject.kind === 'AnnotationText' ? 'active' : ''}"
+            <button class="btn ${annotationObject.kind === 'AnnotationText' ? 'active' : ''}"
                     click.delegate="createAnnotation('AnnotationText')">
                 <i class="bi-chat"></i>
             </button>
-            <button class="btn btn-link ${annotationObject.kind === 'AnnotationImage' ? 'active' : ''}"
+            <button class="btn ${annotationObject.kind === 'AnnotationImage' ? 'active' : ''}"
                     click.delegate="createAnnotation('AnnotationImage')">
                 <i class="bi-image"></i>
             </button>
-            <button class="btn btn-link ${annotationObject.kind === 'AnnotationAudio' ? 'active' : ''}"
+            <button class="btn ${annotationObject.kind === 'AnnotationAudio' ? 'active' : ''}"
                     click.delegate="createAnnotation('AnnotationAudio')">
                 <i class="bi-mic"></i>
             </button>

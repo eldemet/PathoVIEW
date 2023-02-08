@@ -234,26 +234,18 @@ class ContextService extends BasicService {
                         }
                         numeral.locale(this.i18n.getLocale());
                         this.eventAggregator.publish('haptics-event', {type: type === 'warning' ? 'WARNING' : 'ERROR'});
-                        let validTo;
-                        try {
-                            let dt = typeof alert.validTo === 'object' ? DateTime.fromJSDate(alert.validTo) : DateTime.fromISO(alert.validTo);
-                            validTo = dt.setLocale(this.i18n.getLocale()).toFormat('D T');
-                        } catch (error) {
-                            validTo = this.i18n.tr('alerts.general.invalidDate');
-                        }
                         this.eventAggregator.publish('app-alert',
                             {
                                 id: alert.id,
                                 type: type,
                                 message: this.i18n.tr(message),
                                 link: {
-                                    name: alert.name,
-                                    href: '#'
+                                    name: alert.name || alert.description,
+                                    href: '#/alert/search/detail/' + alert.id
                                 },
                                 properties: Object.assign(properties, {
-                                    validTo: validTo,
                                     subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
-                                    severity: this.i18n.tr('enum.alert.severity.' + alert.severity)
+                                    severity: this.i18n.tr('enum.alert.severity.' + alert.severity.toLowerCase())
                                 }),
                                 image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
                                 dismissible: dismissible

@@ -23,6 +23,8 @@ body {
     height: 2rem;
     padding: 0 0.2rem;
     cursor: pointer;
+    flex-grow: 0;
+    flex-shrink: 0;
 
     .creator-inner {
         width: 2rem;
@@ -38,4 +40,13 @@ body {
         max-height: calc(100vh - 78px);
         overflow-y: auto;
     }
+}
+
+.alert-link {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }

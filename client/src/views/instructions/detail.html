@@ -2,22 +2,23 @@
 
     <div class="container my-4">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <h1><i class="bi-${getIconByType(instruction.type)}"></i> ${device.name}</h1>
                 <p class="h4">${instruction.name}</p>
                 <div class="list-group list-group-horizontal overflow-auto" id="nav-tab" role="tablist">
                     <button repeat.for="item of instruction.items"
-                            class="list-group-item btn-sm 1 d-flex flex-column flex-lg-row flex-grow-1 align-items-center ${currentStep === $index ? 'active' : ''}"
+                            class="list-group-item btn-sm lh-1 d-flex flex-column flex-lg-row flex-grow-1 align-items-center ${currentStep === $index ? 'active' : ''} ${currentStep > $index ? 'bg-body-secondary' : ''}"
                             id="${'instruction-' + $index + '-tab'}"
                             data-bs-toggle="tab"
                             data-bs-target="${'instruction-' + $index}"
                             click.delegate="currentStep = $index"
+                            disabled.bind="currentStep < $index"
                             type="button"
                             role="tab"
                             aria-controls="nav-tabContent"
                             aria-selected="true">
-                        <span class="badge bg-${currentStep === $index ? 'body text-primary' : 'primary'} rounded-pill mb-0 mb-md-2 mb-lg-0 me-lg-2">${$index + 1}</span>
-                        <span class="d-none d-md-inline">${item.section}</span>
+                        <span class="badge bg-${currentStep === $index ? 'body text-primary' : 'primary'} rounded-pill mb-0 mb-lg-0 me-lg-2">${$index + 1}</span>
+                        <span class="d-none d-lg-inline">${item.section}</span>
                     </button>
                 </div>
                 <div class="tab-content border border-top-0" id="nav-tabContent">
@@ -29,7 +30,7 @@
                          tabindex="0">
                         <div class="container mt-4">
                             <div class="row g-4">
-                                <h3 class="d-block d-md-none">
+                                <h3 class="d-block d-lg-none">
                                     ${item.section}
                                 </h3>
                                 <div if.bind="item.image"
