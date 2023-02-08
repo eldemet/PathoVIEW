@@ -13,10 +13,14 @@ class AnnotationsView extends BasicView {
     }
 
     async attached() {
-        this.authService = this.proxy.get('auth');
+        try {
+            this.authService = this.proxy.get('auth');
+            this.users = await this.authService.getUsers();
+        } catch (error) {
+            this.logger.error(error.message);
+        }
         try {
             this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
-            this.users = await this.authService.getUsers();
         } catch (error) {
             this.logger.error(error.message);
         }
