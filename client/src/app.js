@@ -116,6 +116,7 @@ export class App extends BasicViewRouter {
         config.title = this.i18n.tr('app');
         config.map(this.routes);
         config.mapUnknownRoutes(PLATFORM.moduleName('library-aurelia/src/views-general/not-found'));
+        config.fallbackRoute('home');
     }
 
     async attached() {
