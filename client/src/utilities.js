@@ -121,13 +121,25 @@ export const alertUtilities = {
     },
     getISO7010WarningIcon(category, subCategory) {
         let icon = '001';
-        if (subCategory === 'tsunami') {
+        if (subCategory === 'flood') {
+            icon = '077';
+        } else if (subCategory === 'tsunami') {
             icon = '056';
+        } else if (subCategory === 'coastalEvent') {
+            icon = '060';
+        } else if (subCategory === 'earthquake') {
+            icon = '035';
+        } else if (subCategory === 'tornado') {
+            icon = '074';
+        } else if (subCategory === 'hurricane' || subCategory === 'tropicalCyclone') {
+            icon = '064';
+        } else if (subCategory === 'waterPollution') {
+            icon = '072';
         } else if (subCategory === 'snow/ice') {
             icon = '010';
         } else if (subCategory === 'buildingFire' || subCategory === 'forestFire') {
             icon = '021';
-        } else if (['fertilisation', 'irrigation', 'waterPollution', 'airPollution'].includes(subCategory)) {
+        } else if (['fertilisation', 'irrigation', 'airPollution'].includes(subCategory)) {
             icon = '016';
         } else if (category === 'agriculture') {
             icon = '009';
