@@ -1,4 +1,5 @@
 import HapticPlayer from 'tact-js/dist/lib/HapticPlayer';
+import {TactJsUtils} from 'tact-js/dist/lib/tact-js';
 import {PositionType} from 'tact-js';
 import {BhapticsService} from './bhaptics-service';
 
@@ -9,10 +10,11 @@ class BhapticsServiceImplementation extends BhapticsService {
         this.tactJs = new HapticPlayer();
         this.tactJs.turnOffAll();
         let prevState = undefined;
-        this.tactJs.addListener((msg) => {
+        this.tactJs.addListener(async msg => {
             if (prevState !== msg.status && msg.status === 'Connected') {
                 this.logger.info('bhaptics connected!');
                 this.status = 'connected';
+                await super.initialize();
             } else if (prevState !== msg.status && msg.status === 'Disconnected') {
                 this.logger.info('bhaptics disconnected!');
                 this.status = 'error';
@@ -22,7 +24,6 @@ class BhapticsServiceImplementation extends BhapticsService {
             }
             prevState = msg.status;
         });
-        await super.initialize();
     }
 
     async close() {
@@ -39,23 +40,23 @@ class BhapticsServiceImplementation extends BhapticsService {
 
     async pingAll() {
         let code = this.tactJs.submitDot('test', PositionType.VestBack, [{index: 0, intensity: 100}], 1000);
-        if (code !== 0) {
-            this.logger.debug('bhaptics error ' + code);
-        }
+        this.log(code, 'register', 'ping all');
     }
 
     async register(tactFile) {
         let code = this.tactJs.registerFile(tactFile.fileName, tactFile.content);
-        if (code !== 0) {
-            this.logger.debug('bhaptics error ' + code);
-        }
+        this.log(code, 'register', tactFile.fileName);
     }
 
     async submitRegistered(callRegistered) {
         let code = this.tactJs.submitRegistered(callRegistered.name);
-        if (code !== 0) {
-            this.logger.debug('bhaptics error ' + code);
-        }
+        this.log(code, 'submitRegistered', callRegistered.name);
+    }
+
+    log(code, functionName, name) {
+        let message = TactJsUtils.convertErrorCodeToString(code);
+        let type = code === 0 ? 'debug' : 'warn';
+        this.logger[type](`${functionName} (${name}): ${message}`);
     }
 
 }
