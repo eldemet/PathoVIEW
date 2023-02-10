@@ -86,7 +86,11 @@ export class LeafletCustomElement extends BasicComponent {
         this.map = this.L.map(this.containerId, mapOptions);
         this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
         if (mapOptions.fitBounds) {
-            this.map.fitBounds(mapOptions.fitBounds);
+            try {
+                this.map.fitBounds(mapOptions.fitBounds);
+            } catch (error) {
+                // handle silently
+            }
         }
         this.attachLayers();
         this.setMapEvents();
@@ -168,7 +172,11 @@ export class LeafletCustomElement extends BasicComponent {
             this.map.setMaxBounds(this.mapOptions.maxBounds);
         }
         if (this.mapOptions.fitBounds !== oldOptions?.fitBounds) {
-            this.map.fitBounds(this.mapOptions.fitBounds);
+            try {
+                this.map.fitBounds(this.mapOptions.fitBounds);
+            } catch (error) {
+                // handle silently
+            }
         }
     }
 
