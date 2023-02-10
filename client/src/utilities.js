@@ -1,5 +1,10 @@
 import get from 'lodash/get';
+import {polygon} from '@turf/helpers';
 import center from '@turf/center';
+import distance from '@turf/distance';
+import pointToLineDistance from '@turf/point-to-line-distance';
+import polygonToLine from '@turf/polygon-to-line';
+import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 
 export const modelUtilities = {
     getIconByType(type) {
@@ -85,6 +90,45 @@ export const locationUtilities = {
             position = {lng: pos[0], lat: pos[1]};
         }
         return position;
+    },
+    distancePointToGeoJSON({from, to}) {
+        if (to.type === 'Feature') {
+            to = to.geometry;
+        }
+        let distanceResult;
+        if (to.type === 'Point') {
+            distanceResult = distance(from, to);
+        } else if (to.type === 'Polygon') {
+            if (to.coordinates.length > 1) { // Has holes
+                const [exteriorDistance, ...interiorDistances] = to.coordinates.map(coords =>
+                    locationUtilities.distancePointToGeoJSON({from, to: polygon([coords]).geometry})
+                );
+                if (exteriorDistance < 0) {
+                    const smallestInteriorDistance = interiorDistances.reduce((smallest, current) => (current < smallest ? current : smallest));
+                    if (smallestInteriorDistance < 0) {
+                        distanceResult = smallestInteriorDistance * -1;
+                    } else {
+                        distanceResult = smallestInteriorDistance < exteriorDistance * -1 ? smallestInteriorDistance * -1 : exteriorDistance;
+                    }
+                } else {
+                    distanceResult = exteriorDistance;
+                }
+            } else {
+                distanceResult = pointToLineDistance(from, /** @type {any} */ (polygonToLine(to)));
+                if (booleanPointInPolygon(from, to)) {
+                    distanceResult = distanceResult * -1;
+                }
+            }
+        } else if (to.type === 'MultiPolygon') {
+            distanceResult = to.coordinates
+                .map(coords => locationUtilities.distancePointToGeoJSON({from, to: polygon(coords).geometry}))
+                .reduce((smallest, current) => (current < smallest ? current : smallest));
+        } else if (to.type === 'LineString') {
+            distanceResult = pointToLineDistance(from, to);
+        } else {
+            distanceResult = distance(from, center(to));
+        }
+        return distanceResult;
     }
 };
 
