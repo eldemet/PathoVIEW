@@ -30,10 +30,12 @@
                             "image": "./assets/instructions/equipment-goggles.jpg"
                         },
                         {
-                            "name": "Disposable shoe covers or adequate shoes"
+                            "name": "Disposable shoe covers or adequate shoes",
+                            "image": "./assets/instructions/equipment-disposable-shoe-covers.jpg"
                         },
                         {
-                            "name": "Disposable laboratory coats"
+                            "name": "Disposable laboratory coats",
+                            "image": "./assets/instructions/equipment-disposable-coat.jpg"
                         }
                     ]
                 },

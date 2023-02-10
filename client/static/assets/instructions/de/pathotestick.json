@@ -30,10 +30,12 @@
                             "image": "./assets/instructions/equipment-goggles.jpg"
                         },
                         {
-                            "name": "Einwegüberschuhe oder geeignete Schuhe"
+                            "name": "Einwegüberschuhe oder geeignete Schuhe",
+                            "image": "./assets/instructions/equipment-disposable-shoe-covers.jpg"
                         },
                         {
-                            "name": "Einweg-Laborkittel"
+                            "name": "Einweg-Laborkittel",
+                            "image": "./assets/instructions/equipment-disposable-coat.jpg"
                         }
                     ]
                 },

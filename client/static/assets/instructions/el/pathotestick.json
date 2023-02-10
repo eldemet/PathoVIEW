@@ -30,10 +30,12 @@
                             "image": "./assets/instructions/equipment-goggles.jpg"
                         },
                         {
-                            "name": "Καλύμματα παπουτσιών μιας χρήσης ή επαρκή παπούτσια"
+                            "name": "Καλύμματα παπουτσιών μιας χρήσης ή επαρκή παπούτσια",
+                            "image": "./assets/instructions/equipment-disposable-shoe-covers.jpg"
                         },
                         {
-                            "name": "Εργαστηριακά παλτά μιας χρήσης"
+                            "name": "Εργαστηριακά παλτά μιας χρήσης",
+                            "image": "./assets/instructions/equipment-disposable-coat.jpg"
                         }
                     ]
                 },

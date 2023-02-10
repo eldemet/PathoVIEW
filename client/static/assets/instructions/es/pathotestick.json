@@ -30,10 +30,12 @@
                             "image": "./assets/instructions/equipment-goggles.jpg"
                         },
                         {
-                            "name": "Cubrezapatos desechables o calzado adecuado"
+                            "name": "Cubrezapatos desechables o calzado adecuado",
+                            "image": "./assets/instructions/equipment-disposable-shoe-covers.jpg"
                         },
                         {
-                            "name": "Batas de laboratorio desechables"
+                            "name": "Batas de laboratorio desechables",
+                            "image": "./assets/instructions/equipment-disposable-coat.jpg"
                         }
                     ]
                 },
