@@ -2,11 +2,7 @@ import {inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import * as platform from 'platform';
 import numeral from 'numeral';
-import {DateTime} from 'luxon';
-import {point, polygon, multiPolygon} from '@turf/helpers';
-import distance from '@turf/distance';
-import center from '@turf/center';
-import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
+import {point} from '@turf/helpers';
 import {Proxy} from 'library-aurelia/src/proxy';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
@@ -48,6 +44,7 @@ class ContextService extends BasicService {
         this.setCurrentEmergencyEvent();
         this.setCurrentDevice();
         await this.setCurrentWeather();
+        numeral.locale(this.i18n.getLocale());
         await this.update();
         this.interval = setInterval(async() => await this.update(), timeout);
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
@@ -150,7 +147,7 @@ class ContextService extends BasicService {
     @catchError()
     async setCurrentWeather() {
         if (this.currentEmergencyEvent) {
-            let coordinates = center(this.currentEmergencyEvent.location).geometry.coordinates;
+            let coordinates = locationUtilities.getCenter(this.currentEmergencyEvent.location, 'array');
             let url = '/api/v1/weather/current?' + stringify({
                 lat: coordinates[1],
                 lon: coordinates[0],
@@ -214,26 +211,21 @@ class ContextService extends BasicService {
             let from = point(location.coordinates);
             for (let alert of this.alerts) {
                 try {
-                    let distanceResult = distance(from, center(alert.location), {units: 'kilometers'});
+                    let distanceResult = locationUtilities.distancePointToGeoJSON({from, to: alert.location});
                     let type;
                     let message;
                     let dismissible = true;
-                    if ((alert.location.type === 'Polygon' && booleanPointInPolygon(from, polygon(alert.location.coordinates))) ||
-                        (alert.location.type === 'MultiPolygon' && booleanPointInPolygon(from, multiPolygon(alert.location.coordinates)))) {
-                        distanceResult = 0;
-                    }
-                    let properties = distanceResult === 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
+                    let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
                     if (distanceResult < 1.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
                         if (distanceResult > 0.75) {
                             type = 'warning';
                             message = 'alerts.alertLocationClose';
                         } else {
                             type = 'danger';
-                            message = distanceResult === 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
+                            message = distanceResult <= 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
                             dismissible = false;
                         }
-                        numeral.locale(this.i18n.getLocale());
-                        this.eventAggregator.publish('haptics-event', {type: type === 'warning' ? 'WARNING' : 'ERROR'});
+                        this.eventAggregator.publish('haptics-event', {type});
                         this.eventAggregator.publish('app-alert',
                             {
                                 id: alert.id,

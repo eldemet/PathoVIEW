@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 818
+* MIT: 825
 * ISC: 79
 * BSD-2-Clause: 29
 * Apache-2.0: 27
@@ -430,6 +430,10 @@
     - licenses: MIT
     - description: babel require hook
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
+ - **[@babel/regjsgen@0.8.0](https://github.com/bnjmnt4n/regjsgen)**
+    - licenses: MIT
+    - description: Generate regular expressions from regjsparser’s AST.
+    - copyright: Copyright 2014-2020 Benjamin Tan <https://ofcr.se/>
  - **[@babel/runtime@7.20.13](https://github.com/babel/babel)**
     - licenses: MIT
     - description: babel's modular runtime helpers
@@ -446,15 +450,15 @@
     - licenses: MIT
     - description: Babel Types is a Lodash-esque utility library for AST nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@capacitor/android@4.6.2](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/android@4.6.3](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/cli@4.6.2](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/cli@4.6.3](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/core@4.6.2](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/core@4.6.3](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
@@ -462,7 +466,7 @@
     - licenses: MIT
     - description: The Haptics API provides physical feedback to the user through touch or vibration.
     - copyright: Copyright 2020-present Ionic. https://ionic.io
- - **[@capacitor/local-notifications@4.1.4](https://github.com/ionic-team/capacitor-plugins)**
+ - **[@capacitor/local-notifications@4.1.5](https://github.com/ionic-team/capacitor-plugins)**
     - licenses: MIT
     - description: The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
     - copyright: Copyright 2020-present Ionic. https://ionic.io
@@ -622,6 +626,10 @@
     - licenses: MIT
     - description: turf center module
     - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/clone@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf clone module
+    - copyright: Copyright (c) 2017 TurfJS
  - **[@turf/destination@6.5.0](https://github.com/Turfjs/turf)**
     - licenses: MIT
     - description: turf destination module
@@ -661,6 +669,26 @@
  - **[@turf/nearest-point-on-line@6.5.0](https://github.com/Turfjs/turf)**
     - licenses: MIT
     - description: turf nearest-point-on-line module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/point-to-line-distance@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf point-to-line-distance module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/polygon-to-line@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf polygon-to-line module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/projection@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf projection module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/rhumb-bearing@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf rhumb-bearing module
+    - copyright: Copyright (c) 2017 TurfJS
+ - **[@turf/rhumb-distance@6.5.0](https://github.com/Turfjs/turf)**
+    - licenses: MIT
+    - description: turf rhumb-distance module
     - copyright: Copyright (c) 2017 TurfJS
  - **[@turf/square@6.5.0](https://github.com/Turfjs/turf)**
     - licenses: MIT
@@ -706,13 +734,17 @@
     - licenses: MIT
     - description: TypeScript definitions for Express
     - copyright: none
- - **[@types/express@4.17.16](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/express@4.17.17](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Express
     - copyright: none
  - **[@types/fs-extra@8.1.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for fs-extra
+    - copyright: none
+ - **[@types/geojson@7946.0.10](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - licenses: MIT
+    - description: TypeScript definitions for geojson
     - copyright: none
  - **[@types/geojson@7946.0.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
@@ -750,7 +782,7 @@
     - licenses: MIT
     - description: TypeScript definitions for minimatch
     - copyright: none
- - **[@types/node@18.11.18](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@18.13.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
     - copyright: none
@@ -1314,7 +1346,7 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001450](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001451](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
@@ -1686,7 +1718,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.4.285](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.292](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -2190,7 +2222,7 @@
     - licenses: MIT
     - description: Ignore is a manager and filter for .gitignore rules, the one used by eslint, gitbook and many others.
     - copyright: Copyright (c) 2013 Kael Zhang <i@kael.me>, contributors. http://kael.me/
- - **[immutable@4.2.3](https://github.com/immutable-js/immutable-js)**
+ - **[immutable@4.2.4](https://github.com/immutable-js/immutable-js)**
     - licenses: MIT
     - description: Immutable Data Collections
     - copyright: Copyright (c) 2014-present, Lee Byron and other contributors.
@@ -2618,10 +2650,10 @@
     - licenses: ISC
     - description: minimal implementation of a PassThrough stream
     - copyright: Copyright (c) 2017-2022 npm, Inc., Isaac Z. Schlueter, and Contributors
- - **[minipass@4.0.1](https://github.com/isaacs/minipass)**
+ - **[minipass@4.0.3](https://github.com/isaacs/minipass)**
     - licenses: ISC
     - description: minimal implementation of a PassThrough stream
-    - copyright: Copyright (c) 2017-2022 npm, Inc., Isaac Z. Schlueter, and Contributors
+    - copyright: Copyright (c) 2017-2023 npm, Inc., Isaac Z. Schlueter, and Contributors
  - **[minizlib@2.1.2](https://github.com/isaacs/minizlib)**
     - licenses: MIT
     - description: A small fast zlib stream built on [minipass](http://npm.im/minipass) and Node.js's zlib binding.
@@ -2694,7 +2726,7 @@
     - licenses: (BSD-3-Clause OR GPL-2.0)
     - description: JavaScript implementations of network transports, cryptography, ciphers, PKI, message digests, and various utilities.
     - copyright: none
- - **[node-releases@2.0.9](https://github.com/chicoxyzzy/node-releases)**
+ - **[node-releases@2.0.10](https://github.com/chicoxyzzy/node-releases)**
     - licenses: MIT
     - description: Node.js releases data
     - copyright: Copyright (c) 2017 Sergey Rubanov (https://github.com/chicoxyzzy)
@@ -2778,7 +2810,7 @@
     - licenses: MIT
     - description: Ensure a function is only called once
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[open@8.4.0](https://github.com/sindresorhus/open)**
+ - **[open@8.4.1](https://github.com/sindresorhus/open)**
     - licenses: MIT
     - description: Open stuff like URLs, files, executables. Cross-platform.
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -3234,14 +3266,10 @@
     - licenses: MIT
     - description: Regular expression parser for ECMAScript.
     - copyright: Copyright (c) 2018 Toru Nagashima
- - **[regexpu-core@5.2.2](https://github.com/mathiasbynens/regexpu-core)**
+ - **[regexpu-core@5.3.0](https://github.com/mathiasbynens/regexpu-core)**
     - licenses: MIT
     - description: regexpu’s core functionality (i.e. `rewritePattern(pattern, flag)`), capable of translating ES6 Unicode regular expressions to ES5.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
- - **[regjsgen@0.7.1](https://github.com/bnjmnt4n/regjsgen)**
-    - licenses: MIT
-    - description: Generate regular expressions from regjsparser’s AST.
-    - copyright: Copyright 2014-2020 Benjamin Tan <https://ofcr.se/>
  - **[regjsparser@0.9.1](https://github.com/jviereck/regjsparser)**
     - licenses: BSD-2-Clause
     - description: Parsing the JavaScript's RegExp in JavaScript.
