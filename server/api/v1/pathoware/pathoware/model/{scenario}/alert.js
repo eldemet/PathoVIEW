@@ -8,18 +8,42 @@ export default function(config, getApiDoc) {
 
     let operations = {
         GET: logger.catchErrors(GET),
-        POST: logger.catchErrors(POST)
+        POST: logger.catchErrors(POST),
+        DELETE: logger.catchErrors(DELETE)
     };
 
-    operations.GET['apiDoc'] = getApiDoc(getObjects);
-
-    operations.POST['apiDoc'] = getApiDoc(createObject);
+    operations.GET['apiDoc'] = getApiDoc({
+        summary: 'Returns alerts to the caller',
+        operationId: 'getAlerts',
+        parameters: [
+            parameterScenario
+        ],
+        responses: {
+            200: {
+                description: 'Success',
+                content: {
+                    'application/json': {
+                        schema: {
+                            type: 'array',
+                            items: {
+                                type: 'object'
+                                // $ref: '#/components/schemas/Alert'
+                            }
+                        }
+                    }
+                }
+            },
+            default: {
+                $ref: '#/components/responses/Error'
+            }
+        }
+    });
 
     async function GET(req, res) {
         if (!req?.kauth?.grant?.access_token.token) {
             res.status(401).send({error: 'Unauthorized'});
         } else {
-            let url = config.pathoware.northboundApi + '/pathoalert/' + req.params.scenario + '/all';
+            let url = `${config.pathoware.northboundApi}/pathoalert/${req.params.scenario}/all`;
             /** @type {RequestInit} */
             let options = {
                 headers: {
@@ -44,11 +68,44 @@ export default function(config, getApiDoc) {
         }
     }
 
+    operations.POST['apiDoc'] = getApiDoc({
+        summary: 'Creates an alert',
+        operationId: 'createAlert',
+        parameters: [
+            parameterScenario
+        ],
+        requestBody: {
+            required: true,
+            content: {
+                'application/json': {
+                    schema: {
+                        $ref: '#/components/schemas/Alert'
+                    }
+                }
+            }
+        },
+        responses: {
+            200: {
+                description: 'Success',
+                content: {
+                    'application/json': {
+                        schema: {
+                            $ref: '#/components/schemas/Alert'
+                        }
+                    }
+                }
+            },
+            default: {
+                $ref: '#/components/responses/Error'
+            }
+        }
+    });
+
     async function POST(req, res) {
         if (!req?.kauth?.grant?.access_token.token) {
             res.status(401).send({error: 'Unauthorized'});
         } else {
-            let url = config.pathoware.dataConnectorApi + '/pathoview/alert';
+            let url = config.pathoware.dataConnectorApi + '/pathoview/alert/';
             let alert = Object.assign({}, req.body);
             alert.id = 'Alert:' + uuid();
             /** @type {RequestInit} */
@@ -56,7 +113,7 @@ export default function(config, getApiDoc) {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Accept': 'application/json',
-                    'content-type': 'application/json',  //must match body
+                    'Content-Type': 'application/json',  //must match body
                     'scenario': req.params.scenario,
                     'x-token': req.kauth.grant.access_token.token
                 },
@@ -75,6 +132,64 @@ export default function(config, getApiDoc) {
         }
     }
 
+    operations.DELETE['apiDoc'] = getApiDoc({
+        summary: 'Deletes an alert',
+        operationId: 'deleteAlert',
+        parameters: [
+            parameterScenario
+        ],
+        requestBody: {
+            required: true,
+            content: {
+                'application/json': {
+                    schema: {
+                        // $ref: '#/components/schemas/Alert'
+                    }
+                }
+            }
+        },
+        responses: {
+            200: {
+                description: 'Success',
+                content: {
+                    'application/json': {
+                        schema: {
+                            $ref: '#/components/schemas/Alert'
+                        }
+                    }
+                }
+            },
+            default: {
+                $ref: '#/components/responses/Error'
+            }
+        }
+    });
+
+    async function DELETE(req, res) {
+        if (!req?.kauth?.grant?.access_token.token) {
+            res.status(401).send({error: 'Unauthorized'});
+        } else {
+            let url = `${config.pathoware.northboundApi}/pathoalerta/delete-alert/${req.params.scenario}/by-id/${encodeURIComponent(req.body.id)}/`;
+            /** @type {RequestInit} */
+            let options = {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',  //must match body
+                    'x-token': req.kauth.grant.access_token.token
+                },
+                mode: 'cors', // no-cors, *same-origin
+                method: 'DELETE'
+            };
+            let fetchResult = await fetch(url, options);
+            if (!fetchResult.ok) {
+                res.status(fetchResult.status).send({error: fetchResult.statusText});
+            } else {
+                res.validateAndSend(200, req.body);
+            }
+        }
+    }
+
     return operations;
 }
 
@@ -87,64 +202,4 @@ const parameterScenario = {
         enum: ['limassol', 'seoul', 'granada', 'thessaloniki', 'sofia', 'amsterdam']
     },
     required: true
-};
-
-const getObjects = {
-    summary: 'Returns alerts to the caller',
-    operationId: 'getAlerts',
-    parameters: [
-        parameterScenario
-    ],
-    responses: {
-        200: {
-            description: 'Success',
-            content: {
-                'application/json': {
-                    schema: {
-                        type: 'array',
-                        items: {
-                            type: 'object'
-                            // $ref: '#/components/schemas/Alert'
-                        }
-                    }
-                }
-            }
-        },
-        default: {
-            $ref: '#/components/responses/Error'
-        }
-    }
-};
-
-const createObject = {
-    summary: 'Creates an alert',
-    operationId: 'createAlert',
-    parameters: [
-        parameterScenario
-    ],
-    requestBody: {
-        required: true,
-        content: {
-            'application/json': {
-                schema: {
-                    $ref: '#/components/schemas/Alert'
-                }
-            }
-        }
-    },
-    responses: {
-        200: {
-            description: 'Success',
-            content: {
-                'application/json': {
-                    schema: {
-                        $ref: '#/components/schemas/Alert'
-                    }
-                }
-            }
-        },
-        default: {
-            $ref: '#/components/responses/Error'
-        }
-    }
 };
