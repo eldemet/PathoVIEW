@@ -23,10 +23,10 @@ class BhapticsServiceImplementation extends BhapticsService {
             this.devices = (await this.bhapticsServicePlugin.getDeviceList()).devices;
             this.logger.info('bhaptics connected!');
             this.status = 'connected';
+            await super.initialize();
         } catch (error) {
             this.status = 'error';
         }
-        await super.initialize();
     }
 
     async close() {
