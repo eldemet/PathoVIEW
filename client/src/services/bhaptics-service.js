@@ -26,7 +26,7 @@ class BhapticsService extends BasicService {
                 //handle silently
             }
         }
-        this.subscriptions.push(this.eventAggregator.subscribe('haptics-event', async payload => {
+        this.subscriptions.push(this.eventAggregator.subscribe('context-aware-alert', async payload => {
             if (this.status === 'connected') {
                 let callRegistered = {fallback: 'none', offsetAngleX: 0, offsetY: 0};
                 if (payload.type === 'warning') {

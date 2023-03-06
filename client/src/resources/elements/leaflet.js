@@ -6,6 +6,7 @@ import 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 import {locationUtilities} from '../../utilities';
+import {NotificationType} from '../../services/notification-service';
 
 export class LeafletCustomElement extends BasicComponent {
 
@@ -78,7 +79,8 @@ export class LeafletCustomElement extends BasicComponent {
                     body: message,
                     biIcon: 'geo-alt',
                     autohide: false,
-                    dismissible: true
+                    dismissible: true,
+                    type: NotificationType.Error
                 });
             }
         }

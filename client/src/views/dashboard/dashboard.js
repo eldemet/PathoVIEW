@@ -3,6 +3,7 @@ import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {userUtilities, locationUtilities, weatherUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
+import {NotificationType} from '../../services/notification-service';
 
 @inject(BindingSignaler, ContextService)
 class DashboardView extends BasicView {
@@ -78,7 +79,8 @@ class DashboardView extends BasicView {
                 body: message,
                 biIcon: 'geo-alt',
                 autohide: false,
-                dismissible: true
+                dismissible: true,
+                type: NotificationType.Warning
             });
         }
         return result;

@@ -3,18 +3,15 @@ import {modelUtilities} from '../utilities';
 
 class NotificationServiceImplementation extends NotificationService {
 
-    notificationCallback = (notification) => {
-        try {
-            let notificationData = JSON.parse(notification.data);
-            this.logger.info('Received notification ' + (notificationData.topic ? notificationData.topic + ' ' : '') + notificationData.contentType);
-            let valid = this.ajv.validate(this.NotificationSchema, notificationData);
-            if (valid) {
-                this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
-                if (notificationData.topic === 'model') {
-                    let modelType = this._.lowerFirst(this._.camelCase(notificationData.contentType));
+    async initialize(url, topics, validContentTypes) {
+        await super.initialize(url, topics, validContentTypes);
+        if (topics.includes('model')) {
+            this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
+                let modelType = this._.lowerFirst(this._.camelCase(payload.contentType));
+                if (modelType === 'alert') {
                     this.eventAggregator.publish('toast', {
                         title: this.i18n.tr(
-                            'alerts.notifications.model.' + notificationData.operationType,
+                            'alerts.notifications.model.' + payload.operationType,
                             // @ts-ignore
                             {type: modelType}
                         ),
@@ -22,18 +19,17 @@ class NotificationServiceImplementation extends NotificationService {
                         biIcon: modelUtilities.getIconByType(modelType),
                         autohide: true,
                         delay: 3000,
-                        timestamp: new Date(notificationData.dateTimeSent)
+                        timestamp: new Date(payload.dateTimeSent)
                     });
                 }
-                this.logger.silly(notificationData);
-            } else {
-                // @ts-ignore
-                this.logger.error(this.ajv.errors);
-            }
-        } catch (error) {
-            this.logger.error(error.message);
+            }));
         }
-    };
+    }
+
+    async close() {
+        await super.close();
+        this.disposeSubscriptions();
+    }
 
 }
 

@@ -225,23 +225,23 @@ class ContextService extends BasicService {
                             message = distanceResult <= 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
                             dismissible = false;
                         }
-                        this.eventAggregator.publish('haptics-event', {type});
-                        this.eventAggregator.publish('app-alert',
-                            {
-                                id: alert.id,
-                                type: type,
-                                message: this.i18n.tr(message),
-                                link: {
-                                    name: alert.name || alert.description,
-                                    href: '#/alert/search/detail/' + alert.id
-                                },
-                                properties: Object.assign(properties, {
-                                    subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
-                                    severity: this.i18n.tr('enum.alert.severity.' + alert.severity.toLowerCase())
-                                }),
-                                image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
-                                dismissible: dismissible
-                            });
+                        const payload = {
+                            id: alert.id,
+                            type: type,
+                            message: this.i18n.tr(message),
+                            link: {
+                                name: alert.name || alert.description,
+                                href: '#/alert/search/detail/' + alert.id
+                            },
+                            properties: Object.assign(properties, {
+                                subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
+                                severity: this.i18n.tr('enum.alert.severity.' + alert.severity.toLowerCase())
+                            }),
+                            image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
+                            dismissible: dismissible
+                        };
+                        this.eventAggregator.publish('context-aware-alert', payload);
+                        this.eventAggregator.publish('app-alert', payload);
                     } else {
                         this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
                     }

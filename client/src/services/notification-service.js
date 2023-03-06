@@ -4,6 +4,21 @@ import {AureliaCookie} from 'aurelia-cookie';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 
+const NotificationType = {
+    /**
+     * A notification feedback type indicating that a task has completed successfully
+     */
+    Success: 'SUCCESS',
+    /**
+     * A notification feedback type indicating that a task has produced a warning
+     */
+    Warning: 'WARNING',
+    /**
+     * A notification feedback type indicating that a task has failed
+     */
+    Error: 'ERROR'
+};
+
 /**
  * @extends BasicService
  * @category services
@@ -70,26 +85,26 @@ class NotificationService extends BasicService {
         this.notificationListener = new EventSource(url, options);
         this.notificationListener.onopen = () => {
             this.logger.info('Registered to notification service!');
-            this.eventAggregator.publish('haptics-event', {type: 'SUCCESS'});
             this.eventAggregator.publish('toast',
                 {
                     biIcon: 'bell',
                     title: 'alerts.notificationService.name',
                     autohide: true,
                     delay: 3000,
-                    body: 'alerts.notificationService.registered'
+                    body: 'alerts.notificationService.registered',
+                    type: NotificationType.Success
                 }
             );
         };
         this.notificationListener.onerror = () => {
             this.removeNotificationListener();
-            this.eventAggregator.publish('haptics-event', {type: 'ERROR'});
             this.eventAggregator.publish('toast',
                 {
                     biIcon: 'bell-slash',
                     title: 'alerts.notificationService.name',
                     dismissible: true,
-                    body: 'alerts.notificationService.connectionClosed'
+                    body: 'alerts.notificationService.connectionClosed',
+                    type: NotificationType.Error
                 }
             );
         };
@@ -126,9 +141,21 @@ class NotificationService extends BasicService {
     }
 
     notificationCallback = (notification) => {
-        this.logger.warn('Not implemented!');
+        try {
+            let notificationData = JSON.parse(notification.data);
+            this.logger.info('Received notification ' + (notificationData.topic ? notificationData.topic + ' ' : '') + notificationData.contentType);
+            let valid = this.ajv.validate(this.NotificationSchema, notificationData);
+            if (valid) {
+                this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
+            } else {
+                // @ts-ignore
+                this.logger.error(this.ajv.errors);
+            }
+        } catch (error) {
+            this.logger.error(error.message);
+        }
     };
 
 }
 
-export {NotificationService};
+export {NotificationService, NotificationType};
