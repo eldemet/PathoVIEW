@@ -1,0 +1,74 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+actor "FR"
+actor "Developer"
+agent "Browser"
+agent "DevBrowser"
+cloud "OpenWeatherMap"
+cloud "OpenStreetMap"
+agent "Bhaptics Player"
+node "Bhaptics Vest"
+
+package "PathoVIEW" {
+    component "PathoVIEW Server" {
+        database "MongoDB"
+        component "REST API"
+        component "Keycloak Admin Service"
+        component "Keycloak Middleware"
+        component "SwaggerUI"
+    }
+    component "PathoVIEW Client" {
+        component "AuthService"
+        component "ModelService"
+        component "AlertService"
+        component "NotificationService"
+        component "ContextService"
+        component "Leaflet"
+        component "BhapticsService"
+        control "index.html"
+    }
+}
+
+package "Keycloak" {
+    database "PostgreSQL"
+    component "Admin REST API"
+    component "Admin Console"
+    component "Keycloak Account Console"
+    component "OpenID Connect"
+}
+
+package "PathoWARE" {
+    component "Northbound API"
+    component "Southbound API (Data Connector)"
+    database "Database"
+}
+
+package "Patho..." {
+    component "..."
+}
+
+"REST API" --> "Southbound API (Data Connector)"
+"Keycloak Admin Service" --> "Admin REST API"
+"Keycloak Middleware" --> "OpenID Connect"
+"AuthService" --> "OpenID Connect"
+"FR" --> "Browser"
+"Developer" -->"DevBrowser"
+"Browser" --> "index.html"
+"DevBrowser" --> "SwaggerUI"
+"AuthService" --> "Keycloak Account Console"
+"Browser" --> "Keycloak Account Console"
+"DevBrowser" --> "Admin Console"
+"REST API" --> "OpenWeatherMap"
+"Leaflet" --> "OpenStreetMap"
+"ContextService" --> "ModelService"
+"ContextService" --> "AlertService"
+"ModelService" --> "REST API"
+"NotificationService" <-- "REST API" : "SSE"
+"AlertService" --> "Northbound API"
+"AlertService" --> "REST API"
+"ContextService" --> "BhapticsService"
+"BhapticsService" --> "Bhaptics Player" : Websocket
+"Bhaptics Player" --> "Bhaptics Vest" : UDP via Bluetooth
+"..." --> "Northbound API"
+@enduml

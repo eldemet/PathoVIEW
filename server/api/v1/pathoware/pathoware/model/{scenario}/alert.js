@@ -43,7 +43,7 @@ export default function(config, getApiDoc) {
         if (!req?.kauth?.grant?.access_token.token) {
             res.status(401).send({error: 'Unauthorized'});
         } else {
-            let url = `${config.pathoware.northboundApi}/pathoalert/${req.params.scenario}/all`;
+            let url = `${config.pathoware.northboundApi}/pathoalert/${req.params.scenario}/all/`;
             /** @type {RequestInit} */
             let options = {
                 headers: {

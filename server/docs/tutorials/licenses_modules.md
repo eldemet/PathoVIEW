@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 386
+* MIT: 387
 * Apache-2.0: 82
 * ISC: 52
 * BSD-2-Clause: 12
@@ -49,75 +49,75 @@
     - licenses: Apache-2.0
     - description: Helper functions
     - copyright: none
- - **[@aws-sdk/abort-controller@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/abort-controller@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A simple abort controller library
     - copyright: none
- - **[@aws-sdk/client-cognito-identity@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-cognito-identity@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sso-oidc@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sso-oidc@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sso@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sso@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/client-sts@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/client-sts@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native
     - copyright: none
- - **[@aws-sdk/config-resolver@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/config-resolver@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/config-resolver/latest.svg)](https://www.npmjs.com/package/@aws-sdk/config-resolver) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/config-resolver.svg)](https://www.npmjs.com/package/@aws-sdk/config-resolver)
     - copyright: none
- - **[@aws-sdk/credential-provider-cognito-identity@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-cognito-identity@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-cognito-identity/latest.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-cognito-identity.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity)
     - copyright: none
- - **[@aws-sdk/credential-provider-env@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-env@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from known environment variables
     - copyright: none
- - **[@aws-sdk/credential-provider-imds@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-imds@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service
     - copyright: none
- - **[@aws-sdk/credential-provider-ini@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-ini@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config
     - copyright: none
- - **[@aws-sdk/credential-provider-node@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-node@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credentials from a Node.JS environment. 
     - copyright: none
- - **[@aws-sdk/credential-provider-process@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-process@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config
     - copyright: none
- - **[@aws-sdk/credential-provider-sso@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-sso@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials
     - copyright: none
- - **[@aws-sdk/credential-provider-web-identity@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-provider-web-identity@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: AWS credential provider that calls STS assumeRole for temporary AWS credentials
     - copyright: none
- - **[@aws-sdk/credential-providers@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/credential-providers@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A collection of credential providers, without requiring service clients like STS, Cognito
     - copyright: none
- - **[@aws-sdk/fetch-http-handler@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/fetch-http-handler@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Provides a way to make requests
     - copyright: none
- - **[@aws-sdk/hash-node@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/hash-node@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/hash-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/hash-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/hash-node.svg)](https://www.npmjs.com/package/@aws-sdk/hash-node)
     - copyright: none
- - **[@aws-sdk/invalid-dependency@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/invalid-dependency@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/invalid-dependency/latest.svg)](https://www.npmjs.com/package/@aws-sdk/invalid-dependency) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/invalid-dependency.svg)](https://www.npmjs.com/package/@aws-sdk/invalid-dependency)
     - copyright: none
@@ -125,99 +125,99 @@
     - licenses: Apache-2.0
     - description: Provides a function for detecting if an argument is an ArrayBuffer
     - copyright: none
- - **[@aws-sdk/middleware-content-length@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-content-length@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-content-length.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-content-length)
     - copyright: none
- - **[@aws-sdk/middleware-endpoint@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-endpoint@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-endpoint/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-endpoint) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-endpoint.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-endpoint)
     - copyright: none
- - **[@aws-sdk/middleware-host-header@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-host-header@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-host-header/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-host-header) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-host-header.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-host-header)
     - copyright: none
- - **[@aws-sdk/middleware-logger@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-logger@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-logger/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-logger) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-logger.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-logger)
     - copyright: none
- - **[@aws-sdk/middleware-recursion-detection@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-recursion-detection@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-recursion-detection/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-recursion-detection) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-recursion-detection.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-recursion-detection)
     - copyright: none
- - **[@aws-sdk/middleware-retry@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-retry@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-retry/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-retry) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-retry.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-retry)
     - copyright: none
- - **[@aws-sdk/middleware-sdk-sts@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-sdk-sts@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-sdk-sts/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-sdk-sts) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-sdk-sts.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-sdk-sts)
     - copyright: none
- - **[@aws-sdk/middleware-serde@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-serde@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-serde/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-serde) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-serde.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-serde)
     - copyright: none
- - **[@aws-sdk/middleware-signing@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-signing@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-signing/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-signing) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-signing.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-signing)
     - copyright: none
- - **[@aws-sdk/middleware-stack@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-stack@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Provides a means for composing multiple middleware functions into a single handler
     - copyright: none
- - **[@aws-sdk/middleware-user-agent@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/middleware-user-agent@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/middleware-user-agent/latest.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-user-agent) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/middleware-user-agent.svg)](https://www.npmjs.com/package/@aws-sdk/middleware-user-agent)
     - copyright: none
- - **[@aws-sdk/node-config-provider@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/node-config-provider@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Load config default values from ini config files and environmental variable
     - copyright: none
- - **[@aws-sdk/node-http-handler@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/node-http-handler@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Provides a way to make requests
     - copyright: none
- - **[@aws-sdk/property-provider@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/property-provider@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/property-provider/latest.svg)](https://www.npmjs.com/package/@aws-sdk/property-provider) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/property-provider.svg)](https://www.npmjs.com/package/@aws-sdk/property-provider)
     - copyright: none
- - **[@aws-sdk/protocol-http@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/protocol-http@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/protocol-http/latest.svg)](https://www.npmjs.com/package/@aws-sdk/protocol-http) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/protocol-http.svg)](https://www.npmjs.com/package/@aws-sdk/protocol-http)
     - copyright: none
- - **[@aws-sdk/querystring-builder@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/querystring-builder@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/querystring-builder/latest.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-builder) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/querystring-builder.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-builder)
     - copyright: none
- - **[@aws-sdk/querystring-parser@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/querystring-parser@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/querystring-parser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/querystring-parser.svg)](https://www.npmjs.com/package/@aws-sdk/querystring-parser)
     - copyright: none
- - **[@aws-sdk/service-error-classification@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/service-error-classification@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/service-error-classification/latest.svg)](https://www.npmjs.com/package/@aws-sdk/service-error-classification) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/service-error-classification.svg)](https://www.npmjs.com/package/@aws-sdk/service-error-classification)
     - copyright: none
- - **[@aws-sdk/shared-ini-file-loader@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/shared-ini-file-loader@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/shared-ini-file-loader/latest.svg)](https://www.npmjs.com/package/@aws-sdk/shared-ini-file-loader) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/shared-ini-file-loader.svg)](https://www.npmjs.com/package/@aws-sdk/shared-ini-file-loader)
     - copyright: none
- - **[@aws-sdk/signature-v4@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/signature-v4@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A standalone implementation of the AWS Signature V4 request signing algorithm
     - copyright: none
- - **[@aws-sdk/smithy-client@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/smithy-client@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/smithy-client/latest.svg)](https://www.npmjs.com/package/@aws-sdk/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/smithy-client.svg)](https://www.npmjs.com/package/@aws-sdk/smithy-client)
     - copyright: none
- - **[@aws-sdk/token-providers@3.258.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/token-providers@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A collection of token providers
     - copyright: none
- - **[@aws-sdk/types@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/types@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Types for the AWS SDK
     - copyright: none
- - **[@aws-sdk/url-parser@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/url-parser@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/url-parser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/url-parser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/url-parser.svg)](https://www.npmjs.com/package/@aws-sdk/url-parser)
     - copyright: none
@@ -241,15 +241,15 @@
     - licenses: Apache-2.0
     - description: Utilities package for configuration providers
     - copyright: none
- - **[@aws-sdk/util-defaults-mode-browser@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-defaults-mode-browser@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-defaults-mode-browser.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-browser)
     - copyright: none
- - **[@aws-sdk/util-defaults-mode-node@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-defaults-mode-node@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-defaults-mode-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-defaults-mode-node.svg)](https://www.npmjs.com/package/@aws-sdk/util-defaults-mode-node)
     - copyright: none
- - **[@aws-sdk/util-endpoints@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-endpoints@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Utilities to help with endpoint resolution
     - copyright: none
@@ -261,11 +261,11 @@
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-locate-window/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-locate-window) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-locate-window.svg)](https://www.npmjs.com/package/@aws-sdk/util-locate-window)
     - copyright: none
- - **[@aws-sdk/util-middleware@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-middleware@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Shared utilities for to be used in middleware packages.
     - copyright: none
- - **[@aws-sdk/util-retry@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-retry@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: Shared retry utilities to be used in middleware packages.
     - copyright: none
@@ -273,15 +273,15 @@
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-uri-escape/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-uri-escape) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-uri-escape.svg)](https://www.npmjs.com/package/@aws-sdk/util-uri-escape)
     - copyright: none
- - **[@aws-sdk/util-user-agent-browser@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-user-agent-browser@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-user-agent-browser/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-browser) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-user-agent-browser.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-browser)
     - copyright: none
- - **[@aws-sdk/util-user-agent-node@3.257.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-user-agent-node@3.272.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-user-agent-node/latest.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-node) [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-user-agent-node.svg)](https://www.npmjs.com/package/@aws-sdk/util-user-agent-node)
     - copyright: none
- - **[@aws-sdk/util-utf8-browser@3.188.0](https://github.com/aws/aws-sdk-js-v3)**
+ - **[@aws-sdk/util-utf8-browser@3.259.0](https://github.com/aws/aws-sdk-js-v3)**
     - licenses: Apache-2.0
     - description: A browser UTF-8 string <-> UInt8Array converter
     - copyright: none
@@ -317,7 +317,7 @@
     - licenses: MIT
     - description: Throw better errors.
     - copyright: Copyright (c) 2015 James Messinger
- - **[@keycloak/keycloak-admin-client@20.0.3](https://github.com/keycloak/keycloak-nodejs-admin-client)**
+ - **[@keycloak/keycloak-admin-client@20.0.5](https://github.com/keycloak/keycloak-nodejs-admin-client)**
     - licenses: Apache-2.0
     - description: keycloak admin client
     - copyright: none
@@ -341,9 +341,13 @@
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
     - copyright: none
- - **[@types/node@18.11.18](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@18.14.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
+    - copyright: none
+ - **[@types/triple-beam@1.3.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - licenses: MIT
+    - description: TypeScript definitions for triple-beam
     - copyright: none
  - **[@types/webidl-conversions@7.0.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
@@ -457,7 +461,7 @@
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: Copyright (c) 2014-present Matt Zabriskie
- - **[axios@1.2.3](https://github.com/axios/axios)**
+ - **[axios@1.3.3](https://github.com/axios/axios)**
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: none
@@ -545,7 +549,7 @@
     - licenses: MIT
     - description: Get callsites from the V8 stack trace API
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[camelize-ts@2.2.0](https://github.com/kbrabrand/camelize-ts)**
+ - **[camelize-ts@2.3.0](https://github.com/kbrabrand/camelize-ts)**
     - licenses: MIT
     - description: Recursive camel casing of object property names with proper typing
     - copyright: none
@@ -561,7 +565,7 @@
     - licenses: MIT
     - description: Terminal string styling done right
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[chromedriver@109.0.0](https://github.com/giggio/node-chromedriver)**
+ - **[chromedriver@110.0.0](https://github.com/giggio/node-chromedriver)**
     - licenses: Apache-2.0
     - description: ChromeDriver for Selenium
     - copyright: none
@@ -633,7 +637,7 @@
     - licenses: MIT
     - description: Create and parse Content-Disposition header
     - copyright: Copyright (c) 2014-2017 Douglas Christopher Wilson
- - **[content-type@1.0.4](https://github.com/jshttp/content-type)**
+ - **[content-type@1.0.5](https://github.com/jshttp/content-type)**
     - licenses: MIT
     - description: Create and parse HTTP Content-Type header
     - copyright: Copyright (c) 2015 Douglas Christopher Wilson
@@ -825,7 +829,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.33.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.34.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -837,7 +841,7 @@
     - licenses: BSD-2-Clause
     - description: ECMAScript parsing infrastructure for multipurpose analysis
     - copyright: Copyright JS Foundation and other contributors, https://js.foundation/
- - **[esquery@1.4.0](https://github.com/estools/esquery)**
+ - **[esquery@1.4.2](https://github.com/estools/esquery)**
     - licenses: BSD-3-Clause
     - description: A query library for ECMAScript AST using a CSS selector like query language.
     - copyright: Copyright (c) 2013, Joel Feenstra. All rights reserved.
@@ -1009,7 +1013,7 @@
     - licenses: ISC
     - description: A terminal based horizontal guage
     - copyright: Copyright (c) 2014, Rebecca Turner <me@re-becca.org>
- - **[get-intrinsic@1.1.3](https://github.com/ljharb/get-intrinsic)**
+ - **[get-intrinsic@1.2.0](https://github.com/ljharb/get-intrinsic)**
     - licenses: MIT
     - description: Get and robustly cache all JS language-level intrinsics at first require time
     - copyright: Copyright (c) 2020 Jordan Harband
@@ -1317,7 +1321,7 @@
     - licenses: MIT
     - description: Lodash modular utilities.
     - copyright: Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
- - **[logform@2.4.2](https://github.com/winstonjs/logform)**
+ - **[logform@2.5.1](https://github.com/winstonjs/logform)**
     - licenses: MIT
     - description: An mutable object-based log format designed for chaining & objectMode streams.
     - copyright: Copyright (c) 2017 Charlie Robbins & the Contributors.
@@ -1385,7 +1389,7 @@
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[minimist@1.2.7](https://github.com/minimistjs/minimist)**
+ - **[minimist@1.2.8](https://github.com/minimistjs/minimist)**
     - licenses: MIT
     - description: parse argument options
     - copyright: none
@@ -1405,7 +1409,7 @@
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose@6.9.0](https://github.com/Automattic/mongoose)**
+ - **[mongoose@6.9.2](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -1685,7 +1689,7 @@
     - licenses: MIT
     - description: pipe streams together and close all of them if one of them closes
     - copyright: Copyright (c) 2014 Mathias Buus
- - **[punycode@2.2.0](https://github.com/bestiejs/punycode.js)**
+ - **[punycode@2.3.0](https://github.com/mathiasbynens/punycode.js)**
     - licenses: MIT
     - description: A robust Punycode converter that fully complies to RFC 3492 and RFC 5891, and works on nearly all JavaScript platforms.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
@@ -2089,7 +2093,7 @@
     - licenses: 0BSD
     - description: Runtime library for TypeScript helper functions
     - copyright: Copyright (c) Microsoft Corporation.
- - **[tslib@2.4.1](https://github.com/Microsoft/tslib)**
+ - **[tslib@2.5.0](https://github.com/Microsoft/tslib)**
     - licenses: 0BSD
     - description: Runtime library for TypeScript helper functions
     - copyright: Copyright (c) Microsoft Corporation.
