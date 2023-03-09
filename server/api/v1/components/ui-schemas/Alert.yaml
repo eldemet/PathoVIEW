@@ -5,6 +5,7 @@ required:
   - type
   - name
   - alertSource
+  - severity
   - category
   - subCategory
   - dateIssued
@@ -42,19 +43,6 @@ properties:
   description:
     type: string
     ui:formItemType: textarea
-  severity:
-    type: string
-    enum:
-      - informational
-      - low
-      - medium
-      - high
-      - critical
-    ui:formItemType: select
-    ui:formItemGridClass: 'col-12 col-xl-4'
-    ui:contentCustomCompose: 'resources/elements/custom-content-items/custom-content-item-severity'
-    ui:i18n: true
-    ui:i18nPathPrefix: enum.alert.severity
   category:
     type: string
     enum:
@@ -64,7 +52,7 @@ properties:
       - security
       - agriculture
     ui:formItemType: select
-    ui:formItemGridClass: 'col-md-6 col-xl-4'
+    ui:formItemGridClass: 'col-md-6'
     ui:i18n: true
     ui:i18nPathPrefix: enum.alert.category
   subCategory:
@@ -111,9 +99,23 @@ properties:
           - irrigation
           - fertilisation
     ui:formItemType: select
-    ui:formItemGridClass: 'col-md-6 col-xl-4'
+    ui:formItemGridClass: 'col-md-6'
     ui:i18n: true
     ui:i18nPathPrefix: enum.alert.subCategory
+  severity:
+    type: string
+    enum:
+      - informational
+      - low
+      - medium
+      - high
+      - critical
+    ui:formItemType: select
+    ui:formItemGridClass: 'col-md-auto'
+    ui:contentCustomCompose: 'resources/elements/custom-content-items/custom-content-item-severity'
+    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-severity'
+    ui:i18n: true
+    ui:i18nPathPrefix: enum.alert.severity
   owner:
     $ref: './../$defs.yaml#/owner'
   seeAlso:
@@ -125,12 +127,10 @@ properties:
   alertSource:
     $ref: './../$defs.yaml#/NGSIentityFormat'
     ui:formItemType: select
-    db:ref: EmergencyEvent
-    ui:hide:
-      table: true
-  dataProvider:
-    type: string
-    description: 'A sequence of characters identifying the provider of the harmonised data entity.'
+    ui:dependence:
+      source: cookie
+      property: emergency-event
+    readOnly: true
     ui:hide:
       table: true
   data:

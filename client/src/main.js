@@ -25,6 +25,7 @@ export async function configure(aurelia) {
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-map'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-image'),
+        PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-severity'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-map'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-owner')
     ];
