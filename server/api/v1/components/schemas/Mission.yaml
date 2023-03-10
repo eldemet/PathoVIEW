@@ -54,12 +54,16 @@ properties:
     type: string
     ui:formItemType: select
     db:ref: Auth
-  refId:
-    type: string
-    ui:formItemType: select
-    db:ref: EmergencyEvent
     ui:hide:
       table: true
+  refId:
+    type: string
+    ui:dependence:
+      source: cookie
+      property: emergency-event
+    ui:hide:
+      table: true
+      form: true
   location:
     $ref: './../$defs.yaml#/Location'
   createdAt:

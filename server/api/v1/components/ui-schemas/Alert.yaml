@@ -126,13 +126,12 @@ properties:
     const: PathoVIEW
   alertSource:
     $ref: './../$defs.yaml#/NGSIentityFormat'
-    ui:formItemType: select
     ui:dependence:
       source: cookie
       property: emergency-event
-    readOnly: true
     ui:hide:
       table: true
+      form: true
   data:
     type: object
     description: 'Payload containing the data retrieved.'
