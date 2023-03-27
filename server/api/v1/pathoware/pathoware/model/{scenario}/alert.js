@@ -169,7 +169,7 @@ export default function(config, getApiDoc) {
         if (!req?.kauth?.grant?.access_token.token) {
             res.status(401).send({error: 'Unauthorized'});
         } else {
-            let url = `${config.pathoware.northboundApi}/pathoalerta/delete-alert/${req.params.scenario}/by-id/${encodeURIComponent(req.body.id)}/`;
+            let url = `${config.pathoware.dataConnectorApi}/pathoalerta/delete-alert/${req.params.scenario}/by-id/${encodeURIComponent(req.body.id)}/`;
             /** @type {RequestInit} */
             let options = {
                 headers: {

@@ -1,49 +1,49 @@
 version: '3.1'
 volumes:
-  mysql_data:
-    driver: local
-  app_data:
+#  mysql_data:
+#    driver: local
+  app_data2:
     driver: local
 services:
-  mysql:
-    image: mysql:5.7
-    volumes:
-      - mysql_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: keycloak
-      MYSQL_USER: keycloak
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    restart: always
-  keycloak:
-    image: quay.io/keycloak/keycloak:legacy
-    secrets:
-      - keycloakadminpassword
-    environment:
-      DB_VENDOR: MYSQL
-      DB_ADDR: mysql
-      DB_DATABASE: keycloak
-      DB_USER: keycloak
-      DB_PASSWORD: ${MYSQL_PASSWORD}
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
-    ports:
-      - '9991:8080'
-      - '9990:8443'
-    volumes:
-      - type: bind
-        source: ./../certificates/server.crt
-        target: /etc/x509/https/tls.crt
-      - type: bind
-        source: ./../certificates/server.key
-        target: /etc/x509/https/tls.key
-    restart: always
-    depends_on:
-      - mysql
+  #mysql:
+  #  image: mysql:5.7
+  #  volumes:
+  #    - mysql_data:/var/lib/mysql
+  #  environment:
+  #    MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  #    MYSQL_DATABASE: keycloak
+  #    MYSQL_USER: keycloak
+  #    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  #  restart: always
+  #keycloak:
+  #  image: quay.io/keycloak/keycloak:legacy
+  #  secrets:
+  #    - keycloakadminpasswordeng
+  #  environment:
+  #    DB_VENDOR: MYSQL
+  #    DB_ADDR: mysql
+  #    DB_DATABASE: keycloak
+  #    DB_USER: keycloak
+  #    DB_PASSWORD: ${MYSQL_PASSWORD}
+      #KEYCLOAK_USER: admin
+      #KEYCLOAK_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
+  #  ports:
+  #    - '9991:8080'
+  #    - '9990:8443'
+  #  volumes:
+  #    - type: bind
+  #      source: ./../certificates/server.crt
+  #      target: /etc/x509/https/tls.crt
+  #    - type: bind
+  #      source: ./../certificates/server.key
+  #      target: /etc/x509/https/tls.key
+  #  restart: always
+  #  depends_on:
+  #    - mysql
   app:
     image: app
     volumes:
-      - app_data:/usr/app/data
+      - app_data2:/usr/app/data
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -53,7 +53,7 @@ services:
       - sslcert
       - sslkey
       - owmapikey
-      - keycloakadminpassword
+      - keycloakadminpasswordeng
       - basicAdminPasswordSchemePassword
     environment:
       CAPABILITIES_ACCESS_CONTROL_CHECKER_MIDDLEWARE: 'true'
@@ -71,11 +71,15 @@ services:
       SERVER_LOG_FORMAT_HTTP_REQUESTS: short
       SERVER_OPEN_WEATHER_MAP_API_KEY_FILE: '/run/secrets/owmapikey'
       KEYCLOAK_CONFIG_AUTH_SERVER_URL: ${KEYCLOAK_CONFIG_AUTH_SERVER_URL}
-      KEYCLOAK_CONFIG_ADMIN_CLIENT_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
+      KEYCLOAK_CONFIG_ADMIN_CLIENT_USER: 'pathoview_admin'
+      KEYCLOAK_CONFIG_ADMIN_CLIENT_PASSWORD_FILE: '/run/secrets/keycloakadminpasswordeng'
+      KEYCLOAK_SCHEME_FLOW: ${KEYCLOAK_SCHEME_FLOW}
       SECURITY_ADMIN_PASSWORD_FILE: '/run/secrets/basicAdminPasswordSchemePassword'
+      PATHOWARE_NORTHBOUND_API: 'https://northboundapi-pathocert.opsi.lecce.it/northbound/api/v1'
+      PATHOWARE_DATA_CONNECTOR_API: 'https://dataconnector-pathocert.opsi.lecce.it/dataconnector/api/v1'
     restart: always
-    depends_on:
-      - keycloak
+#    depends_on:
+#      - keycloak
 secrets:
   sslcert:
     file: ./../certificates/server.crt
@@ -83,7 +87,7 @@ secrets:
     file: ./../certificates/server.key
   owmapikey:
     file: ./../credentials/owmapikey.txt
-  keycloakadminpassword:
-    file: ./../credentials/keycloakadminpassword.txt
+  keycloakadminpasswordeng:
+    file: ./../credentials/keycloakadminpassword-eng.txt
   basicAdminPasswordSchemePassword:
     file: ./../credentials/basicadminpasswordscheme.txt
