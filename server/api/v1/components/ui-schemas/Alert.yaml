@@ -14,7 +14,8 @@ model:searchProperties:
   - name
   - alternateName
   - description
-model:defaultProperty: name
+  - source
+model:defaultProperty: dateIssued
 properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
@@ -43,6 +44,8 @@ properties:
   description:
     type: string
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   category:
     type: string
     enum:
@@ -55,6 +58,8 @@ properties:
     ui:formItemGridClass: 'col-md-6'
     ui:i18n: true
     ui:i18nPathPrefix: enum.alert.category
+    ui:hide:
+      table: true
   subCategory:
     type: string
     'ui:formItemEnumRules':
@@ -145,8 +150,6 @@ properties:
     type: string
     description: 'The date and time the item was issued in ISO8601 UTC format.'
     format: date-time
-    ui:hide:
-      table: true
   dateCreated:
     type: string
     description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'
@@ -175,6 +178,8 @@ properties:
     description: 'The end of the validity period for this forecast as a ISO8601 format'
     format: date-time
     ui:formItemGridClass: 'col-md-6'
+    ui:hide:
+      table: true
   address:
     $ref: './../$defs.yaml#/Address'
   areaServed:
