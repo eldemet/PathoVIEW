@@ -11,8 +11,12 @@ export default function(notificationService, getApiDoc) {
     operations.POST.apiDoc = getApiDoc(publishNotification);
 
     async function POST(req, res) {
-        let notification = {content: req.body.data, senderId: req.body.subscriptionId, topic: 'model', contentType: 'alert', operationType: 'create'};
-        res.send(notificationService.publishNotification(notification));
+        let result;
+        let senderId = req.body.subscriptionId;
+        for (let alert of req.body.data) {
+            result = notificationService.publishNotification({content: alert, senderId: senderId, topic: 'model', contentType: 'alert', operationType: 'create'});
+        }
+        res.send(result);
     }
 
     return operations;
@@ -22,7 +26,18 @@ export default function(notificationService, getApiDoc) {
 const publishNotification = {
     summary: 'publish a notification',
     operationId: 'publishAlertNotification',
-    parameters: [],
+    parameters: [
+        {
+            in: 'path',
+            name: 'scenario',
+            description: 'PathoCERT scenario',
+            schema: {
+                type: 'string',
+                enum: ['limassol', 'seoul', 'granada', 'thessaloniki', 'sofia', 'amsterdam']
+            },
+            required: true
+        }
+    ],
     requestBody: {
         required: true,
         content: {
@@ -34,7 +49,11 @@ const publishNotification = {
                             type: 'string'
                         },
                         data: {
-                            type: 'object'
+                            type: 'array',
+                            items: {
+                                type: 'object'
+                                // $ref: '#/components/schemas/Alert'
+                            }
                         }
                     }
                 }
