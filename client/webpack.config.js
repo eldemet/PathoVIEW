@@ -48,7 +48,7 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
     const outDir = path.resolve(__dirname, project.platform.output);
     const srcDir = path.resolve(__dirname, 'src');
     const appTarget = android ? 'android' : 'web';
-    const isProduction = production || android;
+    const isProduction = !!production;
     let environment = 'development';
     if (android) {
         environment = 'android';

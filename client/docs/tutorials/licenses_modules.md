@@ -2,11 +2,11 @@
 
 ## Summary
 
-* MIT: 825
-* ISC: 79
+* MIT: 839
+* ISC: 80
 * BSD-2-Clause: 29
 * Apache-2.0: 27
-* BSD-3-Clause: 19
+* BSD-3-Clause: 20
 * Unlicense: 4
 * BSD-3-Clause-Clear: 3
 * CC0-1.0: 2
@@ -22,27 +22,27 @@
 
 ## Details
 
- - **[@ampproject/remapping@2.2.0](https://github.com/ampproject/remapping)**
+ - **[@ampproject/remapping@2.2.1](https://github.com/ampproject/remapping)**
     - licenses: Apache-2.0
     - description: Remap sequential sourcemaps through transformations to point at the original source code
     - copyright: none
- - **[@babel/code-frame@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/code-frame@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Generate errors that contain a code frame that point to source locations.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/compat-data@7.20.14](https://github.com/babel/babel)**
+ - **[@babel/compat-data@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: >
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/core@7.20.12](https://github.com/babel/babel)**
+ - **[@babel/core@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel compiler core.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/eslint-parser@7.19.1](https://github.com/babel/babel)**
+ - **[@babel/eslint-parser@7.21.3](https://github.com/babel/babel)**
     - licenses: MIT
     - description: ESLint parser that allows for linting of experimental syntax transformed by Babel
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/generator@7.20.14](https://github.com/babel/babel)**
+ - **[@babel/generator@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Turns an AST into code.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -54,15 +54,15 @@
     - licenses: MIT
     - description: Helper function to build binary assignment operator visitors
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-compilation-targets@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/helper-compilation-targets@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Helper functions on Babel compilation targets
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-create-class-features-plugin@7.20.12](https://github.com/babel/babel)**
+ - **[@babel/helper-create-class-features-plugin@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile class public and private fields, private methods and decorators to ES6
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-create-regexp-features-plugin@7.20.5](https://github.com/babel/babel)**
+ - **[@babel/helper-create-regexp-features-plugin@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ESNext Regular Expressions to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -78,7 +78,7 @@
     - licenses: MIT
     - description: Helper function to explode an assignable expression
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-function-name@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-function-name@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Helper function to change the property 'name' of every function
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -86,15 +86,15 @@
     - licenses: MIT
     - description: Helper function to hoist variables
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-member-expression-to-functions@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/helper-member-expression-to-functions@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Helper function to replace certain member expressions with function calls
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-module-imports@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-module-imports@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel helper functions for inserting module loads
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-module-transforms@7.20.11](https://github.com/babel/babel)**
+ - **[@babel/helper-module-transforms@7.21.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel helper functions for implementing ES6 module transformations
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -134,7 +134,7 @@
     - licenses: MIT
     - description: Validate identifier/keywords name
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helper-validator-option@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-validator-option@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Validate plugin/preset options
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -142,7 +142,7 @@
     - licenses: MIT
     - description: Helper to wrap functions inside a function call.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helpers@7.20.13](https://github.com/babel/babel)**
+ - **[@babel/helpers@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Collection of helper functions used by Babel transforms.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -150,7 +150,7 @@
     - licenses: MIT
     - description: Syntax highlight JavaScript strings for output in terminals.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/parser@7.20.15](https://github.com/babel/babel)**
+ - **[@babel/parser@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: A JavaScript parser
     - copyright: Copyright (C) 2012-2014 by various contributors (see AUTHORS)
@@ -170,11 +170,11 @@
     - licenses: MIT
     - description: This plugin transforms static class properties as well as properties declared with the property initializer syntax
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-class-static-block@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-class-static-block@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Transform class static blocks
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-decorators@7.20.13](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-decorators@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile class and object decorators to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -210,7 +210,7 @@
     - licenses: MIT
     - description: Compile optional catch bindings
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-optional-chaining@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-optional-chaining@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Transform optional chaining operators into a series of nil checks
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -218,7 +218,7 @@
     - licenses: MIT
     - description: This plugin transforms private class methods
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-proposal-private-property-in-object@7.20.5](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-private-property-in-object@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: This plugin transforms checks for a private property in an object
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -238,7 +238,7 @@
     - licenses: MIT
     - description: Allow parsing of class static blocks
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-syntax-decorators@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-syntax-decorators@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Allow parsing of decorators
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -302,11 +302,11 @@
     - licenses: MIT
     - description: Babel plugin to ensure function declarations at the block level are block scoped
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-block-scoping@7.20.15](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-block-scoping@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 block scoping (const and let) to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-classes@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-classes@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 classes to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -314,7 +314,7 @@
     - licenses: MIT
     - description: Compile ES2015 computed properties to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-destructuring@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-destructuring@7.21.3](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 destructuring to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -330,7 +330,7 @@
     - licenses: MIT
     - description: Compile exponentiation operator to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-for-of@7.18.8](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-for-of@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 for...of to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -350,7 +350,7 @@
     - licenses: MIT
     - description: This plugin transforms ES2015 modules to AMD
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-modules-commonjs@7.20.11](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-modules-commonjs@7.21.2](https://github.com/babel/babel)**
     - licenses: MIT
     - description: This plugin transforms ES2015 modules to CommonJS
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -374,7 +374,7 @@
     - licenses: MIT
     - description: Compile ES2015 object super to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/plugin-transform-parameters@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-parameters@7.21.3](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Compile ES2015 default and rest parameters to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -418,7 +418,7 @@
     - licenses: MIT
     - description: Compile ES2015 Unicode regex to ES5
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/preset-env@7.20.2](https://github.com/babel/babel)**
+ - **[@babel/preset-env@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: A Babel preset for each environment.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -426,7 +426,7 @@
     - licenses: MIT
     - description: A Babel preset that targets modern browsers by fixing engine bugs.
     - copyright: Copyright (c) 2020 Babel
- - **[@babel/register@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/register@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: babel require hook
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -434,7 +434,7 @@
     - licenses: MIT
     - description: Generate regular expressions from regjsparser’s AST.
     - copyright: Copyright 2014-2020 Benjamin Tan <https://ofcr.se/>
- - **[@babel/runtime@7.20.13](https://github.com/babel/babel)**
+ - **[@babel/runtime@7.21.0](https://github.com/babel/babel)**
     - licenses: MIT
     - description: babel's modular runtime helpers
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -442,23 +442,23 @@
     - licenses: MIT
     - description: Generate an AST from a string template.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/traverse@7.20.13](https://github.com/babel/babel)**
+ - **[@babel/traverse@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: The Babel Traverse module maintains the overall tree state, and is responsible for replacing, removing, and adding nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/types@7.20.7](https://github.com/babel/babel)**
+ - **[@babel/types@7.21.4](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Babel Types is a Lodash-esque utility library for AST nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@capacitor/android@4.6.3](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/android@4.7.3](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/cli@4.6.3](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/cli@4.7.3](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/core@4.6.3](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/core@4.7.3](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
@@ -470,15 +470,31 @@
     - licenses: MIT
     - description: The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
     - copyright: Copyright 2020-present Ionic. https://ionic.io
+ - **[@cspotcode/source-map-support@0.8.1](https://github.com/cspotcode/node-source-map-support)**
+    - licenses: MIT
+    - description: Fixes stack traces for files with source maps
+    - copyright: Copyright (c) 2014 Evan Wallace
  - **[@discoveryjs/json-ext@0.5.7](https://github.com/discoveryjs/json-ext)**
     - licenses: MIT
     - description: A set of utilities that extend the use of JSON
     - copyright: Copyright (c) 2020 Roman Dvornov <rdvornov@gmail.com>
- - **[@eslint/eslintrc@1.4.1](https://github.com/eslint/eslintrc)**
+ - **[@eslint-community/eslint-utils@4.4.0](https://github.com/eslint-community/eslint-utils)**
+    - licenses: MIT
+    - description: Utilities for ESLint plugins.
+    - copyright: Copyright (c) 2018 Toru Nagashima
+ - **[@eslint-community/regexpp@4.5.0](https://github.com/eslint-community/regexpp)**
+    - licenses: MIT
+    - description: Regular expression parser for ECMAScript.
+    - copyright: Copyright (c) 2018 Toru Nagashima
+ - **[@eslint/eslintrc@2.0.2](https://github.com/eslint/eslintrc)**
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@geoman-io/leaflet-geoman-free@2.14.1](https://github.com/geoman-io/leaflet-geoman)**
+ - **[@eslint/js@8.38.0](https://github.com/eslint/eslint)**
+    - licenses: MIT
+    - description: ESLint JavaScript language implementation
+    - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
+ - **[@geoman-io/leaflet-geoman-free@2.14.2](https://github.com/geoman-io/leaflet-geoman)**
     - licenses: MIT
     - description: A Leaflet Plugin For Editing Geometry Layers in Leaflet 1.0
     - copyright: Copyright (c) 2017 Sumit Kumar
@@ -494,35 +510,35 @@
     - licenses: BSD-3-Clause
     - description: An object schema merger/validator
     - copyright: Copyright (c) 2019, Human Who Codes. All rights reserved.
- - **[@ionic/cli-framework-output@2.2.5](undefined)**
+ - **[@ionic/cli-framework-output@2.2.6](undefined)**
     - licenses: MIT
     - description: The log/tasks/spinners portion of Ionic CLI Framework
     - copyright: Copyright (c) 2019 Drifty Co
- - **[@ionic/utils-array@2.1.5](https://github.com/ionic-team/ionic-cli)**
+ - **[@ionic/utils-array@2.1.6](https://github.com/ionic-team/ionic-cli)**
     - licenses: MIT
     - description: Array utils
     - copyright: Copyright (c) 2017 Drifty Co
- - **[@ionic/utils-fs@3.1.6](https://github.com/ionic-team/ionic-cli)**
+ - **[@ionic/utils-fs@3.1.7](https://github.com/ionic-team/ionic-cli)**
     - licenses: MIT
     - description: Filesystem utils for Node
     - copyright: Copyright (c) 2017 Drifty Co
- - **[@ionic/utils-object@2.1.5](https://github.com/ionic-team/ionic-cli)**
+ - **[@ionic/utils-object@2.1.6](https://github.com/ionic-team/ionic-cli)**
     - licenses: MIT
     - description: Object utils
     - copyright: Copyright (c) 2017 Drifty Co
- - **[@ionic/utils-process@2.1.10](https://github.com/ionic-team/ionic-cli)**
+ - **[@ionic/utils-process@2.1.11](https://github.com/ionic-team/ionic-cli)**
     - licenses: MIT
     - description: Process utils for NodeJS
     - copyright: Copyright (c) 2017 Drifty Co
- - **[@ionic/utils-stream@3.1.5](https://github.com/ionic-team/ionic-cli)**
+ - **[@ionic/utils-stream@3.1.6](https://github.com/ionic-team/ionic-cli)**
     - licenses: MIT
     - description: Stream utils for NodeJS
     - copyright: Copyright (c) 2017 Drifty Co
- - **[@ionic/utils-subprocess@2.1.11](https://github.com/ionic-team/ionic-cli)**
+ - **[@ionic/utils-subprocess@2.1.12](https://github.com/ionic-team/ionic-cli)**
     - licenses: MIT
     - description: Subprocess utils for NodeJS
     - copyright: Copyright (c) 2017 Drifty Co
- - **[@ionic/utils-terminal@2.3.3](https://github.com/ionic-team/ionic-cli)**
+ - **[@ionic/utils-terminal@2.3.4](https://github.com/ionic-team/ionic-cli)**
     - licenses: MIT
     - description: Terminal utils for NodeJS
     - copyright: Copyright (c) 2017 Drifty Co
@@ -534,11 +550,7 @@
     - licenses: MIT
     - description: Schemas describing various structures used by nyc and istanbuljs
     - copyright: Copyright (c) 2019 CFWare, LLC
- - **[@jridgewell/gen-mapping@0.1.1](https://github.com/jridgewell/gen-mapping)**
-    - licenses: MIT
-    - description: Generate source maps
-    - copyright: Copyright 2022 Justin Ridgewell <jridgewell@google.com>
- - **[@jridgewell/gen-mapping@0.3.2](https://github.com/jridgewell/gen-mapping)**
+ - **[@jridgewell/gen-mapping@0.3.3](https://github.com/jridgewell/gen-mapping)**
     - licenses: MIT
     - description: Generate source maps
     - copyright: Copyright 2022 Justin Ridgewell <jridgewell@google.com>
@@ -550,7 +562,7 @@
     - licenses: MIT
     - description: Like a Set, but provides the index of the `key` in the backing array
     - copyright: Copyright 2022 Justin Ridgewell <jridgewell@google.com>
- - **[@jridgewell/source-map@0.3.2](https://github.com/jridgewell/source-map)**
+ - **[@jridgewell/source-map@0.3.3](https://github.com/jridgewell/source-map)**
     - licenses: MIT
     - description: Packages @jridgewell/trace-mapping and @jridgewell/gen-mapping into the familiar source-map API
     - copyright: Copyright 2019 Justin Ridgewell <jridgewell@google.com>
@@ -558,7 +570,15 @@
     - licenses: MIT
     - description: Encode/decode sourcemap mappings
     - copyright: Copyright (c) 2015 Rich Harris
- - **[@jridgewell/trace-mapping@0.3.17](https://github.com/jridgewell/trace-mapping)**
+ - **[@jridgewell/sourcemap-codec@1.4.15](https://github.com/jridgewell/sourcemap-codec)**
+    - licenses: MIT
+    - description: Encode/decode sourcemap mappings
+    - copyright: Copyright (c) 2015 Rich Harris
+ - **[@jridgewell/trace-mapping@0.3.18](https://github.com/jridgewell/trace-mapping)**
+    - licenses: MIT
+    - description: Trace the original position through a source map
+    - copyright: Copyright 2022 Justin Ridgewell <justin@ridgewell.name>
+ - **[@jridgewell/trace-mapping@0.3.9](https://github.com/jridgewell/trace-mapping)**
     - licenses: MIT
     - description: Trace the original position through a source map
     - copyright: Copyright 2022 Justin Ridgewell <justin@ridgewell.name>
@@ -590,7 +610,7 @@
     - licenses: MIT
     - description: Super fast, memoized `req.url` parser
     - copyright: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (https://lukeed.com)
- - **[@popperjs/core@2.11.6](https://github.com/popperjs/popper-core)**
+ - **[@popperjs/core@2.11.7](https://github.com/popperjs/popper-core)**
     - licenses: MIT
     - description: Tooltip and Popover Positioning Engine
     - copyright: Copyright (c) 2019 Federico Zivolo
@@ -602,6 +622,22 @@
     - licenses: ISC
     - description: An evented streaming XML parser in JavaScript
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
+ - **[@tsconfig/node10@1.0.9](https://github.com/tsconfig/bases)**
+    - licenses: MIT
+    - description: A base TSConfig for working with Node 10.
+    - copyright: Copyright (c) Microsoft Corporation.
+ - **[@tsconfig/node12@1.0.11](https://github.com/tsconfig/bases)**
+    - licenses: MIT
+    - description: A base TSConfig for working with Node 12.
+    - copyright: Copyright (c) Microsoft Corporation.
+ - **[@tsconfig/node14@1.0.3](https://github.com/tsconfig/bases)**
+    - licenses: MIT
+    - description: A base TSConfig for working with Node 14.
+    - copyright: Copyright (c) Microsoft Corporation.
+ - **[@tsconfig/node16@1.0.3](https://github.com/tsconfig/bases)**
+    - licenses: MIT
+    - description: A base TSConfig for working with Node 16.
+    - copyright: Copyright (c) Microsoft Corporation.
  - **[@turf/bbox@6.5.0](https://github.com/Turfjs/turf)**
     - licenses: MIT
     - description: turf bbox module
@@ -722,7 +758,7 @@
     - licenses: MIT
     - description: TypeScript definitions for eslint-scope
     - copyright: none
- - **[@types/eslint@8.21.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/eslint@8.37.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for eslint
     - copyright: none
@@ -758,7 +794,7 @@
     - licenses: MIT
     - description: TypeScript definitions for html-minifier-terser
     - copyright: none
- - **[@types/http-proxy@1.17.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/http-proxy@1.17.10](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for node-http-proxy
     - copyright: none
@@ -766,11 +802,11 @@
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
     - copyright: none
- - **[@types/leaflet@1.9.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/leaflet@1.9.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Leaflet.js
     - copyright: none
- - **[@types/lodash@4.14.191](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/lodash@4.14.192](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Lo-Dash
     - copyright: none
@@ -782,13 +818,9 @@
     - licenses: MIT
     - description: TypeScript definitions for minimatch
     - copyright: none
- - **[@types/node@18.13.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@18.15.11](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
-    - copyright: none
- - **[@types/parse-json@4.0.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - licenses: MIT
-    - description: TypeScript definitions for parse-json
     - copyright: none
  - **[@types/qs@6.9.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
@@ -806,7 +838,7 @@
     - licenses: MIT
     - description: TypeScript definitions for serve-index
     - copyright: none
- - **[@types/serve-static@1.15.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/serve-static@1.15.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for serve-static
     - copyright: none
@@ -1010,6 +1042,10 @@
     - licenses: ISC
     - description: Keep track of the overall completion of many disparate processes
     - copyright: Copyright npm, Inc.
+ - **[arg@4.1.3](https://github.com/zeit/arg)**
+    - licenses: MIT
+    - description: Another simple argument parser
+    - copyright: Copyright (c) 2017-2019 Zeit, Inc.
  - **[argparse@1.0.10](https://github.com/nodeca/argparse)**
     - licenses: MIT
     - description: Very powerful CLI arguments parser. Native port of argparse - python's options parsing library
@@ -1114,7 +1150,7 @@
     - licenses: MIT
     - description: Tools designed to enable HMR for Aurelia's loaders.
     - copyright: Copyright (c) 2016 aurelia
- - **[aurelia-i18n@4.0.3](https://github.com/aurelia/i18n)**
+ - **[aurelia-i18n@4.0.4](https://github.com/aurelia/i18n)**
     - licenses: MIT
     - description: A plugin that provides i18n support.
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
@@ -1142,7 +1178,7 @@
     - licenses: MIT
     - description: A minimal but effective logging mechanism with support for log levels and pluggable log appenders.
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
- - **[aurelia-metadata@1.0.7](https://github.com/aurelia/metadata)**
+ - **[aurelia-metadata@1.0.8](https://github.com/aurelia/metadata)**
     - licenses: MIT
     - description: Utilities for reading and writing the metadata of JavaScript functions.
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
@@ -1206,7 +1242,7 @@
     - licenses: MIT
     - description: A plugin for webpack that enables bundling Aurelia applications.
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
- - **[autoprefixer@10.4.13](https://github.com/postcss/autoprefixer)**
+ - **[autoprefixer@10.4.14](https://github.com/postcss/autoprefixer)**
     - licenses: MIT
     - description: Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website
     - copyright: Copyright 2013 Andrey Sitnik <andrey@sitnik.ru>
@@ -1270,7 +1306,7 @@
     - licenses: MIT
     - description: Node.js body parsing middleware
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
- - **[bonjour-service@1.1.0](https://github.com/onlxltd/bonjour-service)**
+ - **[bonjour-service@1.1.1](https://github.com/onlxltd/bonjour-service)**
     - licenses: MIT
     - description: A Bonjour/Zeroconf implementation in TypeScript
     - copyright: Copyright (https://github.com/onlxltd/bonjour-service) (c) 2021 ON LX Limited
@@ -1278,14 +1314,14 @@
     - licenses: ISC
     - description: two functions: One that returns true, one that returns false
     - copyright: none
- - **[bootstrap-icons@1.10.3](https://github.com/twbs/icons)**
+ - **[bootstrap-icons@1.10.4](https://github.com/twbs/icons)**
     - licenses: MIT
     - description: Official open source SVG icon library for Bootstrap
-    - copyright: Copyright (c) 2019-2021 The Bootstrap Authors
- - **[bootstrap@5.3.0-alpha1](https://github.com/twbs/bootstrap)**
+    - copyright: Copyright (c) 2019-2023 The Bootstrap Authors
+ - **[bootstrap@5.3.0-alpha3](https://github.com/twbs/bootstrap)**
     - licenses: MIT
     - description: The most popular front-end framework for developing responsive, mobile first projects on the web.
-    - copyright: Copyright (c) 2011-2022 The Bootstrap Authors
+    - copyright: Copyright (c) 2011-2023 The Bootstrap Authors
  - **[bplist-parser@0.3.2](https://github.com/nearinfinity/node-bplist-parser)**
     - licenses: MIT
     - description: Binary plist parser.
@@ -1346,11 +1382,11 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001451](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001477](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
- - **[canvas@2.11.0](https://github.com/Automattic/node-canvas)**
+ - **[canvas@2.11.2](https://github.com/Automattic/node-canvas)**
     - licenses: MIT
     - description: Canvas graphics API backed by Cairo
     - copyright: Copyright (c) 2010 LearnBoost, and contributors &lt;dev@learnboost.com&gt;*
@@ -1378,10 +1414,6 @@
     - licenses: MIT
     - description: A library to create a trace of your node app per Google's Trace Event format.
     - copyright: Copyright (c) 2015 Joyent Inc. All rights reserved.
- - **[clean-css@5.2.0](https://github.com/clean-css/clean-css)**
-    - licenses: MIT
-    - description: A well-tested CSS minifier
-    - copyright: Copyright (C) 2017 JakubPawlowicz.com
  - **[clean-css@5.3.2](https://github.com/clean-css/clean-css)**
     - licenses: MIT
     - description: A well-tested CSS minifier
@@ -1426,6 +1458,10 @@
     - licenses: MIT
     - description: A stream that emits multiple other streams one after another.
     - copyright: Copyright (c) 2011 Debuggable Limited <felix@debuggable.com>
+ - **[commander@10.0.0](https://github.com/tj/commander.js)**
+    - licenses: MIT
+    - description: the complete solution for node.js command-line programs
+    - copyright: Copyright (c) 2011 TJ Holowaychuk <tj@vision-media.ca>
  - **[commander@2.20.3](https://github.com/tj/commander.js)**
     - licenses: MIT
     - description: the complete solution for node.js command-line programs
@@ -1490,7 +1526,7 @@
     - licenses: MIT
     - description: Copy files && directories with webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[core-js-compat@3.27.2](https://github.com/zloirock/core-js)**
+ - **[core-js-compat@3.30.0](https://github.com/zloirock/core-js)**
     - licenses: MIT
     - description: core-js compat
     - copyright: Copyright (c) 2014-2023 Denis Pushkarev
@@ -1498,10 +1534,18 @@
     - licenses: MIT
     - description: The `util.is*` functions introduced in Node v0.12.
     - copyright: Copyright Node.js contributors. All rights reserved.
- - **[cosmiconfig@7.1.0](https://github.com/davidtheclark/cosmiconfig)**
+ - **[cosmiconfig-typescript-loader@4.3.0](https://github.com/Codex-/cosmiconfig-typescript-loader)**
+    - licenses: MIT
+    - description: TypeScript loader for cosmiconfig
+    - copyright: Copyright (c) 2021 Alex Miller <codex.nz@gmail.com>
+ - **[cosmiconfig@8.1.3](https://github.com/cosmiconfig/cosmiconfig)**
     - licenses: MIT
     - description: Find and load configuration from a package.json property, rc file, or CommonJS module
     - copyright: Copyright (c) 2015 David Clark
+ - **[create-require@1.1.1](https://github.com/nuxt-contrib/create-require)**
+    - licenses: MIT
+    - description: Polyfill for Node.js module.createRequire (<= v12.2.0)
+    - copyright: Copyright (c) 2020
  - **[cross-fetch@3.1.5](https://github.com/lquixada/cross-fetch)**
     - licenses: MIT
     - description: Universal WHATWG Fetch API for Node, Browsers and React Native
@@ -1510,7 +1554,7 @@
     - licenses: MIT
     - description: Cross platform child_process#spawn and child_process#spawnSync
     - copyright: Copyright (c) 2018 Made With MOXY Lda <hello@moxy.studio>
- - **[css-declaration-sorter@6.3.1](https://github.com/Siilwyn/css-declaration-sorter)**
+ - **[css-declaration-sorter@6.4.0](https://github.com/Siilwyn/css-declaration-sorter)**
     - licenses: ISC
     - description: Sorts CSS declarations fast and automatically in a certain order.
     - copyright: Copyright (c)
@@ -1534,7 +1578,7 @@
     - licenses: MIT
     - description: A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
- - **[cssnano-preset-default@5.2.13](https://github.com/cssnano/cssnano)**
+ - **[cssnano-preset-default@5.2.14](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Safe defaults for cssnano which require minimal configuration.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -1542,7 +1586,7 @@
     - licenses: MIT
     - description: Utility methods and plugin for cssnano projects
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[cssnano@5.1.14](https://github.com/cssnano/cssnano)**
+ - **[cssnano@5.1.15](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: A modular minifier, built on top of the PostCSS ecosystem.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -1654,6 +1698,10 @@
     - licenses: ISC
     - description: Contain async insanity so that the dark pony lord doesn't eat souls
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
+ - **[diff@4.0.2](https://github.com/kpdecker/jsdiff)**
+    - licenses: BSD-3-Clause
+    - description: A javascript text diff implementation.
+    - copyright: Copyright (c) 2009-2015, Kevin Decker <kpdecker@gmail.com>
  - **[dir-glob@3.0.1](https://github.com/kevva/dir-glob)**
     - licenses: MIT
     - description: Convert directories to glob compatible strings
@@ -1662,7 +1710,7 @@
     - licenses: MIT
     - description: Compare DNS record strings for equality
     - copyright: Copyright (c) 2016 Thomas Watson Steen
- - **[dns-packet@5.4.0](https://github.com/mafintosh/dns-packet)**
+ - **[dns-packet@5.5.0](https://github.com/mafintosh/dns-packet)**
     - licenses: MIT
     - description: An abstract-encoding compliant module for encoding / decoding DNS packets
     - copyright: Copyright (c) 2016 Mathias Buus
@@ -1718,7 +1766,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.4.292](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.357](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -1798,23 +1846,19 @@
     - licenses: BSD-2-Clause
     - description: ECMAScript scope analyzer for ESLint
     - copyright: Copyright JS Foundation and other contributors, https://js.foundation. Copyright (C) 2012-2013 Yusuke Suzuki (twitter: @Constellation) and other contributors.
- - **[eslint-utils@3.0.0](https://github.com/mysticatea/eslint-utils)**
-    - licenses: MIT
-    - description: Utilities for ESLint plugins.
-    - copyright: Copyright (c) 2018 Toru Nagashima
  - **[eslint-visitor-keys@2.1.0](https://github.com/eslint/eslint-visitor-keys)**
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint-visitor-keys@3.3.0](https://github.com/eslint/eslint-visitor-keys)**
+ - **[eslint-visitor-keys@3.4.0](https://github.com/eslint/eslint-visitor-keys)**
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.33.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.38.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[espree@9.4.1](https://github.com/eslint/espree)**
+ - **[espree@9.5.1](https://github.com/eslint/espree)**
     - licenses: BSD-2-Clause
     - description: An Esprima-compatible JavaScript parser built on Acorn
     - copyright: Copyright (c) Open JS Foundation. All rights reserved.
@@ -1822,7 +1866,7 @@
     - licenses: BSD-2-Clause
     - description: ECMAScript parsing infrastructure for multipurpose analysis
     - copyright: Copyright JS Foundation and other contributors, https://js.foundation/
- - **[esquery@1.4.0](https://github.com/estools/esquery)**
+ - **[esquery@1.5.0](https://github.com/estools/esquery)**
     - licenses: BSD-3-Clause
     - description: A query library for ECMAScript AST using a CSS selector like query language.
     - copyright: Copyright (c) 2013, Joel Feenstra. All rights reserved.
@@ -1862,7 +1906,7 @@
     - licenses: MIT
     - description: Process execution for humans
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[expose-loader@4.0.0](https://github.com/webpack-contrib/expose-loader)**
+ - **[expose-loader@4.1.0](https://github.com/webpack-contrib/expose-loader)**
     - licenses: MIT
     - description: expose loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
@@ -2070,7 +2114,7 @@
     - licenses: MIT
     - description: Extends `glob` with support for multiple patterns and exposes a Promise API
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[graceful-fs@4.2.10](https://github.com/isaacs/node-graceful-fs)**
+ - **[graceful-fs@4.2.11](https://github.com/isaacs/node-graceful-fs)**
     - licenses: ISC
     - description: A drop-in replacement for fs, making various improvements.
     - copyright: Copyright (c) 2011-2022 Isaac Z. Schlueter, Ben Noordhuis, and Contributors
@@ -2146,7 +2190,7 @@
     - licenses: MIT
     - description: Highly configurable, well-tested, JavaScript-based HTML minifier.
     - copyright: Copyright (c) 2010-2019 Juriy "kangax" Zaytsev
- - **[html-minifier-terser@7.1.0](https://github.com/terser/html-minifier-terser)**
+ - **[html-minifier-terser@7.2.0](https://github.com/terser/html-minifier-terser)**
     - licenses: MIT
     - description: Highly configurable, well-tested, JavaScript-based HTML minifier.
     - copyright: Copyright (c) 2010-2019 Juriy "kangax" Zaytsev
@@ -2198,11 +2242,11 @@
     - licenses: Apache-2.0
     - description: Human-friendly process signals
     - copyright: none
- - **[i18next-http-backend@2.1.1](https://github.com/i18next/i18next-http-backend)**
+ - **[i18next-http-backend@2.2.0](https://github.com/i18next/i18next-http-backend)**
     - licenses: MIT
     - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
     - copyright: Copyright (c) 2022 i18next
- - **[i18next@22.4.9](https://github.com/i18next/i18next)**
+ - **[i18next@22.4.14](https://github.com/i18next/i18next)**
     - licenses: MIT
     - description: i18next internationalization framework
     - copyright: Copyright (c) 2022 i18next
@@ -2222,7 +2266,7 @@
     - licenses: MIT
     - description: Ignore is a manager and filter for .gitignore rules, the one used by eslint, gitbook and many others.
     - copyright: Copyright (c) 2013 Kael Zhang <i@kael.me>, contributors. http://kael.me/
- - **[immutable@4.2.4](https://github.com/immutable-js/immutable-js)**
+ - **[immutable@4.3.0](https://github.com/immutable-js/immutable-js)**
     - licenses: MIT
     - description: Immutable Data Collections
     - copyright: Copyright (c) 2014-present, Lee Byron and other contributors.
@@ -2278,7 +2322,7 @@
     - licenses: MIT
     - description: Check if a file path is a binary file
     - copyright: Copyright (c) 2019 Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com), Paul Miller (https://paulmillr.com)
- - **[is-core-module@2.11.0](https://github.com/inspect-js/is-core-module)**
+ - **[is-core-module@2.12.0](https://github.com/inspect-js/is-core-module)**
     - licenses: MIT
     - description: Is this specifier a node.js core module?
     - copyright: Copyright (c) 2014 Dave Justice
@@ -2370,7 +2414,7 @@
     - licenses: MIT
     - description: Module for executing heavy tasks under forked processes in parallel, by providing a `Promise` based interface, minimum overhead, and bound workers.
     - copyright: Copyright (c) Facebook, Inc. and its affiliates.
- - **[js-sdsl@4.3.0](https://github.com/js-sdsl/js-sdsl)**
+ - **[js-sdsl@4.4.0](https://github.com/js-sdsl/js-sdsl)**
     - licenses: MIT
     - description: javascript standard data structure library which benchmark against C++ STL
     - copyright: Copyright (c) 2021 Zilong Yao
@@ -2470,6 +2514,10 @@
     - licenses: MIT
     - description: A tiny (240B to 501B) and fast utility to "deep clone" Objects, Arrays, Dates, RegExps, and more!
     - copyright: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
+ - **[launch-editor@2.6.0](https://github.com/yyx990803/launch-editor)**
+    - licenses: MIT
+    - description: launch editor from node.js
+    - copyright: none
  - **[leaflet@1.9.3](https://github.com/Leaflet/Leaflet)**
     - licenses: BSD-2-Clause
     - description: JavaScript library for mobile-friendly interactive maps
@@ -2490,7 +2538,7 @@
     - licenses: BSD-3-Clause
     - description: Check license info for a package
     - copyright: Copyright 2012 Yahoo Inc.
- - **[lilconfig@2.0.6](https://github.com/antonk52/lilconfig)**
+ - **[lilconfig@2.1.0](https://github.com/antonk52/lilconfig)**
     - licenses: MIT
     - description: A zero-dependency alternative to cosmiconfig
     - copyright: Copyright (c) 2022 Anton Kastritskiy
@@ -2558,7 +2606,7 @@
     - licenses: ISC
     - description: A cache object that deletes the least-recently-used items.
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[luxon@3.2.1](https://github.com/moment/luxon)**
+ - **[luxon@3.3.0](https://github.com/moment/luxon)**
     - licenses: MIT
     - description: Immutable date wrapper
     - copyright: Copyright 2019 JS Foundation and other contributors
@@ -2570,6 +2618,10 @@
     - licenses: MIT
     - description: Make a directory and its parents if needed - Think `mkdir -p`
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[make-error@1.3.6](https://github.com/JsCommunity/make-error)**
+    - licenses: ISC
+    - description: Make your own error types!
+    - copyright: Copyright 2014 Julien Fontanet
  - **[mdn-data@2.0.14](https://github.com/mdn/data)**
     - licenses: CC0-1.0
     - description: Open Web data by the Mozilla Developer Network
@@ -2578,7 +2630,7 @@
     - licenses: MIT
     - description: Simple RFC 6838 media type parser and formatter
     - copyright: Copyright (c) 2014 Douglas Christopher Wilson
- - **[memfs@3.4.13](https://github.com/streamich/memfs)**
+ - **[memfs@3.5.0](https://github.com/streamich/memfs)**
     - licenses: Unlicense
     - description: In-memory file-system with Node's fs API.
     - copyright: none
@@ -2626,7 +2678,7 @@
     - licenses: MIT
     - description: Mimic a Node.js HTTP response stream
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[mini-css-extract-plugin@2.7.2](https://github.com/webpack-contrib/mini-css-extract-plugin)**
+ - **[mini-css-extract-plugin@2.7.5](https://github.com/webpack-contrib/mini-css-extract-plugin)**
     - licenses: MIT
     - description: extracts CSS into separate files
     - copyright: Copyright JS Foundation and other contributors
@@ -2638,11 +2690,11 @@
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[minimatch@6.1.6](https://github.com/isaacs/minimatch)**
+ - **[minimatch@6.2.0](https://github.com/isaacs/minimatch)**
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
- - **[minimist@1.2.7](https://github.com/minimistjs/minimist)**
+ - **[minimist@1.2.8](https://github.com/minimistjs/minimist)**
     - licenses: MIT
     - description: parse argument options
     - copyright: none
@@ -2650,7 +2702,7 @@
     - licenses: ISC
     - description: minimal implementation of a PassThrough stream
     - copyright: Copyright (c) 2017-2022 npm, Inc., Isaac Z. Schlueter, and Contributors
- - **[minipass@4.0.3](https://github.com/isaacs/minipass)**
+ - **[minipass@4.2.7](https://github.com/isaacs/minipass)**
     - licenses: ISC
     - description: minimal implementation of a PassThrough stream
     - copyright: Copyright (c) 2017-2023 npm, Inc., Isaac Z. Schlueter, and Contributors
@@ -2690,11 +2742,11 @@
     - licenses: MIT
     - description: Native Abstractions for Node.js: C++ header for Node 0.8 -> 18 compatibility
     - copyright: Copyright (c) 2018 [NAN contributors](<https://github.com/nodejs/nan#wg-members--collaborators>)
- - **[nanoid@3.3.4](https://github.com/ai/nanoid)**
+ - **[nanoid@3.3.6](https://github.com/ai/nanoid)**
     - licenses: MIT
     - description: A tiny (116 bytes), secure URL-friendly unique string ID generator
     - copyright: Copyright 2017 Andrey Sitnik <andrey@sitnik.ru>
- - **[native-run@1.7.1](https://github.com/ionic-team/native-run)**
+ - **[native-run@1.7.2](https://github.com/ionic-team/native-run)**
     - licenses: MIT
     - description: A CLI for running apps on iOS/Android devices and simulators/emulators
     - copyright: Copyright (c) 2018 Drifty Co
@@ -2774,7 +2826,7 @@
     - licenses: MIT
     - description: Format and manipulate numbers.
     - copyright: Copyright (c) 2016 Adam Draper
- - **[nwsapi@2.2.2](https://github.com/dperini/nwsapi)**
+ - **[nwsapi@2.2.3](https://github.com/dperini/nwsapi)**
     - licenses: MIT
     - description: Fast CSS Selectors API Engine
     - copyright: Copyright (c) 2007-2019 Diego Perini (http://www.iport.it/)
@@ -2810,7 +2862,7 @@
     - licenses: MIT
     - description: Ensure a function is only called once
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[open@8.4.1](https://github.com/sindresorhus/open)**
+ - **[open@8.4.2](https://github.com/sindresorhus/open)**
     - licenses: MIT
     - description: Open stuff like URLs, files, executables. Cross-platform.
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -2938,7 +2990,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@1.0.1](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@1.0.2](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
@@ -3006,7 +3058,7 @@
     - licenses: MIT
     - description: PostCSS plugin to reduce calc()
     - copyright: Copyright (c) 2014 Maxime Thirouin
- - **[postcss-colormin@5.3.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-colormin@5.3.1](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify colors in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3030,7 +3082,7 @@
     - licenses: MIT
     - description: PostCSS plugin to discard overridden @keyframes or @counter-style.
     - copyright: Copyright 2016 Justineo <justice360@gmail.com>
- - **[postcss-loader@7.0.2](https://github.com/webpack-contrib/postcss-loader)**
+ - **[postcss-loader@7.2.4](https://github.com/webpack-contrib/postcss-loader)**
     - licenses: MIT
     - description: PostCSS loader for webpack
     - copyright: Copyright JS Foundation and other contributors
@@ -3038,7 +3090,7 @@
     - licenses: MIT
     - description: Merge longhand properties into shorthand with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-merge-rules@5.1.3](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-rules@5.1.4](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge CSS rules with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3114,7 +3166,7 @@
     - licenses: MIT
     - description: Ensure values are ordered consistently in your CSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-reduce-initial@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-reduce-initial@5.1.2](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Reduce initial definitions to the actual initial value, where possible.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3226,11 +3278,11 @@
     - licenses: ISC
     - description: The thing npm uses to read package.json files with semantics and defaults and validation
     - copyright: Copyright (c) Isaac Z. Schlueter
- - **[readable-stream@2.3.7](https://github.com/nodejs/readable-stream)**
+ - **[readable-stream@2.3.8](https://github.com/nodejs/readable-stream)**
     - licenses: MIT
     - description: Streams3, a user-land copy of the stream library from Node.js
     - copyright: none
- - **[readable-stream@3.6.0](https://github.com/nodejs/readable-stream)**
+ - **[readable-stream@3.6.2](https://github.com/nodejs/readable-stream)**
     - licenses: MIT
     - description: Streams3, a user-land copy of the stream library from Node.js
     - copyright: none
@@ -3262,11 +3314,7 @@
     - licenses: MIT
     - description: Explode async and generator functions into a state machine.
     - copyright: Copyright (c) 2014-present, Facebook, Inc.
- - **[regexpp@3.2.0](https://github.com/mysticatea/regexpp)**
-    - licenses: MIT
-    - description: Regular expression parser for ECMAScript.
-    - copyright: Copyright (c) 2018 Toru Nagashima
- - **[regexpu-core@5.3.0](https://github.com/mathiasbynens/regexpu-core)**
+ - **[regexpu-core@5.3.2](https://github.com/mathiasbynens/regexpu-core)**
     - licenses: MIT
     - description: regexpu’s core functionality (i.e. `rewritePattern(pattern, flag)`), capable of translating ES6 Unicode regular expressions to ES5.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
@@ -3314,7 +3362,7 @@
     - licenses: MIT
     - description: Resolve the path of a module like `require.resolve()` but from a given path
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[resolve@1.22.1](https://github.com/browserify/resolve)**
+ - **[resolve@1.22.2](https://github.com/browserify/resolve)**
     - licenses: MIT
     - description: resolve like require.resolve() on behalf of files asynchronously and synchronously
     - copyright: Copyright (c) 2012 James Halliday
@@ -3350,11 +3398,11 @@
     - licenses: MIT
     - description: Modern Buffer API polyfill without footguns
     - copyright: Copyright (c) 2018 Nikita Skovoroda <chalkerx@gmail.com>
- - **[sass-loader@13.2.0](https://github.com/webpack-contrib/sass-loader)**
+ - **[sass-loader@13.2.2](https://github.com/webpack-contrib/sass-loader)**
     - licenses: MIT
     - description: Sass loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[sass@1.58.0](https://github.com/sass/dart-sass)**
+ - **[sass@1.61.0](https://github.com/sass/dart-sass)**
     - licenses: MIT
     - description: A pure JavaScript implementation of Sass.
     - copyright: Copyright (c) 2016, Google Inc.*
@@ -3394,7 +3442,7 @@
     - licenses: ISC
     - description: The semantic version parser used by npm.
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[semver@7.3.8](https://github.com/npm/node-semver)**
+ - **[semver@7.4.0](https://github.com/npm/node-semver)**
     - licenses: ISC
     - description: The semantic version parser used by npm.
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
@@ -3438,6 +3486,10 @@
     - licenses: MIT
     - description: Regular expression for matching a shebang line
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[shell-quote@1.8.1](https://github.com/ljharb/shell-quote)**
+    - licenses: MIT
+    - description: quote and parse shell commands
+    - copyright: Copyright (c) 2013 James Halliday (mail@substack.net)
  - **[showdown@2.1.0](https://github.com/showdownjs/showdown)**
     - licenses: MIT
     - description: A Markdown to HTML converter written in Javascript
@@ -3502,7 +3554,7 @@
     - licenses: MIT
     - description: compare SPDX license expressions
     - copyright: Copyright (c) 2015 Kyle E. Mitchell
- - **[spdx-correct@3.1.1](https://github.com/jslicense/spdx-correct.js)**
+ - **[spdx-correct@3.2.0](https://github.com/jslicense/spdx-correct.js)**
     - licenses: Apache-2.0
     - description: correct invalid SPDX expressions
     - copyright: none
@@ -3514,7 +3566,7 @@
     - licenses: MIT
     - description: parse SPDX license expressions
     - copyright: Copyright (c) 2015 Kyle E. Mitchell & other authors listed in AUTHORS
- - **[spdx-license-ids@3.0.12](https://github.com/jslicense/spdx-license-ids)**
+ - **[spdx-license-ids@3.0.13](https://github.com/jslicense/spdx-license-ids)**
     - licenses: CC0-1.0
     - description: A list of SPDX license identifiers
     - copyright: none
@@ -3542,7 +3594,7 @@
     - licenses: MIT
     - description: Split a string on the first occurance of a given separator
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[split2@4.1.0](https://github.com/mcollina/split2)**
+ - **[split2@4.2.0](https://github.com/mcollina/split2)**
     - licenses: ISC
     - description: split a Text Stream into a Line Stream, using Stream 3
     - copyright: Copyright (c) 2014-2018, Matteo Collina <hello@matteocollina.com>
@@ -3598,7 +3650,7 @@
     - licenses: MIT
     - description: Strip comments from JSON. Lets you use comments in your JSON files!
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[style-loader@3.3.1](https://github.com/webpack-contrib/style-loader)**
+ - **[style-loader@3.3.2](https://github.com/webpack-contrib/style-loader)**
     - licenses: MIT
     - description: style loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
@@ -3642,11 +3694,11 @@
     - licenses: ISC
     - description: tar for node
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[terser-webpack-plugin@5.3.6](https://github.com/webpack-contrib/terser-webpack-plugin)**
+ - **[terser-webpack-plugin@5.3.7](https://github.com/webpack-contrib/terser-webpack-plugin)**
     - licenses: MIT
     - description: Terser plugin for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[terser@5.16.3](https://github.com/terser/terser)**
+ - **[terser@5.16.9](https://github.com/terser/terser)**
     - licenses: BSD-2-Clause
     - description: JavaScript parser, mangler/compressor and beautifier toolkit for ES6+
     - copyright: Copyright 2012-2018 (c) Mihai Bazon <mihai.bazon@gmail.com>
@@ -3718,6 +3770,10 @@
     - licenses: MIT
     - description: converts a JS object into a nice and readable tree structure for the console
     - copyright: Copyright (c) 2012-2018 Luke Plaster <notatestuser@gmail.com>
+ - **[ts-node@10.9.1](https://github.com/TypeStrong/ts-node)**
+    - licenses: MIT
+    - description: TypeScript execution environment and REPL for node.js, with source map support
+    - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
  - **[tslib@2.5.0](https://github.com/Microsoft/tslib)**
     - licenses: 0BSD
     - description: Runtime library for TypeScript helper functions
@@ -3746,7 +3802,7 @@
     - licenses: MIT
     - description: Infer the content-type of a request.
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
- - **[typescript@4.9.5](https://github.com/Microsoft/TypeScript)**
+ - **[typescript@5.0.4](https://github.com/Microsoft/TypeScript)**
     - licenses: Apache-2.0
     - description: TypeScript is a language for application scale JavaScript development
     - copyright: none
@@ -3822,6 +3878,10 @@
     - licenses: MIT
     - description: RFC4122 (v1, v4, and v5) UUIDs
     - copyright: Copyright (c) 2010-2020 Robert Kieffer and other contributors
+ - **[v8-compile-cache-lib@3.0.1](https://github.com/cspotcode/v8-compile-cache-lib)**
+    - licenses: MIT
+    - description: Require hook for automatic V8 compile cache persistence
+    - copyright: Copyright (c) 2019 Andres Suarez
  - **[validate-npm-package-license@3.0.4](https://github.com/kemitchell/validate-npm-package-license.js)**
     - licenses: Apache-2.0
     - description: Give me a string and I'll tell you if it's a valid npm package license string
@@ -3870,7 +3930,7 @@
     - licenses: BSD-2-Clause
     - description: Implements the WebIDL algorithms for converting to and from JavaScript values
     - copyright: Copyright (c) 2014, Domenic Denicola. All rights reserved.
- - **[webpack-bundle-analyzer@4.7.0](https://github.com/webpack-contrib/webpack-bundle-analyzer)**
+ - **[webpack-bundle-analyzer@4.8.0](https://github.com/webpack-contrib/webpack-bundle-analyzer)**
     - licenses: MIT
     - description: Webpack plugin and CLI utility that represents bundle content as convenient interactive zoomable treemap
     - copyright: Copyright JS Foundation and other contributors
@@ -3882,7 +3942,7 @@
     - licenses: MIT
     - description: A development middleware for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[webpack-dev-server@4.11.1](https://github.com/webpack/webpack-dev-server)**
+ - **[webpack-dev-server@4.13.2](https://github.com/webpack/webpack-dev-server)**
     - licenses: MIT
     - description: Serves a webpack app. Updates the browser on changes.
     - copyright: Copyright JS Foundation and other contributors
@@ -3894,7 +3954,7 @@
     - licenses: MIT
     - description: Source code handling classes for webpack
     - copyright: Copyright (c) 2017 JS Foundation and other contributors
- - **[webpack@5.75.0](https://github.com/webpack/webpack)**
+ - **[webpack@5.78.0](https://github.com/webpack/webpack)**
     - licenses: MIT
     - description: Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
     - copyright: Copyright JS Foundation and other contributors
@@ -3966,7 +4026,7 @@
     - licenses: MIT
     - description: Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js
     - copyright: Copyright (c) 2011 Einar Otto Stangvik <einaros@gmail.com>
- - **[ws@8.12.0](https://github.com/websockets/ws)**
+ - **[ws@8.13.0](https://github.com/websockets/ws)**
     - licenses: MIT
     - description: Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js
     - copyright: Copyright (c) 2011 Einar Otto Stangvik <einaros@gmail.com>. Copyright (c) 2013 Arnout Kazemier and contributors. Copyright (c) 2016 Luigi Pinca and contributors
@@ -4010,6 +4070,10 @@
     - licenses: MIT
     - description: yet another unzip library for node
     - copyright: Copyright (c) 2014 Josh Wolfe
+ - **[yn@3.1.1](https://github.com/sindresorhus/yn)**
+    - licenses: MIT
+    - description: Parse yes/no like values
+    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
  - **[yocto-queue@0.1.0](https://github.com/sindresorhus/yocto-queue)**
     - licenses: MIT
     - description: Tiny queue data structure
