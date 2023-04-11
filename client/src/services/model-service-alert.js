@@ -39,7 +39,9 @@ class ModelServiceAlert extends ModelService {
             this.objects = [];
         }
         let adaptedQuery = Object.assign({}, query);
-        adaptedQuery.filter = undefined;
+        if (adaptedQuery.filter) {
+            delete adaptedQuery.filter.alertSource;
+        }
         return await super.getObjects(adaptedQuery, searchProperties);
     }
 
