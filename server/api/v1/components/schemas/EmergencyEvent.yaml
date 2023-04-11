@@ -39,6 +39,7 @@ properties:
       - thessaloniki
       - sofia
       - amsterdam
+    ui:formItemType: select
     ui:hide:
       table: true
       info: true
