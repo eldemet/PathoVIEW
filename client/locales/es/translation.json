@@ -53,7 +53,7 @@
     "views": {
         "map": "Mapa",
         "instructions": {
-            "title": "Instrucciones",
+            "title": "Sensores",
             "selection": "Dispositivo de selección",
             "checklist": "Lista de Verificación",
             "sampling": "Muestreo",
@@ -77,8 +77,8 @@
             "emergencyEvent": "Información de eventos de emergencia",
             "noEmergencyEventHeadline": "Ningún evento de emergencia seleccionado",
             "noEmergencyEvent": "¡Seleccione primero un evento de emergencia en la barra de navegación para obtener más información!",
-            "importantDates": "fechas importantes",
-            "statistics": "Estadísticas",
+            "importantDates": "información importante",
+            "statistics": "equipo",
             "currentTime": "tiempo actual",
             "timeToSunset": "hora de la puesta del sol",
             "timeSinceT0": "tiempo desde T0",
