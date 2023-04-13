@@ -169,7 +169,7 @@ class ContextService extends BasicService {
     async updateDevice(location) {
         if (this.currentDevice) {
             let batteryLevel = await deviceUtilities.getBatteryLevel();
-            let oldDeviceValues = this._.pick(this.currentDevice, ['batteryLevel', 'osVersion', 'softwareVersion', 'supportedProtocol', 'provider', 'location']);
+            let oldDeviceValues = this._.pick(this.currentDevice, ['name', 'batteryLevel', 'osVersion', 'softwareVersion', 'provider', 'location']);
             let newDeviceValues = {
                 name: this.proxy.get('auth')?.userInfo?.name || 'undefined',
                 batteryLevel: batteryLevel,
@@ -185,9 +185,7 @@ class ContextService extends BasicService {
                 try {
                     this.currentDevice = await this.proxy.get('device').updateObject(Object.assign({}, this.currentDevice, newDeviceValues), 2000);
                 } catch (error) {
-                    if (error.status === 406) {
-                        this.currentDevice = newDeviceValues;
-                    } else {
+                    if (error.status !== 406) {
                         this.logger.error(error.message);
                     }
                 }
@@ -208,6 +206,8 @@ class ContextService extends BasicService {
                     let message;
                     let dismissible = true;
                     let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
+                    //TODO adapt distance values
+                    //TODO only trigger one alert at once?
                     if (distanceResult < 1.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
                         if (distanceResult > 0.75) {
                             type = 'warning';
