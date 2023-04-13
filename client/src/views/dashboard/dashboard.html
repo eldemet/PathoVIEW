@@ -32,15 +32,6 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <h2 class="mt-3">${'views.dashboard.importantDates' | t}</h2>
-                    <span class="text-muted">${'views.dashboard.currentTime' | t}:</span>
-                    <p class="fs-6"><i class="bi-clock"></i> ${getDate() | formatDate:'tt':i18n.getLocale() & signal:'update-dates'}</p>
-                    <span class="text-muted">${'views.dashboard.timeToSunset' | t}:</span>
-                    <p class="fs-6"><i class="bi-sunset"></i> ${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
-                    <span class="text-muted">${'views.dashboard.timeSinceT0' | t}:</span>
-                    <p class="fs-6"><i class="bi-clock-history"></i> ${getDate(contextService.currentEmergencyEvent.createdAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
-                </div>
-                <div>
                     <h2 class="mt-4">${'views.dashboard.news' | t}</h2>
                     <div>
                         <span class="text-muted">${'views.dashboard.lastAlert' | t}:</span>
@@ -58,6 +49,41 @@
                         <p class="fs-6" if.bind="initialized && !lastMission">${'alerts.general.noResults' | t}</p>
                         <div if.bind="!initialized" class="spinner-border spinner-border-sm" role="status"></div>
                     </div>
+                </div>
+                <div if.bind="contextService.currentWeather">
+                    <h2 class="mt-3">${'propertyKeys.weather' | t}</h2>
+                    <div repeat.for="weather of contextService.currentWeather.weather"
+                         class="d-flex flex-column align-items-start">
+                        <img src.bind="openWeatherMapIconUrl + weather.icon + '@2x.png'" alt="${weather.main}">
+                        <span>${weather.description}</span>
+                    </div>
+                    <h3 class="mt-4">${'propertyKeys.weatherMain' | t}</h3>
+                    <p repeat.for="property of weatherUtilities.weatherProperties | objectKeys"
+                       if.bind="_.get(contextService.currentWeather, weatherUtilities.weatherProperties[property])"
+                       class="mb-0">
+                        <i if.bind="weatherUtilities.weatherIcons[property]" class.bind="weatherUtilities.weatherIcons[property]"></i>
+                        <span>${'propertyKeys.' + property | t}: </span>
+                        ${weatherUtilities.getValueAndUnit(contextService.currentWeather, weatherUtilities.weatherProperties[property], 'metric')}
+                    </p>
+                    <p class="mb-0">
+                        <i class="bi-sunrise"></i>
+                        <span>${'propertyKeys.sunrise' | t}: ${getDate(contextService.currentWeather.sys.sunrise, 'seconds') | formatDate:'T':i18n.getLocale()}</span>
+                    </p>
+                    <p class="mb-0">
+                        <i class="bi-sunset"></i>
+                        <span>${'propertyKeys.sunset' | t}: ${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDate:'T':i18n.getLocale()}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h2 class="mt-3">${'views.dashboard.importantDates' | t}</h2>
+                    <span class="text-muted">${'views.dashboard.currentTime' | t}:</span>
+                    <p class="fs-6"><i class="bi-clock"></i> ${getDate() | formatDate:'tt':i18n.getLocale() & signal:'update-dates'}</p>
+                    <span class="text-muted">${'views.dashboard.timeToSunset' | t}:</span>
+                    <p class="fs-6"><i class="bi-sunset"></i> ${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
+                    <span class="text-muted">${'views.dashboard.timeSinceT0' | t}:</span>
+                    <p class="fs-6"><i class="bi-clock-history"></i> ${getDate(contextService.currentEmergencyEvent.createdAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
                 </div>
                 <div if.bind="currentPosition">
                     <h2 class="mt-4">${'views.dashboard.ownPosition' | t}
@@ -91,31 +117,6 @@
                         <div else class="spinner-border spinner-border-sm" role="status"></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4"
-                 if.bind="contextService.currentWeather">
-                <h2 class="mt-3">${'propertyKeys.weather' | t}</h2>
-                <div repeat.for="weather of contextService.currentWeather.weather"
-                     class="d-flex flex-column align-items-start">
-                    <img src.bind="openWeatherMapIconUrl + weather.icon + '@2x.png'" alt="${weather.main}">
-                    <span>${weather.description}</span>
-                </div>
-                <h3 class="mt-4">${'propertyKeys.weatherMain' | t}</h3>
-                <p repeat.for="property of weatherUtilities.weatherProperties | objectKeys"
-                   if.bind="_.get(contextService.currentWeather, weatherUtilities.weatherProperties[property])"
-                   class="mb-0">
-                    <i if.bind="weatherUtilities.weatherIcons[property]" class.bind="weatherUtilities.weatherIcons[property]"></i>
-                    <span>${'propertyKeys.' + property | t}: </span>
-                    ${weatherUtilities.getValueAndUnit(contextService.currentWeather, weatherUtilities.weatherProperties[property], 'metric')}
-                </p>
-                <p class="mb-0">
-                    <i class="bi-sunrise"></i>
-                    <span>${'propertyKeys.sunrise' | t}: ${getDate(contextService.currentWeather.sys.sunrise, 'seconds') | formatDate:'T':i18n.getLocale()}</span>
-                </p>
-                <p class="mb-0">
-                    <i class="bi-sunset"></i>
-                    <span>${'propertyKeys.sunset' | t}: ${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDate:'T':i18n.getLocale()}</span>
-                </p>
             </div>
         </div>
     </div>
