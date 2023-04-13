@@ -90,24 +90,6 @@
                         </ul>
                         <div else class="spinner-border spinner-border-sm" role="status"></div>
                     </div>
-                    <div>
-                        <span class="text-muted">${'views.dashboard.groups' | t}:</span>
-                        <ul if.bind="groups" class="list-inline">
-                            <li repeat.for="group of groups" class="list-inline-item fs-6">
-                                <i class="bi-people"></i> ${group.name}
-                            </li>
-                        </ul>
-                        <div else class="spinner-border spinner-border-sm" role="status"></div>
-                    </div>
-                    <div>
-                        <span class="text-muted">${'views.dashboard.roles' | t}:</span>
-                        <ul if.bind="roles" class="list-inline">
-                            <li repeat.for="role of roles" class="list-inline-item fs-6">
-                                <i class="bi-person-badge"></i> ${role.name}
-                            </li>
-                        </ul>
-                        <div else class="spinner-border spinner-border-sm" role="status"></div>
-                    </div>
                 </div>
             </div>
             <div class="col-md-4"
