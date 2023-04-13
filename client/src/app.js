@@ -125,7 +125,7 @@ export class App extends BasicViewRouter {
         this.authService = this.proxy.get('auth');
         this.bhapticsService = this.proxy.get('bhaptics');
         this.notificationService = this.proxy.get('notification');
-        await this.contextService.initialize(this.authService.getUserId());
+        await this.contextService.initialize();
         this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
         await this.notificationService.initialize(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
@@ -182,10 +182,7 @@ export class App extends BasicViewRouter {
                     this.logger.debug('Dialog was cancelled!');
                 } else {
                     this.logger.debug('Dialog was confirmed!');
-                    if (type === 'device') {
-                        await this.contextService.loadDevices();
-                        this.contextService.setCurrentDevice(response.output.id);
-                    } else if (type === 'emergencyEvent') {
+                    if (type === 'emergencyEvent') {
                         await this.contextService.loadEmergencyEvents();
                         let emergencyEvent = this.contextService.emergencyEvents.find(x => x.id === response.output.id);
                         await this.contextService.changeEmergencyEvent(emergencyEvent);

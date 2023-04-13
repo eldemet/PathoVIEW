@@ -34,15 +34,13 @@ class ContextService extends BasicService {
         this.httpService = httpService;
     }
 
-    async initialize(userId, timeout = 20000) {
-        this.userId = userId;
+    async initialize(timeout = 20000) {
         this.timeout = timeout;
         await this.loadEmergencyEvents();
-        await this.loadDevices();
         await this.loadAlerts();
         await this.loadMissions();
+        await this.initializeCurrentDevice();
         this.setCurrentEmergencyEvent();
-        this.setCurrentDevice();
         await this.setCurrentWeather();
         numeral.locale(this.i18n.getLocale());
         await this.update();
@@ -58,14 +56,12 @@ class ContextService extends BasicService {
 
     async update() {
         try {
-            if ((Array.isArray(this.alerts) && this.alerts.length > 0) || this.currentDevice) {
-                let location = await locationUtilities.getCurrenPosition('geoJSON');
-                if (location) {
-                    await this.updateDevice(location);
-                    await this.checkForAlertsNearCurrentLocation(location);
-                } else {
-                    throw new Error('Cannot get current position!');
-                }
+            let location = await locationUtilities.getCurrenPosition('geoJSON');
+            if (location) {
+                await this.updateDevice(location);
+                await this.checkForAlertsNearCurrentLocation(location);
+            } else {
+                throw new Error('Cannot get current position!');
             }
         } catch (error) {
             this.logger.warn(error.message);
@@ -91,12 +87,27 @@ class ContextService extends BasicService {
 
     @loadingEvent('app-alert', 'device')
     @catchError('app-alert')
-    async loadDevices() {
-        this.devices = (await this.proxy.get('device').getObjects({filter: {owner: this.userId}})).objects;
+    async initializeCurrentDevice() {
+        let user = this.proxy.get('auth').userInfo;
+        let devices = (await this.proxy.get('device').getObjects({filter: {owner: user.sub}})).objects;
+        if (!Array.isArray(devices) || devices.length === 0) {
+            this.logger.warn('No device for user found! Creating new device...');
+            let device = {
+                id: 'Device:00000',
+                type: 'Device',
+                name: user.name,
+                category: ['sensor'],
+                controlledProperty: ['batteryLife', 'location'],
+                owner: [user.sub]
+            };
+            this.currentDevice = await this.proxy.get('device').createObject(device);
+        } else {
+            this.currentDevice = devices[0];
+        }
     }
 
     @loadingEvent('app-alert', 'alert')
-    @catchError('app-alert')
+    @catchError()
     async loadAlerts() {
         this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
     }
@@ -123,25 +134,6 @@ class ContextService extends BasicService {
         } else {
             throw new Error('No emergency event selected!');
         }
-    }
-
-    @catchError('app-alert', {id: 'noDevice', type: 'warning', message: 'alerts.noDevice', dismissible: true})
-    setCurrentDevice(deviceId) {
-        if (!Array.isArray(this.devices) || this.devices.length === 0) {
-            throw new Error('No device for user found!');
-        }
-        let currentDevice = this.devices[0];
-        if (deviceId) {
-            currentDevice = this.devices.find(x => x.id === deviceId);
-        } else {
-            for (let device of this.devices) {
-                if (device.osVersion === platform.os.toString() || device.manufacturer === platform.manufacturer) {
-                    currentDevice = device;
-                    break;
-                }
-            }
-        }
-        this.currentDevice = currentDevice;
     }
 
     @catchError()
@@ -179,10 +171,10 @@ class ContextService extends BasicService {
             let batteryLevel = await deviceUtilities.getBatteryLevel();
             let oldDeviceValues = this._.pick(this.currentDevice, ['batteryLevel', 'osVersion', 'softwareVersion', 'supportedProtocol', 'provider', 'location']);
             let newDeviceValues = {
+                name: this.proxy.get('auth')?.userInfo?.name || 'undefined',
                 batteryLevel: batteryLevel,
                 osVersion: platform.os.toString(),
                 softwareVersion: platform.name + ' ' + platform.version,
-                supportedProtocol: ['http'],
                 provider: platform.manufacturer || '',
                 location: location
                 // firmwareVersion, hardwareVersion, ipAddress, macAddress, rssi

@@ -59,35 +59,6 @@
             </ul>
         </div>
 
-        <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
-             if.bind="contextService.devices">
-            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="devices-menu"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                <i if.bind="contextService.currentDevice"
-                   class="${deviceUtilities.getDeviceIcon(contextService.currentDevice)}"></i>
-                <i else class="bi-question-circle-fill"></i>
-                <span if.bind="contextService.currentDevice" class="d-md-none ms-2">${contextService.currentDevice.name}</span>
-                <span else class="d-md-none ms-2">${'alerts.noDeviceSelected' | t}</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="devices-menu">
-                <li repeat.for="device of contextService.devices">
-                    <button class="dropdown-item ${device === contextService.currentDevice ? 'active' : ''}"
-                            click.trigger="contextService.currentDevice = device">
-                        <i class="${deviceUtilities.getDeviceIcon(device)} me-2"></i>${device.name}
-                    </button>
-                </li>
-                <li if.bind="contextService.currentDevice">
-                    <hr class="dropdown-divider">
-                </li>
-                <li>
-                    <button class="dropdown-item"
-                            click.trigger="openCreateModal('device')">
-                        <i class="bi-plus me-2"></i>${'views.create' | t:{'type': 'model.device'}}
-                    </button>
-                </li>
-            </ul>
-        </div>
-
         <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="bhaptics-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
