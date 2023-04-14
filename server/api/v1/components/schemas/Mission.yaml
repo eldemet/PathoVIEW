@@ -50,12 +50,6 @@ properties:
     ui:i18nPathPrefix: enum.mission.status
   owner:
     $ref: './../$defs.yaml#/owner'
-  assignedTo:
-    type: string
-    ui:formItemType: select
-    db:ref: Auth
-    ui:hide:
-      table: true
   refId:
     type: string
     ui:dependence:
