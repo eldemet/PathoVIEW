@@ -3,13 +3,13 @@
 ## Summary
 
 * MIT: 839
-* ISC: 80
-* BSD-2-Clause: 29
+* ISC: 79
+* BSD-2-Clause: 32
 * Apache-2.0: 27
 * BSD-3-Clause: 20
 * Unlicense: 4
 * BSD-3-Clause-Clear: 3
-* CC0-1.0: 2
+* CC0-1.0: 3
 * (WTFPL OR MIT): 2
 * Python-2.0: 1
 * CC-BY-4.0: 1
@@ -762,9 +762,9 @@
     - licenses: MIT
     - description: TypeScript definitions for eslint
     - copyright: none
- - **[@types/estree@0.0.51](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/estree@1.0.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for ESTree AST specification
+    - description: TypeScript definitions for estree
     - copyright: none
  - **[@types/express-serve-static-core@4.17.33](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
@@ -1234,7 +1234,7 @@
     - licenses: MIT
     - description: A collection of helpers for testing Aurelia apps and components.
     - copyright: Copyright (c) 2010 - 2016 Blue Spire Inc.
- - **[aurelia-validation@1.6.0](https://github.com/aurelia/validation)**
+ - **[aurelia-validation@2.0.0](https://github.com/aurelia/validation)**
     - licenses: MIT
     - description: Validation for Aurelia applications
     - copyright: Copyright (c) 2010 - 2018 Blue Spire Inc.
@@ -1566,10 +1566,18 @@
     - licenses: BSD-2-Clause
     - description: a CSS selector compiler/engine
     - copyright: Copyright (c) Felix Böhm. All rights reserved.
- - **[css-tree@1.1.3](https://github.com/csstree/csstree)**
+ - **[css-select@5.1.0](https://github.com/fb55/css-select)**
+    - licenses: BSD-2-Clause
+    - description: a CSS selector compiler/engine
+    - copyright: Copyright (c) Felix Böhm. All rights reserved.
+ - **[css-tree@2.2.1](https://github.com/csstree/csstree)**
     - licenses: MIT
     - description: A tool set for CSS: fast detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations
-    - copyright: Copyright (C) 2016-2019 by Roman Dvornov
+    - copyright: Copyright (C) 2016-2022 by Roman Dvornov
+ - **[css-tree@2.3.1](https://github.com/csstree/csstree)**
+    - licenses: MIT
+    - description: A tool set for CSS: fast detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations
+    - copyright: Copyright (C) 2016-2022 by Roman Dvornov
  - **[css-what@6.1.0](https://github.com/fb55/css-what)**
     - licenses: BSD-2-Clause
     - description: a CSS selector parser
@@ -1578,22 +1586,22 @@
     - licenses: MIT
     - description: A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
- - **[cssnano-preset-default@5.2.14](https://github.com/cssnano/cssnano)**
+ - **[cssnano-preset-default@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Safe defaults for cssnano which require minimal configuration.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[cssnano-utils@3.1.0](https://github.com/cssnano/cssnano)**
+ - **[cssnano-utils@4.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Utility methods and plugin for cssnano projects
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[cssnano@5.1.15](https://github.com/cssnano/cssnano)**
+ - **[cssnano@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: A modular minifier, built on top of the PostCSS ecosystem.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[csso@4.2.0](https://github.com/css/csso)**
+ - **[csso@5.0.5](https://github.com/css/csso)**
     - licenses: MIT
     - description: CSS minifier with structural optimisations
-    - copyright: Copyright (C) 2015-2019 by Roman Dvornov. Copyright (C) 2011-2015 by Sergey Kryzhanovsky
+    - copyright: Copyright (C) 2015-2021 by Roman Dvornov. Copyright (C) 2011-2015 by Sergey Kryzhanovsky
  - **[cssom@0.3.8](https://github.com/NV/CSSOM)**
     - licenses: MIT
     - description: CSS Object Model implementation and CSS parser
@@ -1726,6 +1734,10 @@
     - licenses: MIT
     - description: render domhandler DOM nodes to a string
     - copyright: Copyright (c) 2014 The cheeriojs contributors
+ - **[dom-serializer@2.0.0](https://github.com/cheeriojs/dom-serializer)**
+    - licenses: MIT
+    - description: render domhandler DOM nodes to a string
+    - copyright: Copyright (c) 2014 The cheeriojs contributors
  - **[domelementtype@2.3.0](https://github.com/fb55/domelementtype)**
     - licenses: BSD-2-Clause
     - description: all the types of nodes in htmlparser2's dom
@@ -1742,7 +1754,15 @@
     - licenses: BSD-2-Clause
     - description: Handler for htmlparser2 that turns pages into a dom
     - copyright: Copyright (c) Felix Böhm. All rights reserved.
+ - **[domhandler@5.0.3](https://github.com/fb55/domhandler)**
+    - licenses: BSD-2-Clause
+    - description: Handler for htmlparser2 that turns pages into a dom
+    - copyright: Copyright (c) Felix Böhm. All rights reserved.
  - **[domutils@2.8.0](https://github.com/fb55/domutils)**
+    - licenses: BSD-2-Clause
+    - description: Utilities for working with htmlparser2's dom
+    - copyright: Copyright (c) Felix Böhm. All rights reserved.
+ - **[domutils@3.0.1](https://github.com/fb55/domutils)**
     - licenses: BSD-2-Clause
     - description: Utilities for working with htmlparser2's dom
     - copyright: Copyright (c) Felix Böhm. All rights reserved.
@@ -1810,10 +1830,10 @@
     - licenses: MIT
     - description: Easy error subclassing and stack customization
     - copyright: Copyright (c) 2015 JD Ballard
- - **[es-module-lexer@0.9.3](https://github.com/guybedford/es-module-lexer)**
+ - **[es-module-lexer@1.2.1](https://github.com/guybedford/es-module-lexer)**
     - licenses: MIT
     - description: Lexes ES modules returning their import/export metadata
-    - copyright: Copyright (C) 2018-2021 Guy Bedford
+    - copyright: Copyright (C) 2018-2022 Guy Bedford
  - **[escalade@3.1.1](https://github.com/lukeed/escalade)**
     - licenses: MIT
     - description: A tiny (183B to 210B) and fast utility to ascend parent directories
@@ -2530,7 +2550,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.2.6](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.3.0](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -2622,7 +2642,11 @@
     - licenses: ISC
     - description: Make your own error types!
     - copyright: Copyright 2014 Julien Fontanet
- - **[mdn-data@2.0.14](https://github.com/mdn/data)**
+ - **[mdn-data@2.0.28](https://github.com/mdn/data)**
+    - licenses: CC0-1.0
+    - description: Open Web data by the Mozilla Developer Network
+    - copyright: none
+ - **[mdn-data@2.0.30](https://github.com/mdn/data)**
     - licenses: CC0-1.0
     - description: Open Web data by the Mozilla Developer Network
     - copyright: none
@@ -2690,7 +2714,7 @@
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[minimatch@6.2.0](https://github.com/isaacs/minimatch)**
+ - **[minimatch@9.0.0](https://github.com/isaacs/minimatch)**
     - licenses: ISC
     - description: a glob matcher in javascript
     - copyright: Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
@@ -2802,10 +2826,6 @@
     - licenses: MIT
     - description: Utility for normalizing a numeric range, with a wrapping function useful for polar coordinates
     - copyright: Copyright (c) James Talmage <james@talmage.io> (github.com/jamestalmage)
- - **[normalize-url@6.1.0](https://github.com/sindresorhus/normalize-url)**
-    - licenses: MIT
-    - description: Normalize a URL
-    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
  - **[npm-normalize-package-bin@1.0.1](https://github.com/npm/npm-normalize-package-bin)**
     - licenses: ISC
     - description: Turn any flavor of allowable package.json bin into a normalized object
@@ -2990,7 +3010,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@1.0.2](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@1.0.3](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
@@ -3058,27 +3078,27 @@
     - licenses: MIT
     - description: PostCSS plugin to reduce calc()
     - copyright: Copyright (c) 2014 Maxime Thirouin
- - **[postcss-colormin@5.3.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-colormin@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify colors in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-convert-values@5.1.3](https://github.com/cssnano/cssnano)**
+ - **[postcss-convert-values@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Convert values with PostCSS (e.g. ms -> s)
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-discard-comments@5.1.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-discard-comments@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Discard comments in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-discard-duplicates@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-discard-duplicates@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Discard duplicate rules in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-discard-empty@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-discard-empty@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Discard empty rules and values with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-discard-overridden@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-discard-overridden@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: PostCSS plugin to discard overridden @keyframes or @counter-style.
     - copyright: Copyright 2016 Justineo <justice360@gmail.com>
@@ -3086,27 +3106,27 @@
     - licenses: MIT
     - description: PostCSS loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[postcss-merge-longhand@5.1.7](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-longhand@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge longhand properties into shorthand with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-merge-rules@5.1.4](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-rules@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge CSS rules with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-minify-font-values@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-font-values@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify font declarations with PostCSS
     - copyright: Copyright (c) Bogdan Chadkin <trysound@yandex.ru>
- - **[postcss-minify-gradients@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-gradients@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify gradient parameters with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-minify-params@5.1.4](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-params@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify at-rule params with PostCSS
     - copyright: Copyright 2015 Bogdan Chadkin <trysound@yandex.ru>
- - **[postcss-minify-selectors@5.2.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-selectors@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify selectors with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3126,51 +3146,51 @@
     - licenses: ISC
     - description: PostCSS plugin for CSS Modules to pass arbitrary values between your module files
     - copyright: Copyright (c) 2015, Glen Maddern
- - **[postcss-normalize-charset@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-charset@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Add necessary or remove extra charset with PostCSS
     - copyright: Copyright 2015 Bogdan Chadkin <trysound@yandex.ru>
- - **[postcss-normalize-display-values@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-display-values@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize multiple value display syntaxes into single values.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-positions@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-positions@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize keyword values for position into length values.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-repeat-style@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-repeat-style@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Convert two value syntax for repeat-style into one value.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-string@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-string@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize wrapping quotes for CSS string literals.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-timing-functions@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-timing-functions@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize CSS animation/transition timing functions.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-unicode@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-unicode@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize unicode-range descriptors, and can convert to wildcard ranges.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-url@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-url@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize URLs with PostCSS
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-whitespace@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-whitespace@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Trim whitespace inside and around CSS rules & declarations.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-ordered-values@5.1.3](https://github.com/cssnano/cssnano)**
+ - **[postcss-ordered-values@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Ensure values are ordered consistently in your CSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-reduce-initial@5.1.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-reduce-initial@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Reduce initial definitions to the actual initial value, where possible.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-reduce-transforms@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-reduce-transforms@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Reduce transform functions with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3178,11 +3198,11 @@
     - licenses: MIT
     - description: > Selector parser with built in methods for working with selector strings.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-svgo@5.1.0](https://github.com/cssnano/cssnano)**
+ - **[postcss-svgo@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Optimise inline SVG with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-unique-selectors@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-unique-selectors@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Ensure CSS selectors are unique.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3402,7 +3422,7 @@
     - licenses: MIT
     - description: Sass loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[sass@1.61.0](https://github.com/sass/dart-sass)**
+ - **[sass@1.62.0](https://github.com/sass/dart-sass)**
     - licenses: MIT
     - description: A pure JavaScript implementation of Sass.
     - copyright: Copyright (c) 2016, Google Inc.*
@@ -3606,10 +3626,6 @@
     - licenses: MIT
     - description: A library for finding and using SSH public keys
     - copyright: Copyright Joyent, Inc. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[stable@0.1.8](https://github.com/Two-Screen/stable)**
-    - licenses: MIT
-    - description: A stable array sort for JavaScript
-    - copyright: Copyright (C) 2018 Angry Bytes and contributors.
  - **[statuses@1.5.0](https://github.com/jshttp/statuses)**
     - licenses: MIT
     - description: HTTP status utility
@@ -3654,7 +3670,7 @@
     - licenses: MIT
     - description: style loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[stylehacks@5.1.1](https://github.com/cssnano/cssnano)**
+ - **[stylehacks@6.0.0](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Detect/remove browser hacks from CSS files.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3674,7 +3690,7 @@
     - licenses: MIT
     - description: Determine if the current node version supports the `--preserve-symlinks` flag.
     - copyright: Copyright (c) 2022 Inspect JS
- - **[svgo@2.8.0](https://github.com/svg/svgo)**
+ - **[svgo@3.0.2](https://github.com/svg/svgo)**
     - licenses: MIT
     - description: Nodejs-based tool for optimizing SVG vector graphics files
     - copyright: Copyright (c) Kir Belevich
@@ -3954,7 +3970,7 @@
     - licenses: MIT
     - description: Source code handling classes for webpack
     - copyright: Copyright (c) 2017 JS Foundation and other contributors
- - **[webpack@5.78.0](https://github.com/webpack/webpack)**
+ - **[webpack@5.79.0](https://github.com/webpack/webpack)**
     - licenses: MIT
     - description: Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
     - copyright: Copyright JS Foundation and other contributors
@@ -4062,10 +4078,6 @@
     - licenses: ISC
     - description: Yet Another Linked List
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[yaml@1.10.2](https://github.com/eemeli/yaml)**
-    - licenses: ISC
-    - description: JavaScript parser and stringifier for YAML
-    - copyright: Copyright 2018 Eemeli Aro <eemeli@gmail.com>
  - **[yauzl@2.10.0](https://github.com/thejoshwolfe/yauzl)**
     - licenses: MIT
     - description: yet another unzip library for node
