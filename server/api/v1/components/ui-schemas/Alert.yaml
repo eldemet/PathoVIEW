@@ -12,10 +12,11 @@ required:
   - location
 model:searchProperties:
   - name
-  - alternateName
   - description
+model:defaultProperty: name
+ui:filters:
   - source
-model:defaultProperty: dateIssued
+  - severity
 properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
@@ -36,11 +37,6 @@ properties:
   name:
     type: string
     ui:formItemGridClass: 'col-md-6'
-  alternateName:
-    type: string
-    ui:formItemGridClass: 'col-md-6'
-    ui:hide:
-      table: true
   description:
     type: string
     ui:formItemType: textarea
@@ -123,12 +119,17 @@ properties:
     ui:i18nPathPrefix: enum.alert.severity
   owner:
     $ref: './../$defs.yaml#/owner'
-  seeAlso:
-    $ref: './../$defs.yaml#/seeAlso'
   source:
     type: string
     readOnly: true
     const: PathoVIEW
+    enum:
+      - PathoTWEET
+      - PathoCAM
+      - PathoVIEW
+      - PathoSAT
+    ui:hide:
+      form: true
   alertSource:
     $ref: './../$defs.yaml#/NGSIentityFormat'
     ui:dependence:
@@ -137,22 +138,13 @@ properties:
     ui:hide:
       table: true
       form: true
-  data:
-    type: object
-    description: 'Payload containing the data retrieved.'
-    ui:hide:
-      table: true
-    properties:
-      image:
-        type: string
-        ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-image'
+  location:
+    $ref: './../$defs.yaml#/Location'
   dateIssued:
     type: string
-    description: 'The date and time the item was issued in ISO8601 UTC format.'
     format: date-time
   dateCreated:
     type: string
-    description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'
     format: date-time
     db:skipInSchemaDefinition: true
     ui:hide:
@@ -160,7 +152,6 @@ properties:
       table: true
   dateModified:
     type: string
-    description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'
     format: date-time
     db:skipInSchemaDefinition: true
     ui:hide:
@@ -168,24 +159,21 @@ properties:
       table: true
   validFrom:
     type: string
-    description: 'The start of the validity period for this forecast as a ISO8601 format'
     format: date-time
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true
   validTo:
     type: string
-    description: 'The end of the validity period for this forecast as a ISO8601 format'
     format: date-time
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true
-  address:
-    $ref: './../$defs.yaml#/Address'
-  areaServed:
-    type: string
-    description: 'The geographic area where a service or offered item is provided'
+  data:
+    type: object
     ui:hide:
       table: true
-  location:
-    $ref: './../$defs.yaml#/Location'
+    properties:
+      image:
+        type: string
+        ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-image'
