@@ -40,7 +40,14 @@ class ModelServiceAlert extends ModelService {
         }
         let adaptedQuery = Object.assign({}, query);
         if (adaptedQuery.filter) {
-            delete adaptedQuery.filter.alertSource;
+            if (Array.isArray(adaptedQuery.filter.$and)) {
+                adaptedQuery.filter.$and = adaptedQuery.filter.$and.filter(o => !o.alertSource);
+                if (adaptedQuery.filter.$and.length === 0) {
+                    delete adaptedQuery.filter.$and;
+                }
+            } else {
+                delete adaptedQuery.filter.alertSource;
+            }
         }
         return await super.getObjects(adaptedQuery, searchProperties);
     }

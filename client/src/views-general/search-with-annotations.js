@@ -1,7 +1,7 @@
 import {BindingEngine, inject, useView} from 'aurelia-framework';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {SearchContextAware} from './search-context-aware';
-import {PLATFORM} from "aurelia-pal";
+import {PLATFORM} from 'aurelia-pal';
 
 /**
  * @extends SearchContextAware

@@ -1,6 +1,6 @@
 import {useView} from 'aurelia-framework';
 import {Search} from 'library-aurelia/src/views-general/search';
-import {PLATFORM} from "aurelia-pal";
+import {PLATFORM} from 'aurelia-pal';
 
 /**
  * @extends Search
