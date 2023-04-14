@@ -34,6 +34,7 @@ properties:
     ui:hide:
       form: true
       table: true
+      info: true
   name:
     type: string
     ui:formItemGridClass: 'col-md-6'
@@ -138,6 +139,7 @@ properties:
     ui:hide:
       table: true
       form: true
+      info: true
   location:
     $ref: './../$defs.yaml#/Location'
   dateIssued:
