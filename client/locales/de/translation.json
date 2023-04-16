@@ -226,8 +226,8 @@
                 "environment": "Umgebung",
                 "health": "Personnen",
                 "security": "Sicherheit",
-                "traffic": "Verkehr",
-                "agriculture": "Landwirtschaft"
+                "traffic": "Personen",
+                "agriculture": "Infrastruktur"
             },
             "severity": {
                 "informational": "informativ",
