@@ -224,10 +224,10 @@
                 "naturalDisaster": "natural disaster",
                 "weather": "weather",
                 "environment": "environment",
-                "health": "health",
+                "health": "people",
                 "security": "security",
                 "traffic": "traffic",
-                "agriculture": "agriculture"
+                "agriculture": "infrastructure"
             },
             "severity": {
                 "informational": "informational",
@@ -258,15 +258,13 @@
                 "assault": "assault",
                 "buildingFire": "building fire",
                 "forestFire": "forest fire",
-                "bacteria": "bacteria",
-                "microbe": "microbe",
-                "fungus": "fungus",
-                "mite": "mite",
-                "virus": "virus",
-                "nematodes": "nematodes",
-                "irrigation": "irrigation",
-                "fertilisation": "fertilisation",
-                "trafficJam": "traffic jam"
+                "bacteria": "building collapse",
+                "microbe": "building damage",
+                "fungus": "pipe burst - drinking water",
+                "mite": "pipe burst - waste water",
+                "trafficJam": "traffic jam",
+                "fallenPatient": "people trapped",
+                "bumpedPatient": "people missing"
             }
         },
         "mission": {

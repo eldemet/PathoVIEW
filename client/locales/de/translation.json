@@ -224,7 +224,7 @@
                 "naturalDisaster": "Naturkatastrophe",
                 "weather": "Wetter",
                 "environment": "Umgebung",
-                "health": "Gesundheit",
+                "health": "Personnen",
                 "security": "Sicherheit",
                 "traffic": "Verkehr",
                 "agriculture": "Landwirtschaft"
@@ -262,11 +262,9 @@
                 "microbe": "Mikrobe",
                 "fungus": "Pilz",
                 "mite": "Milbe",
-                "virus": "Virus",
-                "nematodes": "Fadenwurm",
-                "irrigation": "Bewässerung",
-                "fertilisation": "Düngung",
-                "trafficJam": "Verkehrsstau"
+                "trafficJam": "Verkehrsstau",
+                "fallenPatient": "personen eingeschlossen",
+                "bumpedPatient": "personen vermisst"
             }
         },
         "mission": {

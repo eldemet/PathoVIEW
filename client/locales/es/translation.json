@@ -248,7 +248,7 @@
                 "naturalDisaster": "desastre natural",
                 "weather": "clima",
                 "environment": "medioambiente",
-                "health": "salud",
+                "health": "personas",
                 "security": "seguridad",
                 "traffic": "tráfico",
                 "agriculture": "agricultura"
@@ -282,15 +282,13 @@
                 "assault": "agresión",
                 "buildingFire": "edificio de fuego",
                 "forestFire": "incendio forestal",
-                "bacteria": "bacterias",
-                "microbe": "microbio",
-                "fungus": "hongo",
-                "mite": "Pizca",
-                "virus": "virus",
-                "nematodes": "nematodos",
-                "irrigation": "irrigación",
-                "fertilisation": "fertilización",
-                "trafficJam": "embotellamiento"
+                "bacteria": "colapso en edificios",
+                "microbe": "daños en edificios",
+                "fungus": "rotura de tuberías - agua potable",
+                "mite": "rotura de tuberías - agua residual",
+                "trafficJam": "embotellamiento",
+                "fallenPatient": "personas atrapadas",
+                "bumpedPatient": " Personas desaparecidas"                
             }
         },
         "mission": {
