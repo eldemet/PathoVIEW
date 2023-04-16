@@ -50,6 +50,7 @@ properties:
       - environment
       - security
       - agriculture
+      - health
     ui:formItemType: select
     ui:formItemGridClass: 'col-md-6'
     ui:i18n: true
@@ -95,10 +96,12 @@ properties:
           - microbe
           - fungus
           - mite
-          - virus
-          - nematodes
-          - irrigation
-          - fertilisation
+      - property: category
+        conditionSchema:
+          const: health
+        enum:
+          - fallenPatient
+          - bumpedPatient
     ui:formItemType: select
     ui:formItemGridClass: 'col-md-6'
     ui:i18n: true
