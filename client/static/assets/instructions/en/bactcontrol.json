@@ -1,7 +1,7 @@
 {
     "name": "BactControl",
     "image": "./assets/instructions/instructions-bactcontrol.png",
-    "description": "The BACTcontrol is an on-line automated instrument for the detection of microbiological activity in water.",
+    "description": "BACTcontrol is an automated on-line early-warning system for detection of microbiological activity. A measurement takes approximately 32 minutes.",
     "pathogens": [
         "β-galactosidase (coliforms)",
         "β-glucoronidase (E.coli)",
@@ -12,22 +12,40 @@
     "instructions": [
         {
             "type": "commissioning",
-            "name": "Running the device",
+            "name": "Device Setup Information",
             "items": [
                 {
-                    "section": "Preparing the device",
-                    "description": "To prepare the device three tubes need to be connected to the device. As shown in the Figure at least three tubes must connect to the device.",
-                    "image": "./assets/instructions/instructions-bactcontrol-connections.jpg",
+                    "section": "Visual Check",
+                    "description": "An overview of the external ports and connections",
+                    "image": "./assets/instructions/bactcontrol/visual-check/bactcontrol-ports-sockets.png",
                     "steps": [
-                        "Inlet (Sample): The sample should connect to this plug. The prismatic pump will suck the sample water from this connection to fill the chamber and for rinsing the old sample.",
-                        "Cleaning: The cleaning solution must be connected to this plug. This connection is connected to the bottle of cleaning solution. A small amount of this liquid (200-300 µl) is used during the cleaning step.",
-                        "Outlet: The vent water of the device discharge from this plug.",
-                        "Second inlet: If the device is set to use a second inlet, you can connect the water here. The functionality of this input is the same as the main inlet. Note: By default, the second inlet is not used and is optional."
+                        "1 - Cleaning solution: A chemical cleaning solution to clean the device in-between measurements.",
+                        "2 - Sample inlet: The inlet for the sample that the BACTcontrol is going to measure.", 
+                        "3 - Waste outlet: Where the BACTcontrol expells the sample, reagent, buffer and cleaning after it's been used.",
+                        "4 - USB Port: For transferring data from and to the BACTcontrol. This is used when exporting data, or for updating the device if it doesn't have an internet connection. Note - The Ayyeka wavelet also uses this USB port.",
+                        "5 - Ethernet port: For connecting the BACTcontrol to the internet.",
+                        "6 - Power connection: For plugging the power cable into when installing the BACTcontrol. Power switch is located next to it."
+                    ]
+                },
+                {
+                    "section": "Preparing Device",
+                    "description": "The following tubes and cables need to be connected before running the device. Note: Push the fluid tube into socket as far as possible. To test pull on tube (It should stay fixed)",
+                    "image": "./assets/instructions/bactcontrol/visual-check/inserting-tubes.png",
+                    "steps": [
+                        "Push tubes into -",
+                        "a. Inlet (Sample)",
+                        "b. Outlet",
+                        "c. Cleaning (optional)",
+                        "Insert other tube end into -",
+                        "a. Inlet - Water sample to be tested",
+                        "b. Outlet - Collect waste after testing",
+                        "Connect power cable",
+                        "Connect Ethernet cable"
                     ]
                 },
                 {
                     "section": "Software: status",
-                    "description": "In this tab, The measured values are shown.",
+                    "description": "This tab displays the measured values.",
                     "image": "./assets/instructions/instructions-bactcontrol-software-status.png",
                     "steps": [
                         "The first column shows the name of each parameter. The second column shows the value and the third one show the unit.",
@@ -35,14 +53,6 @@
                         "FluresenceIncreaseAlarm: If the increase in Fluorescence before incubation does not sufficient this alarm indicator turns to read. The default value can be changed in the script.",
                         "BubbleAlarm: If the Bubble sensor senses any bubble in the inlet of the device, this alarm arises.",
                         "NOTE: The device will be stopped after this alarm arises four times. The default value can be changed in the script."
-                    ]
-                },
-                {
-                    "section": "Software: settings",
-                    "description": "In this section, you can find the setting of the software. It is not recommended to change this part of the software. All registers and parameters can be changed here.",
-                    "image": "./assets/instructions/instructions-bactcontrol-software-settings.png",
-                    "steps": [
-                        "NOTE: This part is under development."
                     ]
                 },
                 {
@@ -75,43 +85,76 @@
         },
         {
             "type": "sampling",
-            "name": "Quick run",
+            "name": "Quick Run",
             "items": [
                 {
-                    "section": "Start program",
+                    "section": "Start Program",
                     "description": "For running the program, Double click on the icon of “BC3.0” on the top left side of the desktop.",
-                    "image": "./assets/instructions/instructions-bactcontrol-windows-desktop.png"
+                    "image": "./assets/instructions/bactcontrol/running-device/1.png"
                 },
                 {
-                    "section": "Start sampling",
-                    "description": "When the below screen appeared the device is ready to start.",
-                    "image": "./assets/instructions/instructions-bactcontrol-software-program.png",
+                    "section": "Main Screen",
+                    "description": "The main screen on starting the BACTcontrol program",
+                    "image": "./assets/instructions/bactcontrol/running-device/2.png",
                     "steps": [
-                        "By pressing the “Start” button in the middle of the page the device will start to work and take the sample."
+                        "The shows the current status and access to all the features of the BACTcontrol software."
+                    ]
+                },                
+                {
+                    "section": "Measurement Remark",
+                    "description": "Log remarks related to the current test.",
+                    "image": "./assets/instructions/bactcontrol/running-device/3.png",
+                    "steps": [
+                        "Click on measurement remark to enter identification information for the currest sample test."
                     ]
                 },
                 {
-                    "section": "Stop program",
-                    "description": "The device worked continuously. The device can be stopped or Aborted. As shown in the figure, on the left downside of the window, the current status of the device is shown. The device can be stopped or immediately aborted by selecting “Stop” or “Abort” from this dropdown list respectively.",
-                    "image": "./assets/instructions/instructions-bactcontrol-software-device.png"
-                }
-            ]
-        },
-        {
-            "type": "commissioning",
-            "name": "Commissioning",
-            "items": [
-                {
-                    "section": "Introduction",
-                    "description": "Installation of the BACTcontrol system is performed by engineers of microLAN or qualified engineers of the local distributor. The procedures in this section should only carried out by authorized engineers."
+                    "section": "Measurement Remark",
+                    "description": "Log remarks related to the current test.",
+                    "image": "./assets/instructions/bactcontrol/running-device/4.png",
+                    "steps": [
+                        "Access the onscreen touch keyboard to type into the text box."
+                    ]
                 },
                 {
-                    "section": "Connection Of the Water Sample Inlet, Outlet & Waste",
+                    "section": "Starting Measurement",
+                    "description": "Start the test procedure",
+                    "image": "./assets/instructions/bactcontrol/running-device/5.png",
                     "steps": [
-                        "The waste can be separately connected to a container",
-                        "Make sure the tubing is pushed completely into the connectors!"
+                        "After entering the remark, click on the Start button."
                     ]
-                }
+                },
+                {
+                    "section": "Starting Measurement",
+                    "description": "The testing procedure takes about 32 minutes. At the end of every cycle, a new test will start again for another measurement automatically.",
+                    "image": "./assets/instructions/bactcontrol/running-device/6.png",
+                    "steps": [
+                        "The results can be accessed by clicking on the highlighted button."
+                    ]
+                },
+                {
+                    "section": "Viewing Results",
+                    "description": "The final value of each measurement cycle will be shown here. The date and time of the measurements and the activity and detection limit for each measurement is logged here and the history of the measurements is shown in tabular data.",
+                    "image": "./assets/instructions/bactcontrol/running-device/7.png",
+                    "steps": [
+                        "Newer: Cycle forward in test history",
+                        "Older: Cycle backward in test history",
+                        "newest: Jump to latest test measurements"
+                    ]
+                },
+                {
+                    "section": "Actions",
+                    "description": "Pressing the Actions buttons displays a popup for aborting or cancelling apart from starting a new test.",
+                    "image": "./assets/instructions/bactcontrol/running-device/8.png",
+                    "steps": [
+                        "Start: will start a normal test but skips other preparation procedures.",
+                        "Stop: will finish the current test according to the normal procedures.",
+                        "Abort: will immediately stop with the current test, no data or results are saved.",
+                        "Close: no tests will be stopped nor aborted. The BACTcontrol will finish the current test and start over.",
+                        "Exit: will immediately abort, and then close the software"
+                    ]
+                }                
+
             ]
         },
         {
