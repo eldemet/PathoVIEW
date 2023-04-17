@@ -1,6 +1,6 @@
-import _ from 'lodash';
 import {v1 as uuid} from 'uuid';
 import Logger from 'utilities-node/src/utilities/logger.js';
+import {alertUtilities} from '../../../../../../utilities/pathoware.js';
 
 export default function(config, getApiDoc) {
 
@@ -59,11 +59,13 @@ export default function(config, getApiDoc) {
             if (!fetchResult.ok) {
                 res.status(fetchResult.status).send({error: fetchResult.statusText});
             } else {
-                let result = await fetchResult.json();
-                for (let alert of result) {
-                    alert.id = alert.entityId;
+                let uncleanedAlerts = await fetchResult.json();
+                let cleanedAlerts = [];
+                for (let alert of uncleanedAlerts) {
+                    let cleanedAlert = alertUtilities.cleanAlert(alert);
+                    cleanedAlerts.push(cleanedAlert);
                 }
-                res.validateAndSend(200, result);
+                res.validateAndSend(200, cleanedAlerts);
             }
         }
     }
@@ -126,7 +128,7 @@ export default function(config, getApiDoc) {
                 res.status(fetchResult.status).send({error: fetchResult.statusText});
             } else {
                 let result = await fetchResult.json();
-                result = _.omitBy(result, _.isNil);
+                result = alertUtilities.cleanAlert(result);
                 res.validateAndSend(200, result);
             }
         }

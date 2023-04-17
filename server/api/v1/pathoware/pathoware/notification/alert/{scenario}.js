@@ -1,5 +1,5 @@
 import Logger from 'utilities-node/src/utilities/logger.js';
-import mapValues from 'lodash/mapValues.js';
+import {alertUtilities} from '../../../../../../utilities/pathoware.js';
 
 export default function(notificationService, getApiDoc) {
 
@@ -15,7 +15,7 @@ export default function(notificationService, getApiDoc) {
         let result;
         let senderId = req.body.subscriptionId;
         for (let alert of req.body.data) {
-            let harmonizedAlert = mapValues(alert, 'value');
+            let harmonizedAlert = alertUtilities.harmonizeAlert(alert);
             result = notificationService.publishNotification({content: harmonizedAlert, senderId: senderId, topic: 'model', contentType: 'alert', operationType: 'create'});
         }
         res.send(result);
