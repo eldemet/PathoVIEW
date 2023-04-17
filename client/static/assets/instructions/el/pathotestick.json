@@ -9,8 +9,8 @@
         "είδη πρωτόζωων"
     ],
     "detectionLimits": [
-        "106 CFU/mL",
-        "105 CFU/mL, για E. coli και Pseudomonas aeruginosa, αντίστοιχα"
+        "10^6 CFU/mL",
+        "10^5 CFU/mL, για E. coli και Pseudomonas aeruginosa, αντίστοιχα"
     ],
     "instructions": [
         {

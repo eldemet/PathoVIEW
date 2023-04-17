@@ -9,8 +9,8 @@
         "protozoa species"
     ],
     "detectionLimits": [
-        "106 CFU/mL",
-        "105 CFU/mL, for E. coli and Pseudomonas aeruginosa, respectively"
+        "10^6 CFU/mL",
+        "10^5 CFU/mL, for E. coli and Pseudomonas aeruginosa, respectively"
     ],
     "instructions": [
         {

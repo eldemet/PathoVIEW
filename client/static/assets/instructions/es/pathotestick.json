@@ -1,7 +1,7 @@
 {
     "name": "PatoTeSTICK",
     "image": "./assets/instructions/instructions-pathotestick.png",
-    "description": "El PathoTeSTICK fue diseñado para proteger a los primeros en responder, ya que es un dispositivo portátil que se puede usar cuando se acerca a un sitio posiblemente contaminado por primera vez.",
+    "description": "El PathoTeSTICK fue diseñado para proteger a los personal de primera intervención, ya que es un dispositivo portátil que se puede usar cuando se acerca a un sitio posiblemente contaminado por primera vez.",
     "pathogens": [
         "E. coli",
         "Pseudomonas aeruginosa",
@@ -9,8 +9,8 @@
         "especies de protozoos"
     ],
     "detectionLimits": [
-        "106 UFC/mL",
-        "105 UFC/mL, para E. coli y Pseudomonas aeruginosa, respectivamente"
+        "10^6 UFC/mL",
+        "10^5 UFC/mL, para E. coli y Pseudomonas aeruginosa, respectivamente"
     ],
     "instructions": [
         {

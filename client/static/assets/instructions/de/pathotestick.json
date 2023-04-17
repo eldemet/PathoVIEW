@@ -9,8 +9,8 @@
         "Protozoen-Arten"
     ],
     "detectionLimits": [
-        "106 KBE/ml",
-        "105 CFU/mL, für E. coli bzw. Pseudomonas aeruginosa"
+        "10^6 KBE/ml",
+        "10^5 CFU/mL, für E. coli bzw. Pseudomonas aeruginosa"
     ],
     "instructions": [
         {
