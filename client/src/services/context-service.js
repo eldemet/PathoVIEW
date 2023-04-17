@@ -23,6 +23,8 @@ class ContextService extends BasicService {
         this.initializeResolve = resolve;
     });
 
+    closedContextAwareAlerts = [];
+
     /**
      * @param {Proxy} proxy
      * @param {HttpService} httpService
@@ -46,12 +48,16 @@ class ContextService extends BasicService {
         await this.update();
         this.interval = setInterval(async() => await this.update(), timeout);
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
+        this.subscriptions.push(this.eventAggregator.subscribe('alert-closed', alert => {
+            this.closedContextAwareAlerts.push(alert.id);
+        }));
         this.initializeResolve();
     }
 
     async close() {
         clearInterval(this.interval);
         document.removeEventListener('visibilitychange', this.visibilityChangeEventListener);
+        this.disposeSubscriptions();
     }
 
     async update() {
@@ -201,39 +207,41 @@ class ContextService extends BasicService {
             let from = point(location.coordinates);
             for (let alert of this.alerts) {
                 try {
-                    let distanceResult = locationUtilities.distancePointToGeoJSON({from, to: alert.location});
-                    let type;
-                    let message;
-                    let dismissible = true;
-                    let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
-                    if (distanceResult < 0.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
-                        if (distanceResult > 0.05) {
-                            type = 'warning';
-                            message = 'alerts.alertLocationClose';
+                    if (!this.closedContextAwareAlerts.includes(alert.id)) {
+                        let distanceResult = locationUtilities.distancePointToGeoJSON({from, to: alert.location});
+                        let type;
+                        let message;
+                        let dismissible = true;
+                        let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
+                        if (distanceResult < 0.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
+                            if (distanceResult > 0.05) {
+                                type = 'warning';
+                                message = 'alerts.alertLocationClose';
+                            } else {
+                                type = 'danger';
+                                message = distanceResult <= 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
+                            }
+                            const payload = {
+                                id: alert.id,
+                                type: type,
+                                message: this.i18n.tr(message),
+                                link: {
+                                    name: alert.name || alert.description,
+                                    href: '#/alert/search/detail/' + alert.id
+                                },
+                                properties: Object.assign(properties, {
+                                    subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
+                                    severity: this.i18n.tr('enum.alert.severity.' + alert.severity.toLowerCase())
+                                }),
+                                image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
+                                dismissible: dismissible
+                            };
+                            this.eventAggregator.publish('context-aware-alert', payload);
+                            this.eventAggregator.publish('app-alert', payload);
+
                         } else {
-                            type = 'danger';
-                            message = distanceResult <= 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
-                            dismissible = false;
+                            this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
                         }
-                        const payload = {
-                            id: alert.id,
-                            type: type,
-                            message: this.i18n.tr(message),
-                            link: {
-                                name: alert.name || alert.description,
-                                href: '#/alert/search/detail/' + alert.id
-                            },
-                            properties: Object.assign(properties, {
-                                subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),
-                                severity: this.i18n.tr('enum.alert.severity.' + alert.severity.toLowerCase())
-                            }),
-                            image: `./assets/iso7010/ISO_7010_W${alertUtilities.getISO7010WarningIcon(alert.category, alert.subCategory)}.svg`,
-                            dismissible: dismissible
-                        };
-                        this.eventAggregator.publish('context-aware-alert', payload);
-                        this.eventAggregator.publish('app-alert', payload);
-                    } else {
-                        this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
                     }
                 } catch (error) {
                     this.logger.debug(error.message);
