@@ -17,10 +17,10 @@
                 {
                     "section": "Visual Check",
                     "description": "An overview of the external ports and connections",
-                    "image": "./assets/instructions/bactcontrol/visual-check/bactcontrol-ports-sockets.png",
+                    "image": "./assets/instructions/bactcontrol/preparing-device/bactcontrol-ports-sockets.png",
                     "steps": [
                         "1 - Cleaning solution: A chemical cleaning solution to clean the device in-between measurements.",
-                        "2 - Sample inlet: The inlet for the sample that the BACTcontrol is going to measure.", 
+                        "2 - Sample inlet: The inlet for the sample that the BACTcontrol is going to measure.",
                         "3 - Waste outlet: Where the BACTcontrol expells the sample, reagent, buffer and cleaning after it's been used.",
                         "4 - USB Port: For transferring data from and to the BACTcontrol. This is used when exporting data, or for updating the device if it doesn't have an internet connection. Note - The Ayyeka wavelet also uses this USB port.",
                         "5 - Ethernet port: For connecting the BACTcontrol to the internet.",
@@ -30,7 +30,7 @@
                 {
                     "section": "Preparing Device",
                     "description": "The following tubes and cables need to be connected before running the device. Note: Push the fluid tube into socket as far as possible. To test pull on tube (It should stay fixed)",
-                    "image": "./assets/instructions/bactcontrol/visual-check/inserting-tubes.png",
+                    "image": "./assets/instructions/bactcontrol/preparing-device/inserting-tubes.png",
                     "steps": [
                         "Push tubes into -",
                         "a. Inlet (Sample)",
@@ -99,7 +99,7 @@
                     "steps": [
                         "The shows the current status and access to all the features of the BACTcontrol software."
                     ]
-                },                
+                },
                 {
                     "section": "Measurement Remark",
                     "description": "Log remarks related to the current test.",
@@ -153,7 +153,7 @@
                         "Close: no tests will be stopped nor aborted. The BACTcontrol will finish the current test and start over.",
                         "Exit: will immediately abort, and then close the software"
                     ]
-                }                
+                }
 
             ]
         },
