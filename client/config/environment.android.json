@@ -6,7 +6,7 @@
         "realm": "pathocert",
         "url": "https://idm.digital-enabler.eng.it/auth/",
         "clientId": "pathoview",
-        "useUserLocale": true
+        "useUserLocale": false
     },
     "usePathoware": true
 }

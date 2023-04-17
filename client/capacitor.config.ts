@@ -12,7 +12,7 @@ const config: CapacitorConfig = {
             sound: "beep.wav"
         },
         CapacitorCookies: {
-            enabled: true
+            enabled: false
         }
     },
     android: {
