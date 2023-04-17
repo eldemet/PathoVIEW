@@ -206,10 +206,8 @@ class ContextService extends BasicService {
                     let message;
                     let dismissible = true;
                     let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
-                    //TODO adapt distance values
-                    //TODO only trigger one alert at once?
-                    if (distanceResult < 1.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
-                        if (distanceResult > 0.75) {
+                    if (distanceResult < 0.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
+                        if (distanceResult > 0.05) {
                             type = 'warning';
                             message = 'alerts.alertLocationClose';
                         } else {
