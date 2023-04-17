@@ -262,6 +262,10 @@
                 "microbe": "building damage",
                 "fungus": "pipe burst - drinking water",
                 "mite": "pipe burst - waste water",
+                "virus": "Virus",
+                "nematodes": "Nematodes",
+                "irrigation": "Irrigation",
+                "fertilisation": "Fertilisation",             
                 "trafficJam": "traffic jam",
                 "fallenPatient": "people trapped",
                 "bumpedPatient": "people missing"

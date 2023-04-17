@@ -258,15 +258,17 @@
                 "assault": "προσβολή",
                 "buildingFire": "πυρκαγιά κτιρίου",
                 "forestFire": "φωτιά δάσους",
-                "bacteria": "βακτήρια",
-                "microbe": "μικρόβιο",
-                "fungus": "μύκητας",
-                "mite": "οβολός",
+                "bacteria": "κατάρρευση κτιρίου",
+                "microbe": "ζημιές στο κτίριο",
+                "fungus": "θραύση σωλήνα - πόσιμο νερό",
+                "mite": "θραύση σωλήνα - λύματα",
                 "virus": "ιός",
                 "nematodes": "νηματώδεις",
                 "irrigation": "άρδευση",
                 "fertilisation": "γονιμοποίηση",
-                "trafficJam": "μποτιλιάρισμα"
+                "trafficJam": "μποτιλιάρισμα",
+                "fallenPatient": "άνθρωποι παγιδευμένοι",
+                "bumpedPatient": "άνθρωποι που αγνοούνται"
             }
         },
         "mission": {

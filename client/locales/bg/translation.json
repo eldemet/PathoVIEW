@@ -258,15 +258,17 @@
                 "assault": "нападение",
                 "buildingFire": "пожар в сградата",
                 "forestFire": "горски пожари",
-                "bacteria": "бактерии",
-                "microbe": "микроб",
-                "fungus": "гъбички",
-                "mite": "акар",
+                "bacteria": "срутване на сграда",
+                "microbe": "щети по сградата",
+                "fungus": "спукване на тръба - питейна вода",
+                "mite": "спукване на тръба - отпадъчни води",
                 "virus": "вирус",
                 "nematodes": "нематоди",
                 "irrigation": "напояване",
                 "fertilisation": "Оплождане",
-                "trafficJam": "задръстване"
+                "trafficJam": "задръстване",
+                "fallenPatient": "хора в капан",
+                "bumpedPatient": "липсващи хора"
             }
         },
         "mission": {

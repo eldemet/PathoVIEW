@@ -262,6 +262,10 @@
                 "microbe": "Mikrobe",
                 "fungus": "Pilz",
                 "mite": "Milbe",
+                "virus": "Virus",
+                "nematodes": "Nematodes",
+                "irrigation": "Irrigation",
+                "fertilisation": "Fertilisation", 
                 "trafficJam": "Verkehrsstau",
                 "fallenPatient": "personen eingeschlossen",
                 "bumpedPatient": "personen vermisst"

@@ -286,6 +286,10 @@
                 "microbe": "daños en edificios",
                 "fungus": "rotura de tuberías - agua potable",
                 "mite": "rotura de tuberías - agua residual",
+                "virus": "Virus",
+                "nematodes": "Nematodes",
+                "irrigation": "Irrigation",
+                "fertilisation": "Fertilisation", 
                 "trafficJam": "embotellamiento",
                 "fallenPatient": "personas atrapadas",
                 "bumpedPatient": " Personas desaparecidas"                
