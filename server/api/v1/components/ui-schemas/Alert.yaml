@@ -173,11 +173,3 @@ properties:
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true
-  data:
-    type: object
-    ui:hide:
-      table: true
-    properties:
-      image:
-        type: string
-        ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-image'
