@@ -22,6 +22,7 @@ class MapView extends BasicView {
         super.attached();
         await this.contextService.initialized;
         this.users = await this.proxy.get('auth').getUsers();
+        this.userId = this.proxy.get('auth').getUserId();
         let overlay = [];
         if (this.contextService.alerts) {
             this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
@@ -94,7 +95,7 @@ class MapView extends BasicView {
                 return {
                     id: object.id,
                     type: 'geoJSON',
-                    divIconContent: `<i class="bi-${modelUtilities.getIconByType(type)} bg-white" />`,
+                    divIconContent: `<i class="bi-${modelUtilities.getIconByType(type)} bg-white ${Array.isArray(object.owner) && object.owner.includes(this.userId) ? 'text-primary h5' : 'h6'}" />`,
                     data: object.location,
                     options: utilities.getOptions?.(),
                     popupContent: popupContent
