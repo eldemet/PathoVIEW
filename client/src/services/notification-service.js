@@ -25,6 +25,8 @@ const NotificationType = {
  */
 class NotificationService extends BasicService {
 
+    initializeState = 'disconnected';
+
     NotificationSchema = {
         type: 'object',
         required: [
@@ -95,18 +97,21 @@ class NotificationService extends BasicService {
                     type: NotificationType.Success
                 }
             );
+            this.initializeState = 'connected';
         };
         this.notificationListener.onerror = () => {
-            this.removeNotificationListener();
-            this.eventAggregator.publish('toast',
-                {
-                    biIcon: 'bell-slash',
-                    title: 'alerts.notificationService.name',
-                    dismissible: true,
-                    body: 'alerts.notificationService.connectionClosed',
-                    type: NotificationType.Error
-                }
-            );
+            if (this.initializeState === 'connected') {
+                this.eventAggregator.publish('toast',
+                    {
+                        biIcon: 'bell-slash',
+                        title: 'alerts.notificationService.name',
+                        dismissible: true,
+                        body: 'alerts.notificationService.connectionClosed',
+                        type: NotificationType.Error
+                    }
+                );
+                this.initializeState = 'disconnected';
+            }
         };
         this.notificationListener.onmessage = notification => {
             this.notificationCallback(notification);
