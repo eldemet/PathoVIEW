@@ -16,12 +16,12 @@
             "items": [
                 {
                     "section": "Comprobación visual",
-                    "description": "Una descripción general de los puertos externos y las conexiones",
+                    "description": "Descripción general de los puertos externos y las conexiones",
                     "image": "./assets/instructions/bactcontrol/preparing-device/bactcontrol-ports-sockets.png",
                     "steps": [
-                        "1 - Cleaning: una solución de limpieza química para limpiar el dispositivo entre mediciones.",
-                        "2 - Inlet (Sample): La entrada para la muestra que el BACTcontrol va a medir.",
-                        "3 - Outlet: Por donde el BACTcontrol expulsa la muestra, el reactivo, el tampón y la limpieza después de su uso.",
+                        "1 - Cleaning: Solución de limpieza química para limpiar el dispositivo entre mediciones.",
+                        "2 - Inlet (Sample): Entrada de la muestra.",
+                        "3 - Outlet: Salida del equipo del contiendo de la cámara de reacción de el BACTcontrol expulsa la  muestra, el reactivo, el tampón y la limpieza después de su uso.",
                         "4 - Puerto USB: Para transferir datos desde y hacia el BACTcontrol. ",
                         "5 - Puerto Ethernet: Para conectar el BACTcontrol a internet.",
                         "6 - Conexión de alimentación: Para enchufar el cable de alimentación al instalar el BACTcontrol. "
@@ -85,7 +85,7 @@
         },
         {
             "type": "sampling",
-            "name": "Carrera rapida",
+            "name": "Inicio Rapido",
             "items": [
                 {
                     "section": "programa de inicio",
@@ -97,7 +97,7 @@
                     "description": "La pantalla principal al iniciar el programa BACTcontrol",
                     "image": "./assets/instructions/bactcontrol/running-device/2.png",
                     "steps": [
-                        "El muestra el estado actual y el acceso a todas las funciones del software BACTcontrol."
+                        "Muestra el estado actual y el acceso a todas las funciones del software BACTcontrol."
                     ]
                 },
                 {
@@ -126,7 +126,7 @@
                 },
                 {
                     "section": "Medición inicial",
-                    "description": "El procedimiento de prueba dura unos 32 minutos. ",
+                    "description": "El procedimiento de prueba dura aproximadamente 32 minutos.",
                     "image": "./assets/instructions/bactcontrol/running-device/6.png",
                     "steps": [
                         "Se puede acceder a los resultados haciendo clic en el botón resaltado."
@@ -137,21 +137,21 @@
                     "description": "Aquí se mostrará el valor final de cada ciclo de medición. ",
                     "image": "./assets/instructions/bactcontrol/running-device/7.png",
                     "steps": [
-                        "Más reciente: ciclo hacia adelante en el historial de pruebas",
-                        "Más antiguo: ciclo hacia atrás en el historial de pruebas",
-                        "más reciente: Saltar a las últimas mediciones de prueba"
+                        "Newer: ciclo hacia adelante en el historial de pruebas",
+                        "Older: ciclo hacia atrás en el historial de pruebas",
+                        "Newest: Saltar a las últimas mediciones de prueba"
                     ]
                 },
                 {
                     "section": "Comportamiento",
-                    "description": "Al presionar los botones de Acciones se muestra una ventana emergente para abortar o cancelar además de comenzar una nueva prueba.",
+                    "description": "Al presionar el botón Acciones aparecerá una ventana emergente para abortar o cancelar además de comenzar una nueva prueba.",
                     "image": "./assets/instructions/bactcontrol/running-device/8.png",
                     "steps": [
-                        "Iniciar: iniciará una prueba normal pero omitirá otros procedimientos de preparación.",
-                        "Detener: terminará la prueba actual de acuerdo con los procedimientos normales.",
-                        "Abortar: se detendrá inmediatamente con la prueba actual, no se guardarán datos ni resultados.",
-                        "Cerrar: ninguna prueba se detendrá ni se abortará. ",
-                        "Salir: cancelará inmediatamente y luego cerrará el software"
+                        "Start: Iniciará una prueba normal pero omitirá otros procedimientos de preparación.",
+                        "Stop: Terminará la prueba actual de acuerdo con los procedimientos normales.",
+                        "Abort: Se detendrá inmediatamente con la prueba actual, no se guardarán datos ni resultados.",
+                        "Close: Ninguna prueba se detendrá ni se abortará. ",
+                        "Exit Application: Cancelará inmediatamente y luego cerrará el software."
                     ]
                 }
             ]
