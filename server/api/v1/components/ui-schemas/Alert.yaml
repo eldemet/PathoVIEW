@@ -24,6 +24,7 @@ properties:
     ui:hide:
       table: true
       form: true
+      info: true
   type:
     type: string
     description: 'NGSI Entity type. It has to be Alert.'

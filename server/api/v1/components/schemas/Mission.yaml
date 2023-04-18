@@ -23,11 +23,13 @@ properties:
     ui:hide:
       table: true
       form: true
+      info: true
   type:
     const: Mission
     ui:hide:
       form: true
       table: true
+      info: true
   name:
     type: string
     description: 'The name of this item.'
@@ -36,6 +38,8 @@ properties:
     type: string
     description: 'A description of this item'
     ui:formItemType: textarea
+    ui:hide:
+      table: true
   status:
     type: string
     description: 'The status of this item.'
@@ -58,6 +62,7 @@ properties:
     ui:hide:
       table: true
       form: true
+      info: true
   location:
     $ref: './../$defs.yaml#/Location'
   createdAt:
