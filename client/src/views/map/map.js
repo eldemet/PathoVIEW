@@ -1,6 +1,6 @@
 import {BindingEngine, inject} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {modelUtilities, emergencyEventUtilities, alertUtilities, deviceUtilities, missionUtilities, locationUtilities} from '../../utilities';
+import {modelUtilities, alertUtilities, deviceUtilities, missionUtilities, locationUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(BindingEngine, ContextService)
@@ -23,13 +23,6 @@ class MapView extends BasicView {
         await this.contextService.initialized;
         this.users = await this.proxy.get('auth').getUsers();
         let overlay = [];
-        if (this.contextService.currentEmergencyEvent) {
-            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'currentEmergencyEvent')
-                .subscribe(async(newValue, oldValue) => {
-                    this.updateLayerGroup('emergencyEvent', [this.contextService.currentEmergencyEvent], emergencyEventUtilities);
-                }));
-            overlay.push(this.getLayerGroup('emergencyEvent', [this.contextService.currentEmergencyEvent], emergencyEventUtilities));
-        }
         if (this.contextService.alerts) {
             this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
                 .subscribe(async(newValue, oldValue) => {
