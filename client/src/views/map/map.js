@@ -1,6 +1,6 @@
 import {BindingEngine, inject} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {modelUtilities, emergencyEventUtilities, alertUtilities, deviceUtilities, missionUtilities} from '../../utilities';
+import {modelUtilities, emergencyEventUtilities, alertUtilities, deviceUtilities, missionUtilities, locationUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 
 @inject(BindingEngine, ContextService)
@@ -60,6 +60,11 @@ class MapView extends BasicView {
             }
         } catch (error) {
             //silently handle error
+        }
+        try {
+            this.defaultCenter = locationUtilities.getCenter(this.contextService.currentEmergencyEvent.location);
+        } catch (error) {
+            //silently catch error
         }
         this.layers = {overlay};
     }

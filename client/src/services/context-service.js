@@ -189,7 +189,7 @@ class ContextService extends BasicService {
                 // @ts-ignore
                 this.logger.debug(newDeviceValues);
                 try {
-                    this.currentDevice = await this.proxy.get('device').updateObject(Object.assign({}, this.currentDevice, newDeviceValues), 2000);
+                    this.currentDevice = await this.proxy.get('device').updateObject(Object.assign({}, this.currentDevice, newDeviceValues, {dateModified: new Date().toISOString()}), 2000);
                 } catch (error) {
                     if (error.status !== 406) {
                         this.logger.error(error.message);

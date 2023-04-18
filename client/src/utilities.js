@@ -7,6 +7,20 @@ import polygonToLine from '@turf/polygon-to-line';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import {DateTime} from 'luxon';
 
+function formatDate(value, format = 'f', i18n) {
+    let result;
+    try {
+        let dt = typeof value === 'object' ? DateTime.fromJSDate(value) : DateTime.fromISO(value);
+        if (dt.invalid) {
+            throw new Error(dt.invalid);
+        }
+        result = dt.setLocale(i18n.getLocale()).toFormat(format);
+    } catch (error) {
+        result = i18n.tr('alerts.general.invalidDate');
+    }
+    return result;
+}
+
 export const modelUtilities = {
     getIconByType(type) {
         let icon;
@@ -46,7 +60,8 @@ export const deviceUtilities = {
     getCustomPopupContent(device, i18n) {
         return `<p>${device.location?.coordinates}</p>
                 <p>${device.batteryLevel * 100} %</p>
-                <p>${device.softwareVersion}</p>`;
+                <p>${device.softwareVersion}</p>
+                <p>${formatDate(device.dateModified, 'f', i18n)}</p>`;
     },
     async getBatteryLevel() {
         let batteryLevel = -1;
@@ -166,20 +181,7 @@ export const alertUtilities = {
         return `<p><i class="${alertUtilities.getSeverityIcon(alert.severity)}"></i> ${i18n.tr('enum.alert.severity.' + alert.severity.toLowerCase())}</p>
                 <p>${i18n.tr('enum.alert.category.' + alert.category)}, ${i18n.tr('enum.alert.subCategory.' + alert.subCategory)}</p>
                 <p>${alert.source}</p>
-                <p>${alertUtilities.formatDate(alert.dateIssued, 'f', i18n)}</p>`;
-    },
-    formatDate(value, format = 'f', i18n) {
-        let result;
-        try {
-            let dt = typeof value === 'object' ? DateTime.fromJSDate(value) : DateTime.fromISO(value);
-            if (dt.invalid) {
-                throw new Error(dt.invalid);
-            }
-            result = dt.setLocale(i18n.getLocale()).toFormat(format);
-        } catch (error) {
-            result = i18n.tr('alerts.general.invalidDate');
-        }
-        return result;
+                <p>${formatDate(alert.dateIssued, 'f', i18n)}</p>`;
     },
     getISO7010WarningIcon(category, subCategory) {
         let icon = '001';
