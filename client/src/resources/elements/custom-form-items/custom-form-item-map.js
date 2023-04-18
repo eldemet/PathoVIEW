@@ -1,21 +1,26 @@
 import {v1 as uuid} from 'uuid';
+import {inject} from 'aurelia-framework';
 import {BasicComposableAuFormItem} from 'library-aurelia/src/prototypes/basic-composable-au-form-item';
 import {locationUtilities} from '../../../utilities';
+import {ContextService} from '../../../services/context-service';
 
+@inject(ContextService)
 export class CustomFormItemMap extends BasicComposableAuFormItem {
 
     drawEnabled = true;
     layerEvents = ['pm:edit', 'pm:update', 'pm:remove', 'pm:rotate'];
 
     /**
+     * @param {ContextService} contextService
      * @param {ConstructorParameters<typeof BasicComposableAuFormItem>} rest
      */
-    constructor(...rest) {
+    constructor(contextService, ...rest) {
         super(...rest);
         this.uniqueId = uuid();
+        this.contextService = contextService;
     }
 
-    activate(model) {
+    async activate(model) {
         super.activate(model);
         if (this.object[this.propertyKey]) {
             this.layers = {
@@ -34,6 +39,12 @@ export class CustomFormItemMap extends BasicComposableAuFormItem {
             } catch (e) {
                 //silently catch error
             }
+        }
+        try {
+            await this.contextService.initialized;
+            this.defaultCenter = locationUtilities.getCenter(this.contextService.currentEmergencyEvent.location);
+        } catch (error) {
+            //silently catch error
         }
     }
 

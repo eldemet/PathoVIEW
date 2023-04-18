@@ -19,6 +19,7 @@ export class LeafletCustomElement extends BasicComponent {
     @bindable withScaleControl;
     @bindable withEditControl;
     @bindable center;
+    @bindable defaultCenter;
 
     initialized = new Promise((resolve, reject) => {
         this.initializeResolve = resolve;
@@ -65,7 +66,7 @@ export class LeafletCustomElement extends BasicComponent {
         if (this.mapOptions) {
             mapOptions = this._.merge({}, this.defaultMapOptions, this.mapOptions);
         }
-        let center = {lat: 48.783333, lng: 9.183333};
+        let center = this.defaultCenter || {lat: 48.783333, lng: 9.183333};
         if (!this.center) {
             try {
                 // @ts-ignore
@@ -513,7 +514,7 @@ class LayerFactory {
             throw new AureliaLeafletException('No data property given for layer.type "geoJSON"');
         }
         let options = Object.assign({}, layer.options);
-        if (layer.data.type === 'Point') {
+        if (layer?.data?.type === 'Point') {
             options.pointToLayer = (feature, latLng) => this.getMarker({latLng, options: layer.options, divIconContent: layer.divIconContent});
         }
         return this.L.geoJson(layer.data, options);
