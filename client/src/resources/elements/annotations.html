@@ -50,12 +50,13 @@
             </button>
             <button class="btn ${annotationObject.kind === 'AnnotationImage' ? 'active' : ''}"
                     click.delegate="createAnnotation('AnnotationImage')">
-                <i class="bi-image"></i>
+                <i class="bi-camera"></i>
             </button>
-            <button class="btn ${annotationObject.kind === 'AnnotationAudio' ? 'active' : ''}"
-                    click.delegate="createAnnotation('AnnotationAudio')">
-                <i class="bi-mic"></i>
-            </button>
+<!-- TODO check functionality-->
+<!--            <button class="btn ${annotationObject.kind === 'AnnotationAudio' ? 'active' : ''}"-->
+<!--                    click.delegate="createAnnotation('AnnotationAudio')">-->
+<!--                <i class="bi-mic"></i>-->
+<!--            </button>-->
         </div>
     </div>
 
