@@ -76,6 +76,21 @@ export class SearchView extends RouterViewMainDetail {
                         moduleId: detailView
                     }
                 }
+            },
+            {
+                route: '/search/comment/:id',
+                href: 'search-comment',
+                name: 'search-comment',
+                title: 'views.comment',
+                nav: true,
+                viewPorts: {
+                    main: {
+                        moduleId: searchView
+                    },
+                    detail: {
+                        moduleId: PLATFORM.moduleName('views-general/annotations')
+                    }
+                }
             }
         ];
         for (let route of routes) {

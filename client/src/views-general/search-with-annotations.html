@@ -93,10 +93,10 @@
                                         </div>
                                         <div else>
                                             <au-content-item
-                                                    if.bind="schema.properties[key].type !== 'object' && schema.properties[key].type !== 'array'"
-                                                    item.bind="object[key]"
-                                                    schema.bind="schema.properties[key]"
-                                                    index.bind="1">
+                                                if.bind="schema.properties[key].type !== 'object' && schema.properties[key].type !== 'array'"
+                                                item.bind="object[key]"
+                                                schema.bind="schema.properties[key]"
+                                                index.bind="1">
                                             </au-content-item>
 
                                             <div if.bind="schema.properties[key].type === 'array'">
@@ -116,22 +116,28 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td if.bind="annotable && $parent.annotations">
+                                    <td if.bind="annotable && $parent.annotations"
+                                        click.trigger="navigateToRoute('comment', object, $event, router)">
+                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}]}
+                                                                     & signal:'annotations-updated'"
+                                              if.bind="$this.length === 0">
+                                            ${'multiselect.empty' | t}
+                                        </span>
                                         <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationText'}]}
                                                                      & signal:'annotations-updated'"
-                                             if.bind="$this.length > 0">
+                                              if.bind="$this.length > 0">
                                             ${$this.length}
                                             <i class="bi-chat-square"></i>
                                         </span>
                                         <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationImage'}]}
                                                                      & signal:'annotations-updated'"
-                                             if.bind="$this.length > 0">
+                                              if.bind="$this.length > 0">
                                             ${$this.length}
                                             <i class="bi-camera-fill"></i>
                                         </span>
                                         <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationAudio'}]}
                                                                      & signal:'annotations-updated'"
-                                             if.bind="$this.length > 0">
+                                              if.bind="$this.length > 0">
                                             ${$this.length}
                                             <i class="bi-mic-fill"></i>
                                         </span>
