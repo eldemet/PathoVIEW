@@ -5,7 +5,7 @@ import isNil from 'lodash/isNil.js';
 export const alertUtilities = {
     harmonizeAlert(alert) {
         let harmonizedAlert = mapValues(alert, 'value');
-        harmonizedAlert = alertUtilities.cleanAlert(alert);
+        harmonizedAlert = alertUtilities.cleanAlert(harmonizedAlert);
         return harmonizedAlert;
     },
     cleanAlert(alert) {
