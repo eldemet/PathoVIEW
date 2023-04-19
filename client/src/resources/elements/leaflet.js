@@ -66,7 +66,7 @@ export class LeafletCustomElement extends BasicComponent {
         if (this.mapOptions) {
             mapOptions = this._.merge({}, this.defaultMapOptions, this.mapOptions);
         }
-        let center = this.defaultCenter || {lat: 48.783333, lng: 9.183333};
+        let center = this.center || this.defaultCenter || {lat: 48.783333, lng: 9.183333};
         if (!this.center) {
             try {
                 // @ts-ignore
@@ -87,7 +87,7 @@ export class LeafletCustomElement extends BasicComponent {
         }
         // @ts-ignore
         this.map = this.L.map(this.containerId, mapOptions);
-        this.map.setView([center.lat, center.lng], mapOptions.zoomLevel);
+        this.map.setView(center, mapOptions.zoomLevel);
         if (mapOptions.fitBounds) {
             try {
                 this.map.fitBounds(mapOptions.fitBounds);

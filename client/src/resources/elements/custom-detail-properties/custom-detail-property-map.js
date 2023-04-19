@@ -20,6 +20,11 @@ class CustomDetailPropertyMap extends BasicComposable {
     activate(model) {
         super.activate(model);
         if (this.value) {
+            try {
+                this.center = locationUtilities.getCenter(this.value);
+            } catch (e) {
+                //silently catch error
+            }
             this.layers = {
                 overlay: [
                     {
@@ -29,12 +34,6 @@ class CustomDetailPropertyMap extends BasicComposable {
                     }
                 ]
             };
-            try {
-                this.center = locationUtilities.getCenter(this.value);
-            } catch (e) {
-                //silently catch error
-            }
-            this.mapOptions = {fitBounds: this.value.coordinates};
         }
     }
 
