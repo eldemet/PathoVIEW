@@ -2,6 +2,7 @@
 
     <require from='library-aurelia/src/resources/value-converters/format-date'></require>
     <require from='library-aurelia/src/resources/value-converters/filter'></require>
+    <require from="library-aurelia/src/resources/value-converters/sort"></require>
     <require from='library-aurelia/src/resources/elements/au-form/au-form'></require>
     <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
     <require from="resources/elements/user-popover"></require>
@@ -11,7 +12,7 @@
         <div class="flex-fill overflow-auto au-stagger"
              ref="annotationsContainer">
             <div class="annotation d-flex flex-row p-3 border-bottom au-animate animate-fade-out"
-                 repeat.for="annotation of annotations | filter:{refId: refId}">
+                 repeat.for="annotation of annotations | filter:{refId: refId} | sort:'createdAt':true">
                 <div with.bind="getUser(annotation.owner[0])"
                      class="creator"
                      class.bind="$this.status === 'online' ? 'border-success' : ''"
