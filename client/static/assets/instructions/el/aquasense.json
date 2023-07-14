@@ -1,7 +1,12 @@
 {
     "name": "AQUA-Sense1",
     "image": "./assets/instructions/instructions-aquasense.png",
-    "description": "",
+    "description": "Ένα οπτικό σύστημα on-line παρακολούθησης και δειγματοληψίας για την έγκαιρη ανίχνευση της μικροβιολογικής μόλυνσης στο πόσιμο νερό.",
+    "pathogens": [
+        "E-coli",
+        "Coliforms",
+        "συνολικός αριθμός βιώσιμων ατόμων"
+    ],
     "instructions": [
         {
             "type": "commissioning",

@@ -1,7 +1,12 @@
 {
     "name": "AQUA-Sense1",
     "image": "./assets/instructions/instructions-aquasense.png",
-    "description": "",
+    "description": "Sistema óptico de control y muestreo en línea para la detección precoz de la contaminación microbiológica del agua potable.",
+    "pathogens": [
+        "E-coli",
+        "Coliforms",
+        "recuento total viable"
+    ],
     "instructions": [
         {
             "type": "commissioning",

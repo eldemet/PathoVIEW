@@ -1,7 +1,12 @@
 {
     "name": "AQUA-Sense1",
     "image": "./assets/instructions/instructions-aquasense.png",
-    "description": "",
+    "description": "Оптична система за онлайн мониторинг и вземане на проби за ранно откриване на микробиологично замърсяване на питейна вода.",
+    "pathogens": [
+        "E-coli",
+        "Coliforms",
+        "общ брой жизнеспособни животни"
+    ],
     "instructions": [
         {
             "type": "commissioning",

@@ -8,7 +8,6 @@
         "ß-Glucosidase (Enterokokken)",
         "Alkalische Phosphatase (Gesamtaktivität, Biomasse)"
     ],
-    "detectionLimits": [],
     "instructions": [
         {
             "type": "commissioning",

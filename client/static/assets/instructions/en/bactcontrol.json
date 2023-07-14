@@ -8,7 +8,6 @@
         "ß-glucosidase (Enterococci)",
         "alkaline phosphatase (Total Activity, biomass)"
     ],
-    "detectionLimits": [],
     "instructions": [
         {
             "type": "commissioning",

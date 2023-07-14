@@ -1,0 +1,19 @@
+{
+    "name": "PathoSENSE IoT Gateway",
+    "image": "./assets/instructions/instructions-iotgateway.png",
+    "description": "The main aim of the IoT Gateway is to establish a communication channel between the sensing infrastructure and PathoWARE through semantic annotation of data and edge reasoning.",
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Start-up of PathoSENSE IoT Gateway",
+            "items": [
+                {
+                    "section": "Connect hardware",
+                    "steps": [
+                        "Empty"
+                    ]
+                }
+            ]
+        }
+    ]
+}

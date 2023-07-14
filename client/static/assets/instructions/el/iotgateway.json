@@ -1,0 +1,19 @@
+{
+    "name": "PathoSENSE IoT Gateway",
+    "image": "./assets/instructions/instructions-iotgateway.png",
+    "description": "Ο κύριος στόχος της πύλης IoT είναι η δημιουργία ενός διαύλου επικοινωνίας μεταξύ της υποδομής ανίχνευσης και του PathoWARE μέσω σημασιολογικού σχολιασμού των δεδομένων και της συλλογιστικής των άκρων.",
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Έναρξη λειτουργίας της PathoSENSE IoT Gateway",
+            "items": [
+                {
+                    "section": "Συνδέστε το υλικό",
+                    "steps": [
+                        "Άδειο"
+                    ]
+                }
+            ]
+        }
+    ]
+}

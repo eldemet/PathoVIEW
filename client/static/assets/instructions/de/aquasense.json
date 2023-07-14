@@ -1,7 +1,12 @@
 {
     "name": "AQUA-Sense1",
     "image": "./assets/instructions/instructions-aquasense.png",
-    "description": "",
+    "description": "Ein optisches Online-Überwachungs- und Probenahmesystem zur frühzeitigen Erkennung von mikrobiologischer Verunreinigung im Trinkwasser.",
+    "pathogens": [
+        "E-coli",
+        "Coliforms",
+        "Gesamtkeimzahl"
+    ],
     "instructions": [
         {
             "type": "commissioning",

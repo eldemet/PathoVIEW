@@ -8,7 +8,6 @@
         "ß-glucosidasa (enterococos)",
         "fosfatasa alcalina (Actividad Total, biomasa)"
     ],
-    "detectionLimits": [],
     "instructions": [
         {
             "type": "commissioning",

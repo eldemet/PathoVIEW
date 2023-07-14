@@ -10,18 +10,22 @@
                 <h1>${devices[key].name}</h1>
                 <img src.bind="devices[key].image" class="image-10rem">
                 <p>${devices[key].description}</p>
-                <p>${'views.instructions.pathogens' | t}</p>
+                <p if.bind="devices[key].pathogens">
+                    ${'views.instructions.pathogens' | t}
                 <ul>
                     <li repeat.for="pathogen of devices[key].pathogens">
                         ${pathogen}
                     </li>
                 </ul>
-                <p>${'views.instructions.detectionLimits' | t}</p>
+                </p>
+                <p if.bind="devices[key].detectionLimits">
+                    ${'views.instructions.detectionLimits' | t}
                 <ul>
                     <li repeat.for="detectionLimit of devices[key].detectionLimits">
                         ${detectionLimit}
                     </li>
                 </ul>
+                </p>
                 <p>${'views.instructions.availableInstructions' | t}</p>
                 <div class="list-group">
                     <a repeat.for="instruction of devices[key].instructions"

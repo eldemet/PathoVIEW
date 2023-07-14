@@ -1,0 +1,19 @@
+{
+    "name": "PathoSENSE IoT Gateway",
+    "image": "./assets/instructions/instructions-iotgateway.png",
+    "description": "Основната цел на IoT Gateway е да създаде комуникационен канал между инфраструктурата за отчитане и PathoWARE чрез семантично анотиране на данни и крайни разсъждения.",
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Стартиране наPathoSENSE IoT Gateway",
+            "items": [
+                {
+                    "section": "Connect hardware",
+                    "steps": [
+                        "Празен"
+                    ]
+                }
+            ]
+        }
+    ]
+}

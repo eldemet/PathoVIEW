@@ -25,7 +25,8 @@ class SelectionView extends BasicView {
         const pathotestick = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/pathotestick.json`);
         const bactcontrol = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/bactcontrol.json`);
         const aquasense = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/aquasense.json`);
-        this.devices = {pathotestick, bactcontrol, aquasense};
+        const iotgateway = await this.httpService.fetch('GET', `${location.origin}/assets/instructions/${this.i18n.getLocale()}/iotgateway.json`);
+        this.devices = {pathotestick, bactcontrol, aquasense, iotgateway};
     }
 
 }

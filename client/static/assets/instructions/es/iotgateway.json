@@ -1,0 +1,19 @@
+{
+    "name": "PathoSENSE IoT Gateway",
+    "image": "./assets/instructions/instructions-iotgateway.png",
+    "description": "El objetivo principal de la pasarela IoT es establecer un canal de comunicación entre la infraestructura de detección y PathoWARE mediante la anotación semántica de datos y el razonamiento de borde.",
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Puesta en marcha de PathoSENSE IoT Gateway",
+            "items": [
+                {
+                    "section": "Conectar hardware",
+                    "steps": [
+                        "Vacío"
+                    ]
+                }
+            ]
+        }
+    ]
+}

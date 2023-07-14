@@ -1,0 +1,19 @@
+{
+    "name": "PathoSENSE IoT Gateway",
+    "image": "./assets/instructions/instructions-iotgateway.png",
+    "description": "Das Hauptziel des IoT-Gateways ist es, durch semantische Annotation von Daten und Edge Reasoning einen Kommunikationskanal zwischen der Sensing-Infrastruktur und PathoWARE herzustellen.",
+    "instructions": [
+        {
+            "type": "commissioning",
+            "name": "Starten des PathoSENSE IoT Gateways",
+            "items": [
+                {
+                    "section": "Connect hardware",
+                    "steps": [
+                        "Leer"
+                    ]
+                }
+            ]
+        }
+    ]
+}

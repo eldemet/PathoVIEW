@@ -8,7 +8,6 @@
         "ß-глюкозидаза (ентерококи)",
         "алкална фосфатаза (обща активност, биомаса)"
     ],
-    "detectionLimits": [],
     "instructions": [
         {
             "type": "commissioning",
