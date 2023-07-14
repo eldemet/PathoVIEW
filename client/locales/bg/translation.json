@@ -24,7 +24,9 @@
         "annotation": "анотация",
         "annotation_other": "анотации",
         "pathogen": "патоген",
-        "pathogen_other": "патогени"
+        "pathogen_other": "патогени",
+        "notification": "уведомление",
+        "notification_other": "известия"
     },
     "views": {
         "map": "Карта",

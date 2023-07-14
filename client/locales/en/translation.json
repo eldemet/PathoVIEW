@@ -24,7 +24,9 @@
         "annotation": "annotation",
         "annotation_other": "annotations",
         "pathogen": "pathogen",
-        "pathogen_other": "pathogens"
+        "pathogen_other": "pathogens",
+        "notification": "notification",
+        "notification_other": "notifications"
     },
     "views": {
         "map": "Map",

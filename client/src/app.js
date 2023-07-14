@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {inject, computedFrom} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {DialogService} from 'aurelia-dialog';
@@ -109,6 +109,9 @@ export class App extends BasicViewRouter {
         this.contextService = contextService;
         this.deviceUtilities = deviceUtilities;
         this.bhapticsServiceEnabled = false;
+        this.authService = this.proxy.get('auth');
+        this.bhapticsService = this.proxy.get('bhaptics');
+        this.notificationService = this.proxy.get('notification');
     }
 
     configureRouter(config, router) {
@@ -122,12 +125,9 @@ export class App extends BasicViewRouter {
     async attached() {
         super.attached();
         this.responsiveService.initialize();
-        this.authService = this.proxy.get('auth');
-        this.bhapticsService = this.proxy.get('bhaptics');
-        this.notificationService = this.proxy.get('notification');
         await this.contextService.initialize();
-        this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
         await this.notificationService.initialize(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
+        this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {
                 this.eventAggregator.publish('toast', {
@@ -197,6 +197,17 @@ export class App extends BasicViewRouter {
         } else {
             await this.bhapticsService.close();
         }
+    }
+
+    @computedFrom('notificationService.notifications.length')
+    get unreadNotifications() {
+        let unreadNotifications = this.notificationService?.notifications?.filter(n => !n.read);
+        return unreadNotifications;
+    }
+
+    readNotification(notification) {
+        notification.read = true;
+        this.bindingSignaler.signal('notifications-updated');
     }
 
 }

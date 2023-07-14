@@ -24,7 +24,9 @@
         "annotation": "σχόλιο",
         "annotation_other": "σχολιασμοί",
         "pathogen": "παθογόνο",
-        "pathogen_other": "παθογόνα"
+        "pathogen_other": "παθογόνα",
+        "notification": "ειδοποίηση",
+        "notification_other": "ειδοποιήσεις"
     },
     "views": {
         "map": "Χάρτης",

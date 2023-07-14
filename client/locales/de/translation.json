@@ -24,7 +24,9 @@
         "annotation": "Anhanng",
         "annotation_other": "Anhänge",
         "pathogen": "Krankheitserreger",
-        "pathogen_other": "Krankheitserreger"
+        "pathogen_other": "Krankheitserreger",
+        "notification": "Benachrichtigung",
+        "notification_other": "Benachrichtigungen"
     },
     "views": {
         "map": "Karte",

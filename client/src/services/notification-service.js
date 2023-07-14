@@ -26,6 +26,7 @@ const NotificationType = {
 class NotificationService extends BasicService {
 
     initializeState = 'disconnected';
+    notifications = [];
 
     NotificationSchema = {
         type: 'object',
@@ -87,29 +88,12 @@ class NotificationService extends BasicService {
         this.notificationListener = new EventSource(url, options);
         this.notificationListener.onopen = () => {
             this.logger.info('Registered to notification service!');
-            this.eventAggregator.publish('toast',
-                {
-                    biIcon: 'bell',
-                    title: 'alerts.notificationService.name',
-                    autohide: true,
-                    delay: 3000,
-                    body: 'alerts.notificationService.registered',
-                    type: NotificationType.Success
-                }
-            );
+            this.eventAggregator.publish('haptics-event', {type: NotificationType.Success});
             this.initializeState = 'connected';
         };
         this.notificationListener.onerror = () => {
             if (this.initializeState === 'connected') {
-                this.eventAggregator.publish('toast',
-                    {
-                        biIcon: 'bell-slash',
-                        title: 'alerts.notificationService.name',
-                        dismissible: true,
-                        body: 'alerts.notificationService.connectionClosed',
-                        type: NotificationType.Error
-                    }
-                );
+                this.eventAggregator.publish('haptics-event', {type: NotificationType.Error});
                 this.initializeState = 'disconnected';
             }
         };
@@ -142,6 +126,7 @@ class NotificationService extends BasicService {
     }
 
     async close() {
+        this.clearNotifications();
         this.removeNotificationListener();
     }
 
@@ -152,6 +137,7 @@ class NotificationService extends BasicService {
             let valid = this.ajv.validate(this.NotificationSchema, notificationData);
             if (valid) {
                 this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
+                this.notifications.push(notificationData);
             } else {
                 // @ts-ignore
                 this.logger.error(this.ajv.errors);
@@ -160,6 +146,23 @@ class NotificationService extends BasicService {
             this.logger.error(error.message);
         }
     };
+
+    addNotification(notification) {
+        notification.read = false;
+        if (this.notifications.length > 98) {
+            this.notifications[0] = notification;
+        } else {
+            this.notifications.push(notification);
+        }
+    }
+
+    removeNotification(notification) {
+        this.notifications.splice(this.notifications.indexOf(notification), 1);
+    }
+
+    clearNotifications() {
+        this.notifications = [];
+    }
 
 }
 

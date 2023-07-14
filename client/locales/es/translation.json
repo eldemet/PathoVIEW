@@ -48,7 +48,9 @@
         "annotation_other": "anotaciones",
         "pathogen_one": "patógeno",
         "pathogen_many": "patógenos",
-        "pathogen_other": "patógenos"
+        "pathogen_other": "patógenos",
+        "notification": "notificación",
+        "notification_other": "notificaciones"
     },
     "views": {
         "map": "Mapa",

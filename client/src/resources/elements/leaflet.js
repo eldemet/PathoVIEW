@@ -81,7 +81,7 @@ export class LeafletCustomElement extends BasicComponent {
                     biIcon: 'geo-alt',
                     autohide: false,
                     dismissible: true,
-                    type: NotificationType.Error
+                    type: NotificationType.Warning
                 });
             }
         }

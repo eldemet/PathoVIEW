@@ -9,6 +9,9 @@ class NotificationServiceImplementation extends NotificationService {
         this.subscriptions.push(this.eventAggregator.subscribe('toast', async payload => {
             await Haptics.notification({type: payload.type});
         }));
+        this.subscriptions.push(this.eventAggregator.subscribe('haptics-event', async payload => {
+            await Haptics.notification({type: payload.type});
+        }));
         if (topics.includes('model')) {
             this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
                 let modelType = this._.lowerFirst(this._.camelCase(payload.contentType));
