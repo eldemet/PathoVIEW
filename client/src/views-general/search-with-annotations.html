@@ -51,9 +51,6 @@
                             <table class="table table-hover search-table">
                                 <thead>
                                 <tr>
-                                    <th if.bind="routeConfig.settings.showExternalLink"
-                                        class="no-before link">
-                                    </th>
                                     <th repeat.for="key of schema.properties | objectKeys"
                                         if.bind="!schema.properties[key].oneOf && !schema.properties[key].hide.table"
                                         class="${sortBy === key ? ascending ? 'ascending' : 'descending' : ''}"
@@ -73,12 +70,6 @@
                                 <tr repeat.for="object of objects"
                                     class="${router.currentInstruction.params.id === object[service.options.uniqueProperty] ? 'active' : ''} hover"
                                     click.trigger="navigateToRoute('detail', object, $event, router)">
-                                    <td if.bind="routeConfig.settings.showExternalLink"
-                                        class="link">
-                                        <i class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi-box-arrow-up-right"
-                                           click.trigger="navigateToRoute('print', object, $event)">
-                                        </i>
-                                    </td>
                                     <td repeat.for="key of schema.properties | objectKeys"
                                         if.bind="!schema.properties[key].oneOf && !schema.properties[key].hide.table">
                                         <div if.bind="schema.properties[key].populateProperty">
@@ -143,14 +134,22 @@
                                         </span>
                                     </td>
                                     <td class="tools">
-                                        <i if.bind="!schema.readOnly"
-                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi-pencil"
-                                           click.trigger="navigateToRoute('update', object, $event, router)">
-                                        </i>
-                                        <i if.bind="!schema.readOnly"
-                                           class="${responsiveService.isTouchDevice() ? 'px-3' : 'hover-item px-1'} bi-trash"
-                                           click.trigger="deleteObject(object, $event)">
-                                        </i>
+                                        <button if.bind="!schema.readOnly"
+                                                class="btn hover-item"
+                                                click.trigger="navigateToRoute('update', object, $event, router)">
+                                            <i class="bi-pencil"></i>
+                                        </button>
+                                        <button if.bind="!schema.readOnly"
+                                                class="btn hover-item"
+                                                click.trigger="deleteObject(object, $event)">
+                                            <i class="bi-trash"></i>
+                                        </button>
+                                        <button if.bind="routeConfig.settings.tools"
+                                                class="btn hover-item"
+                                                repeat.for="tool of routeConfig.settings.tools"
+                                                click.trigger="navigateToRoute(tool.route, object, $event, router)">
+                                            <i class="${tool.icon}"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>

@@ -34,18 +34,6 @@ class SearchWithAnnotations extends SearchContextAware {
         }
     }
 
-    async navigateToRoute(route, object, event, router) {
-        if (route === 'print') {
-            window.open(this.router.generate('search-' + route, {
-                id: object[this.uniqueProperty],
-                model: this.params.type
-            }));
-            if (event) event.stopPropagation();
-        } else {
-            await super.navigateToRoute(route, object, event, router);
-        }
-    }
-
 }
 
 export {SearchWithAnnotations};
