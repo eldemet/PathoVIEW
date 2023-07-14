@@ -107,4 +107,4 @@ oneOf:
             type: string
             ui:formItemType: file
             ui:accept: 'audio/*'
-            ui:capture: 'microphone'
+            ui:capture: 'user'

@@ -162,25 +162,54 @@ Location:
 
 Address:
   type: object
-  description: 'The mailing address'
   ui:hide:
     table: true
   properties:
+    addressCountry:
+      type: string
+      ui:formItemGridClass: 'col-md-5'
+      ui:formItemType: datalist
+      enum:
+        - Bulgaria
+        - Cyprus
+        - Germany
+        - Greece
+        - Netherlands
+        - Spain
+        - Deutschland
+        - España
+        - Nederland
+        - Κύπρος
+        - Kıbrıs
+        - Ελλάδα
+        - България
+      examples:
+        - Spain
+    addressRegion:
+      type: string
+      ui:formItemGridClass: 'col-md-5'
+      examples:
+        - Andalucía
     postalCode:
       type: string
       ui:formItemGridClass: 'col-md-5'
+      examples:
+        - 18002
     addressLocality:
       type: string
       ui:formItemGridClass: 'col-md-5'
-    addressRegion:
-      type: string
-      ui:formItemGridClass: 'col-md-2'
+      examples:
+        - Granada
     streetAddress:
       type: string
-      ui:formItemGridClass: 'col-md-10'
-    postOfficeBoxNumber:
+      ui:formItemGridClass: 'col-md-8'
+      examples:
+        - Obispo Hurtado
+    streetNr:
       type: string
       ui:formItemGridClass: 'col-md-2'
+      examples:
+        - 21 C
 
 owner:
   type: array

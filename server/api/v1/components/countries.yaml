@@ -1,0 +1,344 @@
+countries:
+    - Afghanistan
+    - افغانستان
+    - Albania
+    - Shqipëria
+    - Algeria0
+    - الجزائر
+    - Andorra
+    - Angola
+    - Antigua and Barbuda
+    - Argentina
+    - Armenia
+    - Հայաստան
+    - Australia
+    - Austria
+    - Österreich
+    - Azerbaijan
+    - Azərbaycan
+    - Bahamas
+    - Bahrain
+    - البحرين
+    - Bangladesh
+    - বাংলাদেশ
+    - Barbados
+    - Belarus
+    - Беларусь
+    - Belgium
+    - België
+    - Belgique
+    - Belgien
+    - Belize
+    - Benin
+    - Bénin
+    - Bhutan
+    - འབྲུག་ཡུལ
+    - Bolivia
+    - Wuliwya
+    - Bosnia and Herzegovina
+    - Bosna i Hercegovina
+    - Босна и Херцеговина
+    - Botswana
+    - Brazil
+    - Brasil
+    - Brunei
+    - Negara Brunei Darussalam
+    - Bulgaria
+    - България
+    - Burkina Faso
+    - Burundi
+    - Uburundi
+    - Cabo Verde
+    - Cambodia
+    - Kampuchea
+    - កម្ពុជា
+    - Cameroon
+    - Cameroun
+    - Canada
+    - Central African Republic
+    - République centrafricaine
+    - Chad
+    - Tchad
+    - تشاد
+    - Chile
+    - China
+    - 中国
+    - Colombia
+    - Comoros
+    - القمر
+    - Udzima wa Komori
+    - Union des Comores
+    - Democratic Republic of the Congo
+    - République démocratique du Congo
+    - Republic of the Congo
+    - Congo-Brazzaville
+    - Costa Rica
+    - Cote d'Ivoire
+    - Croatia
+    - Hrvatska
+    - Cuba
+    - Cyprus
+    - Κύπρος
+    - Kıbrıs
+    - Czech Republic
+    - Česko
+    - Denmark
+    - Danmark
+    - Djibouti
+    - جيبوتي
+    - Jībūtī
+    - Dominica
+    - Dominican Republic
+    - República Dominicana
+    - East Timor
+    - Timor-Leste
+    - Ecuador
+    - Egypt
+    - مصر
+    - El Salvador
+    - Equatorial Guinea
+    - Guinea Ecuatorial
+    - Guinée équatoriale
+    - Eritrea
+    - Ertra
+    - إرتريا
+    - Estonia
+    - Eesti
+    - Eswatini
+    - Swaziland
+    - Ethiopia
+    - ኢትዮጵያ
+    - Fiji
+    - Viti
+    - Finland
+    - Suomi
+    - France
+    - Gabon
+    - Gambia
+    - Georgia
+    - საქართველო
+    - Germany
+    - Deutschland
+    - Ghana
+    - Gaana
+    - Greece
+    - Ελλάδα
+    - Grenada
+    - Guatemala
+    - Guinea
+    - Guinée
+    - Guinea-Bissau
+    - Guiné-Bissau
+    - Guyana
+    - Haiti
+    - Honduras
+    - Hungary
+    - Magyarország
+    - Iceland
+    - Ísland
+    - India
+    - भारत
+    - Indonesia
+    - Iran
+    - ایران
+    - Iraq
+    - العراق
+    - Ireland
+    - Éire
+    - Israel
+    - ישראל
+    - Italy
+    - Italia
+    - Jamaica
+    - Japan
+    - 日本
+    - Jordan
+    - الأردن
+    - Kazakhstan
+    - Қазақстан
+    - Kenya
+    - Kiribati
+    - North Korea
+    - 조선민주주의인민공화국
+    - South Korea
+    - 대한민국
+    - Kosovo
+    - Kuwait
+    - الكويت
+    - Kyrgyzstan
+    - Кыргызстан
+    - Laos
+    - ສປປລາວ
+    - Latvia
+    - Latvija
+    - Lebanon
+    - لبنان
+    - Lesotho
+    - Liberia
+    - Libya
+    - ليبيا
+    - Liechtenstein
+    - Lithuania
+    - Lietuva
+    - Luxembourg
+    - Lëtzebuerg
+    - Luxembourg
+    - Luxemburg
+    - Madagascar
+    - Madagasikara
+    - Malawi
+    - Malaysia
+    - Maldives
+    - ދިވެހިރާއްޖެ
+    - Mali
+    - Malta
+    - Marshall Islands
+    - Mauritania
+    - موريتانيا
+    - Mauritius
+    - Moris
+    - Maurice
+    - Mexico
+    - México
+    - Federated States of Micronesia
+    - Micronesia
+    - Moldova
+    - Republica Moldova
+    - Monaco
+    - Mongolia
+    - Монгол Улс
+    - Montenegro
+    - Црна Гора
+    - Morocco
+    - المغرب
+    - Mozambique
+    - Moçambique
+    - Myanmar
+    - Burma
+    - မြန်မာ
+    - Namibia
+    - Namibië
+    - Nauru
+    - Nepal
+    - नेपाल
+    - Netherlands
+    - Nederland
+    - New Zealand
+    - Aotearoa
+    - Nicaragua
+    - Niger
+    - Nijar
+    - Nigeria
+    - North Macedonia
+    - Северна Македонија
+    - Norway
+    - Norge
+    - Oman
+    - عمان
+    - Pakistan
+    - پاکستان
+    - Palau
+    - Panama
+    - Panamá
+    - Papua New Guinea
+    - Paraguay
+    - Peru
+    - Perú
+    - Philippines
+    - Pilipinas
+    - Poland
+    - Polska
+    - Portugal
+    - Qatar
+    - قطر
+    - Romania
+    - România
+    - Russia
+    - Россия
+    - Rwanda
+    - Saint Kitts and Nevis
+    - Saint Lucia
+    - Saint Vincent and the Grenadines
+    - Samoa
+    - Sāmoa
+    - San Marino
+    - Sao Tome and Principe
+    - São Tomé e Príncipe
+    - Saudi Arabia
+    - المملكة العربية السعودية
+    - Senegal
+    - Sénégal
+    - Serbia
+    - Србија
+    - Seychelles
+    - Sierra Leone
+    - Singapore
+    - Singapura
+    - 新加坡
+    - Slovakia
+    - Slovensko
+    - Slovenia
+    - Slovenija
+    - Solomon Islands
+    - Somalia
+    - Soomaaliya
+    - الصومال
+    - South Africa
+    - Suid-Afrika
+    - Spain
+    - España
+    - Sri Lanka
+    - ශ්‍රී ලංකාව
+    - Sudan
+    - السودان
+    - South Sudan
+    - Suriname
+    - Sweden
+    - Sverige
+    - Switzerland
+    - Schweiz
+    - Suisse
+    - Svizzera
+    - Svizra
+    - Syria
+    - سوريا
+    - Taiwan
+    - 台灣
+    - Tajikistan
+    - Тоҷикистон
+    - Tanzania
+    - Tanzania
+    - Thailand
+    - ประเทศไทย
+    - Togo
+    - Tonga
+    - Trinidad and Tobago
+    - Tunisia
+    - تونس
+    - Turkey
+    - Türkiye
+    - Turkmenistan
+    - Türkmenistan
+    - Tuvalu
+    - Uganda
+    - Ukraine
+    - Україна
+    - United Arab Emirates
+    - الإمارات العربية المتحدة
+    - United Kingdom
+    - United States of America
+    - USA
+    - Uruguay
+    - Uzbekistan
+    - Ўзбекистон
+    - Vanuatu
+    - Vatican City
+    - Città del Vaticano
+    - Venezuela
+    - Venezuela
+    - Vietnam
+    - Việt Nam
+    - Yemen
+    - اليَمَن
+    - Zambia
+    - Zimbabwe

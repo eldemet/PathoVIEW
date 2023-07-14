@@ -3,7 +3,6 @@ required:
   - id
   - type
   - name
-  - description
   - owner
   - location
 model:searchProperties:
