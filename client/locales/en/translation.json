@@ -28,8 +28,9 @@
     },
     "views": {
         "map": "Map",
+        "comment": "comments",
         "instructions": {
-            "title": "Sensors",
+            "title": "Devices",
             "selection": "Selection device",
             "checklist": "Checklist",
             "sampling": "Sampling",
@@ -85,6 +86,8 @@
         "cms": "CMS"
     },
     "buttons": {
+        "delete": "delete",
+        "comment": "comment",
         "logout": "logout",
         "userManagement": "user management",
         "logoutIn": "logout in",
@@ -123,8 +126,6 @@
         }
     },
     "propertyKeys": {
-        "address": "address",
-        "addressLocality": "address locality",
         "alertSource": "alert source",
         "alternateName": "alternate name",
         "areaServed": "area served",
@@ -265,7 +266,7 @@
                 "virus": "Virus",
                 "nematodes": "Nematodes",
                 "irrigation": "Irrigation",
-                "fertilisation": "Fertilisation",             
+                "fertilisation": "Fertilisation",
                 "trafficJam": "traffic jam",
                 "fallenPatient": "people trapped",
                 "bumpedPatient": "people missing"

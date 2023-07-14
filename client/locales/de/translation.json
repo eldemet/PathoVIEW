@@ -28,6 +28,7 @@
     },
     "views": {
         "map": "Karte",
+        "comment": "Kommentare",
         "instructions": {
             "title": "Anleitungen",
             "selection": "Auswahl Gerät",
@@ -85,6 +86,8 @@
         "cms": "CMS"
     },
     "buttons": {
+        "delete": "Löschen",
+        "comment": "Kommentieren",
         "logout": "Abmelden",
         "userManagement": "Nutzerverwaltung",
         "logoutIn": "Abmeldung in",
@@ -123,8 +126,7 @@
         }
     },
     "propertyKeys": {
-        "address": "Adresse",
-        "addressLocality": "Adresse Standort",
+        "addressLocality": "Standort / Stadt",
         "alertSource": "Warnungsgeber",
         "alternateName": "alternativer Name",
         "areaServed": "betroffenes Gebiet",
@@ -265,7 +267,7 @@
                 "virus": "Virus",
                 "nematodes": "Nematodes",
                 "irrigation": "Irrigation",
-                "fertilisation": "Fertilisation", 
+                "fertilisation": "Fertilisation",
                 "trafficJam": "Verkehrsstau",
                 "fallenPatient": "personen eingeschlossen",
                 "bumpedPatient": "personen vermisst"

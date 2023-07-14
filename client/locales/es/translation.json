@@ -52,6 +52,7 @@
     },
     "views": {
         "map": "Mapa",
+        "comment": "comentarios",
         "instructions": {
             "title": "Sensores",
             "selection": "Dispositivo de selección",
@@ -109,6 +110,8 @@
         "cms": "CMS"
     },
     "buttons": {
+        "delete": "borrar",
+        "comment": "comentario",
         "logout": "cerrar sesión",
         "userManagement": "Gestión de usuarios",
         "logoutIn": "cerrar sesión",
@@ -147,7 +150,6 @@
         }
     },
     "propertyKeys": {
-        "address": "dirección",
         "addressLocality": "dirección localidad",
         "alertSource": "fuente de alerta",
         "alternateName": "Nombre alternativo",
@@ -289,10 +291,10 @@
                 "virus": "Virus",
                 "nematodes": "Nematodes",
                 "irrigation": "Irrigation",
-                "fertilisation": "Fertilisation", 
+                "fertilisation": "Fertilisation",
                 "trafficJam": "embotellamiento",
                 "fallenPatient": "personas atrapadas",
-                "bumpedPatient": " Personas desaparecidas"                
+                "bumpedPatient": " Personas desaparecidas"
             }
         },
         "mission": {

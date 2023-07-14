@@ -28,6 +28,7 @@
     },
     "views": {
         "map": "Карта",
+        "comment": "коментари",
         "instructions": {
             "title": "Инструкции",
             "selection": "Устройство за избор",
@@ -85,6 +86,8 @@
         "cms": "CMS"
     },
     "buttons": {
+        "delete": "изтриване на",
+        "comment": "коментар",
         "logout": "излез от профила си",
         "userManagement": "Управление на потребители",
         "logoutIn": "излезте",
@@ -123,7 +126,6 @@
         }
     },
     "propertyKeys": {
-        "address": "адрес",
         "addressLocality": "адресна местност",
         "alertSource": "източник на предупреждение",
         "alternateName": "алтернативно име",

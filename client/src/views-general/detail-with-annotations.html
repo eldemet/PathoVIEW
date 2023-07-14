@@ -1,0 +1,62 @@
+<template>
+
+    <require from="library-aurelia/src/resources/elements/all-properties"></require>
+    <require from='library-aurelia/src/resources/value-converters/filter'></require>
+
+    <div class="h-100 container${routeConfig.settings.fluidContainer ? '-fluid' : ''}">
+        <div class="h-100 row justify-content-${routeConfig.settings.justification ? routeConfig.settings.justification : 'center'}">
+            <div class="h-100 col-lg-${routeConfig.settings.gridColumns ? routeConfig.settings.gridColumns : 12} overflow-auto">
+                <div class="d-flex flex-column h-100 overflow-auto">
+                    <div class="flex-fill overflow-auto">
+                        <all-properties if.bind="object && schema"
+                                        schema.bind="schema"
+                                        object.bind="object"
+                                        layer.bind="1">
+                        </all-properties>
+                        <div if.bind="annotations">
+                            <p class="tabstop-label">
+                                ${"propertyKeys.annotations" | t}:
+                            </p>
+                            <div class="d-flex flex-column">
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}]}
+                                                                         & signal:'annotations-updated'"
+                                      if.bind="$this.length === 0">
+                                    ${'multiselect.empty' | t}
+                                </span>
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationText'}]}
+                                                                         & signal:'annotations-updated'"
+                                      if.bind="$this.length > 0">
+                                    ${$this.length}
+                                    <i class="bi-chat-square"></i>
+                                </span>
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationImage'}]}
+                                                                         & signal:'annotations-updated'"
+                                      if.bind="$this.length > 0">
+                                    ${$this.length}
+                                    <i class="bi-camera-fill"></i>
+                                </span>
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationAudio'}]}
+                                                                         & signal:'annotations-updated'"
+                                      if.bind="$this.length > 0">
+                                    ${$this.length}
+                                    <i class="bi-mic-fill"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row p-3 border-top justify-content-start">
+                        <button class="btn btn-outline-danger me-2"
+                                click.trigger="deleteObject(object, $event)">
+                            <i class="bi-trash me-2"></i>${'buttons.delete' | t}
+                        </button>
+                        <button class="btn btn-outline-secondary"
+                                click.trigger="annotateObject(object, $event)">
+                            <i class="bi-chat me-2"></i>${'buttons.comment' | t}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

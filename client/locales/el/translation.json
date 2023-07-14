@@ -28,6 +28,7 @@
     },
     "views": {
         "map": "Χάρτης",
+        "comment": "σχόλια",
         "instructions": {
             "title": "Οδηγίες",
             "selection": "Συσκευή επιλογής",
@@ -85,6 +86,8 @@
         "cms": "CMS"
     },
     "buttons": {
+        "delete": "διαγραφή",
+        "comment": "σχόλιο",
         "logout": "Αποσύνδεση",
         "userManagement": "διαχείριση χρηστών",
         "logoutIn": "αποσύνδεση",
@@ -123,7 +126,6 @@
         }
     },
     "propertyKeys": {
-        "address": "διεύθυνση",
         "addressLocality": "τοποθεσία διεύθυνσης",
         "alertSource": "πηγή ειδοποίησης",
         "alternateName": "εναλλακτικό όνομα",
