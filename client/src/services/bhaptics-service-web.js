@@ -76,6 +76,12 @@ class BhapticsServiceImplementation extends BhapticsService {
         // @ts-ignore
         BhapticsPlayer.socket.handlers = [];
         // @ts-ignore
+        BhapticsPlayer.socket.connect = function() {
+        };
+        // @ts-ignore
+        BhapticsPlayer.socket.websocketClient.onclose = function() {
+        };
+        // @ts-ignore
         BhapticsPlayer.socket.websocketClient.close();
         // @ts-ignore
         BhapticsPlayer.socket = null;
