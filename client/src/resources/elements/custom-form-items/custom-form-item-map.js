@@ -65,7 +65,10 @@ export class CustomFormItemMap extends BasicComposableAuFormItem {
             } else {
                 this.object[this.propertyKey] = event.geoJson.geometry;
             }
-            this.validationController.validate();
+            if (this.form.validateTrigger === 'change') {
+                this.validationController.validate();
+                this.form.dispatchEvent(new Event('input'));
+            }
         }));
     }
 
