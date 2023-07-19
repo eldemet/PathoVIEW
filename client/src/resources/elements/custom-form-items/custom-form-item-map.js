@@ -29,7 +29,10 @@ export class CustomFormItemMap extends BasicComposableAuFormItem {
                         id: this.propertyKey,
                         type: 'geoJSON',
                         data: this.object[this.propertyKey],
-                        events: this.layerEvents
+                        events: this.layerEvents,
+                        settings: {
+                            fitBounds: true
+                        }
                     }
                 ]
             };

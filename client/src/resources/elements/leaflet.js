@@ -153,6 +153,13 @@ export class LeafletCustomElement extends BasicComponent {
                 try {
                     let id = this.getLayerId(overlay);
                     layersToAttach.overlay[id] = this.layerFactory.getLayer(overlay, this.handleEvent);
+                    if (overlay?.settings?.fitBounds) {
+                        try {
+                            this.map.fitBounds(layersToAttach.overlay[id].getBounds());
+                        } catch (error) {
+                            //silently handle error
+                        }
+                    }
                 } catch (error) {
                     this.handleError(error);
                 }

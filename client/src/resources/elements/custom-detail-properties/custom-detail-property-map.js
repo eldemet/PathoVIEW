@@ -30,7 +30,10 @@ class CustomDetailPropertyMap extends BasicComposable {
                     {
                         id: this.propertyKey,
                         type: 'geoJSON',
-                        data: this.value
+                        data: this.value,
+                        settings: {
+                            fitBounds: true
+                        }
                     }
                 ]
             };
