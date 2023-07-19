@@ -1,0 +1,9 @@
+<template>
+
+    <span class="tabstop-label">${'propertyKeys.' + propertyKey | t}</span>
+    <a class="btn btn-link text-start"
+       route-href="route.bind: 'detail'; params.bind:{model: schema.ref, id: value}">
+        <i class="bi-box-arrow-up-right"></i> ${value}
+    </a>
+
+</template>

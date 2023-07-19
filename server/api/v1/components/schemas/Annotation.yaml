@@ -37,8 +37,9 @@ discriminator:
         $ref: './../$defs.yaml#/owner'
       refId:
         type: string
-        db:ref: Annotation
+        db:ref: Mission
         ui:formItemType: select
+        ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-ref'
         ui:hide:
           form: true
           table: true

@@ -85,6 +85,14 @@ export class App extends BasicViewRouter {
             moduleId: PLATFORM.moduleName('./views/cms/cms'),
             nav: false,
             title: 'views.cms'
+        },
+        {
+            route: '/detail/:model/:id',
+            href: 'detail',
+            name: 'detail',
+            title: 'views.detail',
+            nav: false,
+            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/detail')
         }
     ];
 

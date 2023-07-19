@@ -271,8 +271,8 @@
                 "irrigation": "Irrigation",
                 "fertilisation": "Fertilisation",
                 "trafficJam": "Verkehrsstau",
-                "fallenPatient": "personen eingeschlossen",
-                "bumpedPatient": "personen vermisst"
+                "fallenPatient": "Personen eingeschlossen",
+                "bumpedPatient": "Personen vermisst"
             }
         },
         "mission": {

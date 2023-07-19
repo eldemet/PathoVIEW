@@ -132,6 +132,7 @@ properties:
       - PathoCAM
       - PathoVIEW
       - PathoSAT
+      - PathoTHREAT
     ui:hide:
       form: true
   alertSource:
