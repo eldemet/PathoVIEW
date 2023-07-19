@@ -9,9 +9,9 @@
     <require from="library-aurelia/src/resources/attributes/bs-tooltip"></require>
     <require from='library-aurelia/src/resources/value-converters/format-date'></require>
     <require from="resources/elements/custom-content-items/custom-content-item-severity.html"></require>
+    <require from="resources/elements/user-abbreviation"></require>
 
     <nav-bar class="bg-body-tertiary rounded mb-1"
-             display-dark-mode-switch.bind="true"
              display-is-navigating.bind="true"
              css="navbar-expand-md bg-body-tertiary rounded"
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
@@ -116,22 +116,24 @@
             </ul>
         </div>
 
-        <button class="btn btn-link nav-link position-relative py-2 px-0 px-lg-2 me-3"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNotifications"
-                aria-controls="offcanvasNotifications">
-            <i if.bind="notificationService.initializeState === 'connected'"
-               class="py-2 px-0 bi-bell"></i>
-            <i if.bind="notificationService.initializeState === 'disconnected'"
-               class="py-2 px-0 bi-bell-slash"
-               bs-tooltip="title.bind: 'alerts.notificationService.connectionClosed';"></i>
-            <span class="d-md-none ms-2">${'alerts.notificationService.name' | t}</span>
-            <span if.bind="unreadNotifications.length & signal:'notifications-updated'"
-                  class="position-absolute start-100 translate-middle badge rounded-pill bg-danger" style="top: 0.25rem;">
-                ${unreadNotifications.length  }<span class="visually-hidden">unread messages</span>
+        <div slot="always-visible" class="order-md-5">
+            <button class="btn btn-link nav-link position-relative py-2 px-0 px-lg-2 me-3"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNotifications"
+                    aria-controls="offcanvasNotifications">
+                <i if.bind="notificationService.initializeState === 'connected'"
+                   class="py-2 px-0 bi-bell"></i>
+                <i if.bind="notificationService.initializeState === 'disconnected'"
+                   class="py-2 px-0 bi-bell-slash"
+                   bs-tooltip="title:alerts.notificationService.connectionClosed;placement:right"></i>
+                <span class="visually-hidden">${'alerts.notificationService.name' | t}</span>
+                <span if.bind="unreadNotifications.length & signal:'notifications-updated'"
+                      class="position-absolute start-100 translate-middle badge rounded-pill bg-danger" style="top: 0.25rem;">
+                ${unreadNotifications.length}<span class="visually-hidden">unread messages</span>
             </span>
-        </button>
+            </button>
+        </div>
 
         <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
              if.bind="authService.userInfo">
@@ -183,22 +185,30 @@
         <div class="offcanvas-body">
             <div class="d-flex flex-column h-100">
                 <ul if.bind="notificationService.notifications.length > 0"
-                    class="list-group">
+                    class="list-group overflow-auto">
                     <li repeat.for="notification of notificationService.notifications"
                         class="list-group-item list-group-item-action ${notification.read ? '' : 'active'}" aria-current="true"
                         click.trigger="readNotification(notification)">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" if.bind="notification.topic === 'model'">${'alerts.notifications.model.' + notification.operationType | t:{type: _.camelCase(notification.contentType)}}</h5>
-                            <h5 class="mb-1" if.bind="notification.topic !== 'model'">${notification.topic} (${notification.operationType})</h5>
-                            <small>${notification.dateTimeSent | formatDate:'f':i18n.getLocale()}</small>
+                        <div class="d-flex flex-row">
+                            <user-abbreviation if.bind="notification.content.owner"
+                                               user-id.bind="notification.content.owner[0]"
+                                               class="d-block me-2">
+                            </user-abbreviation>
+                            <div class="d-flex flex-column w-100">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="mb-1" if.bind="notification.topic === 'model'">${'alerts.notifications.model.' + notification.operationType | t:{type: _.camelCase(notification.contentType)}}</h5>
+                                    <h5 class="mb-1" if.bind="notification.topic !== 'model'">${notification.topic} (${notification.operationType})</h5>
+                                    <small>${notification.dateTimeSent | formatDate:'f':i18n.getLocale()}</small>
+                                </div>
+                                <p class="mb-0">${notification.content.text || notification.content.name || notification.content.description}</p>
+                            </div>
                         </div>
-                        <p class="mb-0">${notification.senderId}</p>
                     </li>
                 </ul>
                 <div else>
                     ${'multiselect.empty' | t}
                 </div>
-                <div class="flex-fill"></div>
+                <div class="flex-fill mb-3"></div>
                 <button class="btn btn-outline-secondary"
                         disabled.bind="notificationService.notifications.length <= 0"
                         click.trigger="notificationService.clearNotifications()">

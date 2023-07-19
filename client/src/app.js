@@ -3,6 +3,7 @@ import {PLATFORM} from 'aurelia-pal';
 import {BindingSignaler} from 'aurelia-templating-resources';
 import {DialogService} from 'aurelia-dialog';
 import {AureliaCookie} from 'aurelia-cookie';
+import {Offcanvas} from 'bootstrap';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
@@ -216,6 +217,13 @@ export class App extends BasicViewRouter {
     readNotification(notification) {
         notification.read = true;
         this.bindingSignaler.signal('notifications-updated');
+        let model = notification.contentType;
+        let id = notification.content[this.proxy.get(model)?.options?.uniqueProperty || '_id'];
+        this.routerService.navigateToRoute('detail', {model, id}, this.router);
+        let offcanvas = Offcanvas.getInstance('#offcanvasNotifications');
+        if (offcanvas) {
+            offcanvas.hide();
+        }
     }
 
 }
