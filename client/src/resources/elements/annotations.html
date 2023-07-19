@@ -5,7 +5,7 @@
     <require from="library-aurelia/src/resources/value-converters/sort"></require>
     <require from='library-aurelia/src/resources/elements/au-form/au-form'></require>
     <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
-    <require from="resources/elements/user-popover"></require>
+    <require from="resources/elements/user-abbreviation"></require>
     <require from="./annotations.scss"></require>
 
     <div class="d-flex flex-column h-100 overflow-auto border-start">
@@ -13,15 +13,10 @@
              ref="annotationsContainer">
             <div class="annotation d-flex flex-row p-3 border-bottom au-animate animate-fade-out"
                  repeat.for="annotation of annotations | filter:{refId: refId} | sort:'createdAt':true">
-                <div with.bind="getUser(annotation.owner[0])"
-                     class="creator"
-                     class.bind="$this.status === 'online' ? 'border-success' : ''"
-                     bs-popover="event.bind: 'user-popover-' + $this.id;
-                                 view.bind: 'resources/elements/user-popover';
-                                 trigger.bind: 'hover';
-                                 model.bind: {user: $this}">
-                    <div class="creator-inner">${getAbbreviation($this)}</div>
-                </div>
+                <user-abbreviation if.bind="annotation.owner"
+                                   user-id.bind="annotation.owner[0]"
+                                   class="d-block">
+                </user-abbreviation>
                 <div class="ms-3 flex-fill">
                     <div if.bind="annotation.text">${annotation.text}</div>
                     <img if.bind="annotation.kind === 'AnnotationImage' && annotation.data"
@@ -53,11 +48,11 @@
                     click.delegate="createAnnotation('AnnotationImage')">
                 <i class="bi-camera"></i>
             </button>
-<!-- TODO check functionality-->
-<!--            <button class="btn ${annotationObject.kind === 'AnnotationAudio' ? 'active' : ''}"-->
-<!--                    click.delegate="createAnnotation('AnnotationAudio')">-->
-<!--                <i class="bi-mic"></i>-->
-<!--            </button>-->
+            <!-- TODO check functionality-->
+            <!--  <button class="btn ${annotationObject.kind === 'AnnotationAudio' ? 'active' : ''}"-->
+            <!--          click.delegate="createAnnotation('AnnotationAudio')">-->
+            <!--          <i class="bi-mic"></i>-->
+            <!-- </button>-->
         </div>
     </div>
 

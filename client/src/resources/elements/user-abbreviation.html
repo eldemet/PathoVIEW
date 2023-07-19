@@ -1,0 +1,18 @@
+<template>
+
+    <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
+    <require from="resources/elements/user-popover"></require>
+
+    <div if.bind="user"
+         class="creator"
+         class.bind="user.status === 'online' ? 'border-success' : ''"
+         bs-popover="event.bind: 'user-popover-' + user.id;
+                                 view.bind: 'resources/elements/user-popover';
+                                 trigger.bind: 'hover';
+                                 model.bind: {user: user}">
+        <div class="creator-inner">${getAbbreviation(user)}</div>
+    </div>
+    <span if.bind="!user">${'labels.notDefined' | t}</span>
+    <div if.bind="!users" class="spinner-border" role="status"></div>
+
+</template>

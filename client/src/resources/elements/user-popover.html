@@ -1,6 +1,6 @@
 <template>
 
-    <h3><i class="bi-person-circle me-2"></i>${user.username}</h3>
+    <h3 class="text-truncate"><i class="bi-person-circle me-2"></i>${user.username}</h3>
     <div class.bind="user.status === 'online' ? 'text-success' : ''"
          class="d-block align-middle text-truncate">
         <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.status' | t}:</label>

@@ -7,7 +7,7 @@
     <require from="library-aurelia/src/resources/value-converters/format-duration"></require>
     <require from="library-aurelia/src/resources/attributes/bs-tooltip"></require>
     <require from="library-aurelia/src/resources/attributes/bs-popover"></require>
-    <require from="resources/elements/user-popover"></require>
+    <require from="resources/elements/user-abbreviation"></require>
 
     <div class="h-100 d-flex align-content-center flex-wrap justify-content-center"
          if.bind="!contextService.currentEmergencyEvent">
@@ -104,14 +104,9 @@
                         <span class="text-muted">${'views.dashboard.users' | t}:</span>
                         <ul if.bind="users" class="list-inline">
                             <li repeat.for="user of users" class="list-inline-item fs-6">
-                                <div class="creator"
-                                     class.bind="user.status === 'online' ? 'border-success' : ''"
-                                     bs-popover="event.bind: 'user-popover-' + user.id;
-                                                 view.bind: 'resources/elements/user-popover';
-                                                 trigger.bind: 'hover';
-                                                 model.bind: {user: user}">
-                                    <div class="creator-inner">${userUtilities.getAbbreviation(user)}</div>
-                                </div>
+                                <user-abbreviation user-id.bind="user.id"
+                                                   class="d-block">
+                                </user-abbreviation>
                             </li>
                         </ul>
                         <div else class="spinner-border spinner-border-sm" role="status"></div>

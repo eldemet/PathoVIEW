@@ -1,6 +1,5 @@
 import {bindable} from 'aurelia-framework';
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
-import {userUtilities} from '../../utilities';
 
 /**
  * @extends BasicComponent
@@ -9,7 +8,6 @@ import {userUtilities} from '../../utilities';
 class Annotations extends BasicComponent {
 
     @bindable annotations;
-    @bindable users;
     @bindable refId;
     annotationsContainer;
     annotationObject;
@@ -46,18 +44,6 @@ class Annotations extends BasicComponent {
 
     async deleteAnnotation(annotation) {
         await this.proxy.get('annotation').deleteObject(annotation);
-    }
-
-    getUser(id) {
-        let user;
-        if (this.users) {
-            user = this.users.find(u => u.id === id);
-        }
-        return user;
-    }
-
-    getAbbreviation(user) {
-        return userUtilities.getAbbreviation(user);
     }
 
 }
