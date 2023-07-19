@@ -134,6 +134,10 @@
                                         </span>
                                     </td>
                                     <td class="tools">
+                                        <button class="visually-hidden"
+                                                click.trigger="navigateToRoute('detail', object, $event, router)">
+                                            ${'views.detail' | t}
+                                        </button>
                                         <button if.bind="!schema.readOnly"
                                                 class="btn hover-item"
                                                 click.trigger="navigateToRoute('update', object, $event, router)">
