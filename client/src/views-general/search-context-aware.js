@@ -15,6 +15,12 @@ class SearchContextAware extends Search {
             await this.initialize();
             this.routerService.navigateToRoute('search', {}, this.router);
         }));
+        this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
+            let modelType = this._.lowerFirst(this._.camelCase(payload.contentType));
+            if (this._.camelCase(modelType) === this._.camelCase(this.kind)) {
+                await this.loadObjects();
+            }
+        }));
     }
 
 }
