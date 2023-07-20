@@ -112,7 +112,11 @@
                                         <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}]}
                                                                      & signal:'annotations-updated'"
                                               if.bind="$this.length === 0">
-                                            ${'multiselect.empty' | t}
+                                            <i class="bi-chat-square position-relative">
+                                                <span class="position-absolute" style="top: -15px !important; left: 11px !important;">
+                                                    <i class="bi-plus"></i>
+                                                </span>
+                                            </i>
                                         </span>
                                         <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationText'}]}
                                                                      & signal:'annotations-updated'"
