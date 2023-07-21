@@ -36,6 +36,7 @@ export class App extends BasicViewRouter {
             settings: {
                 detailView: true,
                 customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
+                customDetailView: PLATFORM.moduleName('views/alert/detail'),
                 filter: () => {
                     return {alertSource: AureliaCookie.get('emergency-event') || 'notSet'};
                 }
@@ -52,7 +53,7 @@ export class App extends BasicViewRouter {
                 gridColumnsMain: 8,
                 gridColumnsDetail: 4,
                 detailView: true,
-                customDetailView: PLATFORM.moduleName('views-general/detail-with-annotations'),
+                customDetailView: PLATFORM.moduleName('views/mission/detail'),
                 customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
                 filter: () => {
                     return {refId: AureliaCookie.get('emergency-event') || 'notSet'};

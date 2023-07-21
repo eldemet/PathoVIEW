@@ -9,8 +9,8 @@ import {PLATFORM} from 'aurelia-pal';
  * @extends BasicView
  * @category views-general
  */
-@useView(PLATFORM.moduleName('./detail-with-annotations.html'))
-class DetailWithAnnotations extends BasicView {
+@useView(PLATFORM.moduleName('./detail.html'))
+class Detail extends BasicView {
 
     /**
      * @param {ConstructorParameters<typeof BasicView>} rest
@@ -58,4 +58,4 @@ class DetailWithAnnotations extends BasicView {
 
 }
 
-export {DetailWithAnnotations};
+export {Detail};
