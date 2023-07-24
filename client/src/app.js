@@ -175,6 +175,7 @@ export class App extends BasicViewRouter {
             this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
         }));
         this.currentLanguage = this.languages.find(language => language.value === this.i18n.getLocale());
+        this.userInfo = await this.authService.getUserInfo();
     }
 
     async detached() {

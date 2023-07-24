@@ -68,6 +68,13 @@ class AuthService extends BasicService {
         return this.userInfo.sub;
     }
 
+    async getUserInfo() {
+        let users = await this.getUsers();
+        let userId = this.getUserId();
+        let user = users.find(u => u.id === userId);
+        return user;
+    }
+
     async getObjects() {
         let roles = await this.getRoles();
         return {objects: roles};

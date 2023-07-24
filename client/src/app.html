@@ -136,20 +136,41 @@
         </div>
 
         <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
-             if.bind="authService.userInfo">
+             if.bind="userInfo">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi-person-circle"></i><span class="d-md-none ms-2">${authService.userInfo.name}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
-                <li class="px-3 text-body-tertiary text-nowrap">
-                    <span class="d-block">
-                        <i class="bi-person-vcard me-2"></i>${authService.userInfo.name} (${authService.userInfo.preferred_username})
+                <li>
+                    <span class="dropdown-item disabled text-nowrap">
+                        <i class="bi-person-vcard me-2"></i>${userInfo.firstName + ' ' + userInfo.lastName}
                     </span>
-                    <span class="d-block" if.bind="authService.userInfo.email">
-                        <i class="bi-envelope-at invisible me-2"></i>${authService.userInfo.email}
+                </li>
+                <li>
+                    <span class="dropdown-item disabled text-nowrap">
+                        <i class="bi-person-vcard me-2 invisible"></i>${userInfo.username}
                     </span>
-                    <span class="d-block">
+                </li>
+                <li if.bind="authService.userInfo.email">
+                    <span class="dropdown-item disabled text-nowrap">
+                        <i class="bi-envelope-at me-2"></i>${userInfo.email}
+                    </span>
+                </li>
+                <li if.bind="userInfo.groups.length"
+                    repeat.for="group of userInfo.groups">
+                    <span class="dropdown-item disabled text-nowrap">
+                            <i class="bi-people"></i> ${group}
+                    </span>
+                </li>
+                <li if.bind="userInfo.roles.length"
+                    repeat.for="role of userInfo.roles">
+                    <span class="dropdown-item disabled text-nowrap">
+                            <i class="bi-person-badge me-2 ${!$first ? 'invisible' : ''}"></i> ${role}
+                    </span>
+                </li>
+                <li>
+                    <span class="dropdown-item disabled">
                         <i class="bi-clock me-2"></i>${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'update-logout-in'}
                     </span>
                 </li>
