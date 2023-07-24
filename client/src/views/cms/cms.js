@@ -13,8 +13,9 @@ export class Cms extends BasicViewRouter {
             name: 'emergency-event',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.emergencyEvent', {count: 2}),
+            title: 'model.emergencyEvent',
             settings: {
+                i18n: {count: 2},
                 detailView: true
             }
         },
@@ -23,8 +24,9 @@ export class Cms extends BasicViewRouter {
             name: 'mission',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.mission', {count: 2}),
+            title: 'model.mission',
             settings: {
+                i18n: {count: 2},
                 detailView: true
             }
         },
@@ -33,8 +35,9 @@ export class Cms extends BasicViewRouter {
             name: 'alert',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.alert', {count: 1}),
+            title: 'model.alert',
             settings: {
+                i18n: {count: 2},
                 detailView: true
             }
         },
@@ -43,8 +46,9 @@ export class Cms extends BasicViewRouter {
             name: 'device',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.device', {count: 2}),
+            title: 'model.device',
             settings: {
+                i18n: {count: 2},
                 detailView: true
             }
         },
@@ -53,8 +57,9 @@ export class Cms extends BasicViewRouter {
             name: 'point-of-interest',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.pointOfInterest', {count: 2}),
+            title: 'model.pointOfInterest',
             settings: {
+                i18n: {count: 2},
                 detailView: true
             }
         },
@@ -63,8 +68,9 @@ export class Cms extends BasicViewRouter {
             name: 'annotation',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
             nav: true,
-            title: this.i18n.tr('model.annotation', {count: 2}),
+            title: 'model.annotation',
             settings: {
+                i18n: {count: 2},
                 detailView: true
             }
         }
