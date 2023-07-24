@@ -1,6 +1,7 @@
 import {useView} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {RouterViewMainDetail} from './router-view-main-detail';
+import {activationStrategy} from 'aurelia-router';
 
 @useView(PLATFORM.moduleName('./router-view-main-detail.html'))
 export class SearchView extends RouterViewMainDetail {
@@ -97,6 +98,16 @@ export class SearchView extends RouterViewMainDetail {
             route.settings = Object.assign({}, route.settings, settings);
         }
         return routes;
+    }
+
+    determineActivationStrategy(params, routeConfig, navigationInstruction) {
+        this.logger.silly('aurelia lifecycle method: determineActivationStrategy');
+        let as = activationStrategy.invokeLifecycle;
+        if (routeConfig?.name !== this.routeConfig?.name) {
+            // @ts-ignore
+            as = activationStrategy.replace;
+        }
+        return as;
     }
 
     configureRouter(config, router, params, routeConfig) {
