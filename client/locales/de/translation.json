@@ -278,9 +278,11 @@
         "mission": {
             "status": {
                 "open": "offen",
+                "inProgress": "in Bearbeitung",
                 "successful": "erfolgreich",
                 "unsuccessful": "nicht erfolgreich",
                 "onHold": "in der Warteschleife",
+                "overdue": "überfällig",
                 "cancelled": "abgebrochen"
             }
         },
@@ -398,5 +400,10 @@
         "E003": "Erste Hilfe",
         "E009": "Arzt",
         "E011": "Augenspüleinrichtung"
+    },
+    "descriptions": {
+        "mission": {
+            "name": "Bitte geben Sie eine kurze Bezeichnung an, die es ermöglicht, die Mission in der Übersichtsliste einfach zu identifizieren."
+        }
     }
 }

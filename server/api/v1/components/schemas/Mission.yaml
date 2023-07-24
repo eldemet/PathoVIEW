@@ -8,6 +8,9 @@ required:
 model:searchProperties:
   - description
 model:defaultProperty: name
+ui:filters:
+  - status
+  - assignedTo
 db:referencedByModels:
   - model: Annotation
     property: refId
@@ -17,7 +20,6 @@ db:options:
 properties:
   id:
     $ref: './../$defs.yaml#/NGSIentityFormat'
-    description: 'Unique identifier of the entity'
     default: Mission:00000
     ui:hide:
       table: true
@@ -31,28 +33,35 @@ properties:
       info: true
   name:
     type: string
-    description: 'The name of this item.'
-    ui:formItemGridClass: 'col-md-6'
+    description: 'descriptions.mission.name'
+    ui:formItemGridClass: 'col-md-8'
   description:
     type: string
-    description: 'A description of this item'
     ui:formItemType: textarea
     ui:hide:
       table: true
   status:
     type: string
-    description: 'The status of this item.'
     enum:
       - open
+      - inProgress
       - successful
       - unsuccessful
-      - onHold
+      - overdue
       - cancelled
     ui:formItemType: select
+    ui:formItemGridClass: 'col-md-8'
     ui:i18n: true
     ui:i18nPathPrefix: enum.mission.status
   owner:
     $ref: './../$defs.yaml#/owner'
+  assignedTo:
+    type: string
+    ui:formItemType: select
+    ui:formItemGridClass: 'col-md-8'
+    ui:ref: Auth
+    ui:hide:
+      table: true
   refId:
     type: string
     ui:dependence:
@@ -64,6 +73,8 @@ properties:
       info: true
   location:
     $ref: './../$defs.yaml#/Location'
+  address:
+    $ref: './../$defs.yaml#/Address'
   createdAt:
     type: string
     format: "date-time"

@@ -277,9 +277,11 @@
         "mission": {
             "status": {
                 "open": "open",
+                "inProgress": "in progress",
                 "successful": "successful",
                 "unsuccessful": "unsuccessful",
                 "onHold": "on hold",
+                "overdue": "overdue",
                 "cancelled": "cancelled"
             }
         },
@@ -397,5 +399,10 @@
         "E003": "First Aid",
         "E009": "Doctor",
         "E011": "Eye shower"
+    },
+    "descriptions": {
+        "mission": {
+            "name": "Please provide a short name that helps to identify the mission easily in the overview list."
+        }
     }
 }

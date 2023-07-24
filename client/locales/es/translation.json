@@ -302,9 +302,11 @@
         "mission": {
             "status": {
                 "open": "abierto",
+                "inProgress": "en curso",
                 "successful": "exitoso",
                 "unsuccessful": "fracasado",
                 "onHold": "en espera",
+                "overdue": "vencido",
                 "cancelled": "cancelado"
             }
         },
@@ -422,5 +424,10 @@
         "E003": "Primeros auxilios",
         "E009": "Médico",
         "E011": "ducha ocular"
+    },
+    "descriptions": {
+        "mission": {
+            "name": "Indique un nombre corto que ayude a identificar fácilmente la misión en la lista general."
+        }
     }
 }

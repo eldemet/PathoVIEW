@@ -1,6 +1,10 @@
 definitions:
   schema:
     properties:
+      examples:
+        type: array
+        items:
+          type: string
       x-derived-from:
         type: string
       x-disclaimer:

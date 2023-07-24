@@ -55,6 +55,8 @@ properties:
     $ref: './../$defs.yaml#/owner'
   location:
     $ref: './../$defs.yaml#/Location'
+  address:
+    $ref: './../$defs.yaml#/Address'
   createdAt:
     type: string
     format: "date-time"
