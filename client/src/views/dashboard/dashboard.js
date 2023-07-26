@@ -31,6 +31,7 @@ class DashboardView extends BasicView {
         this.users = await this.authService.getUsers();
         this.roles = await this.authService.getRoles();
         this.groups = await this.authService.getGroups();
+        this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
         await this.contextService.initialized;
         this.initialized = true;
         this.currentPosition = await this.getOwnPosition();
@@ -42,12 +43,16 @@ class DashboardView extends BasicView {
 
     @computedFrom('contextService.alerts')
     get lastAlert() {
-        return this.contextService?.alerts?.at(-1);
+        return this.contextService?.alerts?.reduce((a, b) => (a.dateIssued > b.dateIssued ? a : b));
     }
 
     @computedFrom('contextService.missions')
     get lastMission() {
-        return this.contextService?.missions?.at(-1);
+        return this.contextService?.missions?.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
+    }
+
+    get lastAnnotation() {
+        return this.annotations.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
     }
 
     getDate(input, format) {
