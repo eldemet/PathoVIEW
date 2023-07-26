@@ -2,11 +2,11 @@
 
     <div class="container${routeConfig.settings.fluidContainer ? '-fluid' : ''} h-100 g-0">
         <div class="row justify-content-${routeConfig.settings.justification ? routeConfig.settings.justification : 'center'} h-100 g-0">
-            <div class="h-100 col-lg-${routeConfig.settings.gridColumnsMain ? routeConfig.settings.gridColumnsMain : 9} overflow-auto"
+            <div class="h-100 col-lg-${routeConfig.settings.gridColumnsMain ? routeConfig.settings.gridColumnsMain : 9} overflow-hidden"
                  hide.bind="hide === 'main'">
                 <router-view name="main"></router-view>
             </div>
-            <div class="h-100 col-lg-${routeConfig.settings.gridColumnsDetail ? routeConfig.settings.gridColumnsDetail : 3} overflow-auto"
+            <div class="h-100 col-lg-${routeConfig.settings.gridColumnsDetail ? routeConfig.settings.gridColumnsDetail : 3} overflow-hidden"
                  hide.bind="hide === 'detail'">
                 <div class="d-flex flex-column h-100 overflow-auto">
                     <div class="d-flex flex-row">
