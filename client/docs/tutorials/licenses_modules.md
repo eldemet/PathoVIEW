@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 843
+* MIT: 842
 * ISC: 85
 * BSD-2-Clause: 32
 * Apache-2.0: 27
@@ -1932,10 +1932,6 @@
     - licenses: MIT
     - description: Node's event emitter for all engines.
     - copyright: Copyright Joyent, Inc. and other Node contributors.
- - **[eventsource@2.0.2](https://github.com/EventSource/eventsource)**
-    - licenses: MIT
-    - description: W3C compliant EventSource client for Node.js and browser (polyfill)
-    - copyright: Copyright (c) EventSource GitHub organisation
  - **[execa@5.1.1](https://github.com/sindresorhus/execa)**
     - licenses: MIT
     - description: Process execution for humans
@@ -2572,7 +2568,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.6.1](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.6.3](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
@@ -3056,7 +3052,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@1.1.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@1.1.1](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
@@ -3476,7 +3472,7 @@
     - licenses: MIT
     - description: Sass loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[sass@1.64.0](https://github.com/sass/dart-sass)**
+ - **[sass@1.64.1](https://github.com/sass/dart-sass)**
     - licenses: MIT
     - description: A pure JavaScript implementation of Sass.
     - copyright: Copyright (c) 2016, Google Inc.*

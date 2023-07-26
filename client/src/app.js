@@ -39,6 +39,9 @@ export class App extends BasicViewRouter {
                 gridColumnsMain: 8,
                 gridColumnsDetail: 4,
                 detailView: true,
+                deactivate: {
+                    update: true
+                },
                 customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
                 customDetailView: PLATFORM.moduleName('views/alert/detail'),
                 filter: () => {
