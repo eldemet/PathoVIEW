@@ -1,8 +1,4 @@
 import {ModelService} from 'library-aurelia/src/services/model-service';
-// eslint-disable-next-line no-unused-vars
-import {HttpService} from 'library-aurelia/src/services/http-service';
-// eslint-disable-next-line no-unused-vars
-import {BasicObject} from 'library-aurelia/src/prototypes/basic-object';
 
 /**
  * @extends ModelService
@@ -14,11 +10,10 @@ class ModelServiceBasicSchema extends ModelService {
      * @param {String} type
      * @param {Object} options
      * @param {String} options.apiEntrypoint
-     * @param {HttpService} httpService
-     * @param {ConstructorParameters<typeof BasicObject>} rest
+     * @param {import('library-aurelia/src/services/http-service').HttpService} httpService
+     * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
     constructor(type, options, httpService, ...rest) {
-        if (!options.apiEntrypoint) throw new Error('Cannot initialize Model since apiEntrypoint is missing!');
         super(type, options, ...rest);
         this.typeKebabCase = this._.kebabCase(this.type);
         this.httpService = httpService;

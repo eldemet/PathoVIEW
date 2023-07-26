@@ -8,5 +8,6 @@
         "clientId": "pathoview",
         "useUserLocale": false
     },
-    "usePathoware": true
+    "usePathoware": true,
+    "enableBhaptics": true
 }

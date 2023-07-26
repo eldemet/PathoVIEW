@@ -17,23 +17,6 @@
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
         <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
-             if.bind="!authService.config.useUserLocale">
-            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi-translate"></i>
-                <span class="d-md-none ms-2">${currentLanguage.name}</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
-                <li repeat.for="language of languages">
-                    <button class="dropdown-item ${language.value === i18n.getLocale() ? 'active' : ''}"
-                            click.trigger="changeLanguage(language.value)">
-                        ${language.name}
-                    </button>
-                </li>
-            </ul>
-        </div>
-
-        <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
              if.bind="contextService.emergencyEvents">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +44,25 @@
             </ul>
         </div>
 
-        <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}">
+        <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
+             if.bind="!authService.config.useUserLocale">
+            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi-translate"></i>
+                <span class="d-md-none ms-2">${currentLanguage.name}</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
+                <li repeat.for="language of languages">
+                    <button class="dropdown-item ${language.value === i18n.getLocale() ? 'active' : ''}"
+                            click.trigger="changeLanguage(language.value)">
+                        ${language.name}
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div if.bind="appConfig.enableBhaptics"
+             class="${dropUpUserMenu ? 'dropdown' : 'dropup'}">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="bhaptics-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <img src.bind="'./assets/logo-bhaptics.svg'" style="width: 1rem"><span class="d-md-none ms-2">bHaptics</span>
@@ -205,11 +206,11 @@
         </div>
         <div class="offcanvas-body">
             <div class="d-flex flex-column h-100">
-                <ul if.bind="notificationService.notifications.length > 0"
-                    class="list-group overflow-auto">
-                    <li repeat.for="notification of notificationService.notifications"
-                        class="list-group-item list-group-item-action ${notification.read ? '' : 'active'}" aria-current="true"
-                        click.trigger="readNotification(notification)">
+                <div if.bind="notificationService.notifications.length > 0"
+                     class="list-group overflow-auto">
+                    <button repeat.for="notification of notificationService.notifications"
+                            class="list-group-item list-group-item-action ${notification.read ? '' : 'active'}" aria-current="true"
+                            click.trigger="readNotification(notification)">
                         <div class="d-flex flex-row">
                             <user-abbreviation if.bind="notification.content.owner"
                                                user-id.bind="notification.content.owner[0]"
@@ -224,8 +225,8 @@
                                 <p class="mb-0">${notification.content.text || notification.content.name || notification.content.description}</p>
                             </div>
                         </div>
-                    </li>
-                </ul>
+                    </button>
+                </div>
                 <div else>
                     ${'multiselect.empty' | t}
                 </div>

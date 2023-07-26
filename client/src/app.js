@@ -1,7 +1,6 @@
 import {inject, computedFrom} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {BindingSignaler} from 'aurelia-templating-resources';
-import {DialogService} from 'aurelia-dialog';
 import {AureliaCookie} from 'aurelia-cookie';
 import {Offcanvas} from 'bootstrap';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
@@ -10,7 +9,7 @@ import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog
 import {deviceUtilities} from './utilities';
 import {ContextService} from './services/context-service';
 
-@inject(BindingSignaler, DialogService, ContextService)
+@inject(BindingSignaler, ContextService)
 export class App extends BasicViewRouter {
 
     routes = [

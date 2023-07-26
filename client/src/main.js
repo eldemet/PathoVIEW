@@ -36,15 +36,17 @@ export async function configure(aurelia) {
     let i18n = aurelia.container.get(I18N);
     let registerServices = [
         authService,
-        aurelia.container.get(BhapticsServiceImplementation),
         aurelia.container.get(NotificationServiceImplementation),
-        environment.usePathoware ? new ModelServiceAlert('alert', options, httpService) : new ModelServiceAsyncUISchema('alert', options, httpService),
-        new ModelServiceAsyncUISchema('device', options, httpService),
-        new ModelServiceAsyncUISchema('point-of-interest', options, httpService),
+        environment.usePathoware ? new ModelServiceAlert('alert', options, httpService, i18n, eventAggregator) : new ModelServiceAsyncUISchema('alert', options, httpService, i18n, eventAggregator),
+        new ModelServiceAsyncUISchema('device', options, httpService, i18n, eventAggregator),
+        new ModelServiceAsyncUISchema('point-of-interest', options, httpService, i18n, eventAggregator),
         new ModelServiceBasicSchema('annotation', options, httpService, i18n, eventAggregator),
-        new ModelServiceAsync('emergency-event', options, httpService),
-        new ModelServiceAsync('mission', options, httpService)
+        new ModelServiceAsync('emergency-event', options, httpService, i18n, eventAggregator),
+        new ModelServiceAsync('mission', options, httpService, i18n, eventAggregator)
     ];
+    if (environment.enableBhaptics) {
+        registerServices.push(aurelia.container.get(BhapticsServiceImplementation));
+    }
     let registerPlugins = [
         PLATFORM.moduleName('aurelia-animator-css')
     ];

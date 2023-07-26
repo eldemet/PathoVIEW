@@ -14,7 +14,7 @@ class ModelServiceAlert extends ModelService {
      * @param type
      * @param options
      * @param httpService
-     * @param {ConstructorParameters<typeof BasicObject>} rest
+     * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
     constructor(type, options, httpService, ...rest) {
         super(type, options, ...rest);

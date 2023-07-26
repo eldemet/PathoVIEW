@@ -1,7 +1,6 @@
-import {inject, useView} from 'aurelia-framework';
+import {useView} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {activationStrategy} from 'aurelia-router';
-import {DialogService} from 'aurelia-dialog';
 import {catchError} from 'library-aurelia/src/decorators';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
@@ -12,16 +11,13 @@ import {RouterService} from 'library-aurelia/src/services/router-service';
  * @category views-general
  */
 @useView(PLATFORM.moduleName('./detail.html'))
-@inject(DialogService)
 class Detail extends BasicView {
 
     /**
-     * @param {DialogService} dialogService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
-    constructor(dialogService, ...rest) {
+    constructor(...rest) {
         super(...rest);
-        this.dialogService = dialogService;
         this.authService = this.proxy.get('auth');
     }
 
