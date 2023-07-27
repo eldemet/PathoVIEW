@@ -1,4 +1,5 @@
 import {inject} from 'aurelia-framework';
+import get from 'lodash/get';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {HttpService} from 'library-aurelia/src/services/http-service';
@@ -7,6 +8,8 @@ import {AureliaCookie} from 'aurelia-cookie';
 @inject(HttpService)
 class AuthService extends BasicService {
 
+    /** @type{KeycloakUser} */
+    user;
     /** @type {KeycloakUserInfo} */
     userInfo;
     config;
@@ -24,55 +27,39 @@ class AuthService extends BasicService {
         this.httpService = httpService;
     }
 
+    async start(config, testing) {
+        this.config = config;
+    }
+
+    async initialize() {
+        if (!this.initialized) {
+            this.initialized = new Promise(resolve => {
+                this.initializeResolve = resolve;
+            });
+            this.users = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 10000);
+            this.roles = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/role', null, 10000);
+            this.groups = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/group', null, 10000);
+            this.user = this.users.find(u => u.id === this.getUserId());
+            this.initializeResolve();
+        } else {
+            await this.initialized;
+        }
+    }
+
+    async close() {
+        this.initialized = null;
+    }
+
     getTokenExpiresIn() {
         return Math.round(this.token.expiry - new Date().getTime() / 1000);
     }
 
-    async setUserAttribute(httpService, attributeObject) {
-        await httpService.fetch('PUT', this.config.url + 'admin/realms/' + this.config.realm + '/users/' + this.userInfo.sub, {attributes: attributeObject}, 2000);
-    }
-
-    setCookie(token) {
+    setAuthToken(token) {
         AureliaCookie.set('auth_token', token.value, {expiry: token.expiry});
     }
 
     setLocale(locale) {
         AureliaCookie.set('lang', locale, {});
-    }
-
-
-    /**
-     * @param {boolean} [forceReload]
-     * @return {Promise<KeycloakUser[]>}
-     */
-    async getUsers(forceReload) {
-        if (forceReload || !this.usersPromise) {
-            this.usersPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 10000);
-        }
-        return await this.usersPromise;
-    }
-
-    /**
-     * @param {boolean} [forceReload]
-     * @return {Promise<KeycloakRole[]>}
-     */
-    async getRoles(forceReload) {
-        if (forceReload || !this.rolesPromise) {
-            this.rolesPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/role', null, 10000);
-        }
-        return await this.rolesPromise;
-    }
-
-
-    /**
-     * @param {boolean} forceReload
-     * @return {Promise<KeycloakGroup[]>}
-     */
-    async getGroups(forceReload) {
-        if (forceReload || !this.groupsPromise) {
-            this.groupsPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/group', null, 10000);
-        }
-        return await this.groupsPromise;
     }
 
     getUserId() {
@@ -86,30 +73,38 @@ class AuthService extends BasicService {
      * @return {Promise<KeycloakUser>}
      */
     async getUserInfo() {
-        let users = await this.getUsers();
+        await this.initialized;
         let userId = this.getUserId();
-        return users.find(u => u.id === userId);
+        return this.users.find(u => u.id === userId);
     }
 
     /**
-     * grant access if not roles are provided, otherwise check if user has required role
-     * @param {String[]} roles
+     * grant access if rbac roles are empty or undefined for provided accessFunction, otherwise check if user has required role
+     * @param {String} accessFunction
      */
-    async hasAccess(roles) {
+    hasAccess(accessFunction) {
+        if (!this.user) {
+            throw new Error('AuthService not yet initialized!');
+        }
         let hasAccess = true;
+        let roles = get(this.config.rbac, accessFunction);
         if (roles?.length) {
             hasAccess = false;
-            let user = await this.getUserInfo();
-            if (user && Array.isArray(user.roles) && roles.length) {
-                hasAccess = user.roles.some(r => roles.includes(r));
+            if (this.user && Array.isArray(this.user.roles) && roles.length) {
+                hasAccess = this.user.roles.some(r => roles.includes(r));
             }
         }
         return hasAccess;
     }
 
+    async getUsers() {
+        await this.initialized;
+        return this.users;
+    }
+
     async getObjects() {
-        let roles = await this.getRoles();
-        return {objects: roles};
+        await this.initialized;
+        return {objects: this.roles};
     }
 
 }

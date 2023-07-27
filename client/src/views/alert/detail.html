@@ -45,11 +45,13 @@
                         </div>
                     </div>
                     <div class="d-flex flex-row p-3 border-top justify-content-start">
-                        <button class="btn btn-outline-danger me-2"
+                        <button if.bind="authService.hasAccess('alert.create')"
+                                class="btn btn-outline-danger me-2"
                                 click.trigger="deleteObject(object, $event)">
                             <i class="bi-trash me-2"></i>${'buttons.delete' | t}
                         </button>
-                        <button class="btn btn-outline-secondary"
+                        <button if.bind="authService.hasAccess('mission.create')"
+                                class="btn btn-outline-secondary"
                                 click.trigger="openCreateModal('mission', $event)">
                             <i class="bi-chat me-2"></i>${'views.create' | t:{type: 'model.mission'}}
                         </button>

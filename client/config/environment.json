@@ -6,16 +6,17 @@
         "realm": "pathocert",
         "url": "https://pathocert.iao.fraunhofer.de:9990/auth/",
         "clientId": "pathoview",
-        "useUserLocale": false
+        "useUserLocale": false,
+        "rbac": {
+            "alert": {
+                "create": []
+            },
+            "mission": {
+                "delete": []
+            },
+            "cms": []
+        }
     },
     "usePathoware": true,
-    "enableBhaptics": false,
-    "rbac": {
-        "alert":{
-            "create": []
-        },
-        "mission": {
-            "delete": []
-        }
-    }
+    "enableBhaptics": false
 }

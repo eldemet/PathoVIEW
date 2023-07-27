@@ -28,9 +28,7 @@ class DashboardView extends BasicView {
         await super.attached();
         this.interval = setInterval(() => this.bindingSignaler.signal('update-dates'), 1000);
         this.authService = this.proxy.get('auth');
-        this.users = await this.authService.getUsers();
-        this.roles = await this.authService.getRoles();
-        this.groups = await this.authService.getGroups();
+        await this.authService.initialize();
         this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
         await this.contextService.initialized;
         this.initialized = true;

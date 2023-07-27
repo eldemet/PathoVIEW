@@ -3,17 +3,17 @@ import {AuthService} from './auth-service';
 
 class AuthServiceImplementation extends AuthService {
 
-    async initialize(config, testing) {
-        this.config = config;
+    async start(config, testing) {
+        await super.start(config, testing);
         /** @returns AuthServicePlugin */
         this.authServicePlugin = registerPlugin('AuthService');
         this.userInfo = await this.authServicePlugin.getUserInfo();
         this.token = await this.authServicePlugin.getToken();
-        this.setCookie(this.token);
+        this.setAuthToken(this.token);
         this.androidSubscription = this.authServicePlugin.addListener('token-update-event', payload => {
             this.logger.info('token update received', payload);
             this.token = payload;
-            this.setCookie(this.token);
+            this.setAuthToken(this.token);
         });
     }
 

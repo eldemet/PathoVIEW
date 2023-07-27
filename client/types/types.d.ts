@@ -70,7 +70,7 @@ declare global {
     }
 
     export interface AuthServicePlugin {
-        getUserInfo(): Promise<KeycloakUserInfo>;
+        getUserInfo(): Promise<KeycloakUser>;
 
         getToken(): Promise<TokenInformation>;
 

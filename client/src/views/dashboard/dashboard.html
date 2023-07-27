@@ -136,13 +136,13 @@
                     <h2 class="mt-4">${'views.dashboard.statistics' | t}</h2>
                     <div>
                         <span class="text-muted">${'views.dashboard.userCount' | t}:</span>
-                        <p class="fs-6" if.bind="users"><i class="bi-person"></i> ${users.length} (${users.filter(onlineUsers).length})</p>
+                        <p class="fs-6" if.bind="authService.users"><i class="bi-person"></i> ${authService.users.length} (${authService.users.filter(onlineUsers).length})</p>
                         <div else class="spinner-border spinner-border-sm" role="status"></div>
                     </div>
                     <div>
                         <span class="text-muted">${'views.dashboard.users' | t}:</span>
-                        <ul if.bind="users" class="list-inline">
-                            <li repeat.for="user of users" class="list-inline-item fs-6">
+                        <ul if.bind="authService.users" class="list-inline">
+                            <li repeat.for="user of authService.users" class="list-inline-item fs-6">
                                 <user-abbreviation user-id.bind="user.id"
                                                    class="d-block">
                                 </user-abbreviation>

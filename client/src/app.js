@@ -42,7 +42,7 @@ export class App extends BasicViewRouter {
 
     async configureRouter(config, router) {
         super.configureRouter(config, router);
-        let rbac = this.appConfig.rbac || {};
+        await this.authService.initialize();
         let routes = [
             {
                 route: ['', '/home'],
@@ -70,8 +70,8 @@ export class App extends BasicViewRouter {
                     gridColumnsDetail: 4,
                     detailView: true,
                     deactivate: {
-                        create: !await this.authService.hasAccess(rbac?.alert?.create),
-                        delete: !await this.authService.hasAccess(rbac?.alert?.create),
+                        create: !this.authService.hasAccess('alert.create'),
+                        delete: !this.authService.hasAccess('alert.create'),
                         update: true
                     },
                     customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
@@ -94,7 +94,7 @@ export class App extends BasicViewRouter {
                     gridColumnsDetail: 4,
                     detailView: true,
                     deactivate: {
-                        delete: !await this.authService.hasAccess(rbac?.mission?.delete)
+                        delete: !this.authService.hasAccess('mission.delete')
                     },
                     customDetailView: PLATFORM.moduleName('views/mission/detail'),
                     customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
@@ -149,7 +149,7 @@ export class App extends BasicViewRouter {
                 moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/detail')
             }
         ];
-        if (await this.authService.hasAccess(['admin'])) {
+        if (this.authService.hasAccess('cms')) {
             routes.push({
                 route: 'cms',
                 name: 'cms',
@@ -202,7 +202,6 @@ export class App extends BasicViewRouter {
             this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
         }));
         this.currentLanguage = this.languages.find(language => language.value === this.i18n.getLocale());
-        this.userInfo = await this.authService.getUserInfo();
     }
 
     async detached() {

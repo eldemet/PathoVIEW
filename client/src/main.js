@@ -19,7 +19,7 @@ import {ModelServiceAlert} from './services/model-service-alert';
 
 export async function configure(aurelia) {
     let authService = aurelia.container.get(AuthServiceImplementation);
-    await authService.initialize(environment.keycloak, environment.testing);
+    await authService.start(environment.keycloak, environment.testing);
     let root = PLATFORM.moduleName('app');
     let globalResources = [
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),

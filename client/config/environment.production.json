@@ -6,16 +6,23 @@
         "realm": "pathocert",
         "url": "https://idm.digital-enabler.eng.it/auth/",
         "clientId": "pathoview",
-        "useUserLocale": false
+        "useUserLocale": false,
+        "rbac": {
+            "alert": {
+                "create": [
+                    "ROLE_PATHOALERTA"
+                ]
+            },
+            "mission": {
+                "delete": [
+                    "ROLE_PATHOALERTA"
+                ]
+            },
+            "cms": [
+                "_ADMIN"
+            ]
+        }
     },
     "usePathoware": true,
-    "enableBhaptics": false,
-    "rbac": {
-        "alert":{
-            "create": ["ROLE_PATHOALERTA"]
-        },
-        "mission": {
-            "delete": ["ROLE_PATHOALERTA"]
-        }
-    }
+    "enableBhaptics": false
 }
