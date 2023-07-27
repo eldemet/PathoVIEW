@@ -141,13 +141,6 @@ export class App extends BasicViewRouter {
                 title: 'views.pathogens.title'
             },
             {
-                route: 'cms',
-                name: 'cms',
-                moduleId: PLATFORM.moduleName('./views/cms/cms'),
-                nav: false,
-                title: 'views.cms'
-            },
-            {
                 route: '/detail/:model/:id',
                 href: 'detail',
                 name: 'detail',
@@ -156,6 +149,15 @@ export class App extends BasicViewRouter {
                 moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/detail')
             }
         ];
+        if (await this.authService.hasAccess(['admin'])) {
+            routes.push({
+                route: 'cms',
+                name: 'cms',
+                moduleId: PLATFORM.moduleName('./views/cms/cms'),
+                nav: true,
+                title: 'views.cms'
+            });
+        }
         config.title = this.i18n.tr('app');
         config.map(routes);
         config.mapUnknownRoutes(PLATFORM.moduleName('library-aurelia/src/views-general/not-found'));
