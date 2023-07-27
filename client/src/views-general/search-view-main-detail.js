@@ -15,56 +15,35 @@ export class SearchView extends RouterViewMainDetail {
      * @param {Boolean} [settings.fluidContainer]
      * @param {String} [settings.customDetailView]
      * @param {String} [settings.customSearchView]
+     * @param {Object} [settings.deactivate]
+     * @param {Boolean} [settings.deactivate.create]
+     * @param {Boolean} [settings.deactivate.read]
+     * @param {Boolean} [settings.deactivate.update]
+     * @param {Boolean} [settings.deactivate.delete]
+     * @param {Array<Object>} [settings.additionalRoutes]
      * @returns {any}
      */
     getRoutes(settings) {
         let searchView = settings.customSearchView ? settings.customSearchView : PLATFORM.moduleName('library-aurelia/src/views-general/search');
-        let detailView = settings.customDetailView ? settings.customDetailView : PLATFORM.moduleName('library-aurelia/src/views-general/detail');
-        let routes = [
-            {
-                route: ['', '/search'],
-                name: 'search',
-                nav: false,
-                viewPorts: {
-                    main: {
-                        moduleId: searchView
-                    },
-                    detail: {
-                        moduleId: null
-                    }
+        /** @type {import('aurelia-router').RouteConfig[]} */
+        let routes = [];
+        routes.push({
+            route: ['', '/search'],
+            name: 'search',
+            nav: false,
+            viewPorts: {
+                main: {
+                    moduleId: searchView
+                },
+                detail: {
+                    moduleId: null
                 }
-            },
-            {
-                route: '/search/create',
-                name: 'search-create',
-                title: 'views.createGeneral',
-                nav: true,
-                viewPorts: {
-                    main: {
-                        moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/au-form-view')
-                    },
-                    detail: {
-                        moduleId: null
-                    }
-                }
-            },
-            {
-                route: '/search/update/:id',
-                href: 'search-update',
-                name: 'search-update',
-                title: 'views.updateGeneral',
-                nav: true,
-                viewPorts: {
-                    main: {
-                        moduleId: searchView
-                    },
-                    detail: {
-                        moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/au-form-view')
-                    }
-                }
-            },
-            {
-                route: '/search/detail/:id',
+            }
+        });
+        if (!settings?.deactivate?.read) {
+            let detailView = settings.customDetailView ? settings.customDetailView : PLATFORM.moduleName('library-aurelia/src/views-general/detail');
+            routes.push({
+                route: '/detail/:id',
                 href: 'search-detail',
                 name: 'search-detail',
                 title: 'views.detail',
@@ -77,23 +56,44 @@ export class SearchView extends RouterViewMainDetail {
                         moduleId: detailView
                     }
                 }
-            },
-            {
-                route: '/search/comment/:id',
-                href: 'search-comment',
-                name: 'search-comment',
-                title: 'views.comment',
+            });
+        }
+        if (!settings?.deactivate?.create) {
+            routes.push({
+                route: '/create',
+                name: 'search-create',
+                title: 'views.createGeneral',
+                nav: true,
+                viewPorts: {
+                    main: {
+                        moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/au-form-view')
+                    },
+                    detail: {
+                        moduleId: null
+                    }
+                }
+            });
+        }
+        if (!settings?.deactivate?.update) {
+            routes.push({
+                route: '/update/:id',
+                href: 'search-update',
+                name: 'search-update',
+                title: 'views.updateGeneral',
                 nav: true,
                 viewPorts: {
                     main: {
                         moduleId: searchView
                     },
                     detail: {
-                        moduleId: PLATFORM.moduleName('views-general/annotations')
+                        moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/au-form-view')
                     }
                 }
-            }
-        ];
+            });
+        }
+        if (Array.isArray(settings.additionalRoutes)) {
+            routes.push(...settings.additionalRoutes);
+        }
         for (let route of routes) {
             route.settings = Object.assign({}, route.settings, settings);
         }

@@ -12,99 +12,6 @@ import {ContextService} from './services/context-service';
 @inject(BindingSignaler, ContextService)
 export class App extends BasicViewRouter {
 
-    routes = [
-        {
-            route: ['', '/home'],
-            name: 'home',
-            moduleId: PLATFORM.moduleName('./views/home/home'),
-            nav: false
-        },
-        {
-            route: 'dashboard',
-            name: 'dashboard',
-            moduleId: PLATFORM.moduleName('./views/dashboard/dashboard'),
-            nav: true,
-            title: 'views.dashboard.title'
-        },
-        {
-            route: 'alert',
-            name: 'alert',
-            moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
-            nav: true,
-            title: 'model.alert',
-            settings: {
-                i18n: {count: 2},
-                fluidContainer: true,
-                gridColumnsMain: 8,
-                gridColumnsDetail: 4,
-                detailView: true,
-                deactivate: {
-                    update: true
-                },
-                customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
-                customDetailView: PLATFORM.moduleName('views/alert/detail'),
-                filter: () => {
-                    return {alertSource: AureliaCookie.get('emergency-event') || 'notSet'};
-                }
-            }
-        },
-        {
-            route: 'mission',
-            name: 'mission',
-            moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
-            nav: true,
-            title: 'model.mission',
-            settings: {
-                i18n: {count: 2},
-                fluidContainer: true,
-                gridColumnsMain: 8,
-                gridColumnsDetail: 4,
-                detailView: true,
-                customDetailView: PLATFORM.moduleName('views/mission/detail'),
-                customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
-                filter: () => {
-                    return {refId: AureliaCookie.get('emergency-event') || 'notSet'};
-                }
-            }
-        },
-        {
-            route: 'map',
-            name: 'map',
-            moduleId: PLATFORM.moduleName('./views/map/map'),
-            nav: true,
-            title: 'views.map'
-        },
-        {
-            route: 'instructions',
-            name: 'instructions',
-            moduleId: PLATFORM.moduleName('./views/instructions/instructions'),
-            nav: true,
-            title: 'views.instructions.title'
-        },
-        {
-            route: 'pathogens',
-            name: 'pathogens',
-            moduleId: PLATFORM.moduleName('./views/pathogens/pathogens'),
-            nav: true,
-            title: 'views.pathogens.title'
-        },
-        {
-            route: 'cms',
-            name: 'cms',
-            moduleId: PLATFORM.moduleName('./views/cms/cms'),
-            nav: false,
-            title: 'views.cms'
-        },
-        {
-            route: '/detail/:model/:id',
-            href: 'detail',
-            name: 'detail',
-            title: 'views.detail',
-            nav: false,
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/detail')
-        }
-    ];
-
     languages = [
         {name: 'English (en)', value: 'en'},
         {name: 'Deutsch (de)', value: 'de'},
@@ -115,26 +22,142 @@ export class App extends BasicViewRouter {
 
     /**
      * @param {BindingSignaler} bindingSignaler
-     * @param {DialogService} dialogService
      * @param {ContextService} contextService
      * @param {ConstructorParameters<typeof BasicViewRouter>} rest
      */
-    constructor(bindingSignaler, dialogService, contextService, ...rest) {
+    constructor(bindingSignaler, contextService, ...rest) {
         super(...rest);
         this.bindingSignaler = bindingSignaler;
-        this.dialogService = dialogService;
+        this.appConfig = this.proxy.get('config').config;
         this.contextService = contextService;
         this.deviceUtilities = deviceUtilities;
         this.bhapticsServiceEnabled = false;
+        /** @type {import('./services/auth-service').AuthService} */
         this.authService = this.proxy.get('auth');
-        this.bhapticsService = this.proxy.get('bhaptics');
+        if (this.appConfig.enableBhaptics) {
+            this.bhapticsService = this.proxy.get('bhaptics');
+        }
         this.notificationService = this.proxy.get('notification');
     }
 
-    configureRouter(config, router) {
+    async configureRouter(config, router) {
         super.configureRouter(config, router);
+        let rbac = this.appConfig.rbac || {};
+        let routes = [
+            {
+                route: ['', '/home'],
+                name: 'home',
+                moduleId: PLATFORM.moduleName('./views/home/home'),
+                nav: false
+            },
+            {
+                route: 'dashboard',
+                name: 'dashboard',
+                moduleId: PLATFORM.moduleName('./views/dashboard/dashboard'),
+                nav: true,
+                title: 'views.dashboard.title'
+            },
+            {
+                route: 'alert',
+                name: 'alert',
+                moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
+                nav: true,
+                title: 'model.alert',
+                settings: {
+                    i18n: {count: 2},
+                    fluidContainer: true,
+                    gridColumnsMain: 8,
+                    gridColumnsDetail: 4,
+                    detailView: true,
+                    deactivate: {
+                        create: !await this.authService.hasAccess(rbac?.alert?.create),
+                        delete: !await this.authService.hasAccess(rbac?.alert?.create),
+                        update: true
+                    },
+                    customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
+                    customDetailView: PLATFORM.moduleName('views/alert/detail'),
+                    filter: () => {
+                        return {alertSource: AureliaCookie.get('emergency-event') || 'notSet'};
+                    }
+                }
+            },
+            {
+                route: 'mission',
+                name: 'mission',
+                moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
+                nav: true,
+                title: 'model.mission',
+                settings: {
+                    i18n: {count: 2},
+                    fluidContainer: true,
+                    gridColumnsMain: 8,
+                    gridColumnsDetail: 4,
+                    detailView: true,
+                    deactivate: {
+                        delete: !await this.authService.hasAccess(rbac?.mission?.delete)
+                    },
+                    customDetailView: PLATFORM.moduleName('views/mission/detail'),
+                    customSearchView: PLATFORM.moduleName('views-general/search-with-annotations'),
+                    additionalRoutes: [{
+                        route: '/comment/:id',
+                        href: 'search-comment',
+                        name: 'search-comment',
+                        title: 'views.comment',
+                        nav: true,
+                        viewPorts: {
+                            main: {
+                                moduleId: PLATFORM.moduleName('views-general/search-with-annotations')
+                            },
+                            detail: {
+                                moduleId: PLATFORM.moduleName('views-general/annotations')
+                            }
+                        }
+                    }],
+                    filter: () => {
+                        return {refId: AureliaCookie.get('emergency-event') || 'notSet'};
+                        // TODO validate: return {$and: [{refId: AureliaCookie.get('emergency-event') || 'notSet'}, {assignedTo: {$in: this.userInfo.roles}}]};
+                    }
+                }
+            },
+            {
+                route: 'map',
+                name: 'map',
+                moduleId: PLATFORM.moduleName('./views/map/map'),
+                nav: true,
+                title: 'views.map'
+            },
+            {
+                route: 'instructions',
+                name: 'instructions',
+                moduleId: PLATFORM.moduleName('./views/instructions/instructions'),
+                nav: true,
+                title: 'views.instructions.title'
+            },
+            {
+                route: 'pathogens',
+                name: 'pathogens',
+                moduleId: PLATFORM.moduleName('./views/pathogens/pathogens'),
+                nav: true,
+                title: 'views.pathogens.title'
+            },
+            {
+                route: 'cms',
+                name: 'cms',
+                moduleId: PLATFORM.moduleName('./views/cms/cms'),
+                nav: false,
+                title: 'views.cms'
+            },
+            {
+                route: '/detail/:model/:id',
+                href: 'detail',
+                name: 'detail',
+                title: 'views.detail',
+                nav: false,
+                moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/detail')
+            }
+        ];
         config.title = this.i18n.tr('app');
-        config.map(this.routes);
+        config.map(routes);
         config.mapUnknownRoutes(PLATFORM.moduleName('library-aurelia/src/views-general/not-found'));
         config.fallbackRoute('home');
     }
@@ -143,7 +166,7 @@ export class App extends BasicViewRouter {
         super.attached();
         this.responsiveService.initialize();
         await this.contextService.initialize();
-        await this.notificationService.initialize(this.proxy.get('config').get('baseUrl') + '/api/v1/notification', ['model', 'event']);
+        await this.notificationService.initialize(this.appConfig.baseUrl + '/api/v1/notification', ['model', 'event']);
         this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
             if (notification.contentType === 'toast') {

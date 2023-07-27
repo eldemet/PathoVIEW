@@ -138,16 +138,17 @@
                                         </span>
                                     </td>
                                     <td class="tools">
-                                        <button class="visually-hidden"
+                                        <button if.bind="!routeConfig.settings.deactivate.read"
+                                                class="visually-hidden"
                                                 click.trigger="navigateToRoute('detail', object, $event, router)">
                                             ${'views.detail' | t}
                                         </button>
-                                        <button if.bind="!schema.readOnly"
+                                        <button if.bind="!schema.readOnly && !routeConfig.settings.deactivate.update"
                                                 class="btn hover-item"
                                                 click.trigger="navigateToRoute('update', object, $event, router)">
                                             <i class="bi-pencil"></i>
                                         </button>
-                                        <button if.bind="!schema.readOnly"
+                                        <button if.bind="!schema.readOnly && !routeConfig.settings.deactivate.delete"
                                                 class="btn hover-item"
                                                 click.trigger="deleteObject(object, $event)">
                                             <i class="bi-trash"></i>

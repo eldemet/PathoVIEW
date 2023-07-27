@@ -9,5 +9,13 @@
         "useUserLocale": false
     },
     "usePathoware": true,
-    "enableBhaptics": false
+    "enableBhaptics": false,
+    "rbac": {
+        "alert":{
+            "create": ["ROLE_PATHOALERTA"]
+        },
+        "mission": {
+            "delete": ["ROLE_PATHOALERTA"]
+        }
+    }
 }
