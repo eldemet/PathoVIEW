@@ -14,6 +14,30 @@ declare global {
         locale: string;
     }
 
+    export type KeycloakUser = {
+        id: string;
+        username: string;
+        firstName?: string;
+        lastName?: string;
+        email?: string;
+        enabled: boolean;
+        roles: string[];
+        groups: string[];
+        status: 'online' | 'offline';
+    }
+
+    export type KeycloakRole = {
+        id: string;
+        name: string;
+    }
+
+    export type KeycloakGroup = {
+        id: string;
+        name: string;
+        path: string;
+        subGroups: string[];
+    }
+
     export interface TokenInformation {
         value: string;
         expiry: number;

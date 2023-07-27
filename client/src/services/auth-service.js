@@ -40,6 +40,11 @@ class AuthService extends BasicService {
         AureliaCookie.set('lang', locale, {});
     }
 
+
+    /**
+     * @param {boolean} [forceReload]
+     * @return {Promise<KeycloakUser[]>}
+     */
     async getUsers(forceReload) {
         if (forceReload || !this.usersPromise) {
             this.usersPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 10000);
@@ -47,6 +52,10 @@ class AuthService extends BasicService {
         return await this.usersPromise;
     }
 
+    /**
+     * @param {boolean} [forceReload]
+     * @return {Promise<KeycloakRole[]>}
+     */
     async getRoles(forceReload) {
         if (forceReload || !this.rolesPromise) {
             this.rolesPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/role', null, 10000);
@@ -54,6 +63,11 @@ class AuthService extends BasicService {
         return await this.rolesPromise;
     }
 
+
+    /**
+     * @param {boolean} forceReload
+     * @return {Promise<KeycloakGroup[]>}
+     */
     async getGroups(forceReload) {
         if (forceReload || !this.groupsPromise) {
             this.groupsPromise = this.httpService.fetch('GET', '/api/v1/keycloak-admin/group', null, 10000);
@@ -68,11 +82,25 @@ class AuthService extends BasicService {
         return this.userInfo.sub;
     }
 
+    /**
+     * @return {Promise<KeycloakUser>}
+     */
     async getUserInfo() {
         let users = await this.getUsers();
         let userId = this.getUserId();
-        let user = users.find(u => u.id === userId);
-        return user;
+        return users.find(u => u.id === userId);
+    }
+
+    /**
+     * @param {String[]} roles
+     */
+    async hasAccess(roles) {
+        let user = await this.getUserInfo();
+        let hasAccess = false;
+        if (user && Array.isArray(user.roles) && Array.isArray(roles)) {
+            hasAccess = user.roles.some(r => roles.includes(r));
+        }
+        return hasAccess;
     }
 
     async getObjects() {
