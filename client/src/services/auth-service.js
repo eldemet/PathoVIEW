@@ -92,13 +92,17 @@ class AuthService extends BasicService {
     }
 
     /**
+     * grant access if not roles are provided, otherwise check if user has required role
      * @param {String[]} roles
      */
     async hasAccess(roles) {
-        let user = await this.getUserInfo();
-        let hasAccess = false;
-        if (user && Array.isArray(user.roles) && Array.isArray(roles)) {
-            hasAccess = user.roles.some(r => roles.includes(r));
+        let hasAccess = true;
+        if (roles?.length) {
+            hasAccess = false;
+            let user = await this.getUserInfo();
+            if (user && Array.isArray(user.roles) && roles.length) {
+                hasAccess = user.roles.some(r => roles.includes(r));
+            }
         }
         return hasAccess;
     }
