@@ -144,7 +144,7 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
                 },
                 {
                     test: /\.(png|gif|jpg|cur)$/,
-                    issuer: /\.js$/,
+                    issuer: /\.(js|html)$/,
                     type: 'asset/resource',
                     generator: {filename: 'assets/[name][ext]'}
                 },

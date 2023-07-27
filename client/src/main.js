@@ -50,5 +50,7 @@ export async function configure(aurelia) {
     let registerPlugins = [
         PLATFORM.moduleName('aurelia-animator-css')
     ];
-    await AureliaFramework.initialize(aurelia, {environment, root, globalResources, registerServices, registerPlugins});
+    let splashScreen = (await import('views/splash-screen.html?raw')).default;
+    await AureliaFramework.initialize(aurelia, {environment, root, globalResources, registerServices, registerPlugins, splashScreen});
+    await new Promise((resolve) => setTimeout(resolve, 50000));
 }
