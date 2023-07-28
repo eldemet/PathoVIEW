@@ -107,42 +107,44 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td if.bind="annotable && $parent.annotations"
-                                        click.trigger="navigateToRoute('comment', object, $event, router)">
-                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}]}
-                                                                     & signal:'annotations-updated'"
-                                              if.bind="$this.length === 0">
-                                            <i class="bi-chat-square position-relative">
-                                                <span class="position-absolute" style="top: -15px !important; left: 11px !important;">
-                                                    <i class="bi-plus"></i>
-                                                </span>
-                                            </i>
-                                        </span>
-                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationText'}]}
-                                                                     & signal:'annotations-updated'"
-                                              if.bind="$this.length > 0">
-                                            ${$this.length}
-                                            <i class="bi-chat-square"></i>
-                                        </span>
-                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationImage'}]}
-                                                                     & signal:'annotations-updated'"
-                                              if.bind="$this.length > 0">
-                                            ${$this.length}
-                                            <i class="bi-camera-fill"></i>
-                                        </span>
-                                        <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationAudio'}]}
-                                                                     & signal:'annotations-updated'"
-                                              if.bind="$this.length > 0">
-                                            ${$this.length}
-                                            <i class="bi-mic-fill"></i>
-                                        </span>
-                                    </td>
-                                    <td class="tools">
+                                    <td if.bind="annotable && $parent.annotations">
                                         <button if.bind="!routeConfig.settings.deactivate.read"
                                                 class="visually-hidden"
                                                 click.trigger="navigateToRoute('detail', object, $event, router)">
                                             ${'views.detail' | t}
                                         </button>
+                                        <button click.trigger="navigateToRoute('comment', object, $event, router)"
+                                                class="btn hover-item" style="opacity: 1;">
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}]}
+                                                                     & signal:'annotations-updated'"
+                                                  if.bind="$this.length === 0">
+                                                <i class="bi-chat-square position-relative">
+                                                    <span class="position-absolute" style="top: -15px !important; left: 11px !important;">
+                                                        <i class="bi-plus"></i>
+                                                    </span>
+                                                </i>
+                                            </span>
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationText'}]}
+                                                                     & signal:'annotations-updated'"
+                                                  if.bind="$this.length > 0">
+                                                ${$this.length}
+                                                <i class="bi-chat-square"></i>
+                                            </span>
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationImage'}]}
+                                                                     & signal:'annotations-updated'"
+                                                  if.bind="$this.length > 0">
+                                                ${$this.length}
+                                                <i class="bi-camera-fill"></i>
+                                            </span>
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationAudio'}]}
+                                                                     & signal:'annotations-updated'"
+                                                  if.bind="$this.length > 0">
+                                                ${$this.length}
+                                                <i class="bi-mic-fill"></i>
+                                            </span>
+                                        </button>
+                                    </td>
+                                    <td class="tools">
                                         <button if.bind="!schema.readOnly && !routeConfig.settings.deactivate.update"
                                                 class="btn hover-item"
                                                 click.trigger="navigateToRoute('update', object, $event, router)">
