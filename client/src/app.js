@@ -259,4 +259,8 @@ export class App extends BasicViewRouter {
         }
     }
 
+    getDate(input) {
+        return new Date(input);
+    }
+
 }
