@@ -36,13 +36,13 @@ class ContextService extends BasicService {
         this.httpService = httpService;
     }
 
-    async initialize(timeout = 20000) {
+    async initialize(config, timeout = 20000) {
+        this.config = config;
         this.timeout = timeout;
         await this.loadEmergencyEvents();
         await this.loadAlerts();
         await this.loadMissions();
         await this.initializeCurrentDevice();
-        this.setCurrentEmergencyEvent();
         await this.setCurrentWeather();
         numeral.locale(this.i18n.getLocale());
         await this.update();
@@ -89,6 +89,17 @@ class ContextService extends BasicService {
     async loadEmergencyEvents() {
         this.emergencyEventSchema = await this.proxy.get('emergency-event').getSchema();
         this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
+        let currentEmergencyEventId = AureliaCookie.get('emergency-event');
+        if (currentEmergencyEventId) {
+            this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
+        } else {
+            this.eventAggregator.publish('app-alert', {
+                id: 'noEmergencyEvent',
+                type: 'warning',
+                message: 'views.dashboard.noEmergencyEvent',
+                dismissible: true
+            });
+        }
     }
 
     @loadingEvent('app-alert', 'device')
@@ -115,31 +126,36 @@ class ContextService extends BasicService {
     @loadingEvent('app-alert', 'alert')
     @catchError()
     async loadAlerts() {
-        this.alerts = (await this.proxy.get('alert').getObjects({filter: {alertSource: AureliaCookie.get('emergency-event')}})).objects;
+        let alerts = [];
+        if (this.currentEmergencyEvent) {
+            let query;
+            let options = this.proxy.get('alert').options;
+            if (this.config?.usePathoware) {
+                let pathowareAlertEndpoint = '/api/v1/pathoware/model/' + this.currentEmergencyEvent.scenario + '/alert';
+                options.endpoints.getObjects = pathowareAlertEndpoint;
+                options.endpoints.createObject = pathowareAlertEndpoint;
+                options.endpoints.deleteObject = pathowareAlertEndpoint;
+            } else {
+                query = {filter: JSON.stringify({alertSource: this.currentEmergencyEvent.id})};
+            }
+            await this.proxy.get('alert').loadObjects();
+            alerts = (await this.proxy.get('alert').getObjects(query)).objects;
+        }
+        this.alerts = alerts;
     }
 
     @loadingEvent('app-alert', 'mission')
     @catchError('app-alert')
-    async loadMissions() {
-        this.missions = (await this.proxy.get('mission').getObjects({filter: {refId: AureliaCookie.get('emergency-event')}})).objects;
-    }
-
-    @catchError('app-alert', {
-        id: 'noEmergencyEvent',
-        type: 'warning',
-        message: 'views.dashboard.noEmergencyEvent',
-        dismissible: true
-    })
-    setCurrentEmergencyEvent() {
-        if (!Array.isArray(this.emergencyEvents) || this.emergencyEvents.length === 0) {
-            throw new Error('No emergencies loaded!');
+    async loadMissions(reload) {
+        let missions = [];
+        if (this.currentEmergencyEvent) {
+            await this.proxy.get('mission').checkInitialized();
+            let options = this.proxy.get('mission').options;
+            options.endpoints.getObjects = options.apiEntrypoint + '/mission?' + stringify({filter: JSON.stringify({refId: this.currentEmergencyEvent.id})});
+            await this.proxy.get('mission').loadObjects();
+            missions = (await this.proxy.get('mission').getObjects()).objects;
         }
-        let currentEmergencyEventId = AureliaCookie.get('emergency-event');
-        if (currentEmergencyEventId) {
-            this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
-        } else {
-            throw new Error('No emergency event selected!');
-        }
+        this.missions = missions;
     }
 
     @catchError()
@@ -159,7 +175,6 @@ class ContextService extends BasicService {
     @catchError()
     async changeEmergencyEvent(emergencyEvent) {
         AureliaCookie.set('emergency-event', emergencyEvent.id, {});
-        AureliaCookie.set('scenario', emergencyEvent.scenario, {});
         this.currentEmergencyEvent = emergencyEvent;
         this.eventAggregator.publish('app-alert-dismiss', {id: 'noEmergencyEvent'});
         for (let alert of this.alerts) {
@@ -227,7 +242,7 @@ class ContextService extends BasicService {
                                 message: this.i18n.tr(message),
                                 link: {
                                     name: alert.name || alert.description,
-                                    href: '#/alert/search/detail/' + alert.id
+                                    href: '#/alert/detail/' + alert.id
                                 },
                                 properties: Object.assign(properties, {
                                     subCategory: this.i18n.tr('enum.alert.subCategory.' + alert.subCategory),

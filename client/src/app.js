@@ -75,10 +75,7 @@ export class App extends BasicViewRouter {
                         update: true
                     },
                     customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
-                    customDetailView: PLATFORM.moduleName('views/alert/detail'),
-                    filter: () => {
-                        return {alertSource: AureliaCookie.get('emergency-event') || 'notSet'};
-                    }
+                    customDetailView: PLATFORM.moduleName('views/alert/detail')
                 }
             },
             {
@@ -167,7 +164,7 @@ export class App extends BasicViewRouter {
     async attached() {
         super.attached();
         this.responsiveService.initialize();
-        await this.contextService.initialize();
+        await this.contextService.initialize(this.appConfig);
         await this.notificationService.initialize(this.appConfig.baseUrl + '/api/v1/notification', ['model', 'event']);
         this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
         this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
@@ -207,7 +204,9 @@ export class App extends BasicViewRouter {
     async detached() {
         await super.detached();
         clearInterval(this.interval);
-        await this.bhapticsService.close();
+        if (this.appConfig.enableBhaptics) {
+            await this.bhapticsService.close();
+        }
         await this.notificationService.close();
     }
 

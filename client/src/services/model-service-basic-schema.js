@@ -10,75 +10,109 @@ class ModelServiceBasicSchema extends ModelService {
      * @param {String} type
      * @param {Object} options
      * @param {String} options.apiEntrypoint
+     * @param {Object} [options.endpoints]
+     * @param {String} [options.endpoints.getSchema]
+     * @param {String} [options.endpoints.getObjects]
+     * @param {String} [options.endpoints.getObject]
+     * @param {String} [options.endpoints.createObject]
+     * @param {String} [options.endpoints.updateObject]
+     * @param {String} [options.endpoints.deleteObject]
      * @param {import('library-aurelia/src/services/http-service').HttpService} httpService
      * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
     constructor(type, options, httpService, ...rest) {
         super(type, options, ...rest);
-        this.typeKebabCase = this._.kebabCase(this.type);
         this.httpService = httpService;
+        this.setEndpoints(options.apiEntrypoint, type, options.endpoints);
+    }
+
+    setEndpoints(apiEntrypoint, type, endpoints = {}) {
+        let typeKebabCase = this._.kebabCase(type);
+        let createUrl = (override, defaultPath) => {
+            return override ? override : apiEntrypoint + '/' + defaultPath;
+        };
+        this.options.endpoints = {
+            getSchema: createUrl(endpoints.getSchema, `${typeKebabCase}/schema`),
+            getObjects: createUrl(endpoints.getObjects, `${typeKebabCase}`),
+            getObject: createUrl(endpoints.getObject, `${typeKebabCase}/:id`),
+            createObject: createUrl(endpoints.createObject, `${typeKebabCase}`),
+            updateObject: createUrl(endpoints.updateObject, `${typeKebabCase}/:id`),
+            deleteObject: createUrl(endpoints.deleteObject, `${typeKebabCase}/:id`)
+        };
     }
 
     async createObject(object) {
-        let result = await this.httpService.fetch('POST', this.options.apiEntrypoint + '/' + this.typeKebabCase, object);
-        let tmp = this.getObjectById(result[this.options.uniqueProperty]);
-        if (tmp === null) {
+        await this.checkInitialized();
+        let createdObject = await this.httpService.fetch('POST', this.options.endpoints.createObject, object);
+        let id = createdObject[this.options.uniqueProperty];
+        if (this.getObjectById(id) === null) {
             if (Array.isArray(this.objects)) {
-                this.objects.push(result);
+                this.objects.push(createdObject);
             }
         }
-        this.logger.debug('successfully created ' + result[this.options.uniqueProperty]);
-        return result;
+        this.logger.debug(`successfully created ${this.type} ${id}`);
+        return createdObject;
     }
 
     async updateObject(object) {
-        let result = await this.httpService.fetch('PUT', this.options.apiEntrypoint + '/' + this.typeKebabCase + '/' + object[this.options.uniqueProperty], object);
-        let objectToUpdate = this.getObjectById(result[this.options.uniqueProperty]);
+        await this.checkInitialized();
+        let id = object[this.options.uniqueProperty];
+        let updatedObject = await this.httpService.fetch('PUT', this.options.endpoints.updateObject.replace(':id', id), object);
+        let objectToUpdate = this.getObjectById(id);
         if (objectToUpdate) {
-            Object.assign(objectToUpdate, result);
+            Object.assign(objectToUpdate, updatedObject);
         }
-        this.logger.debug('successfully updated ' + result[this.options.uniqueProperty]);
-        return result;
+        this.logger.debug(`successfully updated ${this.type} ${id}`);
+        return updatedObject;
     }
 
     async deleteObject(object) {
-        let result = await this.httpService.fetch('DELETE', this.options.apiEntrypoint + '/' + this.typeKebabCase + '/' + object[this.options.uniqueProperty], object);
-        let objectToDelete = this.getObjectById(result[this.options.uniqueProperty]);
-        if (objectToDelete && Array.isArray(this.objects)) {
-            let index = this.objects.indexOf(objectToDelete);
-            if (index > -1) {
-                this.objects.splice(index, 1);
-            }
+        await this.checkInitialized();
+        let id = object[this.options.uniqueProperty];
+        let deletedObject = await this.httpService.fetch('DELETE', this.options.endpoints.deleteObject.replace(':id', id), object);
+        let objectToDelete = this.getObjectById(id);
+        let index = this.objects.indexOf(objectToDelete);
+        if (index > -1) {
+            this.objects.splice(index, 1);
         }
-        this.logger.debug('successfully deleted ' + result[this.options.uniqueProperty]);
-        return result;
+        this.logger.debug(`successfully deleted ${this.type} ${id}`);
+        return deletedObject;
+    }
+
+    async loadSchema() {
+        let schema = await this.httpService.fetch('GET', this.options.endpoints.getSchema);
+        this.extractSimplifiedSchemas(schema);
+        this.logger.debug(`successfully loaded schema of ${this.type}`);
+    }
+
+    async loadObjects() {
+        let result = await this.httpService.fetch('GET', this.options.endpoints.getObjects);
+        this.validate('array-' + this.type, result.objects);
+        this.objects = result.objects;
+        this.logger.debug(`successfully loaded ${this.type}s (${this.objects.length})`);
     }
 
     async initialize() {
-        let schema = await this.httpService.fetch('GET', this.options.apiEntrypoint + '/' + this.typeKebabCase + '/schema');
-        this.extractSimplifiedSchemas(schema);
-        this.logger.debug('successfully loaded schema of ' + this.type + '!');
-        let result = await this.httpService.fetch('GET', this.options.apiEntrypoint + '/' + this.typeKebabCase);
-        if (Array.isArray(result.objects) && result.total === result.objects.length) {
-            this.validate('array-' + this.type, result.objects);
-            this.objects = result.objects;
-            this.logger.debug('successfully loaded ' + this.objects.length + ' ' + this.type);
+        try {
+            await this.loadSchema();
+            await this.loadObjects();
             this.subscriptions.push(this.eventAggregator.subscribe('notification-model', notification => {
                 if (notification.contentType.toLowerCase() === this.type) {
                     if (notification.content) {
-                        let functionName = this._.toLower(notification.operationType) + 'Object';
+                        let object = notification.content;
+                        let functionName = notification.operationType.toLowerCase() + 'Object';
                         if (functionName === 'createObject') {
-                            let objectToCreate = this.getObjectById(notification.content[this.options.uniqueProperty]);
+                            let objectToCreate = this.getObjectById(object[this.options.uniqueProperty]);
                             if (!objectToCreate) {
-                                this.objects.push(notification.content);
+                                this.objects.push(object);
                             }
                         } else if (functionName === 'updateObject') {
-                            let objectToUpdate = this.getObjectById(notification.content[this.options.uniqueProperty]);
+                            let objectToUpdate = this.getObjectById(object[this.options.uniqueProperty]);
                             if (objectToUpdate) {
-                                Object.assign(objectToUpdate, notification.content);
+                                Object.assign(objectToUpdate, object);
                             }
                         } else if (functionName === 'deleteObject') {
-                            let objectToDelete = this.getObjectById(notification.content[this.options.uniqueProperty]);
+                            let objectToDelete = this.getObjectById(object[this.options.uniqueProperty]);
                             if (objectToDelete && Array.isArray(this.objects)) {
                                 let index = this.objects.indexOf(objectToDelete);
                                 if (index > -1) {
@@ -90,25 +124,27 @@ class ModelServiceBasicSchema extends ModelService {
                 }
             }));
             this.initializeResolve();
-        } else {
-            this.initializeReject(new Error('Could not initialize model-service since fetched data is not valid. Expected Array of ' + this.type + ' and received ' + result));
+        } catch (error) {
+            this.initializeReject(new Error(`Initialization of model service ${this.type} failed. ${error.message} `));
         }
     }
 
     async close() {
         this.disposeSubscriptions();
+        this.initializePromise = null;
+        this.initializeResolve = null;
+        this.initializeReject = null;
     }
 
     async checkInitialized() {
-        if (!this.isInitialized) {
-            // @ts-ignore
-            this.isInitialized = new Promise((resolve, reject) => {
+        if (!this.initializePromise) {
+            this.initializePromise = new Promise((resolve, reject) => {
                 this.initializeResolve = resolve;
                 this.initializeReject = reject;
             });
             await this.initialize();
         } else {
-            await this.isInitialized;
+            await this.initializePromise;
         }
     }
 
