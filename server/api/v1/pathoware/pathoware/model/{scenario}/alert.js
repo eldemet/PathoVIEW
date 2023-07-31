@@ -2,7 +2,7 @@ import {v1 as uuid} from 'uuid';
 import Logger from 'utilities-node/src/utilities/logger.js';
 import {alertUtilities} from '../../../../../../utilities/pathoware.js';
 
-export default function(config, getApiDoc) {
+export default function(config, getApiDoc, notificationService) {
 
     const logger = new Logger(import.meta);
 
@@ -130,6 +130,7 @@ export default function(config, getApiDoc) {
                 let result = await fetchResult.json();
                 result = alertUtilities.cleanAlert(result);
                 res.validateAndSend(200, result);
+                if (notificationService) notificationService.publishNotification({content: result, senderId: 'PathoVIEW', topic: 'model', contentType: 'alert', operationType: 'create'});
             }
         }
     }
@@ -186,6 +187,7 @@ export default function(config, getApiDoc) {
             let fetchResult = await fetch(url, options);
             if (!fetchResult.ok) {
                 res.status(fetchResult.status).send({error: fetchResult.statusText});
+                if (notificationService) notificationService.publishNotification({content: fetchResult, senderId: 'PathoVIEW', topic: 'model', contentType: 'alert', operationType: 'delete'});
             } else {
                 res.validateAndSend(200, req.body);
             }
