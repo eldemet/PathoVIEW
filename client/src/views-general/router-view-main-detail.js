@@ -41,7 +41,7 @@ export class RouterViewMainDetail extends BasicViewRouter {
         super.activate(params, routeConfig, navigationInstruction);
         this.navigationInstruction = navigationInstruction;
         this.hide = this.getHide();
-        this.maxMainRouteLength = routeConfig.settings.maxMainRouteLength || 3;
+        this.maxMainRouteLength = routeConfig.settings.maxMainRouteLength || 2;
         this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', payload => {
             this.hide = this.getHide();
         }));
