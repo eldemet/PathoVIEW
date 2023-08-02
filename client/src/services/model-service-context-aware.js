@@ -1,11 +1,18 @@
-import {ModelServiceBasicSchema} from './model-service-basic-schema';
 import {AureliaCookie} from 'aurelia-cookie';
+import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
 
 /**
- * @extends ModelServiceBasicSchema
+ * @extends ModelServiceBasic
  * @category services
  */
-class ModelServiceContextAware extends ModelServiceBasicSchema {
+class ModelServiceContextAware extends ModelServiceBasic {
+
+    /**
+     * @param {ConstructorParameters<typeof import('library-aurelia/src/services/model-service-basic').ModelServiceBasic>} rest
+     */
+    constructor(...rest) {
+        super(...rest);
+    }
 
     async loadObjects() {
         let objects = [];

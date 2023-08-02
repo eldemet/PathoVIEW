@@ -1,5 +1,6 @@
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
 import {LogManager, bindable} from 'aurelia-framework';
+import merge from 'lodash/merge';
 import 'leaflet/dist/images/layers.png';
 import 'leaflet/dist/images/layers-2x.png';
 import 'leaflet/dist/images/marker-icon.png';
@@ -64,7 +65,7 @@ export class LeafletCustomElement extends BasicComponent {
         this.layerFactory = new LayerFactory(this.L);
         let mapOptions = this.defaultMapOptions;
         if (this.mapOptions) {
-            mapOptions = this._.merge({}, this.defaultMapOptions, this.mapOptions);
+            mapOptions = merge({}, this.defaultMapOptions, this.mapOptions);
         }
         let center = this.center || this.defaultCenter || {lat: 48.783333, lng: 9.183333};
         if (!this.center) {
@@ -106,6 +107,9 @@ export class LeafletCustomElement extends BasicComponent {
 
     detached() {
         super.detached();
+        this.initialized = new Promise(resolve => {
+            this.initializeResolve = resolve;
+        });
         try {
             this.map.remove();
         } catch (error) {

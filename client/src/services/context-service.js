@@ -2,6 +2,7 @@ import {inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import * as platform from 'platform';
 import numeral from 'numeral';
+import pick from 'lodash/pick';
 import {point} from '@turf/helpers';
 import {Proxy} from 'library-aurelia/src/proxy';
 import {HttpService} from 'library-aurelia/src/services/http-service';
@@ -149,7 +150,7 @@ class ContextService extends BasicService {
     async loadMissions(reload) {
         let missions = [];
         if (this.currentEmergencyEvent) {
-            await this.proxy.get('mission').checkInitialized();
+            await this.proxy.get('mission').initialized();
             let options = this.proxy.get('mission').options;
             options.endpoints.getObjects = options.apiEntrypoint + '/mission?' + stringify({filter: JSON.stringify({refId: this.currentEmergencyEvent.id})});
             await this.proxy.get('mission').loadObjects();
@@ -190,7 +191,7 @@ class ContextService extends BasicService {
     async updateDevice(location) {
         if (this.currentDevice) {
             let batteryLevel = await deviceUtilities.getBatteryLevel();
-            let oldDeviceValues = this._.pick(this.currentDevice, ['name', 'batteryLevel', 'osVersion', 'softwareVersion', 'provider', 'location']);
+            let oldDeviceValues = pick(this.currentDevice, ['name', 'batteryLevel', 'osVersion', 'softwareVersion', 'provider', 'location']);
             let newDeviceValues = {
                 name: this.proxy.get('auth')?.userInfo?.name || 'undefined',
                 batteryLevel: batteryLevel,

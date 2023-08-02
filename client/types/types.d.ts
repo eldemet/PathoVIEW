@@ -5,6 +5,7 @@ import 'library-aurelia/types/types';
 
 declare global {
 
+
     export interface KeycloakUserInfo {
         name: string;
         preferred_username: string;

@@ -12,7 +12,7 @@ import {AuthServiceImplementation} from './services/auth-service-APP_TARGET';
 import {BhapticsServiceImplementation} from './services/bhaptics-service-APP_TARGET';
 // @ts-ignore
 import {NotificationServiceImplementation} from './services/notification-service-APP_TARGET';
-import {ModelServiceBasicSchema} from './services/model-service-basic-schema';
+import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
 import {ModelServiceContextAware} from './services/model-service-context-aware';
 
 export async function configure(aurelia) {
@@ -28,6 +28,8 @@ export async function configure(aurelia) {
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-owner'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-ref')
     ];
+    /** @type {import('library-aurelia/types/types').ModelServiceOptionsExtended} **/
+    // @ts-ignore
     const options = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id', formats: ['uri-reference', 'date-time']};
     let httpService = aurelia.container.get(HttpService);
     let eventAggregator = aurelia.container.get(EventAggregator);
@@ -36,10 +38,10 @@ export async function configure(aurelia) {
         authService,
         aurelia.container.get(NotificationServiceImplementation),
         new ModelServiceContextAware('alert', Object.assign({}, options, {endpoints: {getSchema: options.apiEntrypoint + '/alert/schema-ui'}}), httpService, i18n, eventAggregator),
-        new ModelServiceBasicSchema('device', Object.assign({}, options, {endpoints: {getSchema: options.apiEntrypoint + '/device/schema-ui'}}), httpService, i18n, eventAggregator),
-        new ModelServiceBasicSchema('annotation', Object.assign({}, options), httpService, i18n, eventAggregator),
-        new ModelServiceBasicSchema('emergency-event', Object.assign({}, options), httpService, i18n, eventAggregator),
-        new ModelServiceContextAware('mission', Object.assign({}, options), httpService, i18n, eventAggregator)
+        new ModelServiceContextAware('mission', Object.assign({}, options), httpService, i18n, eventAggregator),
+        new ModelServiceBasic('device', Object.assign({}, options, {endpoints: {getSchema: options.apiEntrypoint + '/device/schema-ui'}, formats: ['uri-reference', 'date-time', 'uri', 'ipv4', 'ipv6']}), httpService, i18n, eventAggregator),
+        new ModelServiceBasic('annotation', Object.assign({}, options), httpService, i18n, eventAggregator),
+        new ModelServiceBasic('emergency-event', Object.assign({}, options), httpService, i18n, eventAggregator)
     ];
     if (environment.enableBhaptics) {
         registerServices.push(aurelia.container.get(BhapticsServiceImplementation));

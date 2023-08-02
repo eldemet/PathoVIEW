@@ -1,5 +1,6 @@
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
 import {bindable} from 'aurelia-framework';
+import merge from 'lodash/merge';
 import {catchError} from 'library-aurelia/src/decorators';
 
 class Camera extends BasicComponent {
@@ -76,7 +77,7 @@ class Camera extends BasicComponent {
         let constraints = this.constraints;
         if (this.responsiveService.isChromeBrowser()) {
             this.stopMediaStream();
-            constraints = this._.merge({}, this.constraints, {video: {optional: [{}, {}, {sourceId: this.selectedMedia}]}});
+            constraints = merge({}, this.constraints, {video: {optional: [{}, {}, {sourceId: this.selectedMedia}]}});
         }
         // @ts-ignore
         this.logger.debug(constraints);

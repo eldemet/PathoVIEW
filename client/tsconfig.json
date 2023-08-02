@@ -6,24 +6,20 @@
         "noEmit": true,
         "module": "es2022",
         "moduleResolution": "Node",
-        "target": "es6",
+        "target": "es2022",
         "rootDir": "./",
         "skipLibCheck": true,
         "esModuleInterop": true
     },
     "include": [
-        "server/node_modules/utilities-node/src/**/*",
+        "node_modules/library-aurelia/types/*",
+        "node_modules/library-aurelia/src/**/*",
         "types/*",
-        "server/**/*",
-        "client/node_modules/library-aurelia/types/*",
-        "client/node_modules/library-aurelia/src/**/*",
-        "client/types/*",
-        "client/src/**/*"
+        "src/**/*"
     ],
     "exclude": [
         "test",
         "docs",
-        "dist",
-        "server/client"
+        "dist"
     ]
 }
