@@ -58,8 +58,7 @@ export const deviceUtilities = {
         return icon;
     },
     getCustomPopupContent(device, i18n) {
-        return `<p>${device.location?.coordinates}</p>
-                <p>${device.batteryLevel * 100} %</p>
+        return `<p>${device.batteryLevel * 100} %</p>
                 <p>${device.softwareVersion}</p>
                 <p>${formatDate(device.dateModified, 'f', i18n)}</p>`;
     },
@@ -147,6 +146,18 @@ export const locationUtilities = {
             distanceResult = distance(from, center(to));
         }
         return distanceResult;
+    },
+    getMapLinkContent(location) {
+        let mapLinkContent = '';
+        if (location) {
+            let coordinates = locationUtilities.getCenter(location);
+            let url = (navigator.platform.indexOf('iP') !== -1) ? 'maps://maps.google.com/maps' : 'https://maps.google.com/maps';
+            // @ts-ignore
+            let query = `?daddr=${coordinates.lat},${coordinates.lng}&amp;ll=`;
+            let route = url + query;
+            mapLinkContent = `<p><a href="${route}" target="_blank"><i class="bi-sign-turn-left me-1"></i>${location?.coordinates}</a></p>`;
+        }
+        return mapLinkContent;
     }
 };
 
