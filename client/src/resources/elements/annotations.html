@@ -15,7 +15,7 @@
                  repeat.for="annotation of annotations | filter:{refId: refId} | sort:'createdAt':true">
                 <user-abbreviation if.bind="annotation.owner"
                                    user-id.bind="annotation.owner[0]"
-                                   class="d-block">
+                                   class="d-block ${authService.isOwner(annotation.owner) ? 'order-last' : ''}">
                 </user-abbreviation>
                 <div class="ms-3 flex-fill">
                     <div if.bind="annotation.text">${annotation.text}</div>
@@ -27,7 +27,8 @@
                     </audio>
                     <div class="text-muted">${annotation.createdAt | formatDate:'f':i18n.getLocale()}</div>
                 </div>
-                <button class="btn btn-link tool"
+                <button if.bind="authService.isOwner(annotation.owner)"
+                        class="btn btn-link tool"
                         click.delegate="deleteAnnotation(annotation)">
                     <i class="bi-trash"></i>
                 </button>

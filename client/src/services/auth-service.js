@@ -97,6 +97,14 @@ class AuthService extends BasicService {
         return hasAccess;
     }
 
+    isOwner(owner) {
+        let isOwner = false;
+        if (Array.isArray(owner)) {
+            isOwner = owner.includes(this.userInfo.sub);
+        }
+        return isOwner;
+    }
+
     async getUsers() {
         await this.initialized;
         return this.users;

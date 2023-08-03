@@ -17,6 +17,7 @@ class Annotations extends BasicComponent {
      */
     constructor(...rest) {
         super(...rest);
+        this.authService = this.proxy.get('auth');
     }
 
     bind(bindingContext, overrideContext) {
