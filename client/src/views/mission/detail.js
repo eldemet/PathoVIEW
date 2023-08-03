@@ -4,6 +4,7 @@ import {RouterService} from 'library-aurelia/src/services/router-service';
 import {catchError} from 'library-aurelia/src//decorators';
 import {useView} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
+import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 
 /**
  * @extends BasicView
@@ -17,6 +18,7 @@ class Detail extends BasicView {
      */
     constructor(...rest) {
         super(...rest);
+        this.authService = this.proxy.get('auth');
     }
 
     determineActivationStrategy(params, routeConfig, navigationInstruction) {
@@ -54,6 +56,20 @@ class Detail extends BasicView {
 
     async annotateObject() {
         this.routerService.navigateToRoute('search-comment', {id: this.params.id}, this.router);
+    }
+
+    openCreateModal(type) {
+        let objectData = {owner: [this.authService.userInfo.sub], location: this.object.location, address: this.object.address};
+        let model = {type: type, formType: 'create', objectData};
+        this.dialogService.open({viewModel: AuFormDialog, model: model, modalSize: 'modal-xl'})
+            .whenClosed(async response => {
+                if (response.wasCancelled) {
+                    this.logger.debug('Dialog was cancelled!');
+                } else {
+                    this.logger.debug('Dialog was confirmed!');
+                    this.routerService.navigateToRoute('detail', {model: type, id: response.output.id}, this.router);
+                }
+            });
     }
 
 }

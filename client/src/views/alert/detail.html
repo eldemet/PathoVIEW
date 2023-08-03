@@ -13,36 +13,6 @@
                                         object.bind="object"
                                         layer.bind="1">
                         </all-properties>
-                        <div if.bind="annotations">
-                            <p class="tabstop-label">
-                                ${"propertyKeys.annotations" | t}:
-                            </p>
-                            <div class="d-flex flex-column">
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}]}
-                                                                         & signal:'annotations-updated'"
-                                      if.bind="$this.length === 0">
-                                    ${'multiselect.empty' | t}
-                                </span>
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationText'}]}
-                                                                         & signal:'annotations-updated'"
-                                      if.bind="$this.length > 0">
-                                    ${$this.length}
-                                    <i class="bi-chat-square"></i>
-                                </span>
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationImage'}]}
-                                                                         & signal:'annotations-updated'"
-                                      if.bind="$this.length > 0">
-                                    ${$this.length}
-                                    <i class="bi-camera-fill"></i>
-                                </span>
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationAudio'}]}
-                                                                         & signal:'annotations-updated'"
-                                      if.bind="$this.length > 0">
-                                    ${$this.length}
-                                    <i class="bi-mic-fill"></i>
-                                </span>
-                            </div>
-                        </div>
                     </div>
                     <div class="d-flex flex-row p-3 border-top justify-content-start">
                         <button if.bind="authService.hasAccess('alert.create')"
@@ -53,7 +23,7 @@
                         <button if.bind="authService.hasAccess('mission.create')"
                                 class="btn btn-outline-secondary"
                                 click.trigger="openCreateModal('mission', $event)">
-                            <i class="bi-chat me-2"></i>${'views.create' | t:{type: 'model.mission'}}
+                            <i class="bi-plus-lg me-2"></i>${'views.create' | t:{type: 'model.mission'}}
                         </button>
                     </div>
                 </div>
