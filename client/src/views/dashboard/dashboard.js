@@ -41,16 +41,28 @@ class DashboardView extends BasicView {
 
     @computedFrom('contextService.alerts')
     get lastAlert() {
-        return this.contextService?.alerts?.reduce((a, b) => (a.dateIssued > b.dateIssued ? a : b));
+        let lastAlert;
+        if (this.contextService?.alerts?.length) {
+            lastAlert = this.contextService.alerts.reduce((a, b) => (a.dateIssued > b.dateIssued ? a : b));
+        }
+        return lastAlert;
     }
 
     @computedFrom('contextService.missions')
     get lastMission() {
-        return this.contextService?.missions?.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
+        let lastMission;
+        if (this.contextService?.missions?.length) {
+            lastMission = this.contextService.missions.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
+        }
+        return lastMission;
     }
 
     get lastAnnotation() {
-        return this.annotations.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
+        let lastAnnotation;
+        if (this?.annotations?.length) {
+            lastAnnotation = this?.annotations.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
+        }
+        return lastAnnotation;
     }
 
     getDate(input, format) {
