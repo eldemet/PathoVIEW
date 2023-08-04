@@ -93,7 +93,7 @@ class KeycloakAdminService extends BasicObject {
         if (!this.roles || force) {
             roles = (await this.kcAdminClient.roles.find())
                 .map(role => _.pick(role, ['id', 'name']))
-                .filter(role => !['manage-users', 'offline_access', 'uma_authorization'].includes(role.name) && !role.composite);
+                .filter(role => !['manage-users', 'offline_access', 'uma_authorization', '_DEV', '_ADMIN', '_USER', 'default-roles-pathocert'].includes(role.name) && !role.composite);
             this.logger.verbose('Roles in Keycloak admin service refreshed!');
         } else {
             roles = this.roles;
