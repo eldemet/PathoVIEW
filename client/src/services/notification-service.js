@@ -138,7 +138,7 @@ class NotificationService extends BasicService {
             let valid = this.ajv.validate(this.NotificationSchema, notificationData);
             if (valid) {
                 this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
-                if (!this.ignoreList.includes(notification.contentType)) {
+                if (!this.ignoreList.includes(notificationData.contentType)) {
                     this.notifications.push(notificationData);
                 }
             } else {
