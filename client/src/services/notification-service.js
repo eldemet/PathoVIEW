@@ -25,6 +25,7 @@ const NotificationType = {
  */
 class NotificationService extends BasicService {
 
+    ignoreList = ['Device'];
     initializeState = 'disconnected';
     notifications = [];
 
@@ -137,7 +138,9 @@ class NotificationService extends BasicService {
             let valid = this.ajv.validate(this.NotificationSchema, notificationData);
             if (valid) {
                 this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
-                this.notifications.push(notificationData);
+                if (!this.ignoreList.includes(notification.contentType)) {
+                    this.notifications.push(notificationData);
+                }
             } else {
                 // @ts-ignore
                 this.logger.error(this.ajv.errors);
