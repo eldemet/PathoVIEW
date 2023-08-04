@@ -30,6 +30,19 @@
                     <h1 class="mt-3">${contextService.currentEmergencyEvent.name}</h1>
                     <p>${contextService.currentEmergencyEvent.description}</p>
                 </div>
+                <div class="d-block d-md-none">
+                    <h2 class="mt-4">${'views.dashboard.menu' | t}</h2>
+                    <ul class="nav">
+                        <li repeat.for="route of router.navigation"
+                            if.bind="route.title !== 'views.dashboard.title'"
+                            class="nav-item">
+                            <a href.bind="route.href"
+                               class="nav-link">
+                                ${route.title | t: route.settings.i18n} ${route.name}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <div>
                     <h2 class="mt-4">${'views.dashboard.importantDates' | t}</h2>
                     <span class="text-muted">${'views.dashboard.timeSinceT0' | t}:</span>

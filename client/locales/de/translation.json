@@ -54,6 +54,7 @@
         "info": "Info",
         "dashboard": {
             "title": "Dashboard",
+            "menu": "Menü",
             "emergencyEvent": "Informationen zur Notfallsituation",
             "noEmergencyEventHeadline": "Keine Notfallsituation ausgewählt",
             "noEmergencyEvent": "Bitte wählen Sie zuerst in der Navigationsleiste eine Notfallsituation aus, um weitere Informationen zu bekommen!",

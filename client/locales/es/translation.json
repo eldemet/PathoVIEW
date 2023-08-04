@@ -78,6 +78,7 @@
         "info": "Información",
         "dashboard": {
             "title": "tablero",
+            "menu": "menú",
             "emergencyEvent": "Información de eventos de emergencia",
             "noEmergencyEventHeadline": "Ningún evento de emergencia seleccionado",
             "noEmergencyEvent": "¡Seleccione primero un evento de emergencia en la barra de navegación para obtener más información!",
