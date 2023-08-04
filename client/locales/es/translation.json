@@ -75,6 +75,7 @@
             "learnMoreSocialMedia": "La aparición en: ",
             "learnMoreGitlab": "Los repositorios (para desarrolladores): "
         },
+        "info": "Información",
         "dashboard": {
             "title": "tablero",
             "emergencyEvent": "Información de eventos de emergencia",

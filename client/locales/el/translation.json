@@ -51,6 +51,7 @@
             "learnMoreSocialMedia": "Η εμφάνιση στο: ",
             "learnMoreGitlab": "Τα αποθετήρια (για προγραμματιστές): "
         },
+        "info": "πληροφορίες",
         "dashboard": {
             "title": "ταμπλό",
             "emergencyEvent": "Πληροφορίες έκτακτης ανάγκης",

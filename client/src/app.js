@@ -45,13 +45,7 @@ export class App extends BasicViewRouter {
         await this.authService.initialize();
         let routes = [
             {
-                route: ['', '/home'],
-                name: 'home',
-                moduleId: PLATFORM.moduleName('./views/home/home'),
-                nav: false
-            },
-            {
-                route: 'dashboard',
+                route: ['', 'dashboard'],
                 name: 'dashboard',
                 moduleId: PLATFORM.moduleName('./views/dashboard/dashboard'),
                 nav: true,
@@ -144,6 +138,13 @@ export class App extends BasicViewRouter {
                 title: 'views.detail',
                 nav: false,
                 moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/detail')
+            },
+            {
+                route: '/home',
+                name: 'home',
+                title: 'views.info',
+                moduleId: PLATFORM.moduleName('./views/home/home'),
+                nav: true
             }
         ];
         if (this.authService.hasAccess('cms')) {

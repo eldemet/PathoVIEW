@@ -51,6 +51,7 @@
             "learnMoreSocialMedia": "The appearance on: ",
             "learnMoreGitlab": "The repositories (for developers): "
         },
+        "info": "?",
         "dashboard": {
             "title": "dashboard",
             "emergencyEvent": "Emergency event information",

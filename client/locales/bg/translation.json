@@ -51,6 +51,7 @@
             "learnMoreSocialMedia": "Появата на: ",
             "learnMoreGitlab": "Хранилищата (за разработчици): "
         },
+        "info": "информация",
         "dashboard": {
             "title": "табло",
             "emergencyEvent": "Информация за спешни събития",
