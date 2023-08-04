@@ -11,7 +11,7 @@ class SearchContextAware extends Search {
 
     async attached() {
         await super.attached();
-        this.subscriptions.push(this.eventAggregator.subscribe('context-changed', async id => {
+        this.subscriptions.push(this.eventAggregator.subscribe('context-changed', async emergencyEvent => {
             await this.initialize();
             this.routerService.navigateToRoute('search', {}, this.router);
         }));

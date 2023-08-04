@@ -147,7 +147,7 @@ class ContextService extends BasicService {
 
     @loadingEvent('app-alert', 'mission')
     @catchError('app-alert')
-    async loadMissions(reload) {
+    async loadMissions() {
         let missions = [];
         if (this.currentEmergencyEvent) {
             await this.proxy.get('mission').initialized();
@@ -184,7 +184,7 @@ class ContextService extends BasicService {
         await this.setCurrentWeather();
         await this.loadAlerts();
         await this.loadMissions();
-        this.eventAggregator.publish('context-changed', emergencyEvent.id);
+        this.eventAggregator.publish('context-changed', emergencyEvent);
     }
 
     @catchError()
