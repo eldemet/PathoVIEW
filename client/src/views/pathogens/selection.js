@@ -1,8 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {catchError} from 'library-aurelia/src/decorators';
-import {loadingEvent} from '../../decorators';
+import {catchError, loadingEvent} from 'library-aurelia/src/decorators';
 
 @inject(HttpService)
 class SelectionView extends BasicView {

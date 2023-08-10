@@ -9,8 +9,7 @@ import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
-import {catchError} from 'library-aurelia/src/decorators';
-import {loadingEvent} from '../decorators';
+import {catchError, loadingEvent} from 'library-aurelia/src/decorators';
 import {stringify} from 'query-string';
 
 /**
