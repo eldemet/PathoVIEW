@@ -2,6 +2,7 @@
 // Project: git+https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git
 
 import 'library-aurelia/types/types';
+import {ModelServiceOptionsExtended} from "library-aurelia/types/types";
 
 declare global {
 
@@ -92,6 +93,10 @@ declare global {
 
         submitRegistered(callRegistered: BhapticsCallRegistered): Promise<void>;
 
+    }
+
+    export type ModelServiceOptionsContextAware = ModelServiceOptionsExtended & {
+        filterProperty?: string
     }
 
 }

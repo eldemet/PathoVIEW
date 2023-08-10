@@ -42,6 +42,7 @@ class ContextService extends BasicService {
         await this.loadEmergencyEvents();
         await this.loadAlerts();
         await this.loadMissions();
+        await this.loadAnnotations();
         await this.initializeCurrentDevice();
         await this.setCurrentWeather();
         numeral.locale(this.i18n.getLocale());
@@ -123,39 +124,25 @@ class ContextService extends BasicService {
         }
     }
 
-    @loadingEvent('app-alert', 'alert')
     @catchError()
     async loadAlerts() {
-        let alerts = [];
-        if (this.currentEmergencyEvent) {
-            let query;
-            let options = this.proxy.get('alert').options;
-            if (this.config?.usePathoware) {
-                let pathowareAlertEndpoint = '/api/v1/pathoware/model/' + this.currentEmergencyEvent.scenario + '/alert';
-                options.endpoints.getObjects = pathowareAlertEndpoint;
-                options.endpoints.createObject = pathowareAlertEndpoint;
-                options.endpoints.deleteObject = pathowareAlertEndpoint;
-            } else {
-                query = {filter: JSON.stringify({alertSource: this.currentEmergencyEvent.id})};
-            }
-            await this.proxy.get('alert').loadObjects();
-            alerts = (await this.proxy.get('alert').getObjects(query)).objects;
-        }
-        this.alerts = alerts;
+        await this.proxy.get('alert').initialized();
+        await this.proxy.get('alert').loadObjects(this.currentEmergencyEvent);
+        this.alerts = this.proxy.get('alert').objects;
     }
 
-    @loadingEvent('app-alert', 'mission')
     @catchError('app-alert')
     async loadMissions() {
-        let missions = [];
-        if (this.currentEmergencyEvent) {
-            await this.proxy.get('mission').initialized();
-            let options = this.proxy.get('mission').options;
-            options.endpoints.getObjects = options.apiEntrypoint + '/mission?' + stringify({filter: JSON.stringify({refId: this.currentEmergencyEvent.id})});
-            await this.proxy.get('mission').loadObjects();
-            missions = (await this.proxy.get('mission').getObjects()).objects;
-        }
-        this.missions = missions;
+        await this.proxy.get('mission').initialized();
+        await this.proxy.get('mission').loadObjects(this.currentEmergencyEvent);
+        this.missions = this.proxy.get('mission').objects;
+    }
+
+    @catchError('app-alert')
+    async loadAnnotations() {
+        await this.proxy.get('annotation').initialized();
+        await this.proxy.get('annotation').loadObjects(this.currentEmergencyEvent);
+        this.annotations = this.proxy.get('annotation').objects;
     }
 
     @catchError()
@@ -183,6 +170,7 @@ class ContextService extends BasicService {
         await this.setCurrentWeather();
         await this.loadAlerts();
         await this.loadMissions();
+        await this.loadAnnotations();
         this.eventAggregator.publish('context-changed', emergencyEvent);
     }
 

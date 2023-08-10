@@ -51,7 +51,7 @@
             "learnMoreSocialMedia": "The appearance on: ",
             "learnMoreGitlab": "The repositories (for developers): "
         },
-        "info": "?",
+        "info": "info",
         "dashboard": {
             "title": "dashboard",
             "menu": "menu",

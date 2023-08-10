@@ -28,20 +28,34 @@ export async function configure(aurelia) {
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-owner'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-ref')
     ];
-    /** @type {import('library-aurelia/types/types').ModelServiceOptionsExtended} **/
-    // @ts-ignore
-    const options = {apiEntrypoint: '/api/v1/model', uniqueProperty: 'id', formats: ['uri-reference', 'date-time']};
-    let httpService = aurelia.container.get(HttpService);
-    let eventAggregator = aurelia.container.get(EventAggregator);
-    let i18n = aurelia.container.get(I18N);
+    const httpService = aurelia.container.get(HttpService);
+    const eventAggregator = aurelia.container.get(EventAggregator);
+    const i18n = aurelia.container.get(I18N);
+    const apiEntrypoint = '/api/v1/model';
+    const uniqueProperty = 'id';
+    /** @type {import('library-aurelia/types/types').AjvFormats[]} **/
+    const formats = ['uri-reference', 'date-time'];
+    /** @type {import('library-aurelia/types/types').AjvFormats[]} **/
+    const deviceFormats = ['uri-reference', 'date-time', 'uri', 'ipv4', 'ipv6'];
+    const getSchema = ':api-entrypoint/:type/schema-ui';
+    const getSchemaDevice = getSchema.replace(':api-entrypoint', apiEntrypoint).replace(':type', 'device');
+    const getObjects = ':api-entrypoint/:type:filter-query';
+    let alertOptions = {apiEntrypoint, uniqueProperty, formats};
+    if (environment.usePathoware) {
+        let pathowareAlertEndpoint = '/api/v1/pathoware/model/:scenario/alert';
+        alertOptions.endpoints = {getSchema, getObjects: pathowareAlertEndpoint, createObject: pathowareAlertEndpoint, deleteObject: pathowareAlertEndpoint};
+    } else {
+        alertOptions.filterProperty = 'alertSource';
+        alertOptions.endpoints = {getSchema, getObjects};
+    }
     let registerServices = [
         authService,
         aurelia.container.get(NotificationServiceImplementation),
-        new ModelServiceContextAware('alert', Object.assign({}, options, {endpoints: {getSchema: options.apiEntrypoint + '/alert/schema-ui'}}), httpService, i18n, eventAggregator),
-        new ModelServiceContextAware('mission', Object.assign({}, options), httpService, i18n, eventAggregator),
-        new ModelServiceBasic('device', Object.assign({}, options, {endpoints: {getSchema: options.apiEntrypoint + '/device/schema-ui'}, formats: ['uri-reference', 'date-time', 'uri', 'ipv4', 'ipv6']}), httpService, i18n, eventAggregator),
-        new ModelServiceBasic('annotation', Object.assign({}, options), httpService, i18n, eventAggregator),
-        new ModelServiceBasic('emergency-event', Object.assign({}, options), httpService, i18n, eventAggregator)
+        new ModelServiceContextAware('alert', alertOptions, httpService, i18n, eventAggregator),
+        new ModelServiceContextAware('mission', {apiEntrypoint, uniqueProperty, formats, filterProperty: 'refId', endpoints: {getObjects}}, httpService, i18n, eventAggregator),
+        new ModelServiceContextAware('annotation', {apiEntrypoint, uniqueProperty, formats, filterProperty: 'source', endpoints: {getObjects}}, httpService, i18n, eventAggregator),
+        new ModelServiceBasic('device', {apiEntrypoint, uniqueProperty, formats: deviceFormats, endpoints: {getSchema: getSchemaDevice}}, httpService, i18n, eventAggregator),
+        new ModelServiceBasic('emergency-event', {apiEntrypoint, uniqueProperty, formats}, httpService, i18n, eventAggregator)
     ];
     if (environment.enableBhaptics) {
         registerServices.push(aurelia.container.get(BhapticsServiceImplementation));
