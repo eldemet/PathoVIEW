@@ -1,7 +1,5 @@
 <template>
 
-    <require from="library-aurelia/src/resources/elements/markdown"></require>
-
     <div>
         <a class="btn btn-link"
            route-href="route: signs;">
@@ -31,9 +29,9 @@
                              aria-labelledby="${pathogenContent.propertyKey + 'Heading-' + $parent.$index}"
                              data-bs-parent="${'#pathogenAccordion-' + $parent.$index}">
                             <div class="accordion-body">
-                                <markdown if.bind="pathogen[pathogenContent.propertyKey]"
-                                          value.bind="pathogen[pathogenContent.propertyKey]" layer.bind="1">
-                                </markdown>
+                                <p if.bind="pathogen[pathogenContent.propertyKey]">
+                                    ${pathogen[pathogenContent.propertyKey]}
+                                </p>
                                 <span else>
                                     ${'views.pathogens.noInformation' | t}
                                 </span>
