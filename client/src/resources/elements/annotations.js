@@ -1,4 +1,5 @@
 import {bindable} from 'aurelia-framework';
+import {AureliaCookie} from 'aurelia-cookie';
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
 
 /**
@@ -40,7 +41,8 @@ class Annotations extends BasicComponent {
     async createAnnotation(kind) {
         this.annotationObject = null;
         await new Promise((resolve) => setTimeout(resolve, 50));
-        this.annotationObject = {kind, refId: this.refId};
+        let emergencyEvent = AureliaCookie.get('emergency-event');
+        this.annotationObject = {kind, refId: this.refId, source: emergencyEvent};
     }
 
     async deleteAnnotation(annotation) {
