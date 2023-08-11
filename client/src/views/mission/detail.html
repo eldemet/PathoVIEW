@@ -13,30 +13,27 @@
                                         object.bind="object"
                                         layer.bind="1">
                         </all-properties>
-                        <div if.bind="annotations">
+                        <div if.bind="annotations"
+                             class="pb-3">
                             <p class="tabstop-label">
                                 ${"propertyKeys.annotations" | t}:
                             </p>
                             <div class="d-flex flex-column">
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}]}
-                                                                         & signal:'annotations-updated'"
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}]} & signal:'annotations-updated'"
                                       if.bind="$this.length === 0">
                                     ${'multiselect.empty' | t}
                                 </span>
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationText'}]}
-                                                                         & signal:'annotations-updated'"
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationText'}]} & signal:'annotations-updated'"
                                       if.bind="$this.length > 0">
                                     ${$this.length}
                                     <i class="bi-chat-square"></i>
                                 </span>
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationImage'}]}
-                                                                         & signal:'annotations-updated'"
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationImage'}]} & signal:'annotations-updated'"
                                       if.bind="$this.length > 0">
                                     ${$this.length}
                                     <i class="bi-camera-fill"></i>
                                 </span>
-                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationAudio'}]}
-                                                                         & signal:'annotations-updated'"
+                                <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationAudio'}]} & signal:'annotations-updated'"
                                       if.bind="$this.length > 0">
                                     ${$this.length}
                                     <i class="bi-mic-fill"></i>
