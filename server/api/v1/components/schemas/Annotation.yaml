@@ -35,6 +35,15 @@ discriminator:
           - AnnotationText
       owner:
         $ref: './../$defs.yaml#/owner'
+      source:
+        $ref: './../$defs.yaml#/NGSIentityFormat'
+        ui:dependence:
+          source: cookie
+          property: emergency-event
+        ui:hide:
+          table: true
+          form: true
+          info: true
       refId:
         type: string
         db:ref: Mission
