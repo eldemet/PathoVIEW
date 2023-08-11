@@ -1,6 +1,7 @@
 import {stringify} from 'query-string';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
 import {loadingEvent} from 'library-aurelia/src//decorators';
+import {AureliaCookie} from 'aurelia-cookie';
 
 /**
  * @extends ModelServiceBasic
@@ -19,16 +20,18 @@ class ModelServiceContextAware extends ModelServiceBasic {
         this.options = options;
     }
 
-    setEndpoints(apiEntrypoint, type, endpoints = {}, emergencyEvent) {
+    setEndpoints(apiEntrypoint, type, endpoints = {}) {
         let typeKebabCase = this._.kebabCase(type);
         let createUrl = (override, defaultPath) => {
             let url = override ? override : defaultPath;
             url = url.replace(':api-entrypoint', apiEntrypoint).replace(':type', typeKebabCase);
-            if (emergencyEvent) {
+            let emergencyEventId = AureliaCookie.get('emergency-event');
+            let scenario = AureliaCookie.get('scenario') || 'limassol';
+            if (emergencyEventId) {
                 url = url
-                    .replace(':scenario', emergencyEvent.scenario)
-                    .replace(':emergency-event', emergencyEvent.id)
-                    .replace(':filter-query', '?' + stringify({filter: JSON.stringify({[this.options.filterProperty]: emergencyEvent.id})}));
+                    .replace(':scenario', scenario)
+                    .replace(':emergency-event', emergencyEventId)
+                    .replace(':filter-query', '?' + stringify({filter: JSON.stringify({[this.options.filterProperty]: emergencyEventId})}));
             }
             return url;
         };
@@ -43,15 +46,28 @@ class ModelServiceContextAware extends ModelServiceBasic {
     }
 
     @loadingEvent('app-alert')
-    async loadObjects(emergencyEvent) {
+    async loadObjects() {
         let objects = [];
-        if (emergencyEvent) {
-            this.setEndpoints(this.options.apiEntrypoint, this.type, this.options.endpoints, emergencyEvent);
-            let result = await this.httpService.fetch('GET', this.endpoints.getObjects);
-            objects = result.objects || result;
-            this.logger.debug(`successfully loaded ${this.type}s (${objects.length})`);
+        this.emergencyEventId = AureliaCookie.get('emergency-event');
+        if (this.emergencyEventId) {
+            try {
+                this.setEndpoints(this.options.apiEntrypoint, this.type, this.options.endpoints);
+                let result = await this.httpService.fetch('GET', this.endpoints.getObjects);
+                objects = result.objects || result;
+                this.logger.debug(`successfully loaded ${this.type}s (${objects.length})`);
+            } catch (error) {
+                this.logger.error(error.message);
+            }
         }
         this.objects = objects;
+    }
+
+    async getObjects(query, searchProperties) {
+        await this.initialized();
+        if (this.emergencyEventId !== AureliaCookie.get('emergency-event')) {
+            await this.loadObjects();
+        }
+        return await super.getObjects(query, searchProperties);
     }
 
 }

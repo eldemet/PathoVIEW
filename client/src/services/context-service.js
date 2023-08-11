@@ -124,25 +124,19 @@ class ContextService extends BasicService {
         }
     }
 
-    @catchError()
+    @catchError('app-alert')
     async loadAlerts() {
-        await this.proxy.get('alert').initialized();
-        await this.proxy.get('alert').loadObjects(this.currentEmergencyEvent);
-        this.alerts = this.proxy.get('alert').objects;
+        this.alerts = (await this.proxy.get('alert').getObjects()).objects;
     }
 
     @catchError('app-alert')
     async loadMissions() {
-        await this.proxy.get('mission').initialized();
-        await this.proxy.get('mission').loadObjects(this.currentEmergencyEvent);
-        this.missions = this.proxy.get('mission').objects;
+        this.missions = (await this.proxy.get('mission').getObjects()).objects;
     }
 
     @catchError('app-alert')
     async loadAnnotations() {
-        await this.proxy.get('annotation').initialized();
-        await this.proxy.get('annotation').loadObjects(this.currentEmergencyEvent);
-        this.annotations = this.proxy.get('annotation').objects;
+        this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
     }
 
     @catchError()
@@ -162,6 +156,7 @@ class ContextService extends BasicService {
     @catchError()
     async changeEmergencyEvent(emergencyEvent) {
         AureliaCookie.set('emergency-event', emergencyEvent.id, {});
+        AureliaCookie.set('scenario', emergencyEvent.scenario, {});
         this.currentEmergencyEvent = emergencyEvent;
         this.eventAggregator.publish('app-alert-dismiss', {id: 'noEmergencyEvent'});
         for (let alert of this.alerts) {
