@@ -29,7 +29,6 @@ class DashboardView extends BasicView {
         this.interval = setInterval(() => this.bindingSignaler.signal('update-dates'), 1000);
         this.authService = this.proxy.get('auth');
         await this.authService.initialize();
-        this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
         await this.contextService.initialized;
         this.initialized = true;
         this.currentPosition = await this.getOwnPosition();
@@ -39,7 +38,7 @@ class DashboardView extends BasicView {
         clearInterval(this.interval);
     }
 
-    @computedFrom('contextService.alerts')
+    @computedFrom('contextService.alerts.length')
     get lastAlert() {
         let lastAlert;
         if (this.contextService?.alerts?.length) {
@@ -48,7 +47,7 @@ class DashboardView extends BasicView {
         return lastAlert;
     }
 
-    @computedFrom('contextService.missions')
+    @computedFrom('contextService.missions.length')
     get lastMission() {
         let lastMission;
         if (this.contextService?.missions?.length) {
@@ -57,10 +56,11 @@ class DashboardView extends BasicView {
         return lastMission;
     }
 
+    @computedFrom('contextService.annotations.length')
     get lastAnnotation() {
         let lastAnnotation;
-        if (this?.annotations?.length) {
-            lastAnnotation = this?.annotations.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
+        if (this.contextService?.annotations?.length) {
+            lastAnnotation = this.contextService.annotations.reduce((a, b) => (a.createdAt > b.createdAt ? a : b));
         }
         return lastAnnotation;
     }
