@@ -50,9 +50,12 @@ properties:
       - overdue
       - cancelled
     ui:formItemType: select
-    ui:formItemGridClass: 'col-md-8'
+    ui:formItemGridClass: 'col-md-6'
     ui:i18n: true
     ui:i18nPathPrefix: enum.mission.status
+    ui:contentCustomCompose: 'resources/elements/custom-content-items/custom-content-item-status'
+    ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-status'
+    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-status'
   owner:
     $ref: './../$defs.yaml#/owner'
   assignedTo:

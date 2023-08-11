@@ -1,0 +1,12 @@
+<template>
+
+    <i if.bind="item === 'open'" class="bi-pause text-info"></i>
+    <i if.bind="item === 'inProgress'" class="bi-play text-info"></i>
+    <i if.bind="item === 'successful'" class="bi-hand-thumbs-up text-success"></i>
+    <i if.bind="item === 'unsuccessful'" class="bi-hand-thumbs-down text-danger"></i>
+    <i if.bind="item === 'overdue'" class="bi-hourglass-bottom text-warning"></i>
+    <i if.bind="item === 'cancelled'" class="bi-stop text-info"></i>
+    <i if.bind="!schema.enum.includes(item)" class="bi-question-circle-fill"></i>
+    <span>${schema.i18nPathPrefix + '.' + item | t}</span>
+
+</template>

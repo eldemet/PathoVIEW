@@ -1,0 +1,16 @@
+<template>
+
+    <span class="tabstop-label">${'propertyKeys.' + propertyKey | t}</span>
+    <button class="btn btn-light mb-3"
+            click.delegate="toggleStatus(value)">
+        <i if.bind="value === 'open'" class="bi-pause text-info"></i>
+        <i if.bind="value === 'inProgress'" class="bi-play text-info"></i>
+        <i if.bind="value === 'successful'" class="bi-hand-thumbs-up text-success"></i>
+        <i if.bind="value === 'unsuccessful'" class="bi-hand-thumbs-down text-danger"></i>
+        <i if.bind="value === 'overdue'" class="bi-hourglass-bottom text-warning"></i>
+        <i if.bind="value === 'cancelled'" class="bi-stop text-info"></i>
+        <i if.bind="!schema.enum.includes(value)" class="bi-question-circle-fill"></i>
+        <span>${schema.i18nPathPrefix + '.' + value | t}</span>
+    </button>
+
+</template>
