@@ -26,7 +26,8 @@ export async function configure(aurelia) {
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-severity'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-map'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-owner'),
-        PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-ref')
+        PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-ref'),
+        PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-role')
     ];
     const httpService = aurelia.container.get(HttpService);
     const eventAggregator = aurelia.container.get(EventAggregator);

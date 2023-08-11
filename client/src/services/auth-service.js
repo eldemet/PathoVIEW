@@ -115,6 +115,14 @@ class AuthService extends BasicService {
         return {objects: this.roles};
     }
 
+    getRole(roleId) {
+        let role;
+        if (Array.isArray(this.roles)) {
+            role = this.roles.find(x => x.id === roleId);
+        }
+        return role;
+    }
+
 }
 
 export {AuthService};

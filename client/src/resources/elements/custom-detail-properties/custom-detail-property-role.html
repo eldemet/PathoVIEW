@@ -1,0 +1,9 @@
+<template>
+
+    <span class="tabstop-label">${'propertyKeys.' + propertyKey | t}</span>
+    <div with.bind="proxy.get('auth').getRole(value)">
+        <span class="tabstop-text" if.bind="$this">${$this.name}</span>
+        <span class="tabstop-text" else>${'labels.notDefined' | t}</span>
+    </div>
+
+</template>

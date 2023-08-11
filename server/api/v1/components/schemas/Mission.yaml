@@ -59,9 +59,9 @@ properties:
     type: string
     ui:formItemType: select
     ui:formItemGridClass: 'col-md-8'
+    ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-role'
+    ui:contentCustomCompose: 'resources/elements/custom-content-items/custom-content-item-role'
     ui:ref: Auth
-    ui:hide:
-      table: true
   refId:
     type: string
     ui:dependence:

@@ -1,0 +1,8 @@
+<template>
+
+    <div with.bind="proxy.get('auth').getRole(item)">
+        <span if.bind="$this">${$this.name}</span>
+        <span else>${'labels.notDefined' | t}</span>
+    </div>
+
+</template>
