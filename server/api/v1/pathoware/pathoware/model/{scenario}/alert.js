@@ -157,7 +157,7 @@ export default function(config, getApiDoc, notificationService) {
                 content: {
                     'application/json': {
                         schema: {
-                            $ref: '#/components/schemas/Alert'
+                            // $ref: '#/components/schemas/Alert'
                         }
                     }
                 }
