@@ -54,8 +54,8 @@ class Detail extends BasicView {
         this.routerService.navigateToRoute('search', {}, this.router);
     }
 
-    async annotateObject() {
-        this.routerService.navigateToRoute('search-comment', {id: this.params.id}, this.router);
+    async navigate(route) {
+        this.routerService.navigateToRoute(route, {id: this.params.id}, this.router);
     }
 
     openCreateModal(type) {

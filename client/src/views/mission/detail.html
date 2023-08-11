@@ -47,11 +47,15 @@
                     <div class="d-flex flex-row p-3 border-top justify-content-start">
                         <button class="btn btn-outline-danger me-2"
                                 click.trigger="deleteObject(object, $event)">
-                            <i class="bi-trash me-2"></i>${'buttons.delete' | t}
+                            <i class="bi-trash me-2"></i><span class="d-none d-md-inline d-lg-none">${'buttons.delete' | t}</span>
                         </button>
                         <button class="btn btn-outline-secondary me-2"
-                                click.trigger="annotateObject(object, $event)">
-                            <i class="bi-chat me-2"></i>${'buttons.comment' | t}
+                                click.trigger="navigate('search-update')">
+                            <i class="bi-pencil"></i><span class="d-none d-md-inline d-lg-none">${'buttons.update' | t}</span>
+                        </button>
+                        <button class="btn btn-outline-secondary me-2"
+                                click.trigger="navigate('search-comment')">
+                            <i class="bi-chat me-2"></i><span class="d-inline d-lg-none">${'buttons.comment' | t}</span>
                         </button>
                         <button if.bind="authService.hasAccess('alert.create')"
                                 class="btn btn-outline-secondary me-2"

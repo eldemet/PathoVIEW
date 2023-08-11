@@ -66,7 +66,7 @@ export class App extends BasicViewRouter {
                     deactivate: {
                         create: !this.authService.hasAccess('alert.create'),
                         delete: !this.authService.hasAccess('alert.create'),
-                        update: true
+                        update: !this.authService.hasAccess('alert.create')
                     },
                     customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
                     customDetailView: PLATFORM.moduleName('views/alert/detail')

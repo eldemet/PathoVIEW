@@ -18,7 +18,12 @@
                         <button if.bind="authService.hasAccess('alert.create')"
                                 class="btn btn-outline-danger me-2"
                                 click.trigger="deleteObject(object, $event)">
-                            <i class="bi-trash me-2"></i>${'buttons.delete' | t}
+                            <i class="bi-trash me-2"></i><span class="d-none d-md-inline d-lg-none">${'buttons.delete' | t}</span>
+                        </button>
+                        <button if.bind="authService.hasAccess('alert.create')"
+                                class="btn btn-outline-secondary me-2"
+                                click.trigger="navigate('search-update')">
+                            <i class="bi-pencil"></i><span class="d-none d-md-inline d-lg-none">${'buttons.update' | t}</span>
                         </button>
                         <button if.bind="authService.hasAccess('mission.create')"
                                 class="btn btn-outline-secondary"

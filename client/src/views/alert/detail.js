@@ -53,6 +53,10 @@ class Detail extends BasicView {
         this.routerService.navigateToRoute('search', {}, this.router);
     }
 
+    async navigate(route) {
+        this.routerService.navigateToRoute(route, {id: this.params.id}, this.router);
+    }
+
     openCreateModal(type) {
         let objectData = {owner: [this.authService.userInfo.sub], location: this.object.location, address: this.object.address};
         let model = {type: type, formType: 'create', objectData};
