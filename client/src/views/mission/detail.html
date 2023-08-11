@@ -18,23 +18,26 @@
                             <p class="tabstop-label">
                                 ${"propertyKeys.annotations" | t}:
                             </p>
-                            <div class="d-flex flex-column">
+                            <div class="d-flex flex-row">
                                 <span with.bind="annotations | filter:{$and: [{refId: params.id}]} & signal:'annotations-updated'"
                                       if.bind="$this.length === 0">
                                     ${'multiselect.empty' | t}
                                 </span>
                                 <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationText'}]} & signal:'annotations-updated'"
-                                      if.bind="$this.length > 0">
+                                      if.bind="$this.length > 0"
+                                      class="me-2">
                                     ${$this.length}
                                     <i class="bi-chat-square"></i>
                                 </span>
                                 <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationImage'}]} & signal:'annotations-updated'"
-                                      if.bind="$this.length > 0">
+                                      if.bind="$this.length > 0"
+                                      class="me-2">
                                     ${$this.length}
                                     <i class="bi-camera-fill"></i>
                                 </span>
                                 <span with.bind="annotations | filter:{$and: [{refId: params.id}, {kind: 'AnnotationAudio'}]} & signal:'annotations-updated'"
-                                      if.bind="$this.length > 0">
+                                      if.bind="$this.length > 0"
+                                      class="me-2">
                                     ${$this.length}
                                     <i class="bi-mic-fill"></i>
                                 </span>
