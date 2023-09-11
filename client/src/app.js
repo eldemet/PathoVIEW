@@ -52,27 +52,6 @@ export class App extends BasicViewRouter {
                 title: 'views.dashboard.title'
             },
             {
-                route: 'alert',
-                name: 'alert',
-                moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
-                nav: true,
-                title: 'model.alert',
-                settings: {
-                    i18n: {count: 2},
-                    fluidContainer: true,
-                    gridColumnsMain: 8,
-                    gridColumnsDetail: 4,
-                    detailView: true,
-                    deactivate: {
-                        create: !this.authService.hasAccess('alert.create'),
-                        delete: !this.authService.hasAccess('alert.create'),
-                        update: !this.authService.hasAccess('alert.create')
-                    },
-                    customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
-                    customDetailView: PLATFORM.moduleName('views/alert/detail')
-                }
-            },
-            {
                 route: 'mission',
                 name: 'mission',
                 moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
@@ -108,6 +87,27 @@ export class App extends BasicViewRouter {
                         return {refId: AureliaCookie.get('emergency-event') || 'notSet'};
                         // TODO validate: return {$and: [{refId: AureliaCookie.get('emergency-event') || 'notSet'}, {assignedTo: {$in: this.userInfo.roles}}]};
                     }
+                }
+            },
+            {
+                route: 'alert',
+                name: 'alert',
+                moduleId: PLATFORM.moduleName('views-general/search-view-main-detail'),
+                nav: true,
+                title: 'model.alert',
+                settings: {
+                    i18n: {count: 2},
+                    fluidContainer: true,
+                    gridColumnsMain: 8,
+                    gridColumnsDetail: 4,
+                    detailView: true,
+                    deactivate: {
+                        create: !this.authService.hasAccess('alert.create'),
+                        delete: !this.authService.hasAccess('alert.create'),
+                        update: !this.authService.hasAccess('alert.create')
+                    },
+                    customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
+                    customDetailView: PLATFORM.moduleName('views/alert/detail')
                 }
             },
             {
