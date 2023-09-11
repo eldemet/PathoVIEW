@@ -9,14 +9,10 @@
         "useUserLocale": false,
         "rbac": {
             "alert": {
-                "create": [
-                    "ROLE_PATHOALERTA"
-                ]
+                "create": []
             },
             "mission": {
-                "delete": [
-                    "ROLE_PATHOALERTA"
-                ]
+                "delete": []
             },
             "cms": [
                 "_ADMIN"
