@@ -132,10 +132,11 @@
                    class="py-2 px-0 bi-bell-slash"
                    bs-tooltip="title:alerts.notificationService.connectionClosed;placement:right"></i>
                 <span class="visually-hidden">${'alerts.notificationService.name' | t}</span>
-                <span if.bind="unreadNotifications.length & signal:'notifications-updated'"
+                <span with.bind="unreadNotifications & signal:'notifications-updated'"
+                      if.bind="$this > 0"
                       class="position-absolute start-100 translate-middle badge rounded-pill bg-danger" style="top: 0.25rem;">
-                ${unreadNotifications.length}<span class="visually-hidden">unread messages</span>
-            </span>
+                    ${$this}<span class="visually-hidden">unread notifications</span>
+                </span>
             </button>
         </div>
 

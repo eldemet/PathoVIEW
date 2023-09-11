@@ -215,7 +215,10 @@ export class App extends BasicViewRouter {
 
     @computedFrom('notificationService.notifications.length')
     get unreadNotifications() {
-        let unreadNotifications = this.notificationService?.notifications?.filter(n => !n.read);
+        let unreadNotifications = 0;
+        if (Array.isArray(this.notificationService.notifications)) {
+            unreadNotifications = this.notificationService.notifications.filter(n => !n.read).length;
+        }
         return unreadNotifications;
     }
 
