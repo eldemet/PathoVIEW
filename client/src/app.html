@@ -220,7 +220,7 @@
                                                user-id.bind="notification.content.owner[0]"
                                                class="d-block me-2">
                             </user-abbreviation>
-                            <div class="d-flex flex-column w-100">
+                            <div class="d-flex flex-column w-100 text-break">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="mb-1" if.bind="notification.topic === 'model'">${'alerts.notifications.model.' + notification.operationType | t:{type: _.camelCase(notification.contentType)}}</h5>
                                     <h5 class="mb-1" if.bind="notification.topic !== 'model'">${notification.topic} (${notification.operationType})</h5>

@@ -46,7 +46,7 @@
                 <div>
                     <h2 class="mt-4">${'views.dashboard.importantDates' | t}</h2>
                     <span class="text-muted">${'views.dashboard.timeSinceT0' | t}:</span>
-                    <p class="fs-6"><i class="bi-clock-history"></i> ${getDate(contextService.currentEmergencyEvent.createdAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
+                    <p class="fs-6"><i class="bi-clock-history"></i> ${getDate(contextService.currentEmergencyEvent.updatedAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
                     <span class="text-muted">${'views.dashboard.timeToSunset' | t}:</span>
                     <p class="fs-6"><i class="bi-sunset"></i> ${getDate(contextService.currentWeather.sys.sunset, 'seconds') | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</p>
                 </div>
@@ -61,7 +61,7 @@
                             <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                                href.bind="'#/detail/alert/' + lastAlert.id">
                                 <i class="bi-exclamation-triangle"></i>
-                                <div class="ms-3 me-auto">
+                                <div class="ms-3 me-auto overflow-auto text-break">
                                     <div class="fw-bold">${lastAlert.name|| lastAlert.description}</div>
                                     <small>${getDate(lastAlert.dateIssued) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</small>
                                 </div>
@@ -80,7 +80,7 @@
                             <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                                href.bind="'#/detail/mission/' + lastMission.id">
                                 <i class="bi-flag"></i>
-                                <div class="ms-3 me-auto">
+                                <div class="ms-3 me-auto overflow-auto text-break">
                                     <div class="fw-bold">${lastMission.name}</div>
                                     <small>${getDate(lastMission.createdAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</small>
                                 </div>
@@ -99,7 +99,7 @@
                             <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                                href.bind="'#/mission/comment/' + lastAnnotation.refId">
                                 <i class="${lastAnnotation.kind === 'AnnotationText' ? 'bi-chat-square' : 'bi-image'}"></i>
-                                <div class="ms-3 me-auto">
+                                <div class="ms-3 me-auto overflow-auto text-break">
                                     <div class="fw-bold" if.bind="lastAnnotation.kind === 'AnnotationText'">${lastAnnotation.text}</div>
                                     <div class="fw-bold" else>${'model.annotationImage' | t}</div>
                                     <small>${getDate(lastAnnotation.createdAt) | formatDuration:true:i18n.getLocale() & signal:'update-dates'}</small>

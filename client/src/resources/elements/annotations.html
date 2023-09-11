@@ -18,7 +18,7 @@
                                    class="d-block ${authService.isOwner(annotation.owner) ? 'order-last' : ''}">
                 </user-abbreviation>
                 <div class="ms-3 flex-fill">
-                    <div if.bind="annotation.text">${annotation.text}</div>
+                    <div class="text-break" if.bind="annotation.text">${annotation.text}</div>
                     <a if.bind="annotation.kind === 'AnnotationImage' && annotation.data"
                        href.bind="baseUrl + '/' + annotation.data"
                        target="_blank">
