@@ -88,7 +88,11 @@ class MapView extends BasicView {
                 if (owners.length > 0) {
                     popupContent += `<p>${owners.join(', ')}</p>`;
                 }
-                popupContent += locationUtilities.getMapLinkContent(object.location);
+                try {
+                    popupContent += locationUtilities.getMapLinkContent(object.location);
+                } catch (error) {
+                    // object does not proper location with coordinates
+                }
                 let customPopupContent = utilities.getCustomPopupContent?.(object, this.i18n, owners);
                 if (customPopupContent) {
                     popupContent += customPopupContent;
