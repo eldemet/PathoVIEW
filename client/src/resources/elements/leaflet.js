@@ -381,6 +381,9 @@ class LayerFactory {
         }
         if (layer.hasOwnProperty('popupContent')) {
             instance.bindPopup(layer.popupContent, {closeButton: false}).openPopup();
+            instance.getPopup().on('remove', () => {
+                instance.bringToBack();
+            });
         }
         return instance;
     }
