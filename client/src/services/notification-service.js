@@ -19,6 +19,37 @@ const NotificationType = {
     Error: 'ERROR'
 };
 
+const NotificationSchema = {
+    type: 'object',
+    required: [
+        'contentType',
+        'content'
+    ],
+    properties: {
+        topic: {
+            type: 'string'
+        },
+        contentType: {
+            type: 'string'
+        },
+        content: {
+            type: 'object'
+        },
+        operationType: {
+            type: 'string'
+        },
+        senderId: {
+            type: 'string',
+            default: 'unknown'
+        },
+        dateTimeSent: {
+            type: 'string',
+            format: 'date-time'
+        }
+    },
+    additionalProperties: false
+};
+
 /**
  * @extends BasicService
  * @category services
@@ -28,37 +59,7 @@ class NotificationService extends BasicService {
     ignoreList = ['Device'];
     initializeState = 'disconnected';
     notifications = [];
-
-    NotificationSchema = {
-        type: 'object',
-        required: [
-            'contentType',
-            'content'
-        ],
-        properties: {
-            topic: {
-                type: 'string'
-            },
-            contentType: {
-                type: 'string'
-            },
-            content: {
-                type: 'object'
-            },
-            operationType: {
-                type: 'string'
-            },
-            senderId: {
-                type: 'string',
-                default: 'unknown'
-            },
-            dateTimeSent: {
-                type: 'string',
-                format: 'date-time'
-            }
-        },
-        additionalProperties: false
-    };
+    notificationSound = new Audio('assets/sound-notification.mp3');
 
     /**
      * @param {ConstructorParameters<typeof BasicObject>} rest
@@ -77,7 +78,7 @@ class NotificationService extends BasicService {
      */
     async initialize(url, topics, validContentTypes) {
         if (Array.isArray(validContentTypes)) {
-            this.NotificationSchema.properties.contentType.enum = validContentTypes;
+            NotificationSchema.properties.contentType.enum = validContentTypes;
         }
         if (topics) url += '?topics=' + topics.join();
         let authToken = AureliaCookie.get('auth_token');
@@ -102,7 +103,7 @@ class NotificationService extends BasicService {
             this.notificationCallback(notification);
         };
         if (Array.isArray(topics)) {
-            this.NotificationSchema.properties.topic.enum = topics;
+            NotificationSchema.properties.topic.enum = topics;
             for (let topic of topics) {
                 this.notificationListener.addEventListener(topic, notification => {
                     this.notificationCallback(notification);
@@ -135,11 +136,12 @@ class NotificationService extends BasicService {
         try {
             let notificationData = JSON.parse(notification.data);
             this.logger.info('Received notification ' + (notificationData.topic ? notificationData.topic + ' ' : '') + notificationData.contentType);
-            let valid = this.ajv.validate(this.NotificationSchema, notificationData);
+            let valid = this.ajv.validate(NotificationSchema, notificationData);
             if (valid) {
                 this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
                 if (!this.ignoreList.includes(notificationData.contentType)) {
                     this.notifications.push(notificationData);
+                    this.notificationSound.play();
                 }
             } else {
                 // @ts-ignore
