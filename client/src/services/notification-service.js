@@ -102,6 +102,7 @@ class NotificationService extends BasicService {
         this.notificationListener.onmessage = notification => {
             this.notificationCallback(notification);
         };
+        // TODO add additional check to only show updates of certain scenario
         if (Array.isArray(topics)) {
             NotificationSchema.properties.topic.enum = topics;
             for (let topic of topics) {
@@ -134,13 +135,13 @@ class NotificationService extends BasicService {
 
     notificationCallback = (notification) => {
         try {
-            let notificationData = JSON.parse(notification.data);
-            this.logger.info('Received notification ' + (notificationData.topic ? notificationData.topic + ' ' : '') + notificationData.contentType);
-            let valid = this.ajv.validate(NotificationSchema, notificationData);
+            let n = JSON.parse(notification.data);
+            this.logger.info('Received notification ' + (n.topic ? n.topic + ' ' : '') + n.contentType);
+            let valid = this.ajv.validate(NotificationSchema, n);
             if (valid) {
-                this.eventAggregator.publish('notification' + (notificationData.topic ? '-' + notificationData.topic : ''), notificationData);
-                if (!this.ignoreList.includes(notificationData.contentType)) {
-                    this.notifications.push(notificationData);
+                this.eventAggregator.publish('notification' + (n.topic ? '-' + n.topic : ''), n);
+                if (!this.ignoreList.includes(n.contentType)) {
+                    this.notifications.push(n);
                     this.notificationSound.play();
                 }
             } else {

@@ -6,7 +6,6 @@ import pick from 'lodash/pick';
 import {point} from '@turf/helpers';
 import {Proxy} from 'library-aurelia/src/proxy';
 import {HttpService} from 'library-aurelia/src/services/http-service';
-import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
 import {catchError, loadingEvent} from 'library-aurelia/src/decorators';
@@ -28,7 +27,7 @@ class ContextService extends BasicService {
     /**
      * @param {Proxy} proxy
      * @param {HttpService} httpService
-     * @param {ConstructorParameters<typeof BasicObject>} rest
+     * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
     constructor(proxy, httpService, ...rest) {
         super('context', ...rest);
