@@ -2,10 +2,11 @@
 
     <require from="resources/elements/user-abbreviation"></require>
 
-    <span class="tabstop-label">${'propertyKeys.owner' | t}</span>
+    <span class="tabstop-label">${'propertyKeys.owner' | t}:</span>
     <user-abbreviation if.bind="value"
                        user-id.bind="value[0]"
                        class="d-block mb-3">
     </user-abbreviation>
+    <span if.bind="!value" class="tabstop-text">-</span>
 
 </template>
