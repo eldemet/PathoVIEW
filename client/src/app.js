@@ -4,7 +4,6 @@ import {BindingSignaler} from 'aurelia-templating-resources';
 import {AureliaCookie} from 'aurelia-cookie';
 import {Offcanvas} from 'bootstrap';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
-import {PromptDialog} from 'library-aurelia/src/resources/dialogs/prompt-dialog';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {deviceUtilities} from './utilities';
 import {ContextService} from './services/context-service';
@@ -168,33 +167,6 @@ export class App extends BasicViewRouter {
         await this.contextService.initialize(this.appConfig);
         await this.notificationService.initialize(this.appConfig.baseUrl + '/api/v1/notification', ['model', 'event']);
         this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
-        this.subscriptions.push(this.eventAggregator.subscribe('notification-event', notification => {
-            if (notification.contentType === 'toast') {
-                this.eventAggregator.publish('toast', {
-                    title: notification?.content?.name,
-                    body: notification?.content?.description,
-                    biIcon: 'alarm',
-                    autohide: false,
-                    dismissible: true
-                });
-            } else if (notification.contentType === 'alert') {
-                this.dialogService.open({
-                    viewModel: PromptDialog,
-                    model: {
-                        title: notification?.content?.name,
-                        question: notification?.content?.description,
-                        biIcon: 'warning'
-                    },
-                    lock: false,
-                    overlayDismiss: false,
-                    keyboard: ['Escape', 'Enter']
-                }).whenClosed(response => {
-                    this.logger.info('PropmptDialog was ' + (response.wasCancelled ? 'cancelled' : 'accepted'));
-                }).catch(error => {
-                    this.logger.error(error);
-                });
-            }
-        }));
         this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
         this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', () => {
             this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
