@@ -62,7 +62,7 @@ const configAppDefaults = {
         ]
     },
     server: {
-        port: '3002'
+        port: 3002
     },
     database: {
         uniqueProperty: 'id',
@@ -111,8 +111,8 @@ const additionalDbSchemas = {
     PointOfInterest: {$ref: 'node_modules/smart-data-models-point-of-interest/PointOfInterest/model.yaml#/PointOfInterest'}
 };
 
-const initializeAddOnsCallback = async(app, configService) => {
-    await kcAdminService.initialize(configService.config);
+const initializeAddOnsCallback = async(config) => {
+    await kcAdminService.initialize(config);
 };
 
 const shutdownAddOnsCallback = async() => {
