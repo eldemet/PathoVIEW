@@ -200,9 +200,10 @@
     </nav-bar>
 
     <toast event="toast" position-class="bottom-0 start-50 translate-middle-x mb-5"></toast>
-    <alert class="text-break" event="app-alert"></alert>
+    <alert class="text-break mb-1" event="app-alert"></alert>
 
     <router-view class="overflow-auto rounded bg-body"></router-view>
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNotifications" aria-labelledby="offcanvasNotificationsLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNotificationsLabel">${'model.notification' | t:{count: 2}}</h5>
