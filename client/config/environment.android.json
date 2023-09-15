@@ -9,18 +9,19 @@
         "useUserLocale": false,
         "rbac": {
             "alert": {
-                "create": [
-                    "ROLE_PATHOALERTA"
+                "create": [],
+                "update": [
+                    "_ADMIN"
                 ]
             },
             "mission": {
-                "delete": [
-                    "ROLE_PATHOALERTA"
-                ]
+                "delete": []
             },
-            "cms": [
-                "_ADMIN"
-            ]
+            "cms": {
+                "view": [
+                    "_ADMIN"
+                ]
+            }
         }
     },
     "usePathoware": true,

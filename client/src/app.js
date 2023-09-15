@@ -81,11 +81,7 @@ export class App extends BasicViewRouter {
                                 moduleId: PLATFORM.moduleName('views-general/annotations')
                             }
                         }
-                    }],
-                    filter: () => {
-                        return {refId: AureliaCookie.get('emergency-event') || 'notSet'};
-                        // TODO validate: return {$and: [{refId: AureliaCookie.get('emergency-event') || 'notSet'}, {assignedTo: {$in: this.userInfo.roles}}]};
-                    }
+                    }]
                 }
             },
             {
@@ -103,7 +99,7 @@ export class App extends BasicViewRouter {
                     deactivate: {
                         create: !this.authService.hasAccess('alert.create'),
                         delete: !this.authService.hasAccess('alert.create'),
-                        update: !this.authService.hasAccess('alert.create')
+                        update: !this.authService.hasAccess('alert.update')
                     },
                     customSearchView: PLATFORM.moduleName('views-general/search-context-aware'),
                     customDetailView: PLATFORM.moduleName('views/alert/detail')
@@ -146,7 +142,7 @@ export class App extends BasicViewRouter {
                 nav: true
             }
         ];
-        if (this.authService.hasAccess('cms')) {
+        if (this.authService.hasAccess('cms.view')) {
             routes.push({
                 route: 'cms',
                 name: 'cms',

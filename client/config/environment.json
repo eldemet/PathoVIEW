@@ -9,12 +9,17 @@
         "useUserLocale": false,
         "rbac": {
             "alert": {
-                "create": []
+                "create": [],
+                "update": []
             },
             "mission": {
                 "delete": []
             },
-            "cms": []
+            "cms": {
+                "view": [
+                    "admin"
+                ]
+            }
         }
     },
     "usePathoware": true,
