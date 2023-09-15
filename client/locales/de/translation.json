@@ -230,9 +230,9 @@
                 "naturalDisaster": "Naturkatastrophe",
                 "weather": "Wetter",
                 "environment": "Umgebung",
-                "health": "Personnen",
+                "health": "Gesundheit",
                 "security": "Sicherheit",
-                "traffic": "Personen",
+                "traffic": "Verkehr",
                 "agriculture": "Infrastruktur"
             },
             "severity": {
