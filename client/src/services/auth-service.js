@@ -63,6 +63,10 @@ class AuthService extends BasicService {
         AureliaCookie.set('lang', locale, {});
     }
 
+    setUserId(userId) {
+        AureliaCookie.set('userId', userId, {});
+    }
+
     getUserId() {
         if (!this.userInfo) {
             throw new Error('Not logged in!');

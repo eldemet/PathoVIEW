@@ -8,6 +8,7 @@ class AuthServiceImplementation extends AuthService {
         /** @returns AuthServicePlugin */
         this.authServicePlugin = registerPlugin('AuthService');
         this.userInfo = await this.authServicePlugin.getUserInfo();
+        this.setUserId(this.userInfo.sub);
         this.token = await this.authServicePlugin.getToken();
         this.setAuthToken(this.token);
         this.androidSubscription = this.authServicePlugin.addListener('token-update-event', payload => {

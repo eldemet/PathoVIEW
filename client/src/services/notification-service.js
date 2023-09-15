@@ -140,7 +140,7 @@ class NotificationService extends BasicService {
             let valid = this.ajv.validate(NotificationSchema, n);
             if (valid) {
                 this.eventAggregator.publish('notification' + (n.topic ? '-' + n.topic : ''), n);
-                if (!this.ignoreList.includes(n.contentType)) {
+                if (!this.ignoreList.includes(n.contentType) && n.senderId !== AureliaCookie.get('userId')) {
                     this.notifications.push(n);
                     this.notificationSound.play();
                 }

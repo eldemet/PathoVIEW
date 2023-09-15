@@ -18,6 +18,7 @@ class AuthServiceImplementation extends AuthService {
         if (this.userInfo.locale && config.useUserLocale) {
             this.setLocale(this.userInfo.locale);
         }
+        this.setUserId(this.userInfo.sub);
         this.interval = setInterval(async() => {
             try {
                 await this.keycloak.loadUserInfo();
