@@ -49,6 +49,7 @@ properties:
       - unsuccessful
       - overdue
       - cancelled
+    default: open
     ui:formItemType: select
     ui:formItemGridClass: 'col-md-6'
     ui:i18n: true
