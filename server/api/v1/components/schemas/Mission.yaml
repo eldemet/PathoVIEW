@@ -83,7 +83,6 @@ properties:
     format: "date-time"
     db:skipInSchemaDefinition: true
     ui:hide:
-      table: true
       form: true
   updatedAt:
     type: string
