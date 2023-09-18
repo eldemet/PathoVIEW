@@ -14,7 +14,6 @@ import {BhapticsServiceImplementation} from './services/bhaptics-service-APP_TAR
 import {NotificationServiceImplementation} from './services/notification-service-APP_TARGET';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
 import {ModelServiceContextAware} from './services/model-service-context-aware';
-import {ModelServiceSkipValidation} from './services/model-service-skip-validation';
 
 export async function configure(aurelia) {
     let authService = aurelia.container.get(AuthServiceImplementation);
@@ -58,8 +57,7 @@ export async function configure(aurelia) {
         new ModelServiceContextAware('alert', alertOptions, httpService, i18n, eventAggregator),
         new ModelServiceContextAware('mission', {apiEntrypoint, uniqueProperty, formats, filterProperty: 'refId', endpoints: {getObjects}}, httpService, i18n, eventAggregator),
         new ModelServiceContextAware('annotation', {apiEntrypoint, uniqueProperty, formats, filterProperty: 'source', endpoints: {getObjects}}, httpService, i18n, eventAggregator),
-        // @ts-ignore
-        new ModelServiceSkipValidation('device', {apiEntrypoint, uniqueProperty, formats: deviceFormats, endpoints: {getSchema: getSchemaDevice}, skipValidation: true}, httpService, i18n, eventAggregator),
+        new ModelServiceBasic('device', {apiEntrypoint, uniqueProperty, formats: deviceFormats, endpoints: {getSchema: getSchemaDevice}, throwOnValidationError: false}, httpService, i18n, eventAggregator),
         new ModelServiceBasic('emergency-event', {apiEntrypoint, uniqueProperty, formats}, httpService, i18n, eventAggregator)
     ];
     if (environment.enableBhaptics) {
