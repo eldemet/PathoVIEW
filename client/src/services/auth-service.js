@@ -63,6 +63,10 @@ class AuthService extends BasicService {
         AureliaCookie.set('lang', locale, {});
     }
 
+    getLocale() {
+        return AureliaCookie.get('lang');
+    }
+
     setUserId(userId) {
         AureliaCookie.set('userId', userId, {});
     }

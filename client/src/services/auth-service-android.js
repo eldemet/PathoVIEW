@@ -8,6 +8,19 @@ class AuthServiceImplementation extends AuthService {
         /** @returns AuthServicePlugin */
         this.authServicePlugin = registerPlugin('AuthService');
         this.userInfo = await this.authServicePlugin.getUserInfo();
+        if (!this.getLocale()) {
+            let locale = 'en';
+            try {
+                if (this.userInfo.locale && config.useUserLocale) {
+                    locale = this.userInfo.locale;
+                } else {
+                    locale = navigator.language.slice(0, 2);
+                }
+            } catch (e) {
+                //handle silently
+            }
+            this.setLocale(locale);
+        }
         this.setUserId(this.userInfo.sub);
         this.token = await this.authServicePlugin.getToken();
         this.setAuthToken(this.token);
