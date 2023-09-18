@@ -14,6 +14,7 @@ import {BhapticsServiceImplementation} from './services/bhaptics-service-APP_TAR
 import {NotificationServiceImplementation} from './services/notification-service-APP_TARGET';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
 import {ModelServiceContextAware} from './services/model-service-context-aware';
+import {AureliaCookie} from 'aurelia-cookie';
 
 export async function configure(aurelia) {
     let authService = aurelia.container.get(AuthServiceImplementation);
@@ -66,6 +67,14 @@ export async function configure(aurelia) {
     let registerPlugins = [
         PLATFORM.moduleName('aurelia-animator-css')
     ];
+    if (!AureliaCookie.get('search-alert-sort-by')) {
+        AureliaCookie.set('search-alert-sort-by', 'dateIssued', {});
+        AureliaCookie.set('search-alert-sort-ascending', 'false', {});
+    }
+    if (!AureliaCookie.get('search-mission-sort-by')) {
+        AureliaCookie.set('search-mission-sort-by', 'createdAt', {});
+        AureliaCookie.set('search-mission-sort-ascending', 'false', {});
+    }
     let splashScreen = (await import('views/splash-screen.html?raw')).default;
     await AureliaFramework.initialize(aurelia, {environment, root, globalResources, registerServices, registerPlugins, splashScreen});
 }
