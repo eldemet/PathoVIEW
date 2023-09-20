@@ -4,7 +4,7 @@
     "description": "The PathoTeSTICK is a portable testing device that gives results in maximum 5 minutes. It needs 50 μL if tested with a drop of sample or 2 mL if testing with the stick immersed in the sample",
     "pathogens": [
         "E. coli",
-        "Pseudomonas aeruginosa",
+        "Pseudomonas aeruginosa"
     ],
     "detectionLimits": [
         "P. aeruginosa: 7 ng/mL pyocyanin – 130000 CFU/mL (ATCC 27853)", 
