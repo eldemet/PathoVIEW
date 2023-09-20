@@ -81,8 +81,18 @@ class ContextService extends BasicService {
         } else {
             this.logger.silly('Page is in user view! Set interval...');
             this.interval = setInterval(async() => await this.update(), this.timeout);
+            //TODO this should probably be done on page freeze/resume (not supported by Firefox, Safari on iPhone)
+            this.updateContentAfterPageFreeze();
         }
     };
+
+    @catchError('app-alert')
+    async updateContentAfterPageFreeze() {
+        await this.loadAlerts(true);
+        await this.loadMissions(true);
+        await this.loadAnnotations(true);
+        this.eventAggregator.publish('context-changed', this.currentEmergencyEvent);
+    }
 
     @loadingEvent('app-alert', 'emergency-event')
     @catchError('app-alert')
@@ -124,18 +134,18 @@ class ContextService extends BasicService {
     }
 
     @catchError('app-alert')
-    async loadAlerts() {
-        this.alerts = (await this.proxy.get('alert').getObjects()).objects;
+    async loadAlerts(forceReload) {
+        this.alerts = (await this.proxy.get('alert').getObjects(null, null, forceReload)).objects;
     }
 
     @catchError('app-alert')
-    async loadMissions() {
-        this.missions = (await this.proxy.get('mission').getObjects()).objects;
+    async loadMissions(forceReload) {
+        this.missions = (await this.proxy.get('mission').getObjects(null, null, forceReload)).objects;
     }
 
     @catchError('app-alert')
-    async loadAnnotations() {
-        this.annotations = (await this.proxy.get('annotation').getObjects()).objects;
+    async loadAnnotations(forceReload) {
+        this.annotations = (await this.proxy.get('annotation').getObjects(null, null, forceReload)).objects;
     }
 
     @catchError()

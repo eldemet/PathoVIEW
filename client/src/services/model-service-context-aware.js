@@ -62,9 +62,9 @@ class ModelServiceContextAware extends ModelServiceBasic {
         this.objects = objects;
     }
 
-    async getObjects(query, searchProperties) {
+    async getObjects(query, searchProperties, forceReload) {
         await this.initialized();
-        if (this.emergencyEventId !== AureliaCookie.get('emergency-event')) {
+        if (forceReload || this.emergencyEventId !== AureliaCookie.get('emergency-event')) {
             await this.loadObjects();
         }
         return await super.getObjects(query, searchProperties);
