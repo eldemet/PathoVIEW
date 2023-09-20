@@ -220,13 +220,13 @@ class ContextService extends BasicService {
                         let message;
                         let dismissible = true;
                         let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
-                        if (distanceResult < 0.5 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
-                            if (distanceResult > 0.05) {
+                        if (distanceResult < 0.01 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
+                            if (distanceResult > 0) {
                                 type = 'warning';
-                                message = 'alerts.alertLocationClose';
+                                message = 'alerts.alertLocationVeryClose';
                             } else {
                                 type = 'danger';
-                                message = distanceResult <= 0 ? 'alerts.alertLocationEntered' : 'alerts.alertLocationVeryClose';
+                                message = 'alerts.alertLocationEntered';
                             }
                             const payload = {
                                 id: alert.id,
