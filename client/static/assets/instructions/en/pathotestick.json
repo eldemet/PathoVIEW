@@ -1,16 +1,15 @@
 {
     "name": "PathoTeSTICK",
     "image": "./assets/instructions/instructions-pathotestick.png",
-    "description": "The PathoTeSTICK was designed to protect first responders, since it is a portable device which can be used when approaching a possible contaminated site for the first time.",
+    "description": "The PathoTeSTICK is a portable testing device that gives results in maximum 5 minutes. It needs 50 μL if tested with a drop of sample or 2 mL if testing with the stick immersed in the sample",
     "pathogens": [
         "E. coli",
         "Pseudomonas aeruginosa",
-        "Campylobacter",
-        "protozoa species"
     ],
     "detectionLimits": [
-        "10^6 CFU/mL",
-        "10^5 CFU/mL, for E. coli and Pseudomonas aeruginosa, respectively"
+        "P. aeruginosa: 7 ng/mL pyocyanin – 130000 CFU/mL (ATCC 27853)", 
+        "E. coli: 110 ng/mL enterobactin – 5900000 CFU/mL (ATCC 25922)" 
+        
     ],
     "instructions": [
         {
@@ -39,75 +38,82 @@
                         }
                     ]
                 },
+
                 {
-                    "section": "In-field analysis",
-                    "description": "There are some materials which may be necessary during the in-field analysis. Those materials are listed below.",
-                    "checklistItems": [
-                        {
-                            "name": "Antiseptic wipes"
-                        },
-                        {
-                            "name": "Squirt bottle with rinse water"
-                        },
-                        {
-                            "name": "Paper towels"
-                        },
-                        {
-                            "name": "Flashlight/headlamp"
-                        },
-                        {
-                            "name": "Device for grab sampling (in case samples are collected in a large waterbody)"
-                        }
-                    ]
-                },
-                {
-                    "section": " PathoTeSTICK field test kit",
+                    "section": "PathoTeSTICK field test kit",
                     "description": "It is necessary to check that the PathoTeSTICK field test kit is complete, and that it contains the following material:",
+                    "image":"./assets/instructions/instructions-pathotestick-kit.png",
                     "checklistItems": [
                         {
-                            "name": "Disposable 10 mL plastic sample containers (4)"
+                            "name": "1. stick-shaped sensors (Disposable)"
                         },
                         {
-                            "name": "PathoTeSTICK (disposable sticks - supplied in separate containers, labelled depending on the pathogen that can be detected with each one)"
+                            "name": "2. Mini-potentiostat - Interface between smartphone and sensor (connects with USB-C port)"
                         },
                         {
-                            "name": "Mini-potentiostat - powered by the Smartphone (not disposable)"
+                            "name": "3. Sample Collecting Jars"
                         },
                         {
-                            "name": "Smartphone with the application installed"
+                            "name": "4. Disposable pipettes"
+                        },
+                        {
+                            "name": "5. Smartphone"
+                        },
+                        {
+                            "name": "6. Disposable gloves"
                         }
                     ]
+                    
                 }
             ]
         },
         {
-            "type": "sampling",
-            "name": "On field sampling procedure",
+            "type": "testing",
+            "name": "On field testing procedure",
             "items": [
                 {
-                    "section": "Sample collection",
-                    "description": "Once the sampling procedure has been followed, the specific procedure for PathoTeSTICK kit is detailed.",
+                    "section": "Handling the Sensors and Mini-Potentiostat",
+                    "description": "While handling the sensor sticks, it is necessary to NOT TOUCH the sensing part.",
+                    "image":"./assets/instructions/instructions-pathotestick-handling.png", 
                     "steps": [
-                        "If the sample must be collected from a large water body, take the device for grab sampling.",
-                        "Rinse the plastic container with the sample a couple of times.",
-                        "Fill in the container with the sample."
+                        "Take out sensor stick from the storage box (as many as needed)",
+                        "The sensing part has a circular shape, with three electrodes.",
+                        "The three contacts that connect to the mini-potentiostat can be seen at the other end.",
+                        "Connect the mini-potentiostat to the Smartphone with the USB-C port.",
+                        "A blue LED should light up on the mini-potentiostat"
                     ]
                 },
                 {
-                    "section": "Sample analysis with PathoTeSTICK",
+                    "section": "PathoSENSE App",
+                    "image":"./assets/instructions/instructions-pathotestick-app.png",
                     "steps": [
-                        "Connect the potentiostat to the Smartphone. The potentiostat turns on automatically when connected to the Smartphone.",
-                        "Open the app and select the target pathogen, or the method of detection of the respective pathogen, properly named and saved in the application menu.",
-                        "Introduce the stick in the plastic container. Immerse it only up to the marked line, to avoid splashing the stick.",
-                        "Start the test by pressing the Play button.",
-                        "Wait until the result appears in the screen."
+                        "Launch PathoSENSE PathoTeSTICK app on smartphone",
+                        "Make sure to enable location access",
+                        "Click on the “...” menu and click on 'connect' to allow connection with the potentiostat in the app.",
+                        "A message will be displayed on succesful connection"
                     ]
                 },
                 {
-                    "section": "Waste management",
+                    "section": "Preparing for a test",
+                    "image":"./assets/instructions/instructions-pathotestick-appsettings.png",
                     "steps": [
-                        "Since the PathoTeSTICK is a use and throw device and does not use any reactant, it does not require any specific waste management procedure.",
-                        "The used stick can be thrown in the hazardous waste bin if there is presence of pathogens in the analysed sample."
+                        "Create a session by clicking on the “+” icon and assigning a name to the session.",
+                        "Choose the water matrix type that will be tested (drinking, waste or surface water)",
+                        "Grasp the stick by the sides and connect it to the potentiostat with the contacts part (opposite end of sensing part).",
+                        "AVOID TOUCHING THE SENSING PART!!",
+                        "you can touch the middle Blue part with the logo"
+                    ]
+                },
+                {
+                    "section": "Running a test and posting results",
+                    "image":"./assets/instructions/instructions-pathotestick-test.png",
+                    "steps": [
+                        "Immerse the sensor stick in the sample with the sensing part fully submerged.",
+                        "Press 'Take Sample' button to start the measurement.",
+                        "HOLD STILL DURING MEASUREMENT!!",
+                        "Wait until you see the message- 'Plot is finished'",
+                        "Presence/ of Bacteria will be indicated by 'is present' (red)/ 'OK' (green)",
+                        "Click on the “...” menu and then 'Post' to send results to server"
                     ]
                 }
             ]
