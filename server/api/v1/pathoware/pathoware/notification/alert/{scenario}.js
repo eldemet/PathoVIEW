@@ -1,6 +1,10 @@
 import Logger from 'utilities-node/src/utilities/logger.js';
 import {alertUtilities} from '../../../../../../utilities/pathoware.js';
 
+/**
+ * @param {import('utilities-node/src/services/notificationSSE').NotificationServiceSSE} notificationService
+ * @param {Function} getApiDoc
+ */
 export default function(notificationService, getApiDoc) {
 
     const logger = new Logger(import.meta);
@@ -12,13 +16,20 @@ export default function(notificationService, getApiDoc) {
     operations.POST.apiDoc = getApiDoc(publishNotification);
 
     async function POST(req, res) {
+        /** @type import('utilities-node/types/types').NotificationPublished */
         let result;
         let senderId = req.body.subscriptionId;
         for (let alert of req.body.data) {
             let harmonizedAlert = alertUtilities.harmonizeAlert(alert);
-            result = notificationService.publishNotification({content: harmonizedAlert, senderId: senderId, topic: 'model', contentType: 'alert', operationType: 'create'});
+            let notification = {content: harmonizedAlert, senderId: senderId, topic: 'model', contentType: 'alert', operationType: 'create'};
+            //TODO should only send for alerts not coming from PathoVIEW
+            if (!harmonizedAlert.id || !harmonizedAlert.type) {
+                res.result({errors: 1, notification: harmonizedAlert});
+            } else {
+                result = notificationService.publishNotification(notification);
+                res.send(result);
+            }
         }
-        res.send(result);
     }
 
     return operations;

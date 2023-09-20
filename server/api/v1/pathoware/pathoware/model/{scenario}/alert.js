@@ -74,7 +74,10 @@ export default function(config, getApiDoc, notificationService) {
         summary: 'Creates an alert',
         operationId: 'createAlert',
         parameters: [
-            parameterScenario
+            parameterScenario,
+            {
+                $ref: '#/components/parameters/userId'
+            }
         ],
         requestBody: {
             required: true,
@@ -130,7 +133,8 @@ export default function(config, getApiDoc, notificationService) {
                 let result = await fetchResult.json();
                 result = alertUtilities.cleanAlert(result);
                 res.validateAndSend(200, result);
-                if (notificationService) notificationService.publishNotification({content: result, senderId: 'PathoVIEW', topic: 'model', contentType: 'alert', operationType: 'create'});
+                let userId = req.params.userId || req.headers['user-id'] || 'PathoVIEW';
+                if (notificationService) notificationService.publishNotification({content: result, senderId: userId, topic: 'model', contentType: 'alert', operationType: 'create'});
             }
         }
     }
@@ -139,7 +143,10 @@ export default function(config, getApiDoc, notificationService) {
         summary: 'Deletes an alert',
         operationId: 'deleteAlert',
         parameters: [
-            parameterScenario
+            parameterScenario,
+            {
+                $ref: '#/components/parameters/userId'
+            }
         ],
         requestBody: {
             required: true,
@@ -187,9 +194,10 @@ export default function(config, getApiDoc, notificationService) {
             let fetchResult = await fetch(url, options);
             if (!fetchResult.ok) {
                 res.status(fetchResult.status).send({error: fetchResult.statusText});
-                if (notificationService) notificationService.publishNotification({content: fetchResult, senderId: 'PathoVIEW', topic: 'model', contentType: 'alert', operationType: 'delete'});
             } else {
                 res.validateAndSend(200, req.body);
+                let userId = req.params.userId || req.headers['user-id'] || 'PathoVIEW';
+                if (notificationService) notificationService.publishNotification({content: req.body, senderId: userId, topic: 'model', contentType: 'alert', operationType: 'delete'});
             }
         }
     }
