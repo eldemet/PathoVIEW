@@ -1,116 +1,119 @@
 {
-    "name": "PatoTeSTICK",
-    "image": "./assets/instructions/instructions-pathotestick.png",
-    "description": "El PathoTeSTICK fue diseñado para proteger a los personal de primera intervención, ya que es un dispositivo portátil que se puede usar cuando se acerca a un sitio posiblemente contaminado por primera vez.",
-    "pathogens": [
-        "E. coli",
-        "Pseudomonas aeruginosa",
-        "Campylobacter",
-        "especies de protozoos"
-    ],
-    "detectionLimits": [
-        "10^6 UFC/mL",
-        "10^5 UFC/mL, para E. coli y Pseudomonas aeruginosa, respectivamente"
-    ],
-    "instructions": [
+  "name": "PatoTeSTICK",
+  "image": "./assets/instructions/instructions-pathotestick.png",
+  "description": "PathoTeSTICK es un dispositivo de prueba portátil que proporciona resultados en un máximo de 5 minutos. ",
+  "pathogens": [
+    "E. coli",
+    "Pseudomonas aeruginosa"
+  ],
+  "detectionLimits": [
+    "P. aeruginosa: 7 ng/mL de piocianina – 130000 UFC/mL (ATCC 27853)",
+    "E. coli: 110 ng/mL de enterobactina – 5900000 UFC/mL (ATCC 25922)"
+  ],
+  "instructions": [
+    {
+      "type": "Lista de Verificación",
+      "name": "Lista de verificación de muestreo",
+      "items": [
         {
-            "type": "checklist",
-            "name": "Lista de verificación de muestreo",
-            "items": [
-                {
-                    "section": "Equipos de Protección Individual (EPI)",
-                    "description": "Para usar el PathoTeSTICK, es necesario usar Equipos de Protección Individual (EPI), que incluyen pero no se limitan a:",
-                    "checklistItems": [
-                        {
-                            "name": "Guantes desechables",
-                            "image": "./assets/instructions/equipment-gloves.jpg"
-                        },
-                        {
-                            "name": "Gafas resistentes a salpicaduras",
-                            "image": "./assets/instructions/equipment-goggles.jpg"
-                        },
-                        {
-                            "name": "Cubrezapatos desechables o calzado adecuado",
-                            "image": "./assets/instructions/equipment-disposable-shoe-covers.jpg"
-                        },
-                        {
-                            "name": "Batas de laboratorio desechables",
-                            "image": "./assets/instructions/equipment-disposable-coat.png"
-                        }
-                    ]
-                },
-                {
-                    "section": "Análisis en el campo",
-                    "description": "Hay algunos materiales que pueden ser necesarios durante el análisis en el campo. ",
-                    "checklistItems": [
-                        {
-                            "name": "Toallitas antisépticas"
-                        },
-                        {
-                            "name": "Botella rociadora con agua de enjuague"
-                        },
-                        {
-                            "name": "Toallas de papel"
-                        },
-                        {
-                            "name": "linterna/faro"
-                        },
-                        {
-                            "name": "Dispositivo para toma de muestras (en caso de que las muestras se recolecten en un cuerpo de agua grande)"
-                        }
-                    ]
-                },
-                {
-                    "section": " Kit de prueba de campo PathoTeSTICK",
-                    "description": "Es necesario verificar que el kit de prueba de campo PathoTeSTICK esté completo y que contenga el siguiente material:",
-                    "checklistItems": [
-                        {
-                            "name": "Recipientes de muestra de plástico desechables de 10 ml (4)"
-                        },
-                        {
-                            "name": "PathoTeSTICK (barritas desechables - suministradas en envases separados, etiquetados según el patógeno que se pueda detectar con cada uno)"
-                        },
-                        {
-                            "name": "Mini-potenciostato - alimentado por el Smartphone (no desechable)"
-                        },
-                        {
-                            "name": "Smartphone con la aplicación instalada"
-                        }
-                    ]
-                }
-            ]
+          "section": "Equipos de Protección Individual (EPI)",
+          "description": "Para utilizar PathoTeSTICK, es necesario usar Equipos de Protección Individual (EPI), que incluyen, entre otros:",
+          "checklistItems": [
+            {
+              "name": "Guantes desechables",
+              "image": "./assets/instructions/equipment-gloves.jpg"
+            },
+            {
+              "name": "Gafas resistentes a salpicaduras",
+              "image": "./assets/instructions/equipment-goggles.jpg"
+            },
+            {
+              "name": "Cubrezapatos desechables o zapatos adecuados.",
+              "image": "./assets/instructions/equipment-desechable-shoe-covers.jpg"
+            },
+            {
+              "name": "batas de laboratorio desechables",
+              "image": "./assets/instructions/equipment-disposable-coat.png"
+            }
+          ]
         },
         {
-            "type": "sampling",
-            "name": "Procedimiento de muestreo en campo",
-            "items": [
-                {
-                    "section": "Coleccion de muestra",
-                    "description": "Una vez seguido el procedimiento de toma de muestras, se detalla el procedimiento específico para el kit PathoTeSTICK.",
-                    "steps": [
-                        "Si la muestra se debe recolectar de un cuerpo de agua grande, tome el dispositivo para muestreo manual.",
-                        "Enjuague el recipiente de plástico con la muestra un par de veces.",
-                        "Rellenar el recipiente con la muestra."
-                    ]
-                },
-                {
-                    "section": "Análisis de muestras con PathoTeSTICK",
-                    "steps": [
-                        "Conecta el potenciostato al Smartphone. ",
-                        "Abra la aplicación y seleccione el patógeno objetivo, o el método de detección del patógeno respectivo, debidamente nombrado y guardado en el menú de la aplicación.",
-                        "Introduce el stick en el recipiente de plástico. ",
-                        "Inicie la prueba presionando el botón Reproducir.",
-                        "Espere hasta que el resultado aparezca en la pantalla."
-                    ]
-                },
-                {
-                    "section": "Gestión de residuos",
-                    "steps": [
-                        "Dado que el PathoTeSTICK es un dispositivo de usar y tirar y no utiliza ningún reactivo, no requiere ningún procedimiento específico de gestión de residuos.",
-                        "El stick usado se puede tirar al contenedor de residuos peligrosos si hay presencia de patógenos en la muestra analizada."
-                    ]
-                }
-            ]
+          "section": "Kit de prueba de campo PathoTeSTICK",
+          "description": "Es necesario comprobar que el kit de prueba de campo PathoTeSTICK esté completo y que contenga el siguiente material:",
+          "image": "./assets/instrucciones/instrucciones-pathotestick-kit.png",
+          "checklistItems": [
+            {
+              "name": "1. sensores en forma de barra (desechables)"
+            },
+            {
+              "name": "2. Minipotenciostato: interfaz entre el teléfono inteligente y el sensor (se conecta con el puerto USB-C)"
+            },
+            {
+              "name": "3. Frascos recolectores de muestras"
+            },
+            {
+              "name": "4. Pipetas desechables"
+            },
+            {
+              "name": "5. Teléfono inteligente"
+            },
+            {
+              "name": "6. Guantes desechables"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "type": "pruebas",
+      "name": "Procedimiento de prueba en campo",
+      "items": [
+        {
+          "section": "Manejo de los sensores y el minipotenciostato",
+          "description": "Mientras manipula los sensores, es necesario NO TOCAR la parte sensora.",
+          "image": "./assets/instructions/instructions-pathotestick-handling.png",
+          "steps": [
+            "Saque el sensor de la caja de almacenamiento (tantos como sea necesario)",
+            "La parte sensora tiene forma circular, con tres electrodos.",
+            "En el otro extremo se pueden ver los tres contactos que se conectan al minipotenciostato.",
+            "Conecta el minipotenciostato al Smartphone con el puerto USB-C.",
+            "Debería encenderse un LED azul en el minipotenciostato."
+          ]
+        },
+        {
+          "section": "Aplicación PathoSENSE",
+          "image": "./assets/instructions/instructions-pathotestick-app.png",
+          "steps": [
+            "Inicie la aplicación PathoSENSE PathoTeSTICK en su teléfono inteligente",
+            "Asegúrate de habilitar el acceso a la ubicación",
+            "Haga clic en el menú \"...\" y haga clic en 'conectar' para permitir la conexión con el potenciostato en la aplicación.",
+            "Se mostrará un mensaje en caso de conexión exitosa."
+          ]
+        },
+        {
+          "section": "Preparándose para una prueba",
+          "image": "./assets/instructions/instructions-pathotestick-appsettings.png",
+          "steps": [
+            "Cree una sesión haciendo clic en el icono \" \" y asignando un nombre a la sesión.",
+            "Elija el tipo de matriz de agua que se analizará (agua potable, residual o superficial)",
+            "Sujete la palanca por los lados y conéctela al potenciostato con la parte de contactos (extremo opuesto de la parte de detección).",
+            "¡¡EVITE TOCAR LA PARTE SENSOR!!",
+            "Puedes tocar la parte central azul con el logo."
+          ]
+        },
+        {
+          "section": "Realizar una prueba y publicar resultados",
+          "image": "./assets/instructions/instructions-pathotestick-test.png",
+          "steps": [
+            "Sumerja la varilla del sensor en la muestra con la parte sensora completamente sumergida.",
+            "Presione el botón 'Tomar muestra' para iniciar la medición.",
+            "¡¡MANTÉNGASE QUIETO DURANTE LA MEDICIÓN!!",
+            "Espere hasta que vea el mensaje: \"La trama ha terminado\".",
+            "La presencia de bacterias se indicará con \"está presente\" (rojo)/ \"OK\" (verde)",
+            "Haga clic en el menú \"...\" y luego en 'Publicar' para enviar los resultados al servidor."
+          ]
+        }
+      ]
+    }
+  ]
 }
