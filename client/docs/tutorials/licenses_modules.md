@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 803
+* MIT: 805
 * ISC: 78
 * BSD-2-Clause: 30
 * Apache-2.0: 20
@@ -484,6 +484,10 @@
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
+ - **[@capacitor/app@5.0.6](https://github.com/ionic-team/capacitor-plugins)**
+    - licenses: MIT
+    - description: The App API handles high level App state and events.For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
+    - copyright: Copyright 2020-present Ionic. https://ionic.io
  - **[@capacitor/cli@5.4.1](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
@@ -492,6 +496,10 @@
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
+ - **[@capacitor/device@5.0.6](https://github.com/ionic-team/capacitor-plugins)**
+    - licenses: MIT
+    - description: The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
+    - copyright: Copyright 2020-present Ionic. https://ionic.io
  - **[@capacitor/haptics@5.0.6](https://github.com/ionic-team/capacitor-plugins)**
     - licenses: MIT
     - description: The Haptics API provides physical feedback to the user through touch or vibration.
@@ -2424,7 +2432,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.8.2](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.8.3](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.

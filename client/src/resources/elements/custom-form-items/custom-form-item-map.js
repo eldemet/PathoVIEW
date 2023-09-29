@@ -2,16 +2,17 @@ import {v1 as uuid} from 'uuid';
 import {inject} from 'aurelia-framework';
 import {BasicComposableAuFormItem} from 'library-aurelia/src/prototypes/basic-composable-au-form-item';
 import {locationUtilities} from '../../../utilities';
-import {ContextService} from '../../../services/context-service';
+// @ts-ignore
+import {ContextServiceImplementation} from '../../../services/context-service-APP_TARGET';
 
-@inject(ContextService)
+@inject(ContextServiceImplementation)
 export class CustomFormItemMap extends BasicComposableAuFormItem {
 
     drawEnabled = true;
     layerEvents = ['pm:edit', 'pm:update', 'pm:remove', 'pm:rotate'];
 
     /**
-     * @param {ContextService} contextService
+     * @param {ContextServiceImplementation} contextService
      * @param {ConstructorParameters<typeof BasicComposableAuFormItem>} rest
      */
     constructor(contextService, ...rest) {

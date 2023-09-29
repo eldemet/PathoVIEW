@@ -45,54 +45,12 @@ class ContextService extends BasicService {
         await this.initializeCurrentDevice();
         await this.setCurrentWeather();
         numeral.locale(this.i18n.getLocale());
-        await this.update();
-        this.interval = setInterval(async() => await this.update(), timeout);
-        document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
-        this.supportsPageLifecycleAPI = typeof document.onresume === 'object';
-        if (this.supportsPageLifecycleAPI) {
-            document.addEventListener('resume', this.updateContentAfterPageFreeze);
-        }
-        this.subscriptions.push(this.eventAggregator.subscribe('alert-closed', alert => {
-            this.closedContextAwareAlerts.push(alert.id);
-        }));
         this.initializeResolve();
     }
 
     async close() {
-        clearInterval(this.interval);
-        document.removeEventListener('visibilitychange', this.visibilityChangeEventListener);
-        if (this.supportsPageLifecycleAPI) {
-            document.removeEventListener('resume', this.updateContentAfterPageFreeze);
-        }
         this.disposeSubscriptions();
     }
-
-    async update() {
-        try {
-            let location = await locationUtilities.getCurrenPosition('geoJSON');
-            if (location) {
-                await this.updateDevice(location);
-                await this.checkForAlertsNearCurrentLocation(location);
-            } else {
-                throw new Error('Cannot get current position!');
-            }
-        } catch (error) {
-            this.logger.warn(error.message);
-        }
-    }
-
-    visibilityChangeEventListener = () => {
-        if (document.hidden) {
-            this.logger.silly('Page is hidden from user view! Clear interval...');
-            clearInterval(this.interval);
-        } else {
-            this.logger.silly('Page is in user view! Set interval...');
-            this.interval = setInterval(async() => await this.update(), this.timeout);
-            if (!this.supportsPageLifecycleAPI) {
-                this.updateContentAfterPageFreeze();
-            }
-        }
-    };
 
     @catchError('app-alert')
     async updateContentAfterPageFreeze() {
@@ -105,7 +63,6 @@ class ContextService extends BasicService {
     @loadingEvent('app-alert', 'emergency-event')
     @catchError('app-alert')
     async loadEmergencyEvents() {
-        this.emergencyEventSchema = await this.proxy.get('emergency-event').getSchema();
         this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
         let currentEmergencyEventId = AureliaCookie.get('emergency-event');
         if (currentEmergencyEventId) {

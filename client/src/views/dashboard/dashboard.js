@@ -1,25 +1,23 @@
 import {inject, computedFrom} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
-import {BindingSignaler} from 'aurelia-templating-resources';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {userUtilities, locationUtilities, weatherUtilities} from '../../utilities';
-import {ContextService} from '../../services/context-service';
 import {NotificationType} from '../../services/notification-service';
+// @ts-ignore
+import {ContextServiceImplementation} from '../../services/context-service-APP_TARGET';
 
-@inject(BindingSignaler, ContextService)
+@inject(ContextServiceImplementation)
 class DashboardView extends BasicView {
 
     openWeatherMapIconUrl = 'https://openweathermap.org/img/wn/';
     currentPosition;
 
     /**
-     * @param {BindingSignaler} bindingSignaler
-     * @param {ContextService} contextService
+     * @param {ContextServiceImplementation} contextService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
-    constructor(bindingSignaler, contextService, ...rest) {
+    constructor(contextService, ...rest) {
         super(...rest);
-        this.bindingSignaler = bindingSignaler;
         this.contextService = contextService;
         this.userUtilities = userUtilities;
         this.weatherUtilities = weatherUtilities;

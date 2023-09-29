@@ -1,14 +1,14 @@
 import {inject, computedFrom} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
-import {BindingSignaler} from 'aurelia-templating-resources';
 import {AureliaCookie} from 'aurelia-cookie';
 import {Offcanvas} from 'bootstrap';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {deviceUtilities} from './utilities';
-import {ContextService} from './services/context-service';
+// @ts-ignore
+import {ContextServiceImplementation} from './services/context-service-APP_TARGET';
 
-@inject(BindingSignaler, ContextService)
+@inject(ContextServiceImplementation)
 export class App extends BasicViewRouter {
 
     languages = [
@@ -20,13 +20,11 @@ export class App extends BasicViewRouter {
     ];
 
     /**
-     * @param {BindingSignaler} bindingSignaler
-     * @param {ContextService} contextService
+     * @param {ContextServiceImplementation} contextService
      * @param {ConstructorParameters<typeof BasicViewRouter>} rest
      */
-    constructor(bindingSignaler, contextService, ...rest) {
+    constructor(contextService, ...rest) {
         super(...rest);
-        this.bindingSignaler = bindingSignaler;
         this.appConfig = this.proxy.get('config').config;
         this.contextService = contextService;
         this.deviceUtilities = deviceUtilities;

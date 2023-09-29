@@ -1,20 +1,18 @@
-import {BindingEngine, inject} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {modelUtilities, alertUtilities, deviceUtilities, missionUtilities, locationUtilities} from '../../utilities';
-import {ContextService} from '../../services/context-service';
+// @ts-ignore
+import {ContextServiceImplementation} from '../../services/context-service-APP_TARGET';
 
-@inject(BindingEngine, ContextService)
+@inject(ContextServiceImplementation)
 class MapView extends BasicView {
 
     /**
-     *
-     * @param {BindingEngine}bindingEngine
-     * @param {ContextService} contextService
+     * @param {ContextServiceImplementation} contextService
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
-    constructor(bindingEngine, contextService, ...rest) {
+    constructor(contextService, ...rest) {
         super(...rest);
-        this.bindingEngine = bindingEngine;
         this.contextService = contextService;
     }
 
