@@ -26,6 +26,7 @@ export async function configure(aurelia) {
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-image'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-severity'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-status'),
+        PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-image'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-map'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-owner'),
         PLATFORM.moduleName('resources/elements/custom-detail-properties/custom-detail-property-ref'),
@@ -67,6 +68,7 @@ export async function configure(aurelia) {
     let registerPlugins = [
         PLATFORM.moduleName('aurelia-animator-css')
     ];
+    //TODO remove if library-aurelia is updated
     if (!AureliaCookie.get('search-alert-sort-by')) {
         AureliaCookie.set('search-alert-sort-by', 'dateIssued', {});
         AureliaCookie.set('search-alert-sort-ascending', 'false', {});

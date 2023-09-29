@@ -141,3 +141,5 @@ definitions:
         example: enum.colors
       ui:rows:
         type: number
+      "ui:sortProperty":
+        type: string

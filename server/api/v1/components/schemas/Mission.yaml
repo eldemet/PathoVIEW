@@ -8,6 +8,7 @@ required:
 model:searchProperties:
   - description
 model:defaultProperty: name
+ui:sortProperty: createdAt
 ui:filters:
   - status
   - assignedTo

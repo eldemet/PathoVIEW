@@ -170,24 +170,15 @@ Address:
     postalCode:
       type: string
       ui:formItemGridClass: 'col-md-5'
-      examples:
-        - "18002"
     addressLocality:
       type: string
       ui:formItemGridClass: 'col-md-5'
-      examples:
-        - Granada
-        - Yermasogia dam
     streetAddress:
       type: string
       ui:formItemGridClass: 'col-md-8'
-      examples:
-        - Obispo Hurtado
     streetNr:
       type: string
       ui:formItemGridClass: 'col-md-2'
-      examples:
-        - 21 C
 
 owner:
   type: array

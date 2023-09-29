@@ -13,7 +13,8 @@ discriminator:
       - owner
     model:searchProperties:
       - creator
-    model:defaultProperty: createdAt
+    model:defaultProperty: kind
+    ui:sortProperty: createdAt
     properties:
       id:
         $ref: './../$defs.yaml#/NGSIentityFormat'
@@ -22,11 +23,13 @@ discriminator:
         ui:hide:
           table: true
           form: true
+          info: true
       type:
         const: Annotation
         ui:hide:
           table: true
           form: true
+          info: true
       kind:
         type: string
         enum:
@@ -64,6 +67,7 @@ discriminator:
         ui:hide:
           form: true
           table: true
+          info: true
         db:skipInSchemaDefinition: true
 oneOf:
   - allOf:
@@ -100,6 +104,7 @@ oneOf:
             type: string
             ui:noLabel: true
             ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-image'
+            ui:detailCustomCompose: 'resources/elements/custom-detail-properties/custom-detail-property-image'
   - allOf:
       - $ref: '#/discriminator/baseSchema'
       - type: object

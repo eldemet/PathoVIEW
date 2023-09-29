@@ -44,7 +44,7 @@
     - licenses: MIT
     - description: Utilities for ESLint plugins.
     - copyright: Copyright (c) 2018 Toru Nagashima
- - **[@eslint-community/regexpp@4.8.1](https://github.com/eslint-community/regexpp)**
+ - **[@eslint-community/regexpp@4.9.0](https://github.com/eslint-community/regexpp)**
     - licenses: MIT
     - description: Regular expression parser for ECMAScript.
     - copyright: Copyright (c) 2018 Toru Nagashima
@@ -52,7 +52,7 @@
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@eslint/js@8.49.0](https://github.com/eslint/eslint)**
+ - **[@eslint/js@8.50.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: ESLint JavaScript language implementation
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -92,7 +92,7 @@
     - licenses: MIT
     - description: A library for efficiently walking a directory recursively
     - copyright: Copyright (c) Denis Malinochkin
- - **[@sinclair/typebox@0.31.15](https://github.com/sinclairzx81/typebox)**
+ - **[@sinclair/typebox@0.31.17](https://github.com/sinclairzx81/typebox)**
     - licenses: MIT
     - description: JSONSchema Type Builder with Static Type Resolution for TypeScript
     - copyright: Copyright (c) 2017-2023 Haydn Paterson (sinclair) <haydn.developer@gmail.com>
@@ -100,11 +100,11 @@
     - licenses: MIT
     - description: Finds the version of Chrome that is installed on your machine
     - copyright: Copyright (c) 2018-2019 Testim.io
- - **[@types/json-schema@7.0.12](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/json-schema@7.0.13](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
     - copyright: none
- - **[@types/node@20.6.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@20.7.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
     - copyright: none
@@ -112,7 +112,7 @@
     - licenses: MIT
     - description: TypeScript definitions for triple-beam
     - copyright: none
- - **[@types/webidl-conversions@7.0.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/webidl-conversions@7.0.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for webidl-conversions
     - copyright: none
@@ -120,7 +120,7 @@
     - licenses: MIT
     - description: TypeScript definitions for whatwg-url
     - copyright: none
- - **[@types/yauzl@2.10.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/yauzl@2.10.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for yauzl
     - copyright: none
@@ -224,7 +224,7 @@
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: Copyright (c) 2014-present Matt Zabriskie
- - **[axios@1.5.0](https://github.com/axios/axios)**
+ - **[axios@1.5.1](https://github.com/axios/axios)**
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: none
@@ -328,7 +328,7 @@
     - licenses: MIT
     - description: Terminal string styling done right
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[chromedriver@116.0.0](https://github.com/giggio/node-chromedriver)**
+ - **[chromedriver@117.0.3](https://github.com/giggio/node-chromedriver)**
     - licenses: Apache-2.0
     - description: ChromeDriver for Selenium
     - copyright: none
@@ -580,7 +580,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.49.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.50.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -708,7 +708,7 @@
     - licenses: MIT
     - description: A stupidly simple key/value storage using files to persist some data
     - copyright: Copyright (c) Roy Riojas and Jared Wray
- - **[flatted@3.2.7](https://github.com/WebReflection/flatted)**
+ - **[flatted@3.2.9](https://github.com/WebReflection/flatted)**
     - licenses: ISC
     - description: A super light and fast circular JSON parser.
     - copyright: Copyright (c) 2018-2020, Andrea Giammarchi, @WebReflection
@@ -716,7 +716,7 @@
     - licenses: MIT
     - description: Extract names from functions
     - copyright: Copyright (c) 2015 Arnout Kazemier, Martijn Swaagman, the Contributors.
- - **[follow-redirects@1.15.2](https://github.com/follow-redirects/follow-redirects)**
+ - **[follow-redirects@1.15.3](https://github.com/follow-redirects/follow-redirects)**
     - licenses: MIT
     - description: HTTP and HTTPS modules that follow redirects.
     - copyright: Copyright 2014–present Olivier Lalonde <olalonde@gmail.com>, James Talmage <james@talmage.io>, Ruben Verborgh
@@ -788,7 +788,7 @@
     - licenses: ISC
     - description: a little globber
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[globals@13.21.0](https://github.com/sindresorhus/globals)**
+ - **[globals@13.22.0](https://github.com/sindresorhus/globals)**
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1152,7 +1152,7 @@
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose@7.5.1](https://github.com/Automattic/mongoose)**
+ - **[mongoose@7.5.3](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -1492,7 +1492,7 @@
     - licenses: MIT
     - description: Resolve the path of a module like `require.resolve()` but from a given path
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[resolve@1.22.5](https://github.com/browserify/resolve)**
+ - **[resolve@1.22.6](https://github.com/browserify/resolve)**
     - licenses: MIT
     - description: resolve like require.resolve() on behalf of files asynchronously and synchronously
     - copyright: Copyright (c) 2012 James Halliday
@@ -1668,7 +1668,7 @@
     - licenses: MIT
     - description: parse SPDX license expressions
     - copyright: Copyright (c) 2015 Kyle E. Mitchell & other authors listed in AUTHORS
- - **[spdx-license-ids@3.0.13](https://github.com/jslicense/spdx-license-ids)**
+ - **[spdx-license-ids@3.0.15](https://github.com/jslicense/spdx-license-ids)**
     - licenses: CC0-1.0
     - description: A list of SPDX license identifiers
     - copyright: none
@@ -1740,7 +1740,7 @@
     - licenses: MIT
     - description: Determine if the current node version supports the `--preserve-symlinks` flag.
     - copyright: Copyright (c) 2022 Inspect JS
- - **[swagger-ui-dist@5.7.1](https://github.com/swagger-api/swagger-ui)**
+ - **[swagger-ui-dist@5.9.0](https://github.com/swagger-api/swagger-ui)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://badge.fury.io/js/swagger-ui-dist.svg)](http://badge.fury.io/js/swagger-ui-dist)
     - copyright: none
