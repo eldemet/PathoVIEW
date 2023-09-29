@@ -8,6 +8,9 @@
         "clientId": "pathoview",
         "useUserLocale": false,
         "rbac": {
+            "emergencyEvent": {
+                "update": []
+            },
             "alert": {
                 "create": [],
                 "update": []

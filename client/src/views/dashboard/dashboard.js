@@ -1,6 +1,7 @@
 import {inject, computedFrom} from 'aurelia-framework';
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {BindingSignaler} from 'aurelia-templating-resources';
+import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {userUtilities, locationUtilities, weatherUtilities} from '../../utilities';
 import {ContextService} from '../../services/context-service';
 import {NotificationType} from '../../services/notification-service';
@@ -105,6 +106,18 @@ class DashboardView extends BasicView {
         const text = this.currentPosition.lat + ', ' + this.currentPosition.lng;
         await navigator.clipboard.writeText(text);
         this.eventAggregator.publish('toast', {title: 'views.dashboard.copiedPositionToClipboard', body: text, biIcon: 'clipboard', autohide: true});
+    }
+
+    updateEmergencyEvent() {
+        let model = {type: 'emergencyEvent', formType: 'update', objectData: this.contextService.currentEmergencyEvent.id};
+        this.dialogService.open({viewModel: AuFormDialog, model: model, modalSize: 'modal-xl'})
+            .whenClosed(async response => {
+                if (response.wasCancelled) {
+                    this.logger.debug('Dialog was cancelled!');
+                } else {
+                    this.logger.debug('Dialog was confirmed!');
+                }
+            });
     }
 
 }
