@@ -162,7 +162,7 @@ export class App extends BasicViewRouter {
         this.responsiveService.initialize();
         await this.contextService.initialize(this.appConfig);
         await this.notificationService.initialize(this.appConfig.baseUrl + '/api/v1/notification', ['model', 'event']);
-        this.interval = setInterval(() => this.bindingSignaler.signal('update-logout-in'), 1000);
+        this.interval = setInterval(() => this.bindingSignaler.signal('interval-second'), 1000);
         this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
         this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', () => {
             this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
@@ -221,6 +221,10 @@ export class App extends BasicViewRouter {
     readNotification(notification) {
         notification.read = true;
         this.bindingSignaler.signal('notifications-updated');
+    }
+
+    openNotification(notification) {
+        this.readNotification(notification);
         let model = notification.contentType;
         let id = notification.content[this.proxy.get(model)?.options?.uniqueProperty || '_id'];
         this.routerService.navigateToRoute('detail', {model, id}, this.router);
