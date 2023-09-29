@@ -21,15 +21,11 @@ export default function(notificationService, getApiDoc) {
         let senderId = req.body.subscriptionId;
         for (let alert of req.body.data) {
             let harmonizedAlert = alertUtilities.harmonizeAlert(alert);
-            let notification = {content: harmonizedAlert, senderId: senderId, topic: 'model', contentType: 'alert', operationType: 'create'};
-            //TODO should only send for alerts not coming from PathoVIEW
-            if (!harmonizedAlert.id || !harmonizedAlert.type) {
-                res.result({errors: 1, notification: harmonizedAlert});
-            } else {
-                result = notificationService.publishNotification(notification);
-                res.send(result);
-            }
+            let userId = harmonizedAlert?.owner?.[0] || senderId;
+            let notification = {content: harmonizedAlert, senderId: userId, topic: 'model', contentType: 'alert', operationType: 'create'};
+            result = notificationService.publishNotification(notification);
         }
+        res.send(result);
     }
 
     return operations;

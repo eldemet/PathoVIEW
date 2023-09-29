@@ -5,6 +5,12 @@ import isNil from 'lodash/isNil.js';
 export const alertUtilities = {
     harmonizeAlert(alert) {
         let harmonizedAlert = mapValues(alert, 'value');
+        if (!harmonizedAlert.id && alert.id) {
+            harmonizedAlert.id = alert.id;
+        }
+        if (!harmonizedAlert.type && alert.type) {
+            harmonizedAlert.type = alert.type;
+        }
         harmonizedAlert = alertUtilities.cleanAlert(harmonizedAlert);
         return harmonizedAlert;
     },
