@@ -48,6 +48,10 @@ class ContextService extends BasicService {
         await this.update();
         this.interval = setInterval(async() => await this.update(), timeout);
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
+        this.supportsPageLifecycleAPI = typeof document.onresume === 'object';
+        if (this.supportsPageLifecycleAPI) {
+            document.addEventListener('resume', this.updateContentAfterPageFreeze);
+        }
         this.subscriptions.push(this.eventAggregator.subscribe('alert-closed', alert => {
             this.closedContextAwareAlerts.push(alert.id);
         }));
@@ -57,6 +61,9 @@ class ContextService extends BasicService {
     async close() {
         clearInterval(this.interval);
         document.removeEventListener('visibilitychange', this.visibilityChangeEventListener);
+        if (this.supportsPageLifecycleAPI) {
+            document.removeEventListener('resume', this.updateContentAfterPageFreeze);
+        }
         this.disposeSubscriptions();
     }
 
@@ -81,8 +88,9 @@ class ContextService extends BasicService {
         } else {
             this.logger.silly('Page is in user view! Set interval...');
             this.interval = setInterval(async() => await this.update(), this.timeout);
-            //TODO this should probably be done on page freeze/resume (not supported by Firefox, Safari on iPhone)
-            this.updateContentAfterPageFreeze();
+            if (!this.supportsPageLifecycleAPI) {
+                this.updateContentAfterPageFreeze();
+            }
         }
     };
 
