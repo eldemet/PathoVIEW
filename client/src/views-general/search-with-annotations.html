@@ -1,10 +1,10 @@
 <template>
 
-    <require from='library-aurelia/src/resources/elements/alert'></require>
-    <require from='library-aurelia/src/resources/elements/au-content/au-content-item'></require>
+    <require from="library-aurelia/src/resources/elements/alert"></require>
+    <require from="library-aurelia/src/resources/elements/au-content/au-content-item"></require>
     <require from="library-aurelia/src/resources/elements/toolbar/toolbar"></require>
-    <require from='library-aurelia/src/resources/value-converters/filter'></require>
-    <require from='library-aurelia/src/resources/value-converters/object-keys'></require>
+    <require from="library-aurelia/src/resources/value-converters/filter"></require>
+    <require from="library-aurelia/src/resources/value-converters/object-keys"></require>
 
     <div class="d-flex flex-column h-100 overflow-auto">
 
@@ -25,7 +25,8 @@
                                                 disabled.bind="skip < 1"
                                                 click.delegate="changeSkip(skip-1)"
                                                 tabindex="-1">
-                                            ${'buttons.previous' | t}
+                                            <span class="d-none d-md-inline">${'buttons.previous' | t}</span>
+                                            <span class="d-inline d-md-none"><i class="bi-chevron-left"></i></span>
                                         </button>
                                     </li>
                                     <li repeat.for="i of pages"
@@ -39,7 +40,8 @@
                                         <button class="page-link"
                                                 disabled.bind="skip >= pages-1"
                                                 click.delegate="changeSkip(skip+1)">
-                                            ${'buttons.next' | t}
+                                            <span class="d-none d-md-inline">${'buttons.next' | t}</span>
+                                            <span class="d-inline d-md-none"><i class="bi-chevron-right"></i></span>
                                         </button>
                                     </li>
                                 </ul>
@@ -57,7 +59,7 @@
                                         click.delegate="changeSortProperty(key, schema.properties[key].showInTable)">
                                         ${'propertyKeys.' + key | t}
                                     </th>
-                                    <th if.bind="annotable"
+                                    <th if.bind="isInitialized"
                                         class="no-before">
                                         ${'propertyKeys.annotations' | t}
                                     </th>
@@ -66,9 +68,10 @@
                                     </th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class.bind="isInitialized ? 'au-stagger' : ''">
                                 <tr repeat.for="object of objects"
                                     class="${router.currentInstruction.params.id === object[service.options.uniqueProperty] ? 'active' : ''} hover"
+                                    class.bind="isInitialized ? 'au-animate animate-fade-out' : ''"
                                     click.trigger="navigateToRoute('detail', object, $event, router)">
                                     <td repeat.for="key of schema.properties | objectKeys"
                                         if.bind="!schema.properties[key].oneOf && !schema.properties[key].hide.table">
@@ -84,10 +87,10 @@
                                         </div>
                                         <div else>
                                             <au-content-item
-                                                if.bind="schema.properties[key].type !== 'object' && schema.properties[key].type !== 'array'"
-                                                item.bind="object[key]"
-                                                schema.bind="schema.properties[key]"
-                                                index.bind="1">
+                                                    if.bind="schema.properties[key].type !== 'object' && schema.properties[key].type !== 'array'"
+                                                    item.bind="object[key]"
+                                                    schema.bind="schema.properties[key]"
+                                                    index.bind="1">
                                             </au-content-item>
 
                                             <div if.bind="schema.properties[key].type === 'array'">
@@ -107,7 +110,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td if.bind="annotable && $parent.annotations">
+                                    <td if.bind="isInitialized">
                                         <button if.bind="!routeConfig.settings.deactivate.read"
                                                 class="visually-hidden"
                                                 click.trigger="navigateToRoute('detail', object, $event, router)">
@@ -115,8 +118,7 @@
                                         </button>
                                         <button click.trigger="navigateToRoute('comment', object, $event, router)"
                                                 class="btn hover-item" style="opacity: 1;">
-                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}]}
-                                                                     & signal:'annotations-updated'"
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[service.options.uniqueProperty]}]} & signal:'annotations-updated'"
                                                   if.bind="$this.length === 0">
                                                 <i class="bi-chat-square position-relative">
                                                     <span class="position-absolute" style="top: -15px !important; left: 11px !important;">
@@ -124,20 +126,17 @@
                                                     </span>
                                                 </i>
                                             </span>
-                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationText'}]}
-                                                                     & signal:'annotations-updated'"
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[service.options.uniqueProperty]}, {kind: 'AnnotationText'}]} & signal:'annotations-updated'"
                                                   if.bind="$this.length > 0">
                                                 ${$this.length}
                                                 <i class="bi-chat-square"></i>
                                             </span>
-                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationImage'}]}
-                                                                     & signal:'annotations-updated'"
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[service.options.uniqueProperty]}, {kind: 'AnnotationImage'}]} & signal:'annotations-updated'"
                                                   if.bind="$this.length > 0">
                                                 ${$this.length}
                                                 <i class="bi-camera-fill"></i>
                                             </span>
-                                            <span with.bind="annotations | filter:{$and: [{refId: object[uniqueProperty]}, {kind: 'AnnotationAudio'}]}
-                                                                     & signal:'annotations-updated'"
+                                            <span with.bind="annotations | filter:{$and: [{refId: object[service.options.uniqueProperty]}, {kind: 'AnnotationAudio'}]} & signal:'annotations-updated'"
                                                   if.bind="$this.length > 0">
                                                 ${$this.length}
                                                 <i class="bi-mic-fill"></i>

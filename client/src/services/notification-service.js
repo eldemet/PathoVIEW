@@ -141,7 +141,10 @@ class NotificationService extends BasicService {
             if (valid) {
                 this.eventAggregator.publish('notification' + (n.topic ? '-' + n.topic : ''), n);
                 if (!this.ignoreList.includes(n.contentType) && n.senderId !== AureliaCookie.get('userId')) {
-                    this.notifications.push(n);
+                    this.notifications.unshift(n);
+                    if (this.notifications.length > 99) {
+                        this.notifications.length = 99;
+                    }
                     this.notificationSound.play();
                 }
             } else {
@@ -152,15 +155,6 @@ class NotificationService extends BasicService {
             this.logger.error(error.message);
         }
     };
-
-    addNotification(notification) {
-        notification.read = false;
-        if (this.notifications.length > 98) {
-            this.notifications[0] = notification;
-        } else {
-            this.notifications.push(notification);
-        }
-    }
 
     removeNotification(notification) {
         this.notifications.splice(this.notifications.indexOf(notification), 1);
