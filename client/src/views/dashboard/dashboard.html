@@ -151,10 +151,10 @@
                     <h2 class="mt-4">${'views.dashboard.team' | t}</h2>
                     <div>
                         <span class="text-muted">${'views.dashboard.users' | t}:</span>
-                        <span if.bind="authService.users" class="badge rounded-pill text-bg-secondary">${authService.users.length}</span>
-                        <span if.bind="authService.users" class="badge rounded-pill text-bg-success">${authService.users.filter(onlineUsers).length} ${'views.dashboard.online' | t}</span>
-                        <ul if.bind="authService.users" class="mt-2 list-inline">
-                            <li repeat.for="user of authService.users" class="list-inline-item fs-6">
+                        <span if.bind="users" class="badge rounded-pill text-bg-secondary">${users.length}</span>
+                        <span if.bind="users" class="badge rounded-pill text-bg-success">${users.filter(onlineUsers).length} ${'views.dashboard.online' | t}</span>
+                        <ul if.bind="users" class="mt-2 list-inline">
+                            <li repeat.for="user of users" class="list-inline-item fs-6">
                                 <user-abbreviation user-id.bind="user.id"
                                                    class="d-block">
                                 </user-abbreviation>
@@ -164,9 +164,10 @@
                     </div>
                     <div>
                         <span class="text-muted">${'views.dashboard.roles' | t}:</span>
-                        <span if.bind="authService.roles" class="badge rounded-pill text-bg-secondary">${authService.roles.length}</span>
-                        <ul if.bind="authService.roles" class="mt-2 list-inline">
-                            <li repeat.for="role of authService.roles" class="list-inline-item fs-6">
+                        <span if.bind="roles" class="badge rounded-pill text-bg-secondary">${roles.length}</span>
+                        <ul if.bind="roles" class="mt-2 list-inline">
+                            <li repeat.for="role of roles"
+                                class="list-inline-item fs-6">
                                 <i class="bi-person-badge"></i> ${role.name}
                             </li>
                         </ul>

@@ -144,7 +144,7 @@
     - licenses: MIT
     - description: Helper to wrap functions inside a function call.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/helpers@7.23.0](https://github.com/babel/babel)**
+ - **[@babel/helpers@7.23.1](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Collection of helper functions used by Babel transforms.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -464,7 +464,7 @@
     - licenses: MIT
     - description: Generate regular expressions from regjsparser’s AST.
     - copyright: Copyright 2014-2020 Benjamin Tan <https://ofcr.se/>
- - **[@babel/runtime@7.23.0](https://github.com/babel/babel)**
+ - **[@babel/runtime@7.23.1](https://github.com/babel/babel)**
     - licenses: MIT
     - description: babel's modular runtime helpers
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -480,7 +480,7 @@
     - licenses: MIT
     - description: Babel Types is a Lodash-esque utility library for AST nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@capacitor/android@5.4.1](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/android@5.4.2](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
@@ -488,11 +488,11 @@
     - licenses: MIT
     - description: The App API handles high level App state and events.For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
     - copyright: Copyright 2020-present Ionic. https://ionic.io
- - **[@capacitor/cli@5.4.1](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/cli@5.4.2](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/core@5.4.1](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/core@5.4.2](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
@@ -516,7 +516,7 @@
     - licenses: MIT
     - description: Utilities for ESLint plugins.
     - copyright: Copyright (c) 2018 Toru Nagashima
- - **[@eslint-community/regexpp@4.8.1](https://github.com/eslint-community/regexpp)**
+ - **[@eslint-community/regexpp@4.9.1](https://github.com/eslint-community/regexpp)**
     - licenses: MIT
     - description: Regular expression parser for ECMAScript.
     - copyright: Copyright (c) 2018 Toru Nagashima
@@ -648,7 +648,7 @@
     - licenses: MIT
     - description: Periodic callbacks in the background for both IOS and Android
     - copyright: Copyright (c) 2013 Chris Scott, Transistor Software <chris@transistorsoft.com>. http://transistorsoft.com
- - **[@transistorsoft/capacitor-background-geolocation@5.1.4](https://github.com/transistorsoft/capacitor-background-geolocation)**
+ - **[@transistorsoft/capacitor-background-geolocation@5.2.1](https://github.com/transistorsoft/capacitor-background-geolocation)**
     - licenses: MIT*
     - description: The most sophisticated cross platform Capacitor background location tracking & geofencing module with battery-conscious motion-detection intelligence
     - copyright: Copyright (c) 2015 Chris Scott
@@ -824,7 +824,7 @@
     - licenses: MIT
     - description: TypeScript definitions for Leaflet.js
     - copyright: none
- - **[@types/mime@1.3.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/mime@1.3.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for mime
     - copyright: none
@@ -832,7 +832,7 @@
     - licenses: MIT
     - description: TypeScript definitions for minimatch
     - copyright: none
- - **[@types/node@20.6.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@20.8.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for Node.js
     - copyright: none
@@ -840,7 +840,7 @@
     - licenses: MIT
     - description: TypeScript definitions for qs
     - copyright: none
- - **[@types/range-parser@1.2.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/range-parser@1.2.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for range-parser
     - copyright: none
@@ -848,15 +848,15 @@
     - licenses: MIT
     - description: TypeScript definitions for retry
     - copyright: none
- - **[@types/send@0.17.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/send@0.17.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for send
     - copyright: none
- - **[@types/serve-index@1.9.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/serve-index@1.9.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for serve-index
     - copyright: none
- - **[@types/serve-static@1.15.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/serve-static@1.15.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for serve-static
     - copyright: none
@@ -864,11 +864,11 @@
     - licenses: MIT
     - description: TypeScript definitions for slice-ansi
     - copyright: none
- - **[@types/sockjs@0.3.33](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/sockjs@0.3.34](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for sockjs
     - copyright: none
- - **[@types/ws@8.5.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/ws@8.5.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for ws
     - copyright: none
@@ -1316,7 +1316,7 @@
     - licenses: BSD-2-Clause
     - description: Shim for process.hrtime in the browser
     - copyright: Copyright 2014 kumavis
- - **[browserslist@4.21.11](https://github.com/browserslist/browserslist)**
+ - **[browserslist@4.22.1](https://github.com/browserslist/browserslist)**
     - licenses: MIT
     - description: Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-env-preset
     - copyright: Copyright 2014 Andrey Sitnik <andrey@sitnik.ru> and other contributors
@@ -1356,7 +1356,7 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001539](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001546](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
@@ -1500,7 +1500,7 @@
     - licenses: MIT
     - description: Copy files && directories with webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[core-js-compat@3.32.2](https://github.com/zloirock/core-js)**
+ - **[core-js-compat@3.33.0](https://github.com/zloirock/core-js)**
     - licenses: MIT
     - description: core-js compat
     - copyright: Copyright (c) 2014-2023 Denis Pushkarev
@@ -1728,7 +1728,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.4.528](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.542](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -1984,7 +1984,7 @@
     - licenses: ISC
     - description: fs read and write streams based on minipass
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[fs-monkey@1.0.4](https://github.com/streamich/fs-monkey)**
+ - **[fs-monkey@1.0.5](https://github.com/streamich/fs-monkey)**
     - licenses: Unlicense
     - description: Monkey patches for file system related things.
     - copyright: none
@@ -2092,7 +2092,7 @@
     - licenses: ISC
     - description: Try to guess if your terminal supports unicode
     - copyright: Copyright (c) 2014, Rebecca Turner <me@re-becca.org>
- - **[has@1.0.3](https://github.com/tarruda/has)**
+ - **[has@1.0.4](https://github.com/tarruda/has)**
     - licenses: MIT
     - description: Object.prototype.hasOwnProperty.call shortcut
     - copyright: Copyright (c) 2013 Thiago de Arruda
@@ -2920,7 +2920,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@1.5.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@1.6.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
@@ -3116,7 +3116,7 @@
     - licenses: MIT
     - description: Transforms css values and at-rule params into the tree
     - copyright: Copyright (c) Bogdan Chadkin <trysound@yandex.ru>
- - **[postcss@8.4.30](https://github.com/postcss/postcss)**
+ - **[postcss@8.4.31](https://github.com/postcss/postcss)**
     - licenses: MIT
     - description: Tool for transforming styles with JS plugins
     - copyright: Copyright 2013 Andrey Sitnik <andrey@sitnik.ru>
@@ -3592,7 +3592,7 @@
     - licenses: MIT
     - description: Terser plugin for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[terser@5.20.0](https://github.com/terser/terser)**
+ - **[terser@5.21.0](https://github.com/terser/terser)**
     - licenses: BSD-2-Clause
     - description: JavaScript parser, mangler/compressor and beautifier toolkit for ES6+
     - copyright: Copyright 2012-2018 (c) Mihai Bazon <mihai.bazon@gmail.com>

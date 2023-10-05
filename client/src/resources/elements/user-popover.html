@@ -15,16 +15,21 @@
         <i class="bi-circle${user.status === 'online' ? '-fill text-success' : ''}"></i>
         ${user.status}
     </div>
-    <div if.bind="user.roles.length > 0"
-         class="d-block align-middle text-truncate">
+    <div if.bind="user.roles.length">
         <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.roles' | t}:</label>
-        <i class="bi-person-square"></i>
-        ${user.roles.join(',')}
+        <ul class="list-unstyled text-truncate mb-0">
+            <li repeat.for="role of authService.user.roles">
+                <i class="bi-person-badge"></i> ${authService.getRole(role).name}
+            </li>
+        </ul>
     </div>
-    <div if.bind="user.groups.length > 0"
-         class="d-block align-middle text-truncate">
+    <div if.bind="user.groups.length">
         <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.groups' | t}:</label>
-        ${user.groups.join(',')}
+        <ul class="list-unstyled text-truncate mb-0">
+            <li repeat.for="group of user.groups">
+                <i class="bi-people"></i> ${authService.getGroup(group).name}
+            </li>
+        </ul>
     </div>
     <div if.bind="user.email"
          class="d-block align-middle text-truncate">

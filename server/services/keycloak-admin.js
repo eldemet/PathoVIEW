@@ -9,7 +9,6 @@ import {BasicObject} from 'utilities-node/src/services/_prototypes.js';
 /**
  * @extends BasicObject
  * @category services
- * @implements IService
  */
 class KeycloakAdminService extends BasicObject {
 
@@ -77,8 +76,8 @@ class KeycloakAdminService extends BasicObject {
                 id: client.id
             });
             for (let user of users) {
-                user.roles = (await this.kcAdminClient.users.listRealmRoleMappings({id: user.id})).filter(role => !role.composite).map(role => role.name);
-                user.groups = (await this.kcAdminClient.users.listGroups({id: user.id})).map(group => group.name);
+                user.roles = (await this.kcAdminClient.users.listRealmRoleMappings({id: user.id})).filter(role => !role.composite).map(role => role.id);
+                user.groups = (await this.kcAdminClient.users.listGroups({id: user.id})).map(group => group.id);
                 user.status = clientSessions.find(session => session.userId === user.id) ? 'online' : 'offline';
             }
             this.logger.verbose('Users in Keycloak admin service refreshed!');

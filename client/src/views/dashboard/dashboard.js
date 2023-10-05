@@ -27,6 +27,12 @@ class DashboardView extends BasicView {
         await this.contextService.initialized;
         this.initialized = true;
         this.currentPosition = await this.getOwnPosition();
+        this.subscriptions.push(this.eventAggregator.subscribe('context-changed', async emergencyEvent => {
+            this.roles = await this.contextService.getRolesOfCurrentEmergencyEvent();
+            this.users = await this.contextService.getUsersOfCurrentEmergencyEvent();
+        }));
+        this.roles = await this.contextService.getRolesOfCurrentEmergencyEvent();
+        this.users = await this.contextService.getUsersOfCurrentEmergencyEvent();
     }
 
     detached() {

@@ -222,6 +222,22 @@ class ContextService extends BasicService {
         }
     }
 
+    async getRolesOfCurrentEmergencyEvent() {
+        let roles = (await this.proxy.get('auth').getObjects()).objects;
+        if (this.currentEmergencyEvent && Array.isArray(this.currentEmergencyEvent.roles) && this.currentEmergencyEvent.roles.length > 0) {
+            roles = roles.filter(role => this.currentEmergencyEvent.roles.includes(role.id));
+        }
+        return roles;
+    }
+
+    async getUsersOfCurrentEmergencyEvent() {
+        let users = await this.proxy.get('auth').getUsers();
+        if (this.currentEmergencyEvent && Array.isArray(this.currentEmergencyEvent.roles) && this.currentEmergencyEvent.roles.length > 0) {
+            users = users.filter(user => this.currentEmergencyEvent.roles.some(role => user.roles.includes(role)));
+        }
+        return users;
+    }
+
 }
 
 export {ContextService};

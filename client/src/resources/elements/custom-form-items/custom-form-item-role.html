@@ -1,0 +1,14 @@
+<template>
+
+    <select class="form-select"
+            id="${'formItemCompose' + index}"
+            multiple.bind="schema.type === 'array'"
+            value.two-way="object[propertyKey]">
+        <option value="" disabled selected hidden>...</option>
+        <option repeat.for="option of enum"
+                model.bind="option.value">
+            ${option.name}
+        </option>
+    </select>
+
+</template>

@@ -57,6 +57,12 @@ properties:
     $ref: './../$defs.yaml#/Location'
   address:
     $ref: './../$defs.yaml#/Address'
+  roles:
+    type: array
+    items:
+      type: string
+      ui:ref: Auth
+    ui:formItemType: select
   createdAt:
     type: string
     format: "date-time"

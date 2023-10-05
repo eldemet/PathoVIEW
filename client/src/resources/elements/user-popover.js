@@ -8,6 +8,14 @@ import {BasicComposable} from 'library-aurelia/src/prototypes/basic-composable';
  */
 class UserPopover extends BasicComposable {
 
+    /**
+     * @param {ConstructorParameters<typeof BasicComposable>} rest
+     */
+    constructor(...rest) {
+        super(...rest);
+        this.authService = this.proxy.get('auth');
+    }
+
 }
 
 export {UserPopover};

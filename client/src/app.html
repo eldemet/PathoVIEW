@@ -165,13 +165,13 @@
                 <li if.bind="authService.user.groups.length"
                     repeat.for="group of authService.user.groups">
                     <span class="dropdown-item disabled text-nowrap">
-                            <i class="bi-people"></i> ${group}
+                        <i class="bi-people"></i> ${authService.getGroup(group).name}
                     </span>
                 </li>
                 <li if.bind="authService.user.roles.length"
                     repeat.for="role of authService.user.roles">
                     <span class="dropdown-item disabled text-nowrap">
-                            <i class="bi-person-badge me-2 ${!$first ? 'invisible' : ''}"></i> ${role}
+                        <i class="bi-person-badge me-2 ${!$first ? 'invisible' : ''}"></i> ${authService.getRole(role).name}
                     </span>
                 </li>
                 <li>

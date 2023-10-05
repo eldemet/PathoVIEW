@@ -54,6 +54,7 @@ export async function configure(aurelia) {
     let globalResources = [
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-date-time'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-map'),
+        PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-role'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-image'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-severity'),
         PLATFORM.moduleName('resources/elements/custom-form-items/custom-form-item-status'),
