@@ -1,14 +1,11 @@
-import {inject, computedFrom} from 'aurelia-framework';
+import {computedFrom} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {AureliaCookie} from 'aurelia-cookie';
 import {Offcanvas} from 'bootstrap';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {deviceUtilities} from './utilities';
-// @ts-ignore
-import {ContextServiceImplementation} from './services/context-service-APP_TARGET';
 
-@inject(ContextServiceImplementation)
 export class App extends BasicViewRouter {
 
     languages = [
@@ -20,13 +17,12 @@ export class App extends BasicViewRouter {
     ];
 
     /**
-     * @param {ContextServiceImplementation} contextService
      * @param {ConstructorParameters<typeof BasicViewRouter>} rest
      */
-    constructor(contextService, ...rest) {
+    constructor(...rest) {
         super(...rest);
         this.appConfig = this.proxy.get('config').config;
-        this.contextService = contextService;
+        this.contextService = this.proxy.get('context');
         this.deviceUtilities = deviceUtilities;
         this.bhapticsServiceEnabled = false;
         /** @type {import('./services/auth-service').AuthService} */
@@ -157,7 +153,7 @@ export class App extends BasicViewRouter {
 
     async attached() {
         super.attached();
-        this.responsiveService.initialize();
+        await this.responsiveService.initialize();
         await this.contextService.initialize(this.appConfig);
         await this.notificationService.initialize(this.appConfig.baseUrl + '/api/v1/notification', ['model', 'event']);
         this.interval = setInterval(() => this.bindingSignaler.signal('interval-second'), 1000);
