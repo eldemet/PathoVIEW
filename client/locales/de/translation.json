@@ -42,7 +42,8 @@
             "commissioning": "Inbetriebnahme",
             "maintenance": "Wartung"
         },
-        "home": {
+        "info": {
+            "title": "Info",
             "welcome": "Vielen Dank, dass Sie die PathoVIEW Webanwendung ausprobieren!",
             "funding": "Das PathoCERT-Projekt wird durch das Forschungs- und Innovationsprogramm Horizont 2020 der Europäischen Union unter der Fördervereinbarung Nr. 883484 gefördert.",
             "prototype": "Die Anwendung befindet sich auf dem technischen Stand eines Demonstrators. Sie werden deshalb auf Fehler und Schwierigkeiten stoßen. Bitte melden Sie diese auf",
@@ -51,7 +52,6 @@
             "learnMoreSocialMedia": "Der Auftritt auf: ",
             "learnMoreGitlab": "Die Repositories (für Entwickler*innen): "
         },
-        "info": "Info",
         "dashboard": {
             "title": "Dashboard",
             "menu": "Menü",
@@ -132,6 +132,7 @@
         "alertSource": "Warnungsgeber",
         "alternateName": "alternativer Name",
         "areaServed": "betroffenes Gebiet",
+        "author": "Autor",
         "category": "Kategorie",
         "contactPoint": "Kontaktpunkt",
         "data": "Daten",

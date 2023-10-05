@@ -42,7 +42,8 @@
             "commissioning": "Commissioning",
             "maintenance": "Maintenance"
         },
-        "home": {
+        "info": {
+            "title": "info",
             "welcome": "Thank you for testing the PathoVIEW web app!",
             "funding": "The PathoCERT project has received funding from the European  Union’s Horizon 2020 research and innovation programme under grant agreement No. 883484.",
             "prototype": "The application is at the technical level of a demonstrator. You will therefore encounter errors and difficulties. Please report them on",
@@ -51,7 +52,6 @@
             "learnMoreSocialMedia": "The appearance on: ",
             "learnMoreGitlab": "The repositories (for developers): "
         },
-        "info": "info",
         "dashboard": {
             "title": "dashboard",
             "menu": "menu",
@@ -131,6 +131,7 @@
         "alertSource": "alert source",
         "alternateName": "alternate name",
         "areaServed": "area served",
+        "author": "author",
         "category": "category",
         "contactPoint": "contact point",
         "data": "data",

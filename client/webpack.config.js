@@ -7,6 +7,7 @@ const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack
 const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const project = require('./aurelia.json');
+const packageInformation = require('./package.json');
 const {AureliaPlugin} = require('aurelia-webpack-plugin');
 const {IgnorePlugin} = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
@@ -175,15 +176,16 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
             new DuplicatePackageCheckerPlugin(),
             new AureliaPlugin(),
             new DefinePlugin({
-                'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
+                'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
+                'APP_VERSION': JSON.stringify(packageInformation.version),
+                'APP_LICENSE': JSON.stringify(packageInformation.license),
+                'APP_AUTHOR': JSON.stringify(packageInformation.author),
+                'APP_DEPENDENCIES': JSON.stringify(packageInformation.dependencies)
             }),
             new NormalModuleReplacementPlugin(
                 /(.*)-APP_TARGET(\.*)/,
                 resource => {
-                    resource.request = resource.request.replace(
-                        /-APP_TARGET/,
-                        `-${appTarget}`
-                    );
+                    resource.request = resource.request.replace(/-APP_TARGET/, `-${appTarget}`);
                 }
             ),
             new HtmlWebpackPlugin({

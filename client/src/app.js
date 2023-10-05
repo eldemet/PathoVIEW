@@ -131,7 +131,7 @@ export class App extends BasicViewRouter {
             {
                 route: '/info',
                 name: 'info',
-                title: 'views.info',
+                title: 'views.info.title',
                 moduleId: PLATFORM.moduleName('./views/info/info'),
                 nav: false
             }

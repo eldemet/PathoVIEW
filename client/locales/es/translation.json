@@ -66,7 +66,8 @@
             "commissioning": "Puesta en marcha",
             "maintenance": "Mantenimiento"
         },
-        "home": {
+        "info": {
+            "title": "Información",
             "welcome": "¡Gracias por probar la aplicación web PathoVIEW!",
             "funding": "El proyecto PathoCERT ha recibido financiación del programa de investigación e innovación Horizonte 2020 de la Unión Europea en virtud del acuerdo de subvención n.º 883484.",
             "prototype": "La aplicación está al nivel técnico de un demostrador. ",
@@ -75,7 +76,6 @@
             "learnMoreSocialMedia": "La aparición en: ",
             "learnMoreGitlab": "Los repositorios (para desarrolladores): "
         },
-        "info": "Información",
         "dashboard": {
             "title": "tablero",
             "menu": "menú",
@@ -156,6 +156,7 @@
         "alertSource": "fuente de alerta",
         "alternateName": "Nombre alternativo",
         "areaServed": "área servida",
+        "author": "autor",
         "category": "categoría",
         "contactPoint": "punto de contacto",
         "data": "datos",

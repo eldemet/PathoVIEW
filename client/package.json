@@ -6,6 +6,10 @@
         "type": "git",
         "url": "https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git"
     },
+    "author": {
+        "name": "Christian Knecht (Fraunhofer IAO)",
+        "email": "christian.knecht@iao.fraunhofer.de"
+    },
     "license": "BSD-3-Clause-Clear",
     "browserslist": [
         "defaults",

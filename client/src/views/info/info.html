@@ -8,35 +8,50 @@
         <div class="row">
             <div class="col-12">
                 <div class="alert alert-info fade show mt-4 rounded" role="alert">
-                    <h4>${'views.home.welcome' | t}</h4>
-                    ${'views.home.prototype' | t}
+                    <h4>${'views.info.welcome' | t}</h4>
+                    ${'views.info.prototype' | t}
                     <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview/-/issues"
                        target="_blank">Gitlab</a>!
+                </div>
+            </div>
+            <div class="col-12">
+                <h2>${'views.info.title' | t}</h2>
+                <div><label class="tabstop-label">${'propertyKeys.version' | t}</label><span class="tabstop-text">${appVersion}</span></div>
+                <div><label class="tabstop-label">${'propertyKeys.license' | t}</label><span class="tabstop-text">${appLicense}</span></div>
+                <div>
+                    <label class="tabstop-label">${'propertyKeys.author' | t}</label>
+                    <a class="tabstop-text" href="mailto:${appAuthor.email}">${appAuthor.name}</a>
+                </div>
+                <div>
+                    <label class="tabstop-label">${'propertyKeys.license' | t}</label>
+                    <ul class="list-unstyled">
+                        <li repeat.for="key of appDependencies | objectKeys"><i class="bi-code-square mx-1"></i> ${key}: ${appDependencies[key]}</li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-3">
                 <img src.bind="'./assets/logo-pathocert.png'" class="mw-100 mb-4">
             </div>
             <div class="col-md-9">
-                <h2>${'views.home.learnMore' | t}</h2>
+                <h2>${'views.info.learnMore' | t}</h2>
                 <p class="my-2">
                     <i class="bi-house-door-fill"></i>
-                    <span>${'views.home.learnMoreWebpage' | t}</span>
+                    <span>${'views.info.learnMoreWebpage' | t}</span>
                     <a href="https://pathocert.eu/" target="_blank"> pathocert.eu </a>
                 </p>
                 <p class="my-2">
                     <i class="bi-twitter"></i>
-                    <span>${'views.home.learnMoreSocialMedia' | t}</span>
+                    <span>${'views.info.learnMoreSocialMedia' | t}</span>
                     <a href="https://twitter.com/pathocert?lang=de" target="_blank">Twitter</a>
                 </p>
                 <p class="my-2">
                     <i class="bi-linkedin"></i>
-                    <span>${'views.home.learnMoreSocialMedia' | t}</span>
+                    <span>${'views.info.learnMoreSocialMedia' | t}</span>
                     <a href="https://www.linkedin.com/company/pathocert/" target="_blank">LinkedIn</a>
                 </p>
                 <p class="my-2">
                     <i class="bi-git"></i>
-                    <span>${'views.home.learnMoreGitlab' | t}</span>
+                    <span>${'views.info.learnMoreGitlab' | t}</span>
                     <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert" target="_blank">Gitlab</a>
                 </p>
             </div>
