@@ -94,7 +94,9 @@
         "userManagement": "Nutzerverwaltung",
         "logoutIn": "Abmeldung in",
         "ping": "Anklopfen",
-        "pingALl": "Alle anklopfen"
+        "pingALl": "Alle anklopfen",
+        "contextAwareAlerts": "Kontextbezogene Warnungen",
+        "interval": "Intervall"
     },
     "alerts": {
         "camera": {
@@ -123,8 +125,7 @@
         "bhaptics": {
             "connecting": "bHaptics-Player verbinden...",
             "connected": "bHaptics-Player verbunden",
-            "error": "Verbindung zum bHaptics-Player war nicht möglich",
-            "status": "bHaptics aktiviert"
+            "error": "Verbindung zum bHaptics-Player war nicht möglich"
         }
     },
     "propertyKeys": {

@@ -94,7 +94,9 @@
         "userManagement": "διαχείριση χρηστών",
         "logoutIn": "αποσύνδεση",
         "ping": "ping",
-        "pingAll": "ping σε όλα"
+        "pingAll": "ping σε όλα",
+        "contextAwareAlerts": "ειδοποιήσεις με επίγνωση του πλαισίου",
+        "interval": "διάστημα"
     },
     "alerts": {
         "camera": {
@@ -123,8 +125,7 @@
         "bhaptics": {
             "connecting": "σύνδεση bHaptics-player...",
             "connected": "Το bHaptics-player είναι συνδεδεμένο",
-            "error": "Δεν ήταν δυνατή η σύνδεση με το bHaptics-player",
-            "status": "bHaptics ενεργοποιημένο"
+            "error": "Δεν ήταν δυνατή η σύνδεση με το bHaptics-player"
         }
     },
     "propertyKeys": {

@@ -157,9 +157,9 @@ export class App extends BasicViewRouter {
         await this.contextService.initialize(this.appConfig);
         await this.notificationService.initialize(this.appConfig.baseUrl + '/api/v1/notification', ['model', 'event']);
         this.interval = setInterval(() => this.bindingSignaler.signal('interval-second'), 1000);
-        this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
+        this.dropUp = this.responsiveService.matchCondition('md', true);
         this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', () => {
-            this.dropUpUserMenu = this.responsiveService.matchCondition('md', true);
+            this.dropUp = this.responsiveService.matchCondition('md', true);
         }));
         this.currentLanguage = this.languages.find(language => language.value === this.i18n.getLocale());
     }

@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {observable, inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import * as platform from 'platform';
 import numeral from 'numeral';
@@ -18,6 +18,8 @@ import {stringify} from 'query-string';
 @inject(Proxy, HttpService)
 class ContextService extends BasicService {
 
+    @observable contextAwareAlertsEnabled = AureliaCookie.get('context-aware-alerts-enabled') === 'true';
+
     initialized = new Promise(resolve => {
         this.initializeResolve = resolve;
     });
@@ -35,9 +37,8 @@ class ContextService extends BasicService {
         this.httpService = httpService;
     }
 
-    async initialize(config, timeout = 20000) {
+    async initialize(config) {
         this.config = config;
-        this.timeout = timeout;
         await this.loadEmergencyEvents();
         await this.loadAlerts();
         await this.loadMissions();
@@ -45,11 +46,30 @@ class ContextService extends BasicService {
         await this.initializeCurrentDevice();
         await this.setCurrentWeather();
         numeral.locale(this.i18n.getLocale());
+        if (this.contextAwareAlertsEnabled) await this.enableContextAwareAlerts();
         this.initializeResolve();
     }
 
     async close() {
+        if (this.contextAwareAlertsEnabled) await this.disableContextAwareAlerts();
         this.disposeSubscriptions();
+    }
+
+    async enableContextAwareAlerts() {
+        this.logger.debug('context aware alerts enabled');
+    }
+
+    async disableContextAwareAlerts() {
+        this.logger.debug('context aware alerts disabled');
+    }
+
+    async contextAwareAlertsEnabledChanged(enabled) {
+        AureliaCookie.set('context-aware-alerts-enabled', enabled, {});
+        if (enabled) {
+            await this.enableContextAwareAlerts();
+        } else {
+            await this.disableContextAwareAlerts();
+        }
     }
 
     @catchError('app-alert')
@@ -176,6 +196,7 @@ class ContextService extends BasicService {
     @catchError()
     checkForAlertsNearCurrentLocation(location) {
         if (Array.isArray(this.alerts) && this.alerts.length > 0) {
+            this.logger.silly('check alerts near current location');
             let from = point(location.coordinates);
             for (let alert of this.alerts) {
                 try {
@@ -210,7 +231,7 @@ class ContextService extends BasicService {
                             };
                             this.eventAggregator.publish('context-aware-alert', payload);
                             this.eventAggregator.publish('app-alert', payload);
-
+                            this.logger.debug(`distance to alert ${alert.name || alert.description} ${distanceResult}m`);
                         } else {
                             this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
                         }

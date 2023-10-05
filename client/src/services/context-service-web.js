@@ -1,41 +1,49 @@
+import {observable} from 'aurelia-framework';
+import {AureliaCookie} from 'aurelia-cookie';
 import {ContextService} from './context-service';
 import {locationUtilities} from '../utilities';
 
 class ContextServiceImplementation extends ContextService {
 
-    async initialize(config, timeout) {
-        await super.initialize(config, timeout);
+    @observable timeout = AureliaCookie.get('context-aware-alerts-timeout') || '20000';
+
+    async enableContextAwareAlerts() {
+        await super.enableContextAwareAlerts();
         // @ts-ignore
         this.supportsPageLifecycleAPI = typeof document.onresume === 'object';
-        if (this.supportsPageLifecycleAPI) {
-            document.addEventListener('resume', this.updateContentAfterPageFreeze);
-        }
+        if (this.supportsPageLifecycleAPI) document.addEventListener('resume', this.updateContentAfterPageFreeze);
         this.subscriptions.push(this.eventAggregator.subscribe('alert-closed', alert => {
             this.closedContextAwareAlerts.push(alert.id);
         }));
         await this.update();
-        this.interval = setInterval(async() => await this.update(), timeout);
+        this.interval = setInterval(async() => await this.update(), parseInt(this.timeout, 10));
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
     }
 
-    async close() {
-        await super.close();
+    async disableContextAwareAlerts() {
+        await super.disableContextAwareAlerts();
         document.removeEventListener('visibilitychange', this.visibilityChangeEventListener);
-        if (this.supportsPageLifecycleAPI) {
-            document.removeEventListener('resume', this.updateContentAfterPageFreeze);
-        }
-        clearInterval(this.interval);
+        if (this.supportsPageLifecycleAPI) document.removeEventListener('resume', this.updateContentAfterPageFreeze);
+        if (this.interval) clearInterval(this.interval);
     }
 
-    visibilityChangeEventListener = () => {
+    timeoutChanged(timeout) {
+        AureliaCookie.set('context-aware-alerts-timeout', timeout, {});
+        if (this.interval) clearInterval(this.interval);
+        this.interval = setInterval(async() => await this.update(), parseInt(this.timeout, 10));
+    }
+
+    visibilityChangeEventListener = async() => {
         if (document.hidden) {
             this.logger.silly('Page is hidden from user view! Clear interval...');
             clearInterval(this.interval);
+            this.interval = null;
         } else {
             this.logger.silly('Page is in user view! Set interval...');
-            this.interval = setInterval(async() => await this.update(), this.timeout);
+            this.interval = setInterval(async() => await this.update(), parseInt(this.timeout, 10));
+            await this.update();
             if (!this.supportsPageLifecycleAPI) {
-                this.updateContentAfterPageFreeze();
+                await this.updateContentAfterPageFreeze();
             }
         }
     };
@@ -45,7 +53,7 @@ class ContextServiceImplementation extends ContextService {
             let location = await locationUtilities.getCurrenPosition('geoJSON');
             if (location) {
                 await this.updateDevice(location);
-                await this.checkForAlertsNearCurrentLocation(location);
+                this.checkForAlertsNearCurrentLocation(location);
             } else {
                 throw new Error('Cannot get current position!');
             }

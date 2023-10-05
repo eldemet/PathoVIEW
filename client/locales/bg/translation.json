@@ -94,7 +94,9 @@
         "userManagement": "Управление на потребители",
         "logoutIn": "излезте",
         "ping": "пинг",
-        "pingAll": "пинг всички"
+        "pingAll": "пинг всички",
+        "contextAwareAlerts": "контекстни предупреждения",
+        "interval": "интервал"
     },
     "alerts": {
         "camera": {
@@ -123,8 +125,7 @@
         "bhaptics": {
             "connecting": "свързване на bHaptics-player...",
             "connected": "bHaptics-плейърът е свързан",
-            "error": "Връзката с bHaptics-player не беше възможна",
-            "status": "bHaptics активиран"
+            "error": "Връзката с bHaptics-player не беше възможна"
         }
     },
     "propertyKeys": {

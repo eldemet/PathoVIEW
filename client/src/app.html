@@ -19,39 +19,36 @@
              css="navbar-expand-md bg-body-tertiary rounded"
              brand.bind="{iconSource: 'assets/icon-pathocert.png'}">
 
-        <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
+        <div class="${dropUp ? 'dropdown' : 'dropup'}"
              if.bind="contextService.emergencyEvents">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i if.bind="contextService.currentEmergencyEvent" class="bi-hospital-fill"></i>
-                <i else class="bi-question-circle-fill"></i>
-                <span if.bind="contextService.currentEmergencyEvent" class="d-inline d-md-none d-xxl-inline ms-2">${contextService.currentEmergencyEvent.name}</span>
-                <span else class="d-inline d-md-none d-xxl-inline ms-2">${'alerts.noEmergencyEventSelected' | t}</span>
+                <i class="bi-hospital-fill"></i>
+                <span if.bind="contextService.currentEmergencyEvent" class="d-inline d-md-none d-xl-inline ms-2">${contextService.currentEmergencyEvent.name}</span>
+                <span else class="d-inline d-md-none d-xl-inline ms-2">${'alerts.noEmergencyEventSelected' | t}</span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
-                <li repeat.for="emergencyEvent of contextService.emergencyEvents">
-                    <button class="dropdown-item ${contextService.currentEmergencyEvent === emergencyEvent ? 'active' : ''}"
-                            click.trigger="contextService.changeEmergencyEvent(emergencyEvent)">
-                        ${emergencyEvent.name}
-                    </button>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li>
-                    <button class="dropdown-item"
-                            click.trigger="openCreateModal('emergencyEvent')">
-                        <i class="bi-plus me-2"></i>${'views.create' | t:{'type': 'model.emergencyEvent'}}
-                    </button>
-                </li>
-            </ul>
+            <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="emergency-menu">
+                <ul class="list-unstyled mb-2">
+                    <li repeat.for="emergencyEvent of contextService.emergencyEvents">
+                        <button class="dropdown-item ${contextService.currentEmergencyEvent === emergencyEvent ? 'active' : ''}"
+                                click.trigger="contextService.changeEmergencyEvent(emergencyEvent)">
+                            ${emergencyEvent.name}
+                        </button>
+                    </li>
+                </ul>
+                <hr class="dropdown-divider">
+                <button class="dropdown-item"
+                        click.trigger="openCreateModal('emergencyEvent')">
+                    <i class="bi-plus me-2"></i>${'views.create' | t:{'type': 'model.emergencyEvent'}}
+                </button>
+            </div>
         </div>
 
-        <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
+        <div class="${dropUp ? 'dropdown' : 'dropup'}"
              if.bind="!authService.config.useUserLocale">
             <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="language-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi-translate"></i>
+                <i class="bi-globe"></i>
                 <span class="d-md-none ms-2">${currentLanguage.name}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
@@ -64,60 +61,75 @@
             </ul>
         </div>
 
-        <div if.bind="appConfig.enableBhaptics"
-             class="${dropUpUserMenu ? 'dropdown' : 'dropup'}">
-            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="bhaptics-menu"
+        <div class="${dropUp ? 'dropdown' : 'dropup'}">
+            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="settings-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                <img src.bind="'./assets/logo-bhaptics.svg'" style="width: 1rem"><span class="d-md-none ms-2">bHaptics</span>
+                <i class="bi-gear"></i><span class="d-md-none ms-2">${'views.config' | t}</span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="bhaptics-menu">
-                <li class="px-3 text-nowrap">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="bhapticsServiceToggle" checked.bind="bhapticsServiceEnabled" change.trigger="toggleBhapticsService()">
-                        <label class="form-check-label" for="bhapticsServiceToggle">${'alerts.bhaptics.status' | t}</label>
+            <div class="dropdown-menu dropdown-menu-lg-end text-nowrap" aria-labelledby="settings-menu">
+                <div class="px-3 py-0">
+                    <label class="h4 d-flex align-items-end flex-nowrap" for="contextAwareAlertsEnabled">
+                        ${'buttons.contextAwareAlerts' | t}
+                        <div class="ms-2 form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="contextAwareAlertsEnabled" checked.bind="contextService.contextAwareAlertsEnabled">
+                        </div>
+                    </label>
+                    <div class="mb-3"
+                         if.bind="contextService.timeout">
+                        <label for="contextAwareAlertsTimeout" class="form-label">${'buttons.interval' | t}</label>
+                        <input type="number"
+                               autocomplete="off"
+                               class="form-control"
+                               id="contextAwareAlertsTimeout"
+                               value.two-way="contextService.timeout & debounce:1000">
                     </div>
-                </li>
-                <li if.bind="bhapticsServiceEnabled">
-                    <hr class="dropdown-divider">
-                </li>
-                <li class="px-3 text-body-tertiary text-nowrap">
-                    <div if.bind="bhapticsService.status === 'connecting'">
-                        <div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Connecting...</span></div>
-                        ${'alerts.bhaptics.connecting' | t}
+                </div>
+                <hr class="dropdown-divider">
+                <div class="py-0"
+                     if.bind="appConfig.enableBhaptics">
+                    <label class="h4 px-3 d-flex align-items-end flex-nowrap"
+                           for="bhapticsServiceToggle">
+                        <img class="mb-1 me-1" src.bind="'./assets/logo-bhaptics.svg'" style="width: 1rem" class="me-2">
+                        bHaptics
+                        <div class="ms-2 form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="bhapticsServiceToggle" checked.bind="bhapticsServiceEnabled" change.trigger="toggleBhapticsService()">
+                        </div>
+                    </label>
+                    <div class="px-3 text-body-tertiary text-wrap mb-2">
+                        <div if.bind="bhapticsService.status === 'connecting'">
+                            <div class="spinner-border spinner-border-sm" role="status"></div>
+                            ${'alerts.bhaptics.connecting' | t}
+                        </div>
+                        <div if.bind="bhapticsService.status === 'connected'">
+                            <i class="bi-circle text-success"></i>
+                            ${'alerts.bhaptics.connected' | t}
+                        </div>
+                        <div if.bind="bhapticsService.status === 'error'">
+                            <i class="bi-exclamation-triangle text-warning"></i>
+                            ${'alerts.bhaptics.error' | t}
+                        </div>
                     </div>
-                    <div if.bind="bhapticsService.status === 'connected'">
-                        <i class="bi-circle text-success"></i>
-                        ${'alerts.bhaptics.connected' | t}
-                    </div>
-                    <div if.bind="bhapticsService.status === 'error'">
-                        <i class="bi-exclamation-triangle text-warning"></i>
-                        ${'alerts.bhaptics.error' | t}
-                    </div>
-                </li>
-                <li if.bind="bhapticsService.devices">
-                    <hr class="dropdown-divider">
-                </li>
-                <li if.bind="bhapticsService.devices"
-                    repeat.for="bhapticsDevice of bhapticsService.devices"
-                    class="px-3">
-                    <span class="d-block">
-                        <img if.bind="bhapticsDevice.position === 'Vest'" src.bind="'./assets/icon-vest.svg'" class="me-1" style="width: 1.5rem">
-                        ${bhapticDevice.deviceName} ${bhapticsDevice.address}
-                        <i class="bi-circle${bhapticsDevice.isConnected ? '-fill text-success' : ''}"></i>
-                        <i class="bi-bluetooth${bhapticsDevice.isPaired ? ' text-success' : ''}"></i>
-                    </span>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li>
+                    <ul class="mb-2 px-3"
+                        if.bind="bhapticsService.devices">
+                        <li if.bind="bhapticsService.devices"
+                            repeat.for="bhapticsDevice of bhapticsService.devices">
+                            <div class="d-block">
+                                <img if.bind="bhapticsDevice.position === 'Vest'" src.bind="'./assets/icon-vest.svg'" class="me-1" style="width: 1.5rem">
+                                ${bhapticDevice.deviceName} ${bhapticsDevice.address}
+                                <i class="bi-circle${bhapticsDevice.isConnected ? '-fill text-success' : ''}"></i>
+                                <i class="bi-bluetooth${bhapticsDevice.isPaired ? ' text-success' : ''}"></i>
+                            </div>
+                        </li>
+                    </ul>
                     <button class="dropdown-item"
                             disabled.bind="bhapticsService.status !== 'connected'"
                             click.trigger="bhapticsService.pingAll()">
                         <i class="bi-activity me-2"></i>${'buttons.pingAll' | t}
                     </button>
-                </li>
-            </ul>
+                    <hr class="dropdown-divider">
+                </div>
+                <a href="#/info" class="dropdown-item"><i class="bi-info-circle me-2"></i>${'views.info.title' | t}</a>
+            </div>
         </div>
 
         <div slot="always-visible" class="order-md-5">
@@ -140,62 +152,58 @@
             </button>
         </div>
 
-        <div class="${dropUpUserMenu ? 'dropdown' : 'dropup'}"
+        <div class="${dropUp ? 'dropdown' : 'dropup'}"
              if.bind="authService.user">
             <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi-person-circle"></i><span class="d-md-none ms-2">${authService.userInfo.name}</span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="language-menu">
-                <li>
-                    <span class="dropdown-item disabled text-nowrap">
-                        <i class="bi-person-vcard me-2"></i>${authService.user.firstName + ' ' + authService.user.lastName}
-                    </span>
-                </li>
-                <li>
-                    <span class="dropdown-item disabled text-nowrap">
-                        <i class="bi-person-vcard me-2 invisible"></i>${authService.user.username}
-                    </span>
-                </li>
-                <li if.bind="authService.userInfo.email">
-                    <span class="dropdown-item disabled text-nowrap">
+            <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="profile-menu">
+                <div class="mb-2">
+                    <h3 class="ms-2">${authService.user.firstName + ' ' + authService.user.lastName}</h3>
+                    <div class="dropdown-item disabled text-nowrap py-0">
+                        <i class="bi-person-vcard me-2"></i>${authService.user.username}
+                    </div>
+                    <div if.bind="authService.userInfo.email"
+                         class="dropdown-item disabled text-nowrap py-0">
                         <i class="bi-envelope-at me-2"></i>${authService.userInfo.email}
-                    </span>
-                </li>
-                <li if.bind="authService.user.groups.length"
-                    repeat.for="group of authService.user.groups">
-                    <span class="dropdown-item disabled text-nowrap">
-                        <i class="bi-people"></i> ${authService.getGroup(group).name}
-                    </span>
-                </li>
-                <li if.bind="authService.user.roles.length"
-                    repeat.for="role of authService.user.roles">
-                    <span class="dropdown-item disabled text-nowrap">
-                        <i class="bi-person-badge me-2 ${!$first ? 'invisible' : ''}"></i> ${authService.getRole(role).name}
-                    </span>
-                </li>
-                <li>
+                    </div>
+                </div>
+                <div if.bind="authService.user.groups.length">
+                    <label class="ms-2">${'propertyKeys.groups' | t}:</label>
+                    <ul class="list-unstyled mb-2">
+                        <li class="dropdown-item disabled text-nowrap py-0"
+                            repeat.for="group of authService.user.groups">
+                            <i class="bi-people me-2"></i> ${authService.getGroup(group).name}
+                        </li>
+                    </ul>
+                </div>
+                <div if.bind="authService.user.roles.length">
+                    <label class="ms-2">${'propertyKeys.roles' | t}:</label>
+                    <ul class="list-unstyled mb-2">
+                        <li class="dropdown-item disabled text-nowrap py-0"
+                            repeat.for="role of authService.user.roles">
+                            <i class="bi-person-badge me-2"></i> ${authService.getRole(role).name}
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <label class="ms-2">${'buttons.logoutIn' | t}:</label>
                     <span class="dropdown-item disabled">
-                        <i class="bi-clock me-2"></i>${'buttons.logoutIn' | t} ${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'interval-second'}
-                    </span>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li>
-                    <a class="dropdown-item"
-                       href.bind="authService.keycloak.createAccountUrl({redirectUri: window.environment.keycloak.url})"
-                       target="_blank">
-                        <i class="bi-person-gear me-2"></i>${'buttons.userManagement' | t}
-                    </a>
-                </li>
-                <li>
-                    <button class="dropdown-item"
-                            click.trigger="authService.close()">
-                        <i class="bi-box-arrow-left me-2"></i>${'buttons.logout' | t}
-                    </button>
-                </li>
-            </ul>
+                    <i class="bi-clock me-2"></i>${authService.getTokenExpiresIn() | formatNumber:'00:00:00' & signal:'interval-second'}
+                </span>
+                </div>
+                <hr class="dropdown-divider">
+                <a class="dropdown-item"
+                   href.bind="authService.keycloak.createAccountUrl({redirectUri: window.environment.keycloak.url})"
+                   target="_blank">
+                    <i class="bi-person-gear me-2"></i>${'buttons.userManagement' | t}
+                </a>
+                <button class="dropdown-item"
+                        click.trigger="authService.close()">
+                    <i class="bi-box-arrow-left me-2"></i>${'buttons.logout' | t}
+                </button>
+            </div>
         </div>
     </nav-bar>
 

@@ -9,8 +9,8 @@ class ContextServiceImplementation extends ContextService {
     isMoving = false;
     activity = 'still';
 
-    async initialize(config, timeout) {
-        await super.initialize(config, timeout);
+    async enableContextAwareAlerts() {
+        await super.enableContextAwareAlerts();
         this.subscriptions.push(BackgroundGeolocation.onLocation(async(location) => {
             try {
                 let position = {type: 'Point', coordinates: [location.coords.longitude, location.coords.latitude]};
@@ -48,7 +48,8 @@ class ContextServiceImplementation extends ContextService {
         });
     }
 
-    async close() {
+    async disableContextAwareAlerts() {
+        await super.disableContextAwareAlerts();
         await super.close();
         this.state = await BackgroundGeolocation.stop();
         await App.removeAllListeners();
