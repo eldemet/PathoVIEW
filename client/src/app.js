@@ -129,11 +129,11 @@ export class App extends BasicViewRouter {
                 moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/detail')
             },
             {
-                route: '/home',
-                name: 'home',
+                route: '/info',
+                name: 'info',
                 title: 'views.info',
-                moduleId: PLATFORM.moduleName('./views/home/home'),
-                nav: true
+                moduleId: PLATFORM.moduleName('./views/info/info'),
+                nav: false
             }
         ];
         if (this.authService.hasAccess('cms.view')) {

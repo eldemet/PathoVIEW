@@ -1,6 +1,6 @@
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 
-class HomeView extends BasicView {
+class InfoView extends BasicView {
 
     /**
      * @param {ConstructorParameters<typeof BasicView>} rest
@@ -11,4 +11,4 @@ class HomeView extends BasicView {
 
 }
 
-export {HomeView};
+export {InfoView};
