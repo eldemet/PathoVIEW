@@ -50,6 +50,16 @@ class ContextService extends BasicService {
         await this.initializeCurrentDevice();
         await this.setCurrentWeather();
         numeral.locale(this.i18n.getLocale());
+        this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
+            let modelType = this._.lowerFirst(this._.camelCase(payload.contentType));
+            if (modelType === 'alert') {
+                if (payload.operationType === 'delete') {
+                    this.dismissActiveContextAwareAlert(payload.content.id);
+                } else {
+                    this.checkForAlertsNearCurrentLocation();
+                }
+            }
+        }));
         if (this.contextAwareAlertsEnabled) await this.enableContextAwareAlerts();
         this.initializeResolve();
     }
@@ -68,6 +78,7 @@ class ContextService extends BasicService {
         for (const id of this.activeContextAwareAlerts) {
             this.eventAggregator.publish('app-alert-dismiss', {id});
         }
+        this.activeContextAwareAlerts = [];
     }
 
     async contextAwareAlertsEnabledChanged(enabled) {
@@ -241,16 +252,20 @@ class ContextService extends BasicService {
                             this.logger.debug(`distance to alert ${alert.name || alert.description} ${distanceResult}m`);
                             this.activeContextAwareAlerts.push(alert.id);
                         } else {
-                            if (this.activeContextAwareAlerts.includes(alert.id)) {
-                                this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
-                                this.activeContextAwareAlerts.splice(this.activeContextAwareAlerts.indexOf(alert.id), 1);
-                            }
+                            this.dismissActiveContextAwareAlert(alert.id);
                         }
                     }
                 } catch (error) {
                     this.logger.debug(error.message);
                 }
             }
+        }
+    }
+
+    dismissActiveContextAwareAlert(id) {
+        if (this.activeContextAwareAlerts.includes(id)) {
+            this.eventAggregator.publish('app-alert-dismiss', {id});
+            this.activeContextAwareAlerts.splice(this.activeContextAwareAlerts.indexOf(id), 1);
         }
     }
 
