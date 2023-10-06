@@ -18,7 +18,7 @@
     <div if.bind="user.roles.length">
         <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.roles' | t}:</label>
         <ul class="list-unstyled text-truncate mb-0">
-            <li repeat.for="role of authService.user.roles">
+            <li repeat.for="role of user.roles">
                 <i class="bi-person-badge"></i> ${authService.getRole(role).name}
             </li>
         </ul>
