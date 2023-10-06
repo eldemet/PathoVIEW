@@ -47,20 +47,20 @@
                     <div class="d-flex flex-row p-3 border-top justify-content-start">
                         <button class="btn btn-outline-danger me-2"
                                 click.trigger="deleteObject(object, $event)">
-                            <i class="bi-trash me-2"></i><span class="d-none d-md-inline d-lg-none">${'buttons.delete' | t}</span>
+                            <i class="bi-trash"></i><span class="ms-2 d-none d-md-inline d-lg-none">${'buttons.delete' | t}</span>
                         </button>
                         <button class="btn btn-outline-secondary me-2"
                                 click.trigger="navigate('search-update')">
-                            <i class="bi-pencil"></i><span class="d-none d-md-inline d-lg-none">${'buttons.update' | t}</span>
+                            <i class="bi-pencil"></i><span class="ms-2 d-none d-md-inline d-lg-none">${'buttons.update' | t}</span>
                         </button>
                         <button class="btn btn-outline-secondary me-2"
                                 click.trigger="navigate('search-comment')">
-                            <i class="bi-chat me-2"></i><span class="d-none d-md-inline d-lg-none">${'buttons.comment' | t}</span>
+                            <i class="bi-chat"></i><span class="ms-2 d-none d-md-inline d-lg-none">${'buttons.comment' | t}</span>
                         </button>
                         <button if.bind="authService.hasAccess('alert.create')"
-                                class="btn btn-outline-secondary me-2"
+                                class="btn btn-primary me-2"
                                 click.trigger="openCreateModal('alert', $event)">
-                            <i class="bi-plus-lg me-2"></i>${'views.create' | t:{type: 'model.alert'}}
+                            ${'views.create' | t:{type: 'model.alert'}}
                         </button>
                     </div>
                 </div>

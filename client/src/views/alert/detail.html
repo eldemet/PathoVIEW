@@ -18,17 +18,17 @@
                         <button if.bind="authService.hasAccess('alert.create')"
                                 class="btn btn-outline-danger me-2"
                                 click.trigger="deleteObject(object, $event)">
-                            <i class="bi-trash me-2"></i><span class="d-none d-md-inline d-lg-none">${'buttons.delete' | t}</span>
+                            <i class="bi-trash"></i><span class="ms-2 d-none d-md-inline d-lg-none">${'buttons.delete' | t}</span>
                         </button>
                         <button if.bind="authService.hasAccess('alert.create')"
                                 class="btn btn-outline-secondary me-2"
                                 click.trigger="navigate('search-update')">
-                            <i class="bi-pencil"></i><span class="d-none d-md-inline d-lg-none">${'buttons.update' | t}</span>
+                            <i class="bi-pencil"></i><span class="ms-2 d-none d-md-inline d-lg-none">${'buttons.update' | t}</span>
                         </button>
                         <button if.bind="authService.hasAccess('mission.create')"
-                                class="btn btn-outline-secondary"
+                                class="btn btn-primary"
                                 click.trigger="openCreateModal('mission', $event)">
-                            <i class="bi-plus-lg me-2"></i>${'views.create' | t:{type: 'model.mission'}}
+                            ${'views.create' | t:{type: 'model.mission'}}
                         </button>
                     </div>
                 </div>
