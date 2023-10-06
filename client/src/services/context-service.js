@@ -24,6 +24,7 @@ class ContextService extends BasicService {
         this.initializeResolve = resolve;
     });
 
+    activeContextAwareAlerts = [];
     closedContextAwareAlerts = [];
 
     /**
@@ -61,6 +62,9 @@ class ContextService extends BasicService {
 
     async disableContextAwareAlerts() {
         this.logger.debug('context aware alerts disabled');
+        for (const id of this.activeContextAwareAlerts) {
+            this.eventAggregator.publish('app-alert-dismiss', {id});
+        }
     }
 
     async contextAwareAlertsEnabledChanged(enabled) {
@@ -232,8 +236,12 @@ class ContextService extends BasicService {
                             this.eventAggregator.publish('context-aware-alert', payload);
                             this.eventAggregator.publish('app-alert', payload);
                             this.logger.debug(`distance to alert ${alert.name || alert.description} ${distanceResult}m`);
+                            this.activeContextAwareAlerts.push(alert.id);
                         } else {
-                            this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+                            if (this.activeContextAwareAlerts.includes(alert.id)) {
+                                this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+                                this.activeContextAwareAlerts.splice(this.activeContextAwareAlerts.indexOf(alert.id), 1);
+                            }
                         }
                     }
                 } catch (error) {
