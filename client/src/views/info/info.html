@@ -23,7 +23,7 @@
                     <a class="tabstop-text" href="mailto:${appAuthor.email}">${appAuthor.name}</a>
                 </div>
                 <div>
-                    <label class="tabstop-label">${'propertyKeys.license' | t}</label>
+                    <label class="tabstop-label">${'propertyKeys.dependencies' | t}</label>
                     <ul class="list-unstyled">
                         <li repeat.for="key of appDependencies | objectKeys"><i class="bi-code-square mx-1"></i> ${key}: ${appDependencies[key]}</li>
                     </ul>
