@@ -9,6 +9,8 @@ import {KeycloakAdminService} from './services/keycloak-admin.js';
 
 const kcAdminService = new KeycloakAdminService();
 
+//TODO implement custom notification service that handles scenario (request head) as subscriptions
+
 const openApi = {
     apiDoc: {
         openapi: '3.0.2',

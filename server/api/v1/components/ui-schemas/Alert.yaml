@@ -172,6 +172,7 @@ properties:
     ui:formItemGridClass: 'col-md-6'
     ui:hide:
       table: true
+      form: true
   validTo:
     type: string
     format: date-time
