@@ -146,6 +146,31 @@
             </div>
         </div>
 
+        <div slot="always-visible" if.bind="contextService.activity" class="order-md-5 dropdown">
+            <button class="btn btn-link nav-link py-2 px-2 dropdown-toggle ${contextService.isMoving ? 'text-success' : 'text-danger'}" type="button" id="background-location-menu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <i if.bind="contextService.activity === 'still'" class="bi-pin-map"></i>
+                <i if.bind="contextService.activity === 'walking'" class="bi-person-walking"></i>
+                <i if.bind="contextService.activity === 'on_foot'" class="bi-person-standing"></i>
+                <i if.bind="contextService.activity === 'running'" class="bi-person-walking text-info"></i>
+                <i if.bind="contextService.activity === 'on_bicycle'" class="bi-bicycle"></i>
+                <i if.bind="contextService.activity === 'in_vehicle'" class="bi-car-front"></i>
+                <i if.bind="contextService.activity === 'unknown'" class="bi-question-lg"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg-end text-nowrap" aria-labelledby="background-location-menu">
+                <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="backgroundGeolocationDebugToggle" checked.bind="contextService.backgroundGeolocationDebug">
+                    <label for="backgroundGeolocationDebugToggle">Debug</label>
+                </div>
+                <div class="px-3 text-body-tertiary text-wrap mb-2" if.bind="contextService.provider">
+                    <p>enabled: ${contextService.provider.enabled}</p>
+                    <p>status: ${contextService.provider.status}</p>
+                    <p>network: ${contextService.provider.network}</p>
+                    <p>gps: ${contextService.provider.gps}</p>
+                </div>
+            </div>
+        </div>
+
         <div slot="always-visible" class="order-md-5">
             <button class="btn btn-link nav-link position-relative py-2 px-0 px-lg-2 me-3"
                     type="button"

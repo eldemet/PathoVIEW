@@ -1,3 +1,4 @@
+import {observable} from 'aurelia-framework';
 import BackgroundGeolocation from '@transistorsoft/capacitor-background-geolocation';
 import {App} from '@capacitor/app';
 import {Device} from '@capacitor/device';
@@ -5,9 +6,13 @@ import {ContextService} from './context-service';
 
 class ContextServiceImplementation extends ContextService {
 
-    events = [];
     isMoving = false;
+    /** @type {import('@transistorsoft/capacitor-background-geolocation').MotionActivityType} */
     activity = 'still';
+    /** @type {import('@transistorsoft/capacitor-background-geolocation').ProviderChangeEvent} */
+    provider;
+
+    @observable backgroundGeolocationDebug = localStorage.getItem('background-geolocation-debug') === 'true';
 
     async enableContextAwareAlerts() {
         await super.enableContextAwareAlerts();
@@ -29,13 +34,13 @@ class ContextServiceImplementation extends ContextService {
             this.activity = event.activity;
         }));
         this.subscriptions.push(BackgroundGeolocation.onProviderChange((event) => {
-            //TODO
+            this.provider = event;
         }));
         await BackgroundGeolocation.ready({
             desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
-            distanceFilter: 10,
-            stopTimeout: 5,
-            debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+            distanceFilter: 5,
+            stopTimeout: 2,
+            debug: this.backgroundGeolocationDebug, // <-- enable this hear sounds for background-geolocation life-cycle.
             logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
             stopOnTerminate: false,
             startOnBoot: false
@@ -55,6 +60,11 @@ class ContextServiceImplementation extends ContextService {
         await App.removeAllListeners();
         // @ts-ignore
         this.logger.info(this.state);
+    }
+
+    async backgroundGeolocationDebugChanged(debug) {
+        await BackgroundGeolocation.setConfig({debug});
+        localStorage.setItem('background-geolocation-debug', debug);
     }
 
 }
