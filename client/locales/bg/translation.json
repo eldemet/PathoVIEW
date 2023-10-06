@@ -96,7 +96,8 @@
         "ping": "пинг",
         "pingAll": "пинг всички",
         "contextAwareAlerts": "контекстни предупреждения",
-        "interval": "интервал"
+        "interval": "интервал",
+        "contextAwareAlertsWarningDistance": "предупредително разстояние"
     },
     "alerts": {
         "camera": {

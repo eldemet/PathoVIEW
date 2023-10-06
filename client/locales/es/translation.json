@@ -120,7 +120,8 @@
         "ping": "silbido",
         "pingAll": "hacer ping a todos",
         "contextAwareAlerts": "alertas contextuales",
-        "interval": "intervalo"
+        "interval": "intervalo",
+        "contextAwareAlertsWarningDistance": "distancia de advertencia"
     },
     "alerts": {
         "camera": {

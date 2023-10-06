@@ -96,7 +96,8 @@
         "ping": "Anklopfen",
         "pingALl": "Alle anklopfen",
         "contextAwareAlerts": "Kontextbezogene Warnungen",
-        "interval": "Intervall"
+        "interval": "Intervall",
+        "contextAwareAlertsWarningDistance": "Warnabstand"
     },
     "alerts": {
         "camera": {

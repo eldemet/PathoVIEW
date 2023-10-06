@@ -1,11 +1,10 @@
 import {observable} from 'aurelia-framework';
-import {AureliaCookie} from 'aurelia-cookie';
 import {ContextService} from './context-service';
 import {locationUtilities} from '../utilities';
 
 class ContextServiceImplementation extends ContextService {
 
-    @observable timeout = AureliaCookie.get('context-aware-alerts-timeout') || '20000';
+    @observable timeout = localStorage.getItem('context-aware-alerts-timeout') || '20';
 
     async enableContextAwareAlerts() {
         await super.enableContextAwareAlerts();
@@ -15,8 +14,7 @@ class ContextServiceImplementation extends ContextService {
         this.subscriptions.push(this.eventAggregator.subscribe('alert-closed', alert => {
             this.closedContextAwareAlerts.push(alert.id);
         }));
-        await this.update();
-        this.interval = setInterval(async() => await this.update(), parseInt(this.timeout, 10));
+        await this.startInterval();
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
     }
 
@@ -27,10 +25,9 @@ class ContextServiceImplementation extends ContextService {
         if (this.interval) clearInterval(this.interval);
     }
 
-    timeoutChanged(timeout) {
-        AureliaCookie.set('context-aware-alerts-timeout', timeout, {});
-        if (this.interval) clearInterval(this.interval);
-        this.interval = setInterval(async() => await this.update(), parseInt(this.timeout, 10));
+    async timeoutChanged(timeout) {
+        localStorage.setItem('context-aware-alerts-timeout', timeout);
+        await this.startInterval();
     }
 
     visibilityChangeEventListener = async() => {
@@ -40,13 +37,21 @@ class ContextServiceImplementation extends ContextService {
             this.interval = null;
         } else {
             this.logger.silly('Page is in user view! Set interval...');
-            this.interval = setInterval(async() => await this.update(), parseInt(this.timeout, 10));
-            await this.update();
+            await this.startInterval();
             if (!this.supportsPageLifecycleAPI) {
                 await this.updateContentAfterPageFreeze();
             }
         }
     };
+
+    async startInterval() {
+        if (this.contextAwareAlertsEnabled) {
+            if (this.interval) clearInterval(this.interval);
+            let timeout = parseInt(this.timeout, 10) * 1000;
+            this.interval = setInterval(async() => await this.update(), timeout);
+            await this.update();
+        }
+    }
 
     async update() {
         try {

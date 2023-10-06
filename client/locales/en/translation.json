@@ -96,7 +96,8 @@
         "ping": "ping",
         "pingAll": "ping all",
         "contextAwareAlerts": "context aware alerts",
-        "interval": "interval"
+        "interval": "interval",
+        "contextAwareAlertsWarningDistance": "warning distance"
     },
     "alerts": {
         "camera": {

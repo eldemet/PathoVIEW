@@ -77,11 +77,25 @@
                     <div class="mb-3"
                          if.bind="contextService.timeout">
                         <label for="contextAwareAlertsTimeout" class="form-label">${'buttons.interval' | t}</label>
-                        <input type="number"
-                               autocomplete="off"
-                               class="form-control"
-                               id="contextAwareAlertsTimeout"
-                               value.two-way="contextService.timeout & debounce:1000">
+                        <div class="input-group">
+                            <input type="number"
+                                   autocomplete="off"
+                                   class="form-control"
+                                   id="contextAwareAlertsTimeout"
+                                   value.two-way="contextService.timeout & debounce:1000">
+                            <span class="input-group-text">s</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contextAwareAlertsWarningDistance" class="form-label">${'buttons.contextAwareAlertsWarningDistance' | t}</label>
+                        <div class="input-group">
+                            <input type="number"
+                                   autocomplete="off"
+                                   class="form-control"
+                                   id="contextAwareAlertsWarningDistance"
+                                   value.two-way="contextService.contextAwareAlertsWarningDistance & debounce:1000">
+                            <span class="input-group-text">m</span>
+                        </div>
                     </div>
                 </div>
                 <hr class="dropdown-divider">

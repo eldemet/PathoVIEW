@@ -96,7 +96,8 @@
         "ping": "ping",
         "pingAll": "ping σε όλα",
         "contextAwareAlerts": "ειδοποιήσεις με επίγνωση του πλαισίου",
-        "interval": "διάστημα"
+        "interval": "διάστημα",
+        "contextAwareAlertsWarningDistance": "απόσταση προειδοποίησης"
     },
     "alerts": {
         "camera": {

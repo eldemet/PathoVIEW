@@ -18,7 +18,8 @@ import {stringify} from 'query-string';
 @inject(Proxy, HttpService)
 class ContextService extends BasicService {
 
-    @observable contextAwareAlertsEnabled = AureliaCookie.get('context-aware-alerts-enabled') === 'true';
+    @observable contextAwareAlertsEnabled = localStorage.getItem('context-aware-alerts-enabled') === 'true';
+    @observable contextAwareAlertsWarningDistance = localStorage.getItem('context-aware-alerts-warning-distance') || '10';
 
     initialized = new Promise(resolve => {
         this.initializeResolve = resolve;
@@ -82,12 +83,17 @@ class ContextService extends BasicService {
     }
 
     async contextAwareAlertsEnabledChanged(enabled) {
-        AureliaCookie.set('context-aware-alerts-enabled', enabled, {});
+        localStorage.setItem('context-aware-alerts-enabled', enabled);
         if (enabled) {
             await this.enableContextAwareAlerts();
         } else {
             await this.disableContextAwareAlerts();
         }
+    }
+
+    async contextAwareAlertsWarningDistanceChanged(warningDistance) {
+        localStorage.setItem('context-aware-alerts-warning-distance', warningDistance);
+        if (this.contextAwareAlertsEnabled) this.checkForAlertsNearCurrentLocation();
     }
 
     @catchError('app-alert')
@@ -223,8 +229,9 @@ class ContextService extends BasicService {
                         let type;
                         let message;
                         let dismissible = true;
-                        let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult).format('0,0.00') + ' km'};
-                        if (distanceResult < 0.01 && (!alert.validTo || alert.validTo > new Date().toISOString())) {
+                        let properties = distanceResult <= 0 ? {} : {distance: numeral(distanceResult * 1000).format('0,0.0') + ' m'};
+                        const distanceThreshold = parseInt(this.contextAwareAlertsWarningDistance, 10) / 1000;
+                        if (distanceResult <= distanceThreshold && (!alert.validTo || alert.validTo > new Date().toISOString())) {
                             if (distanceResult > 0) {
                                 type = 'warning';
                                 message = 'alerts.alertLocationVeryClose';
