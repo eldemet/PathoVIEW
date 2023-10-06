@@ -52,8 +52,10 @@ class ContextServiceImplementation extends ContextService {
         try {
             let location = await locationUtilities.getCurrenPosition('geoJSON');
             if (location) {
-                await this.updateDevice(location);
-                this.checkForAlertsNearCurrentLocation(location);
+                // @ts-ignore
+                this.currentLocation = location;
+                await this.updateDevice();
+                this.checkForAlertsNearCurrentLocation();
             } else {
                 throw new Error('Cannot get current position!');
             }

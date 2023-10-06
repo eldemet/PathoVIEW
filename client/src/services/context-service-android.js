@@ -13,11 +13,11 @@ class ContextServiceImplementation extends ContextService {
         await super.enableContextAwareAlerts();
         this.subscriptions.push(BackgroundGeolocation.onLocation(async(location) => {
             try {
-                let position = {type: 'Point', coordinates: [location.coords.longitude, location.coords.latitude]};
+                this.currentLocation = {type: 'Point', coordinates: [location.coords.longitude, location.coords.latitude]};
                 const info = await Device.getInfo(); // eslint-disable-line no-unused-vars
                 const batteryInfo = await Device.getBatteryInfo(); // eslint-disable-line no-unused-vars
-                await this.updateDevice(position);
-                await this.checkForAlertsNearCurrentLocation(position);
+                await this.updateDevice();
+                this.checkForAlertsNearCurrentLocation();
             } catch (error) {
                 this.logger.warn(error.message);
             }

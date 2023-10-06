@@ -27,6 +27,9 @@ class ContextService extends BasicService {
     activeContextAwareAlerts = [];
     closedContextAwareAlerts = [];
 
+    /** @type {{type: 'Point', coordinates: [Number, Number]}} */
+    currentLocation;
+
     /**
      * @param {Proxy} proxy
      * @param {HttpService} httpService
@@ -168,8 +171,8 @@ class ContextService extends BasicService {
     }
 
     @catchError()
-    async updateDevice(location) {
-        if (this.currentDevice) {
+    async updateDevice() {
+        if (this.currentDevice && this.currentLocation) {
             let batteryLevel = await deviceUtilities.getBatteryLevel();
             let oldDeviceValues = pick(this.currentDevice, ['name', 'batteryLevel', 'osVersion', 'softwareVersion', 'provider', 'location']);
             let newDeviceValues = {
@@ -178,7 +181,7 @@ class ContextService extends BasicService {
                 osVersion: platform.os.toString(),
                 softwareVersion: platform.name + ' ' + platform.version,
                 provider: platform.manufacturer || '',
-                location: location
+                location: this.currentLocation
                 // firmwareVersion, hardwareVersion, ipAddress, macAddress, rssi
             };
             if (!this._.isEqual(oldDeviceValues, newDeviceValues)) {
@@ -198,10 +201,10 @@ class ContextService extends BasicService {
     }
 
     @catchError()
-    checkForAlertsNearCurrentLocation(location) {
-        if (Array.isArray(this.alerts) && this.alerts.length > 0) {
+    checkForAlertsNearCurrentLocation() {
+        if (this.currentLocation && Array.isArray(this.alerts) && this.alerts.length > 0) {
             this.logger.silly('check alerts near current location');
-            let from = point(location.coordinates);
+            let from = point(this.currentLocation.coordinates);
             for (let alert of this.alerts) {
                 try {
                     if (!this.closedContextAwareAlerts.includes(alert.id)) {
