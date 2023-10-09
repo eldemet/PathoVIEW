@@ -26,6 +26,7 @@ body {
     cursor: pointer;
     flex-grow: 0;
     flex-shrink: 0;
+    white-space: nowrap;
 
     .creator-inner {
         width: 2rem;
