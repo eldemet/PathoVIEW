@@ -13,6 +13,7 @@ class ContextServiceImplementation extends ContextService {
     provider;
 
     @observable backgroundGeolocationDebug = localStorage.getItem('background-geolocation-debug') === 'true';
+    @observable backgroundGeolocationDistanceFilter = localStorage.getItem('background-geolocation-distance-filter') || '5';
 
     async enableContextAwareAlerts() {
         await super.enableContextAwareAlerts();
@@ -38,7 +39,7 @@ class ContextServiceImplementation extends ContextService {
         }));
         await BackgroundGeolocation.ready({
             desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
-            distanceFilter: 5,
+            distanceFilter: parseInt(this.backgroundGeolocationDistanceFilter, 10),
             stopTimeout: 2,
             debug: this.backgroundGeolocationDebug, // <-- enable this hear sounds for background-geolocation life-cycle.
             logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
@@ -65,6 +66,11 @@ class ContextServiceImplementation extends ContextService {
     async backgroundGeolocationDebugChanged(debug) {
         await BackgroundGeolocation.setConfig({debug});
         localStorage.setItem('background-geolocation-debug', debug);
+    }
+
+    async backgroundGeolocationDistanceFilterChanged(distanceFilter) {
+        await BackgroundGeolocation.setConfig({distanceFilter});
+        localStorage.setItem('background-geolocation-distance-filter', distanceFilter);
     }
 
 }

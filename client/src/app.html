@@ -162,6 +162,17 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="backgroundGeolocationDebugToggle" checked.bind="contextService.backgroundGeolocationDebug">
                     <label for="backgroundGeolocationDebugToggle">Debug</label>
                 </div>
+                <div class="mb-3">
+                    <label for="backgroundGeolocationDistanceFilter" class="form-label">${'buttons.contextAwareAlertsDistanceFilter' | t}</label>
+                    <div class="input-group">
+                        <input type="number"
+                               autocomplete="off"
+                               class="form-control"
+                               id="backgroundGeolocationDistanceFilter"
+                               value.two-way="contextService.backgroundGeolocationDistanceFilter & debounce:1000">
+                        <span class="input-group-text">m</span>
+                    </div>
+                </div>
                 <div class="px-3 text-body-tertiary text-wrap mb-2" if.bind="contextService.provider">
                     <p>enabled: ${contextService.provider.enabled}</p>
                     <p>status: ${contextService.provider.status}</p>

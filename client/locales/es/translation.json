@@ -121,7 +121,8 @@
         "pingAll": "hacer ping a todos",
         "contextAwareAlerts": "alertas contextuales",
         "interval": "intervalo",
-        "contextAwareAlertsWarningDistance": "distancia de advertencia"
+        "contextAwareAlertsWarningDistance": "distancia de advertencia",
+        "contextAwareAlertsDistanceFilter": "filtro de distancia"
     },
     "alerts": {
         "camera": {
