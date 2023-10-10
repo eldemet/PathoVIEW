@@ -22,19 +22,11 @@ body {
     border-radius: 1.5rem;
     width: 2rem;
     height: 2rem;
-    padding: 0 0.2rem;
     cursor: pointer;
-    flex-grow: 0;
-    flex-shrink: 0;
     white-space: nowrap;
-
-    .creator-inner {
-        width: 2rem;
-        height: 1.6rem;
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @include media-breakpoint-down(md) {

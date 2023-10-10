@@ -10,7 +10,7 @@
                                  view.bind: 'resources/elements/user-popover';
                                  trigger.bind: 'hover';
                                  model.bind: {user: user}">
-        <div class="creator-inner">${getAbbreviation(user)}</div>
+        <div>${getAbbreviation(user)}</div>
     </div>
     <span if.bind="!user">${'labels.notDefined' | t}</span>
     <div if.bind="!users" class="spinner-border" role="status"></div>

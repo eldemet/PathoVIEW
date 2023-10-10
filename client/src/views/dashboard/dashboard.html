@@ -154,7 +154,7 @@
                         <span if.bind="users" class="badge rounded-pill text-bg-secondary">${users.length}</span>
                         <span if.bind="users" class="badge rounded-pill text-bg-success">${users.filter(onlineUsers).length} ${'views.dashboard.online' | t}</span>
                         <ul if.bind="users" class="mt-2 list-inline">
-                            <li repeat.for="user of users" class="list-inline-item fs-6">
+                            <li repeat.for="user of users" class="list-inline-item fs-6 mb-1">
                                 <user-abbreviation user-id.bind="user.id"
                                                    class="d-block">
                                 </user-abbreviation>
