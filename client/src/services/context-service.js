@@ -1,5 +1,4 @@
 import {observable, inject} from 'aurelia-framework';
-import {AureliaCookie} from 'aurelia-cookie';
 import * as platform from 'platform';
 import numeral from 'numeral';
 import pick from 'lodash/pick';
@@ -111,7 +110,7 @@ class ContextService extends BasicService {
     @catchError('app-alert')
     async loadEmergencyEvents() {
         this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
-        let currentEmergencyEventId = AureliaCookie.get('emergency-event');
+        let currentEmergencyEventId = localStorage.getItem('emergency-event');
         if (currentEmergencyEventId) {
             this.currentEmergencyEvent = this.emergencyEvents.find(x => x.id === currentEmergencyEventId);
         } else {
@@ -147,17 +146,17 @@ class ContextService extends BasicService {
 
     @catchError('app-alert')
     async loadAlerts(forceReload) {
-        this.alerts = (await this.proxy.get('alert').getObjects(null, null, forceReload)).objects;
+        this.alerts = (await this.proxy.get('alert').getObjects(null, forceReload)).objects;
     }
 
     @catchError('app-alert')
     async loadMissions(forceReload) {
-        this.missions = (await this.proxy.get('mission').getObjects(null, null, forceReload)).objects;
+        this.missions = (await this.proxy.get('mission').getObjects(null, forceReload)).objects;
     }
 
     @catchError('app-alert')
     async loadAnnotations(forceReload) {
-        this.annotations = (await this.proxy.get('annotation').getObjects(null, null, forceReload)).objects;
+        this.annotations = (await this.proxy.get('annotation').getObjects(null, forceReload)).objects;
     }
 
     @catchError()
@@ -168,7 +167,7 @@ class ContextService extends BasicService {
                 lat: coordinates[1],
                 lon: coordinates[0],
                 units: 'metric',
-                lang: AureliaCookie.get('lang') || 'de'
+                lang: this.i18n.getLocale()
             });
             this.currentWeather = await this.httpService.fetch('GET', url);
         }
@@ -176,8 +175,8 @@ class ContextService extends BasicService {
 
     @catchError()
     async changeEmergencyEvent(emergencyEvent) {
-        AureliaCookie.set('emergency-event', emergencyEvent.id, {});
-        AureliaCookie.set('scenario', emergencyEvent.scenario, {});
+        localStorage.setItem('emergency-event', emergencyEvent.id);
+        localStorage.setItem('scenario', emergencyEvent.scenario);
         this.currentEmergencyEvent = emergencyEvent;
         this.eventAggregator.publish('app-alert-dismiss', {id: 'noEmergencyEvent'});
         for (let alert of this.alerts) {

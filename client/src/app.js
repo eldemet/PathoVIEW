@@ -174,7 +174,7 @@ export class App extends BasicViewRouter {
     }
 
     changeLanguage(language) {
-        AureliaCookie.set('lang', language, {});
+        localStorage.setItem('lang', language);
         window.location.reload();
     }
 

@@ -1,7 +1,6 @@
 import {stringify} from 'query-string';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
 import {loadingEvent} from 'library-aurelia/src//decorators';
-import {AureliaCookie} from 'aurelia-cookie';
 
 /**
  * @extends ModelServiceBasic
@@ -25,8 +24,8 @@ class ModelServiceContextAware extends ModelServiceBasic {
         let createUrl = (override, defaultPath) => {
             let url = override ? override : defaultPath;
             url = url.replace(':api-entrypoint', apiEntrypoint).replace(':type', typeKebabCase);
-            let emergencyEventId = AureliaCookie.get('emergency-event');
-            let scenario = AureliaCookie.get('scenario') || 'limassol';
+            let emergencyEventId = localStorage.getItem('emergency-event');
+            let scenario = localStorage.getItem('scenario') || 'limassol';
             if (emergencyEventId) {
                 url = url
                     .replace(':scenario', scenario)
@@ -48,7 +47,7 @@ class ModelServiceContextAware extends ModelServiceBasic {
     @loadingEvent('app-alert')
     async loadObjects() {
         let objects = [];
-        this.emergencyEventId = AureliaCookie.get('emergency-event');
+        this.emergencyEventId = localStorage.getItem('emergency-event');
         if (this.emergencyEventId) {
             try {
                 this.setEndpoints(this.options.apiEntrypoint, this.type, this.options.endpoints);
@@ -62,12 +61,12 @@ class ModelServiceContextAware extends ModelServiceBasic {
         this.objects = objects;
     }
 
-    async getObjects(query, searchProperties, forceReload) {
+    async getObjects(query, forceReload) {
         await this.initialized();
-        if (forceReload || this.emergencyEventId !== AureliaCookie.get('emergency-event')) {
+        if (forceReload || this.emergencyEventId !== localStorage.getItem('emergency-event')) {
             await this.loadObjects();
         }
-        return await super.getObjects(query, searchProperties);
+        return await super.getObjects(query);
     }
 
 }
