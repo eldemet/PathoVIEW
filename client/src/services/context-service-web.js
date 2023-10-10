@@ -11,9 +11,6 @@ class ContextServiceImplementation extends ContextService {
         // @ts-ignore
         this.supportsPageLifecycleAPI = typeof document.onresume === 'object';
         if (this.supportsPageLifecycleAPI) document.addEventListener('resume', this.updateContentAfterPageFreeze);
-        this.subscriptions.push(this.eventAggregator.subscribe('alert-closed', alert => {
-            this.closedContextAwareAlerts.push(alert.id);
-        }));
         await this.startInterval();
         document.addEventListener('visibilitychange', this.visibilityChangeEventListener);
     }

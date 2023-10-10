@@ -72,6 +72,9 @@ class ContextService extends BasicService {
 
     async enableContextAwareAlerts() {
         this.logger.debug('context aware alerts enabled');
+        this.subscriptions.push(this.eventAggregator.subscribe('alert-closed', alert => {
+            this.closedContextAwareAlerts.push(alert.id);
+        }));
     }
 
     async disableContextAwareAlerts() {
