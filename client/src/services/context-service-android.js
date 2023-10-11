@@ -32,7 +32,7 @@ class ContextServiceImplementation extends ContextService {
         this.state = await BackgroundGeolocation.ready({
             desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
             distanceFilter: parseInt(this.backgroundGeolocationDistanceFilter, 10),
-            stopTimeout: 2,
+            stopTimeout: 10,
             debug: this.backgroundGeolocationDebug, // <-- enable this hear sounds for background-geolocation life-cycle.
             logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
             stopOnTerminate: false,
