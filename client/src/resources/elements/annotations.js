@@ -33,7 +33,7 @@ class Annotations extends BasicComponent {
 
     async attached() {
         await super.attached();
-        await new Promise((resolve) => setTimeout(resolve, 50));
+        await new Promise((resolve) => setTimeout(resolve, 500));
         this.annotationsContainer.scrollTop = this.annotationsContainer.scrollHeight;
     }
 
@@ -45,7 +45,11 @@ class Annotations extends BasicComponent {
     }
 
     async deleteAnnotation(annotation) {
-        await this.proxy.get('annotation').deleteObject(annotation);
+        try {
+            await this.proxy.get('annotation').deleteObjectWithConfirmation(annotation, this.dialogService, annotation.kind);
+        } catch (error) {
+            // silently handle cancel
+        }
     }
 
 }

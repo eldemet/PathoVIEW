@@ -50,8 +50,12 @@ class Detail extends BasicView {
     }
 
     async deleteObject() {
-        await this.proxy.get(this.type).deleteObject(this.object);
-        this.routerService.navigateToRoute('search', {}, this.router);
+        try {
+            await this.proxy.get(this.type).deleteObjectWithConfirmation(this.object, this.dialogService, this.type);
+            this.routerService.navigateToRoute('search', {}, this.router);
+        } catch (error) {
+            // silently handle cancel
+        }
     }
 
     async navigate(route) {
