@@ -55,6 +55,7 @@ class BhapticsService extends BasicService {
     }
 
     async bhapticsServiceEnabledChanged(enabled) {
+        localStorage.setItem('bhaptics-service-enabled', enabled);
         if (enabled) {
             await this.initialize();
         } else {
