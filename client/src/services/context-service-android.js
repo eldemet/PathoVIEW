@@ -29,7 +29,7 @@ class ContextServiceImplementation extends ContextService {
         this.subscriptions.push(BackgroundGeolocation.onProviderChange((event) => {
             this.provider = event;
         }));
-        await BackgroundGeolocation.ready({
+        this.state = await BackgroundGeolocation.ready({
             desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
             distanceFilter: parseInt(this.backgroundGeolocationDistanceFilter, 10),
             stopTimeout: 2,
@@ -38,7 +38,7 @@ class ContextServiceImplementation extends ContextService {
             stopOnTerminate: false,
             startOnBoot: false
         });
-        this.state = await BackgroundGeolocation.start();
+        if (!this.state.enabled) this.state = await BackgroundGeolocation.start();
         let location = await BackgroundGeolocation.getCurrentPosition({samples: 1, persist: true});
         await this.update(location);
         // @ts-ignore
