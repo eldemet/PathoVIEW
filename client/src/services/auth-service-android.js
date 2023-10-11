@@ -1,4 +1,5 @@
 import {registerPlugin} from '@capacitor/core';
+import {Device} from '@capacitor/device';
 import {AuthService} from './auth-service';
 
 class AuthServiceImplementation extends AuthService {
@@ -11,10 +12,10 @@ class AuthServiceImplementation extends AuthService {
         if (!this.getLocale()) {
             let locale = 'en';
             try {
-                if (this.userInfo.locale && config.useUserLocale) {
+                if (config.useUserLocale && this.userInfo.locale) {
                     locale = this.userInfo.locale;
                 } else {
-                    locale = navigator.language.slice(0, 2);
+                    locale = (await Device.getLanguageCode()).value;
                 }
             } catch (e) {
                 //handle silently
