@@ -1,21 +1,19 @@
-import {inject} from 'aurelia-framework';
-import {EventAggregator} from 'aurelia-event-aggregator';
+import {observable} from 'aurelia-framework';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import tactFiles from '../assets/tact-files';
 
-@inject(EventAggregator)
 class BhapticsService extends BasicService {
+
+    @observable bhapticsServiceEnabled = localStorage.getItem('bhaptics-service-enabled') !== 'false';
 
     status = 'disabled';
 
     /**
      * @abstract
-     * @param {EventAggregator} eventAggregator
      * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
-    constructor(eventAggregator, ...rest) {
+    constructor(...rest) {
         super('bhaptics', ...rest);
-        this.eventAggregator = eventAggregator;
     }
 
     async initialize() {
@@ -54,6 +52,14 @@ class BhapticsService extends BasicService {
         this.disposeSubscriptions();
         this.status = 'disabled';
         this.logger.info('bhaptics closed');
+    }
+
+    async bhapticsServiceEnabledChanged(enabled) {
+        if (!enabled) {
+            await this.initialize();
+        } else {
+            await this.close();
+        }
     }
 
     /**

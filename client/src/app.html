@@ -106,7 +106,7 @@
                         <img class="mb-1 me-1" src.bind="'./assets/logo-bhaptics.svg'" style="width: 1rem" class="me-2">
                         PathoVEST
                         <div class="ms-2 form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="bhapticsServiceToggle" checked.bind="bhapticsServiceEnabled" change.trigger="toggleBhapticsService()">
+                            <input class="form-check-input" type="checkbox" role="switch" id="bhapticsServiceToggle" checked.bind="bhapticsService.bhapticsServiceEnabled">
                         </div>
                     </label>
                     <div class="px-3 text-body-tertiary text-wrap mb-2">
@@ -126,7 +126,8 @@
                     <ul class="mb-2 px-3"
                         if.bind="bhapticsService.devices">
                         <li if.bind="bhapticsService.devices"
-                            repeat.for="bhapticsDevice of bhapticsService.devices">
+                            repeat.for="bhapticsDevice of bhapticsService.devices"
+                            class="list-unstyled">
                             <div class="d-block">
                                 <img if.bind="bhapticsDevice.position === 'Vest'" src.bind="'./assets/icon-vest.svg'" class="me-1" style="width: 1.5rem">
                                 ${bhapticDevice.deviceName} ${bhapticsDevice.address}

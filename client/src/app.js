@@ -23,7 +23,6 @@ export class App extends BasicViewRouter {
         this.appConfig = this.proxy.get('config').config;
         this.contextService = this.proxy.get('context');
         this.deviceUtilities = deviceUtilities;
-        this.bhapticsServiceEnabled = false;
         /** @type {import('./services/auth-service').AuthService} */
         this.authService = this.proxy.get('auth');
         if (this.appConfig.enableBhaptics) {
@@ -161,6 +160,9 @@ export class App extends BasicViewRouter {
             this.dropUp = this.responsiveService.matchCondition('md', true);
         }));
         this.currentLanguage = this.languages.find(language => language.value === this.i18n.getLocale());
+        if (this.appConfig.enableBhaptics && this.bhapticsService.bhapticsServiceEnabled) {
+            await this.bhapticsService.initialize();
+        }
     }
 
     async detached() {
@@ -192,14 +194,6 @@ export class App extends BasicViewRouter {
                     }
                 }
             });
-    }
-
-    async toggleBhapticsService() {
-        if (this.bhapticsService.status === 'disabled') {
-            await this.bhapticsService.initialize();
-        } else {
-            await this.bhapticsService.close();
-        }
     }
 
     @computedFrom('notificationService.notifications.length')
