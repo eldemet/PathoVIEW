@@ -149,7 +149,7 @@
         "owner": "ιδιοκτήτης",
         "postOfficeBoxNumber": "αριθμός ταχυδρομικής θυρίδας",
         "seeAlso": "δείτε επίσης",
-        "severity": "αυστηρότητα",
+        "severity": "σοβαρότητα",
         "source": "πηγή",
         "subCategory": "υποκατηγορία",
         "type": "τύπος",
@@ -238,11 +238,11 @@
                 "agriculture": "γεωργία"
             },
             "severity": {
-                "informational": "ενημερωτική",
-                "low": "χαμηλός",
-                "medium": "Μεσαίο",
-                "high": "υψηλός",
-                "critical": "κρίσιμος"
+                "informational": "ενημερωτικός",
+                "low": "χαμηλή",
+                "medium": "μεσαία",
+                "high": "υψηλή",
+                "critical": "κρήσιμη"
             },
             "subCategory": {
                 "hazardOnRoad": "κίνδυνος στο δρόμο",
