@@ -16,7 +16,7 @@ import {stringify} from 'query-string';
 @inject(Proxy, HttpService)
 class ContextService extends BasicService {
 
-    @observable contextAwareAlertsEnabled = localStorage.getItem('context-aware-alerts-enabled') === 'true';
+    @observable contextAwareAlertsEnabled = localStorage.getItem('context-aware-alerts-enabled') !== 'false';
     @observable contextAwareAlertsWarningDistance = localStorage.getItem('context-aware-alerts-warning-distance') || '10';
 
     initialized = new Promise(resolve => {
