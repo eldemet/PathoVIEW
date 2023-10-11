@@ -72,12 +72,16 @@ class ContextServiceImplementation extends ContextService {
      * @return {Promise<void>}
      */
     async update(location) {
+        let taskId;
         try {
+            taskId = await BackgroundGeolocation.startBackgroundTask();
             this.currentLocation = {type: 'Point', coordinates: [location.coords.longitude, location.coords.latitude]};
             await this.updateDevice();
             this.checkForAlertsNearCurrentLocation();
         } catch (error) {
-            this.logger.warn(error.message);
+            this.handleError(error);
+        } finally {
+            await BackgroundGeolocation.stopBackgroundTask(taskId);
         }
     }
 
