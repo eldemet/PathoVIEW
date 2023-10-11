@@ -5,35 +5,37 @@
         <span if.bind="user.firstName || user.lastName">${user.firstName} ${user.lastName}</span>
         <span else>${user.username}</span>
     </h3>
-    <div class="d-block align-middle text-truncate">
-        <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.name' | t}:</label>
+    <div class="d-block text-truncate">
+        <label class="d-inline-block text-muted">${'propertyKeys.name' | t}:</label>
         ${user.username}
     </div>
     <div class.bind="user.status === 'online' ? 'text-success' : ''"
-         class="d-block align-middle text-truncate">
-        <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.status' | t}:</label>
+         class="d-block text-truncate">
+        <label class="d-inline-block text-muted">${'propertyKeys.status' | t}:</label>
         <i class="bi-circle${user.status === 'online' ? '-fill text-success' : ''}"></i>
         ${user.status}
     </div>
     <div if.bind="user.roles.length">
-        <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.roles' | t}:</label>
-        <ul class="list-unstyled text-truncate mb-0">
-            <li repeat.for="role of user.roles">
-                <i class="bi-person-badge"></i> ${authService.getRole(role).name}
+        <label class="d-inline-block text-muted">${'propertyKeys.roles' | t}:</label>
+        <ul class="list-unstyled text-truncate mb-0 ms-3">
+            <li repeat.for="role of user.roles"
+                with.bind="authService.getRole(role)"
+                if.bind="$this">
+                <i class="bi-person-badge"></i> ${$this.name}
             </li>
         </ul>
     </div>
     <div if.bind="user.groups.length">
-        <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.groups' | t}:</label>
-        <ul class="list-unstyled text-truncate mb-0">
+        <label class="d-inline-block text-muted">${'propertyKeys.groups' | t}:</label>
+        <ul class="list-unstyled text-truncate mb-0 ms-3">
             <li repeat.for="group of user.groups">
                 <i class="bi-people"></i> ${authService.getGroup(group).name}
             </li>
         </ul>
     </div>
     <div if.bind="user.email"
-         class="d-block align-middle text-truncate">
-        <label class="d-inline-block text-muted text-end" style="width: 54px;">${'propertyKeys.email' | t}:</label>
+         class="d-block text-truncate">
+        <label class="d-inline-block text-muted">${'propertyKeys.email' | t}:</label>
         <i class="bi-envelope"></i>
         ${user.email}
     </div>
