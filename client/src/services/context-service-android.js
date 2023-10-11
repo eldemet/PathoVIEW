@@ -17,18 +17,18 @@ class ContextServiceImplementation extends ContextService {
 
     async enableContextAwareAlerts() {
         await super.enableContextAwareAlerts();
-        this.subscriptions.push(BackgroundGeolocation.onLocation(async(location) => {
+        BackgroundGeolocation.onLocation(async(location) => {
             await this.update(location);
-        }));
-        this.subscriptions.push(BackgroundGeolocation.onMotionChange((event) => {
+        });
+        BackgroundGeolocation.onMotionChange((event) => {
             this.isMoving = event.isMoving;
-        }));
-        this.subscriptions.push(BackgroundGeolocation.onActivityChange((event) => {
+        });
+        BackgroundGeolocation.onActivityChange((event) => {
             this.activity = event.activity;
-        }));
-        this.subscriptions.push(BackgroundGeolocation.onProviderChange((event) => {
+        });
+        BackgroundGeolocation.onProviderChange((event) => {
             this.provider = event;
-        }));
+        });
         this.state = await BackgroundGeolocation.ready({
             desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
             distanceFilter: parseInt(this.backgroundGeolocationDistanceFilter, 10),
@@ -53,6 +53,7 @@ class ContextServiceImplementation extends ContextService {
         await super.close();
         this.state = await BackgroundGeolocation.stop();
         await App.removeAllListeners();
+        await BackgroundGeolocation.removeAllListeners();
         // @ts-ignore
         this.logger.info(this.state);
     }
