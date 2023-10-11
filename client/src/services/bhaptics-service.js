@@ -10,6 +10,7 @@ class BhapticsService extends BasicService {
     status = 'disabled';
 
     /**
+     * @abstract
      * @param {EventAggregator} eventAggregator
      * @param {ConstructorParameters<typeof BasicObject>} rest
      */
@@ -28,19 +29,16 @@ class BhapticsService extends BasicService {
         }
         this.subscriptions.push(this.eventAggregator.subscribe('context-aware-alert', async payload => {
             if (this.status === 'connected') {
-                let callRegistered = {fallback: 'none', offsetAngleX: 0, offsetY: 0};
                 if (payload.type === 'warning') {
-                    callRegistered.name = 'alert1';
-                    callRegistered.intensity = 0.5;
-                    callRegistered.duration = 1.0;
-                    await this.submitRegistered(callRegistered);
+                    await this.submitRegistered({
+                        name: 'alert1', intensity: 0.5, duration: 1.0, fallback: 'none', offsetAngleX: 0, offsetY: 0
+                    });
                 } else if (payload.type === 'danger') {
-                    callRegistered.name = 'alert2';
-                    callRegistered.intensity = 1.0;
-                    callRegistered.duration = 1.0;
                     let i = 0;
                     let interval = setInterval(async() => {
-                        await this.submitRegistered(callRegistered);
+                        await this.submitRegistered({
+                            name: 'alert2', intensity: 1.0, duration: 1.0, fallback: 'none', offsetAngleX: 0, offsetY: 0
+                        });
                         i++;
                         if (i >= 5) {
                             clearInterval(interval);
@@ -59,12 +57,30 @@ class BhapticsService extends BasicService {
         this.logger.info('bhaptics closed');
     }
 
-    async register(tactFile) {
-        this.logger.warn('register: not implemented');
+    /**
+     * @abstract
+     * @return {Promise<void>}
+     */
+    async pingAll() {
+        this._notOverridden('async pingAll()');
     }
 
+    /**
+     * @abstract
+     * @param {BhapticsTactFile} tactFile
+     * @return {Promise<void>}
+     */
+    async register(tactFile) {
+        this._notOverridden('async register(tactFile)');
+    }
+
+    /**
+     * @abstract
+     * @param {BhapticsCallRegistered} callRegistered
+     * @return {Promise<void>}
+     */
     async submitRegistered(callRegistered) {
-        this.logger.warn('submitRegistered: not implemented');
+        this._notOverridden('async submitRegistered(callRegistered)');
     }
 
 }
