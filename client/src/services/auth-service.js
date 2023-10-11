@@ -1,9 +1,10 @@
-import {inject} from 'aurelia-framework';
 import get from 'lodash/get';
+import {inject} from 'aurelia-framework';
+import {AureliaCookie} from 'aurelia-cookie';
+import {utilities} from 'value-converters';
 import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {HttpService} from 'library-aurelia/src/services/http-service';
-import {AureliaCookie} from 'aurelia-cookie';
 
 @inject(HttpService)
 class AuthService extends BasicService {
@@ -114,14 +115,27 @@ class AuthService extends BasicService {
         return isOwner;
     }
 
-    async getUsers() {
+    async getUsers(query) {
         await this.initialized;
-        return this.users;
+        return await this.getObjects(this.users, query);
     }
 
-    async getObjects() {
+    async getRoles(query) {
         await this.initialized;
-        return {objects: this.roles};
+        return await this.getObjects(this.roles, query);
+    }
+
+    async getObjects(objects, query) {
+        let filteredObjects = objects;
+        if (query?.filter) {
+            filteredObjects = utilities.filter(filteredObjects, query.filter);
+        }
+        return {
+            query: query,
+            total: filteredObjects.length,
+            collectionTotal: objects.length,
+            objects: filteredObjects
+        };
     }
 
     getRole(roleId) {

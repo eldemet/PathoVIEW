@@ -1,6 +1,6 @@
 import {stringify} from 'query-string';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
-import {loadingEvent} from 'library-aurelia/src//decorators';
+import {loadingEvent} from 'library-aurelia/src/decorators';
 
 /**
  * @extends ModelServiceBasic

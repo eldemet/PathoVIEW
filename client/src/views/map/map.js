@@ -14,7 +14,7 @@ class MapView extends BasicView {
     async attached() {
         super.attached();
         await this.contextService.initialized;
-        this.users = await this.proxy.get('auth').getUsers();
+        this.users = (await this.proxy.get('auth').getUsers()).objects;
         this.userId = this.proxy.get('auth').getUserId();
         let overlay = [];
         if (this.contextService.alerts) {

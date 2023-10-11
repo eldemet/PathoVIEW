@@ -41,7 +41,7 @@ discriminator:
       source:
         $ref: './../$defs.yaml#/NGSIentityFormat'
         ui:dependence:
-          source: cookie
+          source: localStorage
           property: emergency-event
         ui:hide:
           table: true

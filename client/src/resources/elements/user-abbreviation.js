@@ -17,7 +17,7 @@ class UserAbbreviation extends BasicComponent {
     async attached() {
         let user;
         try {
-            this.users = await this.authService.getUsers();
+            this.users = (await this.authService.getUsers()).objects;
             user = this.users.find(u => u.id === this.userId);
         } catch (error) {
             this.logger.silly(error.message);

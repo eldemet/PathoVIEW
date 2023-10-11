@@ -68,10 +68,15 @@ properties:
     ui:contentCustomCompose: 'resources/elements/custom-content-items/custom-content-item-role'
     ui:formItemCustomCompose: 'resources/elements/custom-form-items/custom-form-item-role'
     ui:ref: Auth
+    ui:enumSettings:
+      functionOverride: getRoles
+      filterFunction:
+        serviceName: Context
+        functionToCall: getCurrentEmergencyEventRolesFilter
   refId:
     type: string
     ui:dependence:
-      source: cookie
+      source: localStorage
       property: emergency-event
     ui:hide:
       table: true

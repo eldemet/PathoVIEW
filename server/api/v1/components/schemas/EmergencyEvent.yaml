@@ -62,6 +62,8 @@ properties:
     items:
       type: string
       ui:ref: Auth
+      ui:enumSettings:
+        functionOverride: getRoles
     ui:formItemType: select
   createdAt:
     type: string

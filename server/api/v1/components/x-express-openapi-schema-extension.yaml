@@ -17,31 +17,52 @@ definitions:
         type: string
       x-version:
         type: string
-      ui:ref:
+      "ui:ref":
         type: string
         description: name of a referenced model type, important e.g. for getting specific objects as enum values
         example: app
-      ui:filter:
-        type: object
+      "ui:enumSettings":
         description: filter object that can be applied if only specific elements of an array should be displayed by default
-        example: '{"appType": "domainApp"}'
-      ui:filters:
+        example: '{"filter": {"appType": "domainApp"}'
+        type: object
+        properties:
+          functionOverride:
+            type: string
+          filter:
+            type: object
+          filterFunction:
+            type: object
+            required:
+              - serviceName
+              - functionToCall
+            properties:
+              serviceName:
+                type: string
+              functionToCall:
+                type: string
+          nameProperty:
+            type: string
+          additionalProperties:
+            type: array
+            items:
+              type: string
+      "ui:filters":
         type: array
         description: can be used to use specified properties as filter, nested properties can be defined as point separated string
         example: customer.name
         items:
           type: string
-      ui:formItemType:
+      "ui:formItemType":
         type: string
         description: define form item type, compare html input types or specific client library implementation
         example: array, boolean, color, date, enum, file, number, password, radio, revision, select, text, textarea, visibility, ref
-      ui:formItemCustomCompose:
+      "ui:formItemCustomCompose":
         type: string
         description: specify custom compose element in forms on client
-      ui:formItemGridClass:
+      "ui:formItemGridClass":
         type: string
-        description: bootstrap column classes, col-*(x,sm,md,lg,xl,xxl)-(1-12)
-      ui:formItemRule:
+        description: bootstrap column classes, col-*(xs,sm,md,lg,xl,xxl)-(1-12)
+      "ui:formItemRule":
         type: object
         required:
           - effect
@@ -59,7 +80,7 @@ definitions:
             type: string
           conditionSchema:
             type: object
-      ui:formItemEnumRules:
+      "ui:formItemEnumRules":
         type: array
         items:
           type: object
@@ -76,7 +97,7 @@ definitions:
               type: array
               items:
                 type: string
-      ui:dependence:
+      "ui:dependence":
         description: 'can either be cookie or serviceFunction'
         oneOf:
           - type: object
@@ -85,7 +106,10 @@ definitions:
               - property
             properties:
               source:
-                const: cookie
+                type: string
+                enum:
+                  - cookie
+                  - localStorage
               property:
                 type: string
           - type: object
@@ -100,25 +124,25 @@ definitions:
                 type: string
               functionToCall:
                 type: string
-      ui:noLabel:
+      "ui:noLabel":
         type: boolean
-      ui:detailCustomCompose:
+      "ui:detailCustomCompose":
         type: string
         description: specify custom compose element in detail views on client
       "ui:contentCustomCompose":
         type: string
         description: specify custom compose element for content item
-      ui:accept:
+      "ui:accept":
         type: string
         description: is used for for input type file to only allow specific file types
-      ui:capture:
+      "ui:capture":
         type: string
         description: is used for for input type file to directly mobile apps to capture picture, video or audio
         enum:
           - user
           - environment
           - microphone
-      ui:hide:
+      "ui:hide":
         type: object
         description: can be used to hide specific properties in specific components of a client side application
         properties:
@@ -128,18 +152,14 @@ definitions:
             type: boolean
           info:
             type: boolean
-      ui:showInTable:
-        type: string
-        description: allows to set the property that is shown in tables for sub objects
-        example: amount
-      ui:i18n:
+      "ui:i18n":
         type: boolean
         description: can be used to translate specific properties, e.g. enum values or texts
-      ui:i18nPathPrefix:
+      "ui:i18nPathPrefix":
         type: string
         description: can be used to specify a path prefix for translations (mainly enums)
         example: enum.colors
-      ui:rows:
+      "ui:rows":
         type: number
       "ui:sortProperty":
         type: string
