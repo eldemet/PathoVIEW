@@ -186,6 +186,7 @@ class ContextService extends BasicService {
         await this.loadAlerts();
         await this.loadMissions();
         await this.loadAnnotations();
+        this.checkForAlertsNearCurrentLocation();
         this.eventAggregator.publish('context-changed', emergencyEvent);
     }
 
