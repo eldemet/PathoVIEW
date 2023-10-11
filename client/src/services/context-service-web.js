@@ -1,6 +1,7 @@
+import * as platform from 'platform';
 import {observable} from 'aurelia-framework';
 import {ContextService} from './context-service';
-import {locationUtilities} from '../utilities';
+import {deviceUtilities, locationUtilities} from '../utilities';
 
 class ContextServiceImplementation extends ContextService {
 
@@ -64,6 +65,19 @@ class ContextServiceImplementation extends ContextService {
         } catch (error) {
             this.logger.warn(error.message);
         }
+    }
+
+    async getNewDeviceValues() {
+        let batteryLevel = await deviceUtilities.getBatteryLevel();
+        return {
+            name: this.proxy.get('auth')?.userInfo?.name || 'undefined',
+            batteryLevel: batteryLevel,
+            osVersion: platform.os.toString(),
+            softwareVersion: platform.name + ' ' + platform.version,
+            provider: platform.manufacturer || '',
+            location: this.currentLocation
+            // firmwareVersion, hardwareVersion, ipAddress, macAddress, rssi
+        };
     }
 
 }

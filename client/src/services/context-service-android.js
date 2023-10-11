@@ -18,15 +18,7 @@ class ContextServiceImplementation extends ContextService {
     async enableContextAwareAlerts() {
         await super.enableContextAwareAlerts();
         this.subscriptions.push(BackgroundGeolocation.onLocation(async(location) => {
-            try {
-                this.currentLocation = {type: 'Point', coordinates: [location.coords.longitude, location.coords.latitude]};
-                const info = await Device.getInfo(); // eslint-disable-line no-unused-vars
-                const batteryInfo = await Device.getBatteryInfo(); // eslint-disable-line no-unused-vars
-                await this.updateDevice();
-                this.checkForAlertsNearCurrentLocation();
-            } catch (error) {
-                this.logger.warn(error.message);
-            }
+            await this.update(location);
         }));
         this.subscriptions.push(BackgroundGeolocation.onMotionChange((event) => {
             this.isMoving = event.isMoving;
@@ -47,6 +39,8 @@ class ContextServiceImplementation extends ContextService {
             startOnBoot: false
         });
         this.state = await BackgroundGeolocation.start();
+        let location = await BackgroundGeolocation.getCurrentPosition({samples: 1, persist: true});
+        await this.update(location);
         // @ts-ignore
         this.logger.info(this.state);
         App.addListener('resume', data => {
@@ -71,6 +65,34 @@ class ContextServiceImplementation extends ContextService {
     async backgroundGeolocationDistanceFilterChanged(distanceFilter) {
         await BackgroundGeolocation.setConfig({distanceFilter});
         localStorage.setItem('background-geolocation-distance-filter', distanceFilter);
+    }
+
+    /**
+     * @param {import('@transistorsoft/capacitor-background-geolocation').Location} location
+     * @return {Promise<void>}
+     */
+    async update(location) {
+        try {
+            this.currentLocation = {type: 'Point', coordinates: [location.coords.longitude, location.coords.latitude]};
+            await this.updateDevice();
+            this.checkForAlertsNearCurrentLocation();
+        } catch (error) {
+            this.logger.warn(error.message);
+        }
+    }
+
+    async getNewDeviceValues() {
+        const deviceInfo = await Device.getInfo();
+        const batteryInfo = await Device.getBatteryInfo();
+        return {
+            name: this.proxy.get('auth')?.userInfo?.name || 'undefined',
+            batteryLevel: batteryInfo.batteryLevel,
+            osVersion: deviceInfo.platform + ' ' + deviceInfo.osVersion,
+            softwareVersion: deviceInfo.operatingSystem + ' ' + (deviceInfo.androidSDKVersion || deviceInfo.iOSVersion),
+            provider: deviceInfo.manufacturer + ' ' + deviceInfo.model + ' ' + deviceInfo.name,
+            location: this.currentLocation
+            // firmwareVersion, hardwareVersion, ipAddress, macAddress, rssi
+        };
     }
 
 }

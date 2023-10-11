@@ -1,12 +1,11 @@
 import {observable, inject} from 'aurelia-framework';
-import * as platform from 'platform';
 import numeral from 'numeral';
 import pick from 'lodash/pick';
 import {point} from '@turf/helpers';
 import {Proxy} from 'library-aurelia/src/proxy';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {alertUtilities, deviceUtilities, locationUtilities} from '../utilities';
+import {alertUtilities, locationUtilities} from '../utilities';
 import {catchError, loadingEvent} from 'library-aurelia/src/decorators';
 import {stringify} from 'query-string';
 
@@ -27,7 +26,8 @@ class ContextService extends BasicService {
     activeContextAwareAlerts = [];
     closedContextAwareAlerts = [];
 
-    /** @type {{type: 'Point', coordinates: [Number, Number]}} */
+    /** @typedef {{type: 'Point', coordinates: [Number, Number]}}  CurrentLocation */
+    /** @type {CurrentLocation} */
     currentLocation;
 
     /**
@@ -192,17 +192,8 @@ class ContextService extends BasicService {
     @catchError()
     async updateDevice() {
         if (this.currentDevice && this.currentLocation) {
-            let batteryLevel = await deviceUtilities.getBatteryLevel();
             let oldDeviceValues = pick(this.currentDevice, ['name', 'batteryLevel', 'osVersion', 'softwareVersion', 'provider', 'location']);
-            let newDeviceValues = {
-                name: this.proxy.get('auth')?.userInfo?.name || 'undefined',
-                batteryLevel: batteryLevel,
-                osVersion: platform.os.toString(),
-                softwareVersion: platform.name + ' ' + platform.version,
-                provider: platform.manufacturer || '',
-                location: this.currentLocation
-                // firmwareVersion, hardwareVersion, ipAddress, macAddress, rssi
-            };
+            let newDeviceValues = await this.getNewDeviceValues();
             if (!this._.isEqual(oldDeviceValues, newDeviceValues)) {
                 // @ts-ignore
                 this.logger.debug(newDeviceValues);
@@ -217,6 +208,15 @@ class ContextService extends BasicService {
                 this.logger.debug('Nothing to update for current device!');
             }
         }
+    }
+
+    /**
+     * @abstract
+     * @return {Promise<{name: string, batteryLevel: number, osVersion: string, softwareVersion: string, provider: string, location: CurrentLocation}>}
+     */
+    async getNewDeviceValues() {
+        this._notOverridden('getNewDeviceValues()');
+        return null;
     }
 
     @catchError()

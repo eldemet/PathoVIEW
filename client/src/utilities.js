@@ -48,7 +48,7 @@ export const missionUtilities = {};
 export const deviceUtilities = {
     getDeviceIcon(device) {
         let icon = 'bi-';
-        if (device.manufacturer === 'Apple' || device.manufacturer === 'Google') {
+        if (device.provider === 'Apple' || device.manufacturer === 'Google') {
             icon += 'phone';
         } else if (device?.osVersion?.includes('Mac')) {
             icon += 'apple';
@@ -59,7 +59,7 @@ export const deviceUtilities = {
     },
     getCustomPopupContent(device, i18n) {
         return `<p>${device.batteryLevel * 100} %</p>
-                <p>${device.softwareVersion}</p>
+                <p>${device.provider}, ${device.osVersion}, ${device.softwareVersion}</p>
                 <p>${formatDate(device.dateModified, 'f', i18n)}</p>`;
     },
     async getBatteryLevel() {
