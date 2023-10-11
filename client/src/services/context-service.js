@@ -82,6 +82,7 @@ class ContextService extends BasicService {
             this.eventAggregator.publish('app-alert-dismiss', {id});
         }
         this.activeContextAwareAlerts = [];
+        this.closedContextAwareAlerts = [];
     }
 
     async contextAwareAlertsEnabledChanged(enabled) {
