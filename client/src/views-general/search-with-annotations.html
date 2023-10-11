@@ -56,7 +56,7 @@
                                     <th repeat.for="key of schema.properties | objectKeys"
                                         if.bind="!schema.properties[key].oneOf && !schema.properties[key].hide.table"
                                         class="${sortBy === key ? ascending ? 'ascending' : 'descending' : ''}"
-                                        click.delegate="changeSortProperty(key, schema.properties[key].showInTable)">
+                                        click.delegate="changeSortProperty(key)">
                                         ${'propertyKeys.' + key | t}
                                     </th>
                                     <th if.bind="isInitialized"
@@ -99,15 +99,13 @@
                                                 </div>
                                                 <div if.bind="schema.properties[key].items.type === 'object'"
                                                      repeat.for="item of object[key]">
-                                                    <span>${schema.properties[key].showInTable ? item[schema.properties[key].showInTable] : object[key][Object.keys(object[key])[0]]}</span>
+                                                    <span>${schema.properties[key].defaultProperty ? item[schema.properties[key].defaultProperty] : object[key][Object.keys(object[key])[0]]}</span>
                                                     <span if.bind="!$last">, </span>
                                                 </div>
                                             </div>
-                                            <div if.bind="schema.properties[key].type === 'object'">
-                                                ${schema.properties[key].showInTable ?
-                                                object[key][schema.properties[key].showInTable] :
-                                                object[key][Object.keys(object[key])[0]]}
-                                            </div>
+                                            <span if.bind="schema.properties[key].type === 'object'">
+                                                ${schema.properties[key].defaultProperty ? object[key][schema.properties[key].defaultProperty] : object[key][Object.keys(object[key])[0]]}
+                                            </span>
                                         </div>
                                     </td>
                                     <td if.bind="isInitialized">
