@@ -2,7 +2,6 @@ import get from 'lodash/get';
 import {inject} from 'aurelia-framework';
 import {AureliaCookie} from 'aurelia-cookie';
 import {utilities} from 'value-converters';
-import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 
@@ -21,7 +20,7 @@ class AuthService extends BasicService {
     /**
      *
      * @param {HttpService} httpService
-     * @param {ConstructorParameters<typeof BasicObject>} rest
+     * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
     constructor(httpService, ...rest) {
         super('auth', ...rest);

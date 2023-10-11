@@ -2,7 +2,6 @@ import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import {AureliaCookie} from 'aurelia-cookie';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 
 const NotificationType = {
     /**
@@ -62,7 +61,7 @@ class NotificationService extends BasicService {
     notificationSound = new Audio('assets/sound-notification.mp3');
 
     /**
-     * @param {ConstructorParameters<typeof BasicObject>} rest
+     * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
     constructor(...rest) {
         super('notification', ...rest);
@@ -139,6 +138,7 @@ class NotificationService extends BasicService {
             this.logger.info('Received notification ' + (n.topic ? n.topic + ' ' : '') + n.contentType);
             let valid = this.ajv.validate(NotificationSchema, n);
             if (valid) {
+                //TODO get schema of model, check for schema.options.filterProperty, only send notification if filterProperty === emergencyId
                 this.eventAggregator.publish('notification' + (n.topic ? '-' + n.topic : ''), n);
                 if (!this.ignoreList.includes(n.contentType) && n.senderId !== AureliaCookie.get('userId')) {
                     this.notifications.unshift(n);

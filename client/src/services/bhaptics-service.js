@@ -1,7 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
-import {BasicObject} from 'library-aurelia/src/prototypes/basic-object'; // eslint-disable-line no-unused-vars
 import tactFiles from '../assets/tact-files';
 
 @inject(EventAggregator)
@@ -12,7 +11,7 @@ class BhapticsService extends BasicService {
     /**
      * @abstract
      * @param {EventAggregator} eventAggregator
-     * @param {ConstructorParameters<typeof BasicObject>} rest
+     * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */
     constructor(eventAggregator, ...rest) {
         super('bhaptics', ...rest);
