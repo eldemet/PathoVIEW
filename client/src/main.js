@@ -1,4 +1,3 @@
-import 'bootstrap';
 import {I18N} from 'aurelia-i18n';
 import {PLATFORM} from 'aurelia-pal';
 import {AureliaFramework} from 'library-aurelia/src/framework';

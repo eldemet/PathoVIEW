@@ -1,6 +1,5 @@
 import {computedFrom} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
-import {AureliaCookie} from 'aurelia-cookie';
 import {Offcanvas} from 'bootstrap';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
