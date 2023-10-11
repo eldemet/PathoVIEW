@@ -13,7 +13,7 @@ model:searchProperties:
   - name
   - description
 model:defaultProperty: name
-ui:sortProperty: dateIssued
+ui:sortProperty: '!dateIssued'
 ui:filters:
   - source
   - severity

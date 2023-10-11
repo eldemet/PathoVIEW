@@ -14,7 +14,7 @@ discriminator:
     model:searchProperties:
       - creator
     model:defaultProperty: kind
-    ui:sortProperty: createdAt
+    ui:sortProperty: '!createdAt'
     properties:
       id:
         $ref: './../$defs.yaml#/NGSIentityFormat'

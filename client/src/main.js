@@ -2,7 +2,6 @@ import 'bootstrap';
 import {I18N} from 'aurelia-i18n';
 import {PLATFORM} from 'aurelia-pal';
 import {AureliaFramework} from 'library-aurelia/src/framework';
-import {AureliaCookie} from 'aurelia-cookie';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
@@ -82,16 +81,6 @@ export async function configure(aurelia) {
         PLATFORM.moduleName('aurelia-animator-css')
     ];
     let splashScreen = (await import('views/splash-screen.html?raw')).default;
-
-    //TODO remove if library-aurelia is updated
-    if (!AureliaCookie.get('search-alert-sort-by')) {
-        AureliaCookie.set('search-alert-sort-by', 'dateIssued', {});
-        AureliaCookie.set('search-alert-sort-ascending', 'false', {});
-    }
-    if (!AureliaCookie.get('search-mission-sort-by')) {
-        AureliaCookie.set('search-mission-sort-by', 'createdAt', {});
-        AureliaCookie.set('search-mission-sort-ascending', 'false', {});
-    }
 
     // redirect to keycloak for login
     await authService.start(environment.keycloak, environment.testing);
