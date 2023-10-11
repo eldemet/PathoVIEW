@@ -55,7 +55,7 @@ class BhapticsService extends BasicService {
     }
 
     async bhapticsServiceEnabledChanged(enabled) {
-        if (!enabled) {
+        if (enabled) {
             await this.initialize();
         } else {
             await this.close();
