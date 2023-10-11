@@ -99,9 +99,9 @@
                     </div>
                 </div>
                 <hr class="dropdown-divider">
-                <div class="py-0"
+                <div class="px-3 py-0"
                      if.bind="appConfig.enableBhaptics">
-                    <label class="h4 px-3 d-flex align-items-end flex-nowrap"
+                    <label class="h4 d-flex align-items-end flex-nowrap"
                            for="bhapticsServiceToggle">
                         <img class="mb-1 me-1" src.bind="'./assets/logo-bhaptics.svg'" style="width: 1rem" class="me-2">
                         PathoVEST
@@ -109,7 +109,7 @@
                             <input class="form-check-input" type="checkbox" role="switch" id="bhapticsServiceToggle" checked.bind="bhapticsService.bhapticsServiceEnabled">
                         </div>
                     </label>
-                    <div class="px-3 text-body-tertiary text-wrap mb-2">
+                    <div class="text-body-tertiary text-wrap mb-2">
                         <div if.bind="bhapticsService.status === 'connecting'">
                             <div class="spinner-border spinner-border-sm" role="status"></div>
                             ${'alerts.bhaptics.connecting' | t}
@@ -123,7 +123,7 @@
                             ${'alerts.bhaptics.error' | t}
                         </div>
                     </div>
-                    <ul class="mb-2 px-3"
+                    <ul class="mb-2"
                         if.bind="bhapticsService.devices">
                         <li if.bind="bhapticsService.devices"
                             repeat.for="bhapticsDevice of bhapticsService.devices"
@@ -159,26 +159,28 @@
                 <i if.bind="contextService.activity === 'unknown'" class="bi-question-lg"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-lg-end text-nowrap" aria-labelledby="background-location-menu">
-                <div class="ms-2 form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="backgroundGeolocationDebugToggle" checked.bind="contextService.backgroundGeolocationDebug">
-                    <label for="backgroundGeolocationDebugToggle">Debug</label>
-                </div>
-                <div class="mb-3">
-                    <label for="backgroundGeolocationDistanceFilter" class="form-label">${'buttons.contextAwareAlertsDistanceFilter' | t}</label>
-                    <div class="input-group">
-                        <input type="number"
-                               autocomplete="off"
-                               class="form-control"
-                               id="backgroundGeolocationDistanceFilter"
-                               value.two-way="contextService.backgroundGeolocationDistanceFilter & debounce:1000">
-                        <span class="input-group-text">m</span>
+                <div class="px-3 py-0">
+                    <div class="mb-3 ms-2 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="backgroundGeolocationDebugToggle" checked.bind="contextService.backgroundGeolocationDebug">
+                        <label for="backgroundGeolocationDebugToggle">Debug</label>
                     </div>
-                </div>
-                <div class="px-3 text-body-tertiary text-wrap mb-2" if.bind="contextService.provider">
-                    <p>enabled: ${contextService.provider.enabled}</p>
-                    <p>status: ${contextService.provider.status}</p>
-                    <p>network: ${contextService.provider.network}</p>
-                    <p>gps: ${contextService.provider.gps}</p>
+                    <div class="mb-3">
+                        <label for="backgroundGeolocationDistanceFilter" class="form-label">${'buttons.contextAwareAlertsDistanceFilter' | t}</label>
+                        <div class="input-group">
+                            <input type="number"
+                                   autocomplete="off"
+                                   class="form-control"
+                                   id="backgroundGeolocationDistanceFilter"
+                                   value.two-way="contextService.backgroundGeolocationDistanceFilter & debounce:1000">
+                            <span class="input-group-text">m</span>
+                        </div>
+                    </div>
+                    <div class="px-3 text-body-tertiary text-wrap mb-2" if.bind="contextService.provider">
+                        <p>enabled: ${contextService.provider.enabled}</p>
+                        <p>status: ${contextService.provider.status}</p>
+                        <p>network: ${contextService.provider.network}</p>
+                        <p>gps: ${contextService.provider.gps}</p>
+                    </div>
                 </div>
             </div>
         </div>
