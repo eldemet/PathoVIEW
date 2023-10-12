@@ -118,7 +118,7 @@
         "geoLocationUnavailable": "Ο γεωεντοπισμός δεν λειτουργεί αυτήν τη στιγμή. ",
         "notifications": {
             "model": {
-                "create": "Νέος $t(model.{{type}},{'count': 1})",
+                "create": "Δημιουργία $t(model.{{type}},{'count': 1})",
                 "update": "ΕΠΙΚΑΙΡΟΠΟΙΗΜΕΝΟ $t(model.{{type}},{'count': 1})",
                 "delete": "Διαγράφηκε $t(model.{{type}},{'count': 1})",
                 "message": "Μπορείτε πλέον να δείτε τις αλλαγές στις αντίστοιχες προβολές!"
