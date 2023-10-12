@@ -133,6 +133,7 @@ properties:
       - PathoCAM
       - PathoVIEW
       - PathoSAT
+      - PathoSENSE
       - PathoTHREAT
     ui:hide:
       form: true
