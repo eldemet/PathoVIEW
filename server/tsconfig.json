@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "experimentalDecorators": true,
         "allowJs": true,
         "checkJs": true,
         "noEmit": true,
@@ -12,18 +11,13 @@
         "esModuleInterop": true
     },
     "include": [
-        "server/node_modules/utilities-node/src/**/*",
-        "types/*",
-        "server/**/*",
-        "client/node_modules/library-aurelia/types/*",
-        "client/node_modules/library-aurelia/src/**/*",
-        "client/types/*",
-        "client/src/**/*"
+        "**/*",
+        "node_modules/utilities-node/src/**/*"
     ],
     "exclude": [
         "test",
         "docs",
         "dist",
-        "server/client"
+        "client"
     ]
 }
