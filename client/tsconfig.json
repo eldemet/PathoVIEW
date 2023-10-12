@@ -9,13 +9,12 @@
         "target": "es2022",
         "rootDir": "./",
         "skipLibCheck": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "downlevelIteration": true
     },
     "include": [
-        "node_modules/library-aurelia/types/*",
-        "node_modules/library-aurelia/src/**/*",
-        "types/*",
-        "src/**/*"
+        "src/**/*",
+        "node_modules/library-aurelia/src/**/*"
     ],
     "exclude": [
         "test",

@@ -7,6 +7,15 @@ import {deviceUtilities} from './utilities';
 
 export class App extends BasicViewRouter {
 
+    /** @type {import('./services/context-service').ContextService} */
+    contextService;
+    /** @type {import('./services/auth-service').AuthService} */
+    authService;
+    /** @type {import('./services/bhaptics-service').BhapticsService} */
+    bhapticsService;
+    /** @type {import('./services/notification-service').NotificationService} */
+    notificationService;
+
     languages = [
         {name: 'English (en)', value: 'en'},
         {name: 'Deutsch (de)', value: 'de'},
@@ -23,7 +32,6 @@ export class App extends BasicViewRouter {
         this.appConfig = this.proxy.get('config').config;
         this.contextService = this.proxy.get('context');
         this.deviceUtilities = deviceUtilities;
-        /** @type {import('./services/auth-service').AuthService} */
         this.authService = this.proxy.get('auth');
         if (this.appConfig.enableBhaptics) {
             this.bhapticsService = this.proxy.get('bhaptics');

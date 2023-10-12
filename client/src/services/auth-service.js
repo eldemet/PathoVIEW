@@ -8,12 +8,12 @@ import {HttpService} from 'library-aurelia/src/services/http-service';
 @inject(HttpService)
 class AuthService extends BasicService {
 
-    /** @type{KeycloakUser} */
+    /** @type{import('../types').KeycloakUser} */
     user;
-    /** @type {KeycloakUserInfo} */
+    /** @type {import('../types').KeycloakUserInfo} */
     userInfo;
     config;
-    /** @type {TokenInformation} */
+    /** @type {import('../types').TokenInformation} */
     token;
     options = {uniqueProperty: 'id'};
 
@@ -79,7 +79,7 @@ class AuthService extends BasicService {
     }
 
     /**
-     * @return {Promise<KeycloakUser>}
+     * @return {Promise<import('../types').KeycloakUser>}
      */
     async getUserInfo() {
         await this.initialized;

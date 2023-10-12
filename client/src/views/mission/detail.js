@@ -1,7 +1,7 @@
-import {BasicView} from 'library-aurelia/src//prototypes/basic-view';
+import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {activationStrategy} from 'aurelia-router';
 import {RouterService} from 'library-aurelia/src/services/router-service';
-import {catchError} from 'library-aurelia/src//decorators';
+import {catchError} from 'library-aurelia/src/decorators';
 import {useView} from 'aurelia-framework';
 import {PLATFORM} from 'aurelia-pal';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
@@ -18,6 +18,7 @@ class Detail extends BasicView {
      */
     constructor(...rest) {
         super(...rest);
+        /** @type{import('../../services/auth-service').AuthService}  */
         this.authService = this.proxy.get('auth');
     }
 

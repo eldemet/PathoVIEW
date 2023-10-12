@@ -1,7 +1,7 @@
 {
     "name": "pathoview-client",
     "description": "PathoVIEW client application.",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "repository": {
         "type": "git",
         "url": "https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git"
@@ -27,11 +27,10 @@
         "lint": "eslint src/**/*.{js,jsx}",
         "prepare": "node ./node_modules/library-aurelia/tasks/license-checker.js"
     },
-    "types": "./types/types.d.ts",
     "dependencies": {
-        "@capacitor/android": "^5.4.2",
+        "@capacitor/android": "^5.5.0",
         "@capacitor/app": "^5.0.6",
-        "@capacitor/core": "^5.4.2",
+        "@capacitor/core": "^5.5.0",
         "@capacitor/device": "^5.0.6",
         "@capacitor/haptics": "^5.0.6",
         "@capacitor/local-notifications": "^5.0.6",
@@ -46,12 +45,12 @@
         "fabric": "^5.3.0",
         "keycloak-js": "^19.0.3",
         "leaflet": "^1.9.4",
-        "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v4.9.0",
+        "library-aurelia": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia.git#v4.9.2",
         "platform": "^1.3.6",
         "tact-js": "^0.4.1"
     },
     "devDependencies": {
-        "@capacitor/cli": "^5.4.2",
+        "@capacitor/cli": "^5.5.0",
         "@types/leaflet": "^1.9.6",
         "terser-webpack-plugin": "^5.3.9",
         "typescript": "^5.2.2"

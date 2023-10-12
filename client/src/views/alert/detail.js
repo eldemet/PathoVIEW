@@ -13,6 +13,9 @@ import {RouterService} from 'library-aurelia/src/services/router-service';
 @useView(PLATFORM.moduleName('./detail.html'))
 class Detail extends BasicView {
 
+    /** @type {import('../../services/auth-service').AuthService} */
+    authService;
+
     /**
      * @param {ConstructorParameters<typeof BasicView>} rest
      */

@@ -19,7 +19,7 @@ import {ContextServiceImplementation} from './services/context-service-APP_TARGE
 // set model service options
 const apiEntrypoint = '/api/v1/model';
 const uniqueProperty = 'id';
-/** @type {import('library-aurelia/types/types').AjvFormats[]} **/
+/** @type {import('library-aurelia/src/types').AjvFormats[]} **/
 const formats = ['uri-reference', 'date-time'];
 const deviceFormats = [...formats, ...['uri', 'ipv4', 'ipv6']];
 const getSchema = ':api-entrypoint/:type/schema-ui';

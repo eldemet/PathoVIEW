@@ -73,7 +73,7 @@ class BhapticsService extends BasicService {
 
     /**
      * @abstract
-     * @param {BhapticsTactFile} tactFile
+     * @param {import('../types').BhapticsTactFile} tactFile
      * @return {Promise<void>}
      */
     async register(tactFile) {
@@ -82,7 +82,7 @@ class BhapticsService extends BasicService {
 
     /**
      * @abstract
-     * @param {BhapticsCallRegistered} callRegistered
+     * @param {import('../types').BhapticsCallRegistered} callRegistered
      * @return {Promise<void>}
      */
     async submitRegistered(callRegistered) {
