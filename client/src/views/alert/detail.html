@@ -20,7 +20,7 @@
                                 click.trigger="deleteObject(object, $event)">
                             <i class="bi-trash"></i><span class="ms-2 d-none d-md-inline d-lg-none">${'buttons.delete' | t}</span>
                         </button>
-                        <button if.bind="authService.hasAccess('alert.create')"
+                        <button if.bind="authService.hasAccess('alert.update')"
                                 class="btn btn-outline-secondary me-2"
                                 click.trigger="navigate('search-update')">
                             <i class="bi-pencil"></i><span class="ms-2 d-none d-md-inline d-lg-none">${'buttons.update' | t}</span>
