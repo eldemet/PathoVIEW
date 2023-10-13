@@ -53,7 +53,7 @@ class ContextServiceImplementation extends ContextService {
         await super.close();
         this.state = await BackgroundGeolocation.stop();
         await App.removeAllListeners();
-        await BackgroundGeolocation.removeAllListeners();
+        await BackgroundGeolocation.removeListeners();
         // @ts-ignore
         this.logger.info(this.state);
     }
