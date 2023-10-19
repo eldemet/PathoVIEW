@@ -1,6 +1,5 @@
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-import {AureliaCookie} from 'aurelia-cookie';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 
 const NotificationType = {
@@ -80,7 +79,7 @@ class NotificationService extends BasicService {
             NotificationSchema.properties.contentType.enum = validContentTypes;
         }
         if (topics) url += '?topics=' + topics.join();
-        let authToken = AureliaCookie.get('auth_token');
+        let authToken = localStorage.getItem('auth_token');
         const options = !this._.isNil(authToken) ?
             {headers: {'Authorization': 'Bearer ' + authToken, withCredentials: true}} :
             {withCredentials: true}
@@ -140,7 +139,7 @@ class NotificationService extends BasicService {
             if (valid) {
                 //TODO get schema of model, check for schema.options.filterProperty, only send notification if filterProperty === emergencyId
                 this.eventAggregator.publish('notification' + (n.topic ? '-' + n.topic : ''), n);
-                if (!this.ignoreList.includes(n.contentType) && n.senderId !== AureliaCookie.get('userId')) {
+                if (!this.ignoreList.includes(n.contentType) && n.senderId !== localStorage.getItem('userId')) {
                     this.notifications.unshift(n);
                     if (this.notifications.length > 99) {
                         this.notifications.length = 99;

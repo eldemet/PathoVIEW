@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import {inject} from 'aurelia-framework';
-import {AureliaCookie} from 'aurelia-cookie';
 import {utilities} from 'value-converters';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {HttpService} from 'library-aurelia/src/services/http-service';
@@ -56,7 +55,7 @@ class AuthService extends BasicService {
     }
 
     setAuthToken(token) {
-        AureliaCookie.set('auth_token', token.value, {expiry: token.expiry});
+        localStorage.setItem('auth_token', token.value);
     }
 
     setLocale(locale) {
@@ -68,7 +67,7 @@ class AuthService extends BasicService {
     }
 
     setUserId(userId) {
-        AureliaCookie.set('userId', userId, {});
+        localStorage.setItem('userId', userId);
     }
 
     getUserId() {

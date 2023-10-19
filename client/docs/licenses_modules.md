@@ -6,7 +6,7 @@
 * ISC: 78
 * BSD-2-Clause: 30
 * Apache-2.0: 20
-* BSD-3-Clause: 15
+* BSD-3-Clause: 16
 * Unlicense: 3
 * BSD-3-Clause-Clear: 3
 * CC0-1.0: 3
@@ -604,7 +604,7 @@
     - licenses: MIT
     - description: Encode/decode sourcemap mappings
     - copyright: Copyright (c) 2015 Rich Harris
- - **[@jridgewell/trace-mapping@0.3.19](https://github.com/jridgewell/trace-mapping)**
+ - **[@jridgewell/trace-mapping@0.3.20](https://github.com/jridgewell/trace-mapping)**
     - licenses: MIT
     - description: Trace the original position through a source map
     - copyright: Copyright 2022 Justin Ridgewell <justin@ridgewell.name>
@@ -648,7 +648,7 @@
     - licenses: MIT
     - description: Periodic callbacks in the background for both IOS and Android
     - copyright: Copyright (c) 2013 Chris Scott, Transistor Software <chris@transistorsoft.com>. http://transistorsoft.com
- - **[@transistorsoft/capacitor-background-geolocation@5.2.1](https://github.com/transistorsoft/capacitor-background-geolocation)**
+ - **[@transistorsoft/capacitor-background-geolocation@5.2.2](https://github.com/transistorsoft/capacitor-background-geolocation)**
     - licenses: MIT*
     - description: The most sophisticated cross platform Capacitor background location tracking & geofencing module with battery-conscious motion-detection intelligence
     - copyright: Copyright (c) 2015 Chris Scott
@@ -752,47 +752,47 @@
     - licenses: MIT
     - description: turf truncate module
     - copyright: Copyright (c) 2017 TurfJS
- - **[@types/body-parser@1.19.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/body-parser@1.19.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for body-parser
     - copyright: none
- - **[@types/bonjour@3.5.11](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/bonjour@3.5.12](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for bonjour
     - copyright: none
- - **[@types/connect-history-api-fallback@1.5.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/connect-history-api-fallback@1.5.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for connect-history-api-fallback
     - copyright: none
- - **[@types/connect@3.4.36](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/connect@3.4.37](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for connect
     - copyright: none
- - **[@types/eslint-scope@3.7.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/eslint-scope@3.7.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for eslint-scope
     - copyright: none
- - **[@types/eslint@8.44.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/eslint@8.44.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for eslint
     - copyright: none
- - **[@types/estree@1.0.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/estree@1.0.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for estree
     - copyright: none
- - **[@types/express-serve-static-core@4.17.37](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/express-serve-static-core@4.17.38](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for Express
+    - description: TypeScript definitions for express-serve-static-core
     - copyright: none
- - **[@types/express@4.17.19](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/express@4.17.20](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for Express
+    - description: TypeScript definitions for express
     - copyright: none
- - **[@types/fs-extra@8.1.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/fs-extra@8.1.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for fs-extra
     - copyright: none
- - **[@types/geojson@7946.0.11](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/geojson@7946.0.12](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for geojson
     - copyright: none
@@ -808,23 +808,23 @@
     - licenses: MIT
     - description: TypeScript definitions for html-minifier-terser
     - copyright: none
- - **[@types/http-errors@2.0.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/http-errors@2.0.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for http-errors
     - copyright: none
- - **[@types/http-proxy@1.17.12](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/http-proxy@1.17.13](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for node-http-proxy
+    - description: TypeScript definitions for http-proxy
     - copyright: none
- - **[@types/json-schema@7.0.13](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/json-schema@7.0.14](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for json-schema 4.0, 6.0 and
+    - description: TypeScript definitions for json-schema
     - copyright: none
- - **[@types/leaflet@1.9.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/leaflet@1.9.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for Leaflet.js
+    - description: TypeScript definitions for leaflet
     - copyright: none
- - **[@types/mime@1.3.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/mime@1.3.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for mime
     - copyright: none
@@ -832,15 +832,15 @@
     - licenses: MIT
     - description: TypeScript definitions for minimatch
     - copyright: none
- - **[@types/node@20.8.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@20.8.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for Node.js
+    - description: TypeScript definitions for node
     - copyright: none
- - **[@types/qs@6.9.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/qs@6.9.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for qs
     - copyright: none
- - **[@types/range-parser@1.2.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/range-parser@1.2.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for range-parser
     - copyright: none
@@ -848,15 +848,15 @@
     - licenses: MIT
     - description: TypeScript definitions for retry
     - copyright: none
- - **[@types/send@0.17.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/send@0.17.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for send
     - copyright: none
- - **[@types/serve-index@1.9.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/serve-index@1.9.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for serve-index
     - copyright: none
- - **[@types/serve-static@1.15.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/serve-static@1.15.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for serve-static
     - copyright: none
@@ -864,11 +864,11 @@
     - licenses: MIT
     - description: TypeScript definitions for slice-ansi
     - copyright: none
- - **[@types/sockjs@0.3.34](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/sockjs@0.3.35](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for sockjs
     - copyright: none
- - **[@types/ws@8.5.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/ws@8.5.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for ws
     - copyright: none
@@ -1356,7 +1356,7 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001547](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001551](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
@@ -1728,7 +1728,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.4.551](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.559](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -1952,6 +1952,10 @@
     - licenses: MIT
     - description: A stupidly simple key/value storage using files to persist some data
     - copyright: Copyright (c) Roy Riojas and Jared Wray
+ - **[flat@5.0.2](https://github.com/hughsk/flat)**
+    - licenses: BSD-3-Clause
+    - description: Take a nested Javascript object and flatten it, or unflatten an object with delimited keys
+    - copyright: Copyright (c) 2014, Hugh Kennedy. All rights reserved.
  - **[flatted@3.2.9](https://github.com/WebReflection/flatted)**
     - licenses: ISC
     - description: A super light and fast circular JSON parser.
@@ -1968,7 +1972,7 @@
     - licenses: MIT
     - description: Parse HTTP X-Forwarded-For header
     - copyright: Copyright (c) 2014-2017 Douglas Christopher Wilson
- - **[fraction.js@4.3.6](https://github.com/rawify/Fraction.js)**
+ - **[fraction.js@4.3.7](https://github.com/rawify/Fraction.js)**
     - licenses: MIT
     - description: A rational number library
     - copyright: Copyright (c) 2023 Robert Eisele
@@ -1992,7 +1996,7 @@
     - licenses: ISC
     - description: Use node's fs.realpath, but fall back to the JS implementation if the native one fails
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[function-bind@1.1.1](https://github.com/Raynos/function-bind)**
+ - **[function-bind@1.1.2](https://github.com/Raynos/function-bind)**
     - licenses: MIT
     - description: Implementation of Function.prototype.bind
     - copyright: Copyright (c) 2013 Raynos.
@@ -2176,7 +2180,7 @@
     - licenses: MIT
     - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
     - copyright: Copyright (c) 2023 i18next
- - **[i18next@23.5.1](https://github.com/i18next/i18next)**
+ - **[i18next@23.6.0](https://github.com/i18next/i18next)**
     - licenses: MIT
     - description: i18next internationalization framework
     - copyright: Copyright (c) 2023 i18next
@@ -2432,7 +2436,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.9.2](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.9.3](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2023, Fraunhofer IAO. All rights reserved.
@@ -2760,7 +2764,7 @@
     - licenses: MIT
     - description: ES2015 `Object.assign()` ponyfill
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[object-inspect@1.12.3](https://github.com/inspect-js/object-inspect)**
+ - **[object-inspect@1.13.0](https://github.com/inspect-js/object-inspect)**
     - licenses: MIT
     - description: string representations of objects in node and the browser
     - copyright: Copyright (c) 2013 James Halliday
@@ -3312,7 +3316,7 @@
     - licenses: MIT
     - description: Sass loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[sass@1.69.3](https://github.com/sass/dart-sass)**
+ - **[sass@1.69.4](https://github.com/sass/dart-sass)**
     - licenses: MIT
     - description: A pure JavaScript implementation of Sass.
     - copyright: Copyright (c) 2016, Google Inc.*
@@ -3592,7 +3596,7 @@
     - licenses: MIT
     - description: Terser plugin for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[terser@5.21.0](https://github.com/terser/terser)**
+ - **[terser@5.22.0](https://github.com/terser/terser)**
     - licenses: BSD-2-Clause
     - description: JavaScript parser, mangler/compressor and beautifier toolkit for ES6+
     - copyright: Copyright 2012-2018 (c) Mihai Bazon <mihai.bazon@gmail.com>
@@ -3796,7 +3800,7 @@
     - licenses: MIT
     - description: Serves a webpack app. Updates the browser on changes.
     - copyright: Copyright JS Foundation and other contributors
- - **[webpack-merge@5.9.0](https://github.com/survivejs/webpack-merge)**
+ - **[webpack-merge@5.10.0](https://github.com/survivejs/webpack-merge)**
     - licenses: MIT
     - description: Variant of merge that's useful for webpack configuration
     - copyright: Copyright (c) 2015 Juho Vepsalainen
@@ -3804,7 +3808,7 @@
     - licenses: MIT
     - description: Source code handling classes for webpack
     - copyright: Copyright (c) 2017 JS Foundation and other contributors
- - **[webpack@5.88.2](https://github.com/webpack/webpack)**
+ - **[webpack@5.89.0](https://github.com/webpack/webpack)**
     - licenses: MIT
     - description: Packs ECMAScript/CommonJs/AMD modules for the browser. Allows you to split your codebase into multiple bundles, which can be loaded on demand. Supports loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.
     - copyright: Copyright JS Foundation and other contributors
