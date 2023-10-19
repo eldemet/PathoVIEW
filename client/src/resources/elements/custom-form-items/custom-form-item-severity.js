@@ -2,7 +2,6 @@ import {BasicComposableAuFormItem} from 'library-aurelia/src/prototypes/basic-co
 
 /**
  * @extends BasicComposableAuFormItem
- * @category resources
  * @subcategory custom-elements
  *
  * @example

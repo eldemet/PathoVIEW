@@ -4,7 +4,6 @@ import {PLATFORM} from 'aurelia-pal';
 
 /**
  * @extends SearchContextAware
- * @category views-general
  */
 @useView(PLATFORM.moduleName('./search-with-annotations.html'))
 class SearchWithAnnotations extends SearchContextAware {

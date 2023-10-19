@@ -4,13 +4,12 @@ import {loadingEvent} from 'library-aurelia/src/decorators';
 
 /**
  * @extends ModelServiceBasic
- * @category services
  */
 class ModelServiceContextAware extends ModelServiceBasic {
 
     /**
      * @param {String} type
-     * @param {ModelServiceOptionsContextAware} options
+     * @param {import('../types').ModelServiceOptionsContextAware} options
      * @param {import('library-aurelia/src/services/http-service').HttpService} httpService
      * @param {ConstructorParameters<typeof import('library-aurelia/src/prototypes/basic-object').BasicObject>} rest
      */

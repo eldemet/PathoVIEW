@@ -4,7 +4,6 @@ import {PLATFORM} from 'aurelia-pal';
 
 /**
  * @extends Search
- * @category views-general
  */
 @useView(PLATFORM.moduleName('library-aurelia/src/views-general/search.html'))
 class SearchContextAware extends Search {

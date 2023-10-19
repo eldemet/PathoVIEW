@@ -11,7 +11,6 @@ import {stringify} from 'query-string';
 
 /**
  * @extends BasicService
- * @category services
  */
 @inject(Proxy, HttpService)
 class ContextService extends BasicService {

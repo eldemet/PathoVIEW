@@ -3,7 +3,6 @@ import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 
 /**
  * @extends BasicView
- * @category views-general
  */
 class AnnotationsView extends BasicView {
 

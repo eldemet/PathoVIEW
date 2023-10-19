@@ -8,7 +8,6 @@ import {RouterService} from 'library-aurelia/src/services/router-service';
 
 /**
  * @extends BasicView
- * @category views-general
  */
 @useView(PLATFORM.moduleName('./detail.html'))
 class Detail extends BasicView {

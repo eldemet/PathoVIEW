@@ -2,7 +2,6 @@ import {BasicDialog} from 'library-aurelia/src/prototypes/basic-dialog';
 
 /**
  * @extends BasicDialog
- * @category resources
  * @subcategory dialogs
  */
 class CameraDialog extends BasicDialog {

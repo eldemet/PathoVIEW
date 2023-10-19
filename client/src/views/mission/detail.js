@@ -8,7 +8,6 @@ import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog
 
 /**
  * @extends BasicView
- * @category views-general
  */
 @useView(PLATFORM.moduleName('./detail.html'))
 class Detail extends BasicView {

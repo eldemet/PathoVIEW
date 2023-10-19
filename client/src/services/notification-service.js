@@ -50,7 +50,6 @@ const NotificationSchema = {
 
 /**
  * @extends BasicService
- * @category services
  */
 class NotificationService extends BasicService {
 

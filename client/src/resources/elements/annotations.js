@@ -3,7 +3,6 @@ import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
 
 /**
  * @extends BasicComponent
- * @category resources/elements
  */
 class Annotations extends BasicComponent {
 

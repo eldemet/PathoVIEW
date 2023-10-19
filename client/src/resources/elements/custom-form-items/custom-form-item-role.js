@@ -2,7 +2,6 @@ import {BasicComposableAuFormItemEnum} from 'library-aurelia/src/prototypes/basi
 
 /**
  * @extends BasicComposableAuFormItemEnum
- * @category resources
  * @subcategory custom-elements
  *
  * @example
