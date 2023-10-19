@@ -7,8 +7,7 @@ const logger = new Logger(import.meta);
 
 /**
  * @module paths/weather/current
- * @category paths
- * @param {ConfigWithAdditions} config
+ * @param {import('../../../../types').ConfigWithAdditions} config
  * @param {Function} getApiDoc
  */
 export default function(config, getApiDoc) {

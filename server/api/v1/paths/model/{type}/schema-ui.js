@@ -34,8 +34,7 @@ async function initializeUISchemas(schemaDirectory) {
 
 /**
  * @module paths/model/type/schema
- * @category paths
- * @param {Config} config
+ * @param {import('utilities-node/src/types').Config} config
  * @param {Function} getApiDoc
  */
 export default function(config, getApiDoc) {

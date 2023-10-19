@@ -15,6 +15,7 @@
         "node_modules/utilities-node/src/**/*"
     ],
     "exclude": [
+        "node_modules",
         "test",
         "docs",
         "dist",

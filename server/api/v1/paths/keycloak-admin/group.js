@@ -4,10 +4,9 @@ const logger = new Logger(import.meta);
 
 /**
  * @module paths/keycloak-admin/group
- * @category paths
- * @param {Config} config
+ * @param {import('utilities-node/src/types').Config} config
  * @param {Function} getApiDoc
- * @param {KeycloakAdminService} kcAdminService
+ * @param {import('../../../../services/keycloak-admin').KeycloakAdminService} kcAdminService
  */
 export default function(config, getApiDoc, kcAdminService) {
 

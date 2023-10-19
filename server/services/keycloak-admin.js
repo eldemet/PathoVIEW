@@ -1,6 +1,5 @@
 /**
  * @module keycloak-admin
- * @category services
  */
 import _ from 'lodash';
 import {loadFile} from 'utilities-node/src/utilities/fs.js';
@@ -8,13 +7,25 @@ import {BasicObject} from 'utilities-node/src/services/_prototypes.js';
 
 /**
  * @extends BasicObject
- * @category services
  */
 class KeycloakAdminService extends BasicObject {
 
-    users;
-    roles;
-    groups;
+    /**
+     * @type {import('utilities-node/src/utilities/logger').default}
+     */
+    logger;
+    /**
+     * @type {import('../types').KeycloakUser[]}
+     */
+    users = [];
+    /**
+     * @type {import('../types').KeycloakRole[]}
+     */
+    roles = [];
+    /**
+     * @type {import('../types').KeycloakGroup[]}
+     */
+    groups = [];
 
     constructor() {
         super();
@@ -28,7 +39,7 @@ class KeycloakAdminService extends BasicObject {
             realmName: config.keycloakConfig.realm || 'master'
         });
         let password = config.keycloakConfig.adminClientPasswordFile ? loadFile(config.keycloakConfig.adminClientPasswordFile) : 'admin';
-        password = password.replace(/(\r\n|\n|\r)/gm, '')
+        password = password.replace(/(\r\n|\n|\r)/gm, '');
         /** @type {import('@keycloak/keycloak-admin-client/lib/utils/auth').Credentials} */
         const credentials = {
             username: config.keycloakConfig.adminClientUser,
@@ -67,6 +78,10 @@ class KeycloakAdminService extends BasicObject {
         this.logger.info('Successfully closed Keycloak admin service!');
     }
 
+    /**
+     * @param {boolean} [force]
+     * @returns Promise<import('../types').KeycloakUser[]>
+     */
     async getUsers(force) {
         let users;
         if (!this.users || force) {
@@ -87,6 +102,10 @@ class KeycloakAdminService extends BasicObject {
         return users;
     }
 
+    /**
+     * @param {boolean} [force]
+     * @returns Promise<import('../types').KeycloakRole[]>
+     */
     async getRoles(force) {
         let roles;
         if (!this.roles || force) {
@@ -100,6 +119,10 @@ class KeycloakAdminService extends BasicObject {
         return roles;
     }
 
+    /**
+     * @param {boolean} [force]
+     * @returns Promise<import('../types').KeycloakGroup[]>
+     */
     async getGroups(force) {
         let groups;
         if (!this.groups || force) {
