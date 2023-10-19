@@ -1,5 +1,5 @@
 import Logger from 'utilities-node/src/utilities/logger.js';
-import {alertUtilities} from '../../../../../../utilities/pathoware.js';
+import {harmonizeAlert} from '../../../../../../utilities/pathoware.js';
 
 /**
  * @param {import('utilities-node/src/services/notificationSSE').NotificationServiceSSE} notificationService
@@ -16,11 +16,11 @@ export default function(notificationService, getApiDoc) {
     operations.POST.apiDoc = getApiDoc(publishNotification);
 
     async function POST(req, res) {
-        /** @type import('utilities-node/types/types').NotificationPublished */
+        /** @type import('utilities-node/src/types').NotificationPublished */
         let result;
         let senderId = req.body.subscriptionId;
         for (let alert of req.body.data) {
-            let harmonizedAlert = alertUtilities.harmonizeAlert(alert);
+            let harmonizedAlert = harmonizeAlert(alert);
             let userId = harmonizedAlert?.owner?.[0] || senderId;
             let notification = {content: harmonizedAlert, senderId: userId, topic: 'model', contentType: 'alert', operationType: 'create'};
             result = notificationService.publishNotification(notification);

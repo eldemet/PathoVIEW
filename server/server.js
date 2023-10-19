@@ -1,6 +1,3 @@
-/*******************************************************************
- *   server.js
- *******************************************************************/
 import 'utilities-node/src/utilities/dotenv.js';
 import idnEmail from 'ajv-formats-draft2019/formats/idn-email.js';
 import {initialize} from 'utilities-node/src/framework.js';

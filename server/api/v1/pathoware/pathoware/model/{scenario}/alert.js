@@ -1,6 +1,5 @@
-import {v1 as uuid} from 'uuid';
 import Logger from 'utilities-node/src/utilities/logger.js';
-import {alertUtilities} from '../../../../../../utilities/pathoware.js';
+import {cleanAlert, prepareAlert} from '../../../../../../utilities/pathoware.js';
 
 export default function(config, getApiDoc) {
 
@@ -62,7 +61,7 @@ export default function(config, getApiDoc) {
                 let uncleanedAlerts = await fetchResult.json();
                 let cleanedAlerts = [];
                 for (let alert of uncleanedAlerts) {
-                    let cleanedAlert = alertUtilities.cleanAlert(alert);
+                    let cleanedAlert = cleanAlert(alert);
                     cleanedAlerts.push(cleanedAlert);
                 }
                 res.validateAndSend(200, cleanedAlerts);
@@ -111,8 +110,7 @@ export default function(config, getApiDoc) {
             res.status(401).send({error: 'Unauthorized'});
         } else {
             let url = config.pathoware.dataConnectorApi + '/pathoview/alert/';
-            let alert = Object.assign({}, req.body);
-            alert.id = 'Alert:' + uuid();
+            let alert = prepareAlert(req.body);
             /** @type {RequestInit} */
             let options = {
                 headers: {
@@ -131,7 +129,7 @@ export default function(config, getApiDoc) {
                 res.status(fetchResult.status).send({error: fetchResult.statusText});
             } else {
                 let result = await fetchResult.json();
-                result = alertUtilities.cleanAlert(result);
+                result = cleanAlert(result);
                 res.validateAndSend(200, result);
             }
         }
