@@ -129,6 +129,10 @@ export class LeafletCustomElement extends BasicComponent {
         await this.initialized;
         if (oldLayers) {
             Object.keys(this.attachedLayers.overlay).forEach((key, index) => {
+                this.attachedLayers.overlay[key].off();
+                for (let p in this.attachedLayers.overlay[key]._layers) {
+                    this.attachedLayers.overlay[key]._layers[p].off();
+                }
                 this.attachedLayers.overlay[key].clearLayers();
                 delete this.attachedLayers.overlay[key];
             });
@@ -173,7 +177,18 @@ export class LeafletCustomElement extends BasicComponent {
             this.attachedLayers.base[layerId] = layersToAttach.base[layerId].addTo(this.map);
         }
         for (let layerId in layersToAttach.overlay) {
-            this.attachedLayers.overlay[layerId] = layersToAttach.overlay[layerId].addTo(this.map);
+            let layer = layersToAttach.overlay[layerId];
+            this.attachedLayers.overlay[layerId] = layer;
+            if (!layer.options.hidden) {
+                layer.addTo(this.map);
+            }
+            for (let key in layer._layers) {
+                let l = layer._layers[key];
+                if (l.options.popup) {
+                    l.openPopup();
+                    break;
+                }
+            }
         }
     }
 
@@ -358,10 +373,10 @@ class LayerFactory {
                 instance = this.getCircleMarker(layer);
                 break;
             case 'layerGroup':
-                instance = this.getLayerGroup(layer);
+                instance = this.getLayerGroup(layer, handleEvent);
                 break;
             case 'featureGroup':
-                instance = this.getFeatureGroup(layer);
+                instance = this.getFeatureGroup(layer, handleEvent);
                 break;
             case 'geoJSON':
                 instance = this.getGeoJson(layer);
@@ -497,28 +512,28 @@ class LayerFactory {
         return this.L.circleMarker(layer.latLng, layer.options);
     }
 
-    getLayerGroup(layer) {
+    getLayerGroup(layer, handleEvent) {
         if (!layer.hasOwnProperty('layers')) {
             throw new AureliaLeafletException('No layers given for layer.type "group"');
         }
         let layers = [];
         for (let l of layer.layers) {
             try {
-                layers.push(this.getLayer(l));
+                layers.push(this.getLayer(l, handleEvent));
             } catch (error) {
                 this.logger.error(error.message);
             }
         }
-        return this.L.layerGroup(layers);
+        return this.L.layerGroup(layers, layer.options);
     }
 
-    getFeatureGroup(layer) {
+    getFeatureGroup(layer, handleEvent) {
         if (!layer.hasOwnProperty('layers')) {
             throw new AureliaLeafletException('No layers given for layer.type "featureGroup"');
         }
         let layers = [];
         for (let l of layer.layers) {
-            layers.push(this.getLayer(l));
+            layers.push(this.getLayer(l, handleEvent));
         }
         return this.L.featureGroup(layers);
     }

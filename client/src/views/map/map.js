@@ -3,6 +3,9 @@ import {modelUtilities, alertUtilities, deviceUtilities, missionUtilities, locat
 
 class MapView extends BasicView {
 
+    mapEvents = ['overlayremove', 'overlayadd'];
+    hiddenOverlays = this.catchError(JSON.parse)(localStorage.getItem('leaflet-hidden-overlays')) || [];
+
     /**
      * @param {ConstructorParameters<typeof BasicView>} rest
      */
@@ -55,13 +58,36 @@ class MapView extends BasicView {
         } catch (error) {
             //silently catch error
         }
+        this.subscriptions.push(this.eventAggregator.subscribe('aurelia-leaflet', event => {
+            this.logger.debug('aurelia-leaflet', event);
+            if (event.type.startsWith('overlay')) {
+                if (event.type === 'overlayremove') {
+                    this.hiddenOverlays.push(event.layer?.options?.model);
+                } else if (event.type === 'overlayadd') {
+                    this.hiddenOverlays.splice(this.hiddenOverlays.indexOf(event.layer?.options?.model), 1);
+                }
+                const layer = this.layers.overlay.find(x => x?.options?.model === event.layer?.options?.model);
+                if (layer) {
+                    layer.options.hidden = event.type === 'overlayremove';
+                }
+                localStorage.setItem('leaflet-hidden-overlays', JSON.stringify(this.hiddenOverlays));
+            } else if (event.type.startsWith('popup')) {
+                let activePopup;
+                if (event.type === 'popupopen') {
+                    activePopup = event.layer?.options?.id;
+                } else if (event.type === 'popupclose') {
+                    activePopup = '';
+                }
+                localStorage.setItem('leaflet-active-popup', activePopup);
+            }
+        }));
         this.layers = {overlay};
     }
 
     updateLayerGroup(type, objects, utilities) {
         if (objects) {
             let layers = Object.assign({}, this.layers);
-            let oldAlertLayerGroup = layers.overlay.find(x => x.id === type);
+            let oldAlertLayerGroup = layers.overlay.find(x => x?.options?.model === type);
             if (oldAlertLayerGroup) {
                 layers.overlay.splice(layers.overlay.indexOf(oldAlertLayerGroup), 1);
             }
@@ -71,9 +97,12 @@ class MapView extends BasicView {
     }
 
     getLayerGroup(type, objects, utilities) {
+        let id = `<i class="bi-${modelUtilities.getIconByType(type)} me-1"></i>` + this.i18n.tr('model.' + type, {count: 2});
+        let activePopup = localStorage.getItem('leaflet-active-popup');
         return {
-            id: `<i class="bi-${modelUtilities.getIconByType(type)} me-1"></i>` + this.i18n.tr('model.' + type, {count: 2}),
+            id,
             type: 'layerGroup',
+            options: {model: type, hidden: this.hiddenOverlays.includes(type)},
             layers: objects.map(object => {
                 let owners = this.getOwners(object.owner);
                 let popupContent = `<h6><i class="bi-${modelUtilities.getIconByType(type)}"></i> ${object.name || this.i18n.tr('model.' + type)}</h6>`;
@@ -92,12 +121,14 @@ class MapView extends BasicView {
                 if (customPopupContent) {
                     popupContent += customPopupContent;
                 }
+                const options = Object.assign({}, utilities.getOptions?.(), {id: object.id, popup: activePopup === object.id});
                 return {
                     id: object.id,
                     type: 'geoJSON',
                     divIconContent: `<i class="bi-${modelUtilities.getIconByType(type)} bg-white ${Array.isArray(object.owner) && object.owner.includes(this.userId) ? 'text-primary h5' : 'h6'}" />`,
                     data: object.location,
-                    options: utilities.getOptions?.(),
+                    events: ['popupopen', 'popupclose'],
+                    options,
                     popupContent: popupContent
                 };
             })
