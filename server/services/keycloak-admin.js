@@ -1,6 +1,3 @@
-/**
- * @module keycloak-admin
- */
 import _ from 'lodash';
 import {loadFile} from 'utilities-node/src/utilities/fs.js';
 import {BasicObject} from 'utilities-node/src/services/_prototypes.js';
@@ -10,10 +7,6 @@ import {BasicObject} from 'utilities-node/src/services/_prototypes.js';
  */
 class KeycloakAdminService extends BasicObject {
 
-    /**
-     * @type {import('utilities-node/src/utilities/logger').default}
-     */
-    logger;
     /**
      * @type {import('../types').KeycloakUser[]}
      */
@@ -29,6 +22,11 @@ class KeycloakAdminService extends BasicObject {
 
     constructor() {
         super();
+        //TODO check why typescript does not recognize logger defined in BasicObject
+        /**
+         * @type {import('utilities-node/src/utilities/logger').default}
+         */
+        this.logger;
     }
 
     async initialize(config) {

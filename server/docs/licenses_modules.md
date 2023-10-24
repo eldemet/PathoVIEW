@@ -2,8 +2,8 @@
 
 ## Summary
 
-* MIT: 380
-* ISC: 52
+* MIT: 381
+* ISC: 53
 * Apache-2.0: 16
 * BSD-2-Clause: 12
 * BSD-3-Clause: 9
@@ -32,7 +32,7 @@
     - licenses: MIT
     - description: Parse, Resolve, and Dereference JSON Schema $ref pointers
     - copyright: Copyright (c) 2015 James Messinger
- - **[@colors/colors@1.5.0](https://github.com/DABH/colors.js)**
+ - **[@colors/colors@1.6.0](https://github.com/DABH/colors.js)**
     - licenses: MIT
     - description: get colors in your node.js console
     - copyright: none
@@ -44,7 +44,7 @@
     - licenses: MIT
     - description: Utilities for ESLint plugins.
     - copyright: Copyright (c) 2018 Toru Nagashima
- - **[@eslint-community/regexpp@4.9.0](https://github.com/eslint-community/regexpp)**
+ - **[@eslint-community/regexpp@4.9.1](https://github.com/eslint-community/regexpp)**
     - licenses: MIT
     - description: Regular expression parser for ECMAScript.
     - copyright: Copyright (c) 2018 Toru Nagashima
@@ -52,11 +52,11 @@
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@eslint/js@8.50.0](https://github.com/eslint/eslint)**
+ - **[@eslint/js@8.52.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: ESLint JavaScript language implementation
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@humanwhocodes/config-array@0.11.11](https://github.com/humanwhocodes/config-array)**
+ - **[@humanwhocodes/config-array@0.11.13](https://github.com/humanwhocodes/config-array)**
     - licenses: Apache-2.0
     - description: Glob-based configuration matching.
     - copyright: none
@@ -64,7 +64,7 @@
     - licenses: Apache-2.0
     - description: Universal module importer for Node.js
     - copyright: none
- - **[@humanwhocodes/object-schema@1.2.1](https://github.com/humanwhocodes/object-schema)**
+ - **[@humanwhocodes/object-schema@2.0.1](https://github.com/humanwhocodes/object-schema)**
     - licenses: BSD-3-Clause
     - description: An object schema merger/validator
     - copyright: Copyright (c) 2019, Human Who Codes. All rights reserved.
@@ -92,7 +92,7 @@
     - licenses: MIT
     - description: A library for efficiently walking a directory recursively
     - copyright: Copyright (c) Denis Malinochkin
- - **[@sinclair/typebox@0.31.17](https://github.com/sinclairzx81/typebox)**
+ - **[@sinclair/typebox@0.31.18](https://github.com/sinclairzx81/typebox)**
     - licenses: MIT
     - description: JSONSchema Type Builder with Static Type Resolution for TypeScript
     - copyright: Copyright (c) 2017-2023 Haydn Paterson (sinclair) <haydn.developer@gmail.com>
@@ -104,15 +104,15 @@
     - licenses: MIT
     - description: TypeScript definitions for json-schema 4.0, 6.0 and
     - copyright: none
- - **[@types/node@20.7.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@20.8.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
-    - description: TypeScript definitions for Node.js
+    - description: TypeScript definitions for node
     - copyright: none
- - **[@types/triple-beam@1.3.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/triple-beam@1.3.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for triple-beam
     - copyright: none
- - **[@types/webidl-conversions@7.0.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/webidl-conversions@7.0.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for webidl-conversions
     - copyright: none
@@ -120,10 +120,14 @@
     - licenses: MIT
     - description: TypeScript definitions for whatwg-url
     - copyright: none
- - **[@types/yauzl@2.10.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/yauzl@2.10.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for yauzl
     - copyright: none
+ - **[@ungap/structured-clone@1.2.0](https://github.com/ungap/structured-clone)**
+    - licenses: ISC
+    - description: A structuredClone polyfill
+    - copyright: Copyright (c) 2021, Andrea Giammarchi, @WebReflection
  - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
     - licenses: ISC
     - description: Like ruby's abbrev module, but in js
@@ -272,7 +276,7 @@
     - licenses: MIT
     - description: Random number generator for browsers and node.js
     - copyright: Copyright Fedor Indutny, 2014.
- - **[bson@5.5.0](https://github.com/mongodb/js-bson)**
+ - **[bson@5.5.1](https://github.com/mongodb/js-bson)**
     - licenses: Apache-2.0
     - description: A bson parser for node.js and the browser
     - copyright: none
@@ -328,7 +332,7 @@
     - licenses: MIT
     - description: Terminal string styling done right
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[chromedriver@117.0.3](https://github.com/giggio/node-chromedriver)**
+ - **[chromedriver@118.0.1](https://github.com/giggio/node-chromedriver)**
     - licenses: Apache-2.0
     - description: ChromeDriver for Selenium
     - copyright: none
@@ -580,7 +584,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.50.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.52.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -704,7 +708,7 @@
     - licenses: MIT
     - description: Find a file or directory by walking up parent directories
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[flat-cache@3.1.0](https://github.com/jaredwray/flat-cache)**
+ - **[flat-cache@3.1.1](https://github.com/jaredwray/flat-cache)**
     - licenses: MIT
     - description: A stupidly simple key/value storage using files to persist some data
     - copyright: Copyright (c) Roy Riojas and Jared Wray
@@ -788,7 +792,7 @@
     - licenses: ISC
     - description: a little globber
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[globals@13.22.0](https://github.com/sindresorhus/globals)**
+ - **[globals@13.23.0](https://github.com/sindresorhus/globals)**
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1024,11 +1028,11 @@
     - licenses: Apache-2.0
     - description: Next-generation take on pre/post function hooks
     - copyright: none
- - **[keycloak-connect@22.0.3](https://github.com/keycloak/keycloak-nodejs-connect)**
+ - **[keycloak-connect@22.0.4](https://github.com/keycloak/keycloak-nodejs-connect)**
     - licenses: Apache-2.0
     - description: Keycloak Connect Middleware
     - copyright: none
- - **[keyv@4.5.3](https://github.com/jaredwray/keyv)**
+ - **[keyv@4.5.4](https://github.com/jaredwray/keyv)**
     - licenses: MIT
     - description: Simple key-value storage with support for multiple backends
     - copyright: none
@@ -1064,7 +1068,7 @@
     - licenses: MIT
     - description: Lodash modular utilities.
     - copyright: Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
- - **[logform@2.5.1](https://github.com/winstonjs/logform)**
+ - **[logform@2.6.0](https://github.com/winstonjs/logform)**
     - licenses: MIT
     - description: An mutable object-based log format designed for chaining & objectMode streams.
     - copyright: Copyright (c) 2017 Charlie Robbins & the Contributors.
@@ -1144,7 +1148,7 @@
     - licenses: Apache-2.0
     - description: MongoDB connection strings, based on the WhatWG URL API
     - copyright: none
- - **[mongodb@5.8.1](https://github.com/mongodb/node-mongodb-native)**
+ - **[mongodb@5.9.0](https://github.com/mongodb/node-mongodb-native)**
     - licenses: Apache-2.0
     - description: The official MongoDB driver for Node.js
     - copyright: none
@@ -1152,7 +1156,7 @@
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose@7.5.3](https://github.com/Automattic/mongoose)**
+ - **[mongoose@7.6.3](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -1836,6 +1840,10 @@
     - licenses: MIT
     - description: streaming unbzip2 implementation in pure javascript for node and browsers
     - copyright: Copyright (c) 2017 by Jan Boelsche (jan@lagomorph.de)
+ - **[undici-types@5.25.3](https://github.com/nodejs/undici)**
+    - licenses: MIT
+    - description: A stand-alone types package for Undici
+    - copyright: none
  - **[unpipe@1.0.0](https://github.com/stream-utils/unpipe)**
     - licenses: MIT
     - description: Unpipe a stream from all destinations
@@ -1868,10 +1876,10 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@5.0.0](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@5.0.1](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework, helper functions,  middleware and services
-    - copyright: Copyright (c) 2022, Fraunhofer IAO. All rights reserved.
+    - copyright: Copyright (c) 2023, Fraunhofer IAO. All rights reserved.
  - **[utils-merge@1.0.1](https://github.com/jaredhanson/utils-merge)**
     - licenses: MIT
     - description: merge() utility function
@@ -1928,11 +1936,11 @@
     - licenses: ISC
     - description: A wide-character aware text alignment function for use on the console or with fixed width fonts.
     - copyright: Copyright (c) 2015, Rebecca Turner <me@re-becca.org>
- - **[winston-transport@4.5.0](https://github.com/winstonjs/winston-transport)**
+ - **[winston-transport@4.6.0](https://github.com/winstonjs/winston-transport)**
     - licenses: MIT
     - description: Base stream implementations for winston@3 and up.
     - copyright: Copyright (c) 2015 Charlie Robbins & the contributors.
- - **[winston@3.10.0](https://github.com/winstonjs/winston)**
+ - **[winston@3.11.0](https://github.com/winstonjs/winston)**
     - licenses: MIT
     - description: A logger for just about everything.
     - copyright: Copyright (c) 2010 Charlie Robbins
