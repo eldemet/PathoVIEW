@@ -102,7 +102,7 @@ class MapView extends BasicView {
                     url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
                     options: {
                         id: 'otm',
-                        attribution: '&copy; <a href="https://opentopomap.org/" target="_blank">OpenTopoMap</a> ' + this.i18n.tr('model.contributor', {count: 2}) + ' <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>',
+                        attribution: '&copy; <a href="https://opentopomap.org/credits" target="_blank">OpenTopoMap</a> ' + this.i18n.tr('model.contributor', {count: 2}) + ' <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC-BY-SA</a>',
                         className: 'map-tiles',
                         hidden: localStorage.getItem('leaflet-base-layer') !== 'otm'
                     }
