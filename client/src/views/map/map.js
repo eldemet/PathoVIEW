@@ -3,7 +3,7 @@ import {modelUtilities, alertUtilities, deviceUtilities, missionUtilities, locat
 
 class MapView extends BasicView {
 
-    mapEvents = ['overlayremove', 'overlayadd'];
+    mapEvents = ['baselayerchange', 'overlayremove', 'overlayadd'];
     hiddenOverlays = this.catchError(JSON.parse)(localStorage.getItem('leaflet-hidden-overlays')) || [];
 
     /**
@@ -79,9 +79,37 @@ class MapView extends BasicView {
                     activePopup = '';
                 }
                 localStorage.setItem('leaflet-active-popup', activePopup);
+            } else if (event.type === 'baselayerchange') {
+                localStorage.setItem('leaflet-base-layer', event.layer.options.id);
             }
         }));
-        this.layers = {overlay};
+        this.layers = {
+            base: [
+                {
+                    id: 'OpenStreetMap Tiles',
+                    type: 'tile',
+                    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    options: {
+                        id: 'osm',
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> ' + this.i18n.tr('model.contributor', {count: 2}),
+                        className: 'map-tiles',
+                        hidden: localStorage.getItem('leaflet-base-layer') === 'otm'
+                    }
+                },
+                {
+                    id: 'OpenTopoMap Tiles',
+                    type: 'tile',
+                    url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+                    options: {
+                        id: 'otm',
+                        attribution: '&copy; <a href="https://opentopomap.org/" target="_blank">OpenTopoMap</a> ' + this.i18n.tr('model.contributor', {count: 2}) + ' <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>',
+                        className: 'map-tiles',
+                        hidden: localStorage.getItem('leaflet-base-layer') !== 'otm'
+                    }
+                }
+            ],
+            overlay
+        };
     }
 
     updateLayerGroup(type, objects, utilities) {

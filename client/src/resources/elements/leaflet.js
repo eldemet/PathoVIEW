@@ -35,7 +35,7 @@ export class LeafletCustomElement extends BasicComponent {
                 type: 'tile',
                 url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 options: {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' + this.i18n.tr('model.contributor', {count: 2}),
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> ' + this.i18n.tr('model.contributor', {count: 2}),
                     className: 'map-tiles'
                 }
             }
@@ -174,7 +174,11 @@ export class LeafletCustomElement extends BasicComponent {
             }
         }
         for (let layerId in layersToAttach.base) {
-            this.attachedLayers.base[layerId] = layersToAttach.base[layerId].addTo(this.map);
+            let layer = layersToAttach.base[layerId];
+            this.attachedLayers.base[layerId] = layer;
+            if (!layer.options.hidden) {
+                layer.addTo(this.map);
+            }
         }
         for (let layerId in layersToAttach.overlay) {
             let layer = layersToAttach.overlay[layerId];
