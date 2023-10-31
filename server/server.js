@@ -118,4 +118,6 @@ const shutdownAddOnsCallback = async() => {
     await kcAdminService.close();
 };
 
+
+// @ts-ignore
 initialize({openApi, configAppDefaults, configAdditionsSchemaPath, additionalDbSchemas, initializeAddOnsCallback, shutdownAddOnsCallback});
