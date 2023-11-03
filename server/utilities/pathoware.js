@@ -57,13 +57,14 @@ export function prepareAlert(alert) {
 }
 
 /**
- * PathoWARE does not allow following string characters: > " ' = ; ( )
+ * PathoWARE does not allow following string characters: <> " ' = ; ( )
  * This function encodes these characters with the representative UTF-8 encoding
  * @param {string} s
  * @returns string
  */
 export function encode(s) {
     return s
+        .replace(/</g, '%3C')
         .replace(/>/g, '%3E')
         .replace(/"/g, '%22')
         .replace(/'/g, '%27')
@@ -74,13 +75,14 @@ export function encode(s) {
 }
 
 /**
- * PathoWARE does not allow following string characters: > " ' = ; ( )
+ * PathoWARE does not allow following string characters: <> " ' = ; ( )
  * This function decodes these characters with the representative UTF-8 encoding
  * @param {string} s
  * @returns string
  */
 export function decode(s) {
     return s
+        .replace(/%3C/g, '<')
         .replace(/%3E/g, '>')
         .replace(/%22/g, '"')
         .replace(/%27/g, '\'')
