@@ -63,10 +63,14 @@ export function prepareAlert(alert) {
  * @returns string
  */
 export function encode(s) {
-    return encodeURIComponent(s) // escapes all characters except: A–Z a–z 0–9 - _ . ! ~ * ' ( )
-        .replace('\'', '%27')
-        .replace('(', '%28')
-        .replace(')', '%29');
+    return s
+        .replace(/>/g, '\u003E')
+        .replace(/"/g, '\u0022')
+        .replace(/'/g, '\u0027')
+        .replace(/=/g, '\u003D')
+        .replace(/;/g, '\u003B')
+        .replace(/\(/g, '\u0028')
+        .replace(/\)/g, '\u0029');
 }
 
 /**
@@ -76,8 +80,12 @@ export function encode(s) {
  * @returns string
  */
 export function decode(s) {
-    return decodeURIComponent(s) // unescapes all characters except: A–Z a–z 0–9 - _ . ! ~ * ' ( )
-        .replace(/%27/gi, '\'')
-        .replace(/%28/gi, '(')
-        .replace(/%29/gi, ')');
+    return s
+        .replace(/\u003E/g, '>')
+        .replace(/\u0022/g, '"')
+        .replace(/\u0027/g, '\'')
+        .replace(/\u003D/g, '=')
+        .replace(/\u003B/g, ';')
+        .replace(/\u0028/g, '(')
+        .replace(/\u0029/g, ')');
 }
