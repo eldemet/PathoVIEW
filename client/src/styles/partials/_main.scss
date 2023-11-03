@@ -60,3 +60,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.dropdown-toggle::after {
+    margin-left: 0.05em;
+}

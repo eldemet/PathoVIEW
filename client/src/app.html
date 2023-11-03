@@ -21,7 +21,7 @@
 
         <div class="${dropUp ? 'dropdown' : 'dropup'}"
              if.bind="contextService.emergencyEvents">
-            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="emergency-menu"
+            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="emergency-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi-hospital-fill"></i>
                 <span if.bind="contextService.currentEmergencyEvent" class="d-inline d-md-none d-xl-inline ms-2">${contextService.currentEmergencyEvent.name}</span>
@@ -31,7 +31,8 @@
                 <ul class="list-unstyled mb-2 overflow-auto">
                     <li repeat.for="emergencyEvent of contextService.emergencyEvents">
                         <button class="dropdown-item ${contextService.currentEmergencyEvent === emergencyEvent ? 'active' : ''}"
-                                click.trigger="contextService.changeEmergencyEvent(emergencyEvent)">
+                                click.trigger="contextService.changeEmergencyEvent(emergencyEvent)"
+                                click.delegate="eventAggregator.publish('navbar-top-hide')">
                             ${emergencyEvent.name}
                         </button>
                     </li>
@@ -77,24 +78,38 @@
                     <div class="mb-3"
                          if.bind="contextService.timeout">
                         <label for="contextAwareAlertsTimeout" class="form-label">${'buttons.interval' | t}</label>
-                        <div class="input-group">
-                            <input type="number"
+                        <div class="input-group align-items-center">
+                            <input type="range"
                                    autocomplete="off"
-                                   class="form-control"
+                                   class="form-range flex-fill w-auto me-2"
+                                   min="5"
+                                   max="100"
+                                   step="5"
                                    id="contextAwareAlertsTimeout"
+                                   ref="contextAwareAlertsTimeout"
                                    value.two-way="contextService.timeout & debounce:1000">
-                            <span class="input-group-text">s</span>
+                            <span class="input-group-text">${contextAwareAlertsTimeout.value}</span>
+                            <span class="input-group-text me-1">s</span>
+                            <i if.bind="contextAwareAlertsTimeout.value !== contextService.timeout" class="text-info spinner-border spinner-border-sm"></i>
+                            <i if.bind="contextAwareAlertsTimeout.value === contextService.timeout" class="text-success bi-check"></i>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="contextAwareAlertsWarningDistance" class="form-label">${'buttons.contextAwareAlertsWarningDistance' | t}</label>
-                        <div class="input-group">
-                            <input type="number"
+                        <div class="input-group align-items-center">
+                            <input type="range"
                                    autocomplete="off"
-                                   class="form-control"
+                                   class="form-range flex-fill w-auto me-2"
+                                   min="1"
+                                   max="500"
+                                   step="1"
                                    id="contextAwareAlertsWarningDistance"
+                                   ref="contextAwareAlertsWarningDistance"
                                    value.two-way="contextService.contextAwareAlertsWarningDistance & debounce:1000">
-                            <span class="input-group-text">m</span>
+                            <span class="input-group-text">${contextAwareAlertsWarningDistance.value}</span>
+                            <span class="input-group-text me-1">m</span>
+                            <i if.bind="contextAwareAlertsWarningDistance.value !== contextService.contextAwareAlertsWarningDistance" class="text-info spinner-border spinner-border-sm"></i>
+                            <i if.bind="contextAwareAlertsWarningDistance.value === contextService.contextAwareAlertsWarningDistance" class="text-success bi-check"></i>
                         </div>
                     </div>
                 </div>
@@ -143,50 +158,12 @@
                     </button>
                     <hr class="dropdown-divider">
                 </div>
-                <a href="#/info" class="dropdown-item"><i class="bi-info-circle me-2"></i>${'views.info.title' | t}</a>
-            </div>
-        </div>
-
-        <div slot="always-visible" if.bind="contextService.activity" class="order-md-5 dropdown">
-            <button class="btn btn-link nav-link py-2 px-2 dropdown-toggle ${contextService.isMoving ? 'text-success' : 'text-danger'}" type="button" id="background-location-menu"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                <i if.bind="contextService.activity === 'still'" class="bi-pin-map"></i>
-                <i if.bind="contextService.activity === 'walking'" class="bi-person-walking"></i>
-                <i if.bind="contextService.activity === 'on_foot'" class="bi-person-standing"></i>
-                <i if.bind="contextService.activity === 'running'" class="bi-person-walking text-info"></i>
-                <i if.bind="contextService.activity === 'on_bicycle'" class="bi-bicycle"></i>
-                <i if.bind="contextService.activity === 'in_vehicle'" class="bi-car-front"></i>
-                <i if.bind="contextService.activity === 'unknown'" class="bi-question-lg"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-lg-end text-nowrap" aria-labelledby="background-location-menu">
-                <div class="px-3 py-0">
-                    <div class="mb-3 ms-2 form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="backgroundGeolocationDebugToggle" checked.bind="contextService.backgroundGeolocationDebug">
-                        <label for="backgroundGeolocationDebugToggle">Debug</label>
-                    </div>
-                    <div class="mb-3">
-                        <label for="backgroundGeolocationDistanceFilter" class="form-label">${'buttons.contextAwareAlertsDistanceFilter' | t}</label>
-                        <div class="input-group">
-                            <input type="number"
-                                   autocomplete="off"
-                                   class="form-control"
-                                   id="backgroundGeolocationDistanceFilter"
-                                   value.two-way="contextService.backgroundGeolocationDistanceFilter & debounce:1000">
-                            <span class="input-group-text">m</span>
-                        </div>
-                    </div>
-                    <div class="px-3 text-body-tertiary text-wrap mb-2" if.bind="contextService.provider">
-                        <p>enabled: ${contextService.provider.enabled}</p>
-                        <p>status: ${contextService.provider.status}</p>
-                        <p>network: ${contextService.provider.network}</p>
-                        <p>gps: ${contextService.provider.gps}</p>
-                    </div>
-                </div>
+                <a href="#/info" class="dropdown-item" click.delegate="eventAggregator.publish('navbar-top-hide') & debounce: 20"><i class="bi-info-circle me-2"></i>${'views.info.title' | t}</a>
             </div>
         </div>
 
         <div slot="always-visible" class="order-md-5">
-            <button class="btn btn-link nav-link position-relative py-2 px-0 px-lg-2 me-3"
+            <button class="btn btn-link nav-link position-relative py-2 px-2 px-md-0 px-lg-2"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNotifications"
@@ -205,9 +182,58 @@
             </button>
         </div>
 
+        <div slot="always-visible" if.bind="contextService.activity" class="order-md-5 dropdown">
+            <button class="btn btn-link nav-link px-2 px-md-0 px-lg-2 dropdown-toggle ${contextService.isMoving ? 'text-success' : 'text-danger'}" type="button" id="background-location-menu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <i if.bind="contextService.activity === 'still'" class="bi-pin-map"></i>
+                <i if.bind="contextService.activity === 'walking'" class="bi-person-walking"></i>
+                <i if.bind="contextService.activity === 'on_foot'" class="bi-person-standing"></i>
+                <i if.bind="contextService.activity === 'running'" class="bi-person-walking text-info"></i>
+                <i if.bind="contextService.activity === 'on_bicycle'" class="bi-bicycle"></i>
+                <i if.bind="contextService.activity === 'in_vehicle'" class="bi-car-front"></i>
+                <i if.bind="contextService.activity === 'unknown'" class="bi-question-lg"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="background-location-menu">
+                <div class="px-3 py-0">
+                    <div class="mb-3 ms-2 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="backgroundGeolocationDebugToggle" checked.bind="contextService.backgroundGeolocationDebug">
+                        <label for="backgroundGeolocationDebugToggle">Debug</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="backgroundGeolocationDistanceFilter" class="form-label">${'buttons.contextAwareAlertsDistanceFilter' | t}</label>
+                        <div class="input-group align-items-center flex-nowrap">
+                            <input type="range"
+                                   autocomplete="off"
+                                   min="3"
+                                   max="50"
+                                   step="1"
+                                   class="form-range flex-fill w-auto me-2"
+                                   ref="backgroundGeolocationDistanceFilter"
+                                   id="backgroundGeolocationDistanceFilter"
+                                   value.two-way="contextService.backgroundGeolocationDistanceFilter & debounce:1000">
+                            <span class="input-group-text">${backgroundGeolocationDistanceFilter.value}</span>
+                            <span class="input-group-text me-1">m</span>
+                            <i if.bind="backgroundGeolocationDistanceFilter.value !== contextService.backgroundGeolocationDistanceFilter" class="text-info spinner-border spinner-border-sm"></i>
+                            <i if.bind="backgroundGeolocationDistanceFilter.value === contextService.backgroundGeolocationDistanceFilter" class="text-success bi-check"></i>
+                        </div>
+                    </div>
+                    <div if.bind="contextService.provider">
+                        <label class="tabstop-label">${'buttons.enabled' | t}:</label>
+                        <p class="tabstop-text">${contextService.provider.enabled ? 'buttons.yes' : 'buttons.no' | t}</p>
+                        <label class="tabstop-label">${'propertyKeys.status' | t}:</label>
+                        <p class="tabstop-text">${'authorizationStatus.' + contextService.provider.status | t}</p>
+                        <label class="tabstop-label">Network Geolocation Provider:</label>
+                        <p class="tabstop-text">${contextService.provider.network ? 'buttons.yes' : 'buttons.no' | t}</p>
+                        <label class="tabstop-label">GPS Geolocation Provider:</label>
+                        <p class="tabstop-text">${contextService.provider.gps ? 'buttons.yes' : 'buttons.no' | t}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="${dropUp ? 'dropdown' : 'dropup'}"
              if.bind="authService.user">
-            <button class="btn btn-link nav-link  py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
+            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle" type="button" id="profile-menu"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi-person-circle"></i><span class="d-md-none ms-2">${authService.userInfo.name}</span>
             </button>
