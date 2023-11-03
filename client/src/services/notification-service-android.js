@@ -6,6 +6,12 @@ class NotificationServiceImplementation extends NotificationService {
 
     async initialize(url, topics, validContentTypes) {
         await super.initialize(url, topics, validContentTypes);
+        const {display} = await LocalNotifications.checkPermissions();
+        if (display === 'granted') {
+            this.logger.debug('Notification permissions granted');
+        } else {
+            await LocalNotifications.requestPermissions();
+        }
         this.subscriptions.push(this.eventAggregator.subscribe('toast', async payload => {
             await Haptics.notification({type: payload.type});
         }));
