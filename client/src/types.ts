@@ -1,7 +1,11 @@
 // Type definitions for pathoview-client
 // Project: git+https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git
+import {Static} from '@sinclair/typebox';
 
 import {ModelServiceOptionsExtended} from "library-aurelia/src/types";
+import {NotificationSchema} from "./services/notification-service";
+
+export type NotificationSchema = Static<typeof NotificationSchema>
 
 export interface KeycloakUserInfo {
     name: string;

@@ -1,5 +1,6 @@
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
+import {Type} from '@sinclair/typebox';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 
 const NotificationType = {
@@ -17,36 +18,15 @@ const NotificationType = {
     Error: 'ERROR'
 };
 
-const NotificationSchema = {
-    type: 'object',
-    required: [
-        'contentType',
-        'content'
-    ],
-    properties: {
-        topic: {
-            type: 'string'
-        },
-        contentType: {
-            type: 'string'
-        },
-        content: {
-            type: 'object'
-        },
-        operationType: {
-            type: 'string'
-        },
-        senderId: {
-            type: 'string',
-            default: 'unknown'
-        },
-        dateTimeSent: {
-            type: 'string',
-            format: 'date-time'
-        }
-    },
-    additionalProperties: false
-};
+/*eslint new-cap: "off"*/
+const NotificationSchema = Type.Optional(Type.Object({
+    topic: Type.Optional(Type.String()),
+    contentType: Type.String(),
+    content: Type.Any(),
+    operationType: Type.Optional(Type.String()),
+    senderId: Type.Optional(Type.String({default: 'unknown'})),
+    dateTimeSent: Type.Optional(Type.String({format: 'date-time'}))
+}, {additionalProperties: false}));
 
 /**
  * @extends BasicService
@@ -130,8 +110,9 @@ class NotificationService extends BasicService {
         this.removeNotificationListener();
     }
 
-    notificationCallback = (notification) => {
+    notificationCallback = async(/** @type {MessageEvent<String>} */ notification) => {
         try {
+            /** @type {import('../types').NotificationSchema} */
             let n = JSON.parse(notification.data);
             this.logger.info('Received notification ' + (n.topic ? n.topic + ' ' : '') + n.contentType);
             let valid = this.ajv.validate(NotificationSchema, n);
@@ -143,7 +124,7 @@ class NotificationService extends BasicService {
                     if (this.notifications.length > 99) {
                         this.notifications.length = 99;
                     }
-                    this.notificationSound.play();
+                    await this.notificationSound.play();
                 }
             } else {
                 // @ts-ignore
@@ -164,4 +145,4 @@ class NotificationService extends BasicService {
 
 }
 
-export {NotificationService, NotificationType};
+export {NotificationService, NotificationType, NotificationSchema};
