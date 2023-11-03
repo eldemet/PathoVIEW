@@ -2,8 +2,8 @@
 
 ## Summary
 
-* MIT: 806
-* ISC: 78
+* MIT: 812
+* ISC: 79
 * BSD-2-Clause: 30
 * Apache-2.0: 20
 * BSD-3-Clause: 16
@@ -480,7 +480,7 @@
     - licenses: MIT
     - description: Babel Types is a Lodash-esque utility library for AST nodes
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@capacitor/android@5.5.0](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/android@5.5.1](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
@@ -488,11 +488,11 @@
     - licenses: MIT
     - description: The App API handles high level App state and events.For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
     - copyright: Copyright 2020-present Ionic. https://ionic.io
- - **[@capacitor/cli@5.5.0](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/cli@5.5.1](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
- - **[@capacitor/core@5.5.0](https://github.com/ionic-team/capacitor)**
+ - **[@capacitor/core@5.5.1](https://github.com/ionic-team/capacitor)**
     - licenses: MIT
     - description: Capacitor: Cross-platform apps with JavaScript and the web
     - copyright: Copyright (c) 2017-present Drifty Co.
@@ -516,7 +516,7 @@
     - licenses: MIT
     - description: Utilities for ESLint plugins.
     - copyright: Copyright (c) 2018 Toru Nagashima
- - **[@eslint-community/regexpp@4.9.1](https://github.com/eslint-community/regexpp)**
+ - **[@eslint-community/regexpp@4.10.0](https://github.com/eslint-community/regexpp)**
     - licenses: MIT
     - description: Regular expression parser for ECMAScript.
     - copyright: Copyright (c) 2018 Toru Nagashima
@@ -524,7 +524,7 @@
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@eslint/js@8.51.0](https://github.com/eslint/eslint)**
+ - **[@eslint/js@8.52.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: ESLint JavaScript language implementation
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -532,7 +532,7 @@
     - licenses: MIT
     - description: A Leaflet Plugin For Editing Geometry Layers in Leaflet 1.0
     - copyright: Copyright (c) 2017 Sumit Kumar
- - **[@humanwhocodes/config-array@0.11.11](https://github.com/humanwhocodes/config-array)**
+ - **[@humanwhocodes/config-array@0.11.13](https://github.com/humanwhocodes/config-array)**
     - licenses: Apache-2.0
     - description: Glob-based configuration matching.
     - copyright: none
@@ -540,7 +540,7 @@
     - licenses: Apache-2.0
     - description: Universal module importer for Node.js
     - copyright: none
- - **[@humanwhocodes/object-schema@1.2.1](https://github.com/humanwhocodes/object-schema)**
+ - **[@humanwhocodes/object-schema@2.0.1](https://github.com/humanwhocodes/object-schema)**
     - licenses: BSD-3-Clause
     - description: An object schema merger/validator
     - copyright: Copyright (c) 2019, Human Who Codes. All rights reserved.
@@ -640,6 +640,10 @@
     - licenses: MIT
     - description: Tooltip and Popover Positioning Engine
     - copyright: Copyright (c) 2019 Federico Zivolo
+ - **[@sinclair/typebox@0.31.21](https://github.com/sinclairzx81/typebox)**
+    - licenses: MIT
+    - description: JSONSchema Type Builder with Static Type Resolution for TypeScript
+    - copyright: Copyright (c) 2017-2023 Haydn Paterson (sinclair) <haydn.developer@gmail.com>
  - **[@tootallnate/once@2.0.0](https://github.com/TooTallNate/once)**
     - licenses: MIT
     - description: Creates a Promise that waits for a single event
@@ -780,7 +784,7 @@
     - licenses: MIT
     - description: TypeScript definitions for estree
     - copyright: none
- - **[@types/express-serve-static-core@4.17.38](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/express-serve-static-core@4.17.39](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for express-serve-static-core
     - copyright: none
@@ -832,7 +836,11 @@
     - licenses: MIT
     - description: TypeScript definitions for minimatch
     - copyright: none
- - **[@types/node@20.8.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node-forge@1.3.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - licenses: MIT
+    - description: TypeScript definitions for node-forge
+    - copyright: none
+ - **[@types/node@20.8.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for node
     - copyright: none
@@ -872,6 +880,10 @@
     - licenses: MIT
     - description: TypeScript definitions for ws
     - copyright: none
+ - **[@ungap/structured-clone@1.2.0](https://github.com/ungap/structured-clone)**
+    - licenses: ISC
+    - description: A structuredClone polyfill
+    - copyright: Copyright (c) 2021, Andrea Giammarchi, @WebReflection
  - **[@webassemblyjs/ast@1.11.6](https://github.com/xtuc/webassemblyjs)**
     - licenses: MIT
     - description: AST utils for webassemblyjs
@@ -984,7 +996,7 @@
     - licenses: MIT
     - description: ECMAScript (ESTree) AST walker
     - copyright: Copyright (C) 2012-2018 by various contributors (see AUTHORS)
- - **[acorn-walk@8.2.0](https://github.com/acornjs/acorn)**
+ - **[acorn-walk@8.3.0](https://github.com/acornjs/acorn)**
     - licenses: MIT
     - description: ECMAScript (ESTree) AST walker
     - copyright: Copyright (C) 2012-2020 by various contributors (see AUTHORS)
@@ -992,7 +1004,7 @@
     - licenses: MIT
     - description: ECMAScript parser
     - copyright: Copyright (C) 2012-2018 by various contributors (see AUTHORS)
- - **[acorn@8.10.0](https://github.com/acornjs/acorn)**
+ - **[acorn@8.11.1](https://github.com/acornjs/acorn)**
     - licenses: MIT
     - description: ECMAScript parser
     - copyright: Copyright (C) 2012-2022 by various contributors (see AUTHORS)
@@ -1244,7 +1256,7 @@
     - licenses: MIT
     - description: A Babel plugin to inject imports to core-js@2 polyfills
     - copyright: Copyright (c) 2014-present Nicolò Ribaudo and other contributors
- - **[babel-plugin-polyfill-corejs3@0.8.5](https://github.com/babel/babel-polyfills)**
+ - **[babel-plugin-polyfill-corejs3@0.8.6](https://github.com/babel/babel-polyfills)**
     - licenses: MIT
     - description: A Babel plugin to inject imports to core-js@3 polyfills
     - copyright: Copyright (c) 2014-present Nicolò Ribaudo and other contributors
@@ -1336,7 +1348,7 @@
     - licenses: MIT
     - description: Utility to parse a string bytes to bytes and vice-versa
     - copyright: Copyright (c) 2012-2014 TJ Holowaychuk <tj@vision-media.ca>. Copyright (c) 2015 Jed Watson <jed.watson@me.com>
- - **[call-bind@1.0.2](https://github.com/ljharb/call-bind)**
+ - **[call-bind@1.0.5](https://github.com/ljharb/call-bind)**
     - licenses: MIT
     - description: Robustly `.call.bind()` a function
     - copyright: Copyright (c) 2020 Jordan Harband
@@ -1356,7 +1368,7 @@
     - licenses: MIT
     - description: request the caniuse data to check browsers compatibilities
     - copyright: Copyright (c) 2014 Sébastien Balayn
- - **[caniuse-lite@1.0.30001551](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001554](https://github.com/browserslist/caniuse-lite)**
     - licenses: CC-BY-4.0
     - description: A smaller version of caniuse-db, with only the essentials!
     - copyright: none
@@ -1500,7 +1512,7 @@
     - licenses: MIT
     - description: Copy files && directories with webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[core-js-compat@3.33.0](https://github.com/zloirock/core-js)**
+ - **[core-js-compat@3.33.1](https://github.com/zloirock/core-js)**
     - licenses: MIT
     - description: core-js compat
     - copyright: Copyright (c) 2014-2023 Denis Pushkarev
@@ -1512,7 +1524,7 @@
     - licenses: MIT
     - description: Find and load configuration from a package.json property, rc file, TypeScript module, and more!
     - copyright: Copyright (c) 2015 David Clark
- - **[cross-fetch@3.1.6](https://github.com/lquixada/cross-fetch)**
+ - **[cross-fetch@4.0.0](https://github.com/lquixada/cross-fetch)**
     - licenses: MIT
     - description: Universal WHATWG Fetch API for Node, Browsers and React Native
     - copyright: Copyright (c) 2017 Leonardo Quixadá
@@ -1620,6 +1632,10 @@
     - licenses: BSD-2-Clause
     - description: Get the default network gateway, cross-platform.
     - copyright: Copyright (c) silverwind. All rights reserved.
+ - **[define-data-property@1.1.1](https://github.com/ljharb/define-data-property)**
+    - licenses: MIT
+    - description: Define a data property on an object. Will fall back to assignment in an engine without descriptors.
+    - copyright: Copyright (c) 2023 Jordan Harband
  - **[define-lazy-prop@2.0.0](https://github.com/sindresorhus/define-lazy-prop)**
     - licenses: MIT
     - description: Define a lazily evaluated property on an object
@@ -1728,7 +1744,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.4.559](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.568](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -1812,7 +1828,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.51.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.52.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -2012,7 +2028,7 @@
     - licenses: MIT
     - description: GeoJSON implementation of RBush
     - copyright: Copyright (c) 2018 Denis Carriere
- - **[get-intrinsic@1.2.1](https://github.com/ljharb/get-intrinsic)**
+ - **[get-intrinsic@1.2.2](https://github.com/ljharb/get-intrinsic)**
     - licenses: MIT
     - description: Get and robustly cache all JS language-level intrinsics at first require time
     - copyright: Copyright (c) 2020 Jordan Harband
@@ -2060,6 +2076,10 @@
     - licenses: MIT
     - description: Extends `glob` with support for multiple patterns and exposes a Promise API
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[gopd@1.0.1](https://github.com/ljharb/gopd)**
+    - licenses: MIT
+    - description: `Object.getOwnPropertyDescriptor`, but accounts for IE's broken implementation.
+    - copyright: Copyright (c) 2022 Jordan Harband
  - **[graceful-fs@4.2.11](https://github.com/isaacs/node-graceful-fs)**
     - licenses: ISC
     - description: A drop-in replacement for fs, making various improvements.
@@ -2084,6 +2104,10 @@
     - licenses: MIT
     - description: Check if argv has a specific flag
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[has-property-descriptors@1.0.1](https://github.com/inspect-js/has-property-descriptors)**
+    - licenses: MIT
+    - description: Does the environment have full property descriptor support? Handles IE 8's broken defineProperty/gOPD.
+    - copyright: Copyright (c) 2022 Inspect JS
  - **[has-proto@1.0.1](https://github.com/inspect-js/has-proto)**
     - licenses: MIT
     - description: Does this environment have the ability to get the [[Prototype]] of an object on creation with `__proto__`?
@@ -2096,10 +2120,10 @@
     - licenses: ISC
     - description: Try to guess if your terminal supports unicode
     - copyright: Copyright (c) 2014, Rebecca Turner <me@re-becca.org>
- - **[has@1.0.4](https://github.com/tarruda/has)**
+ - **[hasown@2.0.0](https://github.com/inspect-js/hasOwn)**
     - licenses: MIT
-    - description: Object.prototype.hasOwnProperty.call shortcut
-    - copyright: Copyright (c) 2013 Thiago de Arruda
+    - description: A robust, ES3 compatible, "has own property" predicate.
+    - copyright: Copyright (c) Jordan Harband and contributors
  - **[he@1.2.0](https://github.com/mathiasbynens/he)**
     - licenses: MIT
     - description: A robust HTML entities encoder/decoder with full Unicode support.
@@ -2176,7 +2200,7 @@
     - licenses: Apache-2.0
     - description: Human-friendly process signals
     - copyright: none
- - **[i18next-http-backend@2.2.2](https://github.com/i18next/i18next-http-backend)**
+ - **[i18next-http-backend@2.3.1](https://github.com/i18next/i18next-http-backend)**
     - licenses: MIT
     - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
     - copyright: Copyright (c) 2023 i18next
@@ -2252,7 +2276,7 @@
     - licenses: MIT
     - description: Check if a file path is a binary file
     - copyright: Copyright (c) 2019 Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com), Paul Miller (https://paulmillr.com)
- - **[is-core-module@2.13.0](https://github.com/inspect-js/is-core-module)**
+ - **[is-core-module@2.13.1](https://github.com/inspect-js/is-core-module)**
     - licenses: MIT
     - description: Is this specifier a node.js core module?
     - copyright: Copyright (c) 2014 Dave Justice
@@ -2436,7 +2460,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.9.3](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.10.0](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2023, Fraunhofer IAO. All rights reserved.
@@ -2684,7 +2708,7 @@
     - licenses: MIT
     - description: A tiny (116 bytes), secure URL-friendly unique string ID generator
     - copyright: Copyright 2017 Andrey Sitnik <andrey@sitnik.ru>
- - **[native-run@1.7.3](https://github.com/ionic-team/native-run)**
+ - **[native-run@1.7.4](https://github.com/ionic-team/native-run)**
     - licenses: MIT
     - description: A CLI for running apps on iOS/Android devices and simulators/emulators
     - copyright: Copyright (c) 2018 Drifty Co
@@ -2764,7 +2788,7 @@
     - licenses: MIT
     - description: ES2015 `Object.assign()` ponyfill
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[object-inspect@1.13.0](https://github.com/inspect-js/object-inspect)**
+ - **[object-inspect@1.13.1](https://github.com/inspect-js/object-inspect)**
     - licenses: MIT
     - description: string representations of objects in node and the browser
     - copyright: Copyright (c) 2013 James Halliday
@@ -2924,7 +2948,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[pathoview-client@1.7.1](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@1.7.3](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
@@ -3316,7 +3340,7 @@
     - licenses: MIT
     - description: Sass loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[sass@1.69.4](https://github.com/sass/dart-sass)**
+ - **[sass@1.69.5](https://github.com/sass/dart-sass)**
     - licenses: MIT
     - description: A pure JavaScript implementation of Sass.
     - copyright: Copyright (c) 2016, Google Inc.*
@@ -3340,7 +3364,7 @@
     - licenses: MIT
     - description: Select protocol using first bytes of incoming data and hose stuff to the handler
     - copyright: Copyright Fedor Indutny, 2015.
- - **[selfsigned@2.1.1](https://github.com/jfromaniello/selfsigned)**
+ - **[selfsigned@2.4.1](https://github.com/jfromaniello/selfsigned)**
     - licenses: MIT
     - description: Generate self signed certificates private and public keys
     - copyright: Copyright (c) 2013 José F. Romaniello
@@ -3376,6 +3400,10 @@
     - licenses: ISC
     - description: set blocking stdio and stderr ensuring that terminal output does not truncate
     - copyright: Copyright (c) 2016, Contributors
+ - **[set-function-length@1.1.1](https://github.com/ljharb/set-function-length)**
+    - licenses: MIT
+    - description: Set a function's length property
+    - copyright: Copyright (c) Jordan Harband and contributors
  - **[setprototypeof@1.1.0](https://github.com/wesleytodd/setprototypeof)**
     - licenses: ISC
     - description: A small polyfill for Object.setprototypeof
@@ -3676,7 +3704,7 @@
     - licenses: Apache-2.0
     - description: TypeScript is a language for application scale JavaScript development
     - copyright: none
- - **[undici-types@5.25.3](https://github.com/nodejs/undici)**
+ - **[undici-types@5.26.5](https://github.com/nodejs/undici)**
     - licenses: MIT
     - description: A stand-alone types package for Undici
     - copyright: none

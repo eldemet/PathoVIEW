@@ -98,7 +98,16 @@
         "contextAwareAlerts": "ειδοποιήσεις με επίγνωση του πλαισίου",
         "interval": "διάστημα",
         "contextAwareAlertsWarningDistance": "απόσταση προειδοποίησης",
-        "contextAwareAlertsDistanceFilter": "φίλτρο απόστασης"
+        "contextAwareAlertsDistanceFilter": "φίλτρο απόστασης",
+        "enabled": "ενεργοποιημένη",
+        "disabled": "ανάπηροι"
+    },
+    "authorizationStatus": {
+        "0": "δεν έχει καθοριστεί",
+        "1": "περιορισμένο",
+        "2": "αρνήθηκε",
+        "3": "πάντα",
+        "4": "όταν χρησιμοποιείται"
     },
     "alerts": {
         "camera": {

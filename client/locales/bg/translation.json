@@ -98,7 +98,16 @@
         "contextAwareAlerts": "контекстни предупреждения",
         "interval": "интервал",
         "contextAwareAlertsWarningDistance": "предупредително разстояние",
-        "contextAwareAlertsDistanceFilter": "филтър за разстояние"
+        "contextAwareAlertsDistanceFilter": "филтър за разстояние",
+        "enabled": "активиран",
+        "disabled": "изключени"
+    },
+    "authorizationStatus": {
+        "0": "не е определено",
+        "1": "ограничен",
+        "2": "отказано",
+        "3": "винаги",
+        "4": "когато се използва"
     },
     "alerts": {
         "camera": {

@@ -98,7 +98,16 @@
         "contextAwareAlerts": "context aware alerts",
         "interval": "interval",
         "contextAwareAlertsWarningDistance": "warning distance",
-        "contextAwareAlertsDistanceFilter": "distance filter"
+        "contextAwareAlertsDistanceFilter": "distance filter",
+        "enabled": "enabled",
+        "disabled": "disabled"
+    },
+    "authorizationStatus": {
+        "0": "not determined",
+        "1": "restricted",
+        "2": "denied",
+        "3": "always",
+        "4": "when in use"
     },
     "alerts": {
         "camera": {
