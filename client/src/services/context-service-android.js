@@ -43,7 +43,7 @@ class ContextServiceImplementation extends ContextService {
         await this.update(location);
         // @ts-ignore
         this.logger.info(this.state);
-        App.addListener('resume', data => {
+        await App.addListener('resume', data => {
             this.updateContentAfterPageFreeze();
         });
     }
@@ -54,8 +54,6 @@ class ContextServiceImplementation extends ContextService {
         this.state = await BackgroundGeolocation.stop();
         await App.removeAllListeners();
         await BackgroundGeolocation.removeListeners();
-        // @ts-ignore
-        this.logger.info(this.state);
     }
 
     async backgroundGeolocationDebugChanged(debug) {
