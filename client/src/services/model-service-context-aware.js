@@ -1,6 +1,5 @@
 import {stringify} from 'query-string';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
-import {loadingEvent} from 'library-aurelia/src/decorators';
 
 /**
  * @extends ModelServiceBasic
@@ -43,19 +42,14 @@ class ModelServiceContextAware extends ModelServiceBasic {
         };
     }
 
-    @loadingEvent('app-alert')
     async loadObjects() {
         let objects = [];
         this.emergencyEventId = localStorage.getItem('emergency-event');
         if (this.emergencyEventId) {
-            try {
-                this.setEndpoints(this.options.apiEntrypoint, this.type, this.options.endpoints);
-                let result = await this.httpService.fetch('GET', this.endpoints.getObjects);
-                objects = result.objects || result;
-                this.logger.debug(`successfully loaded ${this.type}s (${objects.length})`);
-            } catch (error) {
-                this.logger.error(error.message);
-            }
+            this.setEndpoints(this.options.apiEntrypoint, this.type, this.options.endpoints);
+            let result = await this.httpService.fetch('GET', this.endpoints.getObjects);
+            objects = result.objects || result;
+            this.logger.debug(`successfully loaded ${this.type}s (${objects.length})`);
         }
         this.objects = objects;
     }

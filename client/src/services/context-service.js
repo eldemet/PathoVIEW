@@ -106,8 +106,7 @@ class ContextService extends BasicService {
         this.eventAggregator.publish('context-changed', this.currentEmergencyEvent);
     }
 
-    @loadingEvent('app-alert', 'emergency-event')
-    @catchError('app-alert')
+    @loadingEvent('app-alert', 'emergencyEvent')
     async loadEmergencyEvents() {
         this.emergencyEvents = (await this.proxy.get('emergency-event').getObjects()).objects;
         let currentEmergencyEventId = localStorage.getItem('emergency-event');
@@ -124,7 +123,6 @@ class ContextService extends BasicService {
     }
 
     @loadingEvent('app-alert', 'device')
-    @catchError('app-alert')
     async initializeCurrentDevice() {
         let user = this.proxy.get('auth').userInfo;
         let devices = (await this.proxy.get('device').getObjects({filter: {owner: user.sub}})).objects;
@@ -144,19 +142,19 @@ class ContextService extends BasicService {
         }
     }
 
-    @catchError('app-alert')
+    @loadingEvent('app-alert', 'alert')
     async loadAlerts(forceReload) {
-        this.alerts = (await this.proxy.get('alert').getObjects(null, forceReload)).objects;
+        this.alerts = (await this.proxy.get('alert').getObjects(null, forceReload))?.objects;
     }
 
-    @catchError('app-alert')
+    @loadingEvent('app-alert', 'mission')
     async loadMissions(forceReload) {
-        this.missions = (await this.proxy.get('mission').getObjects(null, forceReload)).objects;
+        this.missions = (await this.proxy.get('mission').getObjects(null, forceReload))?.objects;
     }
 
-    @catchError('app-alert')
+    @loadingEvent('app-alert', 'annotation')
     async loadAnnotations(forceReload) {
-        this.annotations = (await this.proxy.get('annotation').getObjects(null, forceReload)).objects;
+        this.annotations = (await this.proxy.get('annotation').getObjects(null, forceReload))?.objects;
     }
 
     @catchError()
@@ -179,8 +177,10 @@ class ContextService extends BasicService {
         localStorage.setItem('scenario', emergencyEvent.scenario);
         this.currentEmergencyEvent = emergencyEvent;
         this.eventAggregator.publish('app-alert-dismiss', {id: 'noEmergencyEvent'});
-        for (let alert of this.alerts) {
-            this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+        if (Array.isArray(this.alerts)) {
+            for (let alert of this.alerts) {
+                this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+            }
         }
         await this.setCurrentWeather();
         await this.loadAlerts();
