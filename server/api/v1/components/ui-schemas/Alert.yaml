@@ -153,6 +153,8 @@ properties:
   dateIssued:
     type: string
     format: date-time
+    ui:hide:
+      form: true
   dateCreated:
     type: string
     format: date-time
