@@ -64,13 +64,13 @@ export function prepareAlert(alert) {
  */
 export function encode(s) {
     return s
-        .replace(/>/g, '\u003E')
-        .replace(/"/g, '\u0022')
-        .replace(/'/g, '\u0027')
-        .replace(/=/g, '\u003D')
-        .replace(/;/g, '\u003B')
-        .replace(/\(/g, '\u0028')
-        .replace(/\)/g, '\u0029');
+        .replace(/>/g, '%3E')
+        .replace(/"/g, '%22')
+        .replace(/'/g, '%27')
+        .replace(/=/g, '%3D')
+        .replace(/;/g, '%3B')
+        .replace(/\(/g, '%28')
+        .replace(/\)/g, '%29');
 }
 
 /**
@@ -81,11 +81,11 @@ export function encode(s) {
  */
 export function decode(s) {
     return s
-        .replace(/\u003E/g, '>')
-        .replace(/\u0022/g, '"')
-        .replace(/\u0027/g, '\'')
-        .replace(/\u003D/g, '=')
-        .replace(/\u003B/g, ';')
-        .replace(/\u0028/g, '(')
-        .replace(/\u0029/g, ')');
+        .replace(/%3E/g, '>')
+        .replace(/%22/g, '"')
+        .replace(/%27/g, '\'')
+        .replace(/%3D/g, '=')
+        .replace(/%3B/g, ';')
+        .replace(/%28/g, '(')
+        .replace(/%29/g, ')');
 }
