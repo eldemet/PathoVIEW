@@ -18,8 +18,12 @@ const ensureArray = (config) => config && (Array.isArray(config) ? config : [con
 const when = (condition, config, negativeConfig) => condition ? ensureArray(config) : ensureArray(negativeConfig);
 
 const cssRules = [
+    MiniCssExtractPlugin.loader,
     {
-        loader: 'css-loader'
+        loader: 'css-loader',
+        options: {
+            esModule: false
+        }
     },
     {
         loader: 'postcss-loader',
@@ -30,15 +34,6 @@ const cssRules = [
                     'cssnano'
                 ]
             }
-        }
-    }
-];
-
-const sassRules = [
-    {
-        loader: 'sass-loader',
-        options: {
-            includePaths: ['node_modules']
         }
     }
 ];
@@ -84,7 +79,17 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
         optimization: {
             runtimeChunk: true,
             minimize: !!isProduction,
-            minimizer: isProduction ? [new TerserPlugin()] : []
+            minimizer: isProduction ? [new TerserPlugin()] : [],
+            splitChunks: {
+                cacheGroups: {
+                    styles: {
+                        name: 'styles',
+                        type: 'css/mini-extract',
+                        chunks: 'all',
+                        enforce: true
+                    }
+                }
+            }
         },
         performance: {hints: false},
         devServer: {
@@ -100,37 +105,20 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
             host: host || project.platform.host,
             server: !isProduction && project.platform.https ? {type: 'https'} : false
         },
-        devtool: isProduction ? undefined : 'cheap-module-source-map',
+        devtool: isProduction ? undefined : 'eval-cheap-module-source-map',
         module: {
             rules: [
                 {
                     test: /\.css$/,
-                    issuer: {not: /\.html$/},
-                    use: ['style-loader', ...cssRules]
-                },
-                {
-                    test: /\.css$/,
-                    issuer: /\.html$/,
-                    use: cssRules
+                    use: [...cssRules]
                 },
                 {
                     test: /\.scss$/,
-                    use: ['style-loader', ...cssRules, ...sassRules],
-                    issuer: /\.[tj]s$/
+                    use: [...cssRules, 'sass-loader']
                 },
                 {
-                    test: /\.scss$/,
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {esModule: false}
-                        },
-                        'sass-loader'
-                    ],
-                    issuer: /\.html$/
-                },
-                {
-                    test: /\.html$/, loader: 'html-loader'
+                    test: /\.html$/,
+                    loader: 'html-loader'
                 },
                 {
                     test: /\.js$/,
@@ -140,12 +128,6 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
                 },
                 {
                     test: /\.(png|gif|jpg|cur)$/,
-                    issuer: {not: /\.js$/},
-                    type: 'asset'
-                },
-                {
-                    test: /\.(png|gif|jpg|cur)$/,
-                    issuer: /\.(js|html)$/,
                     type: 'asset/resource',
                     generator: {filename: 'assets/[name][ext]'}
                 },
@@ -154,12 +136,6 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
                     include: path.resolve(__dirname, './node_modules/bootstrap-icons/font/fonts'),
                     type: 'asset/resource',
                     generator: {filename: 'webfonts/[name][ext]'}
-                },
-                {
-                    test: /\.(svg)$/,
-                    include: path.resolve(__dirname, './node_modules/bootstrap-icons/icons'),
-                    type: 'asset/resource',
-                    generator: {filename: 'assets/icons/[name][ext]'}
                 },
                 {
                     test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -209,8 +185,7 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
                 contextRegExp: /moment$/
             }),
             new MiniCssExtractPlugin({
-                filename: isProduction ? 'css/[name].[contenthash].bundle.css' : 'css/[name].[hash].bundle.css',
-                chunkFilename: isProduction ? 'css/[name].[contenthash].chunk.css' : 'css/[name].[hash].chunk.css'
+                filename: isProduction ? '[name].[contenthash].bundle.css' : '[name].[fullhash].bundle.css'
             }),
             new MergeJsonWebpackPlugin({
                 output: {

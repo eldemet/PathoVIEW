@@ -1,5 +1,6 @@
 import {bindable} from 'aurelia-framework';
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
+import './annotations.scss';
 
 /**
  * @extends BasicComponent

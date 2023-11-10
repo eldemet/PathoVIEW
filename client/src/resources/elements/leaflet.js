@@ -6,6 +6,9 @@ import 'leaflet/dist/images/layers-2x.png';
 import 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/leaflet.css';
+import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
+import './leaflet.scss';
 import {locationUtilities} from '../../utilities';
 import {NotificationType} from '../../services/notification-service';
 

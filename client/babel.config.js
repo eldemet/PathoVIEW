@@ -6,14 +6,18 @@ module.exports = api => {
     return {
         'plugins': [
             ['@babel/plugin-proposal-decorators', {legacy: true}],
-            ['@babel/plugin-proposal-class-properties', {loose: true}],
-            ['@babel/plugin-proposal-optional-chaining']
+            ['@babel/plugin-proposal-class-properties', {
+                'assumptions': {
+                    'setPublicClassFields': true
+                }
+            }]
         ],
         'presets': [
             [
-                '@babel/preset-env', {
-                    'targets': process.env.BABEL_TARGET === 'node' ? {'node': process.env.IN_PROTRACTOR ? '6' : 'current'} : {'browsers': ['last 2 versions']},
-                    'loose': true,
+                '@babel/preset-env',
+                {
+                    'targets': process.env.BABEL_TARGET === 'node' ? {'node': process.env.IN_PROTRACTOR ? '6' : 'current'} : {'esmodules': true},
+                    'loose': false,
                     'modules': process.env.BABEL_TARGET === 'node' ? 'commonjs' : false
                 }
             ]

@@ -1,5 +1,6 @@
 import {BasicView} from 'library-aurelia/src/prototypes/basic-view';
 import {modelUtilities, alertUtilities, deviceUtilities, missionUtilities, locationUtilities} from '../../utilities';
+import './map.scss';
 
 class MapView extends BasicView {
 
@@ -12,6 +13,9 @@ class MapView extends BasicView {
     constructor(...rest) {
         super(...rest);
         this.contextService = this.proxy.get('context');
+        this.alertService = this.proxy.get('alert');
+        this.missionService = this.proxy.get('mission');
+        this.deviceService = this.proxy.get('device');
     }
 
     async attached() {
@@ -21,6 +25,7 @@ class MapView extends BasicView {
         this.userId = this.proxy.get('auth').getUserId();
         let overlay = [];
         if (this.contextService.alerts) {
+            //TODO handle updates differently
             this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
                 .subscribe(async(newValue, oldValue) => {
                     this.updateLayerGroup('alert', this.contextService.alerts, alertUtilities);
@@ -28,6 +33,7 @@ class MapView extends BasicView {
             overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
         }
         if (this.contextService.missions) {
+            //TODO handle updates differently
             this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'missions')
                 .subscribe(async(newValue, oldValue) => {
                     this.updateLayerGroup('mission', this.contextService.missions, missionUtilities);
@@ -37,6 +43,7 @@ class MapView extends BasicView {
         try {
             this.devices = (await this.proxy.get('device').getObjects()).objects;
             if (this.devices) {
+                //TODO handle updates differently
                 this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
                     if (payload.contentType.toLowerCase() === 'device') {
                         await new Promise((resolve) => setTimeout(resolve, 500)); // wait until model service has updated objects

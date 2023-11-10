@@ -4,6 +4,7 @@ import {Offcanvas} from 'bootstrap';
 import {BasicViewRouter} from 'library-aurelia/src/prototypes/basic-view-router';
 import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import {deviceUtilities} from './utilities';
+import './app.scss';
 
 export class App extends BasicViewRouter {
 
