@@ -1,5 +1,6 @@
 import {bindable} from 'aurelia-framework';
 import {BasicComponent} from 'library-aurelia/src/prototypes/basic-component';
+import {AuFormDialog} from 'library-aurelia/src/resources/dialogs/au-form-dialog';
 import './annotations.scss';
 
 /**
@@ -41,7 +42,23 @@ class Annotations extends BasicComponent {
         this.annotationObject = null;
         await new Promise((resolve) => setTimeout(resolve, 50));
         let emergencyEvent = localStorage.getItem('emergency-event');
-        this.annotationObject = {kind, refId: this.refId, source: emergencyEvent};
+        let objectData = {kind, refId: this.refId, source: emergencyEvent};
+        let model = {
+            type: 'annotation',
+            formType: 'create',
+            objectData
+        };
+        if (kind === 'AnnotationImage') {
+            this.dialogService.open({viewModel: AuFormDialog, model: model, lock: false, modalSize: 'modal-xl'}).whenClosed(async response => {
+                if (response.wasCancelled) {
+                    this.logger.debug('UpdateDialog was cancelled!');
+                } else {
+                    this.logger.debug('UpdateDialog was confirmed!');
+                }
+            });
+        } else {
+            this.annotationObject = objectData;
+        }
     }
 
     async deleteAnnotation(annotation) {
