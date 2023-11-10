@@ -42,4 +42,22 @@ leaflet .map {
     .leaflet-pm-toolbar .control-icon {
         filter: brightness(0) invert(0.65);
     }
+
+    .leaflet-control-geosearch .results {
+        background: var(--bs-body-bg);
+    }
+    .leaflet-control-geosearch form {
+        background: var(--bs-body-bg);
+    }
+
+    .leaflet-control-geosearch button.reset {
+        background: var(--bs-body-bg);
+        color: var(--bs-body-color);
+    }
+
+    .leaflet-control-geosearch .results>.active, .leaflet-control-geosearch .results>:hover {
+        background: var(--bs-secondary-bg);
+        color: var(--bs-body-color);
+    }
+
 }

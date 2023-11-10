@@ -18,6 +18,11 @@ export class CustomFormItemMap extends BasicComposableAuFormItem {
 
     async activate(model) {
         super.activate(model);
+        this.searchControl = {
+            provider: 'OpenStreetMapProvider',
+            style: 'bar',
+            searchLabel: this.i18n.tr('buttons.search')
+        };
         if (this.object[this.propertyKey]) {
             this.layers = {
                 overlay: [
@@ -58,6 +63,10 @@ export class CustomFormItemMap extends BasicComposableAuFormItem {
             } else if (event.type === 'pm:remove') {
                 this.object[this.propertyKey] = undefined;
                 this.drawEnabled = true;
+            } else if (event.type === 'geosearch/showlocation') {
+                this.object[this.propertyKey] = event.geoJson.geometry;
+                this.drawEnabled = false;
+                event.map.pm.Draw.disable();
             } else {
                 this.object[this.propertyKey] = event.geoJson.geometry;
             }

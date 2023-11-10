@@ -8,6 +8,7 @@ import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/leaflet.css';
 import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
+import 'leaflet-geosearch/assets/css/leaflet.css';
 import './leaflet.scss';
 import {locationUtilities} from '../../utilities';
 import {NotificationType} from '../../services/notification-service';
@@ -22,6 +23,7 @@ export class LeafletCustomElement extends BasicComponent {
     @bindable withLayerControl;
     @bindable withScaleControl;
     @bindable withEditControl;
+    @bindable withSearchControl;
     @bindable center;
     @bindable defaultCenter;
 
@@ -64,6 +66,7 @@ export class LeafletCustomElement extends BasicComponent {
         super.attached();
         this.L = await import('leaflet');
         await import('@geoman-io/leaflet-geoman-free');
+        this.Geosearch = await import('leaflet-geosearch');
         this.L.Icon.Default.imagePath = 'assets/';
         this.layerFactory = new LayerFactory(this.L);
         let mapOptions = this.defaultMapOptions;
@@ -105,6 +108,7 @@ export class LeafletCustomElement extends BasicComponent {
         this.setScaleControl();
         this.setLayerControl();
         this.setEditControl();
+        this.setSearchControl();
         this.initializeResolve();
     }
 
@@ -301,6 +305,38 @@ export class LeafletCustomElement extends BasicComponent {
             this.map.pm.setLang(this.i18n.getLocale());
         }
     }
+
+    setSearchControl() {
+        if (this.withSearchControl) {
+            let provider = new this.Geosearch[this.withSearchControl.provider]({params: {addressdetails: 1}});
+            // @ts-ignore
+            let control = new this.Geosearch.GeoSearchControl(Object.assign({}, this.withSearchControl, {provider}));
+            this.map.addControl(control);
+            this.map.on('geosearch/showlocation', this.handleSearchEvent);
+        }
+    }
+
+    handleSearchEvent = ev => {
+        let geoJson = ev.marker.toGeoJSON();
+        geoJson.properties = Object.assign({}, ev.marker.options, {
+            name: 'leaflet_id ' + ev.marker._leaflet_id,
+            category: 'default'
+        });
+        for (let layerEvent of this.layerEvents) {
+            ev.marker.on(layerEvent, this.handleEvent);
+        }
+        ev.marker.on('remove', this.handleSearchRemoveEvent);
+        this.eventAggregator.publish('aurelia-leaflet', {
+            type: ev.type,
+            location: ev.location,
+            map: this.map,
+            geoJson: geoJson
+        });
+    };
+
+    handleSearchRemoveEvent = ev => {
+        this.eventAggregator.publish('aurelia-leaflet', {type: 'pm:remove'});
+    };
 
     handleEvent = ev => {
         let geoJson = ev.layer.toGeoJSON();
