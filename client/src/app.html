@@ -69,13 +69,14 @@
             <div class="dropdown-menu dropdown-menu-lg-end text-nowrap" aria-labelledby="settings-menu">
                 <div class="px-3 py-0">
                     <label class="h4 d-flex align-items-end flex-nowrap" for="contextAwareAlertsEnabled">
-                        ${'buttons.contextAwareAlerts' | t}
+                        <i class="bi-radar me-1"></i>
+                        <span class="flex-fill">${'buttons.contextAwareAlerts' | t}</span>
                         <div class="ms-2 form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="contextAwareAlertsEnabled" checked.bind="contextService.contextAwareAlertsEnabled">
                         </div>
                     </label>
                     <div class="mb-3"
-                         if.bind="contextService.timeout">
+                         if.bind="contextService.contextAwareAlertsEnabled && contextService.timeout">
                         <label for="contextAwareAlertsTimeout" class="form-label">${'buttons.interval' | t}</label>
                         <div class="input-group align-items-center">
                             <input type="range"
@@ -93,7 +94,8 @@
                             <i if.bind="contextAwareAlertsTimeout.value === contextService.timeout" class="text-success bi-check"></i>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"
+                         if.bind="contextService.contextAwareAlertsEnabled">
                         <label for="contextAwareAlertsWarningDistance" class="form-label">${'buttons.contextAwareAlertsWarningDistance' | t}</label>
                         <div class="input-group align-items-center">
                             <input type="range"
@@ -117,13 +119,14 @@
                      if.bind="appConfig.enableBhaptics">
                     <label class="h4 d-flex align-items-end flex-nowrap"
                            for="bhapticsServiceToggle">
-                        <img class="mb-1 me-1" src.bind="'./assets/logo-bhaptics.svg'" style="width: 1rem" class="me-2">
-                        PathoVEST
+                        <img class="mb-1 me-1" src.bind="'./assets/logo-bhaptics.svg'" style="width: 1.5rem" class="me-2">
+                        <span class="flex-fill">PathoVEST</span>
                         <div class="ms-2 form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="bhapticsServiceToggle" checked.bind="bhapticsService.bhapticsServiceEnabled">
                         </div>
                     </label>
-                    <div class="text-body-tertiary text-wrap mb-2">
+                    <div class="text-body-tertiary text-wrap mb-2"
+                         if.bind="bhapticsService.bhapticsServiceEnabled">
                         <div if.bind="bhapticsService.status === 'connecting'">
                             <div class="spinner-border spinner-border-sm" role="status"></div>
                             ${'alerts.bhaptics.connecting' | t}
@@ -150,7 +153,8 @@
                             </div>
                         </li>
                     </ul>
-                    <button class="dropdown-item"
+                    <button if.bind="bhapticsService.bhapticsServiceEnabled"
+                            class="dropdown-item"
                             disabled.bind="bhapticsService.status !== 'connected'"
                             click.trigger="bhapticsService.pingAll()">
                         <i class="bi-activity me-2"></i>${'buttons.pingAll' | t}
