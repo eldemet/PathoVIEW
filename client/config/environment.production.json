@@ -8,10 +8,18 @@
         "clientId": "pathoview",
         "useUserLocale": false,
         "rbac": {
+            "emergencyEvent": {
+                "create": [
+                    "admin"
+                ],
+                "update": [
+                    "admin"
+                ]
+            },
             "alert": {
                 "create": [],
                 "update": [
-                    "_ADMIN"
+                    "admin"
                 ]
             },
             "mission": {
@@ -19,7 +27,7 @@
             },
             "cms": {
                 "view": [
-                    "_ADMIN"
+                    "admin"
                 ]
             }
         }

@@ -37,8 +37,9 @@
                         </button>
                     </li>
                 </ul>
-                <hr class="dropdown-divider">
+                <hr class="dropdown-divider" if.bind="authService.hasAccess('emergencyEvent.create')">
                 <button class="dropdown-item"
+                        if.bind="authService.hasAccess('emergencyEvent.create')"
                         click.trigger="openCreateModal('emergencyEvent')">
                     <i class="bi-plus me-2"></i>${'views.create' | t:{'type': 'model.emergencyEvent'}}
                 </button>
@@ -71,7 +72,7 @@
             </button>
             <div class="dropdown-menu dropdown-menu-lg-end text-nowrap" aria-labelledby="settings-menu">
                 <div class="px-3 py-0">
-                    <label class="h4 d-flex align-items-end flex-nowrap" for="contextAwareAlertsEnabled">
+                    <label class="h4 d-flex align-items-end flex-wrap" for="contextAwareAlertsEnabled">
                         <i class="bi-radar me-1"></i>
                         <span class="flex-fill">${'buttons.contextAwareAlerts' | t}</span>
                         <div class="ms-2 form-check form-switch">
@@ -120,7 +121,7 @@
                 <hr class="dropdown-divider">
                 <div class="px-3 py-0"
                      if.bind="appConfig.enableBhaptics">
-                    <label class="h4 d-flex align-items-end flex-nowrap"
+                    <label class="h4 d-flex align-items-end flex-wrap"
                            for="bhapticsServiceToggle">
                         <img class="mb-1 me-1" src.bind="'./assets/logo-bhaptics.svg'" style="width: 1.5rem" class="me-2">
                         <span class="flex-fill">PathoVEST</span>

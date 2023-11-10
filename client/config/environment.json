@@ -9,11 +9,18 @@
         "useUserLocale": false,
         "rbac": {
             "emergencyEvent": {
-                "update": []
+                "create": [
+                    "admin"
+                ],
+                "update": [
+                    "admin"
+                ]
             },
             "alert": {
                 "create": [],
-                "update": []
+                "update": [
+                    "admin"
+                ]
             },
             "mission": {
                 "delete": []
