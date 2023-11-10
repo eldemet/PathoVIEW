@@ -37,3 +37,4 @@ node_modules
 /test/coverage-jest
 /test/coverage-karma
 /static/locales
+/unused
