@@ -12,7 +12,7 @@ class BhapticsServiceImplementation extends BhapticsService {
         this.bhapticsServicePlugin = registerPlugin('BhapticsService');
     }
 
-    async initialize(config) {
+    async initializeService(options) {
         this.status = 'connecting';
         try {
             await this.bhapticsServicePlugin.initialize();
@@ -23,7 +23,7 @@ class BhapticsServiceImplementation extends BhapticsService {
             this.devices = (await this.bhapticsServicePlugin.getDeviceList()).devices;
             this.logger.info('bhaptics connected!');
             this.status = 'connected';
-            await super.initialize();
+            await super.initializeService();
         } catch (error) {
             this.status = 'error';
         }
@@ -33,7 +33,6 @@ class BhapticsServiceImplementation extends BhapticsService {
         this.androidSubscription.remove();
         await this.bhapticsServicePlugin.close();
         this.devices = null;
-        this.status = 'disabled';
         await super.close();
     }
 

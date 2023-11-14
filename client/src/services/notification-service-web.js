@@ -3,9 +3,9 @@ import {modelUtilities} from '../utilities';
 
 class NotificationServiceImplementation extends NotificationService {
 
-    async initialize(url, topics, validContentTypes) {
-        await super.initialize(url, topics, validContentTypes);
-        if (topics.includes('model')) {
+    async initializeService(config) {
+        await super.initializeService(config);
+        if (config.topics.includes('model')) {
             this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
                 let modelType = this._.lowerFirst(this._.camelCase(payload.contentType));
                 if (modelType === 'alert') {
@@ -24,11 +24,6 @@ class NotificationServiceImplementation extends NotificationService {
                 }
             }));
         }
-    }
-
-    async close() {
-        await super.close();
-        this.disposeSubscriptions();
     }
 
 }

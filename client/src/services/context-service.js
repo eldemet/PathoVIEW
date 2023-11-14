@@ -18,10 +18,6 @@ class ContextService extends BasicService {
     @observable contextAwareAlertsEnabled = localStorage.getItem('context-aware-alerts-enabled') !== 'false';
     @observable contextAwareAlertsWarningDistance = localStorage.getItem('context-aware-alerts-warning-distance') || '10';
 
-    initialized = new Promise(resolve => {
-        this.initializeResolve = resolve;
-    });
-
     activeContextAwareAlerts = [];
     closedContextAwareAlerts = [];
 
@@ -40,7 +36,7 @@ class ContextService extends BasicService {
         this.httpService = httpService;
     }
 
-    async initialize(config) {
+    async initializeService(config) {
         this.config = config;
         await this.loadEmergencyEvents();
         await this.loadAlerts();
@@ -60,12 +56,11 @@ class ContextService extends BasicService {
             }
         }));
         if (this.contextAwareAlertsEnabled) await this.enableContextAwareAlerts();
-        this.initializeResolve();
     }
 
     async close() {
+        await super.close();
         if (this.contextAwareAlertsEnabled) await this.disableContextAwareAlerts();
-        this.disposeSubscriptions();
     }
 
     async enableContextAwareAlerts() {

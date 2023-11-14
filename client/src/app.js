@@ -162,7 +162,7 @@ export class App extends BasicViewRouter {
         super.attached();
         await this.responsiveService.initialize();
         await this.contextService.initialize(this.appConfig);
-        await this.notificationService.initialize(this.appConfig.baseUrl + '/api/v1/notification', ['model', 'event']);
+        await this.notificationService.initialize({url: this.appConfig.baseUrl + '/api/v1/notification', topics: ['model', 'event']});
         this.interval = setInterval(() => this.bindingSignaler.signal('interval-second'), 1000);
         this.dropUp = this.responsiveService.matchCondition('md', true);
         this.subscriptions.push(this.eventAggregator.subscribe('device-class-changed', () => {

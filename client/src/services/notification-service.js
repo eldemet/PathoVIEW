@@ -49,15 +49,17 @@ class NotificationService extends BasicService {
 
     /**
      * register notification listener
-     * @param {String} url url of the server sent event endpoint
-     * @param {Array<String>} [topics] only receive specific topics
-     * @param {Array<String>} [validContentTypes] only allow specific content types
+     * @param {Object} config
+     * @param {String} config.url url of the server sent event endpoint
+     * @param {Array<String>} [config.topics] only receive specific topics
+     * @param {Array<String>} [config.validContentTypes] only allow specific content types
      */
-    async initialize(url, topics, validContentTypes) {
-        if (Array.isArray(validContentTypes)) {
-            NotificationSchema.properties.contentType.enum = validContentTypes;
+    async initializeService(config) {
+        let url = config.url;
+        if (Array.isArray(config.validContentTypes)) {
+            NotificationSchema.properties.contentType.enum = config.validContentTypes;
         }
-        if (topics) url += '?topics=' + topics.join();
+        if (config.topics) url += '?topics=' + config.topics.join();
         let authToken = localStorage.getItem('auth_token');
         const options = !this._.isNil(authToken) ?
             {headers: {'Authorization': 'Bearer ' + authToken, withCredentials: true}} :
@@ -80,9 +82,9 @@ class NotificationService extends BasicService {
             this.notificationCallback(notification);
         };
         // TODO add additional check to only show updates of certain scenario
-        if (Array.isArray(topics)) {
-            NotificationSchema.properties.topic.enum = topics;
-            for (let topic of topics) {
+        if (Array.isArray(config.topics)) {
+            NotificationSchema.properties.topic.enum = config.topics;
+            for (let topic of config.topics) {
                 this.notificationListener.addEventListener(topic, notification => {
                     this.notificationCallback(notification);
                 }, false);
@@ -90,10 +92,9 @@ class NotificationService extends BasicService {
         }
     }
 
-    /**
-     * remove notification listener
-     */
-    removeNotificationListener() {
+    async close() {
+        await super.close();
+        this.clearNotifications();
         if (this.notificationListener) {
             try {
                 this.notificationListener.close();
@@ -103,11 +104,6 @@ class NotificationService extends BasicService {
             }
             this.logger.info('Notification listener removed!');
         }
-    }
-
-    async close() {
-        this.clearNotifications();
-        this.removeNotificationListener();
     }
 
     notificationCallback = async(/** @type {MessageEvent<String>} */ notification) => {

@@ -30,24 +30,12 @@ class AuthService extends BasicService {
         this.config = config;
     }
 
-    async initialize() {
-        if (!this.initialized) {
-            this.initialized = new Promise(resolve => {
-                this.initializeResolve = resolve;
-            });
-            this.users = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 10000);
-            let roles = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/role', null, 10000);
-            this.roles = roles.sort((a, b) => a.name.localeCompare(b.name));
-            this.groups = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/group', null, 10000);
-            this.user = this.users.find(u => u.id === this.getUserId());
-            this.initializeResolve();
-        } else {
-            await this.initialized;
-        }
-    }
-
-    async close() {
-        this.initialized = null;
+    async initializeService() {
+        this.users = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/user', null, 10000);
+        let roles = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/role', null, 10000);
+        this.roles = roles.sort((a, b) => a.name.localeCompare(b.name));
+        this.groups = await this.httpService.fetch('GET', '/api/v1/keycloak-admin/group', null, 10000);
+        this.user = this.users.find(u => u.id === this.getUserId());
     }
 
     getTokenExpiresIn() {

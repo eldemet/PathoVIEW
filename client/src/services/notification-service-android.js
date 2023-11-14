@@ -4,8 +4,8 @@ import {NotificationService} from './notification-service';
 
 class NotificationServiceImplementation extends NotificationService {
 
-    async initialize(url, topics, validContentTypes) {
-        await super.initialize(url, topics, validContentTypes);
+    async initializeService(config) {
+        await super.initializeService(config);
         const {display} = await LocalNotifications.checkPermissions();
         if (display === 'granted') {
             this.logger.debug('Notification permissions granted');
@@ -18,7 +18,7 @@ class NotificationServiceImplementation extends NotificationService {
         this.subscriptions.push(this.eventAggregator.subscribe('haptics-event', async payload => {
             await Haptics.notification({type: payload.type});
         }));
-        if (topics.includes('model')) {
+        if (config.topics.includes('model')) {
             this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
                 let modelType = this._.lowerFirst(this._.camelCase(payload.contentType));
                 if (modelType === 'alert') {
@@ -42,11 +42,6 @@ class NotificationServiceImplementation extends NotificationService {
                 }]
             });
         }));
-    }
-
-    async close() {
-        await super.close();
-        this.disposeSubscriptions();
     }
 
 }

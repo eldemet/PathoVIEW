@@ -16,7 +16,7 @@ class BhapticsService extends BasicService {
         super('bhaptics', ...rest);
     }
 
-    async initialize() {
+    async initializeService(options) {
         for (let tactFile of tactFiles) {
             try {
                 await this.register(tactFile);
@@ -49,7 +49,7 @@ class BhapticsService extends BasicService {
     }
 
     async close() {
-        this.disposeSubscriptions();
+        await super.close();
         this.status = 'disabled';
         this.logger.info('bhaptics closed');
     }

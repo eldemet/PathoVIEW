@@ -50,7 +50,7 @@ class TactJsUtils {
 
 class BhapticsServiceImplementation extends BhapticsService {
 
-    async initialize() {
+    async initializeService() {
         this.status = 'connecting';
         BhapticsPlayer.initialize(uuid(), 'PathoVIEW');
         BhapticsPlayer.turnOffAll();
@@ -59,7 +59,7 @@ class BhapticsServiceImplementation extends BhapticsService {
             if (prevState !== msg.status && msg.status === 'Connected') {
                 this.logger.info('bhaptics connected!');
                 this.status = 'connected';
-                await super.initialize();
+                await super.initializeService();
             } else if (prevState !== msg.status && msg.status === 'Disconnected') {
                 this.logger.info('bhaptics disconnected!');
                 this.status = 'error';

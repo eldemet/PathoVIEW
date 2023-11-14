@@ -33,6 +33,7 @@ class AuthServiceImplementation extends AuthService {
     }
 
     async close() {
+        await super.close();
         clearInterval(this.interval);
         this.userInfo = undefined;
         this.keycloak.logout({redirectUri: this.keycloak.createLoginUrl()});

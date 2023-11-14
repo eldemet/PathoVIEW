@@ -11,7 +11,6 @@ const packageInformation = require('./package.json');
 const {AureliaPlugin} = require('aurelia-webpack-plugin');
 const {IgnorePlugin} = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -220,8 +219,7 @@ module.exports = ({production, android}, {analyze, hmr, port, host}) => {
                     globOptions: {ignore: ['.*']}
                 }]
             }),
-            ...when(analyze, new BundleAnalyzerPlugin()),
-            new CleanWebpackPlugin()
+            ...when(analyze, new BundleAnalyzerPlugin())
         ]
     });
 };
