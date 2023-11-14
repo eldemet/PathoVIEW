@@ -23,8 +23,8 @@ class DashboardView extends BasicView {
         await super.attached();
         this.interval = setInterval(() => this.bindingSignaler.signal('update-dates'), 1000);
         this.authService = this.proxy.get('auth');
-        await this.authService.initialize();
-        await this.contextService.initialized;
+        await this.authService.initialized();
+        await this.contextService.initialized();
         this.initialized = true;
         this.currentPosition = await this.getOwnPosition();
         this.subscriptions.push(this.eventAggregator.subscribe('context-changed', async emergencyEvent => {

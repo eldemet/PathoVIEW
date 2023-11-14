@@ -69,7 +69,7 @@ class AuthService extends BasicService {
      * @return {Promise<import('../types').KeycloakUser>}
      */
     async getUserInfo() {
-        await this.initialized;
+        await this.initialized();
         let userId = this.getUserId();
         return this.users.find(u => u.id === userId);
     }
@@ -102,12 +102,12 @@ class AuthService extends BasicService {
     }
 
     async getUsers(query) {
-        await this.initialized;
+        await this.initialized();
         return await this.getObjects(this.users, query);
     }
 
     async getRoles(query) {
-        await this.initialized;
+        await this.initialized();
         return await this.getObjects(this.roles, query);
     }
 

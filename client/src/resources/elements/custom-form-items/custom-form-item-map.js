@@ -46,7 +46,7 @@ export class CustomFormItemMap extends BasicComposableAuFormItem {
             }
         }
         try {
-            await this.contextService.initialized;
+            await this.contextService.initialized();
             this.defaultCenter = locationUtilities.getCenter(this.contextService.currentEmergencyEvent.location);
         } catch (error) {
             //silently catch error
