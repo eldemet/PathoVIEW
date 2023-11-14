@@ -14,25 +14,10 @@
                        target="_blank">Gitlab</a>!
                 </div>
             </div>
-            <div class="col-12">
-                <h2>${'views.info.title' | t}</h2>
-                <div><label class="tabstop-label">${'propertyKeys.version' | t}</label><span class="tabstop-text">${appVersion}</span></div>
-                <div><label class="tabstop-label">${'propertyKeys.license' | t}</label><span class="tabstop-text">${appLicense}</span></div>
-                <div>
-                    <label class="tabstop-label">${'propertyKeys.author' | t}</label>
-                    <a class="tabstop-text" href="mailto:${appAuthor.email}">${appAuthor.name}</a>
-                </div>
-                <div>
-                    <label class="tabstop-label">${'propertyKeys.dependencies' | t}</label>
-                    <ul class="list-unstyled">
-                        <li repeat.for="key of appDependencies | objectKeys"><i class="bi-code-square mx-1"></i> ${key}: ${appDependencies[key]}</li>
-                    </ul>
-                </div>
+            <div class="col-md-6 col-xl-3 my-3">
+                <img src.bind="'./assets/logo-pathocert.png'" class="mw-100">
             </div>
-            <div class="col-md-3">
-                <img src.bind="'./assets/logo-pathocert.png'" class="mw-100 mb-4">
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-6 col-xl-9">
                 <h2>${'views.info.learnMore' | t}</h2>
                 <p class="my-2">
                     <i class="bi-house-door-fill"></i>
@@ -54,6 +39,25 @@
                     <span>${'views.info.learnMoreGitlab' | t}</span>
                     <a href="https://gitlab.cc-asp.fraunhofer.de/pathocert" target="_blank">Gitlab</a>
                 </p>
+            </div>
+            <div class="col-12 my-3">
+                <h2>${'views.info.title' | t}</h2>
+                <div><label class="tabstop-label">${'propertyKeys.version' | t}</label><span class="tabstop-text">${appVersion}</span></div>
+                <div><label class="tabstop-label">${'propertyKeys.license' | t}</label><span class="tabstop-text">${appLicense}</span></div>
+                <div>
+                    <label class="tabstop-label">${'propertyKeys.author' | t}</label>
+                    <a class="tabstop-text" href="mailto:${appAuthor.email}">${appAuthor.name}</a>
+                </div>
+                <div>
+                    <label class="tabstop-label">${'propertyKeys.dependencies' | t}</label>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-4"
+                             repeat.for="key of appDependencies | objectKeys"
+                             style="text-indent: -1rem; padding-left: 2.75rem;">
+                            <i class="bi-code-square mx-1"></i> ${key}: ${appDependencies[key]}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
