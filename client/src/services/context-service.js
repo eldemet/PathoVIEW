@@ -43,6 +43,7 @@ class ContextService extends BasicService {
         await this.loadMissions();
         await this.loadAnnotations();
         await this.initializeCurrentDevice();
+        await this.loadDevices();
         await this.setCurrentWeather();
         numeral.locale(this.i18n.getLocale());
         this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
@@ -98,6 +99,7 @@ class ContextService extends BasicService {
         await this.loadAlerts(true);
         await this.loadMissions(true);
         await this.loadAnnotations(true);
+        await this.loadDevices(true);
         this.eventAggregator.publish('context-changed', this.currentEmergencyEvent);
     }
 
@@ -114,6 +116,16 @@ class ContextService extends BasicService {
                 message: 'views.dashboard.noEmergencyEvent',
                 dismissible: true
             });
+        }
+    }
+
+    @catchError('app-alert')
+    async loadDevices(forceReload) {
+        let userIds = (await this.getUsersOfCurrentEmergencyEvent()).map(u => u.id);
+        this.devices = (await this.proxy.get('device').getObjects({filter: {owner: {$in: userIds}}}, forceReload))?.objects;
+        this.logger.debug(this.devices);
+        if (!this.devices.includes(this.currentDevice)) {
+            this.devices.push(this.currentDevice);
         }
     }
 
@@ -181,6 +193,7 @@ class ContextService extends BasicService {
         await this.loadAlerts();
         await this.loadMissions();
         await this.loadAnnotations();
+        await this.loadDevices();
         this.checkForAlertsNearCurrentLocation();
         this.eventAggregator.publish('context-changed', emergencyEvent);
     }

@@ -4,8 +4,15 @@ import './map.scss';
 
 class MapView extends BasicView {
 
+    /** @type {import('../../services/context-service').ContextService} */
+    contextService;
     mapEvents = ['baselayerchange', 'overlayremove', 'overlayadd'];
     hiddenOverlays = this.catchError(JSON.parse)(localStorage.getItem('leaflet-hidden-overlays')) || [];
+    handledTypes = [
+        {name: 'alert', contextServicePropety: 'alerts', utilities: alertUtilities},
+        {name: 'mission', contextServicePropety: 'missions', utilities: missionUtilities},
+        {name: 'device', contextServicePropety: 'devices', utilities: deviceUtilities}
+    ];
 
     /**
      * @param {ConstructorParameters<typeof BasicView>} rest
@@ -13,9 +20,6 @@ class MapView extends BasicView {
     constructor(...rest) {
         super(...rest);
         this.contextService = this.proxy.get('context');
-        this.alertService = this.proxy.get('alert');
-        this.missionService = this.proxy.get('mission');
-        this.deviceService = this.proxy.get('device');
     }
 
     async attached() {
@@ -24,47 +28,30 @@ class MapView extends BasicView {
         this.users = (await this.proxy.get('auth').getUsers()).objects;
         this.userId = this.proxy.get('auth').getUserId();
         let overlay = [];
-        if (this.contextService.alerts) {
-            //TODO handle updates differently
-            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'alerts')
-                .subscribe(async(newValue, oldValue) => {
-                    this.updateLayerGroup('alert', this.contextService.alerts, alertUtilities);
-                }));
-            overlay.push(this.getLayerGroup('alert', this.contextService.alerts, alertUtilities));
-        }
-        if (this.contextService.missions) {
-            //TODO handle updates differently
-            this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, 'missions')
-                .subscribe(async(newValue, oldValue) => {
-                    this.updateLayerGroup('mission', this.contextService.missions, missionUtilities);
-                }));
-            overlay.push(this.getLayerGroup('mission', this.contextService.missions, missionUtilities));
-        }
-        try {
-            this.devices = (await this.proxy.get('device').getObjects()).objects;
-            if (this.devices) {
+        for (const handledType of this.handledTypes) {
+            if (this.contextService[handledType.contextServicePropety]) {
                 //TODO handle updates differently
-                this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
-                    if (payload.contentType.toLowerCase() === 'device') {
-                        await new Promise((resolve) => setTimeout(resolve, 500)); // wait until model service has updated objects
-                        this.devices = (await this.proxy.get('device').getObjects()).objects;
-                        this.updateLayerGroup('device', this.devices, deviceUtilities);
-                    }
-                }));
-                this.subscriptions.push(this.bindingEngine.propertyObserver(this, 'devices')
+                this.subscriptions.push(this.bindingEngine.propertyObserver(this.contextService, handledType.contextServicePropety)
                     .subscribe(async(newValue, oldValue) => {
-                        this.updateLayerGroup('device', this.devices, deviceUtilities);
+                        this.updateLayerGroup(handledType.name, this.contextService[handledType.contextServicePropety], handledType.utilities);
                     }));
-                overlay.push(this.getLayerGroup('device', this.devices, deviceUtilities));
+                overlay.push(this.getLayerGroup(handledType.name, this.contextService[handledType.contextServicePropety], handledType.utilities));
             }
-        } catch (error) {
-            //silently handle error
         }
         try {
             this.defaultCenter = locationUtilities.getCenter(this.contextService.currentEmergencyEvent.location);
         } catch (error) {
             //silently catch error
         }
+        this.subscriptions.push(this.eventAggregator.subscribe('notification-model', async payload => {
+            let type = payload.contentType.toLowerCase();
+            let handledType = this.handledTypes.find(t => t.name === type);
+            if (handledType) {
+                //TODO only update single layer and not whole layer group
+                await new Promise((resolve) => setTimeout(resolve, 500)); // wait until model service has updated objects
+                this.updateLayerGroup(type, this.contextService[handledType.contextServicePropety], handledType.utilities);
+            }
+        }));
         this.subscriptions.push(this.eventAggregator.subscribe('aurelia-leaflet', event => {
             this.logger.debug('aurelia-leaflet', event);
             if (event.type.startsWith('overlay')) {

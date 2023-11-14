@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import compact from 'lodash/compact';
 import {polygon} from '@turf/helpers';
 import center from '@turf/center';
 import distance from '@turf/distance';
@@ -59,7 +60,7 @@ export const deviceUtilities = {
     },
     getCustomPopupContent(device, i18n) {
         return `<p>${device.batteryLevel * 100} %</p>
-                <p>${device.provider}, ${device.osVersion}, ${device.softwareVersion}</p>
+                <p>${compact([device.provider, device.osVersion, device.softwareVersion]).join(', ')}</p>
                 <p>${formatDate(device.dateModified, 'f', i18n)}</p>`;
     },
     async getBatteryLevel() {
