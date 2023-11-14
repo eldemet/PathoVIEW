@@ -308,7 +308,7 @@ export class LeafletCustomElement extends BasicComponent {
 
     setSearchControl() {
         if (this.withSearchControl) {
-            let provider = new this.Geosearch[this.withSearchControl.provider]({params: {addressdetails: 1}});
+            let provider = new this.Geosearch[this.withSearchControl.provider](this.withSearchControl.providerOptions);
             // @ts-ignore
             let control = new this.Geosearch.GeoSearchControl(Object.assign({}, this.withSearchControl, {provider}));
             this.map.addControl(control);
@@ -327,7 +327,7 @@ export class LeafletCustomElement extends BasicComponent {
         }
         ev.marker.on('remove', this.handleSearchRemoveEvent);
         this.eventAggregator.publish('aurelia-leaflet', {
-            type: ev.type,
+            type: 'geosearch:add',
             location: ev.location,
             map: this.map,
             geoJson: geoJson
@@ -335,7 +335,7 @@ export class LeafletCustomElement extends BasicComponent {
     };
 
     handleSearchRemoveEvent = ev => {
-        this.eventAggregator.publish('aurelia-leaflet', {type: 'pm:remove'});
+        this.eventAggregator.publish('aurelia-leaflet', {type: 'geosearch:remove'});
     };
 
     handleEvent = ev => {
