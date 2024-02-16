@@ -1,5 +1,16 @@
 # PathoVIEW
 
+PathoVIEW includes a comprehensive web app for cross platform usage and an app that can be installed on any Android smartphone or tablet. The Android app can connect with a smartwatch for notifications on the wrist, as well as a haptic vest for on body vibrations as alerting system via Bluetooth. Vibrations and sounds provided by the mobile or the connected devices can communicate important information without distracting FR from the task at hand, especially in the visual field.
+PathoVIEW provides a dashboard with details about the emergency event and information like weather data that helps to better assess the current situation and plan the according actions.
+It allows to receive and create missions and alerts. FIWARE Smart Data Models ensure a standardised exchange system for apps that implement the same.
+PathoVIEW warns FR if they are getting close or entering a danger zone (e.g. contaminated water) leveraging the location capabilities of the smartphone.
+PathoVIEW also provides interactive instructions with texts and pictures for setting up different devices that allow the detection of microbiological contamination as well as an encyclopaedia for different pathogens.
+
+## Documentation
+
+* [PathoVIEW client](client/readme.md)
+* [PathoVIEW server](server/readme.md)
+
 ## Run app using docker compose
 
 - clone repository `git clone https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview.git`
