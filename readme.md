@@ -10,6 +10,8 @@
 
 * [PathoVIEW client](client/readme.md)
 * [PathoVIEW server](server/readme.md)
+* [UML deployment diagram](server/docs/uml/deployment.puml)
+* [UML object diagram](server/docs/uml/object-diagram.puml)
 
 ## Run web app using docker compose
 
