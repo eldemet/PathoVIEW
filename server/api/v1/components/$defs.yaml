@@ -175,10 +175,10 @@ Address:
       ui:formItemGridClass: 'col-md-5'
     streetAddress:
       type: string
-      ui:formItemGridClass: 'col-md-8'
+      ui:formItemGridClass: 'col-8'
     streetNr:
       type: string
-      ui:formItemGridClass: 'col-md-2'
+      ui:formItemGridClass: 'col-2'
 
 owner:
   type: array
