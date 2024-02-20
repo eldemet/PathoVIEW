@@ -6,8 +6,6 @@ import {KeycloakAdminService} from './services/keycloak-admin.js';
 
 const kcAdminService = new KeycloakAdminService();
 
-//TODO implement custom notification service that handles scenario (request head) as subscriptions
-
 const openApi = {
     apiDoc: {
         openapi: '3.0.2',
@@ -106,8 +104,7 @@ const configAdditionsSchemaPath = './api/v1/components/config-additions.yaml';
 
 const additionalDbSchemas = {
     Alert: {$ref: 'node_modules/smart-data-models-alert/Alert/model.yaml#/Alert'},
-    Device: {$ref: 'node_modules/smart-data-models-device/Device/model.yaml#/Device'},
-    PointOfInterest: {$ref: 'node_modules/smart-data-models-point-of-interest/PointOfInterest/model.yaml#/PointOfInterest'}
+    Device: {$ref: 'node_modules/smart-data-models-device/Device/model.yaml#/Device'}
 };
 
 const initializeAddOnsCallback = async(config) => {

@@ -1,6 +1,6 @@
 {
     "name": "pathoview-server",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "PathoVIEW server application",
     "type": "module",
     "exports": "./server.js",
@@ -16,12 +16,7 @@
     },
     "napa": {
         "smart-data-models-alert": "https://github.com/smart-data-models/dataModel.Alert.git",
-        "smart-data-models-risk-management": "https://github.com/smart-data-models/dataModel.RiskManagement.git",
-        "smart-data-models-device": "https://github.com/smart-data-models/dataModel.Device.git",
-        "smart-data-models-point-of-interest": "https://github.com/smart-data-models/dataModel.PointOfInterest.git",
-        "smart-data-models-point-of-interaction": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git",
-        "smart-data-models-multimedia": "https://github.com/smart-data-models/dataModel.Multimedia.git",
-        "smart-data-model-user": "https://github.com/smart-data-models/dataModel.User.git"
+        "smart-data-models-device": "https://github.com/smart-data-models/dataModel.Device.git"
     },
     "napa-config": {
         "cache": false
@@ -31,8 +26,8 @@
     "dependencies": {
         "@keycloak/keycloak-admin-client": "^20.0.5",
         "ajv-formats-draft2019": "^1.6.1",
-        "query-string": "^8.1.0",
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v5.0.1"
+        "query-string": "^8.2.0",
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v5.0.3"
     },
     "types": "./types/index.d.ts",
     "directories": {
