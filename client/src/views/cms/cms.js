@@ -53,17 +53,6 @@ export class Cms extends BasicViewRouter {
             }
         },
         {
-            route: 'poi',
-            name: 'point-of-interest',
-            moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
-            nav: true,
-            title: 'model.pointOfInterest',
-            settings: {
-                i18n: {count: 2},
-                detailView: true
-            }
-        },
-        {
             route: 'annotation',
             name: 'annotation',
             moduleId: PLATFORM.moduleName('library-aurelia/src/views-general/search-view'),
