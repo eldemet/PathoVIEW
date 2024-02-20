@@ -147,7 +147,7 @@ class MapView extends BasicView {
                 return {
                     id: object.id,
                     type: 'geoJSON',
-                    divIconContent: `<i class="bi-${modelUtilities.getIconByType(type)} bg-white ${Array.isArray(object.owner) && object.owner.includes(this.userId) ? 'text-primary h5' : 'h6'}" />`,
+                    divIconContent: `<i class="bi-${modelUtilities.getIconByType(type)} text-white rounded-1 bg-opacity-75 ${Array.isArray(object.owner) && object.owner.includes(this.userId) ? 'bg-primary h5' : 'bg-blue h6'}" style="padding: 2px;" />`,
                     data: object.location,
                     events: ['popupopen', 'popupclose'],
                     options,
