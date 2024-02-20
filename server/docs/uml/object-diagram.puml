@@ -113,6 +113,8 @@ class Device <<Smart Data Model>> {
 }
 class Annotation {
     id: String
+    type: String
+    kind: String
     owner: String<UserId>
     refId: String
     ..
@@ -123,12 +125,9 @@ class AnnotationText {
     text: String
 }
 class AnnotationImage {
-    name: String
-    description: String
     data: String<Base64>
 }
 class AnnotationAudio {
-    source: AudioSource
     data: String<Base64>
 }
 
