@@ -124,7 +124,7 @@ class ContextService extends BasicService {
         let userIds = (await this.getUsersOfCurrentEmergencyEvent()).map(u => u.id);
         this.devices = (await this.proxy.get('device').getObjects({filter: {owner: {$in: userIds}}}, forceReload))?.objects;
         this.logger.debug(this.devices);
-        if (!this.devices.includes(this.currentDevice)) {
+        if (!this.devices.map(d => d.id).includes(this.currentDevice.id)) {
             this.devices.push(this.currentDevice);
         }
     }
