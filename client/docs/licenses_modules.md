@@ -520,7 +520,7 @@
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@eslint/js@8.56.0](https://github.com/eslint/eslint)**
+ - **[@eslint/js@8.57.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: ESLint JavaScript language implementation
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -1564,7 +1564,7 @@
     - licenses: MIT
     - description: A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output.
     - copyright: Copyright Mathias Bynens <https://mathiasbynens.be/>
- - **[cssnano-preset-default@6.0.3](https://github.com/cssnano/cssnano)**
+ - **[cssnano-preset-default@6.0.5](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Safe defaults for cssnano which require minimal configuration.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -1572,7 +1572,7 @@
     - licenses: MIT
     - description: Utility methods and plugin for cssnano projects
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[cssnano@6.0.3](https://github.com/cssnano/cssnano)**
+ - **[cssnano@6.0.5](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: A modular minifier, built on top of the PostCSS ecosystem.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -1752,7 +1752,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.4.676](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.677](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -1848,7 +1848,7 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.56.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.57.0](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
@@ -1980,7 +1980,7 @@
     - licenses: BSD-3-Clause
     - description: Take a nested Javascript object and flatten it, or unflatten an object with delimited keys
     - copyright: Copyright (c) 2014, Hugh Kennedy. All rights reserved.
- - **[flatted@3.2.9](https://github.com/WebReflection/flatted)**
+ - **[flatted@3.3.0](https://github.com/WebReflection/flatted)**
     - licenses: ISC
     - description: A super light and fast circular JSON parser.
     - copyright: Copyright (c) 2018-2020, Andrea Giammarchi, @WebReflection
@@ -2212,11 +2212,11 @@
     - licenses: Apache-2.0
     - description: Human-friendly process signals
     - copyright: none
- - **[i18next-http-backend@2.4.3](https://github.com/i18next/i18next-http-backend)**
+ - **[i18next-http-backend@2.5.0](https://github.com/i18next/i18next-http-backend)**
     - licenses: MIT
     - description: i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
     - copyright: Copyright (c) 2023 i18next
- - **[i18next@23.9.0](https://github.com/i18next/i18next)**
+ - **[i18next@23.10.0](https://github.com/i18next/i18next)**
     - licenses: MIT
     - description: i18next internationalization framework
     - copyright: Copyright (c) 2024 i18next
@@ -2472,7 +2472,7 @@
     - licenses: MIT
     - description: launch editor from node.js
     - copyright: Copyright (c) 2017-present, Yuxi (Evan) You
- - **[leaflet-geosearch@3.11.0](https://github.com/smeijer/leaflet-geosearch)**
+ - **[leaflet-geosearch@3.11.1](https://github.com/smeijer/leaflet-geosearch)**
     - licenses: MIT
     - description: Adds support for address lookup (a.k.a. geocoding / geoseaching) to Leaflet.
     - copyright: none
@@ -2484,7 +2484,7 @@
     - licenses: MIT
     - description: Light ECMAScript (JavaScript) Value Notation - human written, concise, typed, flexible
     - copyright: Copyright (c) George Zahariev
- - **[library-aurelia@4.12.0](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
+ - **[library-aurelia@4.12.1](https://gitlab.cc-asp.fraunhofer.de/knecht/library-aurelia)**
     - licenses: BSD-3-Clause-Clear
     - description: Aurelia library with reusable components
     - copyright: Copyright (c) 2024, Fraunhofer IAO. All rights reserved.
@@ -2580,7 +2580,7 @@
     - licenses: MIT
     - description: Simple RFC 6838 media type parser and formatter
     - copyright: Copyright (c) 2014 Douglas Christopher Wilson
- - **[memfs@4.7.6](https://github.com/streamich/memfs)**
+ - **[memfs@4.7.7](https://github.com/streamich/memfs)**
     - licenses: Apache-2.0
     - description: In-memory file-system with Node's fs API.
     - copyright: none
@@ -2932,7 +2932,7 @@
     - licenses: MIT
     - description: Check if a path is a file, directory, or symlink
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[pathoview-client@1.9.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-client@1.9.1](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW client application.
     - copyright: none
@@ -2972,11 +2972,11 @@
     - licenses: MIT
     - description: PostCSS plugin to reduce calc()
     - copyright: Copyright (c) 2014 Maxime Thirouin
- - **[postcss-colormin@6.0.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-colormin@6.0.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify colors in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-convert-values@6.0.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-convert-values@6.0.4](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Convert values with PostCSS (e.g. ms -> s)
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -2984,11 +2984,11 @@
     - licenses: MIT
     - description: Discard comments in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-discard-duplicates@6.0.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-discard-duplicates@6.0.2](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Discard duplicate rules in your CSS files with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-discard-empty@6.0.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-discard-empty@6.0.2](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Discard empty rules and values with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3000,23 +3000,23 @@
     - licenses: MIT
     - description: PostCSS loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[postcss-merge-longhand@6.0.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-longhand@6.0.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge longhand properties into shorthand with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-merge-rules@6.0.3](https://github.com/cssnano/cssnano)**
+ - **[postcss-merge-rules@6.0.4](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Merge CSS rules with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-minify-font-values@6.0.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-font-values@6.0.2](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify font declarations with PostCSS
     - copyright: Copyright (c) Bogdan Chadkin <trysound@yandex.ru>
- - **[postcss-minify-gradients@6.0.1](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-gradients@6.0.2](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify gradient parameters with PostCSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-minify-params@6.0.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-minify-params@6.0.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Minify at-rule params with PostCSS
     - copyright: Copyright 2015 Bogdan Chadkin <trysound@yandex.ru>
@@ -3064,7 +3064,7 @@
     - licenses: MIT
     - description: Normalize CSS animation/transition timing functions.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-normalize-unicode@6.0.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-normalize-unicode@6.0.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Normalize unicode-range descriptors, and can convert to wildcard ranges.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3080,7 +3080,7 @@
     - licenses: MIT
     - description: Ensure values are ordered consistently in your CSS.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
- - **[postcss-reduce-initial@6.0.2](https://github.com/cssnano/cssnano)**
+ - **[postcss-reduce-initial@6.0.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Reduce initial definitions to the actual initial value, where possible.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
@@ -3304,7 +3304,7 @@
     - licenses: MIT
     - description: Sass loader for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[sass@1.71.0](https://github.com/sass/dart-sass)**
+ - **[sass@1.71.1](https://github.com/sass/dart-sass)**
     - licenses: MIT
     - description: A pure JavaScript implementation of Sass.
     - copyright: Copyright (c) 2016, Google Inc.*
@@ -3556,7 +3556,7 @@
     - licenses: MIT
     - description: style loader module for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[stylehacks@6.0.2](https://github.com/cssnano/cssnano)**
+ - **[stylehacks@6.0.3](https://github.com/cssnano/cssnano)**
     - licenses: MIT
     - description: Detect/remove browser hacks from CSS files.
     - copyright: Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)

@@ -74,7 +74,7 @@ class ContextService extends BasicService {
     async disableContextAwareAlerts() {
         this.logger.debug('context aware alerts disabled');
         for (const id of this.activeContextAwareAlerts) {
-            this.eventAggregator.publish('app-alert-dismiss', {id});
+            this.eventAggregator.publish('context-aware-alert-dismiss', {id});
         }
         this.activeContextAwareAlerts = [];
         this.closedContextAwareAlerts = [];
@@ -266,7 +266,6 @@ class ContextService extends BasicService {
                                 dismissible: dismissible
                             };
                             this.eventAggregator.publish('context-aware-alert', payload);
-                            this.eventAggregator.publish('app-alert', payload);
                             this.logger.debug(`distance to alert ${alert.name || alert.description} ${distanceResult}m`);
                             this.activeContextAwareAlerts.push(alert.id);
                         } else {
