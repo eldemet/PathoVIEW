@@ -186,7 +186,7 @@ class ContextService extends BasicService {
         this.eventAggregator.publish('app-alert-dismiss', {id: 'noEmergencyEvent'});
         if (Array.isArray(this.alerts)) {
             for (let alert of this.alerts) {
-                this.eventAggregator.publish('app-alert-dismiss', {id: alert.id});
+                this.eventAggregator.publish('context-aware-alert-dismiss', {id: alert.id});
             }
         }
         await this.setCurrentWeather();
@@ -281,7 +281,7 @@ class ContextService extends BasicService {
 
     dismissActiveContextAwareAlert(id) {
         if (this.activeContextAwareAlerts.includes(id)) {
-            this.eventAggregator.publish('app-alert-dismiss', {id});
+            this.eventAggregator.publish('context-aware-alert-dismiss', {id});
             this.activeContextAwareAlerts.splice(this.activeContextAwareAlerts.indexOf(id), 1);
         }
     }
