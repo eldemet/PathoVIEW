@@ -1,9 +1,0 @@
-{
-    "extends": "./node_modules/utilities-node/.eslintrc.json",
-    "ignorePatterns": [
-        "*.ts"
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest"
-    }
-}

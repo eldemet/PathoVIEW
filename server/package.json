@@ -1,6 +1,6 @@
 {
     "name": "pathoview-server",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "PathoVIEW server application",
     "type": "module",
     "exports": "./server.js",
@@ -24,10 +24,10 @@
     "author": "Christian Knecht",
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
-        "@keycloak/keycloak-admin-client": "^20.0.5",
+        "@keycloak/keycloak-admin-client": "^24.0.3",
         "ajv-formats-draft2019": "^1.6.1",
-        "query-string": "^8.2.0",
-        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v5.0.3"
+        "query-string": "^9.0.0",
+        "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v5.0.5"
     },
     "types": "./types/index.d.ts",
     "directories": {

@@ -2,11 +2,11 @@
 
 ## Summary
 
-* MIT: 385
-* ISC: 53
-* Apache-2.0: 16
-* BSD-2-Clause: 11
-* BSD-3-Clause: 9
+* MIT: 449
+* ISC: 52
+* Apache-2.0: 17
+* BSD-2-Clause: 12
+* BSD-3-Clause: 11
 * BSD-3-Clause-Clear: 3
 * CC0-1.0: 2
 * Python-2.0: 1
@@ -15,15 +15,11 @@
 * Custom: https://github.com/smart-data-models/dataModel.Device/blob/master/Camera/README.md: 1
 * CC-BY-3.0: 1
 * (MIT AND CC-BY-3.0): 1
-* (MIT OR CC0-1.0): 1
+* 0BSD: 1
 
 ## Details
 
- - **[@aashutoshrathi/word-wrap@1.2.6](https://github.com/aashutoshrathi/word-wrap)**
-    - licenses: MIT
-    - description: Wrap words to a specified length.
-    - copyright: Copyright (c) 2014-2016, Jon Schlinkert
- - **[@apidevtools/json-schema-ref-parser@9.0.9](https://github.com/APIDevTools/json-schema-ref-parser)**
+ - **[@apidevtools/json-schema-ref-parser@11.6.1](https://github.com/APIDevTools/json-schema-ref-parser)**
     - licenses: MIT
     - description: Parse, Resolve, and Dereference JSON Schema $ref pointers
     - copyright: Copyright (c) 2015 James Messinger
@@ -43,15 +39,15 @@
     - licenses: MIT
     - description: Regular expression parser for ECMAScript.
     - copyright: Copyright (c) 2018 Toru Nagashima
- - **[@eslint/eslintrc@2.1.4](https://github.com/eslint/eslintrc)**
+ - **[@eslint/eslintrc@3.0.2](https://github.com/eslint/eslintrc)**
     - licenses: MIT
     - description: The legacy ESLintRC config file format for ESLint
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@eslint/js@8.56.0](https://github.com/eslint/eslint)**
+ - **[@eslint/js@9.1.1](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: ESLint JavaScript language implementation
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[@humanwhocodes/config-array@0.11.14](https://github.com/humanwhocodes/config-array)**
+ - **[@humanwhocodes/config-array@0.13.0](https://github.com/humanwhocodes/config-array)**
     - licenses: Apache-2.0
     - description: Glob-based configuration matching.
     - copyright: none
@@ -59,19 +55,23 @@
     - licenses: Apache-2.0
     - description: Universal module importer for Node.js
     - copyright: none
- - **[@humanwhocodes/object-schema@2.0.2](https://github.com/humanwhocodes/object-schema)**
+ - **[@humanwhocodes/object-schema@2.0.3](https://github.com/humanwhocodes/object-schema)**
     - licenses: BSD-3-Clause
     - description: An object schema merger/validator
     - copyright: Copyright (c) 2019, Human Who Codes. All rights reserved.
+ - **[@humanwhocodes/retry@0.2.3](https://github.com/humanwhocodes/retrier)**
+    - licenses: Apache-2.0
+    - description: A utility to retry failed async methods.
+    - copyright: none
  - **[@jsdevtools/ono@7.1.3](https://github.com/JS-DevTools/ono)**
     - licenses: MIT
     - description: Throw better errors.
     - copyright: Copyright (c) 2015 James Messinger
- - **[@keycloak/keycloak-admin-client@20.0.5](https://github.com/keycloak/keycloak-nodejs-admin-client)**
+ - **[@keycloak/keycloak-admin-client@24.0.3](https://github.com/keycloak/keycloak)**
     - licenses: Apache-2.0
-    - description: keycloak admin client
+    - description: A client to interact with Keycloak's Administration API
     - copyright: none
- - **[@mongodb-js/saslprep@1.1.4](https://github.com/mongodb-js/devtools-shared)**
+ - **[@mongodb-js/saslprep@1.1.5](https://github.com/mongodb-js/devtools-shared)**
     - licenses: MIT
     - description: SASLprep: Stringprep Profile for User Names and Passwords, rfc4013
     - copyright: Copyright (c) 2014 Dmitry Tsvettsikh
@@ -87,7 +87,7 @@
     - licenses: MIT
     - description: A library for efficiently walking a directory recursively
     - copyright: Copyright (c) Denis Malinochkin
- - **[@sinclair/typebox@0.32.14](https://github.com/sinclairzx81/typebox)**
+ - **[@sinclair/typebox@0.32.27](https://github.com/sinclairzx81/typebox)**
     - licenses: MIT
     - description: Json Schema Type Builder with Static Type Resolution for TypeScript
     - copyright: Copyright (c) 2017-2024 Haydn Paterson (sinclair) <haydn.developer@gmail.com>
@@ -95,11 +95,15 @@
     - licenses: MIT
     - description: Finds the version of Chrome that is installed on your machine
     - copyright: Copyright (c) 2018-2019 Testim.io
+ - **[@tootallnate/quickjs-emscripten@0.23.0](https://github.com/justjake/quickjs-emscripten)**
+    - licenses: MIT
+    - description: Javascript/Typescript bindings for QuickJS, a modern Javascript interpreter, compiled to WebAssembly.
+    - copyright: none
  - **[@types/json-schema@7.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for json-schema
     - copyright: none
- - **[@types/node@20.11.19](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@20.12.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - licenses: MIT
     - description: TypeScript definitions for node
     - copyright: none
@@ -119,10 +123,6 @@
     - licenses: MIT
     - description: TypeScript definitions for yauzl
     - copyright: none
- - **[@ungap/structured-clone@1.2.0](https://github.com/ungap/structured-clone)**
-    - licenses: ISC
-    - description: A structuredClone polyfill
-    - copyright: Copyright (c) 2021, Andrea Giammarchi, @WebReflection
  - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
     - licenses: ISC
     - description: Like ruby's abbrev module, but in js
@@ -139,15 +139,19 @@
     - licenses: MIT
     - description: ECMAScript parser
     - copyright: Copyright (C) 2012-2022 by various contributors (see AUTHORS)
- - **[agent-base@6.0.2](https://github.com/TooTallNate/node-agent-base)**
+ - **[agent-base@7.1.1](https://github.com/TooTallNate/proxy-agents)**
     - licenses: MIT
     - description: Turn a function into an `http.Agent` instance
-    - copyright: Copyright (c) 2013 Nathan Rajlich &lt;nathan@tootallnate.net&gt;
+    - copyright: Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
  - **[ajv-formats-draft2019@1.6.1](https://github.com/luzlab/ajv-formats-draft2019)**
     - licenses: MIT
     - description: Plugin for AJV that adds support for some of string formats adding in the draft2019 JSON Schema.
     - copyright: Copyright (c) 2020 Carlo Q
  - **[ajv-formats@2.1.1](https://github.com/ajv-validator/ajv-formats)**
+    - licenses: MIT
+    - description: Format validation for Ajv v7+
+    - copyright: Copyright (c) 2020 Evgeny Poberezkin
+ - **[ajv-formats@3.0.1](https://github.com/ajv-validator/ajv-formats)**
     - licenses: MIT
     - description: Format validation for Ajv v7+
     - copyright: Copyright (c) 2020 Evgeny Poberezkin
@@ -195,6 +199,10 @@
     - licenses: Python-2.0
     - description: CLI arguments parser. Native port of python's argparse.
     - copyright: Copyright (c) 1991 - 1995, Stichting Mathematisch Centrum Amsterdam,. The Netherlands.  All rights reserved.
+ - **[array-buffer-byte-length@1.0.1](https://github.com/inspect-js/array-buffer-byte-length)**
+    - licenses: MIT
+    - description: Get the byte length of an ArrayBuffer, even in engines without a `.byteLength` method.
+    - copyright: Copyright (c) 2023 Inspect JS
  - **[array-find-index@1.0.2](https://github.com/sindresorhus/array-find-index)**
     - licenses: MIT
     - description: ES2015 `Array#findIndex()` ponyfill
@@ -203,6 +211,10 @@
     - licenses: MIT
     - description: Flatten an array of nested arrays into a single flat array
     - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
+ - **[arraybuffer.prototype.slice@1.0.3](https://github.com/es-shims/ArrayBuffer.prototype.slice)**
+    - licenses: MIT
+    - description: ES spec-compliant shim for ArrayBuffer.prototype.slice
+    - copyright: Copyright (c) 2023 ECMAScript Shims
  - **[asap@2.0.6](https://github.com/kriskowal/asap)**
     - licenses: MIT
     - description: High-priority task queue for Node.js and browsers
@@ -211,6 +223,10 @@
     - licenses: MIT
     - description: ASN.1 encoder and decoder
     - copyright: Copyright (c) 2017 Fedor Indutny
+ - **[ast-types@0.13.4](https://github.com/benjamn/ast-types)**
+    - licenses: MIT
+    - description: Esprima-compatible implementation of the Mozilla JS Parser API
+    - copyright: Copyright (c) 2013 Ben Newman <bn@cs.stanford.edu>
  - **[async@3.2.5](https://github.com/caolan/async)**
     - licenses: MIT
     - description: Higher-order functions and common patterns for asynchronous code
@@ -219,11 +235,11 @@
     - licenses: MIT
     - description: Minimal async jobs utility library, with streams support
     - copyright: Copyright (c) 2016 Alex Indigo
- - **[axios@0.27.2](https://github.com/axios/axios)**
+ - **[available-typed-arrays@1.0.7](https://github.com/inspect-js/available-typed-arrays)**
     - licenses: MIT
-    - description: Promise based HTTP client for the browser and node.js
-    - copyright: Copyright (c) 2014-present Matt Zabriskie
- - **[axios@1.6.7](https://github.com/axios/axios)**
+    - description: Returns an array of Typed Array names that are available in the current environment
+    - copyright: Copyright (c) 2020 Inspect JS
+ - **[axios@1.6.8](https://github.com/axios/axios)**
     - licenses: MIT
     - description: Promise based HTTP client for the browser and node.js
     - copyright: none
@@ -239,6 +255,10 @@
     - licenses: MIT
     - description: node.js basic auth parser
     - copyright: Copyright (c) 2013 TJ Holowaychuk. Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2015-2016 Douglas Christopher Wilson <doug@somethingdoug.com>
+ - **[basic-ftp@5.0.5](https://github.com/patrickjuchli/basic-ftp)**
+    - licenses: MIT
+    - description: FTP client for Node.js, supports FTPS over TLS, IPv6, Async/Await, and Typescript.
+    - copyright: Copyright (c) 2019 Patrick Juchli
  - **[bignumber.js@9.1.2](https://github.com/MikeMcl/bignumber.js)**
     - licenses: MIT
     - description: A library for arbitrary-precision decimal and non-decimal arithmetic
@@ -255,10 +275,6 @@
     - licenses: MIT
     - description: Big number implementation in pure javascript
     - copyright: Copyright Fedor Indutny, 2015.
- - **[body-parser@1.20.1](https://github.com/expressjs/body-parser)**
-    - licenses: MIT
-    - description: Node.js body parsing middleware
-    - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
  - **[body-parser@1.20.2](https://github.com/expressjs/body-parser)**
     - licenses: MIT
     - description: Node.js body parsing middleware
@@ -271,7 +287,7 @@
     - licenses: MIT
     - description: Random number generator for browsers and node.js
     - copyright: Copyright Fedor Indutny, 2014.
- - **[bson@6.3.0](https://github.com/mongodb/js-bson)**
+ - **[bson@6.6.0](https://github.com/mongodb/js-bson)**
     - licenses: Apache-2.0
     - description: A bson parser for node.js and the browser
     - copyright: none
@@ -303,15 +319,11 @@
     - licenses: MIT
     - description: Robustly `.call.bind()` a function
     - copyright: Copyright (c) 2020 Jordan Harband
- - **[call-me-maybe@1.0.2](https://github.com/limulus/call-me-maybe)**
-    - licenses: MIT
-    - description: Let your JS API users either give you a callback or receive a promise
-    - copyright: Copyright (c) 2015 Eric McCarthy
  - **[callsites@3.1.0](https://github.com/sindresorhus/callsites)**
     - licenses: MIT
     - description: Get callsites from the V8 stack trace API
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[camelize-ts@2.5.0](https://github.com/kbrabrand/camelize-ts)**
+ - **[camelize-ts@3.0.0](https://github.com/kbrabrand/camelize-ts)**
     - licenses: MIT
     - description: Recursive camel casing of object property names with proper typing
     - copyright: none
@@ -327,7 +339,7 @@
     - licenses: MIT
     - description: Terminal string styling done right
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[chromedriver@121.0.2](https://github.com/giggio/node-chromedriver)**
+ - **[chromedriver@124.0.1](https://github.com/giggio/node-chromedriver)**
     - licenses: Apache-2.0
     - description: ChromeDriver for Selenium
     - copyright: none
@@ -419,10 +431,6 @@
     - licenses: MIT
     - description: HTTP server cookie parsing and serialization
     - copyright: Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>. Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
- - **[cookie@0.5.0](https://github.com/jshttp/cookie)**
-    - licenses: MIT
-    - description: HTTP server cookie parsing and serialization
-    - copyright: Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>. Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
  - **[cookie@0.6.0](https://github.com/jshttp/cookie)**
     - licenses: MIT
     - description: HTTP server cookie parsing and serialization
@@ -439,6 +447,22 @@
     - licenses: MIT
     - description: Cross platform child_process#spawn and child_process#spawnSync
     - copyright: Copyright (c) 2018 Made With MOXY Lda <hello@moxy.studio>
+ - **[data-uri-to-buffer@6.0.2](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: Create an ArrayBuffer instance from a Data URI string
+    - copyright: Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
+ - **[data-view-buffer@1.0.1](https://github.com/ljharb/data-view-buffer)**
+    - licenses: MIT
+    - description: Get the ArrayBuffer out of a DataView, robustly.
+    - copyright: Copyright (c) 2023 Jordan Harband
+ - **[data-view-byte-length@1.0.1](https://github.com/ljharb/data-view-byte-length)**
+    - licenses: MIT
+    - description: Get the byteLength out of a DataView, robustly.
+    - copyright: Copyright (c) 2024 Jordan Harband
+ - **[data-view-byte-offset@1.0.0](https://github.com/ljharb/data-view-byte-offset)**
+    - licenses: MIT
+    - description: Get the byteOffset out of a DataView, robustly.
+    - copyright: Copyright (c) 2024 Jordan Harband
  - **[debug@2.6.9](https://github.com/visionmedia/debug)**
     - licenses: MIT
     - description: small debugging utility
@@ -495,6 +519,14 @@
     - licenses: MIT
     - description: Define a data property on an object. Will fall back to assignment in an engine without descriptors.
     - copyright: Copyright (c) 2023 Jordan Harband
+ - **[define-properties@1.2.1](https://github.com/ljharb/define-properties)**
+    - licenses: MIT
+    - description: Define multiple non-enumerable properties at once. Uses `Object.defineProperty` when available; falls back to standard assignment in older engines.
+    - copyright: Copyright (C) 2015 Jordan Harband
+ - **[degenerator@5.0.1](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: Compiles sync functions into async generator functions
+    - copyright: Copyright (c) 2013 Nathan Rajlich &lt;nathan@tootallnate.net&gt;
  - **[delayed-stream@1.0.0](https://github.com/felixge/node-delayed-stream)**
     - licenses: MIT
     - description: Buffers events from a stream until you are ready to handle them.
@@ -527,10 +559,6 @@
     - licenses: MIT
     - description: for adding, subtracting, and indexing discontinuous ranges of numbers
     - copyright: Copyright (c) 2014 David Tudury
- - **[doctrine@3.0.0](https://github.com/eslint/doctrine)**
-    - licenses: Apache-2.0
-    - description: JSDoc parser
-    - copyright: none
  - **[download@6.2.5](https://github.com/kevva/download)**
     - licenses: MIT
     - description: Download and extract files
@@ -543,7 +571,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[elliptic@6.5.4](https://github.com/indutny/elliptic)**
+ - **[elliptic@6.5.5](https://github.com/indutny/elliptic)**
     - licenses: MIT
     - description: EC cryptography
     - copyright: Copyright Fedor Indutny, 2014.
@@ -563,6 +591,10 @@
     - licenses: MIT
     - description: Easy error subclassing and stack customization
     - copyright: Copyright (c) 2015 JD Ballard
+ - **[es-abstract@1.23.3](https://github.com/ljharb/es-abstract)**
+    - licenses: MIT
+    - description: ECMAScript spec abstract operations.
+    - copyright: Copyright (C) 2015 Jordan Harband
  - **[es-define-property@1.0.0](https://github.com/ljharb/es-define-property)**
     - licenses: MIT
     - description: `Object.defineProperty`, but not IE 8's broken one.
@@ -571,6 +603,18 @@
     - licenses: MIT
     - description: A simple cache for a few of the JS Error constructors.
     - copyright: Copyright (c) 2024 Jordan Harband
+ - **[es-object-atoms@1.0.0](https://github.com/ljharb/es-object-atoms)**
+    - licenses: MIT
+    - description: ES Object-related atoms: Object, ToObject, RequireObjectCoercible
+    - copyright: Copyright (c) 2024 Jordan Harband
+ - **[es-set-tostringtag@2.0.3](https://github.com/es-shims/es-set-tostringtag)**
+    - licenses: MIT
+    - description: A helper to optimistically set Symbol.toStringTag, when possible.
+    - copyright: Copyright (c) 2022 ECMAScript Shims
+ - **[es-to-primitive@1.2.1](https://github.com/ljharb/es-to-primitive)**
+    - licenses: MIT
+    - description: ECMAScript “ToPrimitive” algorithm. Provides ES5 and ES2015 versions.
+    - copyright: Copyright (c) 2015 Jordan Harband
  - **[escape-html@1.0.3](https://github.com/component/escape-html)**
     - licenses: MIT
     - description: Escape string for use in HTML
@@ -583,7 +627,11 @@
     - licenses: MIT
     - description: Escape RegExp special characters
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[eslint-scope@7.2.2](https://github.com/eslint/eslint-scope)**
+ - **[escodegen@2.1.0](https://github.com/estools/escodegen)**
+    - licenses: BSD-2-Clause
+    - description: ECMAScript code generator
+    - copyright: Copyright (C) 2012 Yusuke Suzuki (twitter: @Constellation) and other contributors.
+ - **[eslint-scope@8.0.1](https://github.com/eslint/eslint-scope)**
     - licenses: BSD-2-Clause
     - description: ECMAScript scope analyzer for ESLint
     - copyright: Copyright JS Foundation and other contributors, https://js.foundation. Copyright (C) 2012-2013 Yusuke Suzuki (twitter: @Constellation) and other contributors.
@@ -591,11 +639,15 @@
     - licenses: Apache-2.0
     - description: Constants and utilities about visitor keys to traverse AST.
     - copyright: none
- - **[eslint@8.56.0](https://github.com/eslint/eslint)**
+ - **[eslint-visitor-keys@4.0.0](https://github.com/eslint/eslint-visitor-keys)**
+    - licenses: Apache-2.0
+    - description: Constants and utilities about visitor keys to traverse AST.
+    - copyright: none
+ - **[eslint@9.1.1](https://github.com/eslint/eslint)**
     - licenses: MIT
     - description: An AST-based pattern checker for JavaScript.
     - copyright: Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
- - **[espree@9.6.1](https://github.com/eslint/espree)**
+ - **[espree@10.0.1](https://github.com/eslint/espree)**
     - licenses: BSD-2-Clause
     - description: An Esprima-compatible JavaScript parser built on Acorn
     - copyright: Copyright (c) Open JS Foundation. All rights reserved.
@@ -635,7 +687,7 @@
     - licenses: MIT
     - description: Simple session middleware for Express
     - copyright: Copyright (c) 2010 Sencha Inc.. Copyright (c) 2011 TJ Holowaychuk <tj@vision-media.ca>. Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
- - **[express@4.18.2](https://github.com/expressjs/express)**
+ - **[express@4.19.2](https://github.com/expressjs/express)**
     - licenses: MIT
     - description: Fast, unopinionated, minimalist web framework
     - copyright: Copyright (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca>. Copyright (c) 2013-2014 Roman Shtylman <shtylman+expressjs@gmail.com>. Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
@@ -679,10 +731,10 @@
     - licenses: MIT
     - description: Date formatting and parsing
     - copyright: Copyright (c) 2015 Taylor Hakes
- - **[file-entry-cache@6.0.1](https://github.com/royriojas/file-entry-cache)**
+ - **[file-entry-cache@8.0.0](https://github.com/jaredwray/file-entry-cache)**
     - licenses: MIT
     - description: Super simple cache for file metadata, useful for process that work o a given series of files and that only need to repeat the job on the changed ones since the previous run of the process
-    - copyright: Copyright (c) 2015 Roy Riojas
+    - copyright: Copyright (c) Roy Riojas & Jared Wray
  - **[file-type@3.9.0](https://github.com/sindresorhus/file-type)**
     - licenses: MIT
     - description: Detect the file type of a Buffer/Uint8Array
@@ -715,11 +767,11 @@
     - licenses: MIT
     - description: Find a file or directory by walking up parent directories
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[flat-cache@3.2.0](https://github.com/jaredwray/flat-cache)**
+ - **[flat-cache@4.0.1](https://github.com/jaredwray/flat-cache)**
     - licenses: MIT
     - description: A stupidly simple key/value storage using files to persist some data
     - copyright: Copyright (c) Roy Riojas and Jared Wray
- - **[flatted@3.2.9](https://github.com/WebReflection/flatted)**
+ - **[flatted@3.3.1](https://github.com/WebReflection/flatted)**
     - licenses: ISC
     - description: A super light and fast circular JSON parser.
     - copyright: Copyright (c) 2018-2020, Andrea Giammarchi, @WebReflection
@@ -727,10 +779,14 @@
     - licenses: MIT
     - description: Extract names from functions
     - copyright: Copyright (c) 2015 Arnout Kazemier, Martijn Swaagman, the Contributors.
- - **[follow-redirects@1.15.5](https://github.com/follow-redirects/follow-redirects)**
+ - **[follow-redirects@1.15.6](https://github.com/follow-redirects/follow-redirects)**
     - licenses: MIT
     - description: HTTP and HTTPS modules that follow redirects.
     - copyright: Copyright 2014–present Olivier Lalonde <olalonde@gmail.com>, James Talmage <james@talmage.io>, Ruben Verborgh
+ - **[for-each@0.3.3](https://github.com/Raynos/for-each)**
+    - licenses: MIT
+    - description: A better forEach
+    - copyright: Copyright (c) 2012 Raynos.
  - **[form-data@4.0.0](https://github.com/form-data/form-data)**
     - licenses: MIT
     - description: A library to create readable "multipart/form-data" streams. Can be used to submit forms and file uploads to other web applications.
@@ -747,6 +803,10 @@
     - licenses: MIT
     - description: Require constants across node and the browser
     - copyright: Copyright (c) 2018 Mathias Buus
+ - **[fs-extra@11.2.0](https://github.com/jprichardson/node-fs-extra)**
+    - licenses: MIT
+    - description: fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as recursive mkdir, copy, and remove.
+    - copyright: Copyright (c) 2011-2017 JP Richardson
  - **[fs-routes@12.1.3](https://github.com/kogosoftwarellc/open-api/tree/master/packages/fs-routes)**
     - licenses: MIT
     - description: Scan a filesystem for route files.
@@ -767,6 +827,14 @@
     - licenses: MIT
     - description: Implementation of Function.prototype.bind
     - copyright: Copyright (c) 2013 Raynos.
+ - **[function.prototype.name@1.1.6](https://github.com/es-shims/Function.prototype.name)**
+    - licenses: MIT
+    - description: An ES2015 spec-compliant `Function.prototype.name` shim
+    - copyright: Copyright (c) 2016 Jordan Harband
+ - **[functions-have-names@1.2.3](https://github.com/inspect-js/functions-have-names)**
+    - licenses: MIT
+    - description: Does this JS environment support the `name` property on functions?
+    - copyright: Copyright (c) 2019 Jordan Harband
  - **[gauge@2.7.4](https://github.com/iarna/gauge)**
     - licenses: ISC
     - description: A terminal based horizontal guage
@@ -791,6 +859,14 @@
     - licenses: MIT
     - description: Get a stream as a string, buffer, or array
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+ - **[get-symbol-description@1.0.2](https://github.com/inspect-js/get-symbol-description)**
+    - licenses: MIT
+    - description: Gets the description of a Symbol. Handles `Symbol()` vs `Symbol('')` properly when possible.
+    - copyright: Copyright (c) 2021 Inspect JS
+ - **[get-uri@6.0.3](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: Returns a `stream.Readable` from a URI string
+    - copyright: Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
  - **[glob-parent@6.0.2](https://github.com/gulpjs/glob-parent)**
     - licenses: ISC
     - description: Extract the non-magic parent path from a glob string.
@@ -799,10 +875,14 @@
     - licenses: ISC
     - description: a little globber
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[globals@13.24.0](https://github.com/sindresorhus/globals)**
+ - **[globals@14.0.0](https://github.com/sindresorhus/globals)**
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+ - **[globalthis@1.0.3](https://github.com/ljharb/System.global)**
+    - licenses: MIT
+    - description: ECMAScript spec-compliant polyfill/shim for `globalThis`
+    - copyright: Copyright (c) 2016 Jordan Harband
  - **[gopd@1.0.1](https://github.com/ljharb/gopd)**
     - licenses: MIT
     - description: `Object.getOwnPropertyDescriptor`, but accounts for IE's broken implementation.
@@ -815,10 +895,10 @@
     - licenses: ISC
     - description: A drop-in replacement for fs, making various improvements.
     - copyright: Copyright (c) 2011-2022 Isaac Z. Schlueter, Ben Noordhuis, and Contributors
- - **[graphemer@1.4.0](https://github.com/flmnt/graphemer)**
+ - **[has-bigints@1.0.2](https://github.com/ljharb/has-bigints)**
     - licenses: MIT
-    - description: A JavaScript library that breaks strings into their individual user-perceived characters (including emojis!)
-    - copyright: Copyright 2020 Filament (Anomalous Technologies Limited)
+    - description: Determine if the JS environment has BigInt support.
+    - copyright: Copyright (c) 2019 Jordan Harband
  - **[has-flag@3.0.0](https://github.com/sindresorhus/has-flag)**
     - licenses: MIT
     - description: Check if argv has a specific flag
@@ -847,6 +927,10 @@
     - licenses: MIT
     - description: Tests if ES6 @@toStringTag is supported.
     - copyright: Copyright (c) 2015-2017 Graham Fairweather.
+ - **[has-tostringtag@1.0.2](https://github.com/inspect-js/has-tostringtag)**
+    - licenses: MIT
+    - description: Determine if the JS environment has `Symbol.toStringTag` support. Supports spec, or shams.
+    - copyright: Copyright (c) 2021 Inspect JS
  - **[has-unicode@2.0.1](https://github.com/iarna/has-unicode)**
     - licenses: ISC
     - description: Try to guess if your terminal supports unicode
@@ -855,7 +939,7 @@
     - licenses: MIT
     - description: Various hash functions that could be run by both browser and node
     - copyright: Copyright Fedor Indutny, 2014.
- - **[hasown@2.0.1](https://github.com/inspect-js/hasOwn)**
+ - **[hasown@2.0.2](https://github.com/inspect-js/hasOwn)**
     - licenses: MIT
     - description: A robust, ES3 compatible, "has own property" predicate.
     - copyright: Copyright (c) Jordan Harband and contributors
@@ -871,10 +955,14 @@
     - licenses: MIT
     - description: Create HTTP error objects
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com. Copyright (c) 2016 Douglas Christopher Wilson doug@somethingdoug.com
- - **[https-proxy-agent@5.0.1](https://github.com/TooTallNate/node-https-proxy-agent)**
+ - **[http-proxy-agent@7.0.2](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: An HTTP(s) proxy `http.Agent` implementation for HTTP
+    - copyright: Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
+ - **[https-proxy-agent@7.0.4](https://github.com/TooTallNate/proxy-agents)**
     - licenses: MIT
     - description: An HTTP(s) proxy `http.Agent` implementation for HTTPS
-    - copyright: Copyright (c) 2013 Nathan Rajlich &lt;nathan@tootallnate.net&gt;
+    - copyright: Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
  - **[iconv-lite@0.4.24](https://github.com/ashtuchkin/iconv-lite)**
     - licenses: MIT
     - description: Convert character encodings in pure javascript.
@@ -907,6 +995,14 @@
     - licenses: ISC
     - description: An ini encoder/decoder for node
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
+ - **[internal-slot@1.0.7](https://github.com/ljharb/internal-slot)**
+    - licenses: MIT
+    - description: ES spec-like internal slots
+    - copyright: Copyright (c) 2019 Jordan Harband
+ - **[ip-address@9.0.5](https://github.com/beaugunderson/ip-address)**
+    - licenses: MIT
+    - description: A library for parsing IPv4 and IPv6 IP addresses in node and the browser.
+    - copyright: Copyright (C) 2011 by Beau Gunderson
  - **[ip-regex@4.3.0](https://github.com/sindresorhus/ip-regex)**
     - licenses: MIT
     - description: Regular expression for matching IP addresses (IPv4 & IPv6)
@@ -915,6 +1011,10 @@
     - licenses: MIT
     - description: A library for manipulating IPv4 and IPv6 addresses in JavaScript.
     - copyright: Copyright (C) 2011-2017 whitequark <whitequark@whitequark.org>
+ - **[is-array-buffer@3.0.4](https://github.com/inspect-js/is-array-buffer)**
+    - licenses: MIT
+    - description: Is this value a JS ArrayBuffer?
+    - copyright: Copyright (c) 2015 Chen Gengyuan, Inspect JS
  - **[is-arrayish@0.2.1](https://github.com/qix-/node-is-arrayish)**
     - licenses: MIT
     - description: Determines if an object can be used as an array
@@ -923,10 +1023,30 @@
     - licenses: MIT
     - description: Determines if an object can be used as an array
     - copyright: Copyright (c) 2015 JD Ballard
+ - **[is-bigint@1.0.4](https://github.com/inspect-js/is-bigint)**
+    - licenses: MIT
+    - description: Is this value an ES BigInt?
+    - copyright: Copyright (c) 2018 Jordan Harband
+ - **[is-boolean-object@1.1.2](https://github.com/inspect-js/is-boolean-object)**
+    - licenses: MIT
+    - description: Is this value a JS Boolean? This module works cross-realm/iframe, and despite ES6 @@toStringTag.
+    - copyright: Copyright (c) 2015 Jordan Harband
+ - **[is-callable@1.2.7](https://github.com/inspect-js/is-callable)**
+    - licenses: MIT
+    - description: Is this JS value callable? Works with Functions and GeneratorFunctions, despite ES6 @@toStringTag.
+    - copyright: Copyright (c) 2015 Jordan Harband
  - **[is-core-module@2.13.1](https://github.com/inspect-js/is-core-module)**
     - licenses: MIT
     - description: Is this specifier a node.js core module?
     - copyright: Copyright (c) 2014 Dave Justice
+ - **[is-data-view@1.0.1](https://github.com/inspect-js/is-data-view)**
+    - licenses: MIT
+    - description: Is this value a JS DataView? This module works cross-realm/iframe, does not depend on `instanceof` or mutable properties, and despite ES6 Symbol.toStringTag.
+    - copyright: Copyright (c) 2024 Inspect JS
+ - **[is-date-object@1.0.5](https://github.com/inspect-js/is-date-object)**
+    - licenses: MIT
+    - description: Is this value a JS Date object? This module works cross-realm/iframe, and despite ES6 @@toStringTag.
+    - copyright: Copyright (c) 2015 Jordan Harband
  - **[is-dir@1.0.0](https://github.com/jsdevel/node-is-dir)**
     - licenses: MIT
     - description: Tests if a given path resolves to a directory.
@@ -947,6 +1067,14 @@
     - licenses: MIT
     - description: Check if a value is a natural number
     - copyright: Copyright (c) 2014 - 2016 Shinnosuke Watanabe
+ - **[is-negative-zero@2.0.3](https://github.com/inspect-js/is-negative-zero)**
+    - licenses: MIT
+    - description: Is this value negative zero? === will lie to you
+    - copyright: Copyright (c) 2014 Jordan Harband
+ - **[is-number-object@1.0.7](https://github.com/inspect-js/is-number-object)**
+    - licenses: MIT
+    - description: Is this value a JS Number object? This module works cross-realm/iframe, and despite ES6 @@toStringTag.
+    - copyright: Copyright (c) 2015 Jordan Harband
  - **[is-object@1.0.2](https://github.com/inspect-js/is-object)**
     - licenses: MIT
     - description: Checks whether a value is an object
@@ -959,10 +1087,18 @@
     - licenses: MIT
     - description: Check if a value is a plain object
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[is-regex@1.1.4](https://github.com/inspect-js/is-regex)**
+    - licenses: MIT
+    - description: Is this value a JS regex? Works cross-realm/iframe, and despite ES6 @@toStringTag
+    - copyright: Copyright (c) 2014 Jordan Harband
  - **[is-retry-allowed@1.2.0](https://github.com/floatdrop/is-retry-allowed)**
     - licenses: MIT
     - description: Is retry allowed for Error?
     - copyright: Copyright (c) Vsevolod Strukchinsky <floatdrop@gmail.com> (github.com/floatdrop)
+ - **[is-shared-array-buffer@1.0.3](https://github.com/inspect-js/is-shared-array-buffer)**
+    - licenses: MIT
+    - description: Is this value a JS SharedArrayBuffer?
+    - copyright: Copyright (c) 2021 Inspect JS
  - **[is-stream@1.1.0](https://github.com/sindresorhus/is-stream)**
     - licenses: MIT
     - description: Check if something is a Node.js stream
@@ -971,10 +1107,26 @@
     - licenses: MIT
     - description: Check if something is a Node.js stream
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+ - **[is-string@1.0.7](https://github.com/ljharb/is-string)**
+    - licenses: MIT
+    - description: Is this value a JS String object or primitive? This module works cross-realm/iframe, and despite ES6 @@toStringTag.
+    - copyright: Copyright (c) 2015 Jordan Harband
+ - **[is-symbol@1.0.4](https://github.com/inspect-js/is-symbol)**
+    - licenses: MIT
+    - description: Determine if a value is an ES6 Symbol or not.
+    - copyright: Copyright (c) 2015 Jordan Harband
+ - **[is-typed-array@1.1.13](https://github.com/inspect-js/is-typed-array)**
+    - licenses: MIT
+    - description: Is this value a JS Typed Array? This module works cross-realm/iframe, does not depend on `instanceof` or mutable properties, and despite ES6 Symbol.toStringTag.
+    - copyright: Copyright (c) 2015 Jordan Harband
  - **[is-url@1.2.4](https://github.com/segmentio/is-url)**
     - licenses: MIT
     - description: Check whether a string is a URL.
     - copyright: none
+ - **[is-weakref@1.0.2](https://github.com/inspect-js/is-weakref)**
+    - licenses: MIT
+    - description: Is this value a JS WeakRef? This module works cross-realm/iframe, and despite ES6 @@toStringTag.
+    - copyright: Copyright (c) 2020 Inspect JS
  - **[is2@2.0.9](https://github.com/stdarg/is2)**
     - licenses: MIT
     - description: A type checking library where each exported function returns either true or false and does not throw. Also added tests.
@@ -983,6 +1135,10 @@
     - licenses: MIT
     - description: Array#isArray for older browsers
     - copyright: Copyright (c) 2013 Julian Gruber &lt;julian@juliangruber.com&gt;
+ - **[isarray@2.0.5](https://github.com/juliangruber/isarray)**
+    - licenses: MIT
+    - description: Array#isArray for older browsers
+    - copyright: Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
  - **[isexe@2.0.0](https://github.com/isaacs/isexe)**
     - licenses: ISC
     - description: Minimal module to check if a file is executable.
@@ -999,6 +1155,10 @@
     - licenses: MIT
     - description: YAML 1.2 parser and serializer
     - copyright: Copyright (C) 2011-2015 by Vitaly Puzrin
+ - **[jsbn@1.1.0](https://github.com/andyperlitch/jsbn)**
+    - licenses: MIT
+    - description: The jsbn library is a fast, portable implementation of large-number math in pure JavaScript, enabling public-key crypto and other applications on desktop and mobile browsers.
+    - copyright: none
  - **[json-buffer@3.0.1](https://github.com/dominictarr/json-buffer)**
     - licenses: MIT
     - description: JSON parse & stringify that supports binary via bops & base64
@@ -1015,10 +1175,6 @@
     - licenses: MIT
     - description: Simplify your schema by combining allOf into the root schema, safely.
     - copyright: none
- - **[json-schema-ref-parser@9.0.9](https://github.com/APIDevTools/json-schema-ref-parser)**
-    - licenses: MIT
-    - description: Parse, Resolve, and Dereference JSON Schema $ref pointers
-    - copyright: Copyright (c) 2015 James Messinger
  - **[json-schema-traverse@0.4.1](https://github.com/epoberezkin/json-schema-traverse)**
     - licenses: MIT
     - description: Traverse JSON Schema passing each schema object to callback
@@ -1031,15 +1187,19 @@
     - licenses: MIT
     - description: deterministic JSON.stringify() with custom sorting to get deterministic hashes from stringified results, with no public domain dependencies
     - copyright: none
+ - **[jsonfile@6.1.0](https://github.com/jprichardson/node-jsonfile)**
+    - licenses: MIT
+    - description: Easily read/write JSON files.
+    - copyright: Copyright (c) 2012-2015, JP Richardson <jprichardson@gmail.com>
  - **[jwk-to-pem@2.0.5](https://github.com/Brightspace/node-jwk-to-pem)**
     - licenses: Apache-2.0
     - description: Convert a JSON Web Key to a PEM
     - copyright: none
- - **[kareem@2.5.1](https://github.com/vkarpov15/kareem)**
+ - **[kareem@2.6.3](https://github.com/mongoosejs/kareem)**
     - licenses: Apache-2.0
     - description: Next-generation take on pre/post function hooks
     - copyright: none
- - **[keycloak-connect@23.0.6](https://github.com/keycloak/keycloak-nodejs-connect)**
+ - **[keycloak-connect@24.0.3](https://github.com/keycloak/keycloak-nodejs-connect)**
     - licenses: Apache-2.0
     - description: Keycloak Connect Middleware
     - copyright: none
@@ -1067,10 +1227,6 @@
     - licenses: MIT
     - description: Get the first path that exists on disk of multiple paths
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[lodash-es@4.17.21](https://github.com/lodash/lodash)**
-    - licenses: MIT
-    - description: Lodash exported as ES modules.
-    - copyright: Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
  - **[lodash.merge@4.6.2](https://github.com/lodash/lodash)**
     - licenses: MIT
     - description: The Lodash method `_.merge` exported as a module.
@@ -1095,6 +1251,10 @@
     - licenses: ISC
     - description: A cache object that deletes the least-recently-used items.
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
+ - **[lru-cache@7.18.3](https://github.com/isaacs/node-lru-cache)**
+    - licenses: ISC
+    - description: A cache object that deletes the least-recently-used items.
+    - copyright: Copyright (c) 2010-2023 Isaac Z. Schlueter and Contributors
  - **[make-dir@1.3.0](https://github.com/sindresorhus/make-dir)**
     - licenses: MIT
     - description: Make a directory and its parents if needed - Think `mkdir -p`
@@ -1159,15 +1319,15 @@
     - licenses: Apache-2.0
     - description: MongoDB connection strings, based on the WhatWG URL API
     - copyright: none
- - **[mongodb@6.3.0](https://github.com/mongodb/node-mongodb-native)**
+ - **[mongodb@6.5.0](https://github.com/mongodb/node-mongodb-native)**
     - licenses: Apache-2.0
     - description: The official MongoDB driver for Node.js
     - copyright: none
- - **[mongoose-lean-getters@1.1.0](https://github.com/mongoosejs/mongoose-lean-getters)**
+ - **[mongoose-lean-getters@2.1.0](https://github.com/mongoosejs/mongoose-lean-getters)**
     - licenses: Apache*
     - description: Apply getters to the results of mongoose queries when using `.lean()`
     - copyright: none
- - **[mongoose@8.1.3](https://github.com/Automattic/mongoose)**
+ - **[mongoose@8.3.2](https://github.com/Automattic/mongoose)**
     - licenses: MIT
     - description: Mongoose MongoDB ODM
     - copyright: Copyright (c) 2010-2013 LearnBoost <dev@learnboost.com>. Copyright (c) 2013-2021 Automattic
@@ -1215,6 +1375,10 @@
     - licenses: MIT
     - description: HTTP content negotiation
     - copyright: Copyright (c) 2012-2014 Federico Romero. Copyright (c) 2012-2014 Isaac Z. Schlueter. Copyright (c) 2014-2015 Douglas Christopher Wilson
+ - **[netmask@2.0.2](https://github.com/rs/node-netmask)**
+    - licenses: MIT
+    - description: Parse and lookup IP network blocks
+    - copyright: Copyright (c) 2011 Olivier Poitrey <rs@rhapsodyk.net>
  - **[nopt@4.0.3](https://github.com/npm/nopt)**
     - licenses: ISC
     - description: Option parsing for Node, supporting types, shorthands, etc. Used by npm.
@@ -1243,7 +1407,7 @@
     - licenses: MIT
     - description: ES2015 Number.isNaN() ponyfill
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[numbro@2.4.0](https://github.com/BenjaminVanRyseghem/numbro)**
+ - **[numbro@2.5.0](https://github.com/BenjaminVanRyseghem/numbro)**
     - licenses: MIT
     - description: Format and manipulate numbers.
     - copyright: Copyright (c) 2017-2019 Benjamin Van Ryseghem<benjamin@vanryseghem.com>. Copyright (c) 2015-2017 Företagsplatsen
@@ -1255,6 +1419,14 @@
     - licenses: MIT
     - description: string representations of objects in node and the browser
     - copyright: Copyright (c) 2013 James Halliday
+ - **[object-keys@1.1.1](https://github.com/ljharb/object-keys)**
+    - licenses: MIT
+    - description: An Object.keys replacement, in case Object.keys is not available. From https://github.com/es-shims/es5-shim
+    - copyright: Copyright (C) 2013 Jordan Harband
+ - **[object.assign@4.1.5](https://github.com/ljharb/object.assign)**
+    - licenses: MIT
+    - description: ES6 spec-compliant Object.assign shim. From https://github.com/es-shims/es6-shim
+    - copyright: Copyright (c) 2014 Jordan Harband
  - **[on-finished@2.3.0](https://github.com/jshttp/on-finished)**
     - licenses: MIT
     - description: Execute a callback when a request closes, finishes, or errors
@@ -1311,7 +1483,7 @@
     - licenses: MIT
     - description: Types for OpenAPI documents.
     - copyright: Copyright (c) 2018 Kogo Softare LLC
- - **[optionator@0.9.3](https://github.com/gkz/optionator)**
+ - **[optionator@0.9.4](https://github.com/gkz/optionator)**
     - licenses: MIT
     - description: option parsing and help generation
     - copyright: Copyright (c) George Zahariev
@@ -1351,6 +1523,14 @@
     - licenses: MIT
     - description: Timeout a promise after a specified amount of time
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[pac-proxy-agent@7.0.1](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: A PAC file proxy `http.Agent` implementation for HTTP
+    - copyright: Copyright (c) 2014 Nathan Rajlich &lt;nathan@tootallnate.net&gt;
+ - **[pac-resolver@7.0.1](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: Generates an asynchronous resolver function from a PAC file
+    - copyright: Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
  - **[parent-module@1.0.1](https://github.com/sindresorhus/parent-module)**
     - licenses: MIT
     - description: Get the path of the parent module
@@ -1383,7 +1563,7 @@
     - licenses: MIT
     - description: Express style path to RegExp utility
     - copyright: Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
- - **[pathoview-server@1.1.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
+ - **[pathoview-server@1.2.0](https://gitlab.cc-asp.fraunhofer.de/pathocert/pathoview)**
     - licenses: BSD-3-Clause-Clear
     - description: PathoVIEW server application
     - copyright: none
@@ -1407,6 +1587,10 @@
     - licenses: MIT
     - description: Itty bitty little widdle twinkie pinkie ES2015 Promise implementation
     - copyright: Copyright (c) Vsevolod Strukchinsky <floatdrop@gmail.com> (github.com/floatdrop)
+ - **[possible-typed-array-names@1.0.0](https://github.com/ljharb/possible-typed-array-names)**
+    - licenses: MIT
+    - description: A simple list of possible Typed Array names.
+    - copyright: Copyright (c) 2024 Jordan Harband
  - **[prelude-ls@1.2.1](https://github.com/gkz/prelude-ls)**
     - licenses: MIT
     - description: prelude.ls is a functionally oriented utility library. It is powerful and flexible. Almost all of its functions are curried. It is written in, and is the recommended base library for, LiveScript.
@@ -1427,6 +1611,10 @@
     - licenses: MIT
     - description: Determine address of proxied request
     - copyright: Copyright (c) 2014-2016 Douglas Christopher Wilson
+ - **[proxy-agent@6.4.0](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: Maps proxy protocols to `http.Agent` implementations
+    - copyright: Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
  - **[proxy-from-env@1.1.0](https://github.com/Rob--W/proxy-from-env)**
     - licenses: MIT
     - description: Offers getProxyForUrl to get the proxy URL for a URL, respecting the *_PROXY (e.g. HTTP_PROXY) and NO_PROXY environment variables.
@@ -1447,7 +1635,7 @@
     - licenses: BSD-3-Clause
     - description: A querystring parser that supports nesting and arrays, with a depth limit
     - copyright: Copyright (c) 2014, Nathan LaFreniere and other [contributors](https://github.com/ljharb/qs/graphs/contributors). All rights reserved.
- - **[query-string@8.2.0](https://github.com/sindresorhus/query-string)**
+ - **[query-string@9.0.0](https://github.com/sindresorhus/query-string)**
     - licenses: MIT
     - description: Parse and stringify URL query strings
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
@@ -1471,10 +1659,6 @@
     - licenses: MIT
     - description: Range header field string parser
     - copyright: Copyright (c) 2012-2014 TJ Holowaychuk <tj@vision-media.ca>. Copyright (c) 2015-2016 Douglas Christopher Wilson <doug@somethingdoug.com
- - **[raw-body@2.5.1](https://github.com/stream-utils/raw-body)**
-    - licenses: MIT
-    - description: Get and validate the raw body of a readable stream.
-    - copyright: Copyright (c) 2013-2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2014-2022 Douglas Christopher Wilson <doug@somethingdoug.com>
  - **[raw-body@2.5.2](https://github.com/stream-utils/raw-body)**
     - licenses: MIT
     - description: Get and validate the raw body of a readable stream.
@@ -1499,6 +1683,10 @@
     - licenses: ISC
     - description: Like `fs.readdir` but handling `@org/module` dirs as if they were a single entry.
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
+ - **[regexp.prototype.flags@1.5.2](https://github.com/es-shims/RegExp.prototype.flags)**
+    - licenses: MIT
+    - description: ES6 spec-compliant RegExp.prototype.flags shim.
+    - copyright: Copyright (C) 2014 Jordan Harband
  - **[require-from-string@2.0.2](https://github.com/floatdrop/require-from-string)**
     - licenses: MIT
     - description: Require module from string
@@ -1523,14 +1711,14 @@
     - licenses: ISC
     - description: A deep deletion module for node (like `rm -rf`)
     - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
- - **[rimraf@3.0.2](https://github.com/isaacs/rimraf)**
-    - licenses: ISC
-    - description: A deep deletion module for node (like `rm -rf`)
-    - copyright: Copyright (c) Isaac Z. Schlueter and Contributors
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - licenses: MIT
     - description: Run an array of functions in parallel
     - copyright: Copyright (c) Feross Aboukhadijeh
+ - **[safe-array-concat@1.1.2](https://github.com/ljharb/safe-array-concat)**
+    - licenses: MIT
+    - description: `Array.prototype.concat`, but made safe by ignoring Symbol.isConcatSpreadable
+    - copyright: Copyright (c) 2023 Jordan Harband
  - **[safe-buffer@5.1.2](https://github.com/feross/safe-buffer)**
     - licenses: MIT
     - description: Safer Node.js Buffer API
@@ -1539,6 +1727,10 @@
     - licenses: MIT
     - description: Safer Node.js Buffer API
     - copyright: Copyright (c) Feross Aboukhadijeh
+ - **[safe-regex-test@1.0.3](https://github.com/ljharb/safe-regex-test)**
+    - licenses: MIT
+    - description: Give a regex, get a robust predicate function that tests it against a string.
+    - copyright: Copyright (c) 2022 Jordan Harband
  - **[safe-stable-stringify@2.4.3](https://github.com/BridgeAR/safe-stable-stringify)**
     - licenses: MIT
     - description: Deterministic and safely JSON.stringify to quickly serialize JavaScript objects
@@ -1575,9 +1767,13 @@
     - licenses: ISC
     - description: set blocking stdio and stderr ensuring that terminal output does not truncate
     - copyright: Copyright (c) 2016, Contributors
- - **[set-function-length@1.2.1](https://github.com/ljharb/set-function-length)**
+ - **[set-function-length@1.2.2](https://github.com/ljharb/set-function-length)**
     - licenses: MIT
     - description: Set a function's length property
+    - copyright: Copyright (c) Jordan Harband and contributors
+ - **[set-function-name@2.0.2](https://github.com/ljharb/set-function-name)**
+    - licenses: MIT
+    - description: Set a function's name property
     - copyright: Copyright (c) Jordan Harband and contributors
  - **[setprototypeof@1.2.0](https://github.com/wesleytodd/setprototypeof)**
     - licenses: ISC
@@ -1591,7 +1787,7 @@
     - licenses: MIT
     - description: Regular expression for matching a shebang line
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
- - **[side-channel@1.0.5](https://github.com/ljharb/side-channel)**
+ - **[side-channel@1.0.6](https://github.com/ljharb/side-channel)**
     - licenses: MIT
     - description: Store information about any JS value in a side channel. Uses WeakMap if available.
     - copyright: Copyright (c) 2019 Jordan Harband
@@ -1599,7 +1795,7 @@
     - licenses: MIT
     - description: MongoDB query filtering in JavaScript
     - copyright: none
- - **[sift@17.0.1](https://github.com/crcn/sift.js)**
+ - **[sift@17.1.3](https://github.com/crcn/sift.js)**
     - licenses: MIT
     - description: MongoDB query filtering in JavaScript
     - copyright: none
@@ -1615,6 +1811,10 @@
     - licenses: ISC
     - description: A flow control lib small enough to fit on in a slide presentation. Derived live at Oak.JS
     - copyright: Copyright (c) Isaac Z. Schlueter
+ - **[smart-buffer@4.2.0](https://github.com/JoshGlazebrook/smart-buffer)**
+    - licenses: MIT
+    - description: smart-buffer is a Buffer wrapper that adds automatic read & write offset tracking, string operations, data insertions, and more.
+    - copyright: Copyright (c) 2013-2017 Josh Glazebrook
  - **[smart-data-models-alert@0.0.0](-)**
     - licenses: Custom: https://github.com/smart-data-models/dataModel.Alert/blob/master/Alert/README.md
     - description: -
@@ -1627,6 +1827,14 @@
     - licenses: MIT
     - description: Parse an SMTP (RFC-5321) address
     - copyright: Copyright (c) 2021 Gene Hightower
+ - **[socks-proxy-agent@8.0.3](https://github.com/TooTallNate/proxy-agents)**
+    - licenses: MIT
+    - description: A SOCKS proxy `http.Agent` implementation for HTTP and HTTPS
+    - copyright: Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
+ - **[socks@2.8.3](https://github.com/JoshGlazebrook/socks)**
+    - licenses: MIT
+    - description: Fully featured SOCKS proxy client supporting SOCKSv4, SOCKSv4a, and SOCKSv5. Includes Bind and Associate functionality.
+    - copyright: Copyright (c) 2013 Josh Glazebrook
  - **[sort-keys-length@1.0.1](https://github.com/kevva/sort-keys-length)**
     - licenses: MIT
     - description: Sort objecy keys by length
@@ -1639,6 +1847,10 @@
     - licenses: MIT
     - description: Sort the keys of an object
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[source-map@0.6.1](https://github.com/mozilla/source-map)**
+    - licenses: BSD-3-Clause
+    - description: Generates and consumes source maps
+    - copyright: none
  - **[sparse-bitfield@3.0.3](https://github.com/mafintosh/sparse-bitfield)**
     - licenses: MIT
     - description: Bitfield that allocates a series of small buffers to support sparse bits without allocating a massive buffer
@@ -1679,6 +1891,10 @@
     - licenses: BSD-3-Clause
     - description: JavaScript sprintf implementation
     - copyright: Copyright (c) 2007-2014, Alexandru Marasteanu <hello [at) alexei (dot] ro>. All rights reserved.
+ - **[sprintf-js@1.1.3](https://github.com/alexei/sprintf.js)**
+    - licenses: BSD-3-Clause
+    - description: JavaScript sprintf implementation
+    - copyright: Copyright (c) 2007-present, Alexandru Mărășteanu <hello@alexei.ro>. All rights reserved.
  - **[stack-trace@0.0.10](https://github.com/felixge/node-stack-trace)**
     - licenses: MIT
     - description: Get v8 stack traces as an array of CallSite objects.
@@ -1691,6 +1907,18 @@
     - licenses: MIT
     - description: Get the visual width of a string - the number of columns required to display it
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ - **[string.prototype.trim@1.2.9](https://github.com/es-shims/String.prototype.trim)**
+    - licenses: MIT
+    - description: ES5 spec-compliant shim for String.prototype.trim
+    - copyright: Copyright (c) 2015 Jordan Harband
+ - **[string.prototype.trimend@1.0.8](https://github.com/es-shims/String.prototype.trimEnd)**
+    - licenses: MIT
+    - description: ES2019 spec-compliant String.prototype.trimEnd shim.
+    - copyright: Copyright (c) 2017 Khaled Al-Ansari
+ - **[string.prototype.trimstart@1.0.8](https://github.com/es-shims/String.prototype.trimStart)**
+    - licenses: MIT
+    - description: ES2019 spec-compliant String.prototype.trimStart shim.
+    - copyright: Copyright (c) 2017 Khaled Al-Ansari
  - **[string_decoder@1.1.1](https://github.com/nodejs/string_decoder)**
     - licenses: MIT
     - description: The string_decoder module from Node core
@@ -1731,7 +1959,7 @@
     - licenses: MIT
     - description: Determine if the current node version supports the `--preserve-symlinks` flag.
     - copyright: Copyright (c) 2022 Inspect JS
- - **[swagger-ui-dist@5.11.7](https://github.com/swagger-api/swagger-ui)**
+ - **[swagger-ui-dist@5.17.2](https://github.com/swagger-api/swagger-ui)**
     - licenses: Apache-2.0
     - description: [![NPM version](https://badge.fury.io/js/swagger-ui-dist.svg)](http://badge.fury.io/js/swagger-ui-dist)
     - copyright: none
@@ -1779,7 +2007,7 @@
     - licenses: MIT
     - description: An implementation of the Unicode UTS #46: Unicode IDNA Compatibility Processing
     - copyright: Copyright (c) Sebastian Mayr
- - **[traverse@0.6.8](https://github.com/ljharb/js-traverse)**
+ - **[traverse@0.6.9](https://github.com/ljharb/js-traverse)**
     - licenses: MIT
     - description: traverse and transform objects by visiting every node on a recursive walk
     - copyright: Copyright (c) 2010 James Halliday and contributors
@@ -1799,6 +2027,10 @@
     - licenses: MIT
     - description: Abstract logger TypeScript interface with a dummy logger that does nothing, useful for libraries.
     - copyright: Copyright (c) 2018 Priit Kallas
+ - **[tslib@2.6.2](https://github.com/Microsoft/tslib)**
+    - licenses: 0BSD
+    - description: Runtime library for TypeScript helper functions
+    - copyright: Copyright (c) Microsoft Corporation.
  - **[tunnel-agent@0.6.0](https://github.com/mikeal/tunnel-agent)**
     - licenses: Apache-2.0
     - description: HTTP proxy tunneling agent. Formerly part of mikeal/request, now a standalone module.
@@ -1807,14 +2039,30 @@
     - licenses: MIT
     - description: type-check allows you to check the types of JavaScript values at runtime with a Haskell like type syntax.
     - copyright: Copyright (c) George Zahariev
- - **[type-fest@0.20.2](https://github.com/sindresorhus/type-fest)**
-    - licenses: (MIT OR CC0-1.0)
-    - description: A collection of essential TypeScript types
-    - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https:/sindresorhus.com)
  - **[type-is@1.6.18](https://github.com/jshttp/type-is)**
     - licenses: MIT
     - description: Infer the content-type of a request.
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
+ - **[typed-array-buffer@1.0.2](https://github.com/ljharb/typed-array-buffer)**
+    - licenses: MIT
+    - description: Get the ArrayBuffer out of a TypedArray, robustly.
+    - copyright: Copyright (c) 2023 Jordan Harband
+ - **[typed-array-byte-length@1.0.1](https://github.com/inspect-js/typed-array-byte-length)**
+    - licenses: MIT
+    - description: Robustly get the byte length of a Typed Array
+    - copyright: Copyright (c) 2020 Inspect JS
+ - **[typed-array-byte-offset@1.0.2](https://github.com/inspect-js/typed-array-byte-offset)**
+    - licenses: MIT
+    - description: Robustly get the byte offset of a Typed Array
+    - copyright: Copyright (c) 2020 Inspect JS
+ - **[typed-array-length@1.0.6](https://github.com/inspect-js/typed-array-length)**
+    - licenses: MIT
+    - description: Robustly get the length of a Typed Array
+    - copyright: Copyright (c) 2020 Inspect JS
+ - **[typedarray.prototype.slice@1.0.3](https://github.com/es-shims/TypedArray.prototype.slice)**
+    - licenses: MIT
+    - description: ES spec-compliant shim for TypedArray.prototype.slice
+    - copyright: Copyright (c) 2023 ECMAScript Shims
  - **[uid-number@0.0.6](https://github.com/isaacs/uid-number)**
     - licenses: ISC
     - description: Convert a username/group name to a uid/gid number
@@ -1823,6 +2071,10 @@
     - licenses: MIT
     - description: URL and cookie safe UIDs
     - copyright: Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>. Copyright (c) 2015-2017 Douglas Christopher Wilson <doug@somethingdoug.com>
+ - **[unbox-primitive@1.0.2](https://github.com/ljharb/unbox-primitive)**
+    - licenses: MIT
+    - description: Unbox a boxed JS primitive value.
+    - copyright: Copyright (c) 2019 Jordan Harband
  - **[unbzip2-stream@1.4.3](https://github.com/regular/unbzip2-stream)**
     - licenses: MIT
     - description: streaming unbzip2 implementation in pure javascript for node and browsers
@@ -1831,6 +2083,10 @@
     - licenses: MIT
     - description: A stand-alone types package for Undici
     - copyright: none
+ - **[universalify@2.0.1](https://github.com/RyanZim/universalify)**
+    - licenses: MIT
+    - description: Make a callback- or promise-based function support both promises and callbacks.
+    - copyright: Copyright (c) 2017, Ryan Zimmerman <opensrc@ryanzim.com>
  - **[unpipe@1.0.0](https://github.com/stream-utils/unpipe)**
     - licenses: MIT
     - description: Unpipe a stream from all destinations
@@ -1863,7 +2119,7 @@
     - licenses: MIT
     - description: Node's internal object extension function
     - copyright: Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the "Software"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:
- - **[utilities-node@5.0.3](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
+ - **[utilities-node@5.0.5](https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node)**
     - licenses: BSD-3-Clause-Clear
     - description: Node.js framework, helper functions,  middleware and services
     - copyright: Copyright (c) 2024, Fraunhofer IAO. All rights reserved.
@@ -1915,6 +2171,14 @@
     - licenses: MIT
     - description: An implementation of the WHATWG URL Standard's URL API and parsing machinery
     - copyright: Copyright (c) Sebastian Mayr
+ - **[which-boxed-primitive@1.0.2](https://github.com/inspect-js/which-boxed-primitive)**
+    - licenses: MIT
+    - description: Which kind of boxed JS primitive is this?
+    - copyright: Copyright (c) 2019 Jordan Harband
+ - **[which-typed-array@1.1.15](https://github.com/inspect-js/which-typed-array)**
+    - licenses: MIT
+    - description: Which kind of Typed Array is this JavaScript value? Works cross-realm, without `instanceof`, and despite Symbol.toStringTag.
+    - copyright: Copyright (c) 2015 Jordan Harband
  - **[which@2.0.2](https://github.com/isaacs/node-which)**
     - licenses: ISC
     - description: Like which(1) unix command. Find the first instance of an executable in the PATH.
@@ -1927,10 +2191,14 @@
     - licenses: MIT
     - description: Base stream implementations for winston@3 and up.
     - copyright: Copyright (c) 2015 Charlie Robbins & the contributors.
- - **[winston@3.11.0](https://github.com/winstonjs/winston)**
+ - **[winston@3.13.0](https://github.com/winstonjs/winston)**
     - licenses: MIT
     - description: A logger for just about everything.
     - copyright: Copyright (c) 2010 Charlie Robbins
+ - **[word-wrap@1.2.5](https://github.com/jonschlinkert/word-wrap)**
+    - licenses: MIT
+    - description: Wrap words to a specified length.
+    - copyright: Copyright (c) 2014-2016, Jon Schlinkert
  - **[wrappy@1.0.2](https://github.com/npm/wrappy)**
     - licenses: ISC
     - description: Callback wrapping utility
