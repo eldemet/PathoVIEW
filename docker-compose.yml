@@ -1,14 +1,13 @@
-version: '3.1'
 volumes:
-  mysql_data:
+  mysql_data_new:
     driver: local
-  app_data2:
+  app_data_new:
     driver: local
 services:
   mysql:
     image: mysql:5.7
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mysql_data_new:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: keycloak
@@ -53,7 +52,7 @@ services:
   app:
     image: app
     volumes:
-      - app_data2:/usr/app/data
+      - app_data_new:/usr/app/data
     build:
       context: .
       dockerfile: ./Dockerfile
