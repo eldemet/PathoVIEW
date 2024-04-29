@@ -29,13 +29,16 @@ services:
     secrets:
       - keycloakadminpassword
     environment:
-      DB: MYSQL
-      DB_URL_HOST: mysql
-      DB_SCHEMA: keycloak
-      DB_USERNAME: keycloak
-      DB_PASSWORD: ${MYSQL_PASSWORD}
+      KC_DB: mysql
+      KC_DB_URL_HOST: mysql
+      KC_HOSTNAME: ${SERVER_HOST}
+      KC_DB_SCHEMA: keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: ${MYSQL_PASSWORD}
+      KC_HTTPS_CERTIFICATE_FILE: /etc/x509/https/tls.crt
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /etc/x509/https/tls.key
       KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD_FILE: '/run/secrets/keycloakadminpassword'
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
     ports:
       - '9991:8080'
       - '9990:8443'
@@ -47,6 +50,12 @@ services:
         source: ./../certificates/server.key
         target: /etc/x509/https/tls.key
     restart: always
+    command: start-dev
+    healthcheck:
+      test: [ "CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/8080;echo -e \"GET /health/ready HTTP/1.1\r\nhost: http://localhost\r\nConnection: close\r\n\r\n\" >&3;grep \"HTTP/1.1 200 OK\" <&3" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     depends_on:
       mysql:
         condition: service_healthy
@@ -87,7 +96,8 @@ services:
       SECURITY_ADMIN_PASSWORD_FILE: '/run/secrets/basicAdminPasswordSchemePassword'
     restart: always
     depends_on:
-      - keycloak
+      keycloak:
+        condition: service_healthy
 secrets:
   sslcert:
     file: ./../certificates/server.crt
