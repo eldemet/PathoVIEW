@@ -13,6 +13,7 @@ services:
       MYSQL_DATABASE: keycloak
       MYSQL_USER: keycloak
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PWD: ${MYSQL_ROOT_PASSWORD}
     healthcheck:
       test:
         - CMD
