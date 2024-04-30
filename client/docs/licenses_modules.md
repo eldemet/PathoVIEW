@@ -2,7 +2,7 @@
 
 ## Summary
 
-* MIT: 862
+* MIT: 861
 * ISC: 83
 * BSD-2-Clause: 30
 * Apache-2.0: 23
@@ -144,7 +144,7 @@
     - licenses: MIT
     - description: Collection of helper functions used by Babel transforms.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
- - **[@babel/highlight@7.24.2](https://github.com/babel/babel)**
+ - **[@babel/highlight@7.24.5](https://github.com/babel/babel)**
     - licenses: MIT
     - description: Syntax highlight JavaScript strings for output in terminals.
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -460,7 +460,7 @@
     - licenses: MIT
     - description: Generate regular expressions from regjsparser’s AST.
     - copyright: Copyright 2014-2020 Benjamin Tan <https://ofcr.se/>
- - **[@babel/runtime@7.24.4](https://github.com/babel/babel)**
+ - **[@babel/runtime@7.24.5](https://github.com/babel/babel)**
     - licenses: MIT
     - description: babel's modular runtime helpers
     - copyright: Copyright (c) 2014-present Sebastian McKenzie and other contributors
@@ -1068,10 +1068,6 @@
     - licenses: MIT
     - description: Another JSON Schema Validator
     - copyright: Copyright (c) 2015-2017 Evgeny Poberezkin
- - **[ajv@8.12.0](https://github.com/ajv-validator/ajv)**
-    - licenses: MIT
-    - description: Another JSON Schema Validator
-    - copyright: Copyright (c) 2015-2021 Evgeny Poberezkin
  - **[ajv@8.13.0](https://github.com/ajv-validator/ajv)**
     - licenses: MIT
     - description: Another JSON Schema Validator
@@ -1808,7 +1804,7 @@
     - licenses: MIT
     - description: return the first event in a set of ee/event pairs
     - copyright: Copyright (c) 2014 Jonathan Ong me@jongleberry.com
- - **[electron-to-chromium@1.4.750](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.751](https://github.com/kilian/electron-to-chromium)**
     - licenses: ISC
     - description: Provides a list of electron-to-chromium version mappings
     - copyright: Copyright 2018 Kilian Valkhof
@@ -2176,7 +2172,7 @@
     - licenses: MIT
     - description: Global identifiers from different JavaScript environments
     - copyright: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
- - **[globalthis@1.0.3](https://github.com/ljharb/System.global)**
+ - **[globalthis@1.0.4](https://github.com/ljharb/System.global)**
     - licenses: MIT
     - description: ECMAScript spec-compliant polyfill/shim for `globalThis`
     - copyright: Copyright (c) 2016 Jordan Harband
@@ -3816,7 +3812,7 @@
     - licenses: MIT
     - description: Terser plugin for webpack
     - copyright: Copyright JS Foundation and other contributors
- - **[terser@5.30.4](https://github.com/terser/terser)**
+ - **[terser@5.31.0](https://github.com/terser/terser)**
     - licenses: BSD-2-Clause
     - description: JavaScript parser, mangler/compressor and beautifier toolkit for ES6+
     - copyright: Copyright 2012-2018 (c) Mihai Bazon <mihai.bazon@gmail.com>
@@ -3856,7 +3852,7 @@
     - licenses: MIT
     - description: A tiny (195B to 220B) utility to recursively list all (total) files in a directory
     - copyright: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
- - **[tough-cookie@4.1.3](https://github.com/salesforce/tough-cookie)**
+ - **[tough-cookie@4.1.4](https://github.com/salesforce/tough-cookie)**
     - licenses: BSD-3-Clause
     - description: RFC6265 Cookies and Cookie Jar for node.js
     - copyright: Copyright (c) 2015, Salesforce.com, Inc.. All rights reserved.
@@ -4000,10 +3996,10 @@
     - licenses: Apache-2.0
     - description: Give me a string and I'll tell you if it's a valid npm package license string
     - copyright: none
- - **[value-converters@1.5.0](https://gitlab.cc-asp.fraunhofer.de/knecht/value-converters)**
+ - **[value-converters@1.5.2](https://gitlab.cc-asp.fraunhofer.de/knecht/value-converters)**
     - licenses: BSD-3-Clause-Clear
     - description: extended filtering function, sorting, localization, dissolving urls and reusable validators
-    - copyright: Copyright (c) 2021, Fraunhofer IAO. All rights reserved.
+    - copyright: Copyright (c) 2023, Fraunhofer IAO. All rights reserved.
  - **[vary@1.1.2](https://github.com/jshttp/vary)**
     - licenses: MIT
     - description: Manipulate the HTTP Vary header
