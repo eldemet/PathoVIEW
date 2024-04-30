@@ -4,23 +4,17 @@
     "baseUrl": "https://localhost:3002",
     "keycloak": {
         "realm": "pathocert",
-        "url": "https://pathocert.iao.fraunhofer.de:9990/auth/",
+        "url": "https://pathocert.iao.fraunhofer.de:9990/",
         "clientId": "pathoview",
         "useUserLocale": false,
         "rbac": {
             "emergencyEvent": {
-                "create": [
-                    "admin"
-                ],
-                "update": [
-                    "admin"
-                ]
+                "create": [],
+                "update": []
             },
             "alert": {
                 "create": [],
-                "update": [
-                    "admin"
-                ]
+                "update": []
             },
             "mission": {
                 "delete": []
@@ -32,6 +26,6 @@
             }
         }
     },
-    "usePathoware": true,
+    "usePathoware": false,
     "enableBhaptics": false
 }

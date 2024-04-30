@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "keycloak": {
         "realm": "pathocert",
-        "url": "https://idm.digital-enabler.eng.it/auth/",
+        "url": "https://pathocert.iao.fraunhofer.de:9990/",
         "clientId": "pathoview",
         "useUserLocale": false,
         "rbac": {
@@ -32,6 +32,6 @@
             }
         }
     },
-    "usePathoware": true,
+    "usePathoware": false,
     "enableBhaptics": false
 }

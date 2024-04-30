@@ -1,25 +1,25 @@
 {
     "debug": false,
     "testing": false,
-    "baseUrl": "https://pathocert.iao.fraunhofer.de",
+    "baseUrl": ".",
     "keycloak": {
         "realm": "pathocert",
-        "url": "https://pathocert.iao.fraunhofer.de:9990/",
+        "url": "https://idm.digital-enabler.eng.it/auth/",
         "clientId": "pathoview",
         "useUserLocale": false,
         "rbac": {
             "emergencyEvent": {
                 "create": [
-                    "admin"
+                    "d1cd7174-04f7-4534-b0c0-183fe655a2b0"
                 ],
                 "update": [
-                    "admin"
+                    "d1cd7174-04f7-4534-b0c0-183fe655a2b0"
                 ]
             },
             "alert": {
                 "create": [],
                 "update": [
-                    "admin"
+                    "d1cd7174-04f7-4534-b0c0-183fe655a2b0"
                 ]
             },
             "mission": {
@@ -27,11 +27,11 @@
             },
             "cms": {
                 "view": [
-                    "admin"
+                    "d1cd7174-04f7-4534-b0c0-183fe655a2b0"
                 ]
             }
         }
     },
-    "usePathoware": false,
-    "enableBhaptics": true
+    "usePathoware": true,
+    "enableBhaptics": false
 }
