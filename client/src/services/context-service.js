@@ -1,13 +1,13 @@
 import {observable, inject} from 'aurelia-framework';
 import numeral from 'numeral';
 import pick from 'lodash/pick';
+import queryString from 'query-string';
 import {point} from '@turf/helpers';
 import {Proxy} from 'library-aurelia/src/proxy';
 import {HttpService} from 'library-aurelia/src/services/http-service';
 import {BasicService} from 'library-aurelia/src/prototypes/basic-service';
 import {alertUtilities, locationUtilities} from '../utilities';
 import {catchError, loadingEvent} from 'library-aurelia/src/decorators';
-import {stringify} from 'query-string';
 
 /**
  * @extends BasicService
@@ -168,7 +168,7 @@ class ContextService extends BasicService {
     async setCurrentWeather() {
         if (this.currentEmergencyEvent) {
             let coordinates = locationUtilities.getCenter(this.currentEmergencyEvent.location, 'array');
-            let url = '/api/v1/weather/current?' + stringify({
+            let url = '/api/v1/weather/current?' + queryString.stringify({
                 lat: coordinates[1],
                 lon: coordinates[0],
                 units: 'metric',

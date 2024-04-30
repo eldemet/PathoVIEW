@@ -1,4 +1,4 @@
-import {stringify} from 'query-string';
+import queryString from 'query-string';
 import {ModelServiceBasic} from 'library-aurelia/src/services/model-service-basic';
 
 /**
@@ -28,7 +28,7 @@ class ModelServiceContextAware extends ModelServiceBasic {
                 url = url
                     .replace(':scenario', scenario)
                     .replace(':emergency-event', emergencyEventId)
-                    .replace(':filter-query', '?' + stringify({filter: JSON.stringify({[this.options.filterProperty]: emergencyEventId})}));
+                    .replace(':filter-query', '?' + queryString.stringify({filter: JSON.stringify({[this.options.filterProperty]: emergencyEventId})}));
             }
             return url;
         };
