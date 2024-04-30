@@ -25,7 +25,7 @@ logs/*
 !.gitkeep
 .idea
 .vscode
-.env
+*.env
 .run
 
 jsconfig.json

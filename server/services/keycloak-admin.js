@@ -20,15 +20,6 @@ class KeycloakAdminService extends BasicObject {
      */
     groups = [];
 
-    constructor() {
-        super();
-        //TODO check why typescript does not recognize logger defined in BasicObject
-        /**
-         * @type {import('utilities-node/src/utilities/logger').default}
-         */
-        this.logger;
-    }
-
     async initialize(config) {
         this.config = config;
         const KcAdminClient = (await import('@keycloak/keycloak-admin-client')).default;
