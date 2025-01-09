@@ -19,6 +19,10 @@ class CustomDetailPropertyStatus extends BasicComposable {
         this.object[this.propertyKey] = this.value;
     }
 
+    detached() {
+        if (this.timeout) clearTimeout(this.timeout);
+    }
+
 }
 
 export {CustomDetailPropertyStatus};

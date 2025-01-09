@@ -35,7 +35,7 @@ if (environment.usePathoware) {
 }
 
 /**
- * @param {import('aurelia-framework').Aurelia }aurelia
+ * @param {import('aurelia-framework').Aurelia} aurelia
  * @return {Promise<void>}
  */
 export async function configure(aurelia) {
