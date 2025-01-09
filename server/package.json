@@ -24,9 +24,9 @@
     "author": "Christian Knecht",
     "license": "BSD-3-Clause-Clear",
     "dependencies": {
-        "@keycloak/keycloak-admin-client": "^24.0.3",
+        "@keycloak/keycloak-admin-client": "^24.0.5",
         "ajv-formats-draft2019": "^1.6.1",
-        "query-string": "^9.0.0",
+        "query-string": "^9.1.1",
         "utilities-node": "git+https://gitlab.cc-asp.fraunhofer.de/knecht/utilities-node.git#v5.0.5"
     },
     "types": "./types/index.d.ts",
